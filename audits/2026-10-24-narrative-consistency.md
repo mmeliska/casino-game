@@ -11,7 +11,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 1.1 | Act 2 is shorter than its own gate | Fixed | Gate stays a season after the bailout; act 2 is now ~8h and the total ~42h (nothing trimmed). |
 | 1.2 | Raffy happens on night one and also after the wedding | Fixed | Split: the hand-off joins night one at Kasia's Tap (A1.2); A1.5 is now "Ray asks around", the weeks-later choice. |
 | 1.3 | Act 1 event codes don't match the Act 1 table | Fixed | Every act table on the Story timeline now has a Code column, one row per code. Act 1 rebuilt (A1.1 to A1.10), act 3 gained the A3.4 Pete row, act 5's "The floor" row folded into A5.6. |
-| 1.4 | "Three rungs in one session" is impossible under the new Act 1 gating | Open | |
+| 1.4 | "Three rungs in one session" is impossible under the new Act 1 gating | Fixed | Promise dropped (t05 and A1.6). The opening is player-paced; the rocket sign across the river keeps the Flare in view. |
 | 1.5 | The rocket sign burns in a building it has already left | Open | |
 | 1.6 | The rocket fin is in three places | Open | |
 | 1.7 | Pete has been dealing longer than the Flare has been licensed | Open | |
