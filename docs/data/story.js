@@ -53,6 +53,7 @@ const E=[
 ["gus","jalen","ally","busboy at the Flare"],
 ["pete","stella","ally","\"Uncle\" Pete"],
 ["pete","dot","ally","go-between with Gus"],
+["pete","jalen","ally","started as a busboy too; keeps an eye on him"],
 ["tae","stella","ally","big brother figure; buyout talks"],
 ["tae","pete","ally","hires him away at the fall"],
 ["rosa","kasia","ally","deals her back room"],

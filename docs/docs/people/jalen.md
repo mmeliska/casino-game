@@ -24,7 +24,7 @@ Well spoken and super polite ("sir", "ma'am", "thank you"), quiet and watchful o
 
 ## Related
 
-Gus, the player (his backer), Wren.
+Gus, Pete (keeps an eye on him; Pete started as a busboy too), the player (his backer), Wren.
 
 ## Planning record
 
