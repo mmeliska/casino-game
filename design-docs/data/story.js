@@ -1,0 +1,282 @@
+/* Data for the Starflare design site: characters, ties, events, seeds, outcomes, acts, mysteries.
+   Edit here; the pages read these arrays. Each character's full profile (look, backstory, voice, story, planning record)
+   is docs/people/<id>.md; C below holds only what lists and the map need. Markup in strings: [id] or [id|label] links a character, {CODE} links an event. */
+const GROUPS={backwater:"Backwater and the Bridges",starflare:"The Starflare",power:"Power players",minor:"Minor roles",romance:"Romance",you:"The player"};
+
+/* Walk-ons and other people in each event who have no character page (shown on Event codes). */
+const EVX={"A1.4": "the bride's brother, the maid of honor", "A2.2": "the filing lawyer; Tae and Stella's buyout offer, refused; secretly Bennett and Wren", "A2.3": "the Revaris crew (Rosa won't come in)", "A2.6": "the petition volunteer", "A3.2": "Rosa's union, the Tuesday league", "A3.3": "the trucker", "A3.4": "Tae (offstage)", "A4.5": "Revaris's old guard", "A5.4": "the player", "A5.5": "the old pilot", "A5.6": "the travel writer", "M1": "Vivian's lawyer", "M2": "the filing lawyer", "M3": "Kiran's daughter", "M4": "the weekly driver", "R1": "Gus's late wife", "R3": "the Revaris crew, the Millstone Lanes owner", "R4": "Vivian's lawyer", "R6": "the mayor's photographer", "S1": "the Tuesday league", "S2": "the mill pensioner", "S3": "the trucker", "S4": "Tae's dad", "S5": "the old pilot", "S7": "the petition volunteer", "S8": "the tourist (a travel writer)", "S9": "the society columnist", "S11": "the Long Bridge hoodlums", "S12": "the lucky charm seller", "O5": "Tae's dad", "EP": "picked from standing and flags; often Gus, Dot, Rosa, Pete, Jalen; Mayor Dabareski on the front page"};
+
+/* One-line introductions for each group on the All characters page. */
+const GINTRO={backwater:"The dry side of the river, where every game is illegal, and the crossing into the Levee. These are the first people the player meets.",starflare:"The people of the Flare, plus the rival who climbs the same ladder you do.",power:"Revaris, the Machine, old money and new money: the people who decide what happens to the Starflare.",minor:"Supporting roles with their own portraits (Ed and Kiran) and Troy, the pawn shop owner. The walk-ons and offstage figures, who have no portrait yet, are listed below.",romance:"Three optional romances, each with a male and a female version who share the same plot role. The player meets the version that matches what they did at the wedding at Kasia's Tap ({A1.4}); turning down both dances means romance appears only if you lean in later."};
+
+/* Text markup: [id] or [id|label] links a character; {CODE} links an event code; *x* is italic. */
+const C=[
+{id:"dot",name:"Dot",tier:"Supporting",group:"backwater",where:"Slack Water Motel desk",line:"Motel owner who's in the know; Gus's sister-in-law.",appears:["A1.1","A1.5","A1.7","A3.7","A4.2","M4","R1","R10","S11","O6","EP"]},
+{id:"kasia",name:"Kasia",tier:"Core",group:"backwater",where:"Kasia's Tap",line:"Backwater tavern owner, your first credit and first friend.",appears:["A1.2","A1.3","A1.4","A1.5","A5.5","S2","S11","O4"]},
+{id:"rosa",name:"Rosa",tier:"Core",group:"backwater",where:"Kasia's back room; near the Prairie Queen landing",line:"Blacklisted dealer who took the fall for Gus.",appears:["A1.3","A2.3","A3.2","A3.5","A4.7","A5.3","M1","M3","O1","O2","O3","O4","EP"]},
+{id:"mitch",name:"Mitch",tier:"Supporting",group:"backwater",where:"Bridgehead Fuel & Food counter",line:"Cynical clerk with a race book out back.",appears:["A1.6","A3.7","M2","R5","S3","X3"]},
+{id:"juan",name:"Juan",tier:"Supporting",group:"backwater",where:"Back lot of Millstone Lanes",line:"Bowling alley mechanic who runs the dice.",appears:["A1.3","A1.5","A5.5","R3","S1","S11","O4"]},
+{id:"raffy",name:"Raffy",full:"Rafael",tier:"Supporting",group:"backwater",where:"Kasia's Tap on night one, later hiding at Millstone Lanes",line:"Courier kid with the envelope.",appears:["A1.5","A4.5","M2","R3","R4","O8","O10","A4.3"]},
+
+{id:"gus",name:"Gus",tier:"Core",group:"starflare",where:"Starflare floor and office; coffee under the rocket sign",line:"Owner of the Starflare, the founder's son, secretly a gambler.",appears:["A1.6","A1.7","A1.9","A1.10","A2.1","A2.2","A3.1","A3.2","A3.3","A3.4","A4.1","A4.2","A4.5","A4.10","A5.6","M1","M2","M4","R1","S3","S4","S6","S7","S11","S12","O1","O2","O3","O4","O5","O6","O7","O8","O9","O10","EP"]},
+{id:"stella",name:"Stella",tier:"Supporting",group:"starflare",where:"Starflare office, Aurelian meetings",line:"Gus's daughter, a finance analyst who wants him to sell.",appears:["A1.9","A2.2","A2.5","A4.2","A4.6","M2","R1","O5","O6"]},
+{id:"pete",name:"Pete",full:"Petras",tier:"Supporting",group:"starflare",where:"The Starflare floor",line:"Pit boss and Gus's best friend.",appears:["A1.7","A1.9","A2.1","A2.3","A3.3","A3.4","A3.5","A5.3","M1","R1","O1","EP"]},
+{id:"jalen",name:"Jalen",tier:"Core",group:"starflare",where:"Busing tables at the Flare, watching the poker room",line:"Busboy learning poker; you can stake him; later runs the hotel.",appears:["A1.7","A5.2","A5.5","R2","S10","O1","O4","EP"]},
+{id:"chase",name:"Chase / Brooke",tier:"Core",group:"starflare",where:"RailYard, Harborlight; moves up and down the ladder",line:"The other newcomer: friendly rival turned arrogant.",appears:["A1.8","A2.4","A2.7","A3.8","A4.8"]},
+
+{id:"ray",name:"Ray",tier:"Core",group:"power",where:"Starflare bar, Cinder Room, Blackspruce Lodge",line:"Loan shark who acts like the big man but answers to Wren.",appears:["A1.5","A1.9","A1.10","A2.1","A2.2","A2.7","A3.8","A4.7","M2","M3","S11","X4","O8"]},
+{id:"wren",name:"Wren",tier:"Supporting",group:"power",where:"Cinder Room, Blackspruce Lodge (rarely seen)",line:"Revaris's boss; runs a camera blackmail business.",appears:["A2.2","A4.3","A4.5","A4.7","M2","M3","R4","S6","S10","X4","O8","O10"]},
+{id:"bennett",name:"Bennett",tier:"Core",group:"power",where:"Harborlight, Northern Ledger, his office in the Levee",line:"Levee alderman who pushes the stadium deal that takes the Flare.",appears:["A2.2","A2.6","A2.8","A3.1","A3.2","A3.5","A4.4","A4.9","M1","M2","M4","R5","R6","S7","X1","O2","O5","O7","A4.11"]},
+{id:"richard",name:"Richard",tier:"Supporting (story)",group:"power",where:"Room 9, Slack Water Motel; the motel picnic table",line:"Bennett's father; wears the key to Gus's safety deposit box.",appears:["A3.7","A4.4","M4","R10"]},
+{id:"mayor",name:"Mayor Dabareski",tier:"Supporting",group:"power",where:"Northern Ledger, Gilded Pine",line:"The casino mayor, in office forever.",appears:["R6","X1","X2","EP"]},
+{id:"vivian",name:"Vivian",tier:"Core",group:"power",where:"Obsidian, Harborlight high tables, yacht games, Gilded Pine",line:"Old-money high roller on a losing streak; owns the lakefront land.",appears:["A3.6","A5.1","A5.2","M1","R4","S9","X2","O1","O2","O10"]},
+{id:"tae",name:"Tae",tier:"Core",group:"power",where:"The Aurelian, Gilded Pine",line:"The Aurelian's GM, a Levee kid who came home; a rival of visions.",appears:["A2.2","A2.5","A3.4","A3.5","A4.6","A5.1","M2","S4","X2","O5","O10"]},
+
+{id:"ed",name:"Ed",full:"\"Big Ed\"",tier:"Supporting",group:"minor",where:"Wherever your heat is high; Lock Street Station",line:"Honest vice cop and the face of the heat system.",appears:["A1.5","A4.4","A4.7","M3","M4","R4","S10","A4.3"]},
+{id:"kiran",name:"Kiran",tier:"Supporting",group:"minor",where:"The Prairie Queen",line:"Friendly dealer squeezed into skimming.",appears:["A4.7","M3"]},
+{id:"troy",name:"Troy",tier:"Minor",group:"minor",where:"Bridgehead Loan & Pawn, in the Bridges next to Bridgehead Fuel & Food",line:"Pawn shop owner who buys your items for a fraction.",appears:[]},
+
+{id:"miles",name:"Miles / Audrey",tier:"Romance",group:"romance",where:"The Flare's half-empty lounge",line:"The Flare's piano player. Value: loyalty.",appears:["A5.3","R7","O1"]},
+{id:"felix",name:"Felix / Nora",tier:"Romance",group:"romance",where:"The Aurelian front desk",line:"The Aurelian's desk clerk. Value: honesty.",appears:["A2.5","R8","A4.3"]},
+{id:"graham",name:"Graham / Claire",tier:"Romance",group:"romance",where:"Club car of the Northern Ledger, every spring",line:"Statehouse staffer on the spring train. Value: integrity with power.",appears:["R9","X1","A4.11"]}
+];
+const BY=Object.fromEntries(C.map(c=>[c.id,c]));
+BY.you={id:"you",name:"You",group:"you"};
+
+/* Relationship edges: type = family | ally | money | secret | rival */
+const E=[
+["gus","stella","family","father and daughter"],
+["gus","dot","family","brother-in-law; his late wife was her sister"],
+["dot","stella","family","aunt"],
+["bennett","richard","family","son; pays his room in secret"],
+["gus","pete","ally","best friends; pit boss"],
+["gus","jalen","ally","busboy at the Flare"],
+["pete","stella","ally","\"Uncle\" Pete"],
+["pete","dot","ally","go-between with Gus"],
+["tae","stella","ally","big brother figure; buyout talks"],
+["tae","pete","ally","hires him away at the fall"],
+["rosa","kasia","ally","deals her back room"],
+["juan","raffy","ally","hides him at Millstone"],
+["dot","richard","ally","room 9 guest"],
+["miles","gus","ally","Gus gave them their first gig"],
+["felix","tae","ally","works his front desk"],
+["felix","stella","ally","sees who she meets"],
+["kiran","rosa","ally","she may flag his table"],
+["vivian","rosa","ally","her lawyer pulls the commission file"],
+["you","jalen","money","you stake him"],
+["you","kasia","money","credit on her ledger"],
+["you","rosa","ally","she teaches you the games"],
+["you","raffy","secret","holding his envelope"],
+["you","gus","ally","you come to care about him"],
+["you","vivian","rival","her land: you or Tae"],
+["gus","ray","money","collects Gus's debt; brings Revaris's offer"],
+["kiran","ray","money","owes him; skims to pay"],
+["raffy","ray","money","courier; skimmed a collection"],
+["chase","ray","money","borrows and can't pay"],
+["richard","gus","money","his markers took Richard's house"],
+["bennett","gus","secret","pushed the stadium deal that took the Flare"],
+["wren","bennett","secret","owns him: his hidden cut, on camera"],
+["wren","gus","secret","footage forced the camera deal; Revaris bought the Flare"],
+["wren","ray","secret","his boss; knows about the skim"],
+["rosa","gus","secret","took the fall for him"],
+["richard","bennett","secret","holds the box key"],
+["ed","wren","secret","wants her for blackmail"],
+["ed","bennett","secret","gave him the Revaris link"],
+["ed","ray","secret","keeps a file on him"],
+["mitch","bennett","secret","Bennett's bad tip ruined him"],
+["bennett","rosa","secret","keeps the tape of her table"],
+["wren","jalen","secret","threat if you're spotless"],
+["graham","bennett","secret","conflict-of-interest rule"],
+["miles","bennett","secret","saw his people take the tape"],
+["tae","gus","rival","rival visions; old family friend"],
+["tae","vivian","rival","bids for her land"],
+["bennett","mayor","rival","the mayor's race"],
+["you","chase","rival","the other newcomer"]
+];
+const ETYPE={family:{label:"Family",col:"var(--teal)"},ally:{label:"Friends and work",col:"var(--muted)"},money:{label:"Debt and money",col:"var(--amber)"},secret:{label:"Secrets and leverage",col:"var(--red)"},rival:{label:"Rivals",col:"var(--plum)"}};
+const GCOL={backwater:"var(--rust)",starflare:"var(--red)",power:"var(--coral)",minor:"var(--muted)",romance:"var(--rose)",you:"var(--fg)"};
+const POS={dot:[150,150],kasia:[80,300],rosa:[250,280],raffy:[200,450],juan:[80,520],mitch:[230,640],
+stella:[520,90],pete:[380,190],gus:[530,300],jalen:[420,430],you:[560,500],chase:[560,650],miles:[320,560],
+tae:[730,150],felix:[880,70],vivian:[980,240],bennett:[790,330],mayor:[1020,400],graham:[1000,560],
+ray:[700,470],wren:[860,520],ed:[1010,680],kiran:[760,670],richard:[400,690]};
+
+/* Events (codes) */
+const EV=[
+["A1.1","Arrival: sign Dot's register with your name (used from then on) and tick Mr. or Ms.; she asks what brings you to Northlight","Slack Water Motel",["dot"]],
+["A1.2","Night one: pull tabs and video poker at Kasia's Tap","Kasia's Tap",["kasia"]],
+["A1.3","Kasia's jobs (bar-back; a delivery to Juan, who tells you about the Flare), then the back room: Rosa warns you off a hand","Kasia's Tap, Millstone Lanes, Kasia's back room",["kasia","juan","rosa"]],
+["A1.4","The wedding: Kasia hires you to work a reception as server or busser; she brings dance offers from the wedding party (sets romance versions)","Kasia's Tap",["kasia"]],
+["A1.5","Raffy's envelope (first seed; pays off weeks later)","Kasia's Tap, then Millstone Lanes",["raffy","kasia","dot","ray","juan","ed"]],
+["A1.6","Over the bridge: coffee with Gus, tap the fin","Bridgehead, the Flare",["mitch","gus"]],
+["A1.7","Becoming a regular: keep Gus's secret or not; Dot and Gus each ask about the other","The Flare",["gus","pete","jalen","dot"]],
+["A1.8","First rung up: the rival is already a step ahead (best bankroll $1,500)","The RailYard",["chase"]],
+["A1.9","Cracks: Gus seen at the Cinder Room; Stella's worry; tell Pete or keep quiet","Cinder Room, the Flare",["gus","pete","stella","ray"]],
+["A1.10","Ray comes to collect. Gate: $5,000 + Gus's trust + two weeks","Gus's office",["ray","gus"]],
+["A2.1","Ray collects: cover part of the debt, stay out, or tell Pete","Gus's office",["ray","gus","pete"]],
+["A2.2","Gus turns down Tae's satellite offer; a friend of Ray's buys the Flare and clears the debt (really Revaris Technologies; Gus knows and keeps it secret); Revaris puts the land into the Levee Stadium District","The Flare",["ray","gus","tae","stella","bennett","wren"]],
+["A2.3","Things change anyway: the Revaris crew moves in; Pete uneasy; Rosa won't come in","The Flare",["pete","rosa"]],
+["A2.4","The Mile: first comped suite; the rival is a regular there (best bankroll $5,000)","The Harborlight",["chase"]],
+["A2.5","Higher up: follow Stella or not (false lead); Northern Ledger in spring (best bankroll $10,000)","The Aurelian",["stella","tae","felix"]],
+["A2.6","Bennett launches his mayoral run","Harborlight fundraiser",["bennett"]],
+["A2.7","The rival borrows from Ray","Anywhere",["chase","ray"]],
+["A2.8","Starflare Field announced. Gate: $25,000 + a season after the bailout","Bar TV",["bennett"]],
+["A3.1","Starflare Field: the drawing shows the rocket sign over the stadium gate","The Flare",["bennett","gus"]],
+["A3.2","The fight: fight clean (allies), fight dirty (heat; can lead to the fire), or stay out","Council hearing, union rally",["bennett","gus","rosa"]],
+["A3.3","Condemnation and the last night on the floor","The Flare",["gus","pete"]],
+["A3.4","Pete alone at the dark pit; he hands you his rocket pin","The Flare",["pete","gus","tae"]],
+["A3.5","The scatter: Pete to Tae, regulars to the RailYard, Rosa stays in Kasia's back room; Bennett finds the tape; the Field timer starts","Aurelian, RailYard, Kasia's",["bennett","pete","tae","rosa"]],
+["A3.6","Higher still: meet Vivian ($25,000, summer); the Obsidian opens ($50,000)","Gilded Pine, Obsidian",["vivian"]],
+["A3.7","Clues come together: Mitch recognizes the lawyer; War with Richard at the motel picnic table","Bridgehead, Slack Water Motel",["mitch","richard","dot"]],
+["A3.8","The rival hits bottom: lend them cash or refuse","Anywhere",["chase","ray"]],
+["A3.9","Who bought the Flare, solved. Gate: M2 solved + $50,000","",[]],
+["A4.1","The truth: confront Gus; he admits he sold his dad's place to Revaris (forgive him, or hold it over him)","",["gus"]],
+["A4.2","Gus at the bottom: help him quit, with Dot and Stella","Cinder Room",["gus","dot","stella"]],
+["A4.3","Expose Revaris: trade your silence to Wren for the name (Raffy's drive or the Aurelian's footage), or hand the proof to Ed","Cinder Room, the Aurelian",["wren","raffy","felix","ed"]],
+["A4.11","By the book: file the conflict-of-interest complaint against Bennett's hidden cut (Graham/Claire)","The commission",["graham","bennett"]],
+["A4.4","Leverage on Bennett: Richard opens Gus's box and decides (shame, reconcile, burn, or hand it to Ed)","Old Levee bank, room 9",["richard","bennett","gus","ed"]],
+["A4.5","Wren's deal: give her Gus's markers or Raffy's thumb drive","Cinder Room",["wren","gus","raffy"]],
+["A4.6","Tae's offer: side with Tae and Stella","The Aurelian",["tae","stella"]],
+["A4.7","Loose ends: the skim (tell Wren, tell Ed, or keep it); Rosa's license","Prairie Queen, commission",["kiran","ray","wren","ed","rosa"]],
+["A4.8","The rival: theft, or all is well","Anywhere",["chase"]],
+["A4.9","The clock runs out: Starflare Field opens before the name is won back","Starflare Field",["bennett"]],
+["A4.10","Name won back. Gate: name won back + $250,000","",["gus"]],
+["A5.1","Vivian's land (~$1M): win Vivian or help Tae","Gilded Pine, Obsidian",["vivian","tae"]],
+["A5.2","Backers: Jalen and Vivian; you pay at least a quarter of each phase","Around the city",["jalen","vivian"]],
+["A5.3","The crew: Rosa manages staff, friendly cast offered jobs, Pete's pin","Aurelian, Kasia's",["rosa","pete","miles"]],
+["A5.4","Relight the rocket (~$250k): pick a brand-new sign","Lakefront site",[]],
+["A5.5","If the land falls through: relaunch on a boat or go co-op","Riverfront, union hall",["kasia","juan","jalen"]],
+["A5.6","Opening night (~$1M floor): Gus cuts the ribbon, or you do alone","The lakefront Starflare",["gus"]],
+["M1","The torn patch: why Rosa was blacklisted","",["rosa","gus","pete","bennett","vivian","miles"]],
+["M2","Who bought the Flare (the main-story mystery)","",["bennett","wren","ray","gus","stella","tae","mitch","raffy","felix"]],
+["M3","The Prairie Queen skim","",["ray","kiran","wren","ed","rosa"]],
+["M4","Room 9 and Gus's box","",["richard","bennett","dot","gus","ed"]],
+["R1","Bringing Dot and Gus back together","",["dot","gus","pete","stella"]],
+["R2","Staking Jalen","",["jalen"]],
+["R3","Juan and the loaded dice; Raffy hiding out","",["juan","raffy"]],
+["R4","Heat, Ed and the informant path","",["ed","wren","raffy","vivian"]],
+["R5","Mitch's book and the bad tip","",["mitch","bennett"]],
+["R6","The mayor's race","",["mayor","bennett"]],
+["R7","Romance: the piano player","",["miles"]],
+["R8","Romance: the desk clerk","",["felix"]],
+["R9","Romance: the train patron","",["graham"]],
+["R10","Dot's stories (the flood, room 9, the shirt)","",["dot","richard"]],
+["X1","The Northern Ledger (spring)","",["bennett","mayor","graham"]],
+["X2","The Gilded Pine (summer)","",["vivian","tae","mayor"]],
+["X3","Haybale Downs (late summer to fall)","",["mitch"]],
+["X4","Blackspruce Lodge (winter, once)","",["ray","wren"]],
+["EP","The epilogue: about 8 panels","",["gus","dot","rosa","pete","jalen","mayor"]]
+];
+/* Event descriptions: code -> [short name, opens when, what happens]. Same markup as md(). */
+const EVD={
+"A1.1":["Arrival","Night 1","You drive in through Backwater at night with about $200 and pull into the Slack Water Motel. From the lot you see the Starflare's rocket sign glowing across the river, the game's first image. Inside, [dot] turns the register around and you sign it: this is where the player enters their name, and the game uses it from then on. The card also has a Mr./Ms. box; that choice sets the rival ([chase|Chase or Brooke]) and which wedding dance is offered first ({A1.4}). It is never mentioned again. Then she asks what brings you to Northlight. You answer with an action (slide a twenty across, shrug, ask about the casino) or tell her it's none of her business. The answer nudges a hidden scale and may plant a seed."],
+"A1.2":["Night one","Night 1, after checking in","You can't sleep, so you walk to [kasia|Kasia's Tap]. Pull tabs and the \"for amusement only\" video poker at about a dollar a go teach the core loop on your $200, and Kasia opens your line of credit in her ledger. She doesn't send you anywhere else: she'd rather keep a new face for her own back room."],
+"A1.4":["The wedding","After Kasia's jobs ({A1.3})","A Backwater mill family books Kasia's Tap for a Saturday wedding reception, and [kasia], short-handed, hires you for the night: $80 cash plus tips. You pick the role. A server carries plates and drinks and earns more tips; a busser clears tables and hauls bins and overhears more gossip. Mid-shift Kasia finds you: someone in the wedding party has asked if you'd dance, and she'll cover your tables if you want to go. The first offer comes from whoever is the opposite sex to the box ticked at the register: the maid of honor if you ticked Mr., the bride's brother if you ticked Ms. Dance, or say you're on the clock. Only after a no does Kasia come back, in exactly the same easy tone, to say the other one asked too. Dance, or say no again and finish the shift. Nobody comments on any choice, nothing is lost by saying no, and the game never asks about romance outright. Who you dance with quietly sets which versions of the romance characters you'll meet ([miles], [felix], [graham]); turn down both and romance shows up only if you lean in later. It's also the mill families at their warmest."],
+"A1.5":["Raffy's envelope","Night 1; pays off weeks later","[raffy], a jumpy courier kid, slides you a sealed envelope (\"hold this till Friday\"), tips you $50 and never comes back. Inside are about $2,000 and a thumb drive. Weeks later [ray] starts asking around and [dot] warns you. Your call: return it to Ray (reliable; a small Revaris favor and easier loans), keep the cash (crooked and risky), hand the drive to [ed] (starts the informant path), or find Raffy hiding at Millstone Lanes with [juan] and help him pay Ray back. The drive holds Wren's face-match logs and her list of who pays to stay quiet, the first thread into the Revaris story ({M2}, {A4.3}, {A4.5})."],
+"A1.6":["Over the bridge","After Juan tells you about the Flare and the wedding is over","You cross the Long Bridge, stop at Bridgehead Fuel & Food ([mitch] behind the counter: worst odds, best gossip) and reach the Starflare. [gus] pours you a coffee under the rocket sign and shows you the regulars' trick of tapping the fin for luck. Three rungs of the ladder in one session. Nothing is wrong yet, but the floor is half empty."],
+"A1.7":["Becoming a regular","After a few Flare visits","Over a few visits the decline shows: dark floor lights, a bucket under the roof leak, a flickering sign. You meet [pete], the pit boss who calls you \"kid\", and [jalen], the busboy quietly studying the poker room. Gus asks you to keep quiet about something you saw; keeping his secret builds his trust. [dot] and Gus each ask you how the other is doing, which starts {R1}."],
+"A1.3":["Kasia's jobs and the back room","After night one; the back room opens once both jobs are done","[kasia] offers you a couple of jobs: a paid bar-back shift (a drunk regular drops a fat wallet, and you return it or keep it) and taking [juan] a box of free-drink coupons at Kasia's Tap for his Tuesday league at Millstone Lanes, which is how you first meet him and the back-lot dice. Juan is the one who tells you about the Starflare across the river (Kasia never would; she wants you at her own tables). Once both are done she nods you toward the back door: you're in the card game, dealt by [rosa]. Mid-hand she gives you a look, or a quiet word, that says fold. From here she teaches you the rules of every game and how to read tells, but never gives you certainty. Her old dealer's vest has a casino patch torn off, the start of {M1}."],
+"A1.8":["First rung up","Best bankroll $1,500","The RailYard opens: clean, busy, rail-themed, the mill pensioners' favorite, and a picture of what the Flare could be if Gus ran it well. [chase|Chase or Brooke], the other newcomer, is already there and already a step ahead, friendly for now. Its face-scan players' card is seed {S10}."],
+"A1.9":["Cracks","Any order in act 1","You see [gus] at the Cinder Room, the after-hours game under the Stacks, betting money he doesn't have ({S6}). At the Flare, [stella] worries out loud about her dad's health and the numbers, and [ray] is around more than he should be. You can tell [pete] what you saw or keep quiet."],
+"A1.10":["Ray comes to collect","Best bankroll $5,000 + Gus's trust + two weeks in the city","[ray] walks into Gus's office with his roll of cash and his \"buddy\" smile: Gus's markers are due. This closes act 1."],
+"A2.1":["Ray collects","Start of act 2","Ray presses Gus for what he owes. You can cover part of the debt yourself (generous; Gus's trust), stay out of it, or tell [pete] so Gus's oldest friend can step in. Whatever you do, it isn't enough to clear it."],
+"A2.2":["A friend of Ray's","After Ray collects","[tae] makes an honest offer, built on [stella|Stella's] numbers: buy the Flare as an Aurelian satellite and keep Gus on as host so he can rest. Gus refuses to sell his dad's place to a chain. Days later he tells everyone the debt is cleared, \"a friend of Ray's\" bought the Flare, and nothing will change. The truth: Ray brought him Revaris's offer, Revaris Technologies bought the Flare, and Gus signed knowing it was the mob because [wren] already had his Cinder Room footage. Ashamed, he keeps the buyer secret. Revaris quietly puts the land into the Levee Stadium District, which [bennett] is pushing for a hidden cut. The lawyer's name on the paperwork is a clue in {M2}."],
+"A2.3":["Things change anyway","After the bailout","New faces from Revaris start hanging around the floor and the office. [pete] is uneasy and says so only to you. [rosa] still won't step inside. Gus insists everything is fine."],
+"A2.4":["The Mile","Best bankroll $5,000","The Harborlight opens on the Marquee Mile, and with it your first comped suite, yours as long as you keep betting big. [chase|The rival] is already a regular there and makes sure you notice."],
+"A2.5":["Higher up","Best bankroll $10,000","The Aurelian opens. You spot [stella] meeting [tae] there and can follow her. It looks like betrayal, but she's only trying to get her dad a fair buyout, a false lead in {M2}. [felix|The front desk clerk] gives you an inside view of who checks in. In spring the Northern Ledger train opens too ({X1})."],
+"A2.6":["Bennett","After the bailout","At a Harborlight fundraiser [bennett] launches his run for mayor on \"clean up Northlight\". It's your first good look at the alderman who holds the Flare's license. A volunteer may ask you to sign the \"New Levee\" petition ({S7})."],
+"A2.7":["The rival borrows","After the bailout","[chase|The rival's] luck turns and they quietly borrow from [ray]. Their slide has begun."],
+"A2.8":["Starflare Field announced","Best bankroll $25,000 + a season after the bailout","The bar TV breaks the news: the Levee Stadium District will build Starflare Field, a domed baseball stadium, on the Flare's block, with [bennett] at the podium. This closes act 2."],
+"A3.1":["Starflare Field","Start of act 3","The renderings show the Flare's rocket sign hanging over the stadium gate. [gus] learns his dad's place will be bulldozed: the promise that nothing would change was a lie, and he can't tell anyone why without admitting who he sold to."],
+"A3.2":["The fight","After the announcement","A council hearing and a union rally. Fight clean and you earn allies: [rosa] and the union, and the Tuesday league in their shirts if you chipped in ({S1}). Fight dirty and your heat rises; with high heat it can end in the fire ({O9}). Or stay out. Nothing stops the demolition, but it shapes who stands with you later. If you signed the petition, [bennett] reads your name out as a supporter in front of Gus ({S7})."],
+"A3.3":["Condemnation","After the fight","Bennett pushes the condemnation order through and the Flare gets its closing date. The last night on the floor is a wake: the regulars, Gus in his dad's dinner jacket, the band photo coming off the wall. If you spotted the trucker ({S3}), he brings his flatbed to save the rocket fin."],
+"A3.4":["Pete alone at the dark pit","The Flare's last night","After closing you find [pete] alone at the dark pit. He has taken [tae|Tae's] job because he needs the money and can't retire yet, and he asks you to tell Gus. He hands you his gold 25-year rocket pin. If you ever open a floor, giving it back brings him home, unless you sold Gus out."],
+"A3.5":["The scatter","After the last night","The regulars scatter: Pete to the Aurelian, most of the floor to the RailYard; [rosa] keeps dealing Kasia's back room. As the building is cleared, [bennett] finds Gus's old surveillance tape of Rosa's table and keeps it ([miles] sees his people carry it out, {M1}). Ground breaks and the Starflare Field timer starts; if it runs out first, the name stays with the Field ({O7})."],
+"A3.6":["Higher still","Best bankroll $25,000 (summer); $50,000","In summer the Gilded Pine opens ({X2}) and you meet [vivian], the old-money high roller on a losing streak whose family owns the lakefront land. At $50,000, with a suit and her sponsorship, the Obsidian opens."],
+"A3.7":["Clues come together","Any order in act 3","[mitch] recognizes the lawyer on the Flare's sale filing from Bennett's old deals. At the motel you can join [richard], the quiet man in room 9, for a game of War at the picnic table; he talks about the house he lost and the game he taught his son. Both feed {M2} and {M4}."],
+"A3.8":["The rival hits bottom","After the scatter","[chase|The rival] can't pay Ray and comes to you for cash. Lend it and all is well; refuse and they may steal from you later ({A4.8})."],
+"A3.9":["Who bought the Flare, solved","{M2} solved + best bankroll $50,000","You put it together: Revaris Technologies bought the Flare and turned its land into a stake in the Stadium District, Bennett pushed it through for a hidden cut, and [wren|Wren's] cameras caught him, so she owns him. Act 4 opens."],
+"A4.1":["The truth","Start of act 4","You confront [gus]. He admits he sold his dad's place to Revaris knowing it was the mob, and lied about it out of shame. Forgive him, or hold it over him; either way it moves his trust."],
+"A4.2":["Gus at the bottom","Start of act 4","Gus is gambling harder than ever at the Cinder Room. With [dot] and [stella] you can help him quit (walking him out in {S6} helps). If no reopening follows, this can settle at {O6}, Gus lets go."],
+"A4.3":["Expose Revaris","You kept Raffy's drive, or Felix/Nora show you the Aurelian's footage","You hold proof of Wren's blackmail: [raffy|Raffy's] thumb drive, or the Aurelian's own camera footage of Wren's people meeting Bennett (the only cameras she doesn't own, via [felix|Felix or Nora]). Trade your silence to [wren] for the Starflare name (she remembers), or hand the proof to [ed] for his case. One of the three white-hat routes."],
+"A4.11":["By the book","Graham/Claire together or as a friend","With [graham|Graham or Claire] you file a conflict-of-interest complaint with the commission over [bennett|Bennett's] hidden cut of the stadium deal; the commission can strip his say over the license. Together, they get it in front of the right people; as a friend, they only explain the rule and you gather the proof yourself, at a cost in money and time. It wins the name back without exposing Gus's Revaris deal."],
+"A4.4":["Leverage on Bennett","Richard trusts you","You notice Revaris watching room 9 and tell [richard]. That meets Gus's condition (\"if anyone comes after you, open it\"), so you open the safety deposit box at the old Levee bank together: Wren's camera contract and the footage of Bennett's demand. Richard decides: shame [bennett] into getting the name back, give Bennett the box and reconcile (they play War; Bennett returns the name out of gratitude), burn it (this road closes), or hand it to [ed] (Gus's deal comes out too)."],
+"A4.5":["Wren's deal","Any time in act 4","[wren] makes you an offer at the Cinder Room: hand over Gus's markers (your IOU from {S6} among them) or Raffy's thumb drive, and she pays well. She always has something on you by now; a spotless player hears a threat against Gus or Jalen instead ({S10}). Taking it leads to the mob takeover ({O8}) or the sellout ({O10})."],
+"A4.6":["Tae's offer","Any time in act 4","[tae] offers to buy the Starflare name from the Stadium District for a restaurant inside the Aurelian, with Gus greeting guests, and [stella] backs it. Side with them and the story settles at Tae's restaurant ({O5})."],
+"A4.7":["Loose ends","Once you've found the clues","The Prairie Queen skim ({M3}): tell Wren, tell Ed, or keep it as leverage on [ray]. The plate you noted on the Long Bridge ({S11}) puts Ray at a meeting he denied. With the tape and her file you can get [rosa|Rosa's] license back."],
+"A4.8":["The rival","If you refused them in act 3","If you refused [chase|the rival] a loan, they steal from you now. If you helped, all is well."],
+"A4.9":["The clock runs out","The Field timer ends before the name is won back","Starflare Field opens with the old rocket sign over its gate, and the Stadium District keeps the name. A resting point ({O7}), not a fail: you can still win the name back later by leverage."],
+"A4.10":["Name won back","Name won back + best bankroll $250,000","The Starflare name is back with Gus, by whichever route you took, and you've saved $250,000 for the rebuild. Act 5 opens."],
+"A5.1":["Vivian's land","Start of act 5","[vivian|Vivian's] family owns the lakefront land (about $1M), and [tae] is bidding too. How you've treated her decides the price and whether she sells to you: keeping quiet about the jeweler and her losses ({S9}) makes it cheaper. Helping Tae get it instead is the sellout ({O10})."],
+"A5.2":["Backers","Start of act 5","Only two backers: [jalen], if he climbed clean, and [vivian] as a silent partner. Jalen invests and will run the hotel. You pay at least a quarter of every phase yourself."],
+"A5.3":["The crew","Land won","[rosa], license restored, comes on to manage all casino staff, and friendly cast are offered jobs. Give [pete] back his pin to bring him home from the Aurelian; [miles|the piano player] can take the showroom."],
+"A5.4":["Relight the rocket","Land won","You pick the design for a brand-new rocket sign over the lakefront hotel and casino (about $250k). The old sign stays wherever the story left it. Relighting it tells the city the Starflare is back."],
+"A5.5":["If the land falls through","Tae wins the land","Relaunch on the Prairie Queen's old sister boat from {S5} (the Starflare floats, {O3}), or the regulars pool small shares and reopen on a shoestring with Gus hosting (the people's Starflare, {O4}). Both are resting points; the lakefront can still come later."],
+"A5.6":["Opening night","Floor paid (about $1M)","The lakefront Starflare opens. [gus] cuts the ribbon with you ({O1}), or you do it alone ({O2}). The main story ends here: light owner mode begins and the epilogue plays."],
+"R1":["Bringing Dot and Gus back together","From act 1","[dot] and [gus] haven't really spoken since his wife's funeral, and each quietly asks you how the other is doing. Carry messages, find the photo of the two sisters in Gus's office, and get them in the same room. A small feel-good thread; they're both there when Gus tries to quit ({A4.2})."],
+"R2":["Staking Jalen","From act 1","Stake [jalen] in poker games and his wins pay you back. Your choices decide whether he climbs clean. He gets out of Backwater, repays you in act 4 and becomes a backer and head of the hotel. If you're spotless, [wren] may threaten him instead of you ({S10})."],
+"R3":["Juan and the loaded dice","Backwater, any time","Revaris tries to muscle in on [juan|Juan's] back-lot dice game with loaded dice. Help him push them out and, as a machine guy, he shows you how to spot a weighted die. [raffy] hides out with him at Millstone Lanes."],
+"R4":["Heat, Ed and the informant path","Whenever your heat is high","Illegal games raise heat; at medium there are sweeps and at high a raid. [ed] doesn't care about your dice; he wants [wren]. Tip him off (the drive, the skim, the box) and you become his informant: your heat drops at once, but Revaris may notice. Heat also cools a step for each week you play only licensed venues, and [vivian|Vivian's] lawyer can clear a raid for a fee."],
+"R5":["Mitch's book and the bad tip","Bridgehead, any time","[mitch] takes Haybale Downs bets out the back of Bridgehead and trusts nobody. Find out the tip that ruined him came from [bennett], and he lets you in, which is why he helps with the lawyer in {A3.7}."],
+"R6":["The mayor's race","From act 2","[bennett] runs against [mayor|Mayor Dabareski] on \"clean up Northlight\" while taking the same money. It plays out in the background on bar TVs and posters, and the epilogue's newspaper front page shows who won."],
+"R7":["Romance: the piano player","The Flare's lounge, act 1 on","[miles|Miles or Audrey] plays the Flare's half-empty lounge and overhears everything. Value: loyalty. They saw [bennett|Bennett's] people carry the tape out ({M1}), and only they can reunite the old house band, which gets [tae] to sell the name at a fair price. Deal-breaker: selling Gus out."],
+"R8":["Romance: the desk clerk","The Aurelian, act 2 on","[felix|Felix or Nora] works the Aurelian's front desk. Value: honesty. They show you the filing lawyer meeting Bennett, which opens act 4 sooner and clears [stella] early, and only they can get you the Aurelian's own camera footage for {A4.3}."],
+"R9":["Romance: the train patron","The Northern Ledger, spring","[graham|Graham or Claire], a statehouse staffer riding the Ledger each spring. Value: integrity with power. They know the conflict-of-interest license rule behind {A4.11}, the by-the-book way to win back the name."],
+"R10":["Dot's stories","Over time at the motel desk","[dot] tells her stories as she gets to know you: the flood (why she loves union people like [rosa]), the quiet man in room 9 with the key on a lanyard (leads to {M4}), and, once she trusts you, the shirt from the one trip she took after her own big win."],
+"X1":["The Northern Ledger","Spring; Bennett's invite or best bankroll $10,000","The overnight train to the state capital for the legislative session, with poker in the club car. You watch [bennett] and [mayor|the mayor] work the statehouse crowd, and meet [graham|Graham or Claire]."],
+"X2":["The Gilded Pine","Summer; a Silvershore invite or best bankroll $25,000","An old-money lake resort with quiet, high tables. Where you meet [vivian] properly, and where [tae] and [mayor|the mayor] spend their summer weekends."],
+"X3":["Haybale Downs","Late summer to fall; a tip at Bridgehead","A small harness track that's friendly to a broke player. You bet on races off [mitch|Mitch's] tips, some good and some not."],
+"X4":["Blackspruce Lodge","Winter, once, by invitation","A single high-stakes poker weekend at a remote lodge. [ray] plays, and [wren] makes one of her rare appearances."],
+"EP":["The epilogue","After opening night, or at a resting point","About 8 panels showing what became of everyone: [gus], [dot], [rosa], [pete], [jalen], the mayor's race on a newspaper front page, and how the city changed because of where you stopped."]
+};
+for(let i=1;i<=12;i++){} // seeds and outcomes are added below
+const SEEDS=[
+{n:1,where:"Backwater, Millstone Lanes",seed:"The Tuesday league is $40 short for team shirts. Chip in or not.",rev:"Act 3 council hearing: the league turns up behind you in those shirts.",into:"An extra ally in the clean fight.",p:1,r:3,who:["juan"]},
+{n:2,where:"Backwater, Kasia's Tap",seed:"An old mill pensioner is behind on his tab. Cover it ($30) or not.",rev:"A season later at the RailYard he wins a slot tournament and splits it with you.",into:"Small money; a generous nudge.",p:1,r:2,who:["kasia"]},
+{n:3,where:"The Bridges, Bridgehead",seed:"A trucker is $20 short on diesel. Spot him or not.",rev:"The Flare's last night: he brings his flatbed and helps save the rocket fin.",into:"The fin goes in the new Starflare's lobby; Gus's trust.",p:1,r:3,who:["mitch","gus"]},
+{n:4,where:"The Levee, the Flare",seed:"A faded photo of the house band hangs by the lounge. Ask Gus who the drummer was.",rev:"At the Aurelian, Tae hears you say his dad's name and drops his guard.",into:"Tae's standing; the photo in outcome 5.",p:1,r:2,who:["gus","tae"]},
+{n:5,where:"The Levee, the Prairie Queen",seed:"An old pilot grumbles about the Queen's sister boat rusting at a south pier. Listen or walk off.",rev:"Act 5, if the land falls through: the boat is there and cheap.",into:"Outcome 3, the Starflare floats.",p:1,r:5,who:[]},
+{n:6,where:"The Levee, the Cinder Room",seed:"Gus is out of chips and refused credit in front of the room. Lend him cash (he signs you an IOU), refuse, or walk him out before he plays.",rev:"Act 4: Wren wants the IOU with his other markers; tear it up in front of Gus for big trust; repaid with extra if he's freed. Walking him out helps him quit.",into:"Gus's trust; Wren's deal; the sellout; helping Gus quit.",p:1,r:4,who:["gus","wren"]},
+{n:7,where:"Marquee Mile, Harborlight fundraiser",seed:"Before the stadium is public, a volunteer asks you to sign the \"New Levee\" petition.",rev:"Act 3 hearing: Bennett reads your name out as a supporter, with Gus in the room.",into:"Gus's trust; a scene where you explain.",p:2,r:3,who:["bennett","gus"]},
+{n:8,where:"Marquee Mile, the Aurelian",seed:"The tourist you taught at the table is a travel writer.",rev:"Opening night: her piece names you and the crowd is bigger.",into:"Opening-night flavour; first-week takings.",p:2,r:5,who:[]},
+{n:9,where:"Silvershore, the Obsidian",seed:"A society columnist asks how much Vivian lost tonight. Tell her (she pays) or keep quiet.",rev:"Act 5: Vivian knows who talked. Quiet makes the land cheaper; talking sends her toward Tae.",into:"Land price; Vivian's standing.",p:3,r:5,who:["vivian"]},
+{n:10,where:"The Levee, the RailYard",seed:"Sign up for the players' card with a face scan, or pay cash and keep your head down.",rev:"Act 4: Wren quotes your losses and where you've been. A spotless player gets a threat against Gus or Jalen instead.",into:"Wren's deal; Ed trusts you more if you never scanned in.",p:1,r:4,who:["wren","ed","jalen"]},
+{n:11,where:"The Bridges, Long Bridge",seed:"Crossing before dawn despite Dot's warning (hoodlums, no organization), you see Ray's car with the lights off. Note the other car's plate or drive on.",rev:"Act 4 loose ends: the plate puts Ray at a meeting he denied.",into:"Leverage on Ray.",p:2,r:4,who:["dot","ray"]},
+{n:12,where:"Anywhere",seed:"A man sells \"the rocket fin's lucky twin\". Buy it or laugh.",rev:"Gus laughs at it, and that's all.",into:"Nothing, on purpose.",p:2,r:0,who:["gus"]}
+];
+SEEDS.forEach(s=>EV.push(["S"+s.n,s.seed.split(".")[0],s.where,s.who]));
+const OUT=[
+{n:1,name:"The lakefront Starflare with Gus",act:5,final:true,leads:"The name won back for Gus, Vivian's land won, a big bankroll, Gus trusts you.",back:"Final: ends the main story.",after:"Light owner mode; the tower (~$2M) and rooftop launch pad (~$1.5M) as goals.",who:["gus","rosa","pete","jalen","vivian","miles"]},
+{n:2,name:"The Starflare without Gus",act:5,final:true,leads:"As 1, but you use the leverage to take the name for yourself (ruthless) or Gus has turned on you.",back:"Final: ends the main story.",after:"Light owner mode; Gus never appears on the floor and some regulars stay cool.",who:["gus","bennett","rosa","vivian"]},
+{n:3,name:"The Starflare floats",act:5,final:false,leads:"The name won back, a mid-sized bankroll, an old boat (seed 5) and the dockworkers on your side; the land falls through.",back:"Win the land later and move ashore.",after:"The boat is a venue you run lightly.",who:["gus","rosa"]},
+{n:4,name:"The people's Starflare",act:5,final:false,leads:"The land falls through; the regulars pool small shares and reopen on a shoestring, Gus hosting (no union stake). Players who never get rich settle here.",back:"The lakefront still takes your own winnings.",after:"Co-op nights at the union hall; light owner mode shared with the regulars.",who:["gus","rosa","kasia","juan","jalen"]},
+{n:5,name:"Tae's restaurant",act:4,final:false,leads:"You side with Tae and Stella; Tae buys the name from the Stadium District. Gus greets guests; the band photo and the old rocket sign hang inside.",back:"Buy the name back from Tae at a premium once you hold the land (fair price after the house band reunion).",after:"A hangout inside the Aurelian with Gus at the door.",who:["tae","gus","stella","bennett"]},
+{n:6,name:"Gus lets go",act:4,final:false,leads:"You help Gus quit and bring back Dot and Stella; nobody funds a reopening; the name retires.",back:"A sober Gus comes back and asks you to reopen.",after:"Visits with sober Gus, Dot and Stella.",who:["gus","dot","stella"]},
+{n:7,name:"The name stays with Starflare Field",act:4,final:false,leads:"The default if Starflare Field opens before anyone wins the name back; the Stadium District keeps it.",back:"Win the name back later by leverage.",after:"Games at Starflare Field under the old rocket sign.",who:["bennett","gus"]},
+{n:8,name:"Mob takeover",act:4,final:false,leads:"You take Wren's deal, or deep debt to Ray and a crooked lean.",back:"Expose Wren later to take the name (leads to 2).",after:"Wren's Starflare as a crooked venue.",who:["wren","ray","raffy","gus"]},
+{n:9,name:"Burned down",act:3,final:false,leads:"You fight the demolition dirty with high heat, or cross Revaris. The empty building is torched as a message; the old sign is lost.",back:"Carry on; backers trust you once you've stayed clear of Revaris for a while.",after:"The burned shell as a story place.",who:["gus"]},
+{n:10,name:"The sellout",act:4,final:false,leads:"Betray Gus for a payout: give Wren his markers or Raffy's drive (act 4), or help Tae get Vivian's land (act 5). Gus, Dot and the regulars turn cold.",back:"Leverage can still take the name (leads to 2), or a long climb on generous and reliable wins Gus back (the only road to 1).",after:"Comped life on the Mile (Tae) or Revaris favors (Wren).",who:["wren","tae","vivian","raffy","gus"]}
+];
+OUT.forEach(o=>{const i=EV.findIndex(e=>e[0]==="EP");EV.splice(i,0,["O"+o.n,o.name,"",o.who])});
+
+const ACTS=[
+{n:1,name:"The Flare",hours:"~8h",gate:"Start: $200 and a modest car",into:"$5,000 + Gus's trust + two weeks",sum:"You arrive in Backwater, climb to the Starflare, and get attached to Gus and the regulars while the decline shows."},
+{n:2,name:"The bailout",hours:"~6h",gate:"$5,000 + Gus's trust + two weeks",into:"$25,000 + a season after the bailout",sum:"Ray collects; Gus refuses Tae's offer; a \"friend of Ray's\" buys the Flare and clears the debt. It's really Revaris Technologies; Gus knows, and out of shame keeps it secret."},
+{n:3,name:"The fall",hours:"~8h, always happens",gate:"$25,000 + a season after the bailout",into:"Who bought the Flare solved + $50,000",sum:"Starflare Field is announced, the Flare is condemned, the regulars scatter and the Field timer starts."},
+{n:4,name:"Winning back the name",hours:"~10h",gate:"Mystery solved + $50,000",into:"Name won back + $250,000",sum:"You learn Revaris bought the Flare and turned its land into a stake in the Stadium District, with Bennett pushing it through, and that Wren owns him; Gus admits he sold to the mob. Once sold, it's sold: win the name back by white-hat leverage (room 9 box, exposing Revaris, or the conflict-of-interest rule)."},
+{n:5,name:"The new Starflare",hours:"~8h",gate:"Name won back + $250,000",into:"Opening night ends the main story",sum:"Win Vivian's land over Tae, bring in Jalen and Vivian as backers, relight the rocket and build the floor."}
+];
+const MYST=[
+{id:"M1",name:"The torn patch",kind:"Backstory",truth:"Rosa's torn patch is from the Starflare. Gus, drunk, lost the staff payroll at her table, so she dealt him back to even. Cameras caught it and she took the fall without saying why. The commission's penalty ordered a modern camera system Gus couldn't afford, which led to Wren's camera deal.",
+clues:["Rosa won't step inside the Flare (broke)","Pete goes quiet at her name (Flare regular)","The surveillance tape: in Gus's office before the fall, in Bennett's hands after it (Miles/Audrey saw it taken)","Her commission file via Vivian's lawyer (rich)"],
+solve:"Gus admits it; Pete and Gus testify and Rosa gets her license back. First proof that Gus gambles.",who:["rosa","gus","pete","bennett","vivian","miles"]},
+{id:"M2",name:"Who bought the Flare",kind:"Main story",truth:"Why won't Gus say who bought it? Revaris Technologies bought the Flare; Gus signed knowing it was the mob and, ashamed, tells everyone \"a friend of Ray's\" bought it. Revaris then put the land into the Levee Stadium District, which makes Revaris the biggest investor; and Bennett pushed the deal through for campaign money and a hidden cut, which Wren's cameras caught, so she owns him. False leads: Stella (meeting Tae, only seeking a fair buyout) and Tae (would have bought it openly).",
+clues:["Stella and Tae at the Aurelian (rich)","The sale papers naming Revaris Technologies as the buyer, via your debt to Ray or Raffy's thumb drive (broke)","Mitch recognizes the filing lawyer from Bennett's old deals (broke)","Felix/Nora show you the lawyer meeting Bennett (romance)"],
+solve:"Opens act 4: you know Revaris bought the Flare and that Wren owns Bennett. Clearing Stella brings her and Gus closer.",who:["bennett","wren","ray","stella","tae","mitch","raffy","felix"]},
+{id:"M3",name:"The Prairie Queen skim",kind:"Backstory",truth:"Ray makes Kiran and other indebted dealers skim the cheap tables to cover his bad loans. He thinks it's behind Wren's back, but her cameras are on the Queen: she knows and lets him dig his own hole.",
+clues:["Kiran's tell and Rosa flagging a table (broke)","Ray's new car he can't afford","Ed's file on Ray"],
+solve:"Kiran gets out. Tell Wren (Ray learns she knew and is humbled; costs heat), tell Ed (informant path), or keep it as leverage on Ray.",who:["ray","kiran","wren","ed","rosa"]},
+{id:"M4",name:"Room 9 and Gus's box",kind:"Backstory, leads to the main story",truth:"The quiet guest in room 9 is Richard, Bennett's father, whose house went to Flare markers. Bennett traced Gus's camera deal to Revaris and forced Gus to wipe out Richard's remaining debt in exchange for his silence. Ashamed, Gus gave Richard the key to a safety deposit box holding the camera contract and footage of Bennett's demand. Bennett pays the room weekly; Richard thinks Gus does. Revaris watches the door.",
+clues:["Dot sees a driver drop an envelope every week (broke)","A photo of Richard on Bennett's desk (rich)","War with Richard at the picnic table: the house he lost, Gus \"takes care of\" his room (false lead), the game he taught his son"],
+solve:"Once Richard trusts you and you spot Revaris watching, you open the box together. Richard decides: shame Bennett into getting the name back for Gus, give Bennett the box and reconcile (they play War; Bennett gets the name back out of gratitude), burn it, or hand it to Ed (Ed's case, but Gus's deal comes out). Any public use exposes Gus too.",who:["richard","bennett","dot","gus","ed"]}
+];
+

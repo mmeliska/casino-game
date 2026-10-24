@@ -1,0 +1,45 @@
+<meta charset="utf-8">
+<title>Starflare Design Docs</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Righteous&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+
+<div class="topbar"><a class="brand" href="#home" style="font-size:19px;margin:0"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c3 3 4 7 4 11l-4 3-4-3c0-4 1-8 4-11z" fill="currentColor"/><path d="M8 13l-3 4h4M16 13l3 4h-4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>Starflare Docs</a><span style="display:flex;gap:8px"><button class="themebtn" type="button" aria-label="Switch colour theme">Theme</button><button id="menuBtn" aria-expanded="false" aria-controls="rail">Menu</button></span></div>
+<div class="shell">
+  <nav class="rail" id="rail" aria-label="Chapters">
+    <a class="brand" href="#home"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c3 3 4 7 4 11l-4 3-4-3c0-4 1-8 4-11z" fill="currentColor"/><path d="M8 13l-3 4h4M16 13l3 4h-4" stroke="currentColor" stroke-width="1.6" fill="none"/><circle cx="12" cy="9" r="1.6" fill="var(--sunk)"/></svg>Starflare Docs</a>
+    <p class="brand-sub">Starflare Casino design, settled to 24 Oct 2026</p>
+    <button class="chip themebtn" type="button" aria-label="Switch colour theme">Theme: system</button>
+    <h4>Story</h4>
+    <a href="#home" data-nav="home">Overview</a>
+    <a href="#timeline" data-nav="timeline">Story timeline</a>
+    <a href="#outcomes" data-nav="outcomes">Outcomes</a>
+    <a href="#seeds" data-nav="seeds">Seeds and reveals</a>
+    <a href="#mysteries" data-nav="mysteries">Mysteries</a>
+    <a href="#events" data-nav="events">Event codes</a>
+    <h4>People</h4>
+    <a href="#map" data-nav="map">Relationship map</a>
+    <a href="#cast" data-nav="cast">All characters</a>
+    <a href="#player" data-nav="player">The player</a>
+    <a href="#romance" data-nav="romance">Romance</a>
+    <h4>World and systems</h4>
+    <a href="#city" data-nav="city">Northlight</a>
+    <a href="#rules" data-nav="rules">Rules and systems</a>
+    <a href="#design" data-nav="design">Game design</a>
+    <a href="#writing" data-nav="writing">Writing guide</a>
+    <h4>Reference</h4>
+    <a href="#find" data-nav="find">Search everything</a>
+    <a href="#history" data-nav="history">Early drafts and notes</a>
+    <a href="#sources" data-nav="sources">About this site</a>
+    <h4>Characters</h4>
+    <input class="search" id="q" type="search" placeholder="Find a character" aria-label="Find a character">
+    <div class="people" id="peopleNav"></div>
+  </nav>
+  <main id="main" tabindex="-1"></main>
+</div>
+
+<script src="data/story.js"></script>
+<script src="docs/index.js"></script>
+<script src="app.js"></script>
+
