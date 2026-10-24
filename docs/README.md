@@ -9,7 +9,7 @@ The design docs site for Starflare Casino: characters, story timeline, outcomes,
 The Markdown is fetched at run time, so opening `index.html` from disk won't work. Serve the folder instead:
 
 ```sh
-cd design-docs && python3 -m http.server 8000
+cd docs && python3 -m http.server 8000
 ```
 
 Then open http://localhost:8000.
