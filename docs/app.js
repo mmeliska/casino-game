@@ -33,7 +33,7 @@ P.home=()=>`<div class="page">
 <p>Every page here links to every other. Click any name for that character's page, and any code like <a class="code" href="#A3.4">A3.4</a> for the event it names. Everything is <b>settled</b> unless it carries a <span class="pill prop">Proposal</span> tag.</p>
 <h2>The five acts</h2>
 <div class="acts">${ACTS.map(a=>`<a class="act" href="#timeline"><div class="n">${a.n}</div><div class="t">${a.name}</div><div class="g">${a.hours}</div></a>`).join("")}</div>
-<p class="small muted">About 40 hours to opening night. Each act opens on a money milestone <b>and</b> a minimum time. Only outcomes 1 and 2 end the main story; every other outcome is a resting point you can climb back from. <a href="#timeline">See the timeline</a> or <a href="#outcomes">the outcomes</a>.</p>
+<p class="small muted">About 42 hours to opening night. Each act opens on a money milestone <b>and</b> a minimum time. Only outcomes 1 and 2 end the main story; every other outcome is a resting point you can climb back from. <a href="#timeline">See the timeline</a> or <a href="#outcomes">the outcomes</a>.</p>
 <h2>The story in brief</h2>
 <h3>The place</h3>
 <p>Northlight is a casino city on a lake, run by the same mayor for as long as anyone remembers. You start in Backwater, its run-down edge, with $200 and a car. The heart of the game is the Starflare Club, called "the Flare": a rocket-age casino that was once the best in the city and is now slowly dying, with dark floor lights, a bucket under the roof leak and a flickering rocket sign.</p>

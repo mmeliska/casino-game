@@ -15,7 +15,7 @@ Beats inside an act can come in any order unless a gate says otherwise. The last
 | Cracks | Cinder Room, the Flare | Any order | Tell Pete what you saw, or keep quiet | Seeds: Gus gambles; Stella's worry |
 | **Ray comes to collect** | Gus's office | $5,000 + Gus's trust + two weeks |  | **Act 2** |
 
-### Act 2, the bailout (\~6 hours)
+### Act 2, the bailout (\~8 hours)
 
 | Beat | Where | Opens when | The choice | Leads to |
 | --- | --- | --- | --- | --- |

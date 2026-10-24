@@ -5,7 +5,7 @@ The main story moves forward only when you make money and spend time in the city
 - **The spine:** five acts, each split into beats. Every beat says where it happens, what opens it, the choice inside it and where it leads.
 - **Gates:** money, standing with a character, the four hidden scales, heat, and flags from seeds and mysteries. Each act gate needs a money milestone **and** a minimum amount of time.
 - **Side arcs:** mysteries, cast arcs and jobs hook into the spine at fixed beats. Going broke opens side stories and jobs, but doesn't move the main line.
-- **Pacing:** about 40 hours to opening night. One in-game day is about 15 minutes and a season is 28 days (about 7 hours), so that's roughly a year and a half in game. By act: 1 \~8h, 2 \~6h, 3 \~8h, 4 \~10h, 5 \~8h.
+- **Pacing:** about 42 hours to opening night. One in-game day is about 15 minutes and a season is 28 days (about 7 hours), so that's about six seasons, roughly a year and a half in game. By act: 1 \~8h, 2 \~8h, 3 \~8h, 4 \~10h, 5 \~8h. Act 2 can't be shorter than the season its gate waits for (audit 1.1, Mike 2026-10-24).
 - **No story clock:** the only deadline on the main line is Starflare Field's Opening Day, the first one at least three seasons after the fall. It leads to a resting point (outcome 7), not a fail.
 
 Each act opens only when its money and time gate is met. Outcomes on the right are where a playthrough can settle, and all but 1 and 2 let you pick the main line back up.
