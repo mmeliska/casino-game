@@ -10,7 +10,7 @@ Grew up in Backwater. Runs envelopes for Ray's collections because it paid bette
 
 ## The envelope
 
-On night one he slides you a sealed envelope ("hold this till Friday, don't open it"), tips you $50 and never comes back. Inside: about $2,000 and a thumb drive. Weeks later Ray asks around and Dot warns you. Choices: return it to Ray, keep the cash, hand the drive to Ed, or find Raffy at Millstone Lanes and help him pay Ray back.
+On night one at Kasia's Tap (A1.2) he slides you a sealed envelope ("hold this till Friday, don't open it"), tips you $50 and never comes back. Inside: about $2,000 and a thumb drive. Weeks later (A1.5) Ray asks around and Dot warns you. Choices: return it to Ray, keep the cash, hand the drive to Ed, or find Raffy at Millstone Lanes and help him pay Ray back.
 
 ## The drive
 

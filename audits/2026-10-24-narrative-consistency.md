@@ -9,7 +9,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | # | Finding | Status | Decision |
 |---|---|---|---|
 | 1.1 | Act 2 is shorter than its own gate | Fixed | Gate stays a season after the bailout; act 2 is now ~8h and the total ~42h (nothing trimmed). |
-| 1.2 | Raffy happens on night one and also after the wedding | Open | |
+| 1.2 | Raffy happens on night one and also after the wedding | Fixed | Split: the hand-off joins night one at Kasia's Tap (A1.2); A1.5 is now "Ray asks around", the weeks-later choice. |
 | 1.3 | Act 1 event codes don't match the Act 1 table | Open | |
 | 1.4 | "Three rungs in one session" is impossible under the new Act 1 gating | Open | |
 | 1.5 | The rocket sign burns in a building it has already left | Open | |
