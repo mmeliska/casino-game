@@ -140,7 +140,7 @@ ${SEEDS.map(s=>`<tr id="row-S${s.n}"><td class="num"><a class="code" href="#S${s
 <li>Missing a seed never locks a beat. The beat still happens, just without the bonus.</li>
 <li>Event schema fields (your starting format): <code>kind</code>, <code>flags_all</code> / <code>flags_none</code>, <code>days_since_flag_min</code>, <code>act</code>, <code>beat</code>, <code>npc_standing_min</code>, <code>scales</code>, <code>seasons</code>, <code>heat_max</code>, <code>fires_at</code>, <code>callback</code>. Table events use the same shape with <code>kind: "table"</code> and a <code>rounds_between</code> range.</li></ul></div>`;
 };
-function short(s){return {1:"League shirts → hearing allies",2:"Pensioner's tab → tournament split",3:"Trucker's diesel → saves the fin",4:"Band photo → Tae's guard drops",5:"Old pilot → the boat for O3",6:"Gus's IOU → Wren wants it",7:"Bennett's petition → read out",8:"The tourist → travel piece",9:"Columnist → land price",10:"Face scan → Wren's file on you",11:"Ray's plate → leverage on Ray",12:"Lucky fin twin → nothing"}[s.n]}
+function short(s){return {1:"League shirts → hearing allies",2:"Pensioner's tab → tournament split",3:"Trucker's diesel → saves the spaceman",4:"Band photo → Tae's guard drops",5:"Old pilot → the boat for O3",6:"Gus's IOU → Wren wants it",7:"Bennett's petition → read out",8:"The tourist → travel piece",9:"Columnist → land price",10:"Face scan → Wren's file on you",11:"Ray's plate → leverage on Ray",12:"Lucky spaceman bobblehead → nothing"}[s.n]}
 
 P.outcomes=()=>{
   const W=1060,X=a=>110+(a-1)*210,bw=200,bh=58;

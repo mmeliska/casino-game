@@ -25,7 +25,7 @@ Table events are short interruptions that break up long play. They can win or lo
 | A slip across the bridge | Quick job | Bridgehead | Mitch texts asking you to run a betting slip | Run it or decline | Cash, a little heat |
 | Keg run | Quick job | Kasia's | The delivery came up short | Go grab one | Credit on Kasia's tab |
 | Three-card monte | Scam | Levee street, Long Bridge | A crowd gathers around a card table | Play, watch, or warn the mark | Lose money, or a seed |
-| Lucky charm | Scam | Bridgehead, Prairie Queen | A man sells "the rocket fin's lucky twin" | Buy it or laugh | Money gone; an inventory item |
+| Lucky charm | Scam | Bridgehead, Prairie Queen | A man sells a "lucky spaceman" bobblehead | Buy it or laugh | Money gone; an inventory item |
 | Fake comp | Scam | Phone | A text offers a free suite if you "confirm your card" | Tap it or delete it | Lose money if tapped |
 | Distract the dealer | Scam | Prairie Queen, RailYard | A player asks you to chat up the dealer while he past-posts | Help, refuse, or tell the pit | Crooked and heat, or venue standing |
 | Stadium talk | News | Bar TVs | Bennett on TV talking up "a new Levee" | None | Flavour; foreshadows act 3 |

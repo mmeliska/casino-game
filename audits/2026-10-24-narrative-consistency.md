@@ -13,7 +13,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 1.3 | Act 1 event codes don't match the Act 1 table | Fixed | Every act table on the Story timeline now has a Code column, one row per code. Act 1 rebuilt (A1.1 to A1.10), act 3 gained the A3.4 Pete row, act 5's "The floor" row folded into A5.6. |
 | 1.4 | "Three rungs in one session" is impossible under the new Act 1 gating | Fixed | Promise dropped (t05 and A1.6). The opening is player-paced; the rocket sign across the river keeps the Flare in view. |
 | 1.5 | The rocket sign burns in a building it has already left | Fixed | Sign stays on the empty shell until demolition, then District storage until the Field gate; the O9 fire happens before demolition and takes it; Tae (O5) gets it from storage or the gate. |
-| 1.6 | The rocket fin is in three places | Open | |
+| 1.6 | The rocket fin is in three places | Fixed | The fin is gone. The lucky object is now the spaceman, a life-size chrome astronaut statue by the doors; regulars rub his boot. The trucker (S3) saves it for the new lobby; S12 sells a "lucky spaceman" bobblehead. The big sign is a separate object. |
 | 1.7 | Pete has been dealing longer than the Flare has been licensed | Open | |
 | 1.8 | "Era-agnostic" names a decade | Open | |
 | 1.9 | Wren's résumé doesn't fit her age | Open | |

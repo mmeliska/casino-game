@@ -11,7 +11,7 @@ Beats inside an act can come in any order unless a gate says otherwise. The last
 | A1.3 | Kasia's jobs and the back room | Kasia's Tap, Millstone Lanes, Kasia's back room | After night one; the back room opens once both jobs are done | A paid bar-back shift (a drunk regular drops a fat wallet: return it or not); take Juan a box of free-drink coupons for his Tuesday league at Millstone Lanes (Mike, 2026-10-23); in the back room Rosa warns you off a hand: fold or play it | Meet Juan, who tells you about the Flare across the river; meet Rosa, who starts teaching you the games |
 | A1.4 | The wedding | Kasia's Tap | After Kasia's jobs (a separate third job) | Server or busser; dance with whoever asks, or say you're on the clock | Sets which romance versions you meet |
 | A1.5 | Ray asks around | Kasia's Tap, Slack Water Motel, Millstone Lanes | Weeks after night one, if you still hold Raffy's envelope | Return it to Ray, keep the cash, hand the drive to Ed, or help Raffy pay Ray back | First thread into the Revaris story |
-| A1.6 | Over the bridge | Bridgehead, the Flare | After Juan tells you about the Flare and you've worked the wedding | Coffee with Gus, tap the fin | Meet Gus |
+| A1.6 | Over the bridge | Bridgehead, the Flare | After Juan tells you about the Flare and you've worked the wedding | Coffee with Gus, rub the spaceman's boot | Meet Gus |
 | A1.7 | Becoming a regular | The Flare | A few Flare visits | Keep Gus's secret or not | Meet Pete and Jalen; Dot and Gus each ask about the other |
 | A1.8 | First rung up | The RailYard | Best bankroll $1,500 |  | The rival is already a step ahead |
 | A1.9 | Cracks | Cinder Room, the Flare | Any order | Tell Pete what you saw, or keep quiet | Seeds: Gus gambles; Stella's worry |

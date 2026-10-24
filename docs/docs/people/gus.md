@@ -14,7 +14,7 @@ Proud, sentimental, stubborn, bad with money.
 
 ## Story
 
-You meet him on your first Flare visit (coffee, tapping the rocket's fin) and care builds slowly from small things. Ray collects on his debt, a "friend of Ray's" buys the Flare and clears his debt (really Revaris Technologies; Gus signs knowing it's the mob and, ashamed, keeps the buyer secret. Revaris then puts the land into the Levee Stadium District, with Bennett pushing it through). Once sold, it's sold: winning the Starflare name back for him by white-hat leverage is act 4. His trust is ordinary NPC standing plus a few flag checks.
+You meet him on your first Flare visit (coffee, rubbing the spaceman's boot) and care builds slowly from small things. Ray collects on his debt, a "friend of Ray's" buys the Flare and clears his debt (really Revaris Technologies; Gus signs knowing it's the mob and, ashamed, keeps the buyer secret. Revaris then puts the land into the Levee Stadium District, with Bennett pushing it through). Once sold, it's sold: winning the Starflare name back for him by white-hat leverage is act 4. His trust is ordinary NPC standing plus a few flag checks.
 
 ## Voice
 
