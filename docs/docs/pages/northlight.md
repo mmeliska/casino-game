@@ -70,7 +70,7 @@ Your home moves with your bankroll, from the settled housing ladder.
 | The North Light | Harbor, seen from the Marquee Mile | The lighthouse the city is named for; when it flickers, the house is running cold |
 | The Long Bridge | Between Backwater and the Levee | The main crossing; locals say don't carry winnings across before dawn |
 | The Stacks | The Levee | The dead mill chimneys, outside every Levee window |
-| The Starflare rocket sign | Over the Flare, the Levee | Tap the fin for luck; later moved to Starflare Field, and lost if the Flare burns |
+| The Starflare rocket sign | Over the Flare, the Levee | Tap the fin for luck; stays on the empty Flare until demolition, then in storage until it goes over the Starflare Field gate; lost if the Flare burns first |
 
 ## Out of town and later in the story
 
