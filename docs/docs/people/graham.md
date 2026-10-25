@@ -27,9 +27,11 @@ A statehouse staffer who rides the train every spring for the legislative sessio
 | --- | --- | --- | --- | --- |
 | 1 | Meet | First spring trip, club car | They're marking up a bill between poker hands and ask how you got a seat: Bennett's invite or the $10k. | None (either answer opens the arc; Bennett's invite gets a raised eyebrow) |
 | 2 | First date | Back in Northlight, a chance meeting downtown, then coffee | They admit they took the job to fix things and mostly watch deals get made. | Be honest about how you make your money, or dress it up (they can tell; counts) |
-| 3 | Opening up | Act 3 or 4, the following spring on the train | They explain how the license that Bennett holds over the Flare actually works. | Ask how to use it against him (neutral), or ask how it could be used fairly (for) |
-| 4 | The test | The same trip | A stadium lobbyist in the club car offers you a sweetener to speak up for Starflare Field. Claire/Graham sees the envelope. | Take it (against), turn it down (for), or turn it down and tell them who offered (for, strongest) |
-| 5 | Landing | The spring after, or opening night | Together: they ride the Ledger with you as your guest every spring and come to opening night. Friend: the yearly reunion goes on as friends. Ended: they move to another car when you board. | None |
+| 3 | Opening up | Act 3 or 4, any season after the first date: dinner downtown in Northlight (moved off the train, audit 1.10, Mike 2026-10-25) | They explain how the license that Bennett holds over the Flare actually works. | Ask how to use it against him (neutral), or ask how it could be used fairly (for) |
+| 4 | The test | Act 3 or 4, after beat 3: a Starflare Field fundraiser in Northlight, with Graham/Claire in the room | A stadium lobbyist offers you a sweetener to speak up for Starflare Field. Claire/Graham sees the envelope. | Take it (against), turn it down (for), or turn it down and tell them who offered (for, strongest) |
+| 5 | Landing | Opening night or wherever you rest | Together: they come to opening night, and riding the Ledger together every spring goes into the epilogue. Friend: the yearly reunion goes on as friends. Ended: they move to another car when you board. | None |
+
+Only the meet needs the train. If another spring comes around mid-arc, the club car is an optional bonus scene with them (audit 1.10, Mike 2026-10-25).
 
 ### Observed choices
 
