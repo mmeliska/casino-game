@@ -15,7 +15,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 1.5 | The rocket sign burns in a building it has already left | Fixed | Sign stays on the empty shell until demolition, then District storage until the Field gate; the O9 fire happens before demolition and takes it; Tae (O5) gets it from storage or the gate. |
 | 1.6 | The rocket fin is in three places | Fixed | The fin is gone. The lucky object is now the spaceman, a life-size chrome astronaut statue by the doors; regulars rub his boot. The trucker (S3) saves it for the new lobby; S12 sells a "lucky spaceman" bobblehead. The big sign is a separate object. |
 | 1.7 | Pete has been dealing longer than the Flare has been licensed | Fixed | Pete started at 19 busing tables at the supper club, learned cards by watching, and was one of the first dealers when the license came. He started where Jalen is now and keeps an eye on him (new Pete–Jalen tie on the map). |
-| 1.8 | "Era-agnostic" names a decade | Open | |
+| 1.8 | "Era-agnostic" names a decade | Fixed | "1960s" replaced with "rocket age" in t01, t03 and the Northlight venue table; history pages left as they were. Modern tech stays (era-agnostic = no named year). |
 | 1.9 | Wren's résumé doesn't fit her age | Open | |
 | 1.10 | The Graham/Claire arc needs more springs than the game has | Open | |
 | 2.1 | The outfit is named after the secret | Open | |
