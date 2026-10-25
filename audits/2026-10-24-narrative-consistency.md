@@ -16,7 +16,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 1.6 | The rocket fin is in three places | Fixed | The fin is gone. The lucky object is now the spaceman, a life-size chrome astronaut statue by the doors; regulars rub his boot. The trucker (S3) saves it for the new lobby; S12 sells a "lucky spaceman" bobblehead. The big sign is a separate object. |
 | 1.7 | Pete has been dealing longer than the Flare has been licensed | Fixed | Pete started at 19 busing tables at the supper club, learned cards by watching, and was one of the first dealers when the license came. He started where Jalen is now and keeps an eye on him (new Pete–Jalen tie on the map). |
 | 1.8 | "Era-agnostic" names a decade | Fixed | "1960s" replaced with "rocket age" in t01, t03 and the Northlight venue table; history pages left as they were. Modern tech stays (era-agnostic = no named year). |
-| 1.9 | Wren's résumé doesn't fit her age | Open | |
+| 1.9 | Wren's résumé doesn't fit her age | Fixed | Wren is early 30s (about 32). She invented the AI cameras, landed the Flare's camera deal with her grandfather about four years before the game, and he handed her the reins over the uncles about two years before (Mike's revision). |
 | 1.10 | The Graham/Claire arc needs more springs than the game has | Open | |
 | 2.1 | The outfit is named after the secret | Open | |
 | 2.2 | The sale is public, so M2 has no mystery | Open | |

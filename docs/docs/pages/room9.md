@@ -4,7 +4,7 @@ The room 9 mystery moves into Gus's time: Gus's Revaris camera deal, Bennett's l
 
 In story order, all a few years before the game starts:
 
-1. **The camera deal (yours).** The gaming commission requires a modern camera system, and the Flare can't afford one. Wren's security company offers cheap AI cameras plus cash up front. Gus signs knowing the company is Revaris, because it keeps the doors open. It's his second secret, next to his gambling.
+1. **The camera deal (yours).** The gaming commission requires a modern camera system, and the Flare can't afford one. Wren's security company offers cheap AI cameras plus cash up front. Wren invented the cameras, and she and her grandfather, still the Black Hand's boss then, land the deal together; it's what makes him hand her the reins (Mike, 2026-10-25). Gus signs knowing the company is Revaris, because it keeps the doors open. It's his second secret, next to his gambling.
 2. **Richard's markers.** Richard ran up markers at the Flare's tables. The house he'd lived in for decades went to cover them, and he still owed more.
 3. **Bennett finds out (yours).** As the alderman who holds the Flare's license, Bennett traces the camera company through business and license records, then links it to Revaris through his contacts at the police department.
 4. **The squeeze.** Bennett forces Gus to wipe out what Richard still owes, in return for keeping quiet about the cameras. His dislike of the Flare is now personal: it took his father's house.

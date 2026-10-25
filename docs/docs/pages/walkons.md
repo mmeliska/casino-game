@@ -10,7 +10,7 @@ No portraits planned unless noted. Unnamed characters stay unnamed until a scene
 | Richard's weekly driver | Drops Bennett's envelope at Dot's desk every week. | Bennett, Richard, Dot | M4 |
 | The filing lawyer | The lawyer on the Flare's sale paperwork, whom Mitch recognizes from Bennett's old deals. | Bennett, Mitch | A2.2, M2 |
 | Vivian's lawyer | Pulls Rosa's gaming commission file; clears a raid off your record for a fee. | Vivian, Rosa, Ed | M1, R4 |
-| Revaris's old guard and the uncles | The old bosses and family Wren pushed past; they resent her. | Wren | A4.5 |
+| Revaris's old guard and the uncles | The old bosses and family passed over when Wren's grandfather handed her the reins; they resent her, and she still has dirt on them. | Wren | A4.5 |
 | The Revaris crew | Moves into the Flare after the bailout and muscles in on Juan's dice. | Wren, Ray, Juan | A2.3, R3 |
 | The Tuesday league | Millstone Lanes bowlers, $40 short for team shirts. | Juan | S1, A3.2 |
 | The mill pensioner | Behind on his tab at Kasia's; later wins a RailYard slot tournament. | Kasia | S2 |
