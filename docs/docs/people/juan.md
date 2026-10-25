@@ -14,7 +14,7 @@ Friendly with league bowlers, indifferent to everyone else, and annoyed by casua
 
 ## Story
 
-Revaris tries to muscle in with loaded dice and you can help him push them out; as a machine guy he can teach you to spot a weighted die (R3). Raffy hides out with him. You meet him when Kasia sends you over with the Tuesday league's free-drink coupons, and he's the one who tells you about the Starflare across the river (A1.3).
+Umbra tries to muscle in with loaded dice and you can help him push them out; as a machine guy he can teach you to spot a weighted die (R3). Raffy hides out with him. You meet him when Kasia sends you over with the Tuesday league's free-drink coupons, and he's the one who tells you about the Starflare across the river (A1.3).
 
 ## Voice
 
@@ -32,7 +32,7 @@ A lane shift for $50 (a league regular is short on fees).
 
 ## Related
 
-Raffy, Ed, the Tuesday league (S1), Revaris.
+Raffy, Ed, the Tuesday league (S1), Umbra.
 
 ## Planning record
 
@@ -44,10 +44,10 @@ Raffy, Ed, the Tuesday league (S1), Revaris.
 - **Role:** Runs the street dice. The alley's mechanic (Mike, 2026-10-17): keeps the ancient pinsetters running with spare parts and stubbornness, and runs the dice in the back lot after the last frame; the owner looks the other way because the dice money pays for the parts that keep the lanes open. Started as a teenager clearing jammed pins and learned the machines from the old mechanic, so he's been there about 25 years; keeps the game fair, knows every Backwater rumor, and Ed leaves him alone. Who (settled 2026-10-17): a Mexican-American man in his early 40s; dark stubble, a grease-stained work shirt with his name patch, a bowling-alley logo cap, a rag in his back pocket; gruff, with a soft spot for the league regulars
 - **Ties to:** Backwater
 - **Hangouts:** The back lot of Millstone Lanes
-- **Hook:** Fair in normal play. The opt-in loaded-dice story: Revaris tries to muscle in on his game, and you can help him push them out; as a machine guy he can show you how to spot a weighted die
+- **Hook:** Fair in normal play. The opt-in loaded-dice story: Umbra tries to muscle in on his game, and you can help him push them out; as a machine guy he can show you how to spot a weighted die
 
 ## Proposals from the review
 
 *From the 18 Oct 2026 Story and Character Review, not yet settled.*
 
-- **Companion (proposal):** edge: Reads dice, hears every Backwater rumour, a safe place to hide someone; joins: Help push Revaris's loaded dice out of Millstone Lanes; you lose them: Bring heat to the Lanes (a raid traced to you)
+- **Companion (proposal):** edge: Reads dice, hears every Backwater rumour, a safe place to hide someone; joins: Help push Umbra's loaded dice out of Millstone Lanes; you lose them: Bring heat to the Lanes (a raid traced to you)

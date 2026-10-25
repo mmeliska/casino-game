@@ -28,7 +28,7 @@ Ten places to gamble, from the settled venue table in Planning Tasks task 3. Bet
 | Bridgehead Fuel & Food | The Bridges | Gas station at the main bridge; worst odds in town, best gossip | Cheap three-reel slots, video poker, pull tabs, scratchers | $1–$5 | Anyone | Mitch at the counter (and his race book out back) |
 | Starflare Club ("the Flare") | The Levee | Gus's rocket-age casino, slowly fading | Rocket-themed slots, video poker, blackjack, craps, roulette, poker, keno, the Rocket Wheel | $5–$100 | Anyone | Gus, Pete, Jalen, Stella, Miles/Audrey in the lounge, Ray at the bar |
 | Prairie Queen | The Levee | Old-time riverboat; you're aboard until it docks | Blackjack, craps, roulette, paddlewheel slots, video poker | $5–$200 | A ticket for a set sailing | Kiran; Rosa near the landing |
-| Cinder Room | The Levee | Revaris's after-hours game in an old mill basement; password changes | Casino war (house game: high card wins; on a tie you go to war or surrender), craps, no-limit poker, old one-armed bandits | $100 to no limit, cash only | Heat above a threshold or an Revaris vouch | Ray, Revaris muscle, rarely Wren |
+| Cinder Room | The Levee | Umbra's after-hours game in an old mill basement; password changes | Casino war (house game: high card wins; on a tie you go to war or surrender), craps, no-limit poker, old one-armed bandits | $100 to no limit, cash only | Heat above a threshold or an Umbra vouch | Ray, Umbra muscle, rarely Wren |
 | The RailYard | The Levee | Locals' casino in the old rail depot on the Levee's edge; clean, busy, a little plain, with a buffet; what the Flare could be if Gus ran it well | Rail-themed slots, video poker, blackjack, craps, roulette, poker, keno; players' card and weeknight slot tournaments | $10–$500 | Reach $1,500 once | Mill pensioners, Chase/Brooke early on; most Flare regulars after the fall |
 | Harborlight | Marquee Mile | Lighthouse-themed hotel casino; a friendly first rung up | Lighthouse-themed slots, video poker, blackjack, craps, roulette, poker, keno | $25–$1,000 | Reach $5,000 once; heat below a limit; smart casual | Bennett, Vivian at the high tables, Chase/Brooke |
 | Aurelian | Marquee Mile | The out-of-town chain; cameras everywhere, counters get backed off | Big-screen video slots and progressive jackpots, video poker, blackjack, craps, roulette, poker, baccarat in the high-limit room | $25–$5,000 | Reach $10,000 once; low heat; high-limit room at $25,000 | Tae, Felix/Nora at the desk, Stella in meetings |
@@ -42,7 +42,7 @@ Places that matter to the story but aren't venues. Unnamed ones are marked; thei
 | Place | District | What happens there | Key details |
 | --- | --- | --- | --- |
 | Slack Water Motel | Backwater | Your first home; Dot works the desk and asks what brings you to Northlight | The rocket sign visible across the river from the lot |
-| Room 9, Slack Water Motel | Backwater | Richard, Bennett's father, lives here; Bennett pays the bill weekly and never visits; Revaris watches the room | The weekly envelope drop Dot sees; Richard's key on a lanyard; War with Richard at the picnic table in the motel lot |
+| Room 9, Slack Water Motel | Backwater | Richard, Bennett's father, lives here; Bennett pays the bill weekly and never visits; Umbra watches the room | The weekly envelope drop Dot sees; Richard's key on a lanyard; War with Richard at the picnic table in the motel lot |
 | Gus's office, the Flare | The Levee | Where Gus's secrets live | The tape of Rosa's table; the framed photo of Dot and her sister |
 | The Flare's lounge | The Levee | Half-empty piano lounge; Miles or Audrey plays nightly and overhears everything | Covered piano as the Flare declines |
 | Prairie Queen landing | The Levee | Rosa's hangout near the boat | Paddle lights, river mist |
@@ -82,7 +82,7 @@ Your home moves with your bankroll, from the settled housing ladder.
 | The Northern Ledger | Spring | Overnight train to the state capital during the legislative session | Club-car poker | Levee alderman's invite or $10,000 once | The Machine, Bennett, Mayor Dabareski, Graham/Claire |
 | The Gilded Pine | Summer | Old-money lake resort up north | Resort tables | Silvershore invite or $25,000 once | Vivian, Tae, the mayor, rebuild backers |
 | Haybale Downs | Late summer to fall | Harness racing track; broke-friendly | Race betting | A tip at Bridgehead | Mitch's world |
-| Blackspruce Lodge | Winter | One-time, invite-only high-stakes poker | Poker | Invitation | Revaris, old money, Ray, Wren |
+| Blackspruce Lodge | Winter | One-time, invite-only high-stakes poker | Poker | Invitation | Umbra, old money, Ray, Wren |
 
 **Places that appear only as the story moves**
 

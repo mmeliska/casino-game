@@ -12,7 +12,7 @@ Only endings 1 and 2 finish the main story. Every other outcome is a resting poi
 | 6 | Gus lets go | Act 4, after helping him quit | Gus comes back for a reopening |
 | 7 | The name stays with Starflare Field | Act 4, Field timer ends first | Win the name back later by leverage |
 | 8 | Mob takeover | Act 4, Wren's deal | Expose Wren later to take the name (leads to 2) |
-| 9 | Burned down | Act 3 or 4, fighting dirty with high heat | Carry on as normal; stay clear of Revaris for a while before backers trust you |
+| 9 | Burned down | Act 3 or 4, fighting dirty with high heat | Carry on as normal; stay clear of Umbra for a while before backers trust you |
 | 10 | The sellout | Act 4 (Wren) or act 5 (Tae) | Leverage can still take the name (2), or a long climb on generous and reliable (1) |
 
 The ways back were agreed with Mike on 2026-10-21. Relighting the rocket always means a brand-new sign for the new Starflare, so the old sign's fate (stadium gate, fire, or Tae's restaurant in outcome 5) is flavour only.

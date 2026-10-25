@@ -18,7 +18,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 1.8 | "Era-agnostic" names a decade | Fixed | "1960s" replaced with "rocket age" in t01, t03 and the Northlight venue table; history pages left as they were. Modern tech stays (era-agnostic = no named year). |
 | 1.9 | Wren's résumé doesn't fit her age | Fixed | Wren is early 30s (about 32). She invented the AI cameras, landed the Flare's camera deal with her grandfather about four years before the game, and he handed her the reins over the uncles about two years before (Mike's revision). |
 | 1.10 | The Graham/Claire arc needs more springs than the game has | Fixed | Only the meet needs the spring train. Beat 3 is dinner downtown and beat 4 a Starflare Field fundraiser, both in Northlight in acts 3-4, any season; the spring ride together moves to the epilogue; a mid-arc spring is an optional bonus scene. |
-| 2.1 | The outfit is named after the secret | Open | |
+| 2.1 | The outfit is named after the secret | Fixed | The outfit is Umbra to everyone (the Black Hand and Wren's rename are dropped). Revaris Technologies is only Wren's camera company, a respectable-looking firm; that Revaris is Umbra's front is the secret (M2, M4). Naming rule recorded in t02. |
 | 2.2 | The sale is public, so M2 has no mystery | Open | |
 | 2.3 | Ordinary play at Kiran's table isn't fair | Open | |
 | 2.4 | Never-rich players can't reach the never-rich ending | Open | |

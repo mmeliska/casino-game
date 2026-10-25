@@ -1,4 +1,4 @@
-*Supporting · Revaris, maybe · the Prairie Queen*
+*Supporting · Umbra, maybe · the Prairie Queen*
 
 ## Look
 
@@ -6,7 +6,7 @@ The Prairie Queen's old-time riverboat uniform (striped vest, sleeve garters, a 
 
 ## Backstory
 
-An Indian-American man in his early 30s who grew up in the Levee. A young dad who borrowed from Ray when his daughter needed surgery that insurance wouldn't cover, and the interest buried him. Revaris collects by having him skim the riverboat's cheap tables.
+An Indian-American man in his early 30s who grew up in the Levee. A young dad who borrowed from Ray when his daughter needed surgery that insurance wouldn't cover, and the interest buried him. Umbra collects by having him skim the riverboat's cheap tables.
 
 ## Personality
 
@@ -14,7 +14,7 @@ The friendliest dealer on the boat: chatty, quick with a joke, remembers your na
 
 ## Story
 
-A cheating-rule scenario. A regular complains or Rosa says to watch a table, and the tip may be wrong. Call him out (he loses the job and Revaris notices you), walk away, or help him get clear of Ray by paying the debt or quietly passing what you know to Ed.
+A cheating-rule scenario. A regular complains or Rosa says to watch a table, and the tip may be wrong. Call him out (he loses the job and Umbra notices you), walk away, or help him get clear of Ray by paying the debt or quietly passing what you know to Ed.
 
 ## Voice
 
@@ -38,9 +38,9 @@ Ray, Wren, Ed, Rosa.
 
 - **Listed as:** Kiran (the Prairie Queen's crooked dealer; named 2026-10-17) (Supporting)
 - **Role:** Blackjack dealer who cheats. Who (settled 2026-10-17): an Indian-American man in his early 30s who grew up in the Levee; a young dad who borrowed from Ray when his daughter needed surgery insurance wouldn't cover, and the interest buried him. The friendliest dealer on the boat: chatty, quick with a joke, remembers your name, so he's the last one you'd suspect; his tell is that he goes quiet and stops joking on the hands he's fixing (dialogue, not animation). Look: the Prairie Queen's old-time riverboat uniform (striped vest, sleeve garters, a bow tie always a little crooked), neat black hair, a wedding ring he turns when nervous (text only), a photo of his daughter tucked by his chip tray
-- **Ties to:** Revaris, maybe
+- **Ties to:** Umbra, maybe
 - **Hangouts:** Prairie Queen
-- **Hook:** Catch them (rigged-riverboat mystery idea). Squeezed, not evil (settled 2026-10-17): they owe Ray, and Revaris collects by having them skim the riverboat's cheap tables. A story scenario under the cheating rule (a regular complains, or Rosa says to watch a table, and the tip may be wrong); you can call them out (they lose the job and Revaris notices you), walk away, or help them get clear of Ray by paying the debt or quietly passing what you know to Ed
+- **Hook:** Catch them (rigged-riverboat mystery idea). Squeezed, not evil (settled 2026-10-17): they owe Ray, and Umbra collects by having them skim the riverboat's cheap tables. A story scenario under the cheating rule (a regular complains, or Rosa says to watch a table, and the tip may be wrong); you can call them out (they lose the job and Umbra notices you), walk away, or help them get clear of Ray by paying the debt or quietly passing what you know to Ed
 
 ## Proposals from the review
 

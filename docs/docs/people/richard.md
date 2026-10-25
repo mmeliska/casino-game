@@ -6,11 +6,11 @@ Late 70s and a little worn down: thin white hair that isn't always combed, grey 
 
 ## Backstory
 
-Bennett's father (Mike's pick for the name). A few years ago he ran up markers at the Flare and the house he'd lived in for decades went to cover them. Bennett forced Gus to wipe out the rest. Ashamed, Gus gave him the key to a safety deposit box at an old Levee bank holding Wren's camera contract and the office footage of Bennett's demand, where he spells out the trade: "I'll keep quiet about who your cameras belong to." Gus told Richard: "If anyone ever comes after you over the debt, open it." He wears the key on a lanyard and has never opened the box; he keeps his word and is too proud to take Gus's help. Bennett pays his motel bill every week by envelope and never visits. Richard doesn't know: he thinks Gus pays it out of guilt. Revaris watches his door because the box proves Wren's camera company is Revaris.
+Bennett's father (Mike's pick for the name). A few years ago he ran up markers at the Flare and the house he'd lived in for decades went to cover them. Bennett forced Gus to wipe out the rest. Ashamed, Gus gave him the key to a safety deposit box at an old Levee bank holding Wren's camera contract and the office footage of Bennett's demand, where he spells out the trade: "I'll keep quiet about who your cameras belong to." Gus told Richard: "If anyone ever comes after you over the debt, open it." He wears the key on a lanyard and has never opened the box; he keeps his word and is too proud to take Gus's help. Bennett pays his motel bill every week by envelope and never visits. Richard doesn't know: he thinks Gus pays it out of guilt. Umbra watches his door because the box proves Wren's camera company, Revaris Technologies, is Umbra's front.
 
 ## Role
 
-Plays War alone at the picnic table in the motel lot, and you can join him (a story-event game: one pass, 10 cards each, standard War ties). It's the game he taught Bennett as a boy. Once he trusts you, you notice Revaris watching his door, and he opens the box with you and he has the final say: shame Bennett into getting the name back for Gus, give Bennett the box and reconcile father and son (they play a hand of War; Bennett gets the name back for Gus out of gratitude), burn it, or hand it to Ed (which exposes Gus's deal too). This is one of the leverage routes to winning back the name.
+Plays War alone at the picnic table in the motel lot, and you can join him (a story-event game: one pass, 10 cards each, standard War ties). It's the game he taught Bennett as a boy. Once he trusts you, you notice Umbra watching his door, and he opens the box with you and he has the final say: shame Bennett into getting the name back for Gus, give Bennett the box and reconcile father and son (they play a hand of War; Bennett gets the name back for Gus out of gratitude), burn it, or hand it to Ed (which exposes Gus's deal too). This is one of the leverage routes to winning back the name.
 
 ## Voice
 
@@ -28,4 +28,4 @@ No set scene in room 9 (Mike); the War game is at the motel picnic table.
 
 ## Related
 
-Bennett, Gus, Dot, Ed, Revaris.
+Bennett, Gus, Dot, Ed, Umbra.

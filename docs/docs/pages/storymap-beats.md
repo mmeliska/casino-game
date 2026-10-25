@@ -10,7 +10,7 @@ Beats inside an act can come in any order unless a gate says otherwise. The last
 | A1.2 | Night one | Kasia's Tap | Night 1, after checking in | Pull tabs and video poker; hold Raffy's envelope or not | Kasia opens your credit; first seed (Raffy's envelope) |
 | A1.3 | Kasia's jobs and the back room | Kasia's Tap, Millstone Lanes, Kasia's back room | After night one; the back room opens once both jobs are done | A paid bar-back shift (a drunk regular drops a fat wallet: return it or not); take Juan a box of free-drink coupons for his Tuesday league at Millstone Lanes (Mike, 2026-10-23); in the back room Rosa warns you off a hand: fold or play it | Meet Juan, who tells you about the Flare across the river; meet Rosa, who starts teaching you the games |
 | A1.4 | The wedding | Kasia's Tap | After Kasia's jobs (a separate third job) | Server or busser; dance with whoever asks, or say you're on the clock | Sets which romance versions you meet |
-| A1.5 | Ray asks around | Kasia's Tap, Slack Water Motel, Millstone Lanes | Weeks after night one, if you still hold Raffy's envelope | Return it to Ray, keep the cash, hand the drive to Ed, or help Raffy pay Ray back | First thread into the Revaris story |
+| A1.5 | Ray asks around | Kasia's Tap, Slack Water Motel, Millstone Lanes | Weeks after night one, if you still hold Raffy's envelope | Return it to Ray, keep the cash, hand the drive to Ed, or help Raffy pay Ray back | First thread into the Umbra story |
 | A1.6 | Over the bridge | Bridgehead, the Flare | After Juan tells you about the Flare and you've worked the wedding | Coffee with Gus, rub the spaceman's boot | Meet Gus |
 | A1.7 | Becoming a regular | The Flare | A few Flare visits | Keep Gus's secret or not | Meet Pete and Jalen; Dot and Gus each ask about the other |
 | A1.8 | First rung up | The RailYard | Best bankroll $1,500 |  | The rival is already a step ahead |
@@ -23,7 +23,7 @@ Beats inside an act can come in any order unless a gate says otherwise. The last
 | --- | --- | --- | --- | --- | --- |
 | A2.1 | Ray collects | Gus's office | Start of act | Cover part of the debt (generous), stay out, or tell Pete | Gus's trust |
 | A2.2 | A friend of Ray's | The Flare | After Ray collects |  | Gus has turned down Tae's satellite offer; Gus won't say who bought it (really Revaris Technologies, which later puts the land into the Levee Stadium District); the lawyer's name on the paperwork (clue) |
-| A2.3 | Things change anyway | The Flare | After the bailout |  | Revaris crew moves in; Pete uneasy; Rosa won't come in |
+| A2.3 | Things change anyway | The Flare | After the bailout |  | Umbra crew moves in; Pete uneasy; Rosa won't come in |
 | A2.4 | The Mile | The Harborlight | Best bankroll $5,000 |  | First comped suite; the rival is a regular there |
 | A2.5 | Higher up | The Aurelian | Best bankroll $10,000 | Follow Stella or not | Stella and Tae false lead; Northern Ledger in spring |
 | A2.6 | Bennett | Harborlight fundraiser | After the bailout |  | Bennett's mayoral run |
@@ -48,10 +48,10 @@ Beats inside an act can come in any order unless a gate says otherwise. The last
 
 | Code | Beat | Where | Opens when | The choice | Leads to |
 | --- | --- | --- | --- | --- | --- |
-| A4.1 | The truth |  | Start of act | Confront Gus: he admits he sold his dad's place to Revaris (2026-10-23). Forgive him, or hold it over him | Gus's trust |
+| A4.1 | The truth |  | Start of act | Confront Gus: he admits he sold his dad's place to Umbra (2026-10-23). Forgive him, or hold it over him | Gus's trust |
 | A4.2 | Gus at the bottom | Cinder Room | Start of act | Help him quit, with Dot and Stella | Gus's trust; Gus lets go (6) |
-| A4.3 | Expose Revaris | Cinder Room, the Aurelian | You kept Raffy's drive, or Felix/Nora show you the Aurelian's footage | Trade your silence to Wren for the name, or hand the proof to Ed | Name won back (Wren remembers); Ed gets his case if you hand it over |
-| A4.4 | Leverage | Old Levee bank, room 9 | Richard trusts you | You spot Revaris watching his door; Richard opens Gus's box and decides: shame, reconcile, burn, or hand it to Ed | Name won back from Bennett (burn closes this road) |
+| A4.3 | Expose Umbra | Cinder Room, the Aurelian | You kept Raffy's drive, or Felix/Nora show you the Aurelian's footage | Trade your silence to Wren for the name, or hand the proof to Ed | Name won back (Wren remembers); Ed gets his case if you hand it over |
+| A4.4 | Leverage | Old Levee bank, room 9 | Richard trusts you | You spot Umbra watching his door; Richard opens Gus's box and decides: shame, reconcile, burn, or hand it to Ed | Name won back from Bennett (burn closes this road) |
 | A4.11 | By the book | The commission | Graham/Claire together or friend | File the conflict-of-interest complaint against Bennett's hidden cut (friend: you gather the proof yourself, at a cost) | Name won back without exposing Gus |
 | A4.5 | Wren's deal | Cinder Room | Any time in act | Give her Gus's markers or Raffy's thumb drive | Mob takeover (8) or sellout (10) |
 | A4.6 | Tae's offer | The Aurelian | Any time in act | Side with Tae and Stella | Tae's restaurant (5) |

@@ -11,13 +11,13 @@ A statehouse staffer who rides the train every spring for the legislative sessio
 
 ## Romance arc
 
-**In short:** Values integrity with power. Lives in Northlight and rides the Ledger each spring for the legislative session (settled). Exclusive route: a conflict-of-interest license rule against Bennett's hidden cut that wins back the name by the book, without exposing his Revaris deal.
+**In short:** Values integrity with power. Lives in Northlight and rides the Ledger each spring for the legislative session (settled). Exclusive route: a conflict-of-interest license rule against Bennett's hidden cut that wins back the name by the book, without exposing his Umbra deal.
 
 *The rest of this section is from Romance Arcs: a proposal unless marked settled.*
 
 **First met:** the club car of the Northern Ledger on your first spring trip to the state capital. **Value: integrity with power.** Either version is a statehouse staffer who knows how gaming licenses really get decided, and has watched powerful people trade favors for years. They live in Northlight the rest of the year (settled), so chance meetings in the city are possible, and they hear about your year through the news and statehouse gossip.
 
-**Story role: a by-the-book way to win back the name (act 4).** Besides the room 9 box or exposing Revaris (there is no cash route, 2026-10-23), they know a license rule: the commission can take an alderman's say over a license away if he has a conflict of interest, and Bennett takes a hidden cut of the stadium deal. **Together:** they walk you through it and get your complaint in front of the right people, so you can win back the name by the rules without exposing Gus's Revaris deal. They also shape the epilogue headline about Bennett's mayor race. **Friend:** they explain the rule, but you have to gather and file the proof yourself, at a real cost in money and time. **Ended:** you never hear about it.
+**Story role: a by-the-book way to win back the name (act 4).** Besides the room 9 box or exposing Umbra (there is no cash route, 2026-10-23), they know a license rule: the commission can take an alderman's say over a license away if he has a conflict of interest, and Bennett takes a hidden cut of the stadium deal. **Together:** they walk you through it and get your complaint in front of the right people, so you can win back the name by the rules without exposing Gus's Umbra deal. They also shape the epilogue headline about Bennett's mayor race. **Friend:** they explain the rule, but you have to gather and file the proof yourself, at a real cost in money and time. **Ended:** you never hear about it.
 
 **Exclusive route:** the conflict-of-interest route above is this romance's exclusive. It only reaches you through a statehouse insider who trusts you; without Graham/Claire, freeing Gus means paying or the room 9 box.
 

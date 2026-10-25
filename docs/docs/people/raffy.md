@@ -14,7 +14,7 @@ On night one at Kasia's Tap (A1.2) he slides you a sealed envelope ("hold this t
 
 ## The drive
 
-Face-match logs from Wren's cameras and a list of who pays her to stay quiet. It is the first thread into the Revaris story, a clue in M2, and something Wren wants in A4.5.
+Face-match logs from Wren's cameras and a list of who pays her to stay quiet. It is the first thread into the Umbra story, a clue in M2, and something Wren wants in A4.5.
 
 ## Voice
 
@@ -40,7 +40,7 @@ Ray, Kasia, Dot, Juan, Ed, Wren.
 - **Role:** Asks you to hold something on night one. The courier (settled 2026-10-17): a jittery kid who runs envelopes for Ray's collections. Who (settled 2026-10-17): 19 (Mike: 18 or 19), Filipino-American, grew up in Backwater; took the job because it paid better than his delivery gig and made him feel like somebody; his mom is a nurse working double shifts, and he skimmed to cover her rent, then panicked; a good kid making a dumb mistake. Look: skinny, oversized hoodie, cracked phone in hand, one earbud in, a delivery-bike helmet clipped to his backpack; talks fast, laughs nervously; at Kasia's to drop off, not to drink or play. at Kasia's on night one he slides you a sealed envelope ("hold this till Friday, don't open it") and tips you $50, then doesn't come back. You can open it anytime: about $2,000 in cash and a thumb drive. He skimmed from a collection and panicked; weeks later Ray is asking around Kasia's and the Slack Water and Dot warns you
 - **Ties to:** Unknown
 - **Hangouts:** Kasia's Tap at first, then hiding out at Millstone Lanes
-- **Hook:** The first seed. Your choice: return it to Ray (reliable; a small Revaris favor; easier loans), keep the cash (crooked and risky), hand the drive to Ed (straight; starts the informant path), or find the courier hiding out at Millstone Lanes with Juan and help him pay Ray back. Reveal: the drive holds face-match logs from Wren's cameras and a list of who pays her to stay quiet, which is where her leverage comes from; the first thread into the bigger Revaris story.
+- **Hook:** The first seed. Your choice: return it to Ray (reliable; a small Umbra favor; easier loans), keep the cash (crooked and risky), hand the drive to Ed (straight; starts the informant path), or find the courier hiding out at Millstone Lanes with Juan and help him pay Ray back. Reveal: the drive holds face-match logs from Wren's cameras and a list of who pays her to stay quiet, which is where her leverage comes from; the first thread into the bigger Umbra story.
 
 ## Proposals from the review
 
