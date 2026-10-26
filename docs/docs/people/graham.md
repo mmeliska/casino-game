@@ -19,7 +19,7 @@ A statehouse staffer who rides the train every spring for the legislative sessio
 
 **Story role: a by-the-book way to win back the name (act 4).** Besides the room 9 box or exposing Umbra (there is no cash route, 2026-10-23), they know a license rule: the commission can take an alderman's say over a license away if he has a conflict of interest, and Bennett takes a hidden cut of the stadium deal. **Together:** they walk you through it and get your complaint in front of the right people, so you can win back the name by the rules without exposing Gus's Umbra deal. They also shape the epilogue headline about Bennett's mayor race. **Friend:** they explain the rule, but you have to gather and file the proof yourself, at a real cost in money and time. **Ended:** you never hear about it.
 
-**Exclusive route:** the conflict-of-interest route above is this romance's exclusive. It only reaches you through a statehouse insider who trusts you; without Graham/Claire, freeing Gus means paying or the room 9 box.
+**Exclusive route:** the conflict-of-interest route above is this romance's exclusive. It only reaches you through a statehouse insider who trusts you; without Graham/Claire, the name comes back only through the room 9 box or by exposing Umbra (A4.3); there is no cash route.
 
 ### Beats
 
@@ -35,7 +35,7 @@ Only the meet needs the train. If another spring comes around mid-arc, the club 
 
 ### Observed choices
 
-- **Room 9 (M4):** reconciling Bennett and Richard or handing the box to Ed counts for; shaming Bennett into freeing Gus counts against (it's blackmail, however good the cause); burning it is neutral. Statehouse gossip.
+- **Room 9 (M4):** reconciling Bennett and Richard or handing the box to Ed counts for; shaming Bennett into returning the name counts against (it's blackmail, however good the cause); burning it is neutral. Statehouse gossip.
 - **The Prairie Queen skim:** telling Ed or Wren counts for; keeping it as leverage counts against.
 - **Crooked tables:** calling one out on real clues counts for; accusing on a hunch, or riding a fixed table, counts against. It makes the papers when it's big.
 - **Bennett's mayor race:** what you said in public about the stadium shows up in the news they read.

@@ -33,7 +33,7 @@ In story order, all a few years before the game starts:
 | Burn it | The leverage road closes; you win the name back another way. |
 | **Hand it to Ed (Mike: in)** | Ed gets his case against Wren's cameras (the informant path), but Gus's Umbra deal comes out too, which hurts Gus's trust and the Flare's name. |
 
-**The new catch:** any use of the box in public exposes Gus as well as Bennett, so the leverage route to freeing Gus costs Gus something. The private choices (shame, reconcile) avoid that.
+**The new catch:** any use of the box in public exposes Gus as well as Bennett, so the leverage route to winning back the name costs Gus something. The private choices (shame, reconcile) avoid that.
 
 ## What changes elsewhere
 
