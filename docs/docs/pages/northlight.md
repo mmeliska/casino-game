@@ -50,7 +50,7 @@ Places that matter to the story but aren't venues. Unnamed ones are marked; thei
 | Bennett's office | The Levee | Where you deal with the alderman | The photo on his desk (a clue to Richard); location not yet named |
 | Mitch's back room, Bridgehead | The Bridges | His Haybale Downs race book (events, not a game) | Opens up as your straight/crooked scale allows |
 | Aurelian front desk | Marquee Mile | Felix or Nora's post; an inside view of check-ins, comped suites and Stella's meetings |  |
-| Vivian's lakefront land | Lakefront | The site the lakefront Starflare needs; the Aurelian wants it too | Exact district not yet settled |
+| Vivian's lakefront land | Lakefront | The site the lakefront Starflare needs; the Aurelian wants it too | On the Marquee Mile, right at the Silvershore line: licensed and on the lake (audit 2.5, Mike 2026-10-26) |
 | Lock Street Station (the Northlight vice squad) | Citywide | Ed's base; a night in lockup after a raid | Named by Mike 2026-10-23. Ed's base; "Lock Street" doubles as slang for the lockup. Placement (proposal): the Levee, beside the old canal lock on the river |
 
 ## Where you live
