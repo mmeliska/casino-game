@@ -16,6 +16,9 @@ The Flare's face for comps, credit and higher limits; watches your hot streaks. 
 
 On the Flare's last night you find him alone at the dark pit. He has taken Tae's offer because he needs the money and can't afford to retire yet, and he asks you to tell Gus. Tell Gus yourself, push Pete to do it, or say nothing. He hands you his gold rocket pin; when you open a floor, giving it back hires him home, unless you sold out Gus.
 
+
+He quietly arranged room 9 at Dot's motel for Gus, which is why Richard lives there; Dot only knows Pete asked a favor (M4, audit 4.8).
+
 ## Voice
 
 Short and flat, calls everyone "kid" until they earn their name; numbers and facts; never compliments Gus to his face. Lies by not answering. *"Kid. Your rating says you're a $50 player. Play like one."*
