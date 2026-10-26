@@ -42,7 +42,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 3.10 | Wren's people meet Bennett where she can't erase the footage | Fixed | Venues keep their own footage copies Wren can't erase; the Aurelian takes Revaris cameras in act 2 (S13) and is Wren's showcase, so her people meet Bennett there thinking she controls every copy; the chain's own archive (via Felix/Nora) keeps it. If Umbra is exposed in act 4 the Aurelian rips the cameras out in act 5 (reputation hit, tips Vivian) |
 | 3.11 | Gus trusts the people who blackmailed him | Fixed | Gus doesn't believe Umbra's promise; he tells himself and the regulars, changes the subject when pressed; A3.1 breaks the lie |
 | 4.1 | Seed 11's payoff meeting is never defined | Fixed | Ray meets the filing lawyer (Bennett's) on the Long Bridge before dawn (no Wren cameras; hoodlums smash them), hands over Gus's signed sale contract, takes a secret finder's fee behind Wren's back; A2.2 setup: "I just know a guy, never met him" |
-| 4.2 | The Cinder Room seed fires before you can enter | Open | |
+| 4.2 | The Cinder Room seed fires before you can enter | Fixed | Ray, hanging around the Flare, slips you the Cinder Room password once you've won there (recruiting new money); you catch Gus by surprise; Gus's secret stays intact |
 | 4.3 | The by-the-book route has no evidence source | Open | |
 | 4.4 | The excursions have no invitations | Open | |
 | 4.5 | Meeting Vivian is circular | Open | |

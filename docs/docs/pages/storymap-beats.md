@@ -14,7 +14,7 @@ Beats inside an act can come in any order unless a gate says otherwise. The last
 | A1.6 | Over the bridge | Bridgehead, the Flare | After Juan tells you about the Flare and you've worked the wedding | Coffee with Gus, rub the spaceman's boot | Meet Gus |
 | A1.7 | Becoming a regular | The Flare | A few Flare visits | Keep Gus's secret or not | Meet Pete and Jalen; Dot and Gus each ask about the other |
 | A1.8 | First rung up | The RailYard | Best bankroll $1,500 |  | The rival is already a step ahead |
-| A1.9 | Cracks | Cinder Room, the Flare | Any order | Tell Pete what you saw, or keep quiet | Seeds: Gus gambles; Stella's worry |
+| A1.9 | Cracks | Cinder Room, the Flare | Any order (Ray slips you the Cinder Room password once you've won at the Flare) | Tell Pete what you saw, or keep quiet | Seeds: Gus gambles; Stella's worry |
 | A1.10 | **Ray comes to collect** | Gus's office | $5,000 + Gus's trust + two weeks |  | **Act 2** |
 
 ### Act 2, the bailout (\~8 hours)
