@@ -33,7 +33,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 3.1 | Bennett blackmails inside a room he knows is wired | Fixed | Gus secretly recorded the squeeze on his own desk recorder (office is off the floor cameras), the only copy, in the box; Wren pays Bennett's cut herself through Revaris so her books are the evidence; Wren has no office-footage copy |
 | 3.2 | Revaris watches room 9 for years and never acts | Fixed | Box rented in Richard's name, opens only with his signature; Umbra watches to see if he goes to the bank; box holds the original signed contract and the only recording, both things Wren lacks |
 | 3.3 | Richard's trigger has already been met | Fixed | Act 4: Umbra men follow you to room 9 with Richard's old Flare markers (Revaris owns the books), say the write-off was illegal, pay or hand over the key; Gus's condition met word for word |
-| 3.4 | Bennett has no reason to keep the tape | Open | |
+| 3.4 | Bennett has no reason to keep the tape | Fixed | Bennett keeps the tape as insurance against Gus testifying about the room 9 squeeze (never for the campaign); his city inspectors' condemnation walk-through at A3.5 gives lawful access |
 | 3.5 | An anti-gambling candidate brands his stadium with a casino | Open | |
 | 3.6 | Raffy carries Wren's data for no reason | Open | |
 | 3.7 | The commission saw the tape but nobody knows Gus gambled | Open | |
