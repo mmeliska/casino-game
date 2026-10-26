@@ -63,6 +63,10 @@ Your home moves with your bankroll, from the settled housing ladder.
 4. **A comped suite on the Marquee Mile**: lost when you cool off at the tables.
 5. **Silvershore**: buy in, or stay as someone's guest.
 
+## The cameras
+
+Revaris cameras cover the city (Mike, 2026-10-26): casinos, bars, shops, motels and parking lots take them below worth, and the city's "Safe Streets" contract puts Revaris plate readers on streets and bridges (Bennett championed it; Ed's squad uses it). Every venue keeps its own copies; the city readers feed Revaris directly. Dead zones: all of Backwater, which voted the cameras down like it voted down casinos, and the Long Bridge, where the hoodlums keep smashing the readers. See [wren].
+
 ## Landmarks
 
 | Landmark | Where | Meaning in the city |

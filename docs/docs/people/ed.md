@@ -10,7 +10,7 @@ Honest to the bone, a bit gruff, tired of watching the big fish get away. Works 
 
 ## Role
 
-The face of the heat system. Illegal games raise heat: low means they're around and know you, medium means warnings and sweeps that shut a game for the night, high means a raid (lose the table money, pay a fine or spend a night in lockup, and the venue goes quiet). He doesn't care about your dice game; he wants Wren for illegal surveillance and blackmail and leans on you to become an informant. He once gave Bennett the Umbra link behind the Flare's cameras in good faith, and Bennett used it for himself.
+The face of the heat system. Illegal games raise heat: low means they're around and know you, medium means warnings and sweeps that shut a game for the night, high means a raid (lose the table money, pay a fine or spend a night in lockup, and the venue goes quiet). He doesn't care about your dice game; he wants Wren for illegal surveillance and blackmail and leans on you to become an informant. He once gave Bennett the Umbra link behind the Flare's cameras in good faith, and Bennett used it for himself. His squad runs on the city's Revaris plate readers ("Safe Streets"), so Wren sees whatever Ed's people look up; he knows it and hates it (Mike, 2026-10-26).
 
 ## Lowering heat
 
