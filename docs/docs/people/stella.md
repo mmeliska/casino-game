@@ -6,7 +6,7 @@ Mid-20s, long brown hair, well educated and attractive (confirmed by Mike 2026-1
 
 ## Backstory
 
-Gus's grown daughter, a finance analyst downtown who has run the Flare's numbers and knows it's sinking. Dot is her aunt and Pete is "Uncle" Pete. Tae was like a big brother to her when she was little, which is why she trusts him.
+Gus's grown daughter, a finance analyst downtown who has run the Flare's numbers and knows it's sinking. She never sees the Ray debt (audit 3.8): Ray lends to Gus personally, off the Flare's books, so she sees only operating losses, the roof and the thin crowds. One thing doesn't add up: Gus quietly remortgaged his house. She reads it as him propping up the Flare with his own money, which is part of why she wants him to let go. When the truth comes out, she realizes what the mortgage was really for. Dot is her aunt and Pete is "Uncle" Pete. Tae was like a big brother to her when she was little, which is why she trusts him.
 
 ## Role
 
