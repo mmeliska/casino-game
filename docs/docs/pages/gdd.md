@@ -43,8 +43,8 @@ Time runs on what you do, not the real clock (settled 19 Oct 2026).
 | Rounds | Each round advances the clock a few minutes, but only to the end of the current part of the day; after that play is unlimited |
 | Days | Pass only when you move, sleep, travel or take a job |
 | App closed | No in-game time passes; small timers count in-game time only |
-| Day length | About 15 minutes of normal play (proposal) |
-| Season | 28 days, about 7 hours (proposal) |
+| Day length | About 15 minutes of normal play (starting value; tune once the prototype runs, Mike 2026-10-26) |
+| Season | 28 days, about 7 hours (starting value; tune once the prototype runs) |
 | Main story | About 42 hours to opening night, about six seasons: act 1 ~8h, act 2 ~8h, act 3 ~8h, act 4 ~10h, act 5 ~8h |
 
 There is no story clock. The only deadline on the main line is Starflare Field's Opening Day, the first one at least three seasons after the fall, and missing it leads to a resting point (outcome 7), not a fail. Seasons gate the excursions and a few beats. Small deadlines ("done by Friday", Ray's due date) are fine; a game-ending timer is not.
@@ -294,11 +294,11 @@ Ten outcomes. Only 1 and 2 end the main story; the other eight are resting point
 
 ## Platform and technical approach
 
-Ship on iOS and Android first; consider a Switch 2 port if the game succeeds. The proposed stack is Unity with Ink, mainly to keep the Switch 2 door open.
+Ship on iOS and Android first; consider a Switch 2 port if the game succeeds. The engine is Unity with Ink (settled by Mike, 26 Oct 2026), mainly to keep the Switch 2 door open.
 
-| Decision | Proposal | Why |
+| Decision | Choice | Why |
 | --- | --- | --- |
-| Engine | Unity (alternative: Godot) | Mature mobile export and a Switch 2 path through Nintendo's developer program; Godot needs a third-party porting service for consoles |
+| Engine | Unity (settled 26 Oct 2026; Godot was the alternative) | Mature mobile export and a Switch 2 path through Nintendo's developer program; Godot needs a third-party porting service for consoles |
 | Narrative | Ink, via inkle's Unity integration | Branching story with variables and conditions in plain script files |
 | Content data | JSON (or YAML) files for events, venues, jobs, items and NPCs | Tune content without touching engine code |
 | Saving | Autosave after every round, choice and job | Phone sessions get cut off mid-hand |
@@ -350,11 +350,9 @@ Premium, or a free demo with a one-time unlock. Never sell chips.
 
 **Open questions**
 
-- Unity or Godot: confirm after a small prototype, or decide up front?
-- Day length (about 15 minutes) and season length (28 days) are proposals to confirm in playtesting.
 - Investigation mini-games for "you can't be sure" moments, such as spot the difference built from story panels (Mike, 26 Oct 2026, to consider).
-- Music and sound direction.
-- Price point and demo length.
+- Music and sound direction (later).
+- Price point and demo length (later).
 - Proposals still open elsewhere: the job table's rows and the inventory list ([Rules and systems](#rules)), and the romance beats ([Romance](#romance)).
 
 **Next steps**
@@ -365,4 +363,5 @@ Premium, or a free demo with a one-time unlock. Never sell chips.
 - [x] Choose a working title (task 11: Starflare Casino)
 - [ ] Prototype blackjack wired to the state model, clock and event director
 - [ ] Write act 1's beats in Ink against the schema above
-- [ ] Settle the engine choice
+- [x] Settle the engine choice (Unity)
+- [ ] Tune day and season length once the prototype runs
