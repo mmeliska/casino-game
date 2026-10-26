@@ -1,6 +1,11 @@
 ## 26 Oct 2026
 
-The rest of the consistency audit was fixed and merged, and a few new rules came out of it.
+The rest of the consistency audit was fixed and merged, and a few new rules came out of it. The game design document was then brought up to date, which finishes the planning tasks.
+
+### Game design document
+
+- The [Game design](#design) page was rewritten as the build spec, matching every decision on the site (task 12). It now covers time and pacing without a story clock; the full state model (best bankroll, debts, heat, the hidden scales, NPC state, flags, Pockets); the money gates; venues by district; the games and the cheating rule; heat and Wren's camera network; jobs, the phone and inventory; the event director with beats, reveals, table events and the merged event schema; the five acts, clean or dirty and the license hearing; and the outcomes, epilogue and post-game.
+- All thirteen planning tasks are now done.
 
 ### New rules and additions
 

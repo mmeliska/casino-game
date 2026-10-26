@@ -13,5 +13,5 @@ Suggested order: era comes first because it shapes the city, the casinos and the
 - [x] 9\. Seeds, reveals and sample events (after 3 and 6): [Seeds and reveals](#seeds)
 - [x] 10\. Endings and post-game (after 7): [Outcomes](#outcomes)
 - [x] 11\. Working title (anytime): [About this site](#sources)
-- [ ] 12\. Update the game design document (last): [Rules and systems](#rules)
+- [x] 12\. Update the game design document (last): [Game design](#design)
 - [x] 13\. Jobs, the phone and inventory (after 6): [Rules and systems](#rules)

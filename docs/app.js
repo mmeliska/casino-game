@@ -311,7 +311,7 @@ ${[["Lane shift","juan","Afternoon","$50","A league regular is short on fees"],[
 <li>Northlight is a nice city; nobody treats it as a place to escape (Jalen leaves Backwater, not the city).</li></ul></div>`;
 
 P.design=()=>`<div class="page wide"><p class="eyebrow">Systems</p><h1>Game design</h1>
-<p class="lede">The game design document: the first full design pass (15 Oct 2026). Task 12 will bring it up to date with the planning decisions; until then, where it differs from the other pages, they win.</p>
+<p class="lede">The game design document: the build spec for Starflare Casino. First written 15 Oct 2026 and brought up to date with every planning decision on 26 Oct 2026 (task 12). It covers the systems; the story pages hold the story and win on story detail.</p>
 ${part("pages/gdd","gdd","design")}
 ${planRec([12],"design")}</div>`;
 P.writing=()=>`<div class="page wide"><p class="eyebrow">Writing</p><h1>Writing guide</h1>
