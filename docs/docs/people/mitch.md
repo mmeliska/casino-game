@@ -10,7 +10,7 @@ Years ago he made big bets on supposedly inside information and lost almost ever
 
 ## Role
 
-The side-action guy. Cynical and not inviting, but talks if you hit the right subjects. Quietly books Haybale Downs race bets out the back (an event source, not a game). Your straight/crooked lean decides how far he lets you in. Recognizes the lawyer on the Flare's sale filing from Bennett's old deals (a clue in M2).
+The side-action guy. Cynical and not inviting, but talks if you hit the right subjects. Quietly books Haybale Downs race bets out the back (an event source, not a game). Your straight/crooked lean decides how far he lets you in. Recognizes the lawyer on the Flare's sale filing from Bennett's old deals (a clue in M2). Once he trusts you he can name that lawyer's trust account, the one his bad tip ran through years ago and the one that now carries Bennett's hidden stadium cut; that's the proof for the by-the-book route (A4.11; audit 4.3).
 
 ## Voice
 

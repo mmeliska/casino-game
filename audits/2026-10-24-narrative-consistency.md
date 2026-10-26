@@ -43,7 +43,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 3.11 | Gus trusts the people who blackmailed him | Fixed | Gus doesn't believe Umbra's promise; he tells himself and the regulars, changes the subject when pressed; A3.1 breaks the lie |
 | 4.1 | Seed 11's payoff meeting is never defined | Fixed | Ray meets the filing lawyer (Bennett's) on the Long Bridge before dawn (no Wren cameras; hoodlums smash them), hands over Gus's signed sale contract, takes a secret finder's fee behind Wren's back; A2.2 setup: "I just know a guy, never met him" |
 | 4.2 | The Cinder Room seed fires before you can enter | Fixed | Ray, hanging around the Flare, slips you the Cinder Room password once you've won there (recruiting new money); you catch Gus by surprise; Gus's secret stays intact |
-| 4.3 | The by-the-book route has no evidence source | Open | |
+| 4.3 | The by-the-book route has no evidence source | Fixed | Mitch names the filing lawyer's trust account (Revaris -> lawyer -> Bennett's cut); complaint cites it, the commission subpoenas the records; nothing stolen |
 | 4.4 | The excursions have no invitations | Open | |
 | 4.5 | Meeting Vivian is circular | Open | |
 | 4.6 | The expose-Revaris route hurts innocents | Open | |
