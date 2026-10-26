@@ -12,6 +12,10 @@ A tech genius and the old Umbra boss's granddaughter, whom nobody took seriously
 
 High-end AI face-matching cameras installed in the Flare, the RailYard and the Prairie Queen (the Aurelian runs its own) at a price well below their worth, because the real payment is the data they record. Every feed also goes to her. Her real business is blackmail: gamblers hiding losses, dealers, cops and officials pay her in money, favors or silence. She has dirt on Bennett taking casino money, and her camera in Gus's office caught him squeezing Gus, which is why she let Ray's name front his purchase of the Flare. Her cameras caught Bennett taking his hidden cut of the stadium deal, so she owns the man running for mayor.
 
+## Her deal (act 4)
+
+Only two loose ends can tie Revaris Technologies to Umbra: Raffy's thumb drive, which shows the camera feeds going to Umbra, and Gus, who signed knowing. Gus's old markers and your IOU from S6 let her ruin him the day he talks. By act 4 you're the one holding her loose ends, so she makes you an offer at the Cinder Room (A4.5) and brings her file on you (S10). Hand her either and she's safe to move openly: she pulls the Starflare name out of the Stadium District through Revaris and opens her own crooked Starflare (O8, or O10 if you sold Gus out for the payout). Settled by Mike, 2026-10-26 (audit 2.7).
+
 ## Voice
 
 Calm, quick, technical, polite; data and outcomes; never raises her voice or uses slang. She doesn't need to lie. *"I already know. I wanted to see if you'd tell me."*

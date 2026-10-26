@@ -53,7 +53,7 @@ Beats inside an act can come in any order unless a gate says otherwise. The last
 | A4.3 | Expose Umbra | Cinder Room, the Aurelian | You kept Raffy's drive, or Felix/Nora show you the Aurelian's footage | Trade your silence to Wren for the name, or hand the proof to Ed | Name won back (Wren remembers); Ed gets his case if you hand it over |
 | A4.4 | Leverage | Old Levee bank, room 9 | Richard trusts you | You spot Umbra watching his door; Richard opens Gus's box and decides: shame, reconcile, burn, or hand it to Ed | Name won back from Bennett (burn closes this road) |
 | A4.11 | By the book | The commission | Graham/Claire together or friend | File the conflict-of-interest complaint against Bennett's hidden cut (friend: you gather the proof yourself, at a cost) | Name won back without exposing Gus |
-| A4.5 | Wren's deal | Cinder Room | Any time in act | Give her Gus's markers or Raffy's thumb drive | Mob takeover (8) or sellout (10) |
+| A4.5 | Wren's deal | Cinder Room | Any time in act | Give her Gus's markers or Raffy's thumb drive, the only loose ends tying Revaris to Umbra | She pulls the name out of the District for her own Starflare: mob takeover (8) or sellout (10) |
 | A4.6 | Tae's offer | The Aurelian | Any time in act | Side with Tae and Stella | Tae's restaurant (5) |
 | A4.7 | Loose ends | Prairie Queen, commission | Clues found | Tell Wren, tell Ed, or keep the skim as leverage | Rosa's license; leverage on Ray |
 | A4.8 | The rival | Anywhere | If you refused them |  | Theft, or all is well |
