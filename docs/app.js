@@ -238,7 +238,7 @@ P.romance=()=>`<div class="page"><p class="eyebrow">People · romance</p><h1>Rom
 <h2>The three</h2>
 <div class="tablewrap"><table><thead><tr><th>Who</th><th>Value</th><th>Story role</th><th>Exclusive route</th></tr></thead><tbody>
 <tr><td><a href="#miles">Miles / Audrey</a><br><span class="small muted">Flare lounge</span></td><td>Loyalty</td><td>Saw Bennett's people take the tape (M1)</td><td>House band reunion: Tae sells the name at a fair price</td></tr>
-<tr><td><a href="#felix">Felix / Nora</a><br><span class="small muted">Aurelian desk</span></td><td>Honesty</td><td>The filing lawyer meeting Bennett (M2); clears Stella early</td><td>The Aurelian's own cameras: leverage over Wren</td></tr>
+<tr><td><a href="#felix">Felix / Nora</a><br><span class="small muted">Aurelian desk</span></td><td>Honesty</td><td>The filing lawyer meeting Bennett (M2); clears Stella early</td><td>The Aurelian's own footage archive: leverage over Wren</td></tr>
 <tr><td><a href="#graham">Graham / Claire</a><br><span class="small muted">Northern Ledger</span></td><td>Integrity with power</td><td>The conflict-of-interest license rule</td><td>Win back the name by the rules without exposing his Umbra deal</td></tr>
 </tbody></table></div>
 ${part("pages/romance","rom","romance")}</div>`.replace(/\{([A-Z0-9.]+)\}/g,(m,c)=>`<a class="code" href="#${c}">${c}</a>`);

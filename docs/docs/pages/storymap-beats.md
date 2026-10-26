@@ -64,7 +64,7 @@ Beats inside an act can come in any order unless a gate says otherwise. The last
 
 | Code | Beat | Where | Opens when | The choice | Leads to |
 | --- | --- | --- | --- | --- | --- |
-| A5.1 | Vivian's land | Gilded Pine, Obsidian | Start of act | Win Vivian or help Tae (sellout) | Land (\~$1M, cheaper the closer you are to her) |
+| A5.1 | Vivian's land | Gilded Pine, Obsidian | Start of act | Win Vivian or help Tae (sellout) | Land (\~$1M, cheaper the closer you are to her); if Umbra was exposed in act 4, the Aurelian rips out its Revaris cameras and takes a reputation hit, tipping Vivian your way |
 | A5.2 | Backers | Around the city | Start of act | Win Jalen (if he climbed clean) and Vivian as backers | Jalen invests and runs the poker room (the hotel once the post-game tower opens); Vivian is a silent partner; you pay at least a quarter of each phase |
 | A5.3 | The crew | Aurelian, Kasia's Tap | Land won |  | Rosa, license restored, manages all casino staff; friendly cast are offered jobs (Pete back from Tae) |
 | A5.4 | Relight the rocket | The lakefront site | Land won | Pick the design for a brand-new rocket sign over the new casino, where the hotel tower will rise; the old sign stays over the Starflare Field gate | Relight (\~$250k) |

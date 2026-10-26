@@ -39,7 +39,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 3.7 | The commission saw the tape but nobody knows Gus gambled | Fixed | Commission saw only the overhead dealer cam (Rosa's hands, chip flow, no faces); Gus kept the only wide-angle tape showing him in the seat (the tape Bennett takes at A3.5) |
 | 3.8 | Stella runs the numbers but never asks about the debt | Fixed | Ray debt is Gus's personal debt, off the Flare's books; Stella sees only operating losses, but notices Gus remortgaged his house and reads it as him propping up the Flare (seed for the reveal) |
 | 3.9 | Stella and Tae keep meeting after the sale | Fixed | After the sale Stella asks Tae to dig into who's really behind Revaris (the deal smells wrong); her search mirrors yours; clearing her lets you compare notes |
-| 3.10 | Wren's people meet Bennett where she can't erase the footage | Open | |
+| 3.10 | Wren's people meet Bennett where she can't erase the footage | Fixed | Venues keep their own footage copies Wren can't erase; the Aurelian takes Revaris cameras in act 2 (S13) and is Wren's showcase, so her people meet Bennett there thinking she controls every copy; the chain's own archive (via Felix/Nora) keeps it. If Umbra is exposed in act 4 the Aurelian rips the cameras out in act 5 (reputation hit, tips Vivian) |
 | 3.11 | Gus trusts the people who blackmailed him | Open | |
 | 4.1 | Seed 11's payoff meeting is never defined | Open | |
 | 4.2 | The Cinder Room seed fires before you can enter | Open | |
