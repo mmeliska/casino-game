@@ -32,7 +32,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 2.12 | "Collect for Ray: maybe Gus" has a narrow window | Fixed | Debtors follow the story: the rival in acts 2-3 (A2.7/A3.8), Kiran any time, and Gus in act 4 after he borrows from Ray again during his relapse (A4.2). |
 | 3.1 | Bennett blackmails inside a room he knows is wired | Fixed | Gus secretly recorded the squeeze on his own desk recorder (office is off the floor cameras), the only copy, in the box; Wren pays Bennett's cut herself through Revaris so her books are the evidence; Wren has no office-footage copy |
 | 3.2 | Revaris watches room 9 for years and never acts | Fixed | Box rented in Richard's name, opens only with his signature; Umbra watches to see if he goes to the bank; box holds the original signed contract and the only recording, both things Wren lacks |
-| 3.3 | Richard's trigger has already been met | Open | |
+| 3.3 | Richard's trigger has already been met | Fixed | Act 4: Umbra men follow you to room 9 with Richard's old Flare markers (Revaris owns the books), say the write-off was illegal, pay or hand over the key; Gus's condition met word for word |
 | 3.4 | Bennett has no reason to keep the tape | Open | |
 | 3.5 | An anti-gambling candidate brands his stadium with a casino | Open | |
 | 3.6 | Raffy carries Wren's data for no reason | Open | |

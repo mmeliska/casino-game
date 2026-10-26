@@ -10,7 +10,7 @@ Bennett's father (Mike's pick for the name). A few years ago he ran up markers a
 
 ## Role
 
-Plays War alone at the picnic table in the motel lot, and you can join him (a story-event game: one pass, 10 cards each, standard War ties). It's the game he taught Bennett as a boy. Once he trusts you, you notice Umbra watching his door, and he opens the box with you and he has the final say: shame Bennett into amending his stadium ordinance to return the name to Gus, give Bennett the box and reconcile father and son (they play a hand of War; out of gratitude Bennett files the same amendment), burn it, or hand it to Ed (which exposes Gus's deal too). This is one of the leverage routes to winning back the name.
+Plays War alone at the picnic table in the motel lot, and you can join him (a story-event game: one pass, 10 cards each, standard War ties). It's the game he taught Bennett as a boy. Once he trusts you, umbra men, who followed you there because you've been digging, knock on room 9 with Richard's old Flare markers: Revaris bought the Flare, so it owns the marker books, and they say the write-off was never legal, so he owes them now. Pay, or hand over the key. That is someone coming after him over the debt, so he opens the box with you, and he has the final say: shame Bennett into amending his stadium ordinance to return the name to Gus, give Bennett the box and reconcile father and son (they play a hand of War; out of gratitude Bennett files the same amendment), burn it, or hand it to Ed (which exposes Gus's deal too). This is one of the leverage routes to winning back the name.
 
 ## Voice
 
