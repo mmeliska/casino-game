@@ -30,7 +30,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 2.10 | Holding Raffy's cash unlocks a venue on night one | Fixed | Best bankroll counts your own money: cash minus debts (Ray's loan, Kasia's ledger, Flare markers). Raffy's envelope is a story key until you keep it at A1.5. Closes the borrowing exploit too. |
 | 2.11 | The Northlight venue table is stale | Fixed | The venue table now says the back room opens by Kasia's invitation after her two jobs (A1.3), matching t03. |
 | 2.12 | "Collect for Ray: maybe Gus" has a narrow window | Fixed | Debtors follow the story: the rival in acts 2-3 (A2.7/A3.8), Kiran any time, and Gus in act 4 after he borrows from Ray again during his relapse (A4.2). |
-| 3.1 | Bennett blackmails inside a room he knows is wired | Open | |
+| 3.1 | Bennett blackmails inside a room he knows is wired | Fixed | Gus secretly recorded the squeeze on his own desk recorder (office is off the floor cameras), the only copy, in the box; Wren pays Bennett's cut herself through Revaris so her books are the evidence; Wren has no office-footage copy |
 | 3.2 | Revaris watches room 9 for years and never acts | Open | |
 | 3.3 | Richard's trigger has already been met | Open | |
 | 3.4 | Bennett has no reason to keep the tape | Open | |

@@ -46,7 +46,7 @@ Places that matter to the story but aren't venues. Unnamed ones are marked; thei
 | Gus's office, the Flare | The Levee | Where Gus's secrets live | The tape of Rosa's table; the framed photo of Dot and her sister |
 | The Flare's lounge | The Levee | Half-empty piano lounge; Miles or Audrey plays nightly and overhears everything | Covered piano as the Flare declines |
 | Prairie Queen landing | The Levee | Rosa's hangout near the boat | Paddle lights, river mist |
-| Old Levee bank | The Levee | Gus's safety deposit box (Wren's camera contract and the office footage of Bennett's demand); Richard wears the key | Bank not yet named |
+| Old Levee bank | The Levee | Gus's safety deposit box (Wren's camera contract and Gus's own recording of Bennett's demand); Richard wears the key | Bank not yet named |
 | Bennett's office | The Levee | Where you deal with the alderman | The photo on his desk (a clue to Richard); location not yet named |
 | Mitch's back room, Bridgehead | The Bridges | His Haybale Downs race book (events, not a game) | Opens up as your straight/crooked scale allows |
 | Aurelian front desk | Marquee Mile | Felix or Nora's post; an inside view of check-ins, comped suites and Stella's meetings |  |

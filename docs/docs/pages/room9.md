@@ -8,9 +8,9 @@ In story order, all a few years before the game starts:
 2. **Richard's markers.** Richard ran up markers at the Flare's tables. The house he'd lived in for decades went to cover them, and he still owed more.
 3. **Bennett finds out (yours).** As the alderman who holds the Flare's license, Bennett traces the camera company through business and license records, then links it to Umbra through his contacts at the police department.
 4. **The squeeze.** Bennett forces Gus to wipe out what Richard still owes, in return for keeping quiet about the cameras. His dislike of the Flare is now personal: it took his father's house.
-5. **The proof.** Gus, ashamed, gives Richard the key to a safety deposit box at an old Levee bank. Inside are the camera contract and the Flare's own camera recording of Bennett making the demand in Gus's office. Gus tells him: "If anyone ever comes after you over the debt, open it." Richard wears the key on a lanyard around his neck and never takes it off. He has never opened the box: nobody has come after him, he keeps his word, and he's too proud to take help from the man whose casino took his house. The key is a reminder, not a tool.
+5. **The proof.** Gus, ashamed, gives Richard the key to a safety deposit box at an old Levee bank. Inside are the camera contract and Gus's own recording of Bennett making the demand in Gus's office. Bennett picked the office because it is off the floor cameras, so Wren's system never saw it; Gus ran a recorder in his desk. It is the only copy. Gus tells him: "If anyone ever comes after you over the debt, open it." Richard wears the key on a lanyard around his neck and never takes it off. He has never opened the box: nobody has come after him, he keeps his word, and he's too proud to take help from the man whose casino took his house. The key is a reminder, not a tool.
 6. **Room 9.** Richard ends up at the Slack Water. Bennett pays the room every week by envelope and never visits. Richard thinks Gus pays it out of guilt.
-7. **Why Umbra watches room 9.** The box proves that Wren's camera company, Revaris Technologies, is Umbra's front. Wren also has her own copy of that office footage, which is part of her hold on Bennett.
+7. **Why Umbra watches room 9.** The box proves that Wren's camera company, Revaris Technologies, is Umbra's front. Wren doesn't have the recording, which is why she wants the box.
 
 **Proposal, Ed's part:** Ed is the police contact, and he gave the Umbra link to Bennett in good faith, thinking the alderman would help build a case against Wren. Bennett used it for himself instead. That keeps Ed honest and gives him a reason to distrust Bennett. Ed never learns what Bennett did with it unless you tell him.
 
@@ -41,12 +41,12 @@ If you approve this, these are the edits to Planning Tasks, the Story Map, North
 
 | Where | Now | After |
 | --- | --- | --- |
-| Room 9 mystery (task 8) | The founder's ledger; Bennett's first bribe from the founder; the founder gave Richard the key | Gus's camera deal; Bennett's squeeze; Gus gave Richard the key to a box holding the contract and the office footage |
+| Room 9 mystery (task 8) | The founder's ledger; Bennett's first bribe from the founder; the founder gave Richard the key | Gus's camera deal; Bennett's squeeze; Gus gave Richard the key to a box holding the contract and his own recording of the squeeze |
 | Mr. Hamilton | Ran the illegal back room, paid Bennett, kept the ledger | Built the Flare in the rocket age, gave Pete his first job and pin; no plot role |
 | The Flare's history (task 2) | A rocket-age supper club with illegal back-room games | A rocket-age supper club that later became a licensed casino; no back room, so it can't be confused with Kasia's |
 | Gus | Inherited the Flare "with its debts and secrets"; secretly gambles | Also signed Wren's camera deal knowing it was Umbra, to keep the Flare afloat |
 | Bennett | Took his first bribe from the founder; personal grudge from the old back room | Still takes bribes from the casino business; his grudge is that the Flare took his father's house |
-| Wren | Her cameras caught Bennett taking casino money | Also holds the office footage of Bennett's squeeze on Gus |
+| Wren | Her cameras caught Bennett taking casino money | Pays Bennett's stadium cut herself through Revaris (her books are her hold on him); never saw the office squeeze (audit 3.1) |
 | Richard | Thinks Mr. Hamilton arranged his rent | Thinks Gus pays it out of guilt |
 | Dot's stories | Four stories, including the suitcase at dawn (tied to the founder's back room and lost bet) and the man in room 9 | **Settled (Mike):** the suitcase story is dropped and folded into room 9. A quiet man has lived there the last couple of years, the bill comes in an envelope, she doesn't know his story, and he never takes off the key on a lanyard around his neck. Her stories become the flood, room 9 and the shirt. |
 | Cinder Room | Has "the founder's old one-armed bandits" | Simply old one-armed bandits |

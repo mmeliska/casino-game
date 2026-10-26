@@ -10,7 +10,7 @@ A tech genius and the old Umbra boss's granddaughter, whom nobody took seriously
 
 ## The business
 
-High-end AI face-matching cameras installed in the Flare, the RailYard and the Prairie Queen (the Aurelian runs its own) at a price well below their worth, because the real payment is the data they record. Every feed also goes to her. Her real business is blackmail: gamblers hiding losses, dealers, cops and officials pay her in money, favors or silence. She has dirt on Bennett taking casino money, and her camera in Gus's office caught him squeezing Gus, which is why she let Ray's name front his purchase of the Flare. Her cameras caught Bennett taking his hidden cut of the stadium deal, so she owns the man running for mayor.
+High-end AI face-matching cameras installed in the Flare, the RailYard and the Prairie Queen (the Aurelian runs its own) at a price well below their worth, because the real payment is the data they record. Every feed also goes to her. Her real business is blackmail: gamblers hiding losses, dealers, cops and officials pay her in money, favors or silence. She has dirt on Bennett taking casino money. She pays his hidden cut of the stadium deal herself, through Revaris, so her own books are the proof and she owns the man running for mayor. She never saw Bennett squeeze Gus in his office (off the floor cameras); only Gus's own recording in Richard's box did, which is why she wants it.
 
 ## Her deal (act 4)
 

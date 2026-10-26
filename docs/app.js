@@ -54,7 +54,7 @@ P.home=()=>`<div class="page">
 <li>As a penalty, the gaming commission made the Flare install a new camera system Gus couldn't afford. Wren offered hers for far less than they were worth, because the real payment is the data. When Gus refused, her people showed him footage of his own secret gambling, so he signed, knowing it put Umbra inside his casino.</li>
 <li>Bennett found out about the Umbra cameras. Instead of exposing Gus, he made a trade: Gus would cancel what Bennett's father Richard still owed the Flare in gambling debts. Gus did, and gave Richard the key to a box holding proof of the deal. <a class="code" href="#M4">M4</a></li>
 <li>Gus's own gambling debt kept growing. When Ray came to collect, Revaris Technologies offered to buy the Flare and clear it. Gus knew it was the mob but was cornered, so he signed, and out of shame told everyone "a friend of Ray's" bought it. Umbra then put the land into the Levee Stadium District, becoming its biggest investor, and Bennett pushed the deal through in return for campaign money and a hidden cut. <a class="code" href="#A2.2">A2.2</a></li>
-<li>Wren's cameras caught Bennett's cut, so she holds leverage over the man running for mayor. Finding this out opens act 4. <a class="code" href="#M2">M2</a></li>
+<li>Wren pays Bennett's hidden cut herself through Revaris, so her own books hold leverage over the man running for mayor. Finding this out opens act 4. <a class="code" href="#M2">M2</a></li>
 </ol>
 <p class="small muted">The clues and payoffs for each are on <a href="#mysteries">Mysteries</a>.</p>
 <h2>Where to go next</h2>
@@ -79,7 +79,7 @@ function chainHTML(){
   ["Gus's gambling debt keeps growing",""],
   ["The bailout","[ray] collects. A \"friend of Ray's\" buys the Flare and the sale clears the debt: really Revaris Technologies, and Gus knows. Umbra puts the land into the Levee Stadium District, pushed through by [bennett]. {A2.2}"],
   ["Umbra invests; Bennett takes a hidden cut",""],
-  ["Wren owns Bennett","Her cameras caught his cut, which gives her leverage on the man running for mayor. Finding this out opens act 4. {M2}"]];
+  ["Wren owns Bennett","She pays his hidden cut herself through Revaris, so her own books give her leverage on the man running for mayor. Finding this out opens act 4. {M2}"]];
   return `<div class="flow">${steps.map(s=>s[1]?`<div class="step"><b>${s[0]}</b>${md(s[1])}</div>`:`<div class="arrow">${s[0]}</div>`).join("")}</div>`;
 }
 
