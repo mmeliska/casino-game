@@ -14,7 +14,9 @@ On night one at Kasia's Tap (A1.2) he slides you a sealed envelope ("hold this t
 
 ## The drive
 
-Nobody trusted Raffy with it; he stole the wrong envelope (audit 3.6). The drive is Ray's secret insurance against Wren: face-match logs he copied off the Prairie Queen camera feed he's allowed to watch, and a list of who pays her to stay quiet, kept in case she ever turns on him. That's why only Ray asks around at A1.5, and quietly: telling Umbra what he lost means admitting he made the copy. Holding it gives you leverage on Ray. It is the first thread into the Umbra story, a clue in M2, and something Wren wants in A4.5.
+Nobody trusted Raffy with it; he stole the wrong envelope (audit 3.6). The drive is Ray's secret insurance against Wren: face-match logs he copied off the Prairie Queen camera feed he's allowed to watch, and a list of who pays her to stay quiet, kept in case she ever turns on him. That's why only Ray asks around at A1.5, and quietly: telling Umbra what he lost means admitting he made the copy. Holding it gives you leverage on Ray.
+
+Two files (audit 4.6): the face-match logs, which prove the Revaris feeds go to Umbra and are all the clean route at A4.3 uses; and Wren's payers list. The first time you open the drive you decide the list's fate: destroy it (straight, soft; those people are free of her), keep it (crooked; a black-hat tool, never clean leverage, and Wren may come looking), or later hand Ed the whole drive so the names come out (ruthless). It is the first thread into the Umbra story, a clue in M2, and something Wren wants in A4.5.
 
 ## Voice
 

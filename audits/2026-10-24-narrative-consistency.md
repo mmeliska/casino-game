@@ -46,7 +46,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 4.3 | The by-the-book route has no evidence source | Fixed | Mitch names the filing lawyer's trust account (Revaris -> lawyer -> Bennett's cut); complaint cites it, the commission subpoenas the records; nothing stolen |
 | 4.4 | The excursions have no invitations | Fixed | Yacht invite comes with Vivian's Obsidian sponsorship (A3.6); Ray invites you to Blackspruce in your first winter as a Cinder Room regular (stake partner) |
 | 4.5 | Meeting Vivian is circular | Fixed | Act 2: you only glimpse Vivian at the Harborlight high tables; act 3: the Gilded Pine opens at $25k (Silvershore-invite unlock dropped) and you meet her there |
-| 4.6 | The expose-Revaris route hurts innocents | Open | |
+| 4.6 | The expose-Revaris route hurts innocents | Fixed | Drive = two files: logs (the clean A4.3 proof) and Wren's payers list; first open: destroy it (straight), keep it (crooked, black-hat tool), or hand Ed everything (ruthless). Also: new clean-or-dirty rule, every act 4 route has a black-hat version |
 | 4.7 | Way back from O5 contradicts "no cash route" | Open | |
 | 4.8 | The Richard–Dot coincidence is unexplained | Open | |
 
