@@ -10,7 +10,7 @@ Grew up in Backwater and is saving up to get out. Learned poker by quietly watch
 
 ## Arc
 
-A feel-good rags-to-riches story. You can stake him, his wins pay you back, and your choices decide whether he climbs clean. He gets out of Backwater, pays back his stake in act 4, and becomes one of only two backers of the lakefront Starflare, later head of the hotel. A spotless player may see Wren threaten him instead (S10).
+A feel-good rags-to-riches story. You can stake him, his wins pay you back, and your choices decide whether he climbs clean. He gets out of Backwater, pays back his stake in act 4, and becomes one of only two backers of the lakefront Starflare. On opening night he runs the new Starflare's poker room (the room he learned in), then the hotel once the post-game tower opens (audit 2.9, Mike 2026-10-26). A spotless player may see Wren threaten him instead (S10).
 
 ## Voice
 
@@ -24,7 +24,7 @@ Well spoken and super polite ("sir", "ma'am", "thank you"), quiet and watchful o
 
 ## Related
 
-Gus, the player (his backer), Wren.
+Gus, Pete (keeps an eye on him; Pete started as a busboy too), the player (his backer), Wren.
 
 ## Planning record
 

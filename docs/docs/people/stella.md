@@ -6,11 +6,11 @@ Mid-20s, long brown hair, well educated and attractive (confirmed by Mike 2026-1
 
 ## Backstory
 
-Gus's grown daughter, a finance analyst downtown who has run the Flare's numbers and knows it's sinking. Dot is her aunt and Pete is "Uncle" Pete. Tae was like a big brother to her when she was little, which is why she trusts him.
+Gus's grown daughter, a finance analyst downtown who has run the Flare's numbers and knows it's sinking. She never sees the Ray debt (audit 3.8): Ray lends to Gus personally, off the Flare's books, so she sees only operating losses, the roof and the thin crowds. One thing doesn't add up: Gus quietly remortgaged his house. She reads it as him propping up the Flare with his own money, which is part of why she wants him to let go. When the truth comes out, she realizes what the mortgage was really for. Dot is her aunt and Pete is "Uncle" Pete. Tae was like a big brother to her when she was little, which is why she trusts him.
 
 ## Role
 
-Loves her dad and thinks the Flare is killing him, so she wants him to sell. She quietly meets Tae at the Aurelian, which makes her a false lead in M2; she was only seeking her dad a fair buyout. Clearing her brings her and Gus closer. She is the human face of the buyout and closure endings.
+Loves her dad and thinks the Flare is killing him, so she wants him to sell. She quietly meets Tae at the Aurelian, which makes her a false lead in M2; after the sale she has asked him to dig into who's really behind Revaris Technologies, because the deal smells wrong to her and the chain knows the industry (audit 3.9), so her meetings mirror your own search. Clearing her lets you compare notes and brings her and Gus closer. She is the human face of the buyout and closure endings.
 
 ## Voice
 

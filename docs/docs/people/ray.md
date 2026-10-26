@@ -1,4 +1,4 @@
-*Core · Revaris · Starflare bar, Cinder Room, Blackspruce Lodge*
+*Core · Umbra · Starflare bar, Cinder Room, Blackspruce Lodge*
 
 ## Look
 
@@ -10,7 +10,7 @@ The loan shark and your easiest big debt. A little too confident; acts like the 
 
 ## Story
 
-Collects on Gus's debt, squeezes him until he sells, and brings him Revaris's offer as "a friend of mine" (2026-10-23). He's the go-between and never knows the whole plan. He lends too much (to Chase or Brooke, say), makes indebted dealers like Kiran skim the Prairie Queen's cheap tables to cover bad loans, and thinks Wren doesn't know. She does, and lets him dig his own hole. He shrinks when the real Revaris shows up.
+Collects on Gus's debt, squeezes him until he sells, and brings him Umbra's offer as "a friend of mine" (2026-10-23). He's the go-between and never knows the whole plan. He recruits new money for the Cinder Room: once you've won at the Flare in act 1 he slips you the password, "a real game, for real players" (A1.9; audit 4.2). Resenting that Wren knows everything, he secretly copied her logs off the Prairie Queen feed onto a thumb drive as insurance; Raffy stole it from his car by mistake (A1.2), and Ray can only hunt for it quietly, because Umbra must never learn he made it (audit 3.6). He lends too much (to Chase or Brooke, say), makes indebted dealers like Kiran skim the Prairie Queen's cheap tables to cover bad loans, and thinks Wren doesn't know. She does, and lets him dig his own hole. He shrinks when the real Umbra shows up.
 
 ## Voice
 
@@ -38,9 +38,9 @@ Wren (his boss), Gus, Chase/Brooke, Kiran, Raffy (his courier), Bennett, Ed (kee
 
 - **Listed as:** Ray (loan shark; formerly Dutch, renamed 2026-10-17) (Core)
 - **Role:** Loan shark
-- **Ties to:** Revaris
+- **Ties to:** Umbra
 - **Hangouts:** Starflare bar, Cinder Room, Blackspruce Lodge
-- **Hook:** Your easiest big debt; tied to the mob-takeover ending. Personality (Mike, 2026-10-17): a little too confident in himself; acts like the big man but still answers to someone in Revaris. Renamed Ray (Dutch clashed with Dutch Schultz and Red Dead Redemption 2); wherever this doc says Dutch, read Ray. Look (settled 2026-10-17): mid-40s, trying a bit too hard; leather car coat over an open-collared shirt, gold chain, a pinky ring he thinks is classy; flashes a fat roll of cash and parks a car he can't quite afford out front. Story: he lends too much (to Chase or Brooke, say), his boss squeezes him, and he shrinks when the real Revaris shows up. In the sale (2026-10-23): he squeezes Gus over the debt and brings him Revaris's offer as "a friend of mine"; he's the go-between and never knows the whole plan
+- **Hook:** Your easiest big debt; tied to the mob-takeover ending. Personality (Mike, 2026-10-17): a little too confident in himself; acts like the big man but still answers to someone in Umbra. Renamed Ray (Dutch clashed with Dutch Schultz and Red Dead Redemption 2); wherever this doc says Dutch, read Ray. Look (settled 2026-10-17): mid-40s, trying a bit too hard; leather car coat over an open-collared shirt, gold chain, a pinky ring he thinks is classy; flashes a fat roll of cash and parks a car he can't quite afford out front. Story: he lends too much (to Chase or Brooke, say), his boss squeezes him, and he shrinks when the real Umbra shows up. In the sale (2026-10-23): he squeezes Gus over the debt and brings him Umbra's offer as "a friend of mine"; he's the go-between and never knows the whole plan
 
 ## Proposals from the review
 

@@ -15,7 +15,7 @@ Twenty more ideas for planning task 11, none using "Stakes". I searched each one
 | # | Title | Why it works | Clash check |
 | --- | --- | --- | --- |
 | 6 | **Riding the Light** | City slang for a hot streak | Clear |
-| 7 | **Tap the Fin** | The lucky habit at the rocket sign | Clear |
+| 7 | **Tap the Fin** | The lucky habit at the rocket sign (the fin was later replaced by the spaceman statue, 2026-10-24) | Clear |
 | 8 | **Over the Water** | Slang for heading to dry Backwater | Clear |
 | 9 | **The Long Bridge** | The city's main crossing ("don't carry winnings across before dawn") | Near miss: a map location in two games |
 | 10 | **Chips & Chimneys** | Casino chips next to the Stacks, the dead mill chimneys | Clear |
