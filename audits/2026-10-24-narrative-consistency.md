@@ -38,7 +38,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 3.6 | Raffy carries Wren's data for no reason | Fixed | Nobody trusted Raffy with it: he stole the wrong envelope from Ray's car (thought it was cash). The drive is Ray's secret insurance copy of Wren's logs (off the Prairie Queen feed), so Ray hunts quietly and can't tell Umbra |
 | 3.7 | The commission saw the tape but nobody knows Gus gambled | Fixed | Commission saw only the overhead dealer cam (Rosa's hands, chip flow, no faces); Gus kept the only wide-angle tape showing him in the seat (the tape Bennett takes at A3.5) |
 | 3.8 | Stella runs the numbers but never asks about the debt | Fixed | Ray debt is Gus's personal debt, off the Flare's books; Stella sees only operating losses, but notices Gus remortgaged his house and reads it as him propping up the Flare (seed for the reveal) |
-| 3.9 | Stella and Tae keep meeting after the sale | Open | |
+| 3.9 | Stella and Tae keep meeting after the sale | Fixed | After the sale Stella asks Tae to dig into who's really behind Revaris (the deal smells wrong); her search mirrors yours; clearing her lets you compare notes |
 | 3.10 | Wren's people meet Bennett where she can't erase the footage | Open | |
 | 3.11 | Gus trusts the people who blackmailed him | Open | |
 | 4.1 | Seed 11's payoff meeting is never defined | Open | |

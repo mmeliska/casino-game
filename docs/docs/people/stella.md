@@ -10,7 +10,7 @@ Gus's grown daughter, a finance analyst downtown who has run the Flare's numbers
 
 ## Role
 
-Loves her dad and thinks the Flare is killing him, so she wants him to sell. She quietly meets Tae at the Aurelian, which makes her a false lead in M2; she was only seeking her dad a fair buyout. Clearing her brings her and Gus closer. She is the human face of the buyout and closure endings.
+Loves her dad and thinks the Flare is killing him, so she wants him to sell. She quietly meets Tae at the Aurelian, which makes her a false lead in M2; after the sale she has asked him to dig into who's really behind Revaris Technologies, because the deal smells wrong to her and the chain knows the industry (audit 3.9), so her meetings mirror your own search. Clearing her lets you compare notes and brings her and Gus closer. She is the human face of the buyout and closure endings.
 
 ## Voice
 
