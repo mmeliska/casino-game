@@ -58,7 +58,7 @@ Beats inside an act can come in any order unless a gate says otherwise. The last
 | A4.7 | Loose ends | Prairie Queen, commission | Clues found | Tell Wren, tell Ed, or keep the skim as leverage | Rosa's license; leverage on Ray |
 | A4.8 | The rival | Anywhere | If you refused them |  | Theft, or all is well |
 | A4.9 | The clock runs out | Starflare Field | Field timer ends before the name is won back |  | The name stays with Starflare Field (7), resting |
-| A4.10 | **Name won back** |  | Name won back + $250,000 |  | **Act 5** |
+| A4.10 | **Name won back** |  | Name won back + $250,000 | Short of $250k: take the regulars' shoestring offer now, or keep saving | **Act 5**, or the people's Starflare (4) as a stepping stone |
 
 ### Act 5, the new Starflare (\~8 hours)
 
