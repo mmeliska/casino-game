@@ -6,7 +6,7 @@
 
 ## Backstory
 
-Grew up in Backwater. Runs envelopes for Ray's collections because it paid better than delivery and made him feel like somebody. His mom is a nurse working double shifts; he skimmed a collection to cover her rent, then panicked. A good kid making a dumb mistake.
+Grew up in Backwater. Runs envelopes for Ray's collections because it paid better than delivery and made him feel like somebody. His mom is a nurse working double shifts; he lifted a fat envelope from Ray's car to cover her rent, thinking it was only collection cash. It wasn't (see the drive). When he realized what he was holding, he panicked. A good kid making a dumb mistake.
 
 ## The envelope
 
@@ -14,7 +14,7 @@ On night one at Kasia's Tap (A1.2) he slides you a sealed envelope ("hold this t
 
 ## The drive
 
-Face-match logs from Wren's cameras and a list of who pays her to stay quiet. It is the first thread into the Umbra story, a clue in M2, and something Wren wants in A4.5.
+Nobody trusted Raffy with it; he stole the wrong envelope (audit 3.6). The drive is Ray's secret insurance against Wren: face-match logs he copied off the Prairie Queen camera feed he's allowed to watch, and a list of who pays her to stay quiet, kept in case she ever turns on him. That's why only Ray asks around at A1.5, and quietly: telling Umbra what he lost means admitting he made the copy. Holding it gives you leverage on Ray. It is the first thread into the Umbra story, a clue in M2, and something Wren wants in A4.5.
 
 ## Voice
 

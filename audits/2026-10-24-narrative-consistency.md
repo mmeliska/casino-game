@@ -35,7 +35,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 3.3 | Richard's trigger has already been met | Fixed | Act 4: Umbra men follow you to room 9 with Richard's old Flare markers (Revaris owns the books), say the write-off was illegal, pay or hand over the key; Gus's condition met word for word |
 | 3.4 | Bennett has no reason to keep the tape | Fixed | Bennett keeps the tape as insurance against Gus testifying about the room 9 squeeze (never for the campaign); his city inspectors' condemnation walk-through at A3.5 gives lawful access |
 | 3.5 | An anti-gambling candidate brands his stadium with a casino | Fixed | Revaris insists the District hold the name; Bennett's line: 'The Starflare was a supper club on our block long before it was a casino. We're keeping the Levee's light, not its dice.' |
-| 3.6 | Raffy carries Wren's data for no reason | Open | |
+| 3.6 | Raffy carries Wren's data for no reason | Fixed | Nobody trusted Raffy with it: he stole the wrong envelope from Ray's car (thought it was cash). The drive is Ray's secret insurance copy of Wren's logs (off the Prairie Queen feed), so Ray hunts quietly and can't tell Umbra |
 | 3.7 | The commission saw the tape but nobody knows Gus gambled | Open | |
 | 3.8 | Stella runs the numbers but never asks about the debt | Open | |
 | 3.9 | Stella and Tae keep meeting after the sale | Open | |

@@ -10,7 +10,7 @@ The loan shark and your easiest big debt. A little too confident; acts like the 
 
 ## Story
 
-Collects on Gus's debt, squeezes him until he sells, and brings him Umbra's offer as "a friend of mine" (2026-10-23). He's the go-between and never knows the whole plan. He lends too much (to Chase or Brooke, say), makes indebted dealers like Kiran skim the Prairie Queen's cheap tables to cover bad loans, and thinks Wren doesn't know. She does, and lets him dig his own hole. He shrinks when the real Umbra shows up.
+Collects on Gus's debt, squeezes him until he sells, and brings him Umbra's offer as "a friend of mine" (2026-10-23). He's the go-between and never knows the whole plan. Resenting that Wren knows everything, he secretly copied her logs off the Prairie Queen feed onto a thumb drive as insurance; Raffy stole it from his car by mistake (A1.2), and Ray can only hunt for it quietly, because Umbra must never learn he made it (audit 3.6). He lends too much (to Chase or Brooke, say), makes indebted dealers like Kiran skim the Prairie Queen's cheap tables to cover bad loans, and thinks Wren doesn't know. She does, and lets him dig his own hole. He shrinks when the real Umbra shows up.
 
 ## Voice
 
