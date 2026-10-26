@@ -33,7 +33,7 @@ Ten places to gamble, from the settled venue table in Planning Tasks task 3. Bet
 | Harborlight | Marquee Mile | Lighthouse-themed hotel casino; a friendly first rung up | Lighthouse-themed slots, video poker, blackjack, craps, roulette, poker, keno | $25–$1,000 | Reach $5,000 once; heat below a limit; smart casual | Bennett, Vivian at the high tables, Chase/Brooke |
 | Aurelian | Marquee Mile | The out-of-town chain; cameras everywhere, counters get backed off | Big-screen video slots and progressive jackpots, video poker, blackjack, craps, roulette, poker, baccarat in the high-limit room | $25–$5,000 | Reach $10,000 once; low heat; high-limit room at $25,000 | Tae, Felix/Nora at the desk, Stella in meetings |
 | Obsidian | Silvershore | Members-only card room | Blackjack (high-roller side bets), poker (including seven-card stud), roulette, craps, a small high-limit salon of slots and video poker, baccarat | $500 and up | Reach $50,000 once; a suit; a member sponsors you; low heat | Vivian |
-| Yacht games | Silvershore | Private games on the lake; can't leave until the boat comes in | Poker, baccarat, craps | $1,000 and up | Invitation through a story event | Vivian and old money |
+| Yacht games | Silvershore | Private games on the lake; can't leave until the boat comes in | Poker, baccarat, craps | $1,000 and up | Vivian's invitation, which comes with her Obsidian sponsorship (A3.6) | Vivian and old money |
 
 ## Story places
 
@@ -86,7 +86,7 @@ Revaris cameras cover the city (Mike, 2026-10-26): casinos, bars, shops, motels 
 | The Northern Ledger | Spring | Overnight train to the state capital during the legislative session | Club-car poker | Levee alderman's invite or $10,000 once | The Machine, Bennett, Mayor Dabareski, Graham/Claire |
 | The Gilded Pine | Summer | Old-money lake resort up north | Resort tables | Silvershore invite or $25,000 once | Vivian, Tae, the mayor, rebuild backers |
 | Haybale Downs | Late summer to fall | Harness racing track; broke-friendly | Race betting | A tip at Bridgehead | Mitch's world |
-| Blackspruce Lodge | Winter | One-time, invite-only high-stakes poker | Poker | Invitation | Umbra, old money, Ray, Wren |
+| Blackspruce Lodge | Winter | One-time, invite-only high-stakes poker | Poker | Ray's invitation, first winter as a Cinder Room regular | Umbra, old money, Ray, Wren |
 
 **Places that appear only as the story moves**
 
