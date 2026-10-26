@@ -139,7 +139,7 @@ Ordinary play is always fair: a losing player is never being cheated by the game
 - Every call has a consequence. Accuse a crooked dealer and Umbra notices you. Accuse an honest one and you lose standing at that venue. Ride a crooked table and you bleed money (and lean crooked). Walk and you never know at the time.
 - Inside a crooked table, and only after a story moment flags it, the odds shift for that session and the recent-results strip shows the pattern. Rosa's lessons sharpen the tells but never make you certain.
 - The truth always surfaces later: a news item, a fired dealer, Rosa telling you.
-- Kiran's skim on the Prairie Queen steals from the house, never from players, so play at his table stays fair. It's caught with a spot-the-difference look at a color-up.
+- Kiran's skim on the Prairie Queen steals from the house, never from players, so play at his table stays fair. It's caught with a spot-the-difference clue puzzle on a color-up.
 
 ## Heat and the camera network
 
@@ -176,6 +176,23 @@ The phone is the menu hub (settled 24 Oct 2026). It can't place bets, since onli
 - The full job table is on [Rules and systems](#rules) and in task 13's planning record.
 
 **Pockets.** Every item is meaningful: a suit for the Obsidian door, a gift to patch up Dot and Gus, Gus's lucky chip. Story keys (Raffy's envelope and thumb drive, a room 9 key) sit outside the 12 slots and can't be pawned unless a scene offers it. Troy at Bridgehead Loan & Pawn buys items for a fraction and holds them a few days so you can buy them back.
+
+## Clue puzzles
+
+Visual clues are worked with a short puzzle (settled by Mike, 26 Oct 2026). Solving it reveals the clue image and sets the clue flag. Each puzzle type matches the kind of clue, so the puzzle reads as part of the story.
+
+| Type | Clue it fits | Examples |
+| --- | --- | --- |
+| Slide puzzle | A torn photo or a cut-up surveillance still | Rosa's torn patch (M1), the band photo (S4) |
+| Spot the difference | Two panels that should match | Kiran's color-up before and after (M3), two signatures |
+| Tile rotate or jigsaw | A shredded or scrambled document | A ledger page, a plate-reader still |
+
+- **Randomized for replay:** a fresh shuffle each time, the difference in a different spot, and tile count scaled to the clue's difficulty.
+- **Optional:** you can skip a puzzle and get the clue a weaker way (pay someone, or ask Felix or Nora).
+- **No fail state:** the cost is time; a puzzle takes a slice of the day, like a job.
+- **Evidence, never certainty:** solving one never settles a "can't be sure" moment, so the cheating rule holds. Puzzles never appear at a real table.
+- **Replayable once played:** a puzzle you've solved in the story goes on a puzzle shelf on the phone, where you can replay it with a new shuffle any time. Replays don't change story state.
+- **Build note:** each type is one reusable Unity component that takes a story image and a difficulty setting, so a new clue is new art plus data.
 
 ## Event and interruption system
 
@@ -316,6 +333,7 @@ Ship on iOS and Android first; consider a Switch 2 port if the game succeeds. Th
 | Ink runtime | Scenes; reads and writes state through a narrow variable bridge |
 | Phone | Wallet, Jobs, Messages, Pockets; the job list and the drive-away |
 | City | Map, travel, housing, venue entry checks |
+| Puzzle components | Slide, spot the difference, tile rotate or jigsaw; take an image and a difficulty; the phone's puzzle shelf |
 | Epilogue builder | Picks and orders panels from state |
 
 Game modules never read story state. A story moment that makes a table crooked sets a session modifier on that module; nothing else touches the odds.
@@ -350,7 +368,6 @@ Premium, or a free demo with a one-time unlock. Never sell chips.
 
 **Open questions**
 
-- Investigation mini-games for "you can't be sure" moments, such as spot the difference built from story panels (Mike, 26 Oct 2026, to consider).
 - Music and sound direction (later).
 - Price point and demo length (later).
 - Proposals still open elsewhere: the job table's rows and the inventory list ([Rules and systems](#rules)), and the romance beats ([Romance](#romance)).

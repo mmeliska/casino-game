@@ -7,6 +7,7 @@ The rest of the consistency audit was fixed and merged, and a few new rules came
 - The [Game design](#design) page was rewritten as the build spec, matching every decision on the site (task 12). It now covers time and pacing without a story clock; the full state model (best bankroll, debts, heat, the hidden scales, NPC state, flags, Pockets); the money gates; venues by district; the games and the cheating rule; heat and Wren's camera network; jobs, the phone and inventory; the event director with beats, reveals, table events and the merged event schema; the five acts, clean or dirty and the license hearing; and the outcomes, epilogue and post-game.
 - All thirteen planning tasks are now done.
 - **Engine: Unity**, with Ink for the story (Mike). Day length (about 15 minutes) and season length (28 days) stay as starting values until the prototype runs; audio, price and demo length are left for later.
+- **Clue puzzles.** Visual clues are worked with short randomized puzzles (slide, spot the difference, tile rotate or jigsaw). They are optional, have no fail state, cost a slice of the day, give evidence but never certainty, and once solved in the story they can be replayed from a puzzle shelf on the phone.
 
 ### New rules and additions
 
