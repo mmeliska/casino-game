@@ -24,7 +24,7 @@ Beats inside an act can come in any order unless a gate says otherwise. The last
 | A2.1 | Ray collects | Gus's office | Start of act | Cover part of the debt (generous), stay out, or tell Pete | Gus's trust |
 | A2.2 | A friend of Ray's | The Flare | After Ray collects |  | Gus has turned down Tae's satellite offer; Gus won't say who bought it, though the public record names Revaris Technologies, a dull-looking camera company (secretly Umbra's front, which later puts the land into the Levee Stadium District); the lawyer's name on the paperwork (clue) |
 | A2.3 | Things change anyway | The Flare | After the bailout |  | Umbra crew moves in; Pete uneasy; Rosa won't come in |
-| A2.4 | The Mile | The Harborlight | Best bankroll $5,000 |  | First comped suite; the rival is a regular there |
+| A2.4 | The Mile | The Harborlight | Best bankroll $5,000 |  | First comped suite; the rival is a regular there; you glimpse Vivian at the high tables (no meeting yet) |
 | A2.5 | Higher up | The Aurelian | Best bankroll $10,000 | Follow Stella or not | Stella and Tae false lead; Northern Ledger in spring |
 | A2.6 | Bennett | Harborlight fundraiser | After the bailout |  | Bennett's mayoral run |
 | A2.7 | The rival borrows | Anywhere | After the bailout |  | Rival's slide begins |
