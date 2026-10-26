@@ -61,7 +61,7 @@ P.home=()=>`<div class="page">
 <div class="grid cards">
 <a class="card" href="#map"><span class="tag">Diagram</span><h3>Relationship map</h3><p>Who is family, who owes whom, and who holds what over whom.</p></a>
 <a class="card" href="#timeline"><span class="tag">Diagram</span><h3>Story timeline</h3><p>Acts, gates, beats, mysteries, the rival and the romances, lane by lane.</p></a>
-<a class="card" href="#seeds"><span class="tag">Diagram</span><h3>Seeds and reveals</h3><p>Twelve small moments and the act each one pays off in.</p></a>
+<a class="card" href="#seeds"><span class="tag">Diagram</span><h3>Seeds and reveals</h3><p>Thirteen small moments and the act each one pays off in.</p></a>
 <a class="card" href="#outcomes"><span class="tag">Diagram</span><h3>Outcomes</h3><p>Ten places a playthrough can land, and the way back from each.</p></a>
 <a class="card" href="#cast"><span class="tag">Reference</span><h3>All characters</h3><p>${C.length} characters: looks, backstory, voice and every event they're in.</p></a>
 <a class="card" href="#city"><span class="tag">Reference</span><h3>Northlight</h3><p>Districts, venues and their limits, story places, housing, excursions.</p></a>
@@ -118,7 +118,7 @@ ${ACTS.map(a=>`<h3>Act ${a.n}: ${a.name} <span class="muted small">(${a.hours})<
 
 P.seeds=()=>{
   const W=980,top=46,rowH=46,X=a=>330+(a-1)*150,H=top+SEEDS.length*rowH+20;
-  let g=`<svg viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="Twelve seeds, each planted in an early act and revealed in a later one" style="max-width:100%;height:auto;color:var(--fg)">
+  let g=`<svg viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="Thirteen seeds, each planted in an early act and revealed in a later one" style="max-width:100%;height:auto;color:var(--fg)">
 <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--coral)"/></marker></defs>`;
   [1,2,3,4,5].forEach(a=>{g+=`<line x1="${X(a)}" y1="${top-14}" x2="${X(a)}" y2="${H-10}" stroke="var(--line)" stroke-dasharray="3 4"/><text x="${X(a)}" y="22" text-anchor="middle" font-size="14" fill="var(--coral)" font-weight="700">Act ${a}</text>`});
   SEEDS.forEach((s,i)=>{const y=top+i*rowH+rowH/2;

@@ -19,25 +19,25 @@ const C=[
 {id:"raffy",name:"Raffy",full:"Rafael",tier:"Supporting",group:"backwater",where:"Kasia's Tap on night one, later hiding at Millstone Lanes",line:"Courier kid with the envelope.",appears:["A1.2","A1.5","A4.5","M2","R3","R4","O8","O10","A4.3"]},
 
 {id:"gus",name:"Gus",tier:"Core",group:"starflare",where:"Starflare floor and office; coffee under the rocket sign",line:"Owner of the Starflare, the founder's son, secretly a gambler.",appears:["A1.6","A1.7","A1.9","A1.10","A2.1","A2.2","A3.1","A3.2","A3.3","A3.4","A4.1","A4.2","A4.5","A4.10","A5.6","M1","M2","M4","R1","S3","S4","S6","S7","S11","S12","O1","O2","O3","O4","O5","O6","O7","O8","O9","O10","EP"]},
-{id:"stella",name:"Stella",tier:"Supporting",group:"starflare",where:"Starflare office, Aurelian meetings",line:"Gus's daughter, a finance analyst who wants him to sell.",appears:["A1.9","A2.2","A2.5","A4.2","A4.6","M2","R1","O5","O6"]},
+{id:"stella",name:"Stella",tier:"Supporting",group:"starflare",where:"Starflare office, Aurelian meetings",line:"Gus's daughter, a finance analyst who wants him to sell.",appears:["A1.9","A2.2","A2.5","A4.2","A4.6","M2","R1","O5","O6","S13"]},
 {id:"pete",name:"Pete",full:"Petras",tier:"Supporting",group:"starflare",where:"The Starflare floor",line:"Pit boss and Gus's best friend.",appears:["A1.7","A1.9","A2.1","A2.3","A3.3","A3.4","A3.5","A5.3","M1","R1","O1","EP","A5.7"]},
 {id:"jalen",name:"Jalen",tier:"Core",group:"starflare",where:"Busing tables at the Flare, watching the poker room",line:"Busboy learning poker; you can stake him; later runs the new Starflare's poker room, then the hotel.",appears:["A1.7","A5.2","A5.5","R2","S10","O1","O4","EP"]},
 {id:"chase",name:"Chase / Brooke",tier:"Core",group:"starflare",where:"RailYard, Harborlight; moves up and down the ladder",line:"The other newcomer: friendly rival turned arrogant.",appears:["A1.8","A2.4","A2.7","A3.8","A4.8"]},
 
 {id:"ray",name:"Ray",tier:"Core",group:"power",where:"Starflare bar, Cinder Room, Blackspruce Lodge",line:"Loan shark who acts like the big man but answers to Wren.",appears:["A1.5","A1.9","A1.10","A2.1","A2.2","A2.7","A3.8","A4.7","M2","M3","S11","X4","O8"]},
-{id:"wren",name:"Wren",tier:"Supporting",group:"power",where:"Cinder Room, Blackspruce Lodge (rarely seen)",line:"Umbra's boss; runs a camera blackmail business.",appears:["A2.2","A4.3","A4.5","A4.7","M2","M3","R4","S6","S10","X4","O8","O10"]},
+{id:"wren",name:"Wren",tier:"Supporting",group:"power",where:"Cinder Room, Blackspruce Lodge (rarely seen)",line:"Umbra's boss; runs a camera blackmail business.",appears:["A2.2","A4.3","A4.5","A4.7","M2","M3","R4","S6","S10","X4","O8","O10","S13"]},
 {id:"bennett",name:"Bennett",tier:"Core",group:"power",where:"Harborlight, Northern Ledger, his office in the Levee",line:"Levee alderman who pushes the stadium deal that takes the Flare.",appears:["A2.2","A2.6","A2.8","A3.1","A3.2","A3.5","A4.4","A4.9","M1","M2","M4","R5","R6","S7","X1","O2","O5","O7","A4.11","A5.7"]},
 {id:"richard",name:"Richard",tier:"Supporting (story)",group:"power",where:"Room 9, Slack Water Motel; the motel picnic table",line:"Bennett's father; wears the key to Gus's safety deposit box.",appears:["A3.7","A4.4","M4","R10","A5.7"]},
 {id:"mayor",name:"Mayor Dabareski",tier:"Supporting",group:"power",where:"Northern Ledger, Gilded Pine",line:"The casino mayor, in office forever.",appears:["R6","X1","X2","EP"]},
 {id:"vivian",name:"Vivian",tier:"Core",group:"power",where:"Obsidian, Harborlight high tables, yacht games, Gilded Pine",line:"Old-money high roller on a losing streak; owns the lakefront land.",appears:["A3.6","A5.1","A5.2","M1","R4","S9","X2","O1","O2","O10","A5.7"]},
-{id:"tae",name:"Tae",tier:"Core",group:"power",where:"The Aurelian, Gilded Pine",line:"The Aurelian's GM, a Levee kid who came home; a rival of visions.",appears:["A2.2","A2.5","A3.4","A3.5","A4.6","A5.1","M2","S4","X2","O5","O10"]},
+{id:"tae",name:"Tae",tier:"Core",group:"power",where:"The Aurelian, Gilded Pine",line:"The Aurelian's GM, a Levee kid who came home; a rival of visions.",appears:["A2.2","A2.5","A3.4","A3.5","A4.6","A5.1","M2","S4","X2","O5","O10","S13"]},
 
 {id:"ed",name:"Ed",full:"\"Big Ed\"",tier:"Supporting",group:"minor",where:"Wherever your heat is high; Lock Street Station",line:"Honest vice cop and the face of the heat system.",appears:["A1.5","A4.4","A4.7","M3","M4","R4","S10","A4.3","A5.7"]},
 {id:"kiran",name:"Kiran",tier:"Supporting",group:"minor",where:"The Prairie Queen",line:"Friendly dealer squeezed into skimming.",appears:["A4.7","M3"]},
 {id:"troy",name:"Troy",tier:"Minor",group:"minor",where:"Bridgehead Loan & Pawn, in the Bridges next to Bridgehead Fuel & Food",line:"Pawn shop owner who buys your items for a fraction.",appears:[]},
 
 {id:"miles",name:"Miles / Audrey",tier:"Romance",group:"romance",where:"The Flare's half-empty lounge",line:"The Flare's piano player. Value: loyalty.",appears:["A5.3","R7","O1"]},
-{id:"felix",name:"Felix / Nora",tier:"Romance",group:"romance",where:"The Aurelian front desk",line:"The Aurelian's desk clerk. Value: honesty.",appears:["A2.5","R8","A4.3"]},
+{id:"felix",name:"Felix / Nora",tier:"Romance",group:"romance",where:"The Aurelian front desk",line:"The Aurelian's desk clerk. Value: honesty.",appears:["A2.5","R8","A4.3","S13"]},
 {id:"graham",name:"Graham / Claire",tier:"Romance",group:"romance",where:"Club car of the Northern Ledger, every spring",line:"Statehouse staffer on the spring train. Value: integrity with power.",appears:["R9","X1","A4.11","A5.7"]}
 ];
 const BY=Object.fromEntries(C.map(c=>[c.id,c]));
@@ -244,7 +244,8 @@ const SEEDS=[
 {n:9,where:"Silvershore, the Obsidian",seed:"A society columnist asks how much Vivian lost tonight. Tell her (she pays) or keep quiet.",rev:"Act 5: Vivian knows who talked. Quiet makes the land cheaper; talking sends her toward Tae.",into:"Land price; Vivian's standing.",p:3,r:5,who:["vivian"]},
 {n:10,where:"The Levee, the RailYard",seed:"Sign up for the players' card with a face scan, or pay cash and keep your head down.",rev:"Act 4: Wren quotes your losses and where you've been. A spotless player gets a threat against Gus or Jalen instead.",into:"Wren's deal; Ed trusts you more if you never scanned in.",p:1,r:4,who:["wren","ed","jalen"]},
 {n:11,where:"The Bridges, Long Bridge",seed:"Crossing before dawn despite Dot's warning (hoodlums, no organization), you see Ray's car with the lights off. Note the other car's plate or drive on.",rev:"Act 4 loose ends: the plate puts Ray at a meeting he denied.",into:"Leverage on Ray.",p:2,r:4,who:["dot","ray"]},
-{n:12,where:"Anywhere",seed:"A man sells a \"lucky spaceman\" bobblehead. Buy it or laugh.",rev:"Gus laughs at it, and that's all.",into:"Nothing, on purpose.",p:2,r:0,who:["gus"]}
+{n:12,where:"Anywhere",seed:"A man sells a \"lucky spaceman\" bobblehead. Buy it or laugh.",rev:"Gus laughs at it, and that's all.",into:"Nothing, on purpose.",p:2,r:0,who:["gus"]},
+{n:13,where:"Marquee Mile, the Aurelian",seed:"A Revaris rep pitches Tae a cut-price camera upgrade, and corporate is pushing him to take it. Warn him (through Felix/Nora or Stella) or say nothing.",rev:"Act 5: Tae owes you. The fight for Vivian's land is fairer, or he pays a fair price if he buys the name. If you said nothing, he still refuses on chain policy, so the Aurelian's footage route stays open either way.",into:"Tae's standing; the land contest; outcome 5 price.",p:2,r:5,who:["tae","felix","stella","wren"]}
 ];
 SEEDS.forEach(s=>EV.push(["S"+s.n,s.seed.split(".")[0],s.where,s.who]));
 const OUT=[

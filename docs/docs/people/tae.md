@@ -12,6 +12,9 @@ Grew up in the Levee, made it big with the out-of-town chain, and asked to be se
 
 The Aurelian's general manager and the Flare's rival in vision, not business (the Flare can't compete with the Aurelian). He wants to buy Gus out fairly so Gus can rest, and to own the Starflare name for a restaurant inside the Aurelian (O5). Only in that outcome does he also get the old rocket sign, taken down from the Starflare Field gate. Before the bailout, with Stella's numbers, he offers to buy the Flare and run it as an Aurelian satellite with Gus kept on as host, so Gus can step back for his health. Gus refuses to sell his dad's place to a chain and sells to "a friend of Ray's" (really Umbra) instead. He opposes bulldozing the Flare for the stadium. He believes the city deserves a world-class casino, that Gus is killing himself keeping the Flare alive, and that its legacy deserves better than a slow death. Gus and Tae both love the city but want different futures for it: a rivalry of visions, not a villain. A false lead in M2 (he says he would have bought the Flare openly). Hires Pete away at the fall and bids against you for Vivian's land. Not a backer.
 
+
+The Aurelian is a friendly rival, never an ally (Mike, 2026-10-26): it runs its own cameras, and Wren wants in. In act 2 a Revaris rep pitches Tae a cut-price upgrade while corporate pushes him to take it (S13). Warn him and he owes you in act 5; either way he refuses on chain policy, so the Aurelian's footage stays out of Wren's reach.
+
 ## Voice
 
 Confident, sincere, salesman's warmth; the city's future; never insults the Flare. Doesn't lie at all, which is what makes him dangerous. *"Northlight deserves a world-class house. Gus deserves to rest."*
