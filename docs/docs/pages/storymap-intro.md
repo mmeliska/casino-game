@@ -12,7 +12,7 @@ Each act opens only when its money and time gate is met. Outcomes on the right a
 
 ## Money thresholds
 
-The game tracks two numbers. **Best bankroll** is the most you've ever held. It opens venues and story gates and never drops, so a bad night can't lock anything again. **Bankroll now** is what you can spend. When it runs low, the broke content opens up: the car under the Bridges, Ray's loans and the Backwater jobs.
+The game tracks two numbers. **Best bankroll** is the most of your own money you've ever held: cash minus what you owe (Ray's loan, Kasia's ledger, Flare markers), so borrowing can't open anything. Raffy's envelope is a story key in Pockets and doesn't count until you decide to keep it at A1.5 (audit 2.10, Mike 2026-10-26). It opens venues and story gates and never drops, so a bad night can't lock anything again. **Bankroll now** is what you can spend. When it runs low, the broke content opens up: the car under the Bridges, Ray's loans and the Backwater jobs.
 
 | Best bankroll | Venues it opens | Story it opens |
 | --- | --- | --- |
