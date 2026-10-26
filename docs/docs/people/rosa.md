@@ -6,7 +6,7 @@ Early 40s, hair pinned up with a pencil, her old dealer's vest with the casino p
 
 ## Backstory
 
-Puerto Rican; her parents came up for factory work and she grew up in the Levee. Blacklisted from dealing. She really was guilty, but for a good reason: Gus, drunk, lost the staff payroll at her table, so she dealt him back to even. Cameras caught it and she took the fall without saying why (M1). The commission's penalty for that night ordered new cameras at the Flare, which opened the door to Wren's deal (M4). The torn patch is from the Starflare. She was never a Flare regular and won't step inside it.
+Puerto Rican; her parents came up for factory work and she grew up in the Levee. Blacklisted from dealing. She really was guilty, but for a good reason: Gus, drunk, lost the staff payroll at her table, so she dealt him back to even. Cameras caught it and she took the fall without saying why (M1). The commission only ever saw the overhead dealer camera: Rosa's hands and the chip flow, no faces. Gus kept the only wide-angle tape, which shows him in the seat (audit 3.7). The commission's penalty for that night ordered new cameras at the Flare, which opened the door to Wren's deal (M4). The torn patch is from the Starflare. She was never a Flare regular and won't step inside it.
 
 ## Role
 
