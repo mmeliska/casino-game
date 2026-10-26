@@ -273,14 +273,14 @@ P.rules=()=>`<div class="page"><p class="eyebrow">Systems</p><h1>Rules and syste
 <p class="lede">The standing rules you build against. Settled unless tagged.</p>
 <h2>Shape of the game</h2><ul>
 <li>Vegas Stakes-inspired. Story is the core; gambling is what you do most of the time; story interrupts play only at break points.</li>
-<li>Mobile first. Premium: never sell chips. Unity and Ink are the proposed stack.</li>
+<li>Mobile first. Premium: never sell chips. Built in Unity with Ink (settled 26 Oct 2026).</li>
 <li>Life-sim feel (Stardew meets BitLife). No story clock; the only deadline is Starflare Field's Opening Day, which leads to a resting point, not a fail.</li>
 <li>Going broke is never a dead end: Backwater jobs, Ray's loans, staking and odd events always offer a way back.</li></ul>
 <h2>Money and time gate the story</h2><ul>
 <li>Each act gate needs a money milestone <b>and</b> a minimum time. Best bankroll (the most you've ever held) opens venues and gates and never drops. Bankroll now is what you can spend; when it runs low, broke content opens.</li>
 <li>Rounds advance the clock only to the end of the current part of the day; then play is unlimited. Days pass only when you move, sleep or travel. No time passes while the app is closed.</li>
 <li>Table events fire every 40 to 80 rounds or so, at most two or three per sitting, and never move the main story.</li>
-<li><span class="pill prop">Proposal</span> One day is about 15 minutes; a season is 28 days.</li></ul>
+<li>One day is about 15 minutes and a season is 28 days: starting values, tuned once the prototype runs.</li></ul>
 <h2>Fair play and cheating</h2><ul>
 <li>Every game is playable continuously and wins or loses money. One-off cons (three-card monte, a bookie) are events, not games.</li>
 <li>A story event can include a set-length game, like the one-pass War with Richard.</li>
@@ -311,7 +311,7 @@ ${[["Lane shift","juan","Afternoon","$50","A league regular is short on fees"],[
 <li>Northlight is a nice city; nobody treats it as a place to escape (Jalen leaves Backwater, not the city).</li></ul></div>`;
 
 P.design=()=>`<div class="page wide"><p class="eyebrow">Systems</p><h1>Game design</h1>
-<p class="lede">The game design document: the first full design pass (15 Oct 2026). Task 12 will bring it up to date with the planning decisions; until then, where it differs from the other pages, they win.</p>
+<p class="lede">The game design document: the build spec for Starflare Casino. First written 15 Oct 2026 and brought up to date with every planning decision on 26 Oct 2026 (task 12). It covers the systems; the story pages hold the story and win on story detail.</p>
 ${part("pages/gdd","gdd","design")}
 ${planRec([12],"design")}</div>`;
 P.writing=()=>`<div class="page wide"><p class="eyebrow">Writing</p><h1>Writing guide</h1>
