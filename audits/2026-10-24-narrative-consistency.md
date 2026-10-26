@@ -28,7 +28,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 2.8 | "Gus freed" no longer means anything | Fixed | Every "Gus freed"/"freeing Gus" on live pages now reads "name won back" or the specific mechanism; Graham's line lists room 9 and exposing Umbra as the other routes (no cash route). |
 | 2.9 | The hotel doesn't exist until post-game | Fixed | Jalen runs the new Starflare's poker room, then the hotel when the post-game tower opens; Felix/Nora run the casino's guest services desk, then the hotel front desk. Sign lines say "where the hotel tower will rise". |
 | 2.10 | Holding Raffy's cash unlocks a venue on night one | Fixed | Best bankroll counts your own money: cash minus debts (Ray's loan, Kasia's ledger, Flare markers). Raffy's envelope is a story key until you keep it at A1.5. Closes the borrowing exploit too. |
-| 2.11 | The Northlight venue table is stale | Open | |
+| 2.11 | The Northlight venue table is stale | Fixed | The venue table now says the back room opens by Kasia's invitation after her two jobs (A1.3), matching t03. |
 | 2.12 | "Collect for Ray: maybe Gus" has a narrow window | Open | |
 | 3.1 | Bennett blackmails inside a room he knows is wired | Open | |
 | 3.2 | Revaris watches room 9 for years and never acts | Open | |
