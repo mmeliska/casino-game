@@ -165,7 +165,7 @@ ${OUT.map(o=>`<tr id="row-O${o.n}"><td class="num"><a class="code" href="#O${o.n
 <li><b>Drive away:</b> from act 2 on, a phone option lets you drive away over the Long Bridge. It plays a leaving epilogue built from that day; the save is kept and you can resume from the morning you left.</li>
 <li><b>Epilogue:</b> about 8 still panels: (1) what became of the Starflare, (2 to 7) the 5 or 6 cast you touched most, picked from standing, flags, heat and the hidden scales, (8) a Northlight newspaper front page, then your record card. The same builder serves the drive-away, resting points and opening night.</li>
 <li><b>Relighting the rocket</b> always means a brand-new sign. The old sign's fate (stadium gate, fire, or Tae's restaurant in O5) is flavour.</li>
-<li><b>Backers</b> are only Jalen (head of the hotel) and Vivian (silent partner). You pay at least a quarter of every phase. No union stake.</li></ul></div>`;
+<li><b>Backers</b> are only Jalen (runs the poker room, later the hotel) and Vivian (silent partner). You pay at least a quarter of every phase. No union stake.</li></ul></div>`;
 };
 function oShort(n){return {1:"Lakefront, with Gus",2:"Lakefront, without Gus",3:"The Starflare floats",4:"The people's Starflare",5:"Tae's restaurant",6:"Gus lets go",7:"Name stays with the Field",8:"Mob takeover",9:"Burned down",10:"The sellout"}[n]}
 function gateShort(a){return ["$5k + trust + 2 wks","$25k + a season","M2 + $50k","Name won back + $250k"][a-1]}

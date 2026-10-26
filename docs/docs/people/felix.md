@@ -29,7 +29,7 @@ An inside view of the Aurelian: who checks in, who gets comped suites, who Stell
 | 2 | First date | Act 2, their day off, lunch on the Mile | They tell you about the funniest lie a guest ever told at check-in. | Tell them a true story about yourself or an impressive made-up one (they can tell; counts) |
 | 3 | Opening up | Act 2, during the hunt for who bought the Flare (M2) | They mention, carefully, that Stella has been meeting Tae upstairs. | Ask what they saw (neutral), don't push (for), or ask them to pull the guest records for you (against: you asked them to break the rules) |
 | 4 | The test | Act 3 or 4, when you reach the comped-suite step | A billing mix-up puts another guest's comp on your account, in your favor; if nobody says anything, a coworker on the night shift gets blamed. | Tell them (for), or keep quiet and keep the comp (against) |
-| 5 | Landing | Act 5 or the epilogue | Together: they leave the Aurelian to run the front desk of the new Starflare hotel, under Jalen. Friend: they stay at the Aurelian and still slip you news. Ended: strictly professional: "Welcome back. Enjoy your stay." | None |
+| 5 | Landing | Act 5 or the epilogue | Together: they leave the Aurelian to run the new Starflare's guest services desk (comps and VIPs), and move to the hotel front desk under Jalen once the post-game tower opens (audit 2.9). Friend: they stay at the Aurelian and still slip you news. Ended: strictly professional: "Welcome back. Enjoy your stay." | None |
 
 ### Observed choices
 

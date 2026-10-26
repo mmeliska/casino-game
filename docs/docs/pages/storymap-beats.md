@@ -65,9 +65,9 @@ Beats inside an act can come in any order unless a gate says otherwise. The last
 | Code | Beat | Where | Opens when | The choice | Leads to |
 | --- | --- | --- | --- | --- | --- |
 | A5.1 | Vivian's land | Gilded Pine, Obsidian | Start of act | Win Vivian or help Tae (sellout) | Land (\~$1M, cheaper the closer you are to her) |
-| A5.2 | Backers | Around the city | Start of act | Win Jalen (if he climbed clean) and Vivian as backers | Jalen invests and will run the hotel; Vivian is a silent partner; you pay at least a quarter of each phase |
+| A5.2 | Backers | Around the city | Start of act | Win Jalen (if he climbed clean) and Vivian as backers | Jalen invests and runs the poker room (the hotel once the post-game tower opens); Vivian is a silent partner; you pay at least a quarter of each phase |
 | A5.3 | The crew | Aurelian, Kasia's Tap | Land won |  | Rosa, license restored, manages all casino staff; friendly cast are offered jobs (Pete back from Tae) |
-| A5.4 | Relight the rocket | The lakefront site | Land won | Pick the design for a brand-new rocket sign over the new hotel and casino; the old sign stays over the Starflare Field gate | Relight (\~$250k) |
+| A5.4 | Relight the rocket | The lakefront site | Land won | Pick the design for a brand-new rocket sign over the new casino, where the hotel tower will rise; the old sign stays over the Starflare Field gate | Relight (\~$250k) |
 | A5.5 | If the land falls through | Riverfront, a Levee union hall | Tae wins the land | Relaunch on a boat or go co-op | Floats (3) or people's (4), resting |
 | A5.7 | The license hearing | Gaming commission hearing room | Land won and the floor built | Pick who speaks for you (Rosa, Pete, Vivian's lawyer, Ed, Graham/Claire, as earned); answer one hard question honestly or dress it up; Bennett's stance set by your act 4 route | License restored, or restored with conditions (never lost) |
 | A5.6 | **Opening night** | The lakefront Starflare | Sign relit, the gaming floor paid (\~$1M, built in stages) and the license hearing held | Gus cuts the ribbon, or you do alone | **Ending 1 or 2; owner mode begins** |

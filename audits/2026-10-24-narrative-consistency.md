@@ -26,7 +26,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 2.6 | Bennett can't give back what he doesn't own | Fixed | The name sits in the stadium ordinance Bennett sponsored. Shame or reconcile (room 9): he amends it to return the name. By the book (A4.11): the commission voids the name clause as a conflict of interest. Exposing Umbra: Wren pulls the name out herself. |
 | 2.7 | Wren needs leverage to take what her own company controls | Fixed | Her deal ties off loose ends: Raffy's drive and Gus (kept quiet by his markers) are the only links from Revaris to Umbra. Hand her either and she's safe to pull the name out of the District for her own crooked Starflare (O8/O10). New "Her deal" section on Wren's page. |
 | 2.8 | "Gus freed" no longer means anything | Fixed | Every "Gus freed"/"freeing Gus" on live pages now reads "name won back" or the specific mechanism; Graham's line lists room 9 and exposing Umbra as the other routes (no cash route). |
-| 2.9 | The hotel doesn't exist until post-game | Open | |
+| 2.9 | The hotel doesn't exist until post-game | Fixed | Jalen runs the new Starflare's poker room, then the hotel when the post-game tower opens; Felix/Nora run the casino's guest services desk, then the hotel front desk. Sign lines say "where the hotel tower will rise". |
 | 2.10 | Holding Raffy's cash unlocks a venue on night one | Open | |
 | 2.11 | The Northlight venue table is stale | Open | |
 | 2.12 | "Collect for Ray: maybe Gus" has a narrow window | Open | |
