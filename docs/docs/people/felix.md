@@ -19,7 +19,7 @@ An inside view of the Aurelian: who checks in, who gets comped suites, who Stell
 
 **Story role: who bought the Flare (M2).** The filing lawyer checks into the Aurelian the week the purchase goes through. **Together:** they quietly tell you which night he meets someone in the lounge, and you see him with Bennett. That proves who's behind the purchase and opens act 4 sooner. They also clear Stella early (her meetings were only with Tae) and get you a comped suite one step before you'd earn it. **Friend:** they tell you the lawyer is staying there, nothing more; you still need Mitch to place him. **Ended:** no help, and Stella stays a suspect longer.
 
-**Exclusive route: the only cameras Wren doesn't own (together only).** The Aurelian runs its own security system, so it's the one place in Northlight Wren can't erase. Only the clerk can get you into that footage, which shows Wren's people meeting Bennett. That opens an act 4 option where you hold leverage over Wren herself, which no one else in the game has.
+**Exclusive route: the one place Wren isn't watching (together only).** The Aurelian runs its own security system, so it's the one casino whose feed never reaches Wren (every venue keeps its own copies, and she can't erase any of them; Mike 2026-10-26). Only the clerk can get you into the Aurelian's archive, which shows Wren's people meeting Bennett. That opens an act 4 option where you hold leverage over Wren herself, which no one else in the game has.
 
 ### Beats
 
