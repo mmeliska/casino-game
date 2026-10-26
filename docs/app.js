@@ -343,7 +343,13 @@ ${part("pages/titles","ti","sources")}
 ${planRec([11],"sources")}
 <h2>Where it came from</h2>
 <p>Built from these Claude Docs, which are kept only for their edit history: Planning Tasks, Game Design Document, Story Direction, Story Map, Character Bible, Northlight Locations, Romance Arcs, Room 9 Rewrite, Scene Writing Tips, Story and Character Review and Working Title Ideas, plus the project's planning notes. The older Game Design Document snapshot in the project folder matches the live one except for its core-loop diagram, which is included on <a href="#design">Game design</a>.</p>
-<p class="small muted">Last rebuilt 24 October 2026.</p></div>`;
+<p class="small muted">Last updated <span class="siteupdated"></span>. See the <a href="#changes">change log</a>.</p></div>`;
+P.changes=()=>`<div class="page"><p class="eyebrow">Reference</p><h1>Change log</h1>
+<p class="lede">What changed in the design and when, newest first. The date at the top of the site comes from the newest entry here.</p>
+${part("pages/changelog","cl","changes")}</div>`;
+/* The site's "updated" date is the first dated heading in docs/pages/changelog.md, so adding a change log entry keeps it current. */
+let UPDATED="";
+function showUpdated(){if(UPDATED)document.querySelectorAll(".siteupdated").forEach(el=>el.textContent=(el.dataset.pre||"")+UPDATED)}
 
 /* ---------- MARKDOWN ---------- */
 /* Links to the retired Claude Docs point to the page that now holds their content. */
@@ -493,6 +499,7 @@ function route(){
   document.getElementById("rail").classList.remove("open");document.getElementById("menuBtn").setAttribute("aria-expanded","false");
   if(target){const el=document.getElementById(target);if(el){el.classList.add("hit");el.scrollIntoView({block:"center"})}}
   else window.scrollTo(0,0);
+  showUpdated();
   try{localStorage.setItem("sfdocs-last",h)}catch(e){}
 }
 function bindMap(){
@@ -511,3 +518,4 @@ let THEME="system";try{THEME=localStorage.getItem("sfdocs-theme")||"system"}catc
 applyTheme(THEME);
 document.querySelectorAll(".themebtn").forEach(b=>b.addEventListener("click",()=>{THEME=THEMES[(THEMES.indexOf(THEME)+1)%3];applyTheme(THEME)}));
 route();
+loadMd("pages/changelog").then(s=>{const m=s.match(/^##\s+(\d{1,2} \w+ \d{4})/m);if(m){UPDATED=m[1];showUpdated()}},()=>{});

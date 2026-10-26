@@ -13,3 +13,7 @@ cd docs && python3 -m http.server 8000
 ```
 
 Then open http://localhost:8000.
+
+## Change log
+
+`docs/pages/changelog.md` lists what changed and when, newest first, under headings like `## 26 Oct 2026`. The site's "updated" date (under the title and on About this site) is read from the first of those headings, so add an entry there whenever the design changes and the date follows.

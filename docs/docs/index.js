@@ -25,6 +25,7 @@ const PARTS=[
 {"path": "people/miles", "title": "Miles / Audrey", "page": "miles"},
 {"path": "people/felix", "title": "Felix / Nora", "page": "felix"},
 {"path": "people/graham", "title": "Graham / Claire", "page": "graham"},
+{"path": "pages/changelog", "title": "Change log", "page": "changes"},
 {"path": "pages/bible-fixes", "title": "Early drafts: bible fixes", "page": "history"},
 {"path": "pages/cast", "title": "All characters: art rule", "page": "cast"},
 {"path": "pages/direction", "title": "Early drafts: story direction", "page": "history"},
