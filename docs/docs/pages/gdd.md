@@ -40,7 +40,7 @@ Time runs on what you do, not the real clock (settled 19 Oct 2026).
 | Rule | Spec |
 | --- | --- |
 | Parts of the day | Morning, afternoon, night, plus a before-dawn window a few events use |
-| Rounds | Each round advances the clock a few minutes, but only to the end of the current part of the day; after that play is unlimited |
+| Rounds | Each round advances the clock a few minutes (blackjack: 5, Mike 2026-10-26), but only to the end of the current part of the day; after that play is unlimited |
 | Days | Pass only when you move, sleep, travel or take a job |
 | App closed | No in-game time passes; small timers count in-game time only |
 | Day length | About 15 minutes of normal play (starting value; tune once the prototype runs, Mike 2026-10-26) |

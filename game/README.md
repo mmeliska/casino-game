@@ -36,6 +36,6 @@ Window > General > Test Runner > EditMode > Run All, or headless:
 
 ## Prototype scope
 
-Fair blackjack at the Flare's limits: six decks with a 75% cut card, dealer stands on soft 17, blackjack pays 3:2 (an odd bet's half dollar rounds down), hit, stand, double (also after a split) and one split; split aces get one card each. Starting bankroll $500. Each round takes 24 in-game minutes, up to the end of the part of the day. The game autosaves after every settled round.
+Fair blackjack at the Flare's limits: six decks with a 75% cut card, dealer stands on soft 17, blackjack pays 3:2 (an odd bet's half dollar rounds down), hit, stand, double (also after a split) and one split; split aces get one card each. Starting bankroll $500. Each round takes 5 in-game minutes, up to the end of the part of the day. The game autosaves after every settled round.
 
 Not yet: Ink, table events, heat, debts, the city and the phone.

@@ -20,10 +20,10 @@ namespace Starflare.Blackjack
         public bool DoubleAfterSplit = true;
 
         /// <summary>
-        /// In-game minutes a round takes off the clock. ~15 rounds fill a six-hour part of
-        /// the day, which is about 15 real minutes a day at ~20 s a round (GDD starting value).
+        /// In-game minutes a round takes off the clock, close to a real table's pace (Mike,
+        /// 26 Oct 2026). 72 rounds fill a six-hour part of the day.
         /// </summary>
-        public int MinutesPerRound = 24;
+        public int MinutesPerRound = 5;
 
         /// <summary>Whole dollars; an odd bet's half dollar rounds down, as at a table with no half chips.</summary>
         public int BlackjackWin(int bet) => bet * BlackjackPayNumerator / BlackjackPayDenominator;
