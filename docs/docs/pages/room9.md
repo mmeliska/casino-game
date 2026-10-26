@@ -28,9 +28,9 @@ In story order, all a few years before the game starts:
 
 | Choice | What happens |
 | --- | --- |
-| Shame Bennett | Richard threatens to release the footage unless Bennett frees Gus. It works, but Bennett's grudge hardens. |
-| Reconcile | Richard gives Bennett the box and they talk for the first time in years. Bennett frees Gus out of gratitude. |
-| Burn it | The leverage road closes; you free Gus another way. |
+| Shame Bennett | Richard threatens to release the footage unless Bennett amends his stadium ordinance to return the Starflare name to Gus. It works, but Bennett's grudge hardens. |
+| Reconcile | Richard gives Bennett the box and they talk for the first time in years. Out of gratitude, Bennett amends his ordinance and the name goes back to Gus. |
+| Burn it | The leverage road closes; you win the name back another way. |
 | **Hand it to Ed (Mike: in)** | Ed gets his case against Wren's cameras (the informant path), but Gus's Umbra deal comes out too, which hurts Gus's trust and the Flare's name. |
 
 **The new catch:** any use of the box in public exposes Gus as well as Bennett, so the leverage route to freeing Gus costs Gus something. The private choices (shame, reconcile) avoid that.
