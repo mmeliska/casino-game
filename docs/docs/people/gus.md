@@ -16,6 +16,8 @@ Proud, sentimental, stubborn, bad with money.
 
 You meet him on your first Flare visit (coffee, rubbing the spaceman's boot) and care builds slowly from small things. Ray collects on his debt, a "friend of Ray's" buys the Flare and clears his debt (really Revaris Technologies; Gus signs knowing it's the mob and, ashamed, keeps the buyer secret. Umbra then puts the land into the Levee Stadium District, with Bennett pushing it through). Once sold, it's sold: winning the Starflare name back for him by white-hat leverage is act 4. His trust is ordinary NPC standing plus a few flag checks.
 
+He doesn't believe their promise to keep the Flare open and keep him on; he tells himself he does, and says it out loud to the regulars ("nothing's changing, they gave me their word"), because the alternative is admitting he sold his dad's place to the people who blackmailed him. Pressed, he changes the subject. A3.1 breaks the lie (audit 3.11).
+
 ## Voice
 
 Long, warm, nostalgic sentences that trail off. Talks about "my dad's place"; never says the word "debt". Lies by changing the subject to the old days. *"You should've seen this floor when the band played. Anyway. Coffee?"*
