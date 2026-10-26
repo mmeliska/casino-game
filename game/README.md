@@ -3,6 +3,7 @@
 The game itself. The build spec is the GDD at `docs/docs/pages/gdd.md`.
 
 - **Unity:** 6000.6.7f1. Add iOS and Android Build Support in Unity Hub to build for phones; Play mode and Mac builds work without them.
+- **Rendering:** URP (the Built-in pipeline is deprecated in Unity 6). The pipeline asset is in `Assets/Settings`.
 - **Git LFS:** binary art and audio go through LFS (see `.gitattributes` at the repo root). Run `git lfs install` once per machine.
 
 ## Open and play

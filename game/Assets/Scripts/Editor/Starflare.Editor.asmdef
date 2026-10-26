@@ -2,7 +2,9 @@
     "name": "Starflare.Editor",
     "rootNamespace": "Starflare",
     "references": [
-        "Starflare.Game"
+        "Starflare.Game",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime"
     ],
     "includePlatforms": [
         "Editor"
