@@ -20,7 +20,7 @@ Each finding is worked through with Mike one at a time. The decision and the fil
 | 1.10 | The Graham/Claire arc needs more springs than the game has | Fixed | Only the meet needs the spring train. Beat 3 is dinner downtown and beat 4 a Starflare Field fundraiser, both in Northlight in acts 3-4, any season; the spring ride together moves to the epilogue; a mid-arc spring is an optional bonus scene. |
 | 2.1 | The outfit is named after the secret | Fixed | The outfit is Umbra to everyone (the Black Hand and Wren's rename are dropped). Revaris Technologies is only Wren's camera company, a respectable-looking firm; that Revaris is Umbra's front is the secret (M2, M4). Naming rule recorded in t02. |
 | 2.2 | The sale is public, so M2 has no mystery | Fixed | The sale is openly public and the buyer (Revaris Technologies) looks dull; Gus dodging a public fact is the hook. The gated clues now prove the link: Raffy's drive shows Revaris feeds going to Umbra, Ray calls the company "us". M2 = who is Revaris really, and why won't Gus say it. |
-| 2.3 | Ordinary play at Kiran's table isn't fair | Open | |
+| 2.3 | Ordinary play at Kiran's table isn't fair | Fixed | The skim steals from the house (palmed chips, short-counted drop), never from players, so play stays fair. Clues: short counts, Rosa's "watch the hand that isn't busy", a spot-the-difference color-up with his quiet pose, the envelope at the landing. Investigation mini-games logged as an open idea. |
 | 2.4 | Never-rich players can't reach the never-rich ending | Open | |
 | 2.5 | The new Starflare has no license, and may not be licensable | Open | |
 | 2.6 | Bennett can't give back what he doesn't own | Open | |

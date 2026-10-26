@@ -6,15 +6,15 @@ The Prairie Queen's old-time riverboat uniform (striped vest, sleeve garters, a 
 
 ## Backstory
 
-An Indian-American man in his early 30s who grew up in the Levee. A young dad who borrowed from Ray when his daughter needed surgery that insurance wouldn't cover, and the interest buried him. Umbra collects by having him skim the riverboat's cheap tables.
+An Indian-American man in his early 30s who grew up in the Levee. A young dad who borrowed from Ray when his daughter needed surgery that insurance wouldn't cover, and the interest buried him. Umbra collects by having him skim the riverboat's cheap tables: he steals from the house, palming chips off the rack on color-ups and short-counting the drop box. Players' odds at his table are always fair (audit 2.3, Mike 2026-10-26).
 
 ## Personality
 
-The friendliest dealer on the boat: chatty, quick with a joke, remembers your name, so he's the last one you'd suspect. His tell is that he goes quiet and stops joking on the hands he's fixing (dialogue, not animation). Squeezed, not evil.
+The friendliest dealer on the boat: chatty, quick with a joke, remembers your name, so he's the last one you'd suspect. His tell is that he goes quiet and stops joking on the hands where he palms a chip (dialogue and a pose swap, not animation). Squeezed, not evil.
 
 ## Story
 
-A cheating-rule scenario. A regular complains or Rosa says to watch a table, and the tip may be wrong. Call him out (he loses the job and Umbra notices you), walk away, or help him get clear of Ray by paying the debt or quietly passing what you know to Ed.
+A cheating-rule scenario, aimed at theft from the house rather than at you. The clues build up: the Queen's floor manager grumbles that the packed cheap tables always count short; Rosa tells you to "watch the hand that isn't busy"; at Kiran's table a color-up shows two insert panels of his chip rack, before and after, with one chip gone (a spot-the-difference nobody points out), while his pose swaps to the quiet one; after a sailing you see him pass an envelope to one of Ray's men at the landing. Each clue is deniable and some tips point at the wrong dealer. Call him out (he loses the job and Umbra notices you), walk away, or help him get clear of Ray by paying the debt or quietly passing what you know to Ed.
 
 ## Voice
 
