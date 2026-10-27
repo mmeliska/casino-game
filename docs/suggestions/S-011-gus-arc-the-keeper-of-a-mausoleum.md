@@ -7,7 +7,7 @@ character: Gus
 type: expansion
 impact: high
 effort: low
-depends_on: S-013
+depends_on: S-013, S-003
 conflicts_with: none
 ---
 
@@ -24,11 +24,11 @@ Gus is "proud, sentimental, stubborn, bad with money"; "his late wife's touches 
 
 **Start:** host, storyteller, comps you coffee, changes the subject.
 
-**Turning point (his, not yours):** the first time he gives something away on purpose. Candidates, each built on an existing beat, pick one to make the turn: Gus tearing up your IOU before you can (the reverse of S6's tear-up); boxing the photo of the sisters on the last night and carrying it to Dot himself (S-003's office scene); or speaking at the hearing (S-002). Whichever it is, write it as the first scene where Gus finishes a sentence.
+**Turning point (his, not yours):** the first time he gives something away on purpose. Candidates, each built on an existing beat, pick one to make the turn: Gus tearing up your IOU before you can (the reverse of S6's tear-up); or boxing the photo of the sisters on the last night and carrying it to Dot himself (S-003's office scene). (Speaking at the hearing, S-002, was rejected on 2026-10-27.) Whichever it is, write it as the first scene where Gus finishes a sentence.
 
-**End, good (O1):** he hosts the new floor in a jacket that fits; the old one hangs in the office. He still says "my dad's place" about the Field over in the Levee, and means it kindly.
+**End, good (O1):** he is retired (Mike, 2026-10-27: Gus is never an owner or licensed host of the new Starflare) and comes to opening night as a guest. He cuts the ribbon in a jacket that fits and doesn't play; the old jacket hangs in the new lounge by the piano. He still says "my dad's place" about the Field over in the Levee, and means it kindly.
 
-**End, bad:** the "Starflare without Gus" (O2) is the written bad ending, but a worse one hides inside O1: the player wins everything and Gus is unchanged, a proud man in a dead man's jacket on a new floor, who goes back to the Cinder Room within a season. Make that the authored drift if the player never did A4.2 and never saw a turn: the post-game includes one scene of Gus "out for a walk" at 2am, and the player can follow him or not. The Flare got its name back; Gus didn't.
+**End, bad:** the "Starflare without Gus" (O2) is the written bad ending, but a worse one hides inside O1: the player wins everything and Gus is unchanged, a proud man in a dead man's jacket at somebody else's opening, who goes back to the Cinder Room within a season. Make that the authored drift if the player never did A4.2 and never saw a turn: the post-game includes one scene of Gus "out for a walk" at 2am, and the player can follow him or not. The Flare got its name back; Gus didn't.
 
 ## Why it works
 A character's need gives a writer a test for every line. Gus with a need is a man whose nostalgia is a symptom, which is sadder and more lovable than a man who is simply sentimental. The bad-inside-good ending is the sharpest use of "every choice is remembered": the player can win the game and lose the man.
@@ -40,4 +40,4 @@ Mostly through what Gus says and doesn't: with the need in place, the writer can
 Low cost, but it commits the writing: every Gus scene has to serve this, including the ones already drafted. The 2am post-game scene risks souring O1 for players who missed A4.2; keep it rare and quiet, and make following him a way to start A4.2's help-him-quit thread late.
 
 ## Decision notes
-
+- Mike, 2026-10-27: Gus does not own the new hotel and is never on its license; Stella's plot point is that he retires. The O1 ending above is written to that.

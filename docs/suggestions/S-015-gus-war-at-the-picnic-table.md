@@ -20,7 +20,7 @@ A4.2 "Gus at the bottom: Cinder Room; help him quit, with Dot and Stella; leads 
 ## Proposed change
 A4.2 becomes a short sequence:
 1. **The bottom.** As written: you find him under the Stacks, out of chips, Ray's man at his elbow (if you took the collect-for-Ray job, the man is you).
-2. **Over the water.** You drive him across the Long Bridge before dawn (the dead zone; S11 may fire). Dot comes out from behind the desk, the first time in the game (S-016), and says the time (S-012) or nothing. Stella comes in the morning, told by Gus or by you (S-046).
+2. **Over the water.** You drive him across the Long Bridge before dawn (the dead zone; S11 may fire). Dot comes out from behind the desk, the first time in the game (S-016), and says the time (S-012) or nothing. Stella comes in the morning if you told her (S-046).
 3. **The honest game.** Richard is at the picnic table. They know each other: Gus gave him the key; Richard believes Gus pays his room. Neither says so. Gus sits. Richard deals one pass, 10 cards each, the existing two-player story-event game, and then deals you one. There is no money and no choice, which is the point: Gus has to sit through a game he can't lose anything at, across from the man his floor hurt most. The scene's stake is whether you say out loud what both of them are not saying (the house, the key, the room): say it and Richard's trust drops and Gus's rises; keep quiet and the reverse. Richard's line either way: "Cards don't care."
 4. **The ask.** Afterward, Gus asks you for one thing: hold his Cinder Room cash until he asks for it back. He never asks. It sits in the story-key row with his face on it (S-009).
 

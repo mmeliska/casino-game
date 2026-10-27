@@ -63,7 +63,7 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
 - **Personality:** Chatty, motherly, "a story for everything." Voice sheet: "She doesn't lie; she warns sideways." Sample: "I'd stay on this side of the river tonight, hon. No reason." (`people/dot.md`)
 - **Want/goal:** Not stated. Closest: she and Gus "haven't really spoken since the funeral," and each quietly asks the player how the other is doing (`people/dot.md`, `data/story.js` R1).
 - **Wound/backstory:**
-  - Her late sister was Gus's wife, so she is Gus's sister-in-law and Stella's aunt.
+  - Her late sister, Alice (named by Mike, 2026-10-27), was Gus's wife, so she is Gus's sister-in-law and Stella's aunt.
   - It is a reveal (a framed photo of the two sisters in Gus's office), "never part of her intro."
   - The shirt is a "souvenir of the one trip she took after her own big win."
   - Age and earlier life: Not stated (OQ 40).
@@ -255,7 +255,7 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
 - **Look:** Very heavyset ("Teddy from Bob's Burgers without the beanie, as an artist reference only"), silver hair combed back, his dad's old Starflare dinner jacket straining at the buttons, a chipped rocket-logo coffee mug.
 - **Personality:** Proud, sentimental, stubborn, bad with money. Voice: long, warm, nostalgic sentences that trail off; "my dad's place"; never says the word "debt"; lies by changing the subject to the old days. Sample: "You should've seen this floor when the band played. Anyway. Coffee?"
 - **Want/goal:** Not stated as such. Closest:
-  - His late wife's touches are all over the Flare, "which is why he can't let go."
+  - His late wife's touches are all over the Flare, "which is why he can't let go." Her name is Alice (Mike, 2026-10-27; see 4.1.8).
   - He refuses to sell "his dad's place to a chain."
   - He tells the regulars "nothing's changing, they gave me their word" because the alternative is admitting he sold to the people who blackmailed him.
 - **Wound/backstory:**
@@ -773,7 +773,7 @@ From `pages/walkons.md` ("No portraits planned unless noted. Unnamed characters 
 | Who | What the notes say | Related | Codes | Interaction |
 |---|---|---|---|---|
 | Mr. Hamilton, the founder (Gus's father) | Built the Starflare in the rocket age. Gave Pete his first job and 25-year pin. "Offstage; dead before the game starts; no plot role." Family surname Hamilton only if a story needs it. (`pages/walkons.md`, `people/gus.md`) | Gus, Pete, Richard, Bennett | M4, R10 | None. |
-| Gus's late wife | Dot's sister. Touches all over the Flare; framed photo of the two sisters in Gus's office. Offstage. Unnamed. | Gus, Dot, Stella | R1 | Find the photo (R1). |
+| Gus's late wife | Dot's sister. Touches all over the Flare; framed photo of the two sisters in Gus's office. Offstage. Named Alice (Mike, 2026-10-27). | Gus, Dot, Stella | R1 | Find the photo (R1). |
 | Tae's dad | Played drums in the Flare's rocket-age house band; face in the faded band photo by the lounge. Offstage. | Tae, Gus | S4, O5 | Ask Gus who the drummer was (S4). |
 | The bride's brother and the maid of honor | From the mill family wedding at Kasia's Tap. Each asks via Kasia to dance. Opposite sex first; the other only after a no. | Kasia, romance characters | A1.4 | Dance or decline. |
 | Richard's weekly driver | Drops Bennett's envelope at Dot's desk every week. | Bennett, Richard, Dot | M4 | Clue. |
@@ -1303,6 +1303,8 @@ Uncertain timing is marked **[uncertain]**. The notes give almost no calendar da
 
 ## 3.1 Backstory (before the game begins)
 
+**Settled order (Mike, 2026-10-27; an assumption written in so writers stop re-deriving it, changeable later).** The founder, Mr. Hamilton, died about fifteen years before the game, when Stella was ten. Payroll night was about six years before the game; the commission then ordered the cameras. Gus signed Wren's camera deal about four years before. Richard's markers and Bennett's squeeze fell about three years before. Richard moved into room 9 and Wren took the reins of Umbra about two years before. Items 10 to 15 below keep their source wording; this paragraph is the order to use.
+
 1. **[undated]** Northlight was "a steel, rail and shipping town." The mills closed and the waterfront emptied. The state legalized riverboat gambling "on the water only" to bring jobs back. "Land casinos came later." Backwater voted its district dry. (`plan/t02.md`; `pages/gdd.md`) The mayor "brought in the riverboats and land casinos after the mills closed" (`people/mayor.md`).
 2. **[undated; "the rocket age"]** Mr. Hamilton, the founder, builds the Starflare as a rocket-age supper club. The Flare's house band plays there; Tae's dad is its drummer. (`pages/walkons.md`, `people/tae.md`, `plan/t02.md`) The illegal back room was dropped 2026-10-22.
 3. **[undated]** Gus is born and grows up in the Flare; Pete (Levee, steel-mill family) grows up alongside him. (`people/pete.md`, `people/gus.md`)
@@ -1593,6 +1595,22 @@ Stale content here is in OQ 2.
 - Not movie-gangster in voice (`pages/writing.md`).
 - No character animation (`pages/cast.md`, `pages/writing.md`).
 - Not rigged in ordinary play (`plan/t03.md`).
+
+### 4.1.8 Decisions from Mike, 2026-10-27 (story-editing session; not yet on the site)
+
+These answer open questions below and were given while reviewing `docs/suggestions/`. Each is a settled fact for later writing until the site says otherwise.
+
+- **The license hearing's hard question (A5.7)** is put to the player, about the camera deal: did Gus know what he was signing, and when did you find out. Truth, bluff or take the concealment onto your own record. See `suggestions/S-001`. A question about Gus's own play was judged too small; the question must be about approving illegal activity.
+- **Gus never owns the new Starflare and is never its licensed host.** He retires. In O1 he comes to opening night as a guest and cuts the ribbon. Stella's "he should retire" thread resolves this way. This rules O1 and O2 only; his informal roles in the other resting points (hosting the regulars' floor in O4, greeting at the Aurelian in O5) are as the docs have them.
+- **Gus's late wife is named Alice.** Dot says it; Gus says it once, at the end; Stella says "Mom."
+- **Gus's wound stands:** the night Alice died he was in the Cinder Room with his phone silenced, and Dot is the one who couldn't reach him (`suggestions/S-012`).
+- **OQ 33, Stella and the gambling:** she learns from the player, if the player chooses to tell her (a third stake at A4.1). If never told, she learns at the torn patch, speechless, as her sheet says.
+- **OQ 34, Rosa's tape:** any act 4 leverage route can trade for the tape as part of its deal. The romance pair (Miles/Audrey) is only the easiest way.
+- **OQ 44, the register box:** Mr., Ms. and Prefer not to answer.
+- **OQ 25, the ruthless O2:** at A4.3 Wren will sell the name to you rather than return it to Gus, at a price plus a favor. Dirty and fast, and she owns a piece of you.
+- **OQ 26, O8 versus O10:** decided by what you hand Wren. Raffy's drive (the evidence): she keeps you on as hers and the mob runs the new floor with you in it (O8). Gus's markers plus the payout: you sold him and walked away with money (O10).
+- **OQ 42 and 43, the backstory order:** see the settled paragraph at the top of 3.1.
+- **Two men in parked cars** (Bennett outside room 9, Ray outside the Flare after Gus signs) is a deliberate rhyme; both stay (`suggestions/S-038`, `S-045`).
 
 ## 4.2 Places and venues
 
@@ -2006,11 +2024,15 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - Room 9 routes "return the name to Gus"; A4.11 "the commission ... voids the name clause"; A4.3 "Wren pulls the name out herself."
 - Where the name goes after a void or a Wren pull (and who then owns it) is not stated. How the player takes the name "for yourself" is not stated.
 
+- **Resolved (Mike, 2026-10-27):** the ruthless O2 is buying the name from Wren at A4.3 instead of returning it, at a price plus a favor. See 4.1.8.
+
 **OQ 26. O8 vs O10 distinction.**
 - `data/story.js` A4.5: "Taking it leads to the mob takeover (O8) or the sellout (O10)."
 - `plan/t07.md` O8: "You take Wren's deal, or deep debt to Ray and a crooked lean." O10: "give Wren her loose ends (Gus's markers, to keep him quiet, or Raffy's thumb drive, the evidence)."
 - `people/wren.md`: "(O8, or O10 if you sold Gus out for the payout)."
 - Both outcomes involve handing Wren the same two items. What decides which one fires is not stated.
+
+- **Resolved (Mike, 2026-10-27):** what you hand Wren decides it: the drive (evidence) leads to O8, Gus's markers plus the payout to O10. See 4.1.8.
 
 **OQ 27. "Gus's markers" and how you hold them.**
 - A4.5: "hand over Gus's markers (your IOU from S6 among them)." `people/wren.md`: "Gus's old markers and your IOU from S6."
@@ -2050,12 +2072,16 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - Also `plan/t08.md` M2 solve: "Clearing Stella brings her and Gus closer."
 - Whether she learns of the gambling before A4.2 is not stated. Also: "When the truth comes out, she realizes what the mortgage was really for." Which truth is not stated.
 
+- **Resolved (Mike, 2026-10-27):** Stella learns from the player, if the player chooses to tell her; otherwise at the torn patch. See 4.1.8.
+
 **OQ 34. How the tape is recovered and when M1 resolves.**
 - A4.7 (`data/story.js`): "With the tape and her file you can get Rosa's license back." `plan/t08.md`: "you get it back by trading for it or with the room 9 leverage."
 - `people/miles.md`: only Miles/Audrey together help you get it back (private events at Bennett's fundraisers).
 - `people/rosa.md`: "Her license, won back in any ending by solving M1." The earliest resting point (O9) can occur in act 3, before M1's slot in A4.7.
 - Bennett's insurance trigger is Gus testifying about the room 9 squeeze (audit 3.4); M1's solve is "Pete and Gus testify." Whether M1's testimony triggers Bennett's use of the tape is not stated.
 - Whether a player with no romance can recover the tape is not stated beyond "trading for it."
+
+- **Resolved (Mike, 2026-10-27):** any act 4 leverage route can trade for the tape; the romance pair is only the easiest way. See 4.1.8.
 
 **OQ 35. Gilded Pine and Obsidian timing.**
 - A3.6: meet Vivian at the Gilded Pine "$25,000 (summer)"; the Obsidian opens at $50,000 "with a suit and her sponsorship."
@@ -2091,6 +2117,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `people/pete.md`: "about 60"; the founder hired him "at 19"; "gold 25-year rocket pin from Gus's father." Audit 1.7 says "The 25-year pin still works."
 - When the pin was given, and whether the founder's death falls before or after Pete's 25th year, is not stated. The Flare's license date is not stated either.
 
+- **Resolved (Mike, 2026-10-27):** the founder died about fifteen years before the game, when Stella was ten; the pin came before that. Pete's exact start year stays derived. See 3.1.
+
 **OQ 43. Backstory timing is vague.**
 - `pages/room9.md`: "all a few years before the game starts" (the whole chain: camera deal, Richard's markers, squeeze, box, room 9).
 - `people/wren.md`: camera deal "about four years before the game"; reins "about two years before."
@@ -2099,9 +2127,13 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - Relative order of payroll night, Richard's markers and the camera deal is stated only as a chain: payroll night to commission penalty to camera deal (`plan/t08.md`). Richard's markers' date is not placed.
 - The squeeze must fall between about four and about two years before the game, but "a few years" and "a couple of years" are the only figures.
 
+- **Resolved (Mike, 2026-10-27):** settled order written into 3.1 (payroll night ~6 years before; camera deal ~4; markers and squeeze ~3; room 9 and Wren's reins ~2).
+
 **OQ 44. Mr./Ms. box offers two options; also "proposed."**
 - `plan/t05.md`/`pages/storymap-beats.md`: the register has "a Mr./Ms. box"; the notebook calls it "proposed Mr./Ms. box beside the name." `pages/gdd.md` states it as settled.
 - Nothing is stated for a player who does not tick either box or who is neither (the rival's version and the first dance offer depend on it). A1.4 is also written around a male/female attendant pair (Mike's inclusive rule covers tone, not options).
+
+- **Resolved (Mike, 2026-10-27):** the box offers Mr., Ms. and Prefer not to answer. See 4.1.8.
 
 **OQ 45. Wren's grandfather and the uncles.**
 - `people/wren.md`: "the old Umbra boss's granddaughter." `pages/room9.md`: "her grandfather, still Umbra's boss then." Name, whether he is alive and where he is now are not stated. The uncles' names and roles are not stated. `pages/walkons.md` lists "Umbra's old guard and the uncles" under A4.5, but A4.5 has no stated role for them.

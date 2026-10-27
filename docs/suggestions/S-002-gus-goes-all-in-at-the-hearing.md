@@ -1,7 +1,7 @@
 ---
 id: S-002
 title: Gus goes all in: he confesses at the hearing to clear Rosa
-status: proposed
+status: rejected
 area: main-story
 character: Gus
 type: change
@@ -34,4 +34,4 @@ Hearing-room scene; Gus's new pose is the only new art. The choice is timed by t
 It takes the climax's active choice away from the player and gives it to Gus; S-001 does the reverse. Doing both in one hearing would blunt each. If Gus is absent or hostile (the O2 track), the beat doesn't fire and the hearing runs as the docs have it. Players who never found M1 get the payroll story cold here, so Gus's speech must carry the facts in three panels. The "not hold a stake" condition touches the backers rule only in flavour (Jalen and Vivian are still the only backers; Gus never was).
 
 ## Decision notes
-
+- Mike, 2026-10-27: rejected. The hearing belongs to the player (S-001, rewritten around the camera deal). Gus is never on the new Starflare's license, so the "host but not hold a stake" condition no longer applies; he retires, and in O1 he cuts the ribbon as a guest.

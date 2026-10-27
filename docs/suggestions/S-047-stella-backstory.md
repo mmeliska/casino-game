@@ -25,13 +25,13 @@ She went downstate on a scholarship, studied the thing nobody in the Levee studi
 She does not know her father gambles. She knows he remortgaged the house, and she has decided it was for the Flare, because that is the kind of thing he does, and because the other explanations don't fit the man who hummed the house band's songs to her when she couldn't sleep. She calls him Dad to his face and "my father" to strangers and the Flare "the property" in meetings, and she thinks, privately, that the ceiling in the lounge is the most beautiful thing in Northlight and that her mother got one constellation wrong on purpose (S-013), which is the only thing she's ever said to her father about her mother that made him laugh.
 
 ## Why it works
-It gives the voice sheet (figures for the Flare, stories for Dad) a single scene of origin at the cage, which three other characters' backstories also touch (Pete, Tae, Pip), so the ensemble's childhoods interlock. The ceiling line is the one warm Gus-Stella exchange the docs lack.
+It gives the voice sheet (figures for the Flare, stories for Dad) a single scene of origin at the cage, which three other characters' backstories also touch (Pete, Tae, Alice), so the ensemble's childhoods interlock. The ceiling line is the one warm Gus-Stella exchange the docs lack.
 
 ## How the player experiences it
 Through her stories, the ceiling, the remortgage, and the cage on opening night (S-046).
 
 ## Risks and tradeoffs
-Fixes her age at twelve when her mother died and ten when her grandfather died, which places the founder's death about fifteen years before the game. Those figures should be checked against the bible's timeline (OQ 42, OQ 43) and kept consistent with S-014 and S-020.
+Fixes her age at twelve when her mother died and ten when her grandfather died, which places the founder's death about fifteen years before the game. Those figures match the settled order in the bible's section 3.1 (Mike, 2026-10-27) and S-014 and S-020.
 
 ## Decision notes
 

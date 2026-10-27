@@ -33,7 +33,7 @@ A pride tell planted in the first ten minutes and paid off in the last. Gus "ask
 One extra line on the first visit, one insert at each ending. The player who remembers the line gets the moment; the one who doesn't sees an old man touch a statue.
 
 ## Risks and tradeoffs
-Near zero cost. The only risk is competing with S-002 for Gus's "pride breaks" moment at the end; they can coexist because one is public and one is private, but if both are taken, the boot should come second.
+Near zero cost. S-002, which competed with this for Gus's "pride breaks" moment at the end, was rejected on 2026-10-27, so the boot is now his one such moment and it stays private.
 
 ## Decision notes
 

@@ -16,7 +16,7 @@ The brief's "About the game" section was left blank and Mike was not available t
 | Delivery | Ink scenes from still panels (plate, two-shot, pose swap, insert, black), table events, seeds and reveals, jobs, phone texts, plate states for decline, an 8-panel epilogue |
 | Hard constraints | Everything in the bible's section 4.1: blank-slate protagonist, no story clock, fair tables, no religion, first names only, era-agnostic, no animation, "once sold it's sold" (no cash route), only O1 and O2 final, only Jalen and Vivian back the rebuild, romance never with the main cast, the naming rule for Umbra and Revaris, the camera rule, the clean-or-dirty rule, the license-follows-the-name rule |
 
-Where the bible's open questions touched a suggestion I chose a reading and said so inside it: Stella learns Gus gambles at A4.1, from him (OQ 33, S-046); Dot asks about Gus but never talks about him (OQ 20, S-056); Raffy stole the wrong envelope, as the audit settled (OQ 24, S-027); the founder died about fifteen years before the game, after giving Pete his 25-year pin (OQ 42, S-014, S-020, S-047); Tae's "through the wall" is a second-floor flat on the Flare's block (OQ 58, S-037). None of the suggestions depends on resolving the mechanical gaps (OQ 25 to 29, 49, 53, 55); those are Mike's to settle and I have not proposed story around them.
+Where the bible's open questions touched a suggestion I chose a reading and said so inside it: Stella learns Gus gambles in act 4 (OQ 33, S-046; settled by Mike 2026-10-27: from the player, if the player chooses to tell her); Dot asks about Gus but never talks about him (OQ 20, S-056); Raffy stole the wrong envelope, as the audit settled (OQ 24, S-027); the founder died about fifteen years before the game, after giving Pete his 25-year pin (OQ 42, S-014, S-020, S-047); Tae's "through the wall" is a second-floor flat on the Flare's block (OQ 58, S-037). None of the suggestions depends on resolving the mechanical gaps (OQ 25 to 29, 49, 53, 55); those are Mike's to settle and I have not proposed story around them. (OQ 25 and 26 were settled on 2026-10-27; see the answers below and the bible's section 4.1.8.)
 
 I did not propose changes for Mayor Dabareski, Troy or the three romance pairs. The mayor and Troy are doing their small jobs well; the romance arcs are already proposals with beats, values and exclusive routes, and the right next step for them is Mike's review of that page, not a second layer of proposals.
 
@@ -26,7 +26,7 @@ I did not propose changes for Mayor Dabareski, Troy or the three romance pairs. 
 2. **Money as a two-way gate, and broke as content.** The single best design idea in the docs for a gambling story. Protect it from any suggestion that makes losing feel like failing; S-053 is written to reward the broke path, not punish it.
 3. **The voice sheets, especially "lies by."** Twenty-one characters who each lie differently is the cast's spine. Every sample line in this set is written to those sheets.
 4. **The cheating rule.** Fair tables, doubt only in story moments, every call has a cost, the truth surfaces later. It's a moral system disguised as a UX rule. S-023 and S-049 use it; nothing here bends it.
-5. **"Once sold, it's sold."** No cash route in act 4 is a brave, correct decision. It keeps the climax about leverage, which is about people. S-001 and S-002 build on it.
+5. **"Once sold, it's sold."** No cash route in act 4 is a brave, correct decision. It keeps the climax about leverage, which is about people. S-001 builds on it.
 6. **The camera network and its dead zones.** Logic now; S-004 makes it meaning.
 7. **The panel kit and the "show the clue, say nothing" rule.** Nearly every suggestion here is an insert with no caption because the docs already know that's the game's native grammar.
 8. **Three small things that are already perfect:** Richard's "I let him win anyway," Rosa's torn patch on a vest she still wears, and the chipped mug. S-006, S-021 and S-013 only cash them.
@@ -37,10 +37,10 @@ I did not propose changes for Mayor Dabareski, Troy or the three romance pairs. 
 "Care builds slowly from small things" (t05.md) is a note, not a design. Coffee and a statue's boot aren't enough reason for a stranger to spend forty hours on a dying casino. The game needs the Flare to be the place where the player is first *recognized*. **S-019** (Pete says your name), **S-055** (three named regulars), **S-053** (who shows up when you're broke) and **S-005** (the five beats) address this. S-019 is the cheapest and should go first.
 
 ### 2. Gus is done to, never doing
-Ray collects, Umbra buys, Bennett condemns, you win the name back, you help him quit. He confesses under pressure at A4.1 and that's his only act. A man with no turn can't carry a ribbon-cutting. **S-011** states his need and the turn; **S-002** or **S-001** gives the climax a choice he or the player makes; **S-012** gives his gambling a cause; **S-008** and **S-013** give him two gestures and a name.
+Ray collects, Umbra buys, Bennett condemns, you win the name back, you help him quit. He confesses under pressure at A4.1 and that's his only act. A man with no turn can't carry a ribbon-cutting. **S-011** states his need and the turn; **S-001** gives the climax a choice the player makes (S-002, Gus's version, was rejected on 2026-10-27); **S-012** gives his gambling a cause; **S-008** and **S-013** give him two gestures and a name.
 
 ### 3. The climax is a procedure
-Act 5 is land, backers, crew, sign, hearing, ribbon. The license hearing's "one hard question" is the best idea in the act and it's blank. **S-001** and **S-002** are two mutually exclusive answers; one of them should be taken.
+Act 5 is land, backers, crew, sign, hearing, ribbon. The license hearing's "one hard question" is the best idea in the act and it's blank. **S-001** answers it (accepted 2026-10-27; **S-002**, the version where Gus speaks, was rejected).
 
 ### 4. Half the core cast has no arc
 Kasia and Vivian are core characters with a role but no want, need, wound or turn; the rival is a trope; Jalen has no friction; Pete's "can't afford to retire" is unexplained; Dot's silence with Gus has no cause. **S-024** (Kasia), **S-033/S-034** (Vivian), **S-030** (rival), **S-027/S-028** (Jalen), **S-018** (Pete), **S-016** (Dot).
@@ -79,15 +79,17 @@ The one instance of NPCs asking about each other (Dot and Gus) is the docs' best
 
 ## Questions I would ask Mike
 
+Asked and answered on 2026-10-27. The answers are also recorded in the bible (section 4.1.8) and in each suggestion's Decision notes.
+
 From the bible's list, the ones that change story work (the rest are build decisions):
-- OQ 33: when does Stella learn Gus gambles? (I assumed A4.1, from Gus; S-046.)
-- OQ 25 and 26: how does O2 "take the name for yourself" work, and what separates O8 from O10? The sellout and the ruthless endings need a mechanism before their scenes can be written.
-- OQ 34: how does a player with no romance recover Rosa's tape? S-001 and S-002 both work without the tape, which may be the answer.
-- OQ 42 and 43: a one-line backstory timeline (payroll night, Richard's markers, the camera deal, the squeeze, the founder's death) would stop every writer re-deriving it. I've assumed the founder died about fifteen years before the game.
-- OQ 44: what does the register do for a player who ticks neither box?
+- OQ 33: when does Stella learn Gus gambles? **Answer:** from the player, if the player chooses to tell her; otherwise only at the torn patch (S-046 rewritten).
+- OQ 25 and 26: how does O2 "take the name for yourself" work, and what separates O8 from O10? **Answer:** the ruthless O2 is buying the name from Wren at A4.3 rather than returning it, at a price plus a favor. O8 versus O10 is decided by what you hand her: Raffy's drive (the evidence) keeps you on as hers, the mob runs the new floor with you in it (O8); Gus's markers and the payout mean you sold him and walked away with money (O10).
+- OQ 34: how does a player with no romance recover Rosa's tape? **Answer:** any act 4 leverage route can ask for the tape as part of the deal; the romance pair is only the easiest way.
+- OQ 42 and 43: a one-line backstory timeline. **Answer:** written into the bible's section 3.1 as a dated assumption: the founder died about fifteen years before the game, when Stella was ten; payroll night about six years before; Gus signed Wren's deal about four years before; Richard's markers and the squeeze about three years before; Richard moved into room 9 and Wren took the reins about two years before.
+- OQ 44: what does the register do for a player who ticks neither box? **Answer:** the box offers Mr., Ms. and Prefer not to answer.
 
 Mine:
-- Is Gus's wife allowed a name, and is "Pip" too cute? (S-013 offers Irene as the plain alternative.)
-- Is the night-she-died wound (S-012) darker than the game wants? Everything else in this set stands without it, but Dot's and Gus's arcs are thinner without it.
-- Should the hearing's climax belong to the player (S-001) or to Gus (S-002)? They can't both be the scene.
-- Two men sitting in parked cars (S-038, S-045) is a rhyme or a repetition; which?
+- Is Gus's wife allowed a name? **Answer:** yes. Alice (S-013).
+- Is the night-she-died wound (S-012) darker than the game wants? **Answer:** no. Keep it.
+- Should the hearing's climax belong to the player (S-001) or to Gus (S-002)? **Answer:** the player, but the first draft's question was too small ("like asking if you've ever sped in a car"). The question is now whether Gus knew what he was signing with the cameras, and when you found out. Gus is never an owner or licensed host of the new Starflare: he retires, and in O1 cuts the ribbon as a guest. S-002 rejected.
+- Two men sitting in parked cars (S-038, S-045): a rhyme or a repetition? **Answer:** a rhyme. Keep both.

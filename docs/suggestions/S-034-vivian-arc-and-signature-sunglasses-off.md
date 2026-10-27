@@ -26,7 +26,7 @@ Stage Vivian's arc on one rule: the sunglasses stay on indoors in every scene un
 - *Win her:* the Obsidian's private room, late. She takes the sunglasses off and sets them on the felt, the first time the player sees her eyes. New pose, the only new Vivian art. "Darling, I've been losing since before you were born. I'm very good at it." Beat. "This one I'd like to win." She names the price (lower the closer you are; the friend's price if S-033's variant fires). The sunglasses stay off for the rest of the scene and go back on at the door.
 - *Help Tae (sellout):* same room, Tae present, sunglasses on. She signs. She never takes them off again in any later scene, and the pearls-in-fist tell stops, because there's nothing left to tell.
 
-**End:** opening night, O1 or O2, she's at the back of the room, sunglasses on, and when the sign lights she pushes them up and leaves them there. If the ceiling has Pip's constellation (S-013), she's looking at it.
+**End:** opening night, O1 or O2, she's at the back of the room, sunglasses on, and when the sign lights she pushes them up and leaves them there. If the ceiling has Alice's constellation (S-013), she's looking at it.
 
 **Badly:** she sells to Tae, the Aurelian tower goes up where the Starflare would be, and the player sees her once more at the Gilded Pine, a season later, at a lower-limit table, in sunglasses, winning, and not enjoying it.
 

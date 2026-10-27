@@ -40,4 +40,4 @@ Lines, and the hour in the car, which can be a single plate at A2.2 if the playe
 Two men sitting in parked cars across two suggestions is a rhyme; if it reads as repetition, keep Bennett's and cut this one.
 
 ## Decision notes
-
+- Mike, 2026-10-27: keep both parked-car scenes (this and Bennett's in S-038). The rhyme stays.

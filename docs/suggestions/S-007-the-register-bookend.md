@@ -18,7 +18,7 @@ The name the player writes on Dot's register on night one is the name they write
 A1.1 (pages/storymap-beats.md): you sign Dot's register with your name and tick Mr. or Ms.; "the game uses it from then on." A5.7 and A5.6 have no signing. The epilogue builder ends on "your record card" (plan/t10.md).
 
 ## Proposed change
-- **At the hearing (A5.7)**, the last panel before the ruling is the same register-card insert from night one, now a license application, with the name field filled in the player's own handwriting (the same rendered string). If Gus is on the license, his name is above yours.
+- **At the hearing (A5.7)**, the last panel before the ruling is the same register-card insert from night one, now a license application, with the name field filled in the player's own handwriting (the same rendered string).
 - **On opening night (A5.6)**, Dot arrives with the Slack Water's register under her arm. She opens it to the page from your first night and puts it on the new front desk as the guestbook. The first line is yours, in the handwriting of someone who had $200. The second is Dot's. In O2 (without Gus) she still comes, and the line under yours is empty for a panel before she signs. If she tore your page out once (S-016, the sellout) and you climbed back, she brings the book anyway, and the torn edge is the panel.
 - **At a resting point or the drive-away**, the record card's first line is the register line, dated to day one.
 
