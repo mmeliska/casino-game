@@ -1,7 +1,7 @@
 ---
 id: S-041
 title: "Richard: what he wants (to be asked, not helped), and his expanded backstory"
-status: proposed
+status: accepted
 area: character
 character: Richard
 type: expansion
@@ -22,7 +22,7 @@ Late 70s, worn down; lost the house to Flare markers; Bennett forced Gus to clea
 
 **The trust rule, for writers:** Richard's standing never rises when the player gives him something (money, food, a ride). It rises when the player asks him for something: a game, a rule, the story of a hand, how to shuffle one-handed. Offer to pay his room and he says "It's nothing" and the standing drops. Ask him to teach you War and it climbs. This is the opposite of every other NPC's economy and the player will feel it without being told.
 
-**Backstory.** Richard ran a crane on the Levee docks for thirty-eight years and bought a house four blocks from the Flare because it was the brightest thing on the river and his wife liked the band. He was not a gambler. He was a man who liked a room with people in it, and when his wife died the Flare was the room, and the cards were the way you stayed in it past the point where company was free. Pete knew him by name. Gus comped his coffee. The markers came the way they do, a hundred at a time, and he signed them because the old man who ran the place had never called one in. Then the commission's new rules came, and the markers were real paper, and the house was the only thing that covered them. He moved out with a suitcase and a deck of cards.
+**Backstory.** Richard ran a crane on the Levee docks for thirty-eight years and bought a house four blocks from the Flare because it was the brightest thing on the river and his wife liked the band. He was not a gambler. He was a man who liked a room with people in it, and when his wife died the Flare was the room, and the cards were the way you stayed in it past the point where company was free. Pete knew him by name. Gus comped his coffee. The markers came the way they do, a hundred at a time, and he signed them because nobody at the Flare had ever called one in. Then the commission's new rules came, and the markers were real paper, and the house was the only thing that covered them. He moved out with a suitcase and a deck of cards.
 
 He did not ask his son for anything, because his son had become a man who was against things, and Richard was one of them now. When Gus gave him the key he took it because refusing would have been a conversation. He has never opened the box; he has never needed to, and need is the only reason he'd allow. He plays War at the picnic table because War is the game with no choices in it, and he's made enough. He taught it to his boy, and let him win, and has never decided whether that was the right thing.
 
@@ -41,4 +41,5 @@ The inverted standing, felt through "It's nothing"; the picnic table; the lines.
 The trust rule needs a line in the NPC-standing spec. Crane operator matches S-040; if either is rejected, the other should change to match.
 
 ## Decision notes
+- Mike, 2026-10-28: accepted.
 

@@ -6,13 +6,13 @@ Editor's assessment: [00-diagnosis.md](00-diagnosis.md). Reference: [story bible
 
 | Status | Count |
 | --- | --- |
-| proposed | 20 |
-| accepted | 26 |
-| rejected | 11 |
+| proposed | 11 |
+| accepted | 34 |
+| rejected | 12 |
 | other | 0 |
 | **Total** | **57** |
 
-Accepted: S-001, S-003, S-004, S-005, S-009, S-011, S-012, S-013, S-014, S-016, S-017, S-019, S-020, S-021, S-022, S-023, S-024, S-025, S-026, S-028, S-029, S-030, S-031, S-032, S-055, S-056. Rejected: S-002, S-006, S-007, S-008, S-010, S-015, S-018, S-027, S-053, S-054, S-057.
+Accepted: S-001, S-003, S-004, S-005, S-009, S-011, S-012, S-013, S-014, S-016, S-017, S-019, S-020, S-021, S-022, S-023, S-024, S-025, S-026, S-028, S-029, S-030, S-031, S-032, S-033, S-035, S-036, S-037, S-038, S-039, S-040, S-041, S-055, S-056. Rejected: S-002, S-006, S-007, S-008, S-010, S-015, S-018, S-027, S-034, S-053, S-054, S-057.
 
 ## All suggestions
 
@@ -20,9 +20,9 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 
 | ID | Title | Status | Area | Character | Impact | Effort | Depends on | Conflicts with |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [S-038](S-038-bennett-watches-room-9-from-his-car.md) | Bennett's private scene: he sits in his car outside room 9 and doesn't go in | proposed | character | Bennett | high | low | none | none |
-| [S-039](S-039-bennett-arc-and-private-voice.md) | Bennett's want, need and arc, with sample lines in the private voice | proposed | character | Bennett | medium | low | S-038 | none |
-| [S-040](S-040-bennett-backstory.md) | Bennett's expanded backstory | proposed | character | Bennett | low | low | S-038, S-039 | none |
+| [S-038](S-038-bennett-watches-room-9-from-his-car.md) | Bennett's private scene: he sits in his car outside room 9 and doesn't go in | accepted | character | Bennett | high | low | none | none |
+| [S-039](S-039-bennett-arc-and-private-voice.md) | Bennett's want, need and arc, with sample lines in the private voice | accepted | character | Bennett | medium | low | S-038 | none |
+| [S-040](S-040-bennett-backstory.md) | Bennett's expanded backstory | accepted | character | Bennett | low | low | S-038, S-039 | none |
 | [S-030](S-030-rival-subverted-they-play-clean.md) | The rival subverted: Chase/Brooke never takes a crooked job, and their arrogance is terror | accepted | character | Chase/Brooke | high | low | none | none |
 | [S-032](S-032-rival-backstory-and-dialogue.md) | Chase/Brooke's expanded backstory and sample dialogue | accepted | character | Chase/Brooke | low | low | S-030 | none |
 | [S-016](S-016-dot-arc-crossing-the-river.md) | Dot's arc: the woman who warns everyone and never crosses the river | accepted | character | Dot | high | low | S-004, S-012, S-013 | none |
@@ -45,22 +45,22 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-050](S-050-raffy-companion-and-the-fifty.md) | Raffy as a runner you can send, and the fifty dollars he keeps trying to give back | proposed | character | Raffy | medium | medium | none | none |
 | [S-044](S-044-ray-arc-give-him-the-drive-back.md) | Ray's arc: the big man shrinks, and the player can give him his drive back | proposed | character | Ray | medium | low | none | none |
 | [S-045](S-045-ray-backstory-and-dialogue.md) | Ray's expanded backstory and sample dialogue | proposed | character | Ray | low | low | S-038, S-044 | none |
-| [S-041](S-041-richard-want-need-backstory.md) | Richard: what he wants (to be asked, not helped), and his expanded backstory | proposed | character | Richard | medium | low | S-040 | none |
+| [S-041](S-041-richard-want-need-backstory.md) | Richard: what he wants (to be asked, not helped), and his expanded backstory | accepted | character | Richard | medium | low | S-040 | none |
 | [S-021](S-021-rosa-arc-the-threshold.md) | Rosa's arc: the woman who won't say the Starflare's name, and the day she walks in | accepted | character | Rosa | high | low | S-001, S-014, S-022, S-023 | none |
 | [S-022](S-022-rosa-backstory.md) | Rosa's expanded backstory | accepted | character | Rosa | low | low | none | none |
 | [S-046](S-046-stella-arc-the-number-she-doesnt-say.md) | Stella's arc: the analyst who stops saying the number, and when she learns her father gambles | proposed | character | Stella | medium | low | S-004, S-011, S-001, S-003 | none |
 | [S-047](S-047-stella-backstory.md) | Stella's expanded backstory | proposed | character | Stella | low | low | S-012, S-013, S-020, S-037, S-046 | none |
-| [S-036](S-036-tae-wound-his-fathers-drums.md) | Tae's wound and contradiction: his father's drum kit is still in the Flare's storage, and Gus kept it | proposed | character | Tae | medium | low | S-003 | none |
-| [S-037](S-037-tae-backstory-and-dialogue.md) | Tae's expanded backstory and sample dialogue | proposed | character | Tae | low | low | S-036 | none |
-| [S-033](S-033-vivian-secret-the-handshake.md) | Vivian's secret: her grandfather promised the founder the lakefront land on a handshake | proposed | character | Vivian | high | low | none | none |
-| [S-034](S-034-vivian-arc-and-signature-sunglasses-off.md) | Vivian's arc and signature moment: the sunglasses come off once | proposed | character | Vivian | medium | low | S-013, S-033 | none |
-| [S-035](S-035-vivian-backstory-and-dialogue.md) | Vivian's expanded backstory and sample dialogue | proposed | character | Vivian | low | low | S-033 | none |
+| [S-036](S-036-tae-wound-his-fathers-drums.md) | Tae's wound and contradiction: his father's drum kit is still in the Flare's basement | accepted | character | Tae | medium | low | S-003 | none |
+| [S-037](S-037-tae-backstory-and-dialogue.md) | Tae's expanded backstory and sample dialogue | accepted | character | Tae | low | low | S-036 | none |
+| [S-033](S-033-vivian-secret-the-handshake.md) | Vivian's secret: she isn't on a losing streak, she's spending the family down on purpose | accepted | character | Vivian | high | low | none | none |
+| [S-034](S-034-vivian-arc-and-signature-sunglasses-off.md) | Vivian's arc and signature moment: the sunglasses come off once | rejected | character | Vivian | medium | low | S-013, S-033 | none |
+| [S-035](S-035-vivian-backstory-and-dialogue.md) | Vivian's expanded backstory and sample dialogue | accepted | character | Vivian | low | low | S-033 | none |
 | [S-042](S-042-wren-the-one-question-she-cant-answer.md) | Wren's contradiction: the Cinder Room is her grandfather's, and once, in Backwater, she has to ask | proposed | character | Wren | high | low | S-004 | none |
 | [S-043](S-043-wren-backstory-and-dialogue.md) | Wren's expanded backstory and sample dialogue | proposed | character | Wren | low | low | S-042 | none |
 | [S-053](S-053-who-shows-up-under-the-bridges.md) | Who shows up under the Bridges: the broke path as a relationship test | rejected | ensemble | none | high | medium | S-050 | none |
 | [S-054](S-054-the-fathers-house.md) | Name the theme: every character is keeping or losing a father's house | rejected | ensemble | none | high | low | none | none |
 | [S-055](S-055-three-named-regulars.md) | Give "the regulars" three names, with one line and one portrait each | accepted | ensemble | none | medium | low | none | none |
-| [S-056](S-056-they-ask-about-each-other.md) | They ask you about each other: a cheap layer of lines that binds the cast | accepted | ensemble | none | medium | low | S-013, S-016, S-033 | none |
+| [S-056](S-056-they-ask-about-each-other.md) | They ask you about each other: a cheap layer of lines that binds the cast | accepted | ensemble | none | medium | low | S-013, S-016 | none |
 | [S-057](S-057-epilogue-panels-carry-the-object.md) | Each epilogue cast panel carries that character's object, in whatever state you left it | rejected | ensemble | none | medium | low | none | none |
 | [S-031](S-031-the-theft-lands-at-troys.md) | The rival's theft (A4.8) is one object, worth the most to one person, and you find it in Troy's cage | accepted | gameplay-integration | Chase/Brooke | high | low | S-009, S-030 | none |
 | [S-007](S-007-the-register-bookend.md) | Setup and payoff: you sign your name once at the start and once at the end | rejected | gameplay-integration | Dot | medium | low | S-016 | none |
@@ -98,7 +98,7 @@ Status: S-001 is accepted and S-002 is rejected, so the group has no open confli
 - **Accepted suggestions depending on a rejected or missing suggestion:** none. Every dependency of an accepted suggestion exists and is not rejected.
 - **Accepted suggestions that conflict with each other:** none. The only declared conflict (S-001 and S-002) has S-002 rejected.
 
-For information (not warnings, since the dependencies are proposed rather than rejected or missing): S-012 (accepted) depends on S-046, which is proposed. S-056 (accepted) depends on S-033, which is proposed.
+For information (not warnings, since the dependency is proposed rather than rejected or missing): S-012 (accepted) depends on S-046, which is proposed.
 
 Circular dependencies: none. The full depends_on graph of all 57 files (proposed and rejected included) was checked and contains no cycle.
 

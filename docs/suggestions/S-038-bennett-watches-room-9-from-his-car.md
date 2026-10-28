@@ -1,7 +1,7 @@
 ---
 id: S-038
 title: "Bennett's private scene: he sits in his car outside room 9 and doesn't go in"
-status: proposed
+status: accepted
 area: character
 character: Bennett
 type: new
@@ -37,4 +37,5 @@ A before-dawn random event at the motel, missable, with a tiny inset callback at
 Umbra also watches the door in person; make sure the player can tell a campaign flyer from a goon (the flyer is the tell). Bennett comes most Tuesdays; the player should catch him rarely (low weight, before dawn only), so "never visits" stays true of the room and the player's sighting feels like luck.
 
 ## Decision notes
+- Mike, 2026-10-28: accepted. Bennett "never visits" now means "never visits the room."
 - Mike, 2026-10-27: keep both parked-car scenes (this and Ray's hour in S-045). The rhyme stays.

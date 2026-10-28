@@ -1,7 +1,7 @@
 ---
 id: S-034
 title: "Vivian's arc and signature moment: the sunglasses come off once"
-status: proposed
+status: rejected
 area: character
 character: Vivian
 type: expansion
@@ -40,4 +40,5 @@ The rule is never stated. The new pose at A5.1 is the reward for getting there.
 One portrait pose. The "badly" scene needs her to appear post-sellout, which the Gilded Pine already allows.
 
 ## Decision notes
+- Mike, 2026-10-28: rejected.
 

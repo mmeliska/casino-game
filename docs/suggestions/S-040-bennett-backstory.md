@@ -1,7 +1,7 @@
 ---
 id: S-040
 title: "Bennett's expanded backstory"
-status: proposed
+status: accepted
 area: character
 character: Bennett
 type: expansion
@@ -22,7 +22,7 @@ Bennett grew up in the house his father would later lose: a Levee two-story four
 
 His father started going to the Flare after his mother died, for the company, and then for the cards. Bennett didn't know until the house was gone. He found out from a county filing, the way he finds out everything, and his first act was not to go to his father but to go to the records: who held the markers, who held the license, who had put cameras in the Flare below cost. Ed gave him the last piece in good faith. Bennett used it the way he uses everything, as leverage, and Gus wrote off the debt, and Bennett arranged nothing, because Gus had already arranged the room, and that was the insult he's never forgiven: the man who took the house also paid the rent. So he took over the envelope.
 
-Starflare Field is the house rebuilt as a civic project: a Levee where his father couldn't have lost anything, with a dome on it. He knows Revaris is Umbra; he tells himself the stadium is worth it. He keeps the Flare's name on the gate because Wren insisted and because, privately, he wants the thing that took his father's house to be the thing that holds his father's grandchildren's ball games. He has never said that to anyone. He sits in the lot on Tuesdays. He has not knocked.
+Starflare Field is the house rebuilt as a civic project: a Levee where his father couldn't have lost anything, with a dome on it. He knows Revaris is Umbra; he tells himself the stadium is worth it. He keeps the Flare's name on the gate because Wren insisted and because, privately, he wants the thing that took his father's house to be the thing that holds the ball games his father never got to see. He has never said that to anyone. He sits in the lot on Tuesdays. He has not knocked.
 
 ## Why it works
 It makes the public hypocrisy a private wound's policy, which is the only way an antagonist who is "never defeated" can be satisfying: the player can't beat him, but can see him. It keeps Richard's top-card line (his voice sheet) as the formative moment.
@@ -34,4 +34,5 @@ Through the lot, the desk photo, the amendment, and the newspaper. Never as narr
 "Crane operator" for Richard adds a job (the docs give none; Mike wants specific, non-cliché jobs). The mother's death is new offstage flavour.
 
 ## Decision notes
+- Mike, 2026-10-28: accepted as written, with Richard as a crane operator.
 

@@ -598,7 +598,7 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
 - **Tier/group:** Core; Silvershore old money. Where: Obsidian, Harborlight high tables, yacht games, Gilded Pine.
 - **Role:** Old-money high roller on a losing streak; your door into Silvershore; owner (with her family) of the lakefront land. One of only two backers (silent partner).
 - **Look:** Early 60s, sleek silver bob, pearls, camel coat, dark sunglasses indoors. Later reveal: "her pearls are copies" (`people/vivian.md`).
-- **Heritage:** Black old money; her great-grandfather founded an insurance company that covered the mill and dock workers nobody else would insure.
+- **Heritage:** Black old money; her great-grandfather founded an insurance company that covered the mill and dock workers nobody else would insure. (Now her grandfather, 2026-10-28; see 4.1.8.)
 - **Personality (voice):** Dry wit, old-money understatement; calls her losses "a rough season"; never says she's selling; lies with grace. Sample: "Darling, I've been losing since before you were born. I'm very good at it."
 - **Want/goal:** Not stated. "Her losses push her to sell."
 - **Secrets:** She sold a family piece at a jeweler on the Mile to cover losses (Drive Vivian job). Her pearls are copies. A "secret Aurelian land meeting" is saved as a possible act 5 escalation (proposal, `pages/notebook.md`).
@@ -1628,6 +1628,8 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **Not every character needs a tie to another** (Mike, 2026-10-28). The city should feel big. Avoid coincidental backstory links between cast members.
 - **The rival for Prefer not to answer** is Chase or Brooke, picked at random (Mike, 2026-10-28).
 - **Nights out with the rival** (`suggestions/S-030`, 2026-10-28): three invitations in acts 1 and 2 (the RailYard, the Harborlight, the Prairie Queen), each with one event that moves the rival's standing. That standing decides A3.8 and whether the theft at A4.8 can happen (`suggestions/S-031`). The rival plays clean all game.
+- **Vivian** (`suggestions/S-033`, 2026-10-28): her family's insurance company was founded by her grandfather, not her great-grandfather. She is spending the family money down on purpose and holding the lakefront land for whoever asks what it should become. No handshake with the founder. The idea in `plan/t07.md` is dropped.
+- **Bennett and Richard** (`suggestions/S-038` to `S-041`, 2026-10-28): Bennett never visits room 9 but sometimes sits in his car in the lot, most Tuesdays. Richard was a crane operator on the Levee docks. His trust rises when the player asks him for something, never when they give him something.
 
 ## 4.2 Places and venues
 

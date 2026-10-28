@@ -43,7 +43,7 @@ Ray collects, Umbra buys, Bennett condemns, you win the name back, you help him 
 Act 5 is land, backers, crew, sign, hearing, ribbon. The license hearing's "one hard question" is the best idea in the act and it's blank. **S-001** answers it (accepted 2026-10-27; **S-002**, the version where Gus speaks, was rejected).
 
 ### 4. Half the core cast has no arc
-Kasia and Vivian are core characters with a role but no want, need, wound or turn; the rival is a trope; Jalen has no friction; Pete's "can't afford to retire" is unexplained; Dot's silence with Gus has no cause. **S-024** (Kasia), **S-033/S-034** (Vivian), **S-030** (rival), **S-028/S-029** (Jalen; S-027 rejected), **S-020** (Pete; S-018 rejected), **S-016** (Dot).
+Kasia and Vivian are core characters with a role but no want, need, wound or turn; the rival is a trope; Jalen has no friction; Pete's "can't afford to retire" is unexplained; Dot's silence with Gus has no cause. **S-024** (Kasia), **S-033** (Vivian; S-034 rejected), **S-030** (rival), **S-028/S-029** (Jalen; S-027 rejected), **S-020** (Pete; S-018 rejected), **S-016** (Dot).
 
 ### 5. The fall doesn't hurt enough
 Act 3 "always happens," which is right, but the docs stage it as an announcement, a hearing and a condemnation with two good scenes (Pete's dark pit, the piano). **S-003** gives the last night scarcity, which is what loss needs.

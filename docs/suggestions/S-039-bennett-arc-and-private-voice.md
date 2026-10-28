@@ -1,7 +1,7 @@
 ---
 id: S-039
 title: "Bennett's want, need and arc, with sample lines in the private voice"
-status: proposed
+status: accepted
 area: character
 character: Bennett
 type: expansion
@@ -47,4 +47,5 @@ Through the hearing's tone, the newspaper panel, and the four private lines.
 "Can go to prison" is a stronger consequence than the docs currently give any character; it fits the expose route's ruthless black-hat version and should be gated to it. The by-the-book line gives Bennett a flash of self-knowledge; keep it to once.
 
 ## Decision notes
+- Mike, 2026-10-28: accepted.
 

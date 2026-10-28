@@ -7,7 +7,7 @@ character: none
 type: new
 impact: medium
 effort: low
-depends_on: S-013, S-016, S-033
+depends_on: S-013, S-016
 conflicts_with: none
 ---
 
@@ -30,7 +30,7 @@ A pool of "ask about" lines, one per pair, each a random event at the asker's ve
 | Bennett | Richard | Never asks. That's the line: if the player brings Richard up, "Go to bed." |
 | Kasia | Juan | "Tell Juan his Tuesday crowd owes me for the coupons. He'll know it's a joke. Tell him anyway." |
 | Juan | Kasia | "She still keeping that book? Tell her lane six says hi." |
-| Vivian | Tae | "Is the boy still buying up the lakefront? Tell him the lake's not for sale. He'll know what I mean." (S-033) |
+| Vivian | Tae | "Is the boy still buying up the lakefront? Tell him the lake's not for sale. He'll know what I mean." |
 | Gus | Dot | As written, and never says her sister's name. |
 | Dot | Gus | As written, and resolves OQ 20: she doesn't *talk* about Gus; she asks about him, once a season, and changes the subject before you answer. She says "he," never his name, until she speaks to him at her lot (S-016). |
 
