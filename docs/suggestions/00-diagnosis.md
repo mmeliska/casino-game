@@ -16,7 +16,7 @@ The brief's "About the game" section was left blank and Mike was not available t
 | Delivery | Ink scenes from still panels (plate, two-shot, pose swap, insert, black), table events, seeds and reveals, jobs, phone texts, plate states for decline, an 8-panel epilogue |
 | Hard constraints | Everything in the bible's section 4.1: blank-slate protagonist, no story clock, fair tables, no religion, first names only, era-agnostic, no animation, "once sold it's sold" (no cash route), only O1 and O2 final, only Jalen and Vivian back the rebuild, romance never with the main cast, the naming rule for Umbra and Revaris, the camera rule, the clean-or-dirty rule, the license-follows-the-name rule |
 
-Where the bible's open questions touched a suggestion I chose a reading and said so inside it: Stella learns Gus gambles in act 4 (OQ 33, S-046; settled by Mike 2026-10-27: from the player, if the player chooses to tell her); Dot asks about Gus but never talks about him (OQ 20, S-056); Raffy stole the wrong envelope, as the audit settled (OQ 24, S-027); the founder died about fifteen years before the game, after giving Pete his 25-year pin (OQ 42, S-014, S-020, S-047); Tae's "through the wall" is a second-floor flat on the Flare's block (OQ 58, S-037). None of the suggestions depends on resolving the mechanical gaps (OQ 25 to 29, 49, 53, 55); those are Mike's to settle and I have not proposed story around them. (OQ 25 and 26 were settled on 2026-10-27; see the answers below and the bible's section 4.1.8.)
+Where the bible's open questions touched a suggestion I chose a reading and said so inside it: Stella learns Gus gambles in act 4 (OQ 33, S-046; settled by Mike 2026-10-27: from the player, if the player chooses to tell her); Dot asks about Gus but never talks about him (OQ 20, S-056); Raffy stole the wrong envelope, as the audit settled (OQ 24); the founder died about fifteen years before the game, after giving Pete his 25-year pin (OQ 42, S-014, S-020, S-047); Tae's "through the wall" is a second-floor flat on the Flare's block (OQ 58, S-037). None of the suggestions depends on resolving the mechanical gaps (OQ 25 to 29, 49, 53, 55); those are Mike's to settle and I have not proposed story around them. (OQ 25 and 26 were settled on 2026-10-27; see the answers below and the bible's section 4.1.8.)
 
 I did not propose changes for Mayor Dabareski, Troy or the three romance pairs. The mayor and Troy are doing their small jobs well; the romance arcs are already proposals with beats, values and exclusive routes, and the right next step for them is Mike's review of that page, not a second layer of proposals.
 
@@ -43,7 +43,7 @@ Ray collects, Umbra buys, Bennett condemns, you win the name back, you help him 
 Act 5 is land, backers, crew, sign, hearing, ribbon. The license hearing's "one hard question" is the best idea in the act and it's blank. **S-001** answers it (accepted 2026-10-27; **S-002**, the version where Gus speaks, was rejected).
 
 ### 4. Half the core cast has no arc
-Kasia and Vivian are core characters with a role but no want, need, wound or turn; the rival is a trope; Jalen has no friction; Pete's "can't afford to retire" is unexplained; Dot's silence with Gus has no cause. **S-024** (Kasia), **S-033/S-034** (Vivian), **S-030** (rival), **S-027/S-028** (Jalen), **S-018** (Pete), **S-016** (Dot).
+Kasia and Vivian are core characters with a role but no want, need, wound or turn; the rival is a trope; Jalen has no friction; Pete's "can't afford to retire" is unexplained; Dot's silence with Gus has no cause. **S-024** (Kasia), **S-033/S-034** (Vivian), **S-030** (rival), **S-028/S-029** (Jalen; S-027 rejected), **S-020** (Pete; S-018 rejected), **S-016** (Dot).
 
 ### 5. The fall doesn't hurt enough
 Act 3 "always happens," which is right, but the docs stage it as an announcement, a hearing and a condemnation with two good scenes (Pete's dark pit, the piano). **S-003** gives the last night scarcity, which is what loss needs.
@@ -58,7 +58,7 @@ The one instance of NPCs asking about each other (Dot and Gus) is the docs' best
 | Character | The trope | The subversion |
 | --- | --- | --- |
 | Chase/Brooke | The arrogant rival who falls | They play clean all game and lose anyway; their arrogance is grief over a house (S-030, S-031) |
-| Jalen | The likable poor kid you stake | His politeness is a vow; he can refuse your money; he can take Tae's offer without asking; he can steal (S-027, S-028) |
+| Jalen | The likable kid working his way through school | A Levee hospitality student; you can lend him tuition and he repays it in tip envelopes (S-028, S-029). S-027 (his brother) was rejected: not every character needs a tie. |
 | Wren | The omniscient tech villain | One scene where she has to ask (S-042); a machine she sits at (S-043) |
 | Ed | The honest tired cop | His badge is one of Wren's cameras; his mercy is a deleted lookup (S-048) |
 | Dot | The motherly innkeeper | Her warnings are a wound; she takes the envelope every week (S-016, S-017) |

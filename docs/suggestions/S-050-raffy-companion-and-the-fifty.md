@@ -7,7 +7,7 @@ character: Raffy
 type: expansion
 impact: medium
 effort: medium
-depends_on: S-027
+depends_on: none
 conflicts_with: none
 ---
 
@@ -22,18 +22,16 @@ Raffy: 19, runs envelopes for Ray, stole the wrong envelope, hides at Millstone 
 
 **The fifty.** The tip he gave you on night one is the one thing he's ashamed of; it was Ray's money. He tries to give it back: first as a $50 bill left in your motel room, then as a week of free runs, then as a delivery-bike helmet in Pockets ("in case"), then, once, in person, at the Lanes, slowly, without talking fast. If you take it, the arc closes; if you never do, the epilogue's Raffy panel is him with fifty dollars in his hand.
 
-**The link (S-027).** He tells you about Jalen's brother once, unprompted, and never again. If Jalen is staked by you and Raffy is your runner, the two of them cross paths at the Flare's back door, and Raffy says "Tell him I said hey" and Jalen says "Tell him yourself," and that's the whole scene.
-
 **Badly:** if you keep his $2,000 or hand him to Ray, Kasia tells you his mother called the bar looking for him, and that she told her you were the last one he talked to. Dot stops warning you about the bridge.
 
 ## Why it works
-The game needs one character the player can act *through*, and a 19-year-old on a bike is the cheapest possible companion: no portrait change, no combat, just texts and a slice of the day. The fifty is a guilt the player didn't ask for, which is the kind that sticks. The Jalen scene stitches the two Backwater kids together in six words.
+The game needs one character the player can act *through*, and a 19-year-old on a bike is the cheapest possible companion: no portrait change, no combat, just texts and a slice of the day. The fifty is a guilt the player didn't ask for, which is the kind that sticks.
 
 ## How the player experiences it
-Messages tab jobs; items appearing; one scene at the Lanes; one at the Flare's back door.
+Messages tab jobs; items appearing; one scene at the Lanes.
 
 ## Risks and tradeoffs
 The runner needs a small job-type in the phone (three templates). Carrying cash across the river for you touches the best-bankroll rules only in that the money moves; it never changes its ownership. Keep his jobs cheap and slow so they're a convenience, not an economy.
 
 ## Decision notes
-
+- 2026-10-28: "The link" paragraph (Jalen's brother) removed after S-027 was rejected.

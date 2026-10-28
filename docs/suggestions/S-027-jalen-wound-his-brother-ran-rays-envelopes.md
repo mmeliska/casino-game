@@ -1,7 +1,7 @@
 ---
 id: S-027
 title: "Jalen's wound: his older brother ran Ray's envelopes before Raffy did"
-status: proposed
+status: rejected
 area: character
 character: Jalen
 type: new
@@ -37,4 +37,5 @@ Raffy's line; the stake refusal if you've gone crooked; the coffee after a night
 Adds an offstage brother and a county jail (unnamed, never shown); both are flavour and never need a scene. The stake refusal must not lock the Jalen arc for crooked players: he accepts once you've played licensed for a season (heat cooling already models this). Check against the tone rule: Backwater stays a place people like; the brother's story is about Ray, not the district.
 
 ## Decision notes
+- Mike, 2026-10-28: rejected. "This big city is starting to feel very small. Not every character can have a tie to another character. Maybe Jalen is just a kid who grew up in the Levee and got a job at the Flare." Then: he goes to business school by day and works the Flare at night to pay his tuition (see S-029).
 

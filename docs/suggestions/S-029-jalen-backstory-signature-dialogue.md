@@ -1,41 +1,46 @@
 ---
 id: S-029
-title: "Jalen's expanded backstory, signature moment and sample dialogue"
-status: proposed
+title: "Jalen's backstory: hospitality classes by day, the Flare by night, and the host stand on opening night"
+status: accepted
 area: character
 character: Jalen
 type: expansion
 impact: medium
 effort: low
-depends_on: S-003, S-027
+depends_on: none
 conflicts_with: none
 ---
 
 ## Summary
-A 300-word history for Jalen, one scene the player will remember (the first hand he deals for money, in the room he learned in), and four lines in his voice.
+A short history for Jalen (Mike, 2026-10-28): a Levee kid who studies hospitality by day and buses tables at the Flare at night to pay his tuition. One scene the player will remember: opening night, Jalen at the new Starflare's host stand. A few lines in his voice.
 
 ## Current state
-Grew up in Backwater; saving to get out; learned poker by watching; voice settled (people/jalen.md). Opening night: he runs the new Starflare's poker room. No backstory beyond two sentences.
+Grew up in Backwater; saving to get out; learned poker by watching; voice settled (people/jalen.md). At A5.2 he "invests and runs the poker room (the hotel once the post-game tower opens)"; other pages say "head of the hotel" (OQ 1). No backstory beyond two sentences.
 
 ## Proposed change
-**Backstory.** Jalen's mother cleans offices downtown on the night shift and has since his father went back downstate when Jalen was six. His brother raised him on weekday evenings, which is how Jalen learned to be polite to adults: his brother wasn't, and Jalen watched where that got him. He got the Flare job at seventeen by walking in on a Tuesday and asking Pete for anything, and Pete, who had done the same thing at nineteen, gave him a bus tray and said "kid." Jalen has had the tray four years. He stands behind the poker room's rail on his breaks with a handheld game going so nobody asks what he's looking at, and what he's looking at is the one table in the Flare where the house doesn't play. He has never bought in. He has a notebook of every regular's habits and has never shown it to anyone, because showing it is asking. The handheld is the one thing he's ever bought himself. He is saving to get his mother out of the two-flat and his brother a lawyer who isn't the county's; "out of Backwater" is the polite version.
+**Backstory.** Jalen grew up in the Levee, a few blocks from the Flare, in an ordinary family with no story the game needs to tell. At seventeen he walked in on a Tuesday and asked Pete for any job. Pete gave him a bus tray and called him "kid." He takes hospitality classes at the city college by day and buses the Flare at night, and every dollar of tips goes to tuition. What he wants is to run a hotel: the front desk, the comps, the way a room feels when someone remembers your name. He watches the Flare the way a student watches a case study, and he watches the poker room because it's where he learned that reading people is the whole job. He doesn't play for money; he learned poker by watching, and what he learned was people.
 
-**Signature moment.** Opening night, the new poker room. Jalen is in the dealer's seat for the first hand, in a Starflare vest. The regulars from the old room are at the table, and the player, and (if S-003 fired) this is the second time they've seen him deal. He checks the shoe, looks at the table, and the handheld game is nowhere. Pose: the watchful floor pose, but seated. "Gentlemen. Ma'am. Blinds are five and ten." Then, to you only, the young voice, once: "I'm not gonna cheese this one." Insert: the notebook, open, on the dealer's shelf. First page: "Seat three bluffs the river."
+He keeps a notebook. Not tells: guests. Who drinks what, whose birthday is when, which regular likes the corner seat, who comes in on Fridays after a funeral. He has never shown it to anyone. The handheld game is for breaks and for looking busy while he listens.
 
-**Sample dialogue.**
+**Payoff.** He is not on the new floor's poker staff. On opening night he runs the front of house, and when the post-game tower opens he runs the hotel (this settles OQ 1 as "head of the hotel"). His investment as a backer comes from an inheritance in act 4, and the decision is his own (S-028).
+
+**Signature moment.** Opening night, the new Starflare's front doors. Jalen is at the host stand in a Starflare jacket, not a busboy vest. The handheld is nowhere. Insert: the notebook, open on the stand. Pose: the watchful floor pose, standing straight. To the first guest through the door, a regular from the old Flare, he says her drink before she orders it. To you, once, in the young voice: "I'm not gonna cheese this one." The player who has watched Gus pour coffee for forty hours knows what job this is.
+
+**Sample dialogue.** "Sir" follows the player's register title (bible 4.1.8).
 - "Excuse me, sir. I don't mean to overstep, but the gentleman in seat three has been bluffing all night."
-- "I'd rather not know where it's from, sir. No offense."
-- "My brother says hey. I told him about you. He says you play too tight." (Only once Jalen trusts you; S-027.)
-- "Nah, that boss is impossible. You gotta cheese the second phase." / "Sorry. Sir. You were saying."
+- "Midterm's Thursday. I'm good. Thank you for asking, though."
+- "A good host remembers the drink. A great one remembers why they're drinking it."
+- "Nah, that boss is impossible. You gotta cheese the second phase." / "Sorry. You were saying."
 
 ## Why it works
-The notebook and the handheld are two props that say "watching" and "hiding"; putting one away and opening the other is his arc in a single panel. The backstory gives "out of Backwater" a mother and a brother without taking the pride out of it, which keeps the tone rule (nobody treats the city as a place to escape).
+It gives him a want of his own that isn't escape and isn't anyone else's story, which keeps the city big. It makes his act 5 role follow from who he was in act 1. The notebook turns from a busboy's private habit into a host's tool, and the host stand quietly continues what Gus did at the door without making Jalen his heir.
 
 ## How the player experiences it
-The notebook insert can appear earlier as a seed (he closes it when you walk up) so the opening-night page re-reads.
+A textbook under the tray on a break; the notebook, closed when you walk up, as an early seed; the host stand on opening night.
 
 ## Risks and tradeoffs
-The lawyer detail depends on S-027.
+Changes two settled facts: Jalen grew up in the Levee, not Backwater, and his act 5 role is front of house and the hotel, not the poker room. The design docs (`people/jalen.md`, `pages/storymap-beats.md` A5.2) need that change later. Pete's son Tomas (S-020) is also paying tuition; they are unrelated, but the two shouldn't share a scene.
 
 ## Decision notes
+- Mike, 2026-10-28: accepted after changes. He studies hospitality, not business ("not running a poker room"). He grew up in the Levee. No staking; his backer money is an inheritance (S-028).
 

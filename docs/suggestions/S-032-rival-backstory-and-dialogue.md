@@ -1,7 +1,7 @@
 ---
 id: S-032
 title: "Chase/Brooke's expanded backstory and sample dialogue"
-status: proposed
+status: accepted
 area: character
 character: Chase/Brooke
 type: expansion
@@ -39,4 +39,5 @@ Through lines only; the history is never told.
 None beyond S-030's. The two versions share the text; only pronouns change.
 
 ## Decision notes
+- Mike, 2026-10-28: accepted.
 

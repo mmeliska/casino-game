@@ -1623,6 +1623,11 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **"Dry" stays out of player-facing text** (Mike, 2026-10-28). In the docs, Backwater's "dry" means no legal gambling; alcohol is legal there. In-game lines say "voted no on the casinos" or similar, so players don't read it as a ban on drinking.
 - **Kasia's dad was a businessman, not a mill man, and Kasia wears no union pin** (`suggestions/S-025`, 2026-10-28). This overrides `people/kasia.md`. He opened the Tap at the mill gate and rented the back room to the local, and he backed the "no" vote because a casino would have emptied his bar.
 - **Kasia's credit** (`suggestions/S-026`, 2026-10-28): "put it on the book" at the Tap for pull tabs or, once invited, the back room, up to a limit that starts around $50. No interest and no due date. Repaying within about a week counts toward reliable. The limit rises and falls with the reliable/flaky scale.
+- **Jalen grew up in the Levee, not Backwater**, and has no family tie to anyone in the cast (`suggestions/S-027` rejected, 2026-10-28). He takes hospitality classes by day and buses tables at the Flare at night to pay tuition. On opening night he runs the front of house, and later the hotel; this settles OQ 1 (`suggestions/S-029`). He is not staked and doesn't play for money. The player can lend him tuition ("what Jalen owes you"), which he repays in tip envelopes. In act 4 an inheritance from a great-aunt lets him decide, on his own, to become a backer (`suggestions/S-028`). "Saving up to get out of Backwater" no longer applies.
+- **Honorifics follow the register** (2026-10-28). An NPC who says "sir" says "ma'am" if the player ticked Ms. and uses no honorific if they chose Prefer not to answer.
+- **Not every character needs a tie to another** (Mike, 2026-10-28). The city should feel big. Avoid coincidental backstory links between cast members.
+- **The rival for Prefer not to answer** is Chase or Brooke, picked at random (Mike, 2026-10-28).
+- **Nights out with the rival** (`suggestions/S-030`, 2026-10-28): three invitations in acts 1 and 2 (the RailYard, the Harborlight, the Prairie Queen), each with one event that moves the rival's standing. That standing decides A3.8 and whether the theft at A4.8 can happen (`suggestions/S-031`). The rival plays clean all game.
 
 ## 4.2 Places and venues
 
@@ -1884,6 +1889,7 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 ## 5A. Pages that still disagree with the audit decisions or with live pages
 
 **OQ 1. Jalen "head of the hotel" vs "runs the poker room, then the hotel" (audit 2.9).**
+- **Resolved (Mike, 2026-10-28):** head of the hotel; front of house on opening night. He studies hospitality and is not staked. See 4.1.8 and `suggestions/S-029`.
 - `pages/storymap-open.md`: "Jalen becomes head of the hotel and Vivian stays a silent partner."
 - `plan/t07.md` Rebuild phases: "only Jalen (later head of the hotel) and Vivian (silent partner)."
 - Versus audit 2.9 and `pages/storymap-beats.md` A5.2: "Jalen invests and runs the poker room (the hotel once the post-game tower opens)."

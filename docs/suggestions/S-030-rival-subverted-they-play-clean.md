@@ -1,7 +1,7 @@
 ---
 id: S-030
 title: "The rival subverted: Chase/Brooke never takes a crooked job, and their arrogance is terror"
-status: proposed
+status: accepted
 area: character
 character: Chase/Brooke
 type: change
@@ -31,14 +31,23 @@ Chase/Brooke: white, 30s, upper-middle-income family, "divorced, no kids, starti
 - **The theft (A4.8, S-031) is the exception that proves it.** The first crooked thing they do in Northlight is against you, and it isn't a job, it's a pawn ticket. A clean player's one crime is the measure of how far they fell.
 - **The mirror line (act 4, A4.8 "all is well" branch):** "You know what the difference between us was? You picked a side of the river. I just kept crossing."
 
+**Nights out with the other newcomer** (Mike, 2026-10-28). Three invitations across acts 1 and 2, each a text in Messages ("Harborlight tonight? I'm buying the first round."). You can go or decline. An invitation waits until you answer: no timer, no penalty for leaving it unanswered, and if you can't reach that venue yet, it waits until you can. Each night is a normal session at that venue with one short event partway through. The choice moves the rival's ordinary NPC standing, and declining an invitation moves it down a little. Nothing here touches the tables, which stay fair.
+
+1. **The RailYard, act 1 (after A1.8): the bad night.** Both of you are new and both of you are losing. One of you busts first, whichever does in play. If it's them, they laugh it off too loudly. Choice: cover their next buy-in (up; they pay you back the next day, with a story about how they were "basically even"), split a cab home and call it a night (up a little), or keep playing and let them leave (down). If it's you, they offer to cover you. Taking it is up; refusing politely is neutral.
+2. **The Harborlight, act 2: the heater.** They're winning, loudly, and a regular at the table needles them for it. Choice: back them up (up), laugh along with the regular (down), or tell them to cash out while they're ahead (no change now; at A3.8 they remember it: "You told me to cash out. I should have.").
+3. **The Prairie Queen, late act 2 (before A2.7): the first loss.** They drop more than they can afford and won't say so. Walking off the boat, they ask you, if anyone asks, to say they finished up. Choice: agree (up; it's what a friend does, and the lie is small), or say you won't lie for them (down now, but at A3.8 the honest ask comes easier: "You never covered for me. That's why I'm asking you.").
+
+**What the standing changes.** High standing: at A3.8 they come to you before the debt gets worse, and if you refuse, there is no theft; they go quiet and the friendship ends without a crime. Middle standing: as the docs have it. If you refuse, they steal from you (S-031). Low standing: they go to Ray first and come to you last, and if you refuse, the theft is certain. The mirror line in act 4 (the "all is well" branch) only plays if you went on at least two nights.
+
 ## Why it works
 A rival who is a worse person than the player is a trope; a rival who is a better gambler and a more honest one, and loses anyway, is a mirror and a warning. It makes the fair-play pillar a character beat, and it makes refusing them at A3.8 cost something: you're refusing the one person who did it right. Their wound is a lost house too, from the side nobody expects.
 
 ## How the player experiences it
-Nothing structural changes. The lines change, the watch insert gains meaning, and Ed gets one line. The player notices, late, that the rival never showed up anywhere crooked until the theft.
+Three optional nights out in acts 1 and 2. Otherwise nothing structural changes. The lines change, the watch insert gains meaning, and Ed gets one line. The player notices, late, that the rival never showed up anywhere crooked until the theft.
 
 ## Risks and tradeoffs
 It removes the option of the rival as a crooked foil, which no doc uses anyway. "Divorced, no kids" is settled and kept; the house is new. If Mike wants the rival to lean crooked in some branch, keep the clean rule for acts 1 to 3 only.
 
 ## Decision notes
+- Mike, 2026-10-28: accepted with a change: "there needs to be a few nights where the player heads to a casino with the other newcomer," with events that strengthen or weaken the relationship. Added three nights out; the rival's standing decides how A3.8 and the theft play.
 
