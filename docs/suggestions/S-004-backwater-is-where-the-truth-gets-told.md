@@ -1,13 +1,13 @@
 ---
 id: S-004
 title: Backwater is where the truth gets told: make the camera dead zone a story rule
-status: proposed
+status: accepted
 area: main-story
 character: none
 type: change
 impact: high
 effort: low
-depends_on: none
+depends_on: S-015, S-042
 conflicts_with: none
 ---
 
@@ -34,4 +34,6 @@ Nothing on screen names the rule. Gus's portrait over the Backwater motel plate 
 Costs almost nothing in art (existing portraits over existing plates). The risk is overuse: if every scene is "let's go to Backwater" the rule becomes a joke. Keep it to confessions and the three scenes above, and let the Levee keep its lies.
 
 ## Decision notes
+- Mike, 2026-10-27: accepted.
+- 2026-10-28: depends_on now lists S-015 and S-042, which the A4.2 and Wren bullets refer to. If either is rejected, drop that bullet; the rule stands.
 

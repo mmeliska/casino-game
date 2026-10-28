@@ -8,7 +8,7 @@ type: new
 impact: high
 effort: low
 conflicts_with: none
-depends_on: S-006
+depends_on: none
 ---
 
 ## Summary
@@ -25,7 +25,7 @@ Three possible player actions, all cheap:
 - **Knock on the window.** He lowers it an inch. Private voice, plain: "Go to bed." Then he leaves. Standing with Bennett drops a step; the flag is set.
 - **Tell Dot.** She's seen the car; she doesn't know whose it is, and she doesn't know Richard's story (the bible keeps her ignorant of both). "Some man. Couple of years now, most Tuesdays. Never gets out. I don't ask, hon." (She doesn't lie; she warns sideways.) The player who has seen the desk photo knows more than she does.
 
-Payoff: in the reconcile route (S-006), Richard's first words when his son sits down at the picnic table, before the hand, are "You could have knocked." (S-006's "You always did" comes after the hand.) If the player has the flag, the line lands; if not, it's just a father talking.
+Payoff: in the reconcile route, Richard's first words when his son sits down at the picnic table, before their hand of War, are "You could have knocked." If the player has the flag, the line lands; if not, it's just a father talking.
 
 ## Why it works
 "Negotiate with, never defeat" needs the player to see what the obstacle costs the man. A politician who pays for his father's room and can't walk twenty feet to the door is the whole character in one plate, and it's shown, not told, which the writing rules demand. It costs one plate (the lot at night with a car) and a line.

@@ -1,7 +1,7 @@
 ---
 id: S-006
 title: Setup and payoff: Bennett still peeks at the top card
-status: proposed
+status: rejected
 area: main-story
 character: Richard
 type: expansion
@@ -39,4 +39,5 @@ A short story-event game the player watches rather than plays, which is a first 
 Players who never played War with Richard will miss the line it pays off; the scene still works as a silent father-and-son hand. Risk of being too neat: keep Richard's line to three words and let the black panel do the rest.
 
 ## Decision notes
+- Mike, 2026-10-27: rejected. The reconcile ending stays as the docs have it (a hand of War, the box, the amendment), with no peek and no thrown hand.
 

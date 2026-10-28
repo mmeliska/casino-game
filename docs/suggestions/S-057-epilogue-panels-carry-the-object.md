@@ -1,13 +1,13 @@
 ---
 id: S-057
 title: Each epilogue cast panel carries that character's object, in whatever state you left it
-status: proposed
+status: rejected
 area: ensemble
 character: none
 type: expansion
 impact: medium
 effort: low
-depends_on: S-054
+depends_on: none
 conflicts_with: none
 ---
 
@@ -25,7 +25,7 @@ A table the epilogue builder reads:
 | Gus | The mug | Chipped, on the new floor's bar / chipped, in a box / a new mug (O2: someone bought it for the floor; he's not there) |
 | Pete | The pin | On his lapel at the new pit / on your lapel / in Troy's cage (S-031; not possible if S-009 makes it a story key) / on a dark pit |
 | Rosa | The vest | Patch sewn back on (license restored) / patch still torn, dealing the Harborlight |
-| Dot | The register | Your line with Dot's under it / your page torn out (S-016) |
+| Dot | The register | Your page from night one, intact / your page torn out (S-016) |
 | Kasia | The ledger | Your page closed, dated / torn / in Ray's man's handwriting (S-024, S-026) |
 | Richard | The key | On his lanyard / on the picnic table, box open / in Bennett's hand |
 | Bennett | The desk photo | Face-up / face-down / gone (the newspaper panel says why) |
@@ -40,7 +40,7 @@ A table the epilogue builder reads:
 The line under each stays the character's, to the voice sheet. The record card after can show the story-key row (S-009).
 
 ## Why it works
-The epilogue builder is the one place the game reads back every choice at once; an object rule turns it from "here's who you knew" into "here's what you did to them," with no narration. It uses only inserts, which are the cheapest art unit, and it closes the theme (S-054) on the last screen.
+The epilogue builder is the one place the game reads back every choice at once; an object rule turns it from "here's who you knew" into "here's what you did to them," with no narration. It uses only inserts, which are the cheapest art unit.
 
 ## How the player experiences it
 Eight panels at the end, each with an insert they recognize.
@@ -49,4 +49,5 @@ Eight panels at the end, each with an insert they recognize.
 About three insert states per character is a small art list (most already exist as clue or seed inserts). The table depends on several other suggestions for its states; where one is rejected, the object still works with fewer states.
 
 ## Decision notes
+- Mike, 2026-10-28: rejected.
 

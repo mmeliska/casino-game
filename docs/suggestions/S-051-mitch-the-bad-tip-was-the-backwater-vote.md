@@ -7,7 +7,7 @@ character: Mitch
 type: change
 impact: medium
 effort: low
-depends_on: S-039
+depends_on: S-025, S-039
 conflicts_with: none
 ---
 
@@ -29,7 +29,7 @@ Mitch: "Years ago he made big bets on supposedly inside information and lost alm
 - **If Bennett loses the mayor's race** (S-039), Mitch's epilogue panel is him at Haybale Downs, with a program, betting a horse for the first time in twenty years.
 
 ## Why it works
-It ties the cynic at the gas station to the city's founding fact (the dry vote) and to the game's antagonist, which the docs already half-do, and it makes his help in act 4 personal. A storefront lost to a vote is a house lost to the Levee, which puts Mitch in the game's theme (S-054) from the Bridges.
+It ties the cynic at the gas station to the city's founding fact (the dry vote) and to the game's antagonist, which the docs already half-do, and it makes his help in act 4 personal. A storefront lost to a vote is a house lost to the Levee, seen from the Bridges.
 
 ## How the player experiences it
 One insert, one scene, one epilogue panel. He never tells the story straight; Dot or Kasia can tell a version of it.

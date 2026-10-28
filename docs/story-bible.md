@@ -1111,7 +1111,7 @@ Only O1 and O2 end the main story; the rest are resting points you can climb bac
 - Tae (O5) takes it from storage or from the gate.
 - Relighting the rocket always means a brand-new sign for the new Starflare, so "the old sign's fate ... is flavour only" (`pages/storymap-branches.md`).
 
-**Cash-out / drive-away** (`plan/t10.md`, Mike 2026-10-22): from act 2 on, a phone option lets you drive away over the Long Bridge in your car. It plays a leaving epilogue built from the current state. The save is kept and you can resume from the morning you left.
+**Cash-out / drive-away** (cut by Mike on 2026-10-27, see 4.1.8; as the docs still describe it, `plan/t10.md`, Mike 2026-10-22): from act 2 on, a phone option lets you drive away over the Long Bridge in your car. It plays a leaving epilogue built from the current state. The save is kept and you can resume from the morning you left.
 
 **Epilogue (EP).** About 8 still panels (`plan/t10.md`):
 - Panel 1: what became of the Starflare.
@@ -1364,7 +1364,7 @@ Day, season and time model:
 
 **Post-game.** Light owner mode. The tower (~$2M) and rooftop launch pad (~$1.5M) are goals. At the tower's opening Jalen runs the hotel; Felix/Nora move to its front desk.
 
-**Epilogue.** After opening night or at a resting point; or on drive-away.
+**Epilogue.** After opening night or at a resting point; or on drive-away (cut 2026-10-27, see 4.1.8).
 
 ---
 
@@ -1611,6 +1611,12 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **OQ 26, O8 versus O10:** decided by what you hand Wren. Raffy's drive (the evidence): she keeps you on as hers and the mob runs the new floor with you in it (O8). Gus's markers plus the payout: you sold him and walked away with money (O10).
 - **OQ 42 and 43, the backstory order:** see the settled paragraph at the top of 3.1.
 - **Two men in parked cars** (Bennett outside room 9, Ray outside the Flare after Gus signs) is a deliberate rhyme; both stay (`suggestions/S-038`, `S-045`).
+- **The Flare's last night (A3.3)** has three scene slots out of six scenes (`suggestions/S-003`). Every Flare game is open that night, the Rocket Wheel included, and a black panel tells the player it is their last chance to play at the Flare. Playing doesn't use a slot.
+- **Truth is told where nothing records** (`suggestions/S-004`): confessions happen in Backwater or on the Long Bridge. Gus's A4.1 confession is at the Slack Water Motel picnic table.
+- **Room 9's reconcile ending stays as the docs have it.** No peek and no thrown hand (`suggestions/S-006` rejected).
+- **The cash-out / drive-away is cut.** There is no leaving ending: at the end you stay and run the new casino/hotel. This overrides the 2026-10-22 decision in 2.8 (`plan/t10.md`); the design docs still describe the drive-away and need changing later (`suggestions/S-010` rejected).
+- **Going broke is fixed by doing jobs.** No NPC rescues the player when they're down (`suggestions/S-053` rejected, 2026-10-28).
+- **The Flare has three named regulars with portraits:** Walt, Lorraine and Augie (`suggestions/S-055`, 2026-10-28). This adds three portraits to the `plan/t06.md` budget.
 
 ## 4.2 Places and venues
 

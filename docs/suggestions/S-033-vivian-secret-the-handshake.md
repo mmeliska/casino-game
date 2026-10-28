@@ -31,7 +31,7 @@ Vivian: early 60s, Black old money; her great-grandfather's insurance company co
 **Want:** to lose with dignity. **Need:** to be asked for the thing she's been holding.
 
 ## Why it works
-It takes a line the author already wrote down and makes it the spine of the game's most expensive decision. "High roller on a losing streak" becomes a woman settling an inheritance, which puts her inside the game's theme (S-054) instead of beside it as a bank. It also makes Tae's bid and the player's bid differ in kind, not price, which is what the land contest needs.
+It takes a line the author already wrote down and makes it the spine of the game's most expensive decision. "High roller on a losing streak" becomes a woman settling an inheritance, which puts her inside the story instead of beside it as a bank. It also makes Tae's bid and the player's bid differ in kind, not price, which is what the land contest needs.
 
 ## How the player experiences it
 The yacht insert; the pearls; the A5.1 variant with Gus in the room; one line at the Gilded Pine where she mentions "a man who used to bring his boy to the tables" and changes the subject (she lies with grace; the boy was Gus).

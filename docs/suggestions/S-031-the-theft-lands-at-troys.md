@@ -33,7 +33,7 @@ If it was Pete's pin, you can't hire Pete home without it, which the docs alread
 A missing slot, then Troy's shelf. The watch beside it is the only clue to who. The buy-back timer is the pressure.
 
 ## Risks and tradeoffs
-Needs an authored rank on items (one field). If S-009 is accepted, Pete's pin and Gus's IOU move to the story-key row and can't be stolen; the rank then starts at Gus's lucky chip, and the pin-related consequences below drop out. The theft of the pin could block an ending for players who miss the Thursday; Troy's hold already covers that, and a missed hold means Pete is hired back by a different gesture (Gus asks him), at a cost to Pete's standing.
+Needs an authored rank on items (one field). S-009 is accepted, so Pete's pin and Gus's IOU move to the story-key row and can't be stolen; the rank then starts at Gus's lucky chip, and the pin-related consequences below drop out unless S-009 is revised. The theft of the pin could block an ending for players who miss the Thursday; Troy's hold already covers that, and a missed hold means Pete is hired back by a different gesture (Gus asks him), at a cost to Pete's standing.
 
 ## Decision notes
 

@@ -32,7 +32,7 @@ Chase/Brooke: white, 30s, upper-middle-income family, "divorced, no kids, starti
 - **The mirror line (act 4, A4.8 "all is well" branch):** "You know what the difference between us was? You picked a side of the river. I just kept crossing."
 
 ## Why it works
-A rival who is a worse person than the player is a trope; a rival who is a better gambler and a more honest one, and loses anyway, is a mirror and a warning. It makes the fair-play pillar a character beat, and it makes refusing them at A3.8 cost something: you're refusing the one person who did it right. Their wound joins the game's house theme (S-054) from the side nobody expects.
+A rival who is a worse person than the player is a trope; a rival who is a better gambler and a more honest one, and loses anyway, is a mirror and a warning. It makes the fair-play pillar a character beat, and it makes refusing them at A3.8 cost something: you're refusing the one person who did it right. Their wound is a lost house too, from the side nobody expects.
 
 ## How the player experiences it
 Nothing structural changes. The lines change, the watch insert gains meaning, and Ed gets one line. The player notices, late, that the rival never showed up anywhere crooked until the theft.

@@ -7,7 +7,7 @@ character: Richard
 type: expansion
 impact: medium
 effort: low
-depends_on: S-006, S-040
+depends_on: S-040
 conflicts_with: none
 ---
 

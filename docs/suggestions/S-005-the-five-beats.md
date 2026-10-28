@@ -1,7 +1,7 @@
 ---
 id: S-005
 title: Build the main story around five emotional beats, one per act
-status: proposed
+status: accepted
 area: main-story
 character: none
 type: new
@@ -29,7 +29,7 @@ The spine is five acts with money and time gates (pages/storymap-intro.md). Each
 Pacing: beats 1 and 2 arrive before the player has spent much money, so they are cheap to reach; 3 is the midpoint and "always happens"; 4 and 5 are gated by money, so the player earns them. Every other scene in the game should be able to answer "which of the five is this setting up or paying off?"
 
 ## Why it works
-A long, open life sim needs a short list of moments that the writing serves, or the beats blur into gates. These five are belonging, mourning, loss, confession and sacrifice, which is the shape of a story about a man's father's house. They are also all cheap in art and all already half-present in the docs.
+A long, open life sim needs a short list of moments that the writing serves, or the beats blur into gates. These five are belonging, mourning, loss, confession and sacrifice, which is the shape of a story about a man and the Flare. They are also all cheap in art and all already half-present in the docs.
 
 ## How the player experiences it
 As five scenes that feel different from the rest: each gets a black panel, a silence, and a stake. The epilogue's cast panels can quote one line from each beat the player reached.
@@ -38,4 +38,5 @@ As five scenes that feel different from the rest: each gets a black panel, a sil
 Naming beats risks over-signposting if the writing winks at them. Keep them unmarked. The table depends on several other suggestions, and beat 5 needs S-001 (S-002 was rejected on 2026-10-27, so S-001 is now listed as a dependency); accepting the list without them still gives the writing a target.
 
 ## Decision notes
+- Mike, 2026-10-27: accepted in full: the five scenes get a black-panel pause before their choice and an epilogue quote.
 

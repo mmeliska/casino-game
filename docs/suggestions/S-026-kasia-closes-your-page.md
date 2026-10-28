@@ -18,7 +18,7 @@ The ledger is how the player feels the reliable scale; give it one scene. At the
 "Gives credit but keeps a ledger and remembers every cent"; "her credit is how the player feels the reliable/flaky scale"; sample line: "Your tab's in the book. The book never forgets. Neither do I." (people/kasia.md). The Wallet shows "Kasia's ledger" as a debt line (pages/gdd.md). No scene uses the book.
 
 ## Proposed change
-At opening night, the drive-away, or when a resting point settles, if you ever had credit at the Tap, one scene at the bar, four panels:
+At opening night, or when a resting point settles, if you ever had credit at the Tap, one scene at the bar, four panels:
 
 - **Paid every cent, on time (reliable):** she draws a line under your page and writes the date. "Book's closed. Drinks aren't." Your credit is unlimited afterward, which the player will never need and will remember.
 - **Paid, late, often (mixed):** she turns the page and starts a fresh one with your name at the top. "New page. Same book."

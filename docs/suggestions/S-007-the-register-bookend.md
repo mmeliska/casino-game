@@ -1,7 +1,7 @@
 ---
 id: S-007
 title: Setup and payoff: you sign your name once at the start and once at the end
-status: proposed
+status: rejected
 area: gameplay-integration
 character: Dot
 type: new
@@ -32,4 +32,5 @@ Two inserts and one line from Dot. Nothing is explained; the player recognises t
 If the name is rendered as a font rather than a handwriting-style string, the bookend reads weaker; worth a dedicated "register" font. Dot bringing the register to opening night needs her to cross the river, which the docs have her do only for A4.2 at the Cinder Room (and S-004 moves that to her own lot); S-016 makes the crossing her arc's end, so the two should be taken together.
 
 ## Decision notes
+- Mike, 2026-10-27: rejected.
 

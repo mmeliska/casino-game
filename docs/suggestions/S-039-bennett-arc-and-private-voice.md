@@ -7,7 +7,7 @@ character: Bennett
 type: expansion
 impact: medium
 effort: low
-depends_on: S-006, S-038
+depends_on: S-038
 conflicts_with: none
 ---
 
@@ -25,7 +25,7 @@ Bennett: the Levee's alderman and ward boss; loves the Levee; publicly against g
 **Contradiction:** he keeps the Levee's light, not its dice, and takes the dice's money to do it. He knows. The campaign slogan is the lie he tells with speeches; the envelope at Dot's desk is the truth he tells with cash.
 
 **Arc by route:**
-- **Room 9, reconcile (S-006):** his father lets him win, hands him the box, and the amendment is gratitude. At the hearing he speaks for the new Starflare, briefly, and says the word "casino" without flinching. His mayor's race headline is a win.
+- **Room 9, reconcile:** they play a hand of War, his father hands him the box, and the amendment is gratitude. At the hearing he speaks for the new Starflare, briefly, and says the word "casino" without flinching. His mayor's race headline is a win.
 - **Room 9, shame:** he amends under threat; at the hearing he's silent and hostile; the headline is a loss by a few points, and the epilogue's newspaper has him back as alderman, bitter, still paying the room.
 - **By the book (A4.11):** the commission voids the name clause; he is embarrassed in public for the first time in his career and, oddly, relieved. Headline: a narrow loss and a line about "a conflict of interest." He sends Richard's envelope with a note for the first time.
 - **Expose Umbra (A4.3):** his cut comes out with Wren's books. He is the only person in the game who can go to prison, and whether he does is the epilogue's front page. If the player handed Ed the clean logs only, he survives, weakened.

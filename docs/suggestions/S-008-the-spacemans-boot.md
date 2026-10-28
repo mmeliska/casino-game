@@ -1,7 +1,7 @@
 ---
 id: S-008
 title: Setup and payoff: Gus has never rubbed the spaceman's boot
-status: proposed
+status: rejected
 area: main-story
 character: Gus
 type: expansion
@@ -36,4 +36,5 @@ One extra line on the first visit, one insert at each ending. The player who rem
 Near zero cost. S-002, which competed with this for Gus's "pride breaks" moment at the end, was rejected on 2026-10-27, so the boot is now his one such moment and it stays private.
 
 ## Decision notes
+- Mike, 2026-10-27: rejected.
 

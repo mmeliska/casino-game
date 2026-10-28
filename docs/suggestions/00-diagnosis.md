@@ -23,21 +23,21 @@ I did not propose changes for Mayor Dabareski, Troy or the three romance pairs. 
 ## What works and should be protected
 
 1. **The chain of secrets is the engine, and it's sound.** Rosa took the fall for Gus; the penalty forced the cameras; the cameras let Wren blackmail him; Bennett used that to clear his father's markers; Gus gave the proof to the father; Umbra watches the father's door. Every link is a shame traded for a silence, and every act 4 route spends one of them. After the October audit this holds together under pressure. Don't add links; the suggestions here only make the existing ones felt.
-2. **Money as a two-way gate, and broke as content.** The single best design idea in the docs for a gambling story. Protect it from any suggestion that makes losing feel like failing; S-053 is written to reward the broke path, not punish it.
+2. **Money as a two-way gate, and broke as content.** The single best design idea in the docs for a gambling story. Protect it from any suggestion that makes losing feel like failing; S-053 (rejected) was written to reward the broke path, not punish it.
 3. **The voice sheets, especially "lies by."** Twenty-one characters who each lie differently is the cast's spine. Every sample line in this set is written to those sheets.
 4. **The cheating rule.** Fair tables, doubt only in story moments, every call has a cost, the truth surfaces later. It's a moral system disguised as a UX rule. S-023 and S-049 use it; nothing here bends it.
 5. **"Once sold, it's sold."** No cash route in act 4 is a brave, correct decision. It keeps the climax about leverage, which is about people. S-001 builds on it.
 6. **The camera network and its dead zones.** Logic now; S-004 makes it meaning.
 7. **The panel kit and the "show the clue, say nothing" rule.** Nearly every suggestion here is an insert with no caption because the docs already know that's the game's native grammar.
-8. **Three small things that are already perfect:** Richard's "I let him win anyway," Rosa's torn patch on a vest she still wears, and the chipped mug. S-006, S-021 and S-013 only cash them.
+8. **Three small things that are already perfect:** Richard's "I let him win anyway," Rosa's torn patch on a vest she still wears, and the chipped mug. S-006 (rejected), S-021 and S-013 only cash them.
 
 ## Weak points
 
 ### 1. The player's attachment to the Flare is asserted, not built
-"Care builds slowly from small things" (t05.md) is a note, not a design. Coffee and a statue's boot aren't enough reason for a stranger to spend forty hours on a dying casino. The game needs the Flare to be the place where the player is first *recognized*. **S-019** (Pete says your name), **S-055** (three named regulars), **S-053** (who shows up when you're broke) and **S-005** (the five beats) address this. S-019 is the cheapest and should go first.
+"Care builds slowly from small things" (t05.md) is a note, not a design. Coffee and a statue's boot aren't enough reason for a stranger to spend forty hours on a dying casino. The game needs the Flare to be the place where the player is first *recognized*. **S-019** (Pete says your name), **S-055** (three named regulars), **S-053** (who shows up when you're broke; rejected) and **S-005** (the five beats) address this. S-019 is the cheapest and should go first.
 
 ### 2. Gus is done to, never doing
-Ray collects, Umbra buys, Bennett condemns, you win the name back, you help him quit. He confesses under pressure at A4.1 and that's his only act. A man with no turn can't carry a ribbon-cutting. **S-011** states his need and the turn; **S-001** gives the climax a choice the player makes (S-002, Gus's version, was rejected on 2026-10-27); **S-012** gives his gambling a cause; **S-008** and **S-013** give him two gestures and a name.
+Ray collects, Umbra buys, Bennett condemns, you win the name back, you help him quit. He confesses under pressure at A4.1 and that's his only act. A man with no turn can't carry a ribbon-cutting. **S-011** states his need and the turn; **S-001** gives the climax a choice the player makes (S-002, Gus's version, was rejected on 2026-10-27); **S-012** gives his gambling a cause; **S-008** (rejected) and **S-013** give him two gestures and a name.
 
 ### 3. The climax is a procedure
 Act 5 is land, backers, crew, sign, hearing, ribbon. The license hearing's "one hard question" is the best idea in the act and it's blank. **S-001** answers it (accepted 2026-10-27; **S-002**, the version where Gus speaks, was rejected).
@@ -52,7 +52,7 @@ Act 3 "always happens," which is right, but the docs stage it as an announcement
 "Raffy's drive," "the box," "the complaint." The player never has to look at Raffy's face to spend his drive. **S-009** fixes this in the UI; **S-004** moves the confession to Backwater so it's about Dot too.
 
 ### 7. The ensemble is a city of people you visit, not a cast that talks about each other
-The one instance of NPCs asking about each other (Dot and Gus) is the docs' best small device. **S-056** makes it a layer. **S-054** names the theme that already runs through every character sheet so the writing can use it.
+The one instance of NPCs asking about each other (Dot and Gus) is the docs' best small device. **S-056** makes it a layer. **S-054** (rejected) named the theme that already runs through every character sheet so the writing can use it.
 
 ### 8. Characters at risk of reading as tropes, and the subversions proposed
 | Character | The trope | The subversion |
@@ -70,12 +70,12 @@ The one instance of NPCs asking about each other (Dot and Gus) is the docs' best
 
 1. **The hidden scales are felt only through gating.** The docs say the player feels them through NPC reactions, but no scene is specified that *is* a scale reading. **S-026** (Kasia's ledger page) is one; S-016's torn register and S-019's name are two more. Each scale should have one such scene.
 2. **Story keys are inventory.** A thumb drive and a key sit in a row like items. The act 4 routes read as "which object do I spend." **S-009.**
-3. **Jobs are economy, not character.** Repeat jobs "open their story," which is right, but the stories aren't written. S-050 (Raffy as runner) and S-053 show the shape: a job that is a relationship.
+3. **Jobs are economy, not character.** Repeat jobs "open their story," which is right, but the stories aren't written. S-050 (Raffy as runner) and S-053 (rejected) show the shape: a job that is a relationship.
 4. **The last night is a beat, not a night.** The time system (parts of the day) could make the fall a thing the player spends; **S-003** uses the three slots the clock already has.
-5. **The epilogue reads standing, not objects.** The builder picks panels by numbers; nothing says what's in them. **S-057.**
-6. **Nothing is ever done *for* the player.** Every mechanic in the broke path is the player working or borrowing. **S-053** is the one scene the design is missing.
+5. **The epilogue reads standing, not objects.** The builder picks panels by numbers; nothing says what's in them. **S-057** (rejected).
+6. **Nothing is ever done *for* the player.** Every mechanic in the broke path is the player working or borrowing. **S-053** was the one scene for it; rejected, because the remedy for going broke is doing jobs.
 7. **The Pockets/pawn system has no story payoff.** Troy's "some items are worth far more to one person" is the pawn shop's whole reason to exist and nothing uses it. **S-031.**
-8. **The War mini-game is used once.** It's the game's only story-event game and it already rhymes with the Cinder Room's casino war; **S-006** and **S-015** play it twice more, at the two moments it means the most.
+8. **The War mini-game is used once.** It's the game's only story-event game and it already rhymes with the Cinder Room's casino war; **S-015** plays it a second time, at the moment it means the most (S-006, a third use, was rejected).
 
 ## Questions I would ask Mike
 

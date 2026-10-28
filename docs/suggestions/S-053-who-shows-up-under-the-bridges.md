@@ -1,7 +1,7 @@
 ---
 id: S-053
 title: Who shows up under the Bridges: the broke path as a relationship test
-status: proposed
+status: rejected
 area: ensemble
 character: none
 type: new
@@ -44,4 +44,5 @@ Wake up in the car, one scene, a change in housing or wallet, and a memory. Late
 Nine short scenes is real writing, but each is six panels on an existing plate. The event must fire only once, or the broke path becomes a kindness farm. The Pete and Gus versions touch the housing ladder (a room over a Levee bar); keep them within the settled steps.
 
 ## Decision notes
+- Mike, 2026-10-28: rejected: "The remedy for going broke is doing jobs."
 

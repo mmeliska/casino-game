@@ -1,7 +1,7 @@
 ---
 id: S-010
 title: Setup and payoff: the drive-away's first panel is the first image, reversed
-status: proposed
+status: rejected
 area: main-story
 character: none
 type: expansion
@@ -42,4 +42,5 @@ One new plate (the bridge from the driver's seat, mirror inset) with the sign sw
 Six or seven mirror variants is a small art list. The "line from the person you owe" needs one line per key NPC; the voice sheets already supply them.
 
 ## Decision notes
+- Mike, 2026-10-27: rejected, and the drive-away is cut from the game: "At the end you stay there and run the new casino/hotel." See bible 4.1.8.
 

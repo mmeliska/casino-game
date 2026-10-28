@@ -7,7 +7,7 @@ character: Bennett
 type: expansion
 impact: low
 effort: low
-depends_on: S-006, S-038, S-039
+depends_on: S-038, S-039
 conflicts_with: none
 ---
 
@@ -25,7 +25,7 @@ His father started going to the Flare after his mother died, for the company, an
 Starflare Field is the house rebuilt as a civic project: a Levee where his father couldn't have lost anything, with a dome on it. He knows Revaris is Umbra; he tells himself the stadium is worth it. He keeps the Flare's name on the gate because Wren insisted and because, privately, he wants the thing that took his father's house to be the thing that holds his father's grandchildren's ball games. He has never said that to anyone. He sits in the lot on Tuesdays. He has not knocked.
 
 ## Why it works
-It makes the public hypocrisy a private wound's policy, which is the only way an antagonist who is "never defeated" can be satisfying: the player can't beat him, but can see him. It keeps the top-card line (S-006) as the formative moment.
+It makes the public hypocrisy a private wound's policy, which is the only way an antagonist who is "never defeated" can be satisfying: the player can't beat him, but can see him. It keeps Richard's top-card line (his voice sheet) as the formative moment.
 
 ## How the player experiences it
 Through the lot, the desk photo, the amendment, and the newspaper. Never as narration.

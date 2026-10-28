@@ -27,7 +27,7 @@ Pete "calls everyone 'kid' until they earn their name" and holds "a rating card 
 Belonging is the first thing a blank-slate player needs and the hardest to give without a speech. The name is the one thing the player made; hearing it from the man who withholds names turns a settings field into a reward (technique: earned recognition, ritual). It also makes the comp system the leash the review asked for, because the card is the first thing Tae's Aurelian will "back off."
 
 ## How the player experiences it
-A tappable card inset on the Flare's floor, one short scene, and a change in address that the player will hear in every Pete line afterward. In the drive-away epilogue, Pete's line is just your name (S-010).
+A tappable card inset on the Flare's floor, one short scene, and a change in address that the player will hear in every Pete line afterward.
 
 ## Risks and tradeoffs
 Showing a number violates "the scales are never shown as numbers" only in spirit: the rating is the house's opinion of your bet size, not a hidden scale, and the docs already give Pete a rating line. The reversion to "kid" at the dark pit should be a pose-less, single-word choice by the writer; if it reads as cruelty, drop it and keep the name.

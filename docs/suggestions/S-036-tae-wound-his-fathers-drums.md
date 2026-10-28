@@ -28,7 +28,7 @@ Tae grew up in the Levee; his dad played drums in the Flare's rocket-age house b
 - **Payoff.** In O5 (Tae's restaurant), the kit is on a riser under the band photo. In O1, if the reunion fires, Tae's father's kit is on the showroom stage, and Tae is in the room, and he doesn't say anything, which from Tae is a speech.
 
 ## Why it works
-The soft spot "he'd never admit" needs an object to be about, or it stays a note. A drum kit is cheap (one insert), it ties Tae to the Flare's physical fate at the moment it matters (the last night), and it gives the reunion route a prop to pay off. It also puts a second father's thing in the Flare's basement, which S-054 can name.
+The soft spot "he'd never admit" needs an object to be about, or it stays a note. A drum kit is cheap (one insert), it ties Tae to the Flare's physical fate at the moment it matters (the last night), and it gives the reunion route a prop to pay off. It also puts a second father's thing in the Flare's basement.
 
 ## How the player experiences it
 One question from Tae; one basement plate; one optional job; one insert at the end.

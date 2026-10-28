@@ -26,7 +26,7 @@ Dot owns the Slack Water, works the desk, warns you sideways, tells stories, "ne
 
 **Turn:** A4.2. Gus is on her lot at dawn. She comes out from behind the desk for the first time in the game (every prior scene has her behind it, and she never leaves the motel lot; make that a rule) and says one thing (S-012's "Two ten," or if that's rejected, simply his name). It's the first time she has said it since the funeral.
 
-**End:** opening night, she crosses the Long Bridge with the register under her arm (S-007). In O1 she signs under you and goes to find the ceiling (S-013). In O6 (Gus lets go) she doesn't need to cross: he comes to her, and the resting point's "visits with sober Gus, Dot and Stella" happen at the picnic table. In O2, she comes anyway, signs, and leaves before Gus would have cut the ribbon.
+**End:** opening night, she crosses the Long Bridge. In O1 she goes to find the ceiling (S-013). In O6 (Gus lets go) she doesn't need to cross: he comes to her, and the resting point's "visits with sober Gus, Dot and Stella" happen at the picnic table. In O2, she comes anyway and leaves before the ribbon.
 
 **Badly:** if the player sells Gus out (O10), Dot takes your name out of the register. Literally: a panel of her tearing the page. You can still rent a room; you're a guest now.
 

@@ -1,7 +1,7 @@
 ---
 id: S-054
 title: Name the theme: every character is keeping or losing a father's house
-status: proposed
+status: rejected
 area: ensemble
 character: none
 type: new
@@ -36,4 +36,5 @@ Never as a line of text. As the inserts, the word "house" heard in two senses, a
 Themes announced become sermons; this one should live in the writing guidelines and nowhere on screen. The "stranger with no house" reading of the player should never be spoken either.
 
 ## Decision notes
+- Mike, 2026-10-28: rejected. No stated theme.
 
