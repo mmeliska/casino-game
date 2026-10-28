@@ -214,7 +214,7 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
   - He "lifted a fat envelope from Ray's car to cover her rent, thinking it was only collection cash," then panicked (`people/raffy.md`).
   - The Planning record says "he skimmed" (OQ 24).
 - **Secrets:** The envelope holds about $2,000 and a thumb drive.
-  - Ray's insurance copy of Wren's face-match logs, taken off the Prairie Queen camera feed.
+  - Ray's insurance copy of Wren's face-match logs, taken off the Prairie Queen camera feed. (Superseded 2026-10-28: an encrypted Revaris key ledger; see 4.1.8 and `suggestions/S-058`.)
   - Wren's list of who pays her to stay quiet.
   - Two files (audit 4.6): the logs, which prove the Revaris feeds go to Umbra and are all the clean route at A4.3 uses; and the payers list.
   - First time you open the drive you choose its fate. Destroy it (straight, soft). Keep it (crooked; a black-hat tool; Wren may come looking). Or later hand Ed the whole drive, names and all (ruthless).
@@ -1630,6 +1630,8 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **Nights out with the rival** (`suggestions/S-030`, 2026-10-28): three invitations in acts 1 and 2 (the RailYard, the Harborlight, the Prairie Queen), each with one event that moves the rival's standing. That standing decides A3.8 and whether the theft at A4.8 can happen (`suggestions/S-031`). The rival plays clean all game.
 - **Vivian** (`suggestions/S-033`, 2026-10-28): her family's insurance company was founded by her grandfather, not her great-grandfather. She is spending the family money down on purpose and holding the lakefront land for whoever asks what it should become. No handshake with the founder. The idea in `plan/t07.md` is dropped.
 - **Bennett and Richard** (`suggestions/S-038` to `S-041`, 2026-10-28): Bennett never visits room 9 but sometimes sits in his car in the lot, most Tuesdays. Richard was a crane operator on the Levee docks. His trust rises when the player asks him for something, never when they give him something.
+- **The Cinder Room** (Mike, 2026-10-28): Wren keeps it because powerful, shady men have always gathered there. It is her intel source on those men and the place Umbra's dealings run through proxies. She rarely goes there herself. Not sentiment. Wren is a mysterious figure the player meets once, when she needs something and offers something in trade.
+- **Raffy's drive** (`suggestions/S-058`, 2026-10-28): Revaris's encrypted key ledger, the only place a face ID is tied to a name. Site boxes hold IDs only; their exclusion list is Umbra's roster plus men who pay to be unseen. Ray runs enrollment at the Cinder Room for Wren and kept a superseded ledger as insurance. The one-time key is paper, shredded into Ray's uncollected burn bag; the player can rebuild it with the jigsaw mini-game. Ed exposes Umbra by subpoena, slow and loud. This replaces "Ray copied the face-match logs" and the two-file drive in `people/ray.md`, `people/raffy.md` and A4.3.
 
 ## 4.2 Places and venues
 

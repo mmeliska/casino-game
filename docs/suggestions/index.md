@@ -6,13 +6,13 @@ Editor's assessment: [00-diagnosis.md](00-diagnosis.md). Reference: [story bible
 
 | Status | Count |
 | --- | --- |
-| proposed | 11 |
-| accepted | 34 |
+| proposed | 9 |
+| accepted | 37 |
 | rejected | 12 |
 | other | 0 |
-| **Total** | **57** |
+| **Total** | **58** |
 
-Accepted: S-001, S-003, S-004, S-005, S-009, S-011, S-012, S-013, S-014, S-016, S-017, S-019, S-020, S-021, S-022, S-023, S-024, S-025, S-026, S-028, S-029, S-030, S-031, S-032, S-033, S-035, S-036, S-037, S-038, S-039, S-040, S-041, S-055, S-056. Rejected: S-002, S-006, S-007, S-008, S-010, S-015, S-018, S-027, S-034, S-053, S-054, S-057.
+Accepted: S-001, S-003, S-004, S-005, S-009, S-011, S-012, S-013, S-014, S-016, S-017, S-019, S-020, S-021, S-022, S-023, S-024, S-025, S-026, S-028, S-029, S-030, S-031, S-032, S-033, S-035, S-036, S-037, S-038, S-039, S-040, S-041, S-042, S-043, S-055, S-056, S-058.
 
 ## All suggestions
 
@@ -55,8 +55,8 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-033](S-033-vivian-secret-the-handshake.md) | Vivian's secret: she isn't on a losing streak, she's spending the family down on purpose | accepted | character | Vivian | high | low | none | none |
 | [S-034](S-034-vivian-arc-and-signature-sunglasses-off.md) | Vivian's arc and signature moment: the sunglasses come off once | rejected | character | Vivian | medium | low | S-013, S-033 | none |
 | [S-035](S-035-vivian-backstory-and-dialogue.md) | Vivian's expanded backstory and sample dialogue | accepted | character | Vivian | low | low | S-033 | none |
-| [S-042](S-042-wren-the-one-question-she-cant-answer.md) | Wren's contradiction: the Cinder Room is her grandfather's, and once, in Backwater, she has to ask | proposed | character | Wren | high | low | S-004 | none |
-| [S-043](S-043-wren-backstory-and-dialogue.md) | Wren's expanded backstory and sample dialogue | proposed | character | Wren | low | low | S-042 | none |
+| [S-042](S-042-wren-the-one-question-she-cant-answer.md) | Wren's one appearance: she turns off her own cameras in the Cinder Room office and asks for the drive | accepted | character | Wren | high | low | S-058 | none |
+| [S-043](S-043-wren-backstory-and-dialogue.md) | Wren's expanded backstory and sample dialogue | accepted | character | Wren | low | low | S-042 | none |
 | [S-053](S-053-who-shows-up-under-the-bridges.md) | Who shows up under the Bridges: the broke path as a relationship test | rejected | ensemble | none | high | medium | S-050 | none |
 | [S-054](S-054-the-fathers-house.md) | Name the theme: every character is keeping or losing a father's house | rejected | ensemble | none | high | low | none | none |
 | [S-055](S-055-three-named-regulars.md) | Give "the regulars" three names, with one line and one portrait each | accepted | ensemble | none | medium | low | none | none |
@@ -77,6 +77,7 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-004](S-004-backwater-is-where-the-truth-gets-told.md) | Backwater is where the truth gets told: make the camera dead zone a story rule | accepted | main-story | none | high | low | none | none |
 | [S-005](S-005-the-five-beats.md) | Build the main story around five emotional beats, one per act | accepted | main-story | none | high | low | S-003, S-004, S-013, S-019, S-001 | none |
 | [S-010](S-010-the-rear-view-mirror.md) | Setup and payoff: the drive-away's first panel is the first image, reversed | rejected | main-story | none | medium | low | none | none |
+| [S-058](S-058-raffys-drive-the-key-and-the-bag.md) | Raffy's drive: an encrypted Revaris key ledger, the paper key in Ray's burn bag, and the subpoena that exposes Umbra | accepted | main-story | none | high | medium | none | none |
 
 ## Alternatives
 

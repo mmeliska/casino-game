@@ -1,45 +1,50 @@
 ---
 id: S-042
-title: "Wren's contradiction: the Cinder Room is her grandfather's, and once, in Backwater, she has to ask"
-status: proposed
+title: "Wren's one appearance: she turns off her own cameras in the Cinder Room office and asks for the drive"
+status: accepted
 area: character
 character: Wren
 type: expansion
 impact: high
 effort: low
-depends_on: S-004
+depends_on: S-058
 conflicts_with: none
 ---
 
 ## Summary
-Settle why Wren keeps the Cinder Room open (sentiment: it was her grandfather's room, and the one-armed bandits were his) and give her one scene outside her cameras, in Backwater, where for the only time in the game she asks the player something she doesn't already know.
+Wren is a mysterious figure the player meets once (Mike, 2026-10-28). The meeting is A4.5: she needs the drive back before it reaches Ed, and she offers the Starflare name in trade. It happens in the Cinder Room office, a room she almost never enters, and she turns the office cameras off herself before she speaks. Her want and need, for writers: to be the one who knows, and to be asked something she can't answer.
 
 ## Current state
-Wren: early 30s, tech genius, the old boss's granddaughter passed over for the uncles; "she keeps the Cinder Room open out of sentiment or for laundering"; voice: "She doesn't need to lie. 'I already know. I wanted to see if you'd tell me.'"; "rarely seen; when she shows up in person it unsettles everyone"; always has something on the player by act 4 (people/wren.md). The Cinder Room has "old one-armed bandits" (plan/t03.md). Backwater is a camera dead zone (pages/gdd.md).
+Wren: early 30s, tech genius, the old boss's granddaughter passed over for the uncles; "she keeps the Cinder Room open out of sentiment or for laundering"; voice: "She doesn't need to lie. 'I already know. I wanted to see if you'd tell me.'"; "rarely seen; when she shows up in person it unsettles everyone"; always has something on the player by act 4 (people/wren.md). A4.5 "Wren's deal": hand her Gus's markers or Raffy's drive and she pulls the name out of the District for her own crooked Starflare (O8 / O10). No scene is written for it. The Cinder Room's purpose is settled in bible 4.1.8: intel on the powerful, shady men who gather there, and a place to run Umbra's dealings through proxies. Not sentiment.
 
 ## Proposed change
-**Sentiment, specified.** The Cinder Room was her grandfather's game before it was Umbra's business. The one-armed bandits are his; she had them restored and they pay out from a float she keeps herself. When she's in the building and nobody's looking she sits at the third one. It's the only gamble she takes, and it's a machine, because a machine can't take advantage of her.
-
 **Want:** to be the one who knows. She built a company so that nobody could ever surprise her again the way her family did when they handed the room to the uncles. **Need:** to be asked something by someone who isn't afraid of her, and to not know the answer.
 
-**The scene (a variant of A4.5, gated as S-004 proposes).** If the player never scanned in at the RailYard (S10), has done their act 4 moves in Backwater, and holds one of her loose ends, Wren comes to the Slack Water lot in person. No tablet; it's dark, there's no signal for her to read. She makes the deal as written. Then, before she goes, the one line she has never said:
+**Before the meeting, she is only felt.** Ray says "she." Her proxies run the room. Her cameras are everywhere, and the player learns that the readers on the Long Bridge are hers before they ever see her face. Her portrait appears in no scene before A4.5.
 
-"What's on the drive? I know what it was copied from. I've never seen it. I don't know what's on it, and from here I can't check." (She knows it holds her logs; she doesn't know Ray made it, and nothing in the scene tells her.)
+**The meeting (A4.5).** A text from a number that isn't saved: the Cinder Room, the office, tonight. When the player arrives, the room's regulars have been sent home and Ray is standing outside the office door, not inside it. Panels:
 
-The player can tell her (true or false; she can't check it here, which is the only bluff in the game she can't see through), refuse, or give it to her. Whatever the answer, the next time you see her she has a tablet in her hand and the line she says is her usual one. She is never without a signal again.
+1. Plate: the Cinder Room office. A desk, the enrollment station under a cover, a shredder, a closet door. A camera in each corner.
+2. Two-shot: Wren, seated, tablet face-down on the desk; the player at the door.
+3. Insert: her hand on the tablet. The four camera lights in the corners go dark, one by one. No caption.
+4. Pose swap: Wren, hands folded. "Now it's just us. I don't do that for many people."
+5. The deal, as the docs have it. She knows the player has the drive, or can get it. She wants the device, unopened or not. In return she pulls the Starflare name out of the District for her own floor, with the player in it (O8), or, if the player brings Gus's markers instead, pays them out and lets them walk (O10; bible 4.1.8).
+6. Black panel before the choice.
 
-**How it shows elsewhere:**
-- The third bandit in the Cinder Room has a small brass plate the player can read as an insert: a man's initials and nothing else.
-- Ray, drunk once, at Blackspruce: "She sits at the old man's machine. Thinks nobody sees." (Ray lies by flattery; this is the one true thing he says about her.)
+**The one question.** If the player has opened the drive (S-058, the rebuilt key), she doesn't know it, and nothing in the room can tell her. Before the player answers the deal, she asks the only question in the game she doesn't know the answer to: "Did you read it?" The player can say yes, say no, or say nothing. She can't check. It is the one bluff in the game she can't see through, and she knows that, which is why she turned the cameras off: she'd rather not have a record of herself asking.
+
+**Why the office.** It's the one room she avoids, and the one place a deal about the drive makes sense: the ledger was written at that desk. The player who has been in the closet (S-058) will look at it. Wren will see them look.
+
+**Afterward.** Whatever the answer, the lights come back on when she leaves, and the next time the player hears of her it's through Ray again. She is never seen a second time.
 
 ## Why it works
-The scariest character in the game is defined by omniscience; a single scene where she doesn't know is the only way to make her a person without softening her. The dead zone pays off emotionally (S-004) instead of just logically, and the bluff system ("bluffs run on information") gets its one scene where the player holds all of it. The machine gives her a tell and a grief without a monologue.
+A mysterious figure stays mysterious by appearing once, on her own terms, in a room she controls so completely that she can switch it off. Turning off the cameras is the dead-zone rule (S-004) made by her own hand: the truth gets told where nothing records, and the only way she can have that is to make it herself. The one question keeps her a person without softening her. The bluff system gets its one scene where the player holds all the information and she holds none.
 
 ## How the player experiences it
-The brass plate insert; Ray's drunk line; and, if earned, one scene at the motel where Wren's portrait has no tablet in it (a pose that exists for the tablet-dark tell can serve).
+One scene. The four lights going dark. A question she can't check. Her portrait, once.
 
 ## Risks and tradeoffs
-Gated hard enough that most players won't see it; that's right for her. The "she can't check it" claim must hold: the drive's contents are offline and in Backwater, and Ray would never tell her he made it, which the docs establish.
+Players who never hold the drive or the markers never meet her, which is right. "Did you read it?" must fire whether or not the player opened the drive, or the question itself gives the answer away. Keep her to the voice sheet: she never lies, so the deal she offers is real and the threat under it is real.
 
 ## Decision notes
-
+- Mike, 2026-10-28: the first draft (the Cinder Room kept out of sentiment, her grandfather's bandits, a scene in Backwater with no signal) was rejected: "It's crazy to think Wren doesn't have cameras in her own building. Wren needs to be a very mysterious figure. There should be a point where the player does come in contact with her because she needs something and offers the player something in trade." The Cinder Room is kept for intel and for running Umbra's dealings through proxies; she rarely goes there. Rewritten as the one A4.5 meeting in the Cinder Room office, with Mike's addition: she can turn off the cameras in the meeting room. Accepted in this form.
