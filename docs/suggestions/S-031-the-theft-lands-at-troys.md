@@ -1,6 +1,6 @@
 ---
 id: S-031
-title: The rival's theft (A4.8) is one object, worth the most to one person, and you find it in Troy's cage
+title: "The rival's theft (A4.8) is one object, worth the most to one person, and you find it in Troy's cage"
 status: proposed
 area: gameplay-integration
 character: Chase/Brooke

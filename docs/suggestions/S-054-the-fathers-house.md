@@ -1,6 +1,6 @@
 ---
 id: S-054
-title: Name the theme: every character is keeping or losing a father's house
+title: "Name the theme: every character is keeping or losing a father's house"
 status: rejected
 area: ensemble
 character: none

@@ -1,6 +1,6 @@
 ---
 id: S-003
-title: The Flare's last season: a last night with each regular, and you can't see them all
+title: "The Flare's last season: a last night with each regular, and you can't see them all"
 status: accepted
 area: main-story
 character: none

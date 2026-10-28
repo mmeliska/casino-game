@@ -1,6 +1,6 @@
 ---
 id: S-051
-title: Mitch's bad tip was the Backwater vote
+title: "Mitch's bad tip was the Backwater vote"
 status: proposed
 area: character
 character: Mitch

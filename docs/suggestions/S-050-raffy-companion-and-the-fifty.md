@@ -1,6 +1,6 @@
 ---
 id: S-050
-title: Raffy as a runner you can send, and the fifty dollars he keeps trying to give back
+title: "Raffy as a runner you can send, and the fifty dollars he keeps trying to give back"
 status: proposed
 area: character
 character: Raffy

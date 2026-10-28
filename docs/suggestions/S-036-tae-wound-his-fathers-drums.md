@@ -1,6 +1,6 @@
 ---
 id: S-036
-title: Tae's wound and contradiction: his father's drum kit is still in the Flare's storage, and Gus kept it
+title: "Tae's wound and contradiction: his father's drum kit is still in the Flare's storage, and Gus kept it"
 status: proposed
 area: character
 character: Tae

@@ -1,6 +1,6 @@
 ---
 id: S-028
-title: Jalen's arc with friction: the first stake he loses, the offer he takes, and how it ends badly
+title: "Jalen's arc with friction: the first stake he loses, the offer he takes, and how it ends badly"
 status: proposed
 area: character
 character: Jalen

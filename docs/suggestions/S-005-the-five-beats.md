@@ -1,6 +1,6 @@
 ---
 id: S-005
-title: Build the main story around five emotional beats, one per act
+title: "Build the main story around five emotional beats, one per act"
 status: accepted
 area: main-story
 character: none

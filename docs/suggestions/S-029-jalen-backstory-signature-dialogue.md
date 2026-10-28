@@ -1,6 +1,6 @@
 ---
 id: S-029
-title: Jalen's expanded backstory, signature moment and sample dialogue
+title: "Jalen's expanded backstory, signature moment and sample dialogue"
 status: proposed
 area: character
 character: Jalen

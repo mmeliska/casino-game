@@ -1,6 +1,6 @@
 ---
 id: S-044
-title: Ray's arc: the big man shrinks, and the player can give him his drive back
+title: "Ray's arc: the big man shrinks, and the player can give him his drive back"
 status: proposed
 area: character
 character: Ray

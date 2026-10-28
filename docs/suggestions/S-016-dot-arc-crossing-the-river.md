@@ -1,6 +1,6 @@
 ---
 id: S-016
-title: Dot's arc: the woman who warns everyone and never crosses the river
+title: "Dot's arc: the woman who warns everyone and never crosses the river"
 status: accepted
 area: character
 character: Dot

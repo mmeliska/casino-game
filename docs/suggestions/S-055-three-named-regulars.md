@@ -1,6 +1,6 @@
 ---
 id: S-055
-title: Give "the regulars" three names, with one line and one portrait each
+title: "Give \"the regulars\" three names, with one line and one portrait each"
 status: accepted
 area: ensemble
 character: none

@@ -1,6 +1,6 @@
 ---
 id: S-019
-title: Pete calls you "kid" until you've sat at his tables a while, then uses the name you wrote on the register
+title: "Pete calls you \"kid\" until you've sat at his tables a while, then uses the name you wrote on the register"
 status: accepted
 area: gameplay-integration
 character: Pete

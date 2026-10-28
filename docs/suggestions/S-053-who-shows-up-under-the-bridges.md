@@ -1,6 +1,6 @@
 ---
 id: S-053
-title: Who shows up under the Bridges: the broke path as a relationship test
+title: "Who shows up under the Bridges: the broke path as a relationship test"
 status: rejected
 area: ensemble
 character: none

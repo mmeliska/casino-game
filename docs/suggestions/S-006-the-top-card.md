@@ -1,6 +1,6 @@
 ---
 id: S-006
-title: Setup and payoff: Bennett still peeks at the top card
+title: "Setup and payoff: Bennett still peeks at the top card"
 status: rejected
 area: main-story
 character: Richard

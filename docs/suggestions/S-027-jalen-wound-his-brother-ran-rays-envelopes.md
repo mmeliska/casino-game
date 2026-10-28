@@ -1,6 +1,6 @@
 ---
 id: S-027
-title: Jalen's wound: his older brother ran Ray's envelopes before Raffy did
+title: "Jalen's wound: his older brother ran Ray's envelopes before Raffy did"
 status: proposed
 area: character
 character: Jalen

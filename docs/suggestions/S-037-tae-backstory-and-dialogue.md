@@ -1,6 +1,6 @@
 ---
 id: S-037
-title: Tae's expanded backstory and sample dialogue
+title: "Tae's expanded backstory and sample dialogue"
 status: proposed
 area: character
 character: Tae

@@ -1,6 +1,6 @@
 ---
 id: S-048
-title: Ed's contradiction: the honest cop whose squad runs on Wren's plate readers, and the one lookup he deletes
+title: "Ed's contradiction: the honest cop whose squad runs on Wren's plate readers, and the one lookup he deletes"
 status: proposed
 area: character
 character: Ed

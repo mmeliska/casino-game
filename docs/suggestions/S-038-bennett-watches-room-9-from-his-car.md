@@ -1,6 +1,6 @@
 ---
 id: S-038
-title: Bennett's private scene: he sits in his car outside room 9 and doesn't go in
+title: "Bennett's private scene: he sits in his car outside room 9 and doesn't go in"
 status: proposed
 area: character
 character: Bennett

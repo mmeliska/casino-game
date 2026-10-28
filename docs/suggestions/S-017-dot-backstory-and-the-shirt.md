@@ -1,6 +1,6 @@
 ---
 id: S-017
-title: Dot's expanded backstory, and who she took on the trip
+title: "Dot's expanded backstory, and who she took on the trip"
 status: accepted
 area: character
 character: Dot

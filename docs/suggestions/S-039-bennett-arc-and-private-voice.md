@@ -1,6 +1,6 @@
 ---
 id: S-039
-title: Bennett's want, need and arc, with sample lines in the private voice
+title: "Bennett's want, need and arc, with sample lines in the private voice"
 status: proposed
 area: character
 character: Bennett

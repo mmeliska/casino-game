@@ -1,6 +1,6 @@
 ---
 id: S-004
-title: Backwater is where the truth gets told: make the camera dead zone a story rule
+title: "Backwater is where the truth gets told: make the camera dead zone a story rule"
 status: accepted
 area: main-story
 character: none

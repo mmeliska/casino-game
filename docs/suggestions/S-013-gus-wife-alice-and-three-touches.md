@@ -1,6 +1,6 @@
 ---
 id: S-013
-title: Name Gus's wife and give her three touches you can find in the Flare
+title: "Name Gus's wife and give her three touches you can find in the Flare"
 status: accepted
 area: character
 character: Gus

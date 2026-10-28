@@ -1,6 +1,6 @@
 ---
 id: S-035
-title: Vivian's expanded backstory and sample dialogue
+title: "Vivian's expanded backstory and sample dialogue"
 status: proposed
 area: character
 character: Vivian

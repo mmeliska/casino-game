@@ -1,6 +1,6 @@
 ---
 id: S-033
-title: Vivian's secret: her grandfather promised the founder the lakefront land on a handshake
+title: "Vivian's secret: her grandfather promised the founder the lakefront land on a handshake"
 status: proposed
 area: character
 character: Vivian

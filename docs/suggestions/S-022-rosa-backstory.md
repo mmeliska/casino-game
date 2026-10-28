@@ -1,6 +1,6 @@
 ---
 id: S-022
-title: Rosa's expanded backstory
+title: "Rosa's expanded backstory"
 status: accepted
 area: character
 character: Rosa

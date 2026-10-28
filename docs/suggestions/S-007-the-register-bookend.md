@@ -1,6 +1,6 @@
 ---
 id: S-007
-title: Setup and payoff: you sign your name once at the start and once at the end
+title: "Setup and payoff: you sign your name once at the start and once at the end"
 status: rejected
 area: gameplay-integration
 character: Dot

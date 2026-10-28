@@ -1,6 +1,6 @@
 ---
 id: S-015
-title: Helping Gus quit (A4.2): play the free version of the game that's ruining him
+title: "Helping Gus quit (A4.2): play the free version of the game that's ruining him"
 status: rejected
 area: gameplay-integration
 character: Gus

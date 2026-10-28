@@ -1,6 +1,6 @@
 ---
 id: S-014
-title: Gus's expanded backstory
+title: "Gus's expanded backstory"
 status: accepted
 area: character
 character: Gus

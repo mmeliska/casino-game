@@ -1,6 +1,6 @@
 ---
 id: S-023
-title: Rosa's lessons are her confession: each tell she teaches is one from the payroll night
+title: "Rosa's lessons are her confession: each tell she teaches is one from the payroll night"
 status: accepted
 area: gameplay-integration
 character: Rosa

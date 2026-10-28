@@ -1,6 +1,6 @@
 ---
 id: S-010
-title: Setup and payoff: the drive-away's first panel is the first image, reversed
+title: "Setup and payoff: the drive-away's first panel is the first image, reversed"
 status: rejected
 area: main-story
 character: none

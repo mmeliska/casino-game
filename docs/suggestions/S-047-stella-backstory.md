@@ -1,6 +1,6 @@
 ---
 id: S-047
-title: Stella's expanded backstory
+title: "Stella's expanded backstory"
 status: proposed
 area: character
 character: Stella

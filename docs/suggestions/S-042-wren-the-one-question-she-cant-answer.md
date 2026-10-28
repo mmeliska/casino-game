@@ -1,6 +1,6 @@
 ---
 id: S-042
-title: Wren's contradiction: the Cinder Room is her grandfather's, and once, in Backwater, she has to ask
+title: "Wren's contradiction: the Cinder Room is her grandfather's, and once, in Backwater, she has to ask"
 status: proposed
 area: character
 character: Wren

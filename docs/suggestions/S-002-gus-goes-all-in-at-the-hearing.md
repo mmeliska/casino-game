@@ -1,6 +1,6 @@
 ---
 id: S-002
-title: Gus goes all in: he confesses at the hearing to clear Rosa
+title: "Gus goes all in: he confesses at the hearing to clear Rosa"
 status: rejected
 area: main-story
 character: Gus

@@ -1,6 +1,6 @@
 ---
 id: S-049
-title: Kiran after the skim: the lucky seat, and a color-up where the chip stays
+title: "Kiran after the skim: the lucky seat, and a color-up where the chip stays"
 status: proposed
 area: character
 character: Kiran

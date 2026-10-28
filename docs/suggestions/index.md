@@ -106,4 +106,4 @@ Circular dependencies: none. Two loops found in this rebuild were broken on 2026
 ## Problems
 
 - No file is missing a required frontmatter field, no status, area, impact or effort value is outside its allowed set, and each `id` matches its filename.
-- Format issue (not changed): 33 files have an unquoted title containing ": " (colon followed by a space). A strict YAML parser rejects a plain scalar like that. The values were read as written and no suggestion file was edited. Files: S-002, S-003, S-004, S-006, S-007, S-008, S-010, S-011, S-012, S-015, S-016, S-018, S-021, S-023, S-024, S-026, S-027, S-028, S-030, S-033, S-034, S-036, S-038, S-041, S-042, S-044, S-046, S-048, S-049, S-052, S-053, S-054, S-056.
+- Titles are double-quoted in frontmatter (2026-10-28), so every file parses as strict YAML.

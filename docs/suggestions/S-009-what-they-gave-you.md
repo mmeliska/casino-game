@@ -1,6 +1,6 @@
 ---
 id: S-009
-title: Story keys tell you who gave them to you
+title: "Story keys tell you who gave them to you"
 status: accepted
 area: gameplay-integration
 character: none

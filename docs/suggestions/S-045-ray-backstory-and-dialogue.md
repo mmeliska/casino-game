@@ -1,6 +1,6 @@
 ---
 id: S-045
-title: Ray's expanded backstory and sample dialogue
+title: "Ray's expanded backstory and sample dialogue"
 status: proposed
 area: character
 character: Ray

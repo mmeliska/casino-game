@@ -1,6 +1,6 @@
 ---
 id: S-025
-title: Kasia's expanded backstory
+title: "Kasia's expanded backstory"
 status: accepted
 area: character
 character: Kasia

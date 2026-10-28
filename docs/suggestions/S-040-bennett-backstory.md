@@ -1,6 +1,6 @@
 ---
 id: S-040
-title: Bennett's expanded backstory
+title: "Bennett's expanded backstory"
 status: proposed
 area: character
 character: Bennett

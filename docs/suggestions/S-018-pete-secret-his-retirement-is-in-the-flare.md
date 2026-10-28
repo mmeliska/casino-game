@@ -1,6 +1,6 @@
 ---
 id: S-018
-title: Pete's secret: his retirement went into the Flare after the funeral, and Gus has never mentioned it
+title: "Pete's secret: his retirement went into the Flare after the funeral, and Gus has never mentioned it"
 status: rejected
 area: character
 character: Pete

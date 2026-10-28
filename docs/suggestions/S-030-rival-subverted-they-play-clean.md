@@ -1,6 +1,6 @@
 ---
 id: S-030
-title: The rival subverted: Chase/Brooke never takes a crooked job, and their arrogance is terror
+title: "The rival subverted: Chase/Brooke never takes a crooked job, and their arrogance is terror"
 status: proposed
 area: character
 character: Chase/Brooke

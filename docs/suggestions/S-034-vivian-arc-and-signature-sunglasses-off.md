@@ -1,6 +1,6 @@
 ---
 id: S-034
-title: Vivian's arc and signature moment: the sunglasses come off once
+title: "Vivian's arc and signature moment: the sunglasses come off once"
 status: proposed
 area: character
 character: Vivian

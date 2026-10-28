@@ -1,6 +1,6 @@
 ---
 id: S-024
-title: Kasia's arc: the keeper of the dry vote who runs Backwater's biggest game
+title: "Kasia's arc: the keeper of the dry vote who runs Backwater's biggest game"
 status: accepted
 area: character
 character: Kasia

@@ -1,6 +1,6 @@
 ---
 id: S-056
-title: They ask you about each other: a cheap layer of lines that binds the cast
+title: "They ask you about each other: a cheap layer of lines that binds the cast"
 status: accepted
 area: ensemble
 character: none

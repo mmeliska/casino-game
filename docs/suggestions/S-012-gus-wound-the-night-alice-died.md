@@ -1,6 +1,6 @@
 ---
 id: S-012
-title: Gus's wound: the night his wife died, he was in the Cinder Room
+title: "Gus's wound: the night his wife died, he was in the Cinder Room"
 status: accepted
 area: character
 character: Gus

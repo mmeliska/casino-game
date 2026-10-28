@@ -1,6 +1,6 @@
 ---
 id: S-020
-title: Pete's expanded backstory
+title: "Pete's expanded backstory"
 status: accepted
 area: character
 character: Pete

@@ -1,6 +1,6 @@
 ---
 id: S-011
-title: Gus's arc: want, need, turning point, and how it ends badly
+title: "Gus's arc: want, need, turning point, and how it ends badly"
 status: accepted
 area: character
 character: Gus

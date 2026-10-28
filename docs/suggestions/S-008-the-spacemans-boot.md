@@ -1,6 +1,6 @@
 ---
 id: S-008
-title: Setup and payoff: Gus has never rubbed the spaceman's boot
+title: "Setup and payoff: Gus has never rubbed the spaceman's boot"
 status: rejected
 area: main-story
 character: Gus

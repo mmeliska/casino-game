@@ -1,6 +1,6 @@
 ---
 id: S-046
-title: Stella's arc: the analyst who stops saying the number, and when she learns her father gambles
+title: "Stella's arc: the analyst who stops saying the number, and when she learns her father gambles"
 status: proposed
 area: character
 character: Stella

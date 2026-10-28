@@ -1,6 +1,6 @@
 ---
 id: S-021
-title: Rosa's arc: the woman who won't say the Starflare's name, and the day she walks in
+title: "Rosa's arc: the woman who won't say the Starflare's name, and the day she walks in"
 status: accepted
 area: character
 character: Rosa

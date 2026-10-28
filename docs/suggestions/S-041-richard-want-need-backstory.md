@@ -1,6 +1,6 @@
 ---
 id: S-041
-title: Richard: what he wants (to be asked, not helped), and his expanded backstory
+title: "Richard: what he wants (to be asked, not helped), and his expanded backstory"
 status: proposed
 area: character
 character: Richard

@@ -1,6 +1,6 @@
 ---
 id: S-026
-title: Kasia's signature moment: she closes your page in the ledger
+title: "Kasia's signature moment: she closes your page in the ledger"
 status: accepted
 area: gameplay-integration
 character: Kasia

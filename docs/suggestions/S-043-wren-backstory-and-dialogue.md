@@ -1,6 +1,6 @@
 ---
 id: S-043
-title: Wren's expanded backstory and sample dialogue
+title: "Wren's expanded backstory and sample dialogue"
 status: proposed
 area: character
 character: Wren

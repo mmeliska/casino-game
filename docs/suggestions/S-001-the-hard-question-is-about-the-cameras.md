@@ -1,6 +1,6 @@
 ---
 id: S-001
-title: The hard question is about the cameras, and you can take the fall
+title: "The hard question is about the cameras, and you can take the fall"
 status: accepted
 area: main-story
 character: none

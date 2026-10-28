@@ -1,6 +1,6 @@
 ---
 id: S-057
-title: Each epilogue cast panel carries that character's object, in whatever state you left it
+title: "Each epilogue cast panel carries that character's object, in whatever state you left it"
 status: rejected
 area: ensemble
 character: none

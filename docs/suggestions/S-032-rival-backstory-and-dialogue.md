@@ -1,6 +1,6 @@
 ---
 id: S-032
-title: Chase/Brooke's expanded backstory and sample dialogue
+title: "Chase/Brooke's expanded backstory and sample dialogue"
 status: proposed
 area: character
 character: Chase/Brooke

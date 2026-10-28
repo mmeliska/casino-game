@@ -1,6 +1,6 @@
 ---
 id: S-052
-title: Juan is Gus in miniature: the late game keeps Millstone Lanes alive, and he knows it
+title: "Juan is Gus in miniature: the late game keeps Millstone Lanes alive, and he knows it"
 status: proposed
 area: character
 character: Juan
