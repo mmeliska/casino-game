@@ -1,7 +1,7 @@
 ---
 id: S-018
 title: Pete's secret: his retirement went into the Flare after the funeral, and Gus has never mentioned it
-status: proposed
+status: rejected
 area: character
 character: Pete
 type: new
@@ -36,4 +36,5 @@ One insert, one line from Stella that re-reads, Pete's non-answer, and Gus's one
 Another Gus debt; the counter is that this is the shape of the character and the docs already have four. Make sure Stella's misread stays plausible: the deposits are cash, so they look like Gus's money. The "Petras" line uses the name the docs give; if Mike prefers Gus never use it, "Pete" works almost as well.
 
 ## Decision notes
+- Mike, 2026-10-28: rejected.
 

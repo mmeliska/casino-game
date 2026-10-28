@@ -1,7 +1,7 @@
 ---
 id: S-014
 title: Gus's expanded backstory
-status: proposed
+status: accepted
 area: character
 character: Gus
 type: expansion
@@ -22,7 +22,7 @@ Gus was born in the Flare, nearly: his mother went into labor at a supper-club t
 
 When the license came and the supper club became a casino, his father ran the floor and Gus ran the room: comps, birthdays, the band's bar tab. He married Alice the winter the piano arrived; she picked it, and repainted the ceiling, and told him he was a host, not a gambler, and should stay one. His father died when Stella was ten and left him the Flare, the jacket and a stack of markers nobody had ever called in, because Mr. Hamilton had believed a debt between friends wasn't one.
 
-He started going under the Stacks after a bad year, telling himself it was business, keeping an ear open for the Levee. Casino war suited him: no choices, no bluffing, nothing to be good at. The night Alice died he had his phone in his coat (S-012). He has told himself since that the Flare is for her, and the habit is for nothing, and that a man who never says the word "debt" doesn't have one.
+He started going under the Stacks after a bad year, telling himself it was business, keeping an ear open for the Levee. Casino war suited him: no choices, no bluffing, nothing to be good at. The night Alice died he had his phone in his coat (S-012). After the funeral Dot asked him, through Pete, for one thing, her mother's recipe box, and he said no, because a box on his shelf meant Alice hadn't finished leaving (S-011). He has told himself since that the Flare is for her, and the habit is for nothing, and that a man who never says the word "debt" doesn't have one.
 
 Then the payroll night: drunk, a shortfall, Rosa dealing him back to even without being asked, and a camera that saw her hands and not his face. He kept the wide-angle tape. He let her lose her license. He has not said her name since. The commission ordered cameras he couldn't afford; a young woman with a tablet offered him some; when he said no, her people showed him himself at a war table at 3am. He signed knowing. Bennett found out and made him clear an old man's markers; Gus gave the old man a key, because it was the closest he could get to an apology without making one.
 
@@ -38,4 +38,5 @@ Never directly. In fragments: Pete's rack-counting line, Stella's "homework at t
 "Mr. Hamilton believed a debt between friends wasn't one" lightly characterizes the founder, who the docs keep offstage with no plot role; it's flavour and can be cut. Everything else is consistent with the bible.
 
 ## Decision notes
+- Mike, 2026-10-28: accepted, founder details kept.
 

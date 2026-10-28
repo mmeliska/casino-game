@@ -34,7 +34,7 @@ A pool of "ask about" lines, one per pair, each a random event at the asker's ve
 | Jalen | Raffy | "Is Raffy still doing deliveries, sir? ... Bikes. Okay." (He suspects; S-027 keeps him from knowing.) |
 | Vivian | Tae | "Is the boy still buying up the lakefront? Tell him the lake's not for sale. He'll know what I mean." (S-033) |
 | Gus | Dot | As written, and never says her sister's name. |
-| Dot | Gus | As written, and resolves OQ 20: she doesn't *talk* about Gus; she asks about him, once a season, and changes the subject before you answer. She says "he," never his name; S-016 saves his name for A4.2. |
+| Dot | Gus | As written, and resolves OQ 20: she doesn't *talk* about Gus; she asks about him, once a season, and changes the subject before you answer. She says "he," never his name, until she speaks to him at her lot (S-016). |
 
 ## Why it works
 It's the ensemble technique the docs are missing: interconnection shown through what people can't say to each other. Thirteen lines make the city feel like one place and make the player the thread through it, which is the blank-slate protagonist's best role. It also quietly tells the player who's estranged from whom before any mystery explains why.

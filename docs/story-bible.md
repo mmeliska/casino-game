@@ -1617,6 +1617,9 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **The cash-out / drive-away is cut.** There is no leaving ending: at the end you stay and run the new casino/hotel. This overrides the 2026-10-22 decision in 2.8 (`plan/t10.md`); the design docs still describe the drive-away and need changing later (`suggestions/S-010` rejected).
 - **Going broke is fixed by doing jobs.** No NPC rescues the player when they're down (`suggestions/S-053` rejected, 2026-10-28).
 - **The Flare has three named regulars with portraits:** Walt, Lorraine and Augie (`suggestions/S-055`, 2026-10-28). This adds three portraits to the `plan/t06.md` budget.
+- **Gus's turning point is the recipe box** (`suggestions/S-011`, 2026-10-28). Alice and Dot cooked with their mother as girls. The mother's recipe box went to Alice. After the funeral Dot asked Gus for it through Pete and he refused. The phone night (S-012) is the wound, and the refusal made the silence a break. In act 5, once he has quit, he drives it over to Dot himself (R1's payoff).
+- **A4.2 ends at Dot's lot** (`suggestions/S-016`, 2026-10-28). You get Gus out of the Cinder Room and drive him over the Long Bridge before dawn. Dot says "Two ten," her first words to him since the funeral. Dot hasn't crossed the river since the funeral; she first does on opening night. There is no behind-the-desk rule.
+- **Pete has a family** (`suggestions/S-020`, 2026-10-28): his wife Ona and two kids (a grown daughter, and the youngest, Tomas, at college), all offstage with no portraits. Tomas's tuition is why Pete "can't afford to retire yet." Pete's rating of the player is never shown on screen (`suggestions/S-019`).
 
 ## 4.2 Places and venues
 

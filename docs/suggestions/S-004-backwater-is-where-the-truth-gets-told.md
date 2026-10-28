@@ -7,7 +7,7 @@ character: none
 type: change
 impact: high
 effort: low
-depends_on: S-015, S-042
+depends_on: S-042
 conflicts_with: none
 ---
 
@@ -20,7 +20,7 @@ Revaris cameras cover the city; dead zones are "all of Backwater" and the Long B
 ## Proposed change
 A one-line rule for writers: **people say what they mean where nothing is recording.** Three applications:
 
-- **A4.1, Gus crosses the river.** Gus has never been "over the water" in the game. He drives to the Slack Water Motel, sits at the picnic table, and tells you he sold his dad's place to the people who blackmailed him. Dot sees him from the desk and does not come out. The player's forgive-or-hold-it choice stays as written; A4.2 ("help him quit, with Dot and Stella") now lands on the same lot once you've got him out of the Cinder Room (S-015), which is where Dot already is.
+- **A4.1, Gus crosses the river.** Gus has never been "over the water" in the game. He drives to the Slack Water Motel, sits at the picnic table, and tells you he sold his dad's place to the people who blackmailed him. Dot sees him from the office door and does not come out. The player's forgive-or-hold-it choice stays as written. A4.2 ("help him quit, with Dot and Stella") ends on the same lot: you drive Gus over before dawn and Dot speaks to him there (S-016).
 - **Ed talks straight at the Lanes.** Every informant-path conversation with Ed happens at Millstone Lanes or Kasia's. His reason, once: "My own squad's readers. I don't talk business where my boss can pull the tape." The honest cop is honest only where his department can't watch him, which is the irony the docs already set up.
 - **Wren, once, without her cameras.** A variant of A4.5: if the player has never scanned in (S10) and has stayed in Backwater for the act's key moves, Wren comes to the Slack Water lot in person. For the only time in the game she asks a question she doesn't know the answer to (S-042).
 
@@ -36,4 +36,5 @@ Costs almost nothing in art (existing portraits over existing plates). The risk 
 ## Decision notes
 - Mike, 2026-10-27: accepted.
 - 2026-10-28: depends_on now lists S-015 and S-042, which the A4.2 and Wren bullets refer to. If either is rejected, drop that bullet; the rule stands.
+- 2026-10-28: S-015 rejected, so its A4.2 clause is dropped and S-015 is removed from depends_on.
 

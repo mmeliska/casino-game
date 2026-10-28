@@ -75,7 +75,7 @@ The one instance of NPCs asking about each other (Dot and Gus) is the docs' best
 5. **The epilogue reads standing, not objects.** The builder picks panels by numbers; nothing says what's in them. **S-057** (rejected).
 6. **Nothing is ever done *for* the player.** Every mechanic in the broke path is the player working or borrowing. **S-053** was the one scene for it; rejected, because the remedy for going broke is doing jobs.
 7. **The Pockets/pawn system has no story payoff.** Troy's "some items are worth far more to one person" is the pawn shop's whole reason to exist and nothing uses it. **S-031.**
-8. **The War mini-game is used once.** It's the game's only story-event game and it already rhymes with the Cinder Room's casino war; **S-015** plays it a second time, at the moment it means the most (S-006, a third use, was rejected).
+8. **The War mini-game is used once.** It's the game's only story-event game and it already rhymes with the Cinder Room's casino war; **S-006** and **S-015** would have played it again; both were rejected.
 
 ## Questions I would ask Mike
 

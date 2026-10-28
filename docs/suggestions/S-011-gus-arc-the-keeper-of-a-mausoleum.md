@@ -1,13 +1,13 @@
 ---
 id: S-011
 title: Gus's arc: want, need, turning point, and how it ends badly
-status: proposed
+status: accepted
 area: character
 character: Gus
 type: expansion
 impact: high
 effort: low
-depends_on: S-013, S-003
+depends_on: S-013, S-016
 conflicts_with: none
 ---
 
@@ -24,7 +24,11 @@ Gus is "proud, sentimental, stubborn, bad with money"; "his late wife's touches 
 
 **Start:** host, storyteller, comps you coffee, changes the subject.
 
-**Turning point (his, not yours):** the first time he gives something away on purpose. Candidates, each built on an existing beat, pick one to make the turn: Gus tearing up your IOU before you can (the reverse of S6's tear-up); or boxing the photo of the sisters on the last night and carrying it to Dot himself (S-003's office scene). (Speaking at the hearing, S-002, was rejected on 2026-10-27.) Whichever it is, write it as the first scene where Gus finishes a sentence.
+**Turning point (his, not yours): the recipe box** (Mike, 2026-10-28). Alice and Dot grew up cooking with their mother in the Backwater two-flat, standing on chairs to reach the counter. Their mother's recipes are in a tin box: cards in her hand, with the girls' notes added in pencil. The box went to Alice when she married. After the funeral, Dot asked Gus for it through Pete, since she wasn't speaking to him. It was the only thing she asked for, and he said no. That refusal is why they haven't spoken. The turn is the first thing he gives away on purpose, and it's this.
+- **Setup (Dot, once she trusts you, after the shirt story):** "Our mother's recipes. Alice and me used to stand on chairs to reach the counter. He's got the box. I asked once. Through Pete." She doesn't ask you to fetch it.
+- **Holding on (Gus, if you raise it):** he changes the subject to the old days. "She made a pot roast you'd cross the river for. Anyway. Coffee?" The box sits on the office shelf under the photo of the sisters: an insert from act 1, no caption. On the last night it goes into the same carton as the photo (S-003).
+- **The turn:** act 5, once he has quit (A4.2 done) and R1 has progress (messages carried, the photo found). A reveal event at the Slack Water lot: Gus has driven over the water on his own. Plate: the lot, morning. Insert: the recipe box on Dot's desk. Two-shot: Gus and Dot, the desk between them. Gus: "It was always half yours. I should have said so at the funeral." Pose swap: Dot. Black panel. It is the first scene where Gus finishes a sentence, and it pays off R1: the two of them in the same room.
+- **If he never quits:** the box stays in his carton, and the 2am scene below passes it on the seat of his car.
 
 **End, good (O1):** he is retired (Mike, 2026-10-27: Gus is never an owner or licensed host of the new Starflare) and comes to opening night as a guest. He cuts the ribbon in a jacket that fits and doesn't play; the old jacket hangs in the new lounge by the piano. He still says "my dad's place" about the Field over in the Levee, and means it kindly.
 
@@ -40,4 +44,6 @@ Mostly through what Gus says and doesn't: with the need in place, the writer can
 Low cost, but it commits the writing: every Gus scene has to serve this, including the ones already drafted. The 2am post-game scene risks souring O1 for players who missed A4.2; keep it rare and quiet, and make following him a way to start A4.2's help-him-quit thread late.
 
 ## Decision notes
+- 2026-10-28 (continuity): Dot asked through Pete, so "Two ten" at A4.2 stays her first words to Gus since the funeral. depends_on is now S-013 and S-016; S-003, S-012 and S-017 are related but not required.
+- Mike, 2026-10-28: accepted. Turn discussed: the IOU ("maybe"), then the jacket, then settled on an object of Alice's that matters to Dot, which he won't let go of at first and then brings to her to make up. Mike chose a recipe box of their mother's recipes, with the backstory that the sisters cooked with their mother as kids. Turning point rewritten.
 - Mike, 2026-10-27: Gus does not own the new hotel and is never on its license; Stella's plot point is that he retires. The O1 ending above is written to that.

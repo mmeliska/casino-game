@@ -7,7 +7,7 @@ character: none
 type: expansion
 impact: high
 effort: high
-depends_on: S-013
+depends_on: S-013, S-011
 conflicts_with: none
 ---
 
@@ -20,7 +20,7 @@ Act 3 is "the fall, always happens" (pages/gdd.md). A3.4 gives Pete a last-night
 ## Proposed change
 1. **The last season plate.** After A3.1, the Flare plate gets a final state: the stadium drawing taped to the cage glass, the Rocket Wheel roped off, a FOR THE LEVEE banner Bennett's people hung on the sign. Bets stay the same; the floor is emptier.
 2. **The last night.** A3.3's "last night on the floor" becomes a night with three slots, using the parts of the day the clock already has (afternoon, night, before dawn). Six scenes are available; each takes one slot:
-   - **Gus, the office.** He is boxing the framed photo of the two sisters and can't decide whether to take it. "She picked the piano. Did you know that? Anyway." (He never says her name; S-013.) Stake: offer to carry the box across the river to Dot's, or let him keep it.
+   - **Gus, the office.** He is boxing the framed photo of the two sisters, and his wife's mother's recipe box goes in the same carton (S-011). He can't decide whether to take the photo. "She picked the piano. Did you know that? Anyway." (He never says her name; S-013.) Stake: ask about the recipe box (he changes the subject; delivering it is his turn, S-011), or help him tape the carton shut and say nothing.
    - **Pete, the dark pit** (A3.4 as written).
    - **Jalen, the poker room.** The regulars put up a no-money game and give him the dealer's seat he has watched for years. He deals like he's done it forever. Stake: sit in and let him read you.
    - **Stella, the cage.** She counts the drop down for the last time, out loud, and stops before the total. "You don't need the number." Stake: say it for her, or don't.
@@ -41,4 +41,4 @@ Four new short scenes, a fallback for Pete at the doors, plus six "missed you" l
 
 ## Decision notes
 - Mike, 2026-10-27: accepted with a change: "the player should be able to play all of the games that night as well. The player should be told this will be the last time they are able to play games at the Starflare." Added item 3: every game is open (the Rocket Wheel too), playing doesn't use a slot, and a black panel says it's the last night.
-
+- 2026-10-28 (ripple from S-011): the office stake no longer has the player carry the box to Dot, because Gus delivers the recipe box himself in act 5.

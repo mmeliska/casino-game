@@ -20,7 +20,7 @@ The spine is five acts with money and time gates (pages/storymap-intro.md). Each
 ## Proposed change
 | Act | Beat | Feeling | The scene that carries it | Needs |
 | --- | --- | --- | --- | --- |
-| 1 | **Pete says your name** | Belonging | The night Pete's rating card shows a rating, he drops "kid" and uses the name you wrote on Dot's register (A1.7) | S-019 |
+| 1 | **Pete says your name** | Belonging | After a few sittings at the Flare, Pete drops "kid" and uses the name you wrote on Dot's register (A1.7) | S-019 |
 | 2 | **The photo of the sisters** | The Flare is a mausoleum | During A2.1 in Gus's office, the insert of the two sisters, no caption; later Dot says her sister's name and you can say it to Gus | S-013 |
 | 3 | **The last night** | Loss | Three slots, six scenes, and the ones you didn't choose (A3.3) | S-003 |
 | 4 | **Gus goes over the water** | Confession | Gus at Dot's picnic table admitting he sold his dad's place to the people who blackmailed him (A4.1) | S-004 |

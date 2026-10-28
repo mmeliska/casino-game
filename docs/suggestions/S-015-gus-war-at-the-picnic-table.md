@@ -1,7 +1,7 @@
 ---
 id: S-015
 title: Helping Gus quit (A4.2): play the free version of the game that's ruining him
-status: proposed
+status: rejected
 area: gameplay-integration
 character: Gus
 type: change
@@ -42,4 +42,5 @@ Four scenes over one in-game night and morning: Cinder Room, Long Bridge, motel 
 Depends on the War module existing (it is already specified). The Gus/Richard meeting risks pre-empting M4's room 9 climax if the player hasn't solved it; the two men's silence about the key keeps M4 intact, and the player's choice to break it is what feeds Richard's trust either way. If S-012 is rejected, Dot's line becomes a silent pose swap.
 
 ## Decision notes
+- Mike, 2026-10-28: rejected. A4.2 stays as the docs have it.
 
