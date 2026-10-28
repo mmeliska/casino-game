@@ -1,7 +1,7 @@
 ---
 id: S-022
 title: Rosa's expanded backstory
-status: proposed
+status: accepted
 area: character
 character: Rosa
 type: expansion
@@ -30,10 +30,11 @@ She deals Kasia's back room for cash and the union pays her dues. She stands at 
 It roots the voice sheet (rules, odds, the hand that isn't busy) in a childhood and a choice, and it explains the torn-patch vest as a character trait rather than a prop. It also makes clear she and Gus have never discussed it, which S-021 needs.
 
 ## How the player experiences it
-Through the lessons (S-023), the vest, the landing, and the union pin on Kasia's collar that she looks at once.
+Through the lessons (S-023), the vest, the landing, and the mill local's old sign on Kasia's back-room door, which she looks at once.
 
 ## Risks and tradeoffs
 New flavour facts: Ponce, the uniform plant, the stoop. The dealer-school audition with Pete adds a small Pete-Rosa origin the docs don't have; it fits "Pete goes quiet at her name."
 
 ## Decision notes
+- Mike, 2026-10-28: accepted.
 

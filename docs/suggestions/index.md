@@ -6,13 +6,13 @@ Editor's assessment: [00-diagnosis.md](00-diagnosis.md). Reference: [story bible
 
 | Status | Count |
 | --- | --- |
-| proposed | 32 |
-| accepted | 15 |
+| proposed | 26 |
+| accepted | 21 |
 | rejected | 10 |
 | other | 0 |
 | **Total** | **57** |
 
-Accepted: S-001, S-003, S-004, S-005, S-009, S-011, S-012, S-013, S-014, S-016, S-017, S-019, S-020, S-055, S-056. Rejected: S-002, S-006, S-007, S-008, S-010, S-015, S-018, S-053, S-054, S-057.
+Accepted: S-001, S-003, S-004, S-005, S-009, S-011, S-012, S-013, S-014, S-016, S-017, S-019, S-020, S-021, S-022, S-023, S-024, S-025, S-026, S-055, S-056. Rejected: S-002, S-006, S-007, S-008, S-010, S-015, S-018, S-053, S-054, S-057.
 
 ## All suggestions
 
@@ -28,7 +28,7 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-016](S-016-dot-arc-crossing-the-river.md) | Dot's arc: the woman who warns everyone and never crosses the river | accepted | character | Dot | high | low | S-004, S-012, S-013 | none |
 | [S-017](S-017-dot-backstory-and-the-shirt.md) | Dot's expanded backstory, and who she took on the trip | accepted | character | Dot | medium | low | S-011, S-012, S-013, S-016 | none |
 | [S-048](S-048-ed-the-honest-cop-who-runs-on-wrens-readers.md) | Ed's contradiction: the honest cop whose squad runs on Wren's plate readers, and the one lookup he deletes | proposed | character | Ed | medium | low | S-004 | none |
-| [S-011](S-011-gus-arc-the-keeper-of-a-mausoleum.md) | Gus's arc: want, need, turning point, and how it ends badly | accepted | character | Gus | high | low | S-013, S-016 | none |
+| [S-011](S-011-gus-arc-the-keeper-of-a-mausoleum.md) | Gus's arc: want, need, turning point, and how it ends badly | accepted | character | Gus | high | low | S-013 | none |
 | [S-012](S-012-gus-wound-the-night-alice-died.md) | Gus's wound: the night his wife died, he was in the Cinder Room | accepted | character | Gus | high | low | S-013, S-046 | none |
 | [S-013](S-013-gus-wife-alice-and-three-touches.md) | Name Gus's wife and give her three touches you can find in the Flare | accepted | character | Gus | medium | low | none | none |
 | [S-014](S-014-gus-backstory.md) | Gus's expanded backstory | accepted | character | Gus | medium | low | S-011, S-012, S-013 | none |
@@ -36,8 +36,8 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-028](S-028-jalen-arc-with-friction.md) | Jalen's arc with friction: the first stake he loses, the offer he takes, and how it ends badly | proposed | character | Jalen | medium | medium | S-027, S-031 | none |
 | [S-029](S-029-jalen-backstory-signature-dialogue.md) | Jalen's expanded backstory, signature moment and sample dialogue | proposed | character | Jalen | medium | low | S-003, S-027 | none |
 | [S-052](S-052-juan-keeping-a-dying-place-alive.md) | Juan is Gus in miniature: the late game keeps Millstone Lanes alive, and he knows it | proposed | character | Juan | low | low | none | none |
-| [S-024](S-024-kasia-arc-the-dry-vote.md) | Kasia's arc: the keeper of the dry vote who runs Backwater's biggest game | proposed | character | Kasia | high | low | none | none |
-| [S-025](S-025-kasia-backstory.md) | Kasia's expanded backstory | proposed | character | Kasia | low | low | S-024 | none |
+| [S-024](S-024-kasia-arc-the-dry-vote.md) | Kasia's arc: the keeper of the dry vote who runs Backwater's biggest game | accepted | character | Kasia | high | low | none | none |
+| [S-025](S-025-kasia-backstory.md) | Kasia's expanded backstory | accepted | character | Kasia | low | low | S-024 | none |
 | [S-049](S-049-kiran-the-lucky-seat.md) | Kiran after the skim: the lucky seat, and a color-up where the chip stays | proposed | character | Kiran | low | low | none | none |
 | [S-051](S-051-mitch-the-bad-tip-was-the-backwater-vote.md) | Mitch's bad tip was the Backwater vote | proposed | character | Mitch | medium | low | S-025, S-039 | none |
 | [S-018](S-018-pete-secret-his-retirement-is-in-the-flare.md) | Pete's secret: his retirement went into the Flare after the funeral, and Gus has never mentioned it | rejected | character | Pete | medium | low | S-019 | none |
@@ -46,8 +46,8 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-044](S-044-ray-arc-give-him-the-drive-back.md) | Ray's arc: the big man shrinks, and the player can give him his drive back | proposed | character | Ray | medium | low | none | none |
 | [S-045](S-045-ray-backstory-and-dialogue.md) | Ray's expanded backstory and sample dialogue | proposed | character | Ray | low | low | S-038, S-044 | none |
 | [S-041](S-041-richard-want-need-backstory.md) | Richard: what he wants (to be asked, not helped), and his expanded backstory | proposed | character | Richard | medium | low | S-040 | none |
-| [S-021](S-021-rosa-arc-the-threshold.md) | Rosa's arc: the woman who won't say the Starflare's name, and the day she walks in | proposed | character | Rosa | high | low | S-014, S-023, S-001 | none |
-| [S-022](S-022-rosa-backstory.md) | Rosa's expanded backstory | proposed | character | Rosa | low | low | none | none |
+| [S-021](S-021-rosa-arc-the-threshold.md) | Rosa's arc: the woman who won't say the Starflare's name, and the day she walks in | accepted | character | Rosa | high | low | S-001, S-014, S-022, S-023 | none |
+| [S-022](S-022-rosa-backstory.md) | Rosa's expanded backstory | accepted | character | Rosa | low | low | none | none |
 | [S-046](S-046-stella-arc-the-number-she-doesnt-say.md) | Stella's arc: the analyst who stops saying the number, and when she learns her father gambles | proposed | character | Stella | medium | low | S-004, S-011, S-001, S-003 | none |
 | [S-047](S-047-stella-backstory.md) | Stella's expanded backstory | proposed | character | Stella | low | low | S-012, S-013, S-020, S-037, S-046 | none |
 | [S-036](S-036-tae-wound-his-fathers-drums.md) | Tae's wound and contradiction: his father's drum kit is still in the Flare's storage, and Gus kept it | proposed | character | Tae | medium | low | S-003 | none |
@@ -65,16 +65,16 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-031](S-031-the-theft-lands-at-troys.md) | The rival's theft (A4.8) is one object, worth the most to one person, and you find it in Troy's cage | proposed | gameplay-integration | Chase/Brooke | high | low | S-030 | none |
 | [S-007](S-007-the-register-bookend.md) | Setup and payoff: you sign your name once at the start and once at the end | rejected | gameplay-integration | Dot | medium | low | S-016 | none |
 | [S-015](S-015-gus-war-at-the-picnic-table.md) | Helping Gus quit (A4.2): play the free version of the game that's ruining him | rejected | gameplay-integration | Gus | high | medium | S-004, S-009, S-012, S-016, S-046 | none |
-| [S-026](S-026-kasia-closes-your-page.md) | Kasia's signature moment: she closes your page in the ledger | proposed | gameplay-integration | Kasia | medium | low | S-016, S-024 | none |
+| [S-026](S-026-kasia-closes-your-page.md) | Kasia's signature moment: she closes your page in the ledger | accepted | gameplay-integration | Kasia | medium | low | S-016, S-024 | none |
 | [S-019](S-019-pete-says-your-name.md) | Pete calls you "kid" until you've sat at his tables a while, then uses the name you wrote on the register | accepted | gameplay-integration | Pete | high | low | none | none |
-| [S-023](S-023-rosa-lessons-are-confessions.md) | Rosa's lessons are her confession: each tell she teaches is one from the payroll night | proposed | gameplay-integration | Rosa | medium | medium | S-022 | none |
+| [S-023](S-023-rosa-lessons-are-confessions.md) | Rosa's lessons are her confession: each tell she teaches is one from the payroll night | accepted | gameplay-integration | Rosa | medium | medium | S-022 | none |
 | [S-009](S-009-what-they-gave-you.md) | Story keys tell you who gave them to you | accepted | gameplay-integration | none | high | low | none | none |
 | [S-002](S-002-gus-goes-all-in-at-the-hearing.md) | Gus goes all in: he confesses at the hearing to clear Rosa | rejected | main-story | Gus | high | medium | none | S-001 |
 | [S-008](S-008-the-spacemans-boot.md) | Setup and payoff: Gus has never rubbed the spaceman's boot | rejected | main-story | Gus | medium | low | none | none |
 | [S-006](S-006-the-top-card.md) | Setup and payoff: Bennett still peeks at the top card | rejected | main-story | Richard | high | low | none | none |
 | [S-001](S-001-the-hard-question-is-about-the-cameras.md) | The hard question is about the cameras, and you can take the fall | accepted | main-story | none | high | medium | none | S-002 |
 | [S-003](S-003-the-flares-last-season.md) | The Flare's last season: a last night with each regular, and you can't see them all | accepted | main-story | none | high | high | S-013, S-011 | none |
-| [S-004](S-004-backwater-is-where-the-truth-gets-told.md) | Backwater is where the truth gets told: make the camera dead zone a story rule | accepted | main-story | none | high | low | S-042 | none |
+| [S-004](S-004-backwater-is-where-the-truth-gets-told.md) | Backwater is where the truth gets told: make the camera dead zone a story rule | accepted | main-story | none | high | low | none | none |
 | [S-005](S-005-the-five-beats.md) | Build the main story around five emotional beats, one per act | accepted | main-story | none | high | low | S-003, S-004, S-013, S-019, S-001 | none |
 | [S-010](S-010-the-rear-view-mirror.md) | Setup and payoff: the drive-away's first panel is the first image, reversed | rejected | main-story | none | medium | low | none | none |
 
@@ -101,6 +101,9 @@ Status: S-001 is accepted and S-002 is rejected, so the group has no open confli
 
 For information (not warnings, since the dependencies are proposed rather than rejected or missing): S-004 (accepted) depends on S-042, which is proposed. S-012 (accepted) depends on S-046, which is proposed. S-056 (accepted) depends on S-027 and S-033, both proposed.
 
+Circular dependencies: none. Two loops found in this rebuild were broken on 2026-10-28 by dropping a cross-reference edge (S-004 no longer lists S-042; S-011 no longer lists S-016). See those files' decision notes.
+
 ## Problems
 
-None. All 57 files have the required frontmatter fields with valid values, and each `id` matches its filename.
+- No file is missing a required frontmatter field, no status, area, impact or effort value is outside its allowed set, and each `id` matches its filename.
+- Format issue (not changed): 33 files have an unquoted title containing ": " (colon followed by a space). A strict YAML parser rejects a plain scalar like that. The values were read as written and no suggestion file was edited. Files: S-002, S-003, S-004, S-006, S-007, S-008, S-010, S-011, S-012, S-015, S-016, S-018, S-021, S-023, S-024, S-026, S-027, S-028, S-030, S-033, S-034, S-036, S-038, S-041, S-042, S-044, S-046, S-048, S-049, S-052, S-053, S-054, S-056.

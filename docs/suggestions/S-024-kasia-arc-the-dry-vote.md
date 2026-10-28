@@ -1,7 +1,7 @@
 ---
 id: S-024
 title: Kasia's arc: the keeper of the dry vote who runs Backwater's biggest game
-status: proposed
+status: accepted
 area: character
 character: Kasia
 type: expansion
@@ -12,7 +12,7 @@ conflicts_with: none
 ---
 
 ## Summary
-Kasia is a core character with no arc. Give her one built from a contradiction already in the docs: her father's union pin stands for the vote that kept Backwater dry, and she runs the biggest illegal game on the dry side. She is Gus's mirror across the river, and her arc ends when she crosses it.
+Kasia is a core character with no arc. Give her one built from a contradiction already in the docs: her father's bar hosted the vote that kept the casinos out of Backwater, and she runs the biggest illegal game on the dry side. She is Gus's mirror across the river, and her arc ends when she crosses it.
 
 ## Current state
 Kasia: mid-40s, took over her dad's tavern, "remembers the town before the casinos," wears "her dad's old mill union pin," runs "for amusement only" machines, pull tabs and a back-room card game; her ledger is how the player feels the reliable/flaky scale (people/kasia.md). Backwater "voted no" on gaming and on Revaris cameras; "proud mill families, wary of the casinos" (plan/t02.md, people/wren.md). Kasia's one secret is small (she pays the "for amusement only" machines out of the till, pages/northlight.md) and her later codes are S2, S11, A5.3 (the crew gathers at the Tap), A5.5 and O4 (the people's Starflare), in which she is a shareholder rather than a character with a turn. She has no arc stages and no scene of her own after the wedding (A1.4) and Ray asking around her bar (A1.5).
@@ -22,7 +22,7 @@ Kasia: mid-40s, took over her dad's tavern, "remembers the town before the casin
 
 **Need:** to admit she's a casino. The ledger, the machines, the back room: she tells herself it's a tavern with a card game, the way Gus tells himself he's a host.
 
-**Contradiction, made visible:** the pin on her collar is from the mill local that led the "no" vote. The back room is behind a door with the local's old meeting sign still on it.
+**Contradiction, made visible:** the back room is behind a door with the mill local's old meeting sign still on it. The local voted "no" on casinos in that room, and it is now a card game. (No union pin: Mike, 2026-10-28.)
 
 **Mirror:** she and Gus both inherited a father's place. She kept hers small, alive and illegal. He kept his big, licensed and dying. Neither has ever been inside the other's. They have never met; Dot knows them both.
 
@@ -44,4 +44,7 @@ The door sign insert; the "she asks you" scene; her crossing at A3.2 (two-shot o
 Stage 2 adds a choice scene and a small licensing thread; keep it to one scene and let the outcome be authored drift flavoured by the player's lean. Kasia at the hearing competes for the scene with the league (S1) and Bennett reading your name (S7); she can stand beside the league.
 
 ## Decision notes
+- Mike, 2026-10-28: Kasia wears no union pin, and her dad was a businessman, not a mill man (see S-025). The contradiction now rests on the door sign.
+- 2026-10-28: S-025 (the father and the back room) and S-026 (stage 4) are soft cross-references, not dependencies, to avoid a cycle.
+- Mike, 2026-10-28: accepted. (Player-facing text says "voted no on the casinos," not "dry"; see bible 4.1.8.)
 

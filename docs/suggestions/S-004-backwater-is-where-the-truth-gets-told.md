@@ -7,7 +7,7 @@ character: none
 type: change
 impact: high
 effort: low
-depends_on: S-042
+depends_on: none
 conflicts_with: none
 ---
 
@@ -37,4 +37,4 @@ Costs almost nothing in art (existing portraits over existing plates). The risk 
 - Mike, 2026-10-27: accepted.
 - 2026-10-28: depends_on now lists S-015 and S-042, which the A4.2 and Wren bullets refer to. If either is rejected, drop that bullet; the rule stands.
 - 2026-10-28: S-015 rejected, so its A4.2 clause is dropped and S-015 is removed from depends_on.
-
+- 2026-10-28: S-042 removed from depends_on to break a cycle (S-042 depends on S-004). The Wren bullet still refers to it; drop that bullet if S-042 is rejected.

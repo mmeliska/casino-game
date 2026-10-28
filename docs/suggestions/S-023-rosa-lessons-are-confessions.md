@@ -1,7 +1,7 @@
 ---
 id: S-023
 title: Rosa's lessons are her confession: each tell she teaches is one from the payroll night
-status: proposed
+status: accepted
 area: gameplay-integration
 character: Rosa
 type: expansion
@@ -18,9 +18,9 @@ Structure Rosa's teaching so that each lesson is a tell from the night she dealt
 Rosa "teaches the player the rules of the games and sharpens their read of tells, never giving certainty" and "lies by telling the truth about the wrong thing" (people/rosa.md). The review proposed that each lesson unlock one tell type (pages/review.md). Clues to M1: she won't enter the Flare; Pete goes quiet; the tape; the commission file (plan/t08.md). Her one settled teaching line is about Kiran: "watch the hand that isn't busy."
 
 ## Proposed change
-Five lessons, one per act or trust step, each unlocking a read in the results strip (as the review proposed). Each is a true rule and a true memory:
+Five lessons, one per act or trust step. They are dialogue only (Mike, 2026-10-28): no UI hints. The results strip stays raw results, as the GDD has it, and the lesson teaches the player what to look for in it at a flagged table. Each is a true rule and a true memory:
 
-| # | The lesson | The read it unlocks | What it really is |
+| # | The lesson | What it teaches you to look for | What it really is |
 | --- | --- | --- | --- |
 | 1 | "Watch his hands, not his face. Faces are for amateurs." | Dealer tells on a flagged table | The overhead camera: hands, no faces |
 | 2 | "A drunk bets the same whether he's winning or losing. That's how you know." | Opponent tilt in poker | Gus at her table, betting the payroll flat |
@@ -34,10 +34,11 @@ After M1 is solved, each lesson gets a one-line callback the next time it fires 
 "Lies by telling the truth about the wrong thing" becomes the structure of her teaching, not just a line. The player is rewarded twice for the same content: once as a skill, once as a story. It solves the review's ask (Rosa as the teacher of reading) and makes the mystery's solution land as recognition rather than exposition. (Technique: dramatic irony paid as a re-read.)
 
 ## How the player experiences it
-Lessons at Kasia's back room, at the Prairie Queen landing, and anywhere she's your companion. Each unlock is a new line in the results strip. After M1, five quiet callbacks.
+Lessons at Kasia's back room, at the Prairie Queen landing, and anywhere she's your companion. At a flagged table, a player who listened spots the pattern in the raw results strip themselves. After M1, five quiet callbacks.
 
 ## Risks and tradeoffs
-Needs the read system the review proposed, which is a small UI feature (a line in the results strip). The lessons must be useful as play advice first, or the trick reads as a trick, and every read they unlock applies only inside flagged story moments, never in ordinary play. Keep the callbacks optional and rare.
+No UI cost: the strip is unchanged. The lessons must be useful as play advice first, or the trick reads as a trick, and the patterns they point to exist only inside flagged story moments, never in ordinary play. Keep the callbacks optional and rare. Lesson 5 places Pete at the pit on payroll night. That is new, and it fits "Pete goes quiet at her name." Lesson 3's pattern only appears at a table a story moment has flagged (GDD), so tells still belong to people, not house games.
 
 ## Decision notes
+- Mike, 2026-10-28: accepted, lessons only. No hint lines in the results strip; it stays raw results, so Rosa still "never gives certainty."
 

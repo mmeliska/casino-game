@@ -99,12 +99,12 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
 ### Kasia
 - **Tier/group:** Core; Backwater. Where: Kasia's Tap.
 - **Role:** Owner of Kasia's Tap. "First credit and first friend." Offers the two jobs that open her back room, then hires you for the wedding. (`people/kasia.md`, `data/story.js`)
-- **Look:** Dark hair in a braid, a bar towel over her shoulder, a flannel shirt with rolled sleeves, her dad's old mill union pin on the collar. (`people/kasia.md`)
+- **Look:** Dark hair in a braid, a bar towel over her shoulder, a flannel shirt with rolled sleeves, her dad's old mill union pin on the collar (pin dropped 2026-10-28, see 4.1.8). (`people/kasia.md`)
 - **Personality:** Mid-40s. "Warm but tough. Runs a tight bar, gives credit but keeps a ledger and remembers every cent, quick to defend her regulars, slow to forgive a skipped debt." Her credit is how the player feels the reliable/flaky scale. (`people/kasia.md`)
 - **Want/goal:** Not stated. Per `plan/t05.md`, "she'd rather keep you for her back room" than send you to the Flare.
-- **Backstory:** Born in Backwater to a mill family (Polish-American dad, Mexican-American mom). Took over her dad's tavern, where the mill shifts drank before the mills closed. Knows everyone's family and remembers the town before the casinos. (`people/kasia.md`)
+- **Backstory:** Born in Backwater to a mill family (Polish-American dad, Mexican-American mom). (Dad is now a businessman, 2026-10-28, see 4.1.8.) Took over her dad's tavern, where the mill shifts drank before the mills closed. Knows everyone's family and remembers the town before the casinos. (`people/kasia.md`)
 - **Secrets:** Quietly pays "for amusement only" machine winners from the till (illegal but too small for Ed) (`pages/northlight.md`). Never discusses the back room in front of strangers (voice).
-- **Arc/outcomes:** No arc stated beyond her appearances. She appears at A5.5 (co-op / relaunch) and in O4 (people's Starflare).
+- **Arc/outcomes:** No arc stated beyond her appearances (arc proposed and accepted in `suggestions/S-024`). She appears at A5.5 (co-op / relaunch) and in O4 (people's Starflare).
 - **Relationships:**
   - Related line: Rosa (deals her back room), Raffy (drops envelopes at her bar), the wedding party, Ray (asks around her bar for Raffy) (`people/kasia.md`).
   - Ties in `data/story.js`:
@@ -1600,7 +1600,7 @@ Stale content here is in OQ 2.
 
 These answer open questions below and were given while reviewing `docs/suggestions/`. Each is a settled fact for later writing until the site says otherwise.
 
-- **The license hearing's hard question (A5.7)** is put to the player, about the camera deal: did Gus know what he was signing, and when did you find out. Truth, bluff or take the concealment onto your own record. See `suggestions/S-001`. A question about Gus's own play was judged too small; the question must be about approving illegal activity.
+- **The license hearing's hard question (A5.7)** is put to the player, about the camera deal: did Gus know what he was signing, and when did you find out. Truth, bluff or take the concealment onto your own record. "Take it" means owning the non-disclosure, not the deal: "I won't speak for him. I knew before I filed, and I filed anyway." Gus holds no license, so the cost falls on the player, and Gus is kept out of the record. It's offered only if the player heard Gus's confession at A4.1 (revised 2026-10-28). See `suggestions/S-001`. A question about Gus's own play was judged too small; the question must be about approving illegal activity.
 - **Gus never owns the new Starflare and is never its licensed host.** He retires. In O1 he comes to opening night as a guest and cuts the ribbon. Stella's "he should retire" thread resolves this way. This rules O1 and O2 only; his informal roles in the other resting points (hosting the regulars' floor in O4, greeting at the Aurelian in O5) are as the docs have them.
 - **Gus's late wife is named Alice.** Dot says it; Gus says it once, at the end; Stella says "Mom."
 - **Gus's wound stands:** the night Alice died he was in the Cinder Room with his phone silenced, and Dot is the one who couldn't reach him (`suggestions/S-012`).
@@ -1620,6 +1620,9 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **Gus's turning point is the recipe box** (`suggestions/S-011`, 2026-10-28). Alice and Dot cooked with their mother as girls. The mother's recipe box went to Alice. After the funeral Dot asked Gus for it through Pete and he refused. The phone night (S-012) is the wound, and the refusal made the silence a break. In act 5, once he has quit, he drives it over to Dot himself (R1's payoff).
 - **A4.2 ends at Dot's lot** (`suggestions/S-016`, 2026-10-28). You get Gus out of the Cinder Room and drive him over the Long Bridge before dawn. Dot says "Two ten," her first words to him since the funeral. Dot hasn't crossed the river since the funeral; she first does on opening night. There is no behind-the-desk rule.
 - **Pete has a family** (`suggestions/S-020`, 2026-10-28): his wife Ona and two kids (a grown daughter, and the youngest, Tomas, at college), all offstage with no portraits. Tomas's tuition is why Pete "can't afford to retire yet." Pete's rating of the player is never shown on screen (`suggestions/S-019`).
+- **"Dry" stays out of player-facing text** (Mike, 2026-10-28). In the docs, Backwater's "dry" means no legal gambling; alcohol is legal there. In-game lines say "voted no on the casinos" or similar, so players don't read it as a ban on drinking.
+- **Kasia's dad was a businessman, not a mill man, and Kasia wears no union pin** (`suggestions/S-025`, 2026-10-28). This overrides `people/kasia.md`. He opened the Tap at the mill gate and rented the back room to the local, and he backed the "no" vote because a casino would have emptied his bar.
+- **Kasia's credit** (`suggestions/S-026`, 2026-10-28): "put it on the book" at the Tap for pull tabs or, once invited, the back room, up to a limit that starts around $50. No interest and no due date. Repaying within about a week counts toward reliable. The limit rises and falls with the reliable/flaky scale.
 
 ## 4.2 Places and venues
 
@@ -1641,7 +1644,7 @@ These answer open questions below and were given while reviewing `docs/suggestio
 | Venue | District | What it is | Games | Bets | Getting in |
 |---|---|---|---|---|---|
 | Millstone Lanes (back lot) | Backwater | Struggling bowling alley; Juan runs dice out back | Craps (back lot, real money); free-play slots and video poker inside | $1-$20 | Anyone; sweeps likelier at high heat |
-| Kasia's Tap | Backwater | Kasia's dad's old mill tavern | Poker, blackjack, "for amusement only" slots and video poker, pull tabs | $1-$50 | Bar open to all; back room by Kasia's invitation after two jobs (A1.3) |
+| Kasia's Tap | Backwater | Kasia's dad's old tavern at the mill gate (he was a businessman, see 4.1.8) | Poker, blackjack, "for amusement only" slots and video poker, pull tabs | $1-$50 | Bar open to all; back room by Kasia's invitation after two jobs (A1.3) |
 | Bridgehead Fuel & Food | The Bridges | Gas station at the foot of the Long Bridge; "worst odds in town, best gossip" | Three-reel slots, video poker, pull tabs, scratchers | $1-$5 | Anyone |
 | Starflare Club ("the Flare") | The Levee | Gus's rocket-age casino, slowly fading | Rocket slots, video poker, blackjack, craps, roulette, poker, keno, the Rocket Wheel | $5-$100 | Anyone, until the fall |
 | Prairie Queen | The Levee | Old paddlewheel riverboat built "to haul prairie grain"; you are aboard until it docks | Blackjack, craps, roulette, paddlewheel slots, video poker | $5-$200 | A ticket for a set sailing |
@@ -1716,7 +1719,7 @@ Note: `pages/gdd.md` and `pages/northlight.md` both say "Ten places to gamble" b
   - Holds the Flare's site and, via the ordinance Bennett sponsored, the Starflare name.
   - Building Starflare Field.
 - **The Unions.**
-  - Dealers' and dockworkers' locals; tied to Rosa. Kasia's dad's mill local.
+  - Dealers' and dockworkers' locals; tied to Rosa. The mill local that rented Kasia's dad's back room.
   - "The union doesn't invest (conflict of interest)."
 - **New money.**
   - Out-of-town chains on the Marquee Mile (the Aurelian, Tae).
@@ -1765,7 +1768,7 @@ Note: `pages/gdd.md` and `pages/northlight.md` both say "Ten places to gamble" b
   - The photo of the two sisters in Gus's office.
   - The photo of Richard on Bennett's desk.
 - **Kasia's ledger.**
-- **Kasia's dad's union pin.**
+- **Kasia's dad's union pin.** Dropped 2026-10-28 (see 4.1.8).
 - **Dot's register.**
 - **The car.** Can't be sold.
 - **The Starflare Field ordinance.** Holds the name clause.

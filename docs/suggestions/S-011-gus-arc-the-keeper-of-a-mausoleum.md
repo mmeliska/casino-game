@@ -7,7 +7,7 @@ character: Gus
 type: expansion
 impact: high
 effort: low
-depends_on: S-013, S-016
+depends_on: S-013
 conflicts_with: none
 ---
 
@@ -47,3 +47,4 @@ Low cost, but it commits the writing: every Gus scene has to serve this, includi
 - 2026-10-28 (continuity): Dot asked through Pete, so "Two ten" at A4.2 stays her first words to Gus since the funeral. depends_on is now S-013 and S-016; S-003, S-012 and S-017 are related but not required.
 - Mike, 2026-10-28: accepted. Turn discussed: the IOU ("maybe"), then the jacket, then settled on an object of Alice's that matters to Dot, which he won't let go of at first and then brings to her to make up. Mike chose a recipe box of their mother's recipes, with the backstory that the sisters cooked with their mother as kids. Turning point rewritten.
 - Mike, 2026-10-27: Gus does not own the new hotel and is never on its license; Stella's plot point is that he retires. The O1 ending above is written to that.
+- 2026-10-28: S-016 removed from depends_on to break a cycle (S-016 -> S-012 -> S-046 -> S-011). The turn happens at Dot's lot either way.

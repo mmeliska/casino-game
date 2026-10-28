@@ -1,13 +1,13 @@
 ---
 id: S-021
 title: Rosa's arc: the woman who won't say the Starflare's name, and the day she walks in
-status: proposed
+status: accepted
 area: character
 character: Rosa
 type: expansion
 impact: high
 effort: low
-depends_on: S-014, S-023, S-001
+depends_on: S-001, S-014, S-022, S-023
 conflicts_with: none
 ---
 
@@ -24,9 +24,9 @@ Rosa "really was guilty, but for a good reason"; "took the fall without saying w
 
 **Contradiction:** her lessons are confessions (S-023). She teaches the player to read the hand that isn't busy because she was the hand that wasn't busy.
 
-**Turning point:** the hearing (A5.7). If she is one of your witnesses, she speaks for you and not about herself; if you take the concealment onto your own record (S-001, "Take it"), she is the one person who knows what you did. (S-002's version, where Gus said the debt was his and her own rule broke in the hearing room, went with S-002's rejection on 2026-10-27; her "never mentions the Starflare" rule now holds all game, and the door is where it ends.)
+**Turning point:** the hearing (A5.7). If she is one of your witnesses, she speaks for you and not about herself; if you take the concealment onto your own record (S-001, "Take it"), she recognises what you did: she doesn't know the camera story, but she knows what taking a cost for Gus looks like. (S-002's version, where Gus said the debt was his and her own rule broke in the hearing room, went with S-002's rejection on 2026-10-27; her "never mentions the Starflare" rule now holds all game, and the door is where it ends.)
 
-**End:** opening night (O1, O2) or the first night of a floor you run (O3, O4). Rosa stops at the door. Pose: one finger on the frame, the same gesture as on the felt. Then in. Gus, at the first table (a retired guest in O1 and O2, S-001; the regulars' host in O4): "Rosa." Nothing else. (He has not said it in years; see S-014.) In O2 she still comes to deal, and the name is said by Pete.
+**End:** opening night (O1, O2) or the first night of a floor you run (O3, O4). Rosa stops at the door. Pose: one finger on the frame, the same gesture as on the felt. Then in. Gus, at the first table (a retired guest in O1, S-001; the regulars' host in O4): "Rosa." Nothing else. (He has not said it in years; see S-014.) In O2 she still comes to deal, and the name is said by Pete.
 
 **Badly:** if the player rides a crooked table she flagged or pushes her into the Flare before the license, she stops teaching. Every later Rosa scene is rules only, no reads, and her payoff still fires through M1 without her ever walking onto your floor; she deals at the Harborlight, as the docs already allow, and the Harborlight's dealer at your table one night is her, and she doesn't look up.
 
@@ -40,4 +40,5 @@ The doorway panel; Gus's one word; or, badly, a dealer at the Harborlight who do
 Costs nothing in art. The hearing variant depends on S-001, but the door scene stands alone. Don't give Rosa a speech at the threshold; the finger on the frame is the line.
 
 ## Decision notes
+- Mike, 2026-10-28: accepted.
 - 2026-10-27: S-002 rejected; the hearing turning point now follows S-001 only. Gus's tape (M1) can be traded for by any act 4 leverage route, not only the romance pair (Mike, OQ 34).
