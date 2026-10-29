@@ -92,4 +92,4 @@ Mine:
 - Is Gus's wife allowed a name? **Answer:** yes. Alice (S-013).
 - Is the night-she-died wound (S-012) darker than the game wants? **Answer:** no. Keep it.
 - Should the hearing's climax belong to the player (S-001) or to Gus (S-002)? **Answer:** the player, but the first draft's question was too small ("like asking if you've ever sped in a car"). The question is now whether Gus knew what he was signing with the cameras, and when you found out. Gus is never an owner or licensed host of the new Starflare: he retires, and in O1 cuts the ribbon as a guest. S-002 rejected.
-- Two men sitting in parked cars (S-038, S-045): a rhyme or a repetition? **Answer:** a rhyme. Keep both.
+- Two men sitting in parked cars (S-038, S-045): a rhyme or a repetition? **Answer:** a rhyme. Keep both. (2026-10-29: Ray's half is now seed S11, his car on the Long Bridge; the Flare-lot hour in S-045 is backstory only.)

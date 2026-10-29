@@ -33,6 +33,8 @@ Wren: early 30s, tech genius, the old boss's granddaughter passed over for the u
 
 **The one question.** If the player has opened the drive (S-058, the rebuilt key), she doesn't know it, and nothing in the room can tell her. Before the player answers the deal, she asks the only question in the game she doesn't know the answer to: "Did you read it?" The player can say yes, say no, or say nothing. She can't check. It is the one bluff in the game she can't see through, and she knows that, which is why she turned the cameras off: she'd rather not have a record of herself asking.
 
+**If the player doesn't hold the drive** (Mike, 2026-10-29). A player who comes with Gus's markers (O10) and no drive gets a different question: "Where is it?" They may know (Ed has it, Ray has it back, S-044) or not, and they can tell the truth, lie or say nothing. She can't check that either. The cameras go dark the same way.
+
 **Why the office.** It's the one room she avoids, and the one place a deal about the drive makes sense: the ledger was written at that desk. The player who has been in the closet (S-058) will look at it. Wren will see them look.
 
 **Afterward.** Whatever the answer, the lights come back on when she leaves, and the next time the player hears of her it's through Ray again. She is never seen a second time.
@@ -49,3 +51,4 @@ Players who never hold the drive or the markers never meet her, which is right. 
 ## Decision notes
 - Mike, 2026-10-28: the first draft (the Cinder Room kept out of sentiment, her grandfather's bandits, a scene in Backwater with no signal) was rejected: "It's crazy to think Wren doesn't have cameras in her own building. Wren needs to be a very mysterious figure. There should be a point where the player does come in contact with her because she needs something and offers the player something in trade." The Cinder Room is kept for intel and for running Umbra's dealings through proxies; she rarely goes there. Rewritten as the one A4.5 meeting in the Cinder Room office, with Mike's addition: she can turn off the cameras in the meeting room. Accepted in this form.
 - 2026-10-29: checker fix. The Long Bridge is a dead zone (its readers are smashed), so the line now names the streets and the other Levee bridges.
+- Mike, 2026-10-29: a player who doesn't hold the drive is asked "Where is it?" instead of "Did you read it?" (checker flagged that the original question had nothing to refer to on the O10 path).
