@@ -6,13 +6,13 @@ Editor's assessment: [00-diagnosis.md](00-diagnosis.md). Reference: [story bible
 
 | Status | Count |
 | --- | --- |
-| proposed | 5 |
-| accepted | 41 |
+| proposed | 0 |
+| accepted | 46 |
 | rejected | 12 |
 | other | 0 |
 | **Total** | **58** |
 
-Accepted: S-001, S-003, S-004, S-005, S-009, S-011, S-012, S-013, S-014, S-016, S-017, S-019, S-020, S-021, S-022, S-023, S-024, S-025, S-026, S-028, S-029, S-030, S-031, S-032, S-033, S-035, S-036, S-037, S-038, S-039, S-040, S-041, S-042, S-043, S-044, S-045, S-046, S-047, S-055, S-056, S-058.
+Accepted: S-001, S-003, S-004, S-005, S-009, S-011, S-012, S-013, S-014, S-016, S-017, S-019, S-020, S-021, S-022, S-023, S-024, S-025, S-026, S-028, S-029, S-030, S-031, S-032, S-033, S-035, S-036, S-037, S-038, S-039, S-040, S-041, S-042, S-043, S-044, S-045, S-046, S-047, S-048, S-049, S-050, S-051, S-052, S-055, S-056, S-058.
 
 ## All suggestions
 
@@ -27,7 +27,7 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-032](S-032-rival-backstory-and-dialogue.md) | Chase/Brooke's expanded backstory and sample dialogue | accepted | character | Chase/Brooke | low | low | S-030 | none |
 | [S-016](S-016-dot-arc-crossing-the-river.md) | Dot's arc: the woman who warns everyone and never crosses the river | accepted | character | Dot | high | low | S-004, S-012, S-013 | none |
 | [S-017](S-017-dot-backstory-and-the-shirt.md) | Dot's expanded backstory, and who she took on the trip | accepted | character | Dot | medium | low | S-011, S-012, S-013, S-016 | none |
-| [S-048](S-048-ed-the-honest-cop-who-runs-on-wrens-readers.md) | Ed's contradiction: the honest cop whose squad runs on Wren's plate readers, and the one lookup he deletes | proposed | character | Ed | medium | low | S-004 | none |
+| [S-048](S-048-ed-the-honest-cop-who-runs-on-wrens-readers.md) | Ed's contradiction: the honest cop whose squad runs on Wren's plate readers, and the one lookup he deletes | accepted | character | Ed | medium | low | S-004 | none |
 | [S-011](S-011-gus-arc-the-keeper-of-a-mausoleum.md) | Gus's arc: want, need, turning point, and how it ends badly | accepted | character | Gus | high | low | S-013 | none |
 | [S-012](S-012-gus-wound-the-night-alice-died.md) | Gus's wound: the night his wife died, he was in the Cinder Room | accepted | character | Gus | high | low | S-013, S-046 | none |
 | [S-013](S-013-gus-wife-alice-and-three-touches.md) | Name Gus's wife and give her three touches you can find in the Flare | accepted | character | Gus | medium | low | none | none |
@@ -35,14 +35,14 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-027](S-027-jalen-wound-his-brother-ran-rays-envelopes.md) | Jalen's wound: his older brother ran Ray's envelopes before Raffy did | rejected | character | Jalen | high | low | none | none |
 | [S-028](S-028-jalen-arc-with-friction.md) | Jalen's tuition: the loan you can offer him, the envelopes that pay it back, and the inheritance | accepted | character | Jalen | medium | medium | S-029 | none |
 | [S-029](S-029-jalen-backstory-signature-dialogue.md) | Jalen's backstory: hospitality classes by day, the Flare by night, and the host stand on opening night | accepted | character | Jalen | medium | low | none | none |
-| [S-052](S-052-juan-keeping-a-dying-place-alive.md) | Juan is Gus in miniature: the late game keeps Millstone Lanes alive, and he knows it | proposed | character | Juan | low | low | none | none |
+| [S-052](S-052-juan-keeping-a-dying-place-alive.md) | Juan is Gus in miniature: the late game keeps Millstone Lanes alive, and he knows it | accepted | character | Juan | low | low | none | none |
 | [S-024](S-024-kasia-arc-the-dry-vote.md) | Kasia's arc: the keeper of the dry vote who runs Backwater's biggest game | accepted | character | Kasia | high | low | none | none |
 | [S-025](S-025-kasia-backstory.md) | Kasia's expanded backstory | accepted | character | Kasia | low | low | S-024 | none |
-| [S-049](S-049-kiran-the-lucky-seat.md) | Kiran after the skim: the lucky seat, and a color-up where the chip stays | proposed | character | Kiran | low | low | none | none |
-| [S-051](S-051-mitch-the-bad-tip-was-the-backwater-vote.md) | Mitch's bad tip was the Backwater vote | proposed | character | Mitch | medium | low | S-025, S-039 | none |
+| [S-049](S-049-kiran-the-lucky-seat.md) | Kiran after the skim: the lucky seat, and a color-up where the chip stays | accepted | character | Kiran | low | low | none | none |
+| [S-051](S-051-mitch-the-bad-tip-was-the-backwater-vote.md) | Mitch's bad tip was the Backwater vote | accepted | character | Mitch | medium | low | S-025, S-039 | none |
 | [S-018](S-018-pete-secret-his-retirement-is-in-the-flare.md) | Pete's secret: his retirement went into the Flare after the funeral, and Gus has never mentioned it | rejected | character | Pete | medium | low | S-019 | none |
 | [S-020](S-020-pete-backstory.md) | Pete's expanded backstory | accepted | character | Pete | low | low | none | none |
-| [S-050](S-050-raffy-companion-and-the-fifty.md) | Raffy as a runner you can send, and the fifty dollars he keeps trying to give back | proposed | character | Raffy | medium | medium | none | none |
+| [S-050](S-050-raffy-companion-and-the-fifty.md) | Raffy's envelope: the missing $500, the fifty, and the lie | accepted | character | Raffy | medium | medium | none | none |
 | [S-044](S-044-ray-arc-give-him-the-drive-back.md) | Ray's arc: the big man shrinks, and the player can give him his drive back | accepted | character | Ray | medium | low | S-058 | none |
 | [S-045](S-045-ray-backstory-and-dialogue.md) | Ray's expanded backstory and sample dialogue | accepted | character | Ray | low | low | S-038, S-044, S-058 | none |
 | [S-041](S-041-richard-want-need-backstory.md) | Richard: what he wants (to be asked, not helped), and his expanded backstory | accepted | character | Richard | medium | low | S-040 | none |

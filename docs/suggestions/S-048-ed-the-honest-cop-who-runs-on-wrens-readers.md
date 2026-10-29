@@ -1,7 +1,7 @@
 ---
 id: S-048
 title: "Ed's contradiction: the honest cop whose squad runs on Wren's plate readers, and the one lookup he deletes"
-status: proposed
+status: accepted
 area: character
 character: Ed
 type: expansion
@@ -22,7 +22,7 @@ Ed: honest to the bone, tired of the big fish getting away; the face of heat; wa
 
 **The lookup.** Any time Ed has reason to check you (a raid, the informant path, a tip about Raffy), he can run your plate through the readers. The game shows it once as an insert: a terminal at Lock Street, your plate, a list of where your car has been. Everything on it is true. The readers feed Revaris whether or not Ed looks (the camera rule), but what Ed's squad *looks up* is what tells Wren who the police are interested in; if he runs you, her file on you (S10) gains a line that says the vice squad pulled your plate, and why.
 
-**The one he deletes.** If you've helped him once without asking anything back (handed over the drive's logs only, got Kiran clear, or warned him about Bennett), there's a scene at the Lanes (S-004): he tells you he pulled your plate once, and that he won't again, and that he's logged the lookup under a case number that isn't yours, which he's not supposed to do. "The readers still see you. I can't fix that. But nobody on my floor is looking for you anymore. Don't tell Wren. She'll know anyway." From then on Ed's squad never adds to her file on you, and her file loses its police line. It's the only time the game gives the player a kind of privacy as a reward, and the only time Ed breaks a rule.
+**The one he deletes.** If you've helped him once without asking anything back (handed him Raffy's drive, got Kiran clear, or warned him about Bennett), there's a scene at the Lanes (S-004): he tells you he pulled your plate once, and that he won't again, and that he's logged the lookup under a case number that isn't yours, which he's not supposed to do. "The readers still see you. I can't fix that. But nobody on my floor is looking for you anymore. Don't tell Wren. She'll know anyway." From then on Ed's squad never adds to her file on you, and her file loses its police line. It's the only time the game gives the player a kind of privacy as a reward, and the only time Ed breaks a rule.
 
 **Informant path, reframed.** Being Ed's informant means your tips go into a system Wren reads. Ed knows this. He's using you as bait as much as a source, and if the player asks him straight he says so: his way of lying is playing dumb, and here he plays smart. "You tip me, she sees the tip. She wonders who. That's the point."
 
@@ -42,4 +42,5 @@ One terminal insert; one scene at the Lanes; a line of Ed's that re-reads the in
 The mercy must stay inside the camera rule: the readers still feed Revaris; Ed only controls what his squad looks up. If the case-number trick is too fine a distinction, make it simpler: he stops running your plate, and says so.
 
 ## Decision notes
-
+- 2026-10-29: "handed over the drive's logs only" updated to "handed him Raffy's drive" (S-058: one encrypted file, handed over from act 2 on).
+- Mike, 2026-10-29: accepted.

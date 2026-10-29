@@ -37,4 +37,4 @@ Minor new facts: third son, the brother's suit, and a family (wife Ona, a grown 
 
 ## Decision notes
 - Mike, 2026-10-28: accepted with a change: "He has a family." Added wife Ona and two kids; the youngest, Tomas, still at college, is why he can't afford to retire. S-018's payroll detail removed after S-018 was rejected.
-
+- Mike, 2026-10-29: keep "held Stella at the cage". It's compatible with S-047, where Stella later counts beside her mother with no Pete in that memory.

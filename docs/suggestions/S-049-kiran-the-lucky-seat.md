@@ -1,7 +1,7 @@
 ---
 id: S-049
 title: "Kiran after the skim: the lucky seat, and a color-up where the chip stays"
-status: proposed
+status: accepted
 area: character
 character: Kiran
 type: expansion
@@ -20,7 +20,7 @@ Kiran: the friendliest dealer, skims the house to pay Ray; tell: goes quiet; the
 ## Proposed change
 - **Helped (paid the debt or told Ed quietly):** a later sailing, any season. Kiran at table four. The same two inserts as the clue, before and after a color-up, and this time they match. His pose never swaps. "Welcome aboard! My daughter says this seat is lucky. She's seven. Eight now. She'd know." He never mentions the debt, Ray, or you helping; the matching inserts are the thanks.
 - **Walked away:** the floor manager's grumble becomes a notice: Kiran's gone. His table has a new dealer who doesn't talk. The daughter's photo is still tucked by the tray; nobody took it down.
-- **Called out:** he's at the Prairie Queen landing one evening, out of uniform, and when he sees you he turns the wedding ring and says nothing. Rosa, if present: "Watch the hand that isn't busy. His aren't, anymore."
+- **Called out:** he's at the Prairie Queen landing one evening, out of uniform, and when he sees you he looks away, toward the water, and says nothing (a pose swap; the game has no animation, so no ring turn). Rosa, if present: "Watch the hand that isn't busy. His aren't, anymore."
 
 ## Why it works
 "Gets out" is a flag; a clean color-up is a scene the player can read with the skill the mystery taught them. It rewards attention twice and makes the skim's resolution visible without a word of exposition, which is the docs' own standard. The walked-away version is the consequence of never knowing, delivered as a photo nobody took down.
@@ -32,4 +32,4 @@ Reused inserts, one line, one pose.
 None of note. The age line ("Eight now") assumes at least a season has passed; gate it on that.
 
 ## Decision notes
-
+- Mike, 2026-10-29: accepted with a change: no ring turn in the called-out scene, because the game has no animation. He looks away toward the water (pose swap).

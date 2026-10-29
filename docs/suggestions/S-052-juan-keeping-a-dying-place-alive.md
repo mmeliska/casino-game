@@ -1,7 +1,7 @@
 ---
 id: S-052
 title: "Juan is Gus in miniature: the late game keeps Millstone Lanes alive, and he knows it"
-status: proposed
+status: accepted
 area: character
 character: Juan
 type: expansion
@@ -20,7 +20,7 @@ Juan keeps the ancient pinsetters running and runs dice in the back lot after th
 ## Proposed change
 **Want:** the pinsetters running one more season. **Need:** to admit the Lanes are a casino with a bowling problem.
 
-**The mirror, said once.** The first time you come back to the Lanes after meeting Gus, in the back lot after the last frame (he never says "dice" inside the alley), he has a line he's never said to anyone: "Gus runs a casino that wishes it was a supper club. I run a bowling alley that's a dice game. Same thing. Don't tell him I said so." That's his whole opinion of the Levee.
+**The mirror, said once.** The first time you come back to the Lanes after meeting Gus, in the back lot after the last frame (he never says "dice" inside the alley), he has a line he's never said to anyone. He knows of Gus, not Gus himself: "Gus runs a casino that wishes it was a supper club. I run a bowling alley that's a dice game. Same thing." That's his whole opinion of the Levee.
 
 **R3 sharpened.** When Umbra's loaded dice come, what's at stake is stated in parts: "They take the late game, the parts money goes with it. Lane six is dead by the first snow." Pushing them out saves a lane. If the player fails, lane six goes dark, and the league bowls on five.
 
@@ -38,4 +38,4 @@ Three lines and a plate state (lane six dark).
 Nearly free. Keep Juan's line to one; he is "indifferent to everyone else" and should stay that way.
 
 ## Decision notes
-
+- Mike, 2026-10-29: accepted with a change: cut "Don't tell him I said so", which implied Juan knows Gus personally.

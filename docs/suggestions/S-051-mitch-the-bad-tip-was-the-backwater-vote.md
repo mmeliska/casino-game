@@ -1,7 +1,7 @@
 ---
 id: S-051
 title: "Mitch's bad tip was the Backwater vote"
-status: proposed
+status: accepted
 area: character
 character: Mitch
 type: change
@@ -26,7 +26,7 @@ Mitch: "Years ago he made big bets on supposedly inside information and lost alm
 - **"Pump four's broken. Has been since I started."** The pump has a Backwater main-street address on its old service sticker. An insert, for the one player who looks.
 - **The Haybale book** exists because a man who lost everything on one bet now sells small ones he can price himself.
 - **Earning his trust** (already settled as finding out about Bennett) gets a scene: you say the name, he says nothing, and the next day the back room is open.
-- **If Bennett loses the mayor's race** (S-039), Mitch's epilogue panel is him at Haybale Downs, with a program, betting a horse for the first time in twenty years.
+- **If Bennett loses the mayor's race** (S-039), Mitch's epilogue panel is him at Haybale Downs, with a program, betting a horse himself for the first time since the storefront.
 
 ## Why it works
 It ties the cynic at the gas station to the city's founding fact (the dry vote) and to the game's antagonist, which the docs already half-do, and it makes his help in act 4 personal. A storefront lost to a vote is a house lost to the Levee, seen from the Bridges.
@@ -38,4 +38,5 @@ One insert, one scene, one epilogue panel. He never tells the story straight; Do
 "About thirty years ago" fits the bible's timeline (the licensing votes came with the land casinos, when Pete, hired 41 years ago, became one of the Flare's first dealers) and makes Bennett and Mitch about twenty at the time (and Kasia fifteen, S-025); check it against whatever date Mike settles for the vote (OQ 43). The father-in-law and marriage are new flavour.
 
 ## Decision notes
-
+- 2026-10-29: "first time in twenty years" changed to "since the storefront" to match the thirty-year timeline.
+- Mike, 2026-10-29: accepted. (Flagged as adding ties to the vote and the filing lawyer; Mitch-Bennett was already canon.)
