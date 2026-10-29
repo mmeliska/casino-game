@@ -42,7 +42,7 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-051](S-051-mitch-the-bad-tip-was-the-backwater-vote.md) | Mitch's bad tip was the Backwater vote | accepted | character | Mitch | medium | low | S-025, S-039 | none |
 | [S-018](S-018-pete-secret-his-retirement-is-in-the-flare.md) | Pete's secret: his retirement went into the Flare after the funeral, and Gus has never mentioned it | rejected | character | Pete | medium | low | S-019 | none |
 | [S-020](S-020-pete-backstory.md) | Pete's expanded backstory | accepted | character | Pete | low | low | none | none |
-| [S-050](S-050-raffy-companion-and-the-fifty.md) | Raffy's envelope: the missing $500, the fifty, and the lie | accepted | character | Raffy | medium | medium | S-058 | none |
+| [S-050](S-050-raffy-envelope-the-fifty-and-the-lie.md) | Raffy's envelope: the missing $500, the fifty, and the lie | accepted | character | Raffy | medium | medium | S-058 | none |
 | [S-044](S-044-ray-arc-give-him-the-drive-back.md) | Ray's arc: the big man shrinks, and the player can give him his drive back | accepted | character | Ray | medium | low | S-042, S-058 | none |
 | [S-045](S-045-ray-backstory-and-dialogue.md) | Ray's expanded backstory and sample dialogue | accepted | character | Ray | low | low | S-038, S-044, S-058 | none |
 | [S-041](S-041-richard-want-need-backstory.md) | Richard: what he wants (to be asked, not helped), and his expanded backstory | accepted | character | Richard | medium | low | S-040 | none |

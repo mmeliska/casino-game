@@ -51,7 +51,7 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
 - Richard is "Supporting (story)" and Troy is "Minor" (`data/story.js`).
 - Portrait budget: "9 core and 10 supporting, about 19 portraits ($380 to $1,520 at $20 to $80 each), plus Richard and the six romance versions if they get portraits" (`plan/t06.md`). Troy is not mentioned in that count (OQ 41).
 
-**Naming rule** (`plan/t06.md`, Mike 2026-10-17): "characters go by first names only; add a last name only if a story needs one." The one exception is Mayor Dabareski.
+**Naming rule** (`plan/t06.md`, Mike 2026-10-17): "characters go by first names only; add a last name only if a story needs one." The one exception is Mayor Dabareski. (Second exception, 2026-10-29: the founder, "Mr. Hamilton" by his own insistence; see 4.1.8.)
 
 ## 1.1 Backwater and the Bridges
 
@@ -1619,7 +1619,7 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **The Flare has three named regulars with portraits:** Walt, Lorraine and Augie (`suggestions/S-055`, 2026-10-28). This adds three portraits to the `plan/t06.md` budget.
 - **Gus's turning point is the recipe box** (`suggestions/S-011`, 2026-10-28). Alice and Dot cooked with their mother as girls. The mother's recipe box went to Alice. After the funeral Dot asked Gus for it through Pete and he refused. The phone night (S-012) is the wound, and the refusal made the silence a break. In act 5, once he has quit, he drives it over to Dot himself (R1's payoff).
 - **A4.2 ends at Dot's lot** (`suggestions/S-016`, 2026-10-28). You get Gus out of the Cinder Room and drive him over the Long Bridge before dawn. Dot says "Two ten," her first words to him since the funeral. Dot hasn't crossed the river since the funeral; she first does on opening night. There is no behind-the-desk rule.
-- **Pete has a family** (`suggestions/S-020`, 2026-10-28): his wife Ona and two kids (a grown daughter, and the youngest, Tomas, at college), all offstage with no portraits. Tomas's tuition is why Pete "can't afford to retire yet." Pete's rating of the player is never shown on screen (`suggestions/S-019`).
+- **Pete has a family** (`suggestions/S-020`, 2026-10-28): his wife Ona (a school-bus driver, 2026-10-29) and two kids (a grown daughter, and the youngest, Tomas, at college), all offstage with no portraits. Tomas's tuition is why Pete "can't afford to retire yet." Pete's rating of the player is never shown on screen (`suggestions/S-019`).
 - **"Dry" stays out of player-facing text** (Mike, 2026-10-28). In the docs, Backwater's "dry" means no legal gambling; alcohol is legal there. In-game lines say "voted no on the casinos" or similar, so players don't read it as a ban on drinking.
 - **Kasia's dad was a businessman, not a mill man, and Kasia wears no union pin** (`suggestions/S-025`, 2026-10-28). This overrides `people/kasia.md`. He opened the Tap at the mill gate and rented the back room to the local, and he backed the "no" vote because a casino would have emptied his bar.
 - **Kasia's credit** (`suggestions/S-026`, 2026-10-28): "put it on the book" at the Tap for pull tabs or, once invited, the back room, up to a limit that starts around $50. No interest and no due date. Repaying within about a week counts toward reliable. The limit rises and falls with the reliable/flaky scale.
@@ -1631,6 +1631,7 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **Mitch's ruin** (`suggestions/S-051`, 2026-10-29): about thirty years ago Bennett told people Backwater would vote yes on gaming; Mitch bought a Backwater storefront with his and his father-in-law's savings, and Backwater voted no. The filing lawyer handled those sales, and Mitch's money went through the trust account he names at A4.11.
 - **Juan** (`suggestions/S-052`, 2026-10-29): "Gus runs a casino that wishes it was a supper club. I run a bowling alley that's a dice game. Same thing." He knows of Gus, not Gus himself. If R3 fails, lane six goes dark.
 - **Raffy's envelope** (`suggestions/S-050`, 2026-10-29): it held $2,500 when he lifted it; he took $450 for his mom's rent and tipped the player $50 from it, leaving the player $2,000. Helping him pay Ray means covering the missing $500, which he repays, the last of it at the Lanes: "The one I gave you that first night was Ray's. This one's mine." A darker A1.5 option: keep the $2,000 and tell Raffy it's settled. He stops hiding, Ray finds him within days, he names the player, and Ray adds the $2,000 plus interest to the player's debt and never trusts them again.
+- **Mr. Hamilton** (Mike, 2026-10-29): the founder insisted on "Mr. Hamilton" from everyone, staff and regulars, all his life. He is the second deliberate exception to the first-names rule, after Mayor Dabareski. In player-facing lines he is "Mr. Hamilton" or, from Gus, "my dad"; he has no first name. Gus is never "Mr. Hamilton": if anyone tries, he says "That was my dad."
 - **Motel scenes reviewed** (Mike, 2026-10-29): a motel is an odd place for most encounters, but these stay at the Slack Water: Richard's War games, Gus's A4.1 confession at the picnic table, the A4.2 Dot–Gus reunion in the lot, and the O6 visits. Don't add new motel scenes without a reason tied to Dot or Richard.
 - **No deck from Richard** (Mike, 2026-10-29): Richard doesn't give the player his deck of cards, and he has no item in the story-key row (`suggestions/S-009`).
 - **Ray's history** (`suggestions/S-045`, 2026-10-29): a Levee kid who ran errands for the Cinder Room under the old Umbra boss and stayed twenty years; has worked for Wren two years. He kept the old ledger drive on purpose, as insurance, and still has its key written down. The hour in his car after Gus signs is backstory, not a plate.
@@ -2197,7 +2198,7 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `pages/gdd.md`: Backwater is a dead zone; Kasia's back room, Millstone's dice and room 9 are in Backwater.
 - How her file captures Backwater illegal play is not stated.
 
-**OQ 51. Gus's and Stella's surname.**
+**OQ 51. Gus's and Stella's surname.** (Partly settled 2026-10-29, see 4.1.8: the founder is always "Mr. Hamilton"; Gus is never called by it.)
 - `pages/walkons.md`: Mr. Hamilton is the founder. `people/gus.md`: "surname Hamilton if a story needs it." The audit text mentions "the Hamilton family company"; that phrasing was an audit suggestion and is not in the docs. Gus's and Stella's surname is "Not stated."
 
 **OQ 52. Gus's trust mechanics.**
