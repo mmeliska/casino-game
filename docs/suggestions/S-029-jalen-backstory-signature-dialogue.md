@@ -39,8 +39,8 @@ It gives him a want of his own that isn't escape and isn't anyone else's story, 
 A textbook under the tray on a break; the notebook, closed when you walk up, as an early seed; the host stand on opening night.
 
 ## Risks and tradeoffs
-Changes two settled facts: Jalen grew up in the Levee, not Backwater, and his act 5 role is front of house and the hotel, not the poker room. The design docs (`people/jalen.md`, `pages/storymap-beats.md` A5.2) need that change later. Pete's son Tomas (S-020) is also paying tuition; they are unrelated, but the two shouldn't share a scene.
+Changes two settled facts: Jalen grew up in the Levee, not Backwater, and his act 5 role is front of house and the hotel, not the poker room. The design docs (`people/jalen.md`, `pages/storymap-beats.md` A5.2) need that change later.
 
 ## Decision notes
 - Mike, 2026-10-28: accepted after changes. He studies hospitality, not business ("not running a poker room"). He grew up in the Levee. No staking; his backer money is an inheritance (S-028).
-
+- 2026-10-29: dropped the note about Pete's son Tomas also paying tuition. Tomas now has a chronic illness and is not at college (S-020).
