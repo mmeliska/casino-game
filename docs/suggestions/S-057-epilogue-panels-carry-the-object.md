@@ -33,7 +33,7 @@ A table the epilogue builder reads:
 | Jalen | The notebook | Open on a dealer's shelf / closed, in an Aurelian vest pocket / an envelope with your name (S-028) |
 | Chase/Brooke | The watch | On their wrist / on Troy's shelf / in your Pockets, returned (S-031) |
 | Tae | His father's kit | On a riser under the band photo / under a tarp on a loading dock (S-036) |
-| Wren | The tablet | Lit / dark (A4.3) / absent (the Backwater scene, S-042) |
+| Wren | The tablet | Lit / dark (A4.5, S-042) / absent |
 | Ray | The car | Parked at the bar / gone |
 | Raffy | Fifty dollars | In his hand / in yours (S-050) |
 
@@ -50,4 +50,4 @@ About three insert states per character is a small art list (most already exist 
 
 ## Decision notes
 - Mike, 2026-10-28: rejected.
-
+- 2026-10-29: Wren's row corrected. Her one scene is A4.5 in the Cinder Room office; there is no Backwater scene.

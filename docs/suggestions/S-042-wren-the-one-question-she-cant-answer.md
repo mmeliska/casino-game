@@ -20,7 +20,7 @@ Wren: early 30s, tech genius, the old boss's granddaughter passed over for the u
 ## Proposed change
 **Want:** to be the one who knows. She built a company so that nobody could ever surprise her again the way her family did when they handed the room to the uncles. **Need:** to be asked something by someone who isn't afraid of her, and to not know the answer.
 
-**Before the meeting, she is only felt.** Ray says "she." Her proxies run the room. Her cameras are everywhere, and the player learns that the readers on the Long Bridge are hers before they ever see her face. Her portrait appears in no scene before A4.5.
+**Before the meeting, she is only felt.** Ray says "she." Her proxies run the room. Her cameras are everywhere, and the player learns that the readers on the streets and the Levee bridges are hers (the Long Bridge's are smashed, which is why it's a dead zone) before they ever see her face. Her portrait appears in no scene before A4.5.
 
 **The meeting (A4.5).** A text from a number that isn't saved: the Cinder Room, the office, tonight. When the player arrives, the room's regulars have been sent home and Ray is standing outside the office door, not inside it. Panels:
 
@@ -48,3 +48,4 @@ Players who never hold the drive or the markers never meet her, which is right. 
 
 ## Decision notes
 - Mike, 2026-10-28: the first draft (the Cinder Room kept out of sentiment, her grandfather's bandits, a scene in Backwater with no signal) was rejected: "It's crazy to think Wren doesn't have cameras in her own building. Wren needs to be a very mysterious figure. There should be a point where the player does come in contact with her because she needs something and offers the player something in trade." The Cinder Room is kept for intel and for running Umbra's dealings through proxies; she rarely goes there. Rewritten as the one A4.5 meeting in the Cinder Room office, with Mike's addition: she can turn off the cameras in the meeting room. Accepted in this form.
+- 2026-10-29: checker fix. The Long Bridge is a dead zone (its readers are smashed), so the line now names the streets and the other Levee bridges.

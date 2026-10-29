@@ -7,7 +7,7 @@ character: Ray
 type: expansion
 impact: low
 effort: low
-depends_on: S-038, S-044
+depends_on: S-038, S-044, S-058
 conflicts_with: none
 ---
 
@@ -15,14 +15,14 @@ conflicts_with: none
 A 300-word history for Ray and four lines, including the one he says when he shrinks.
 
 ## Current state
-Mid-40s, leather car coat, gold chain, pinky ring, a car he can't afford; loan shark; answers to Wren; the go-between; the secret drive; makes Kiran skim; voice: too loud, too friendly, lies by flattery (people/ray.md).
+Mid-40s, leather car coat, gold chain, pinky ring, a car he can't afford; loan shark; answers to Wren; the go-between; the secret drive (now the superseded key ledger, S-058); makes Kiran skim; voice: too loud, too friendly, lies by flattery (people/ray.md).
 
 ## Proposed change
-Ray was a Levee kid who ran errands for the card room under the Stacks when it was the old man's, and he was good at exactly one thing: making people feel they were about to be lucky. The old man liked that and kept him around for twenty years as the friendly face of a business with no friends, and Ray mistook being useful for being family. He lent money because lending was being liked for a week. He bought the coat because the old man wore one. He bought the car because the old man's sons did, and when the old man gave the room to the granddaughter with the tablet, Ray was the only person in the building who didn't see it coming, because he'd been watching faces and she'd been watching everything else.
+Ray was a Levee kid who ran errands for the card room under the Stacks when it was the old man's, and he was good at exactly one thing: making people feel they were about to be lucky. The old man liked that and kept him around for twenty years as the friendly face of a business with no friends, and Ray mistook being useful for being family. He lent money because lending was being liked for a week. He bought the coat because the old man wore one. He bought the car because the uncles did, and when the old man gave the room to the granddaughter with the tablet, Ray was the only person in the building who didn't see it coming, because he'd been watching faces and she'd been watching everything else.
 
-He has worked for Wren for two years and has never once been in a room where she didn't already know what he was about to say. It has made him louder. He lends more than he should because a man with a big book is a man who matters; he squeezes dealers like Kiran because the book has to balance before she sees it, and he tells himself she doesn't see it, because the alternative is that she's letting him. He copied her logs off the Prairie Queen feed one night, drunk and frightened, and hid the drive in his car, and a kid stole it with the rent money. He has not slept properly since.
+He has worked for Wren for two years and has never once been in a room where she didn't already know what he was about to say. It has made him louder. He lends more than he should because a man with a big book is a man who matters; he squeezes dealers like Kiran because the book has to balance before she sees it, and he tells himself she doesn't see it, because the alternative is that she's letting him. She gave him the one job that puts a name beside a number: when a man pays to be unseen, Ray enrolls him in the office at the back of the room (S-058). When she moved the ledger to a newer device he was told to destroy the old drive, and one night, drunk and frightened, he didn't. He still has the old key written down, because he has never in his life remembered a number he didn't owe. His own name is on it. He kept it in an envelope in his car with the night's collection, and a kid stole the envelope. He has not slept properly since.
 
-He is not cruel. He's a salesman who sells the one thing he never had, and he has been selling it to Gus for years in the form of a loan, and the day Gus signed the Flare over to "a friend of mine," Ray drove home and sat in the car for an hour, because he'd just done to the kindest man in the Levee what the family had done to him.
+He is not cruel. He's a salesman who sells the one thing he never had, and he has been selling it to Gus for years in the form of a loan, and the day Gus signed the Flare over to "a friend of mine," Ray sat in his car in the Flare's lot for an hour, because he'd just done to the kindest man in the Levee what the family had done to him.
 
 **Sample dialogue.**
 - "Buddy! My favourite person. You know what I like about you?"
@@ -34,10 +34,11 @@ He is not cruel. He's a salesman who sells the one thing he never had, and he ha
 The history makes the flattery a wound, the car a costume and the drive the one honest act of a dishonest life, which is what S-044 pays off. It keeps him an antagonist (he ruined Gus) while making the ruin something he knows.
 
 ## How the player experiences it
-Lines, and the hour in the car, which can be a single plate at A2.2 if the player is in the Flare's lot: Ray's car, lights off, a man in it. It rhymes with Bennett's (S-038), which is the point.
+Lines only. The hour in the car is backstory, not a plate (Mike, 2026-10-29). Ray's parked-car image on screen is seed S11's: his car on the Long Bridge before dawn, lights off. That is the half of the rhyme with Bennett's car outside room 9 (S-038).
 
 ## Risks and tradeoffs
-Two men sitting in parked cars across two suggestions is a rhyme; if it reads as repetition, keep Bennett's and cut this one.
+Ray already has a parked-car scene in S11, so a Flare-lot plate would have made three parked cars, two of them his. The plate is cut; S11 carries the rhyme.
 
 ## Decision notes
 - Mike, 2026-10-27: keep both parked-car scenes (this and Bennett's in S-038). The rhyme stays.
+- Mike, 2026-10-29: cut the A2.2 Flare-lot plate. S11's Long Bridge car is Ray's half of the rhyme with Bennett; the hour in the Flare's lot stays as backstory.

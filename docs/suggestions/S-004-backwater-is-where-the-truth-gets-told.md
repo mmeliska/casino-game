@@ -7,7 +7,7 @@ character: none
 type: change
 impact: high
 effort: low
-depends_on: none
+depends_on: S-042
 conflicts_with: none
 ---
 
@@ -39,3 +39,4 @@ Costs almost nothing in art (existing portraits over existing plates). The risk 
 - 2026-10-28: S-015 rejected, so its A4.2 clause is dropped and S-015 is removed from depends_on.
 - 2026-10-28: S-042 removed from depends_on to break a cycle (S-042 depends on S-004). The Wren bullet still refers to it; drop that bullet if S-042 is rejected.
 - 2026-10-28: Wren bullet rewritten after Mike ruled out a Backwater scene for her ("crazy to think Wren doesn't have cameras in her own building"). She meets the player at A4.5 in the Cinder Room office with the cameras switched off (S-042).
+- 2026-10-29: S-042 restored to depends_on. The cycle is gone: S-042 now depends only on S-058, which depends on nothing.

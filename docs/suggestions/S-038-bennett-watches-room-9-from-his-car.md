@@ -39,3 +39,4 @@ Umbra also watches the door in person; make sure the player can tell a campaign 
 ## Decision notes
 - Mike, 2026-10-28: accepted. Bennett "never visits" now means "never visits the room."
 - Mike, 2026-10-27: keep both parked-car scenes (this and Ray's hour in S-045). The rhyme stays.
+- 2026-10-29: Ray's half of the rhyme is now seed S11 (his car on the Long Bridge), not a Flare-lot plate (S-045).

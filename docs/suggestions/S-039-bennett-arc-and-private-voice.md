@@ -28,7 +28,7 @@ Bennett: the Levee's alderman and ward boss; loves the Levee; publicly against g
 - **Room 9, reconcile:** they play a hand of War, his father hands him the box, and the amendment is gratitude. At the hearing he speaks for the new Starflare, briefly, and says the word "casino" without flinching. His mayor's race headline is a win.
 - **Room 9, shame:** he amends under threat; at the hearing he's silent and hostile; the headline is a loss by a few points, and the epilogue's newspaper has him back as alderman, bitter, still paying the room.
 - **By the book (A4.11):** the commission voids the name clause; he is embarrassed in public for the first time in his career and, oddly, relieved. Headline: a narrow loss and a line about "a conflict of interest." He sends Richard's envelope with a note for the first time.
-- **Expose Umbra (A4.3):** his cut comes out with Wren's books. He is the only person in the game who can go to prison, and whether he does is the epilogue's front page. If the player handed Ed the clean logs only, he survives, weakened.
+- **Expose Umbra (A4.3):** his cut comes out with Wren's books. He is the only person in the game who can go to prison, and whether he does is the epilogue's front page. If Ed's subpoena exposes Umbra but Wren's books never surface, he survives, weakened.
 - **Badly for the player:** if you signed his petition (S7) and fought dirty at A3.2, he reads your name at the council hearing with Gus in the room (as S7 already does), and at the license hearing (A5.7) his hostility sets the strictest conditions the game offers. He never raises his voice.
 
 **Private voice, sample lines** (the second and fourth break his "never mentions his father" rule, once each, in private; the public rule holds everywhere else):
@@ -48,4 +48,4 @@ Through the hearing's tone, the newspaper panel, and the four private lines.
 
 ## Decision notes
 - Mike, 2026-10-28: accepted.
-
+- 2026-10-29: "clean logs only" replaced. The drive is now an encrypted ledger and Ed exposes Umbra by subpoena (S-058).

@@ -216,8 +216,8 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
 - **Secrets:** The envelope holds about $2,000 and a thumb drive.
   - Ray's insurance copy of Wren's face-match logs, taken off the Prairie Queen camera feed. (Superseded 2026-10-28: an encrypted Revaris key ledger; see 4.1.8 and `suggestions/S-058`.)
   - Wren's list of who pays her to stay quiet.
-  - Two files (audit 4.6): the logs, which prove the Revaris feeds go to Umbra and are all the clean route at A4.3 uses; and the payers list.
-  - First time you open the drive you choose its fate. Destroy it (straight, soft). Keep it (crooked; a black-hat tool; Wren may come looking). Or later hand Ed the whole drive, names and all (ruthless).
+  - Two files (audit 4.6): the logs, which prove the Revaris feeds go to Umbra and are all the clean route at A4.3 uses; and the payers list. (Superseded 2026-10-28, see 4.1.8 and `suggestions/S-058`.)
+  - First time you open the drive you choose its fate. Destroy it (straight, soft). Keep it (crooked; a black-hat tool; Wren may come looking). Or later hand Ed the whole drive, names and all (ruthless). (Superseded 2026-10-28, see 4.1.8 and `suggestions/S-058`.)
 - **Arc/outcomes:**
   - A1.5: Ray asks around and the envelope comes due. Return it to Ray; keep the cash; hand the drive to Ed; or find Raffy hiding at Millstone Lanes with Juan and help him pay Ray back.
   - Later: A4.3 (the drive as proof), A4.5 (Wren wants the drive), O8, O10.
@@ -439,10 +439,10 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
 - **Role:** Loan shark; "your easiest big debt." Go-between in Gus's sale. Recruits new money for the Cinder Room.
 - **Look:** Mid-40s, trying too hard: leather car coat over open-collared shirt, gold chain, a pinky ring he thinks is classy, a fat roll of cash, a car he can't quite afford.
 - **Personality:** "A little too confident"; acts like the big man but answers to Wren, "a sore spot." Voice: too loud, too friendly; "friend", "buddy", big numbers; never says who he works for; lies by flattery. Sample: "Buddy! My favourite person. You know what I like about you?"
-- **Want/goal:** Not stated. Context: "Resenting that Wren knows everything, he secretly copied her logs ... as insurance."
+- **Want/goal:** Not stated. Context: "Resenting that Wren knows everything, he secretly copied her logs ... as insurance." (Superseded 2026-10-28, see 4.1.8 and `suggestions/S-058`.)
 - **Wound/backstory:** Not stated beyond role.
 - **Secrets:**
-  - He copied Wren's logs off the Prairie Queen feed onto a thumb drive; Raffy stole it from his car by mistake (A1.2). He hunts quietly because Umbra must never learn he made it.
+  - He copied Wren's logs off the Prairie Queen feed onto a thumb drive; Raffy stole it from his car by mistake (A1.2). He hunts quietly because Umbra must never learn he made it. (Superseded 2026-10-28, see 4.1.8 and `suggestions/S-058`.)
   - He makes indebted dealers (Kiran) skim the Prairie Queen to cover bad loans and thinks Wren does not know. She does.
   - He secretly took a finder's fee from the filing lawyer (S11).
 - **Arc/outcomes:**
@@ -482,7 +482,7 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
   - She left, made her first money exploiting people through technology (crypto scams in her early 20s), then invented AI face-matching cameras and built Revaris Technologies.
   - About four years before the game she came back and worked with her grandfather to land the Flare's camera deal.
   - About two years before the game he "handed her the reins over their heads."
-  - She kept what her cameras caught on the old bosses and half the Machine. The old guard resent her. She keeps the Cinder Room open "out of sentiment or for laundering."
+  - She kept what her cameras caught on the old bosses and half the Machine. The old guard resent her. She keeps the Cinder Room open "out of sentiment or for laundering." (Superseded 2026-10-28, see 4.1.8 and `suggestions/S-058`.)
 - **Secrets:**
   - Revaris is Umbra's front.
   - She pays Bennett's hidden stadium cut herself through Revaris. Her own books are the proof, and she owns him.
@@ -495,7 +495,7 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
   - S10: her file on you.
   - S13: the Revaris camera pitch to Tae.
 - **Relationships:**
-  - Related line: Ray, Bennett, Gus, Raffy (his drive holds her logs), Ed (wants her for surveillance and blackmail), Kiran.
+  - Related line: Ray, Bennett, Gus, Raffy (his drive holds her logs), Ed (wants her for surveillance and blackmail), Kiran. (Superseded 2026-10-28, see 4.1.8 and `suggestions/S-058`.)
   - Ties:
     - Bennett (secret: "owns him")
     - Gus (secret: "footage forced the camera deal")
@@ -1026,7 +1026,7 @@ Table source: `pages/storymap-beats.md` (one row per code, audit 1.3). Extra one
 - **A4.3 Expose Umbra** (Cinder Room, the Aurelian; you kept Raffy's drive, or Felix/Nora show you the Aurelian's footage).
   - Trade your silence to Wren for the name, or hand the proof to Ed.
   - Leads to: name won back (Wren remembers); Ed gets his case if you hand it over.
-  - Dirty: blackmail with the payers list, or hand Ed the whole drive.
+  - Dirty: blackmail with the payers list, or hand Ed the whole drive. (Superseded 2026-10-28, see 4.1.8 and `suggestions/S-058`.)
 - **A4.4 Leverage** (old Levee bank, room 9; Richard trusts you).
   - Umbra men bring Richard's old markers and demand pay or the key.
   - Richard opens Gus's box and decides: shame, reconcile, burn, or hand it to Ed.
@@ -1151,7 +1151,7 @@ Only O1 and O2 end the main story; the rest are resting points you can climb bac
 - **Clues:**
   - Stella and Tae at the Aurelian (rich).
   - The buyer is public and Gus still says "a friend of Ray's" (free).
-  - Proof Revaris is Umbra's front: Raffy's thumb drive shows the Revaris camera feeds going to Umbra, or working off your debt to Ray puts you in the room when he calls the company "us" (broke).
+  - Proof Revaris is Umbra's front: Raffy's thumb drive shows the Revaris camera feeds going to Umbra, or working off your debt to Ray puts you in the room when he calls the company "us" (broke). (Drive half superseded 2026-10-29, see 4.1.8: the opened ledger is the proof; a locked drive is only a hint.)
   - Mitch recognizes the filing lawyer from Bennett's old deals (broke).
   - Felix/Nora show you the lawyer meeting Bennett (romance).
 - **Solve:** Opens act 4. "Clearing Stella brings her and Gus closer."
@@ -1320,7 +1320,7 @@ Uncertain timing is marked **[uncertain]**. The notes give almost no calendar da
 13. **[after 12; before about two years ago]** Bennett, who holds the Flare's license, traces the camera company through business and license records and links it to Umbra through Ed. Ed gave him the link in good faith. Bennett forces Gus to wipe out Richard's remaining debt in exchange for silence. Gus secretly records it on a desk recorder. Gus rents a safety-deposit box in Richard's name and gives Richard the key ("If anyone ever comes after you over the debt, open it"). (`pages/room9.md`)
 14. **[about two years before the game]** Wren's grandfather hands her the reins of Umbra over the uncles. The Flare's, then RailYard's and Prairie Queen's camera data was "worth more than anything the uncles ran." (`people/wren.md`)
 15. **[the last couple of years]** Richard lives in room 9 at the Slack Water. Gus arranged it through Pete (Dot only knows Pete asked a favor) and paid the first weeks; Bennett took over the bill by envelope out of pride. (`people/dot.md`, `pages/room9.md`) Timing relative to items 12-14: [uncertain] (OQ 43).
-16. **[undated, before A1.2]** Kiran borrows from Ray for his daughter's surgery; the Prairie Queen skim begins. Ray copies Wren's logs off the Prairie Queen feed onto a thumb drive. Gus gambles at the Cinder Room, borrows from Ray and quietly remortgages his house. (`people/kiran.md`, `people/raffy.md`, `people/stella.md`) Dates not stated.
+16. **[undated, before A1.2]** Kiran borrows from Ray for his daughter's surgery; the Prairie Queen skim begins. Ray copies Wren's logs off the Prairie Queen feed onto a thumb drive (superseded 2026-10-28, see 4.1.8: he keeps the old ledger drive when Wren upgrades the device). Gus gambles at the Cinder Room, borrows from Ray and quietly remortgages his house. (`people/kiran.md`, `people/raffy.md`, `people/stella.md`) Dates not stated.
 17. **[the night of A1.2]** Raffy lifts the envelope from Ray's car. (`people/raffy.md`)
 
 ## 3.2 The game (player-paced; durations are budgets, not calendar dates)
@@ -1610,7 +1610,7 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **OQ 25, the ruthless O2:** at A4.3 Wren will sell the name to you rather than return it to Gus, at a price plus a favor. Dirty and fast, and she owns a piece of you.
 - **OQ 26, O8 versus O10:** decided by what you hand Wren. Raffy's drive (the evidence): she keeps you on as hers and the mob runs the new floor with you in it (O8). Gus's markers plus the payout: you sold him and walked away with money (O10).
 - **OQ 42 and 43, the backstory order:** see the settled paragraph at the top of 3.1.
-- **Two men in parked cars** (Bennett outside room 9, Ray outside the Flare after Gus signs) is a deliberate rhyme; both stay (`suggestions/S-038`, `S-045`).
+- **Two men in parked cars** (Bennett outside room 9, Ray outside the Flare after Gus signs) is a deliberate rhyme; both stay (`suggestions/S-038`, `S-045`). (Revised 2026-10-29: Ray's half is S11, his car on the Long Bridge before dawn. The Flare-lot hour is backstory only, not a plate.)
 - **The Flare's last night (A3.3)** has three scene slots out of six scenes (`suggestions/S-003`). Every Flare game is open that night, the Rocket Wheel included, and a black panel tells the player it is their last chance to play at the Flare. Playing doesn't use a slot.
 - **Truth is told where nothing records** (`suggestions/S-004`): confessions happen in Backwater or on the Long Bridge. Gus's A4.1 confession is at the Slack Water Motel picnic table.
 - **Room 9's reconcile ending stays as the docs have it.** No peek and no thrown hand (`suggestions/S-006` rejected).
@@ -1624,6 +1624,7 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **Kasia's dad was a businessman, not a mill man, and Kasia wears no union pin** (`suggestions/S-025`, 2026-10-28). This overrides `people/kasia.md`. He opened the Tap at the mill gate and rented the back room to the local, and he backed the "no" vote because a casino would have emptied his bar.
 - **Kasia's credit** (`suggestions/S-026`, 2026-10-28): "put it on the book" at the Tap for pull tabs or, once invited, the back room, up to a limit that starts around $50. No interest and no due date. Repaying within about a week counts toward reliable. The limit rises and falls with the reliable/flaky scale.
 - **Jalen grew up in the Levee, not Backwater**, and has no family tie to anyone in the cast (`suggestions/S-027` rejected, 2026-10-28). He takes hospitality classes by day and buses tables at the Flare at night to pay tuition. On opening night he runs the front of house, and later the hotel; this settles OQ 1 (`suggestions/S-029`). He is not staked and doesn't play for money. The player can lend him tuition ("what Jalen owes you"), which he repays in tip envelopes. In act 4 an inheritance from a great-aunt lets him decide, on his own, to become a backer (`suggestions/S-028`). "Saving up to get out of Backwater" no longer applies.
+- **Say "interest," never "vig"** (Mike, 2026-10-29). Ray's loans charge interest; the word "vig" is not used anywhere, player-facing or in the docs.
 - **Honorifics follow the register** (2026-10-28). An NPC who says "sir" says "ma'am" if the player ticked Ms. and uses no honorific if they chose Prefer not to answer.
 - **Not every character needs a tie to another** (Mike, 2026-10-28). The city should feel big. Avoid coincidental backstory links between cast members.
 - **The rival for Prefer not to answer** is Chase or Brooke, picked at random (Mike, 2026-10-28).
@@ -1631,7 +1632,7 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **Vivian** (`suggestions/S-033`, 2026-10-28): her family's insurance company was founded by her grandfather, not her great-grandfather. She is spending the family money down on purpose and holding the lakefront land for whoever asks what it should become. No handshake with the founder. The idea in `plan/t07.md` is dropped.
 - **Bennett and Richard** (`suggestions/S-038` to `S-041`, 2026-10-28): Bennett never visits room 9 but sometimes sits in his car in the lot, most Tuesdays. Richard was a crane operator on the Levee docks. His trust rises when the player asks him for something, never when they give him something.
 - **The Cinder Room** (Mike, 2026-10-28): Wren keeps it because powerful, shady men have always gathered there. It is her intel source on those men and the place Umbra's dealings run through proxies. She rarely goes there herself. Not sentiment. Wren is a mysterious figure the player meets once, when she needs something and offers something in trade.
-- **Raffy's drive** (`suggestions/S-058`, 2026-10-28): Revaris's encrypted key ledger, the only place a face ID is tied to a name. Site boxes hold IDs only; their exclusion list is Umbra's roster plus men who pay to be unseen. Ray runs enrollment at the Cinder Room for Wren and kept a superseded ledger as insurance. The one-time key is paper, shredded into Ray's uncollected burn bag; the player can rebuild it with the jigsaw mini-game. Ed exposes Umbra by subpoena, slow and loud. This replaces "Ray copied the face-match logs" and the two-file drive in `people/ray.md`, `people/raffy.md` and A4.3.
+- **Raffy's drive** (`suggestions/S-058`, 2026-10-28): Revaris's encrypted key ledger, the only place a face ID is tied to a name. Site boxes hold IDs only; their exclusion list is Umbra's roster plus men who pay to be unseen. Ray runs enrollment at the Cinder Room for Wren and kept a superseded ledger as insurance. Wren moved the ledger to a newer device and told Ray to destroy the old drive; he kept it. The key is the password Ray typed at every enrollment, written down in a couple of places: he still has a copy and can open the old drive himself, and at least one copy is shredded into his uncollected burn bag, where the player can rebuild it with the jigsaw mini-game. Ed exposes Umbra by subpoena, slow and loud. The drive phones home: plugged into anything online, it tells Wren a decommissioned serial is alive, but not who has it; that is how she learns it exists (2026-10-29). At A1.5 the volume says Revaris, and no A1.5 text calls Ray Umbra's man (naming rule). M2's drive clue is the opened ledger (Ray's name and Cinder Room men beside Revaris IDs); a locked drive is only a hint (2026-10-29). This replaces "Ray copied the face-match logs" and the two-file drive in `people/ray.md`, `people/raffy.md` and A4.3.
 
 ## 4.2 Places and venues
 
@@ -1770,7 +1771,7 @@ Note: `pages/gdd.md` and `pages/northlight.md` both say "Ten places to gamble" b
   - Rented in Richard's name; opens only with his signature; the key on a lanyard.
   - Holds the original signed camera contract and the recording.
 - **Raffy's envelope.**
-  - About $2,000 and a thumb drive with two files (face-match logs; Wren's payers list).
+  - About $2,000 and a thumb drive with two files (face-match logs; Wren's payers list). (Superseded 2026-10-28, see 4.1.8 and `suggestions/S-058`.)
 - **Gus's IOU** (S6) and "Gus's markers."
 - **Photos.**
   - The band photo by the lounge.
@@ -1875,7 +1876,7 @@ Note: `pages/gdd.md` and `pages/northlight.md` both say "Ten places to gamble" b
 - Pete started at the supper club (audit 1.7).
 - The sale is public; the secret is the Revaris-Umbra link (audit 2.2).
 - By-the-book proof: the filing lawyer's trust account (audit 4.3).
-- The drive's two files and the clean/dirty handling (audit 4.6).
+- The drive's two files and the clean/dirty handling (audit 4.6). (Superseded 2026-10-28, see 4.1.8 and `suggestions/S-058`.)
 - Vivian is glimpsed in act 2 and met in act 3 at the Gilded Pine (audit 4.5).
 - The yacht invite comes with Vivian's Obsidian sponsorship; Ray invites you to Blackspruce (audit 4.4).
 - The District never sells to Gus's side; Tae is a neutral buyer (audit 4.7).
