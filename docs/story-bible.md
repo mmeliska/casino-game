@@ -1635,6 +1635,7 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **Kiran's debt** (Mike, 2026-10-29): replaces the daughter's surgery, so his debt doesn't echo Pete's (Tomas's medical bills). Kiran co-signed a loan for his wife's brother. The brother stopped paying and left town; nobody knows where, and Kiran has stopped looking. The whole debt fell on Kiran, and with the default on his record no bank would help, so he borrowed from Ray to pay it off, and the interest buried him. None of it was his fault; he lives with all of the consequences. His wife feels responsible, and he never blames her. The brother-in-law and the wife stay offstage (no portraits, no ties to the cast). The daughter, her photo by his tray, the ring and the S-049 lines are unchanged. `people/kiran.md`, `pages/notebook.md` and `all-docs.txt` still say surgery until the design docs are updated.
 - **Open questions settled** (Mike, 2026-10-29): Kiran only owes Ray and is not part of Umbra (OQ 14). Ray knows Revaris is Umbra's company, and "I just know a guy" at A2.2 is a lie; he never knows the land plan (the Stadium District, Bennett's hidden cut) until M2 (OQ 47). Wren's grandfather died within a year of handing her the outfit; no one in her family is named, and the uncles are cut from A4.5 (`pages/walkons.md` and `data/story.js` `EVX` still list "Umbra's old guard"), so Wren is alone in her scenes (OQ 45). Dot is in her early 60s (OQ 40).
 - **The fire (O9)** (Mike, 2026-10-29): a setback the player plays through, not a resting point; no O9 epilogue, and the code stays so nothing is renumbered. Triggered as the docs say (fighting the demolition dirty with high heat, or crossing Umbra), but only after A3.3: Umbra torches the empty Flare before demolition. The name stays with the Stadium District; the Field is built on the burned site on its normal schedule; the old rocket sign burns and is gone (O5 keeps only the band photo); Jalen and Vivian won't back the player until a season passes with no Umbra trouble. This replaces "Act 3 or 4" and "Carry on as normal" in `pages/storymap-branches.md` and the O9 row in `plan/t07.md`.
+- **The Field timer and the old sign** (Mike, 2026-10-29): the timer starts at the A3.5 ground-breaking, when posters and the bar TV announce the date, and the Field opens on the first Opening Day at least three seasons later. O7 should be rare: it catches players who drift away for many hours, not a normal act 4. The old rocket sign stays on the empty Flare until demolition, sits in the District's storage, and is restored by the District and hung over the Field gate as a heritage piece (unless it burns in O9 or Tae takes it in O5).
 - **Motel scenes reviewed** (Mike, 2026-10-29): a motel is an odd place for most encounters, but these stay at the Slack Water: Richard's War games, Gus's A4.1 confession at the picnic table, the A4.2 Dot–Gus reunion in the lot, and the O6 visits. Don't add new motel scenes without a reason tied to Dot or Richard.
 - **No deck from Richard** (Mike, 2026-10-29): Richard doesn't give the player his deck of cards, and he has no item in the story-key row (`suggestions/S-009`).
 - **Ray's history** (`suggestions/S-045`, 2026-10-29): a Levee kid who ran errands for the Cinder Room under the old Umbra boss and stayed twenty years; has worked for Wren two years. He kept the old ledger drive on purpose, as insurance, and still has its key written down. The hour in his car after Gus signs is backstory, not a plate.
@@ -1981,6 +1982,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `plan/t07.md`: "The restored rocket sign hangs over the gate of Starflare Field."
 - Is the sign "restored" or "old"? Who restores it? When does demolition happen in relation to the last night and the Field timer? Not stated.
 
+- **Resolved (Mike, 2026-10-29):** the old sign stays on the empty Flare until demolition, then sits in the District's storage until the District restores it and hangs it over the Starflare Field gate as a heritage piece. It's lost if the Flare burns (O9), and in O5 Tae takes it from storage or the gate. The new Starflare always gets a brand-new sign. Pages say "restored" from the gate on. See 4.1.8.
+
 **OQ 11. `pages/storymap-open.md` has an unticked box for a fixed item.**
 - "[ ] Rosa's license snag is fixed (2026-10-22)."
 
@@ -2092,9 +2095,13 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `pages/storymap-open.md`: "once ground breaks, posters and the bar TV announce the date."
 - "The fall" is not defined as a moment: A3.3 condemnation, the last night, or A3.5 ground-breaking. The table "3 seasons if the fall comes in summer, 4 in spring" depends on it.
 
+- **Resolved (Mike, 2026-10-29):** the timer starts at the A3.5 ground-breaking, when posters and the bar TV announce the date. The Field opens on the first Opening Day at least three seasons after the ground-breaking (the 3/4/5/6 table counts from the season ground breaks). See 4.1.8.
+
 **OQ 29. Timer length against act budgets (derived).**
 - A season is about 7 hours; three seasons is about 21 hours of play. Act 4 is budgeted ~10h and act 5 ~8h.
 - Whether the Field timer is expected to expire during a normal-paced act 4 (so O7 is a common outcome) or rarely is not stated. No source gives how the in-game days of the timer map to play time beyond the season arithmetic.
+
+- **Resolved (Mike, 2026-10-29):** O7 is meant to be rare, a cost for players who drift away from the main story for many hours. The length stays as written; the posters and bar TV keep reminding the player. See 4.1.8.
 
 **OQ 30. Revaris vs Umbra as "biggest investor."**
 - `people/wren.md`: "Revaris Technologies ... puts its land into the Levee Stadium District, making it the District's biggest investor."
