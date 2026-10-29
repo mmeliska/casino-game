@@ -1633,6 +1633,7 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **Raffy's envelope** (`suggestions/S-050`, 2026-10-29): it held $2,500 when he lifted it; he took $450 for his mom's rent and tipped the player $50 from it, leaving the player $2,000. Helping him pay Ray means covering the missing $500, which he repays, the last of it at the Lanes: "The one I gave you that first night was Ray's. This one's mine." A darker A1.5 option: keep the $2,000 and tell Raffy it's settled. He stops hiding, Ray finds him within days, he names the player, and Ray adds the $2,000 plus interest to the player's debt and never trusts them again.
 - **Mr. Hamilton** (Mike, 2026-10-29): the founder insisted on "Mr. Hamilton" from everyone, staff and regulars, all his life. He is the second deliberate exception to the first-names rule, after Mayor Dabareski. In player-facing lines he is "Mr. Hamilton" or, from Gus, "my dad"; he has no first name. Gus is never "Mr. Hamilton": if anyone tries, he says "That was my dad."
 - **Kiran's debt** (Mike, 2026-10-29): replaces the daughter's surgery, so his debt doesn't echo Pete's (Tomas's medical bills). Kiran co-signed a loan for his wife's brother. The brother stopped paying and left town; nobody knows where, and Kiran has stopped looking. The whole debt fell on Kiran, and with the default on his record no bank would help, so he borrowed from Ray to pay it off, and the interest buried him. None of it was his fault; he lives with all of the consequences. His wife feels responsible, and he never blames her. The brother-in-law and the wife stay offstage (no portraits, no ties to the cast). The daughter, her photo by his tray, the ring and the S-049 lines are unchanged. `people/kiran.md`, `pages/notebook.md` and `all-docs.txt` still say surgery until the design docs are updated.
+- **Open questions settled** (Mike, 2026-10-29): Kiran only owes Ray and is not part of Umbra (OQ 14). Ray knows Revaris is Umbra's company, and "I just know a guy" at A2.2 is a lie; he never knows the land plan (the Stadium District, Bennett's hidden cut) until M2 (OQ 47). Wren's grandfather died within a year of handing her the outfit; no one in her family is named, and the uncles are cut from A4.5 (`pages/walkons.md` and `data/story.js` `EVX` still list "Umbra's old guard"), so Wren is alone in her scenes (OQ 45). Dot is in her early 60s (OQ 40).
 - **Motel scenes reviewed** (Mike, 2026-10-29): a motel is an odd place for most encounters, but these stay at the Slack Water: Richard's War games, Gus's A4.1 confession at the picnic table, the A4.2 Dot–Gus reunion in the lot, and the O6 visits. Don't add new motel scenes without a reason tied to Dot or Richard.
 - **No deck from Richard** (Mike, 2026-10-29): Richard doesn't give the player his deck of cards, and he has no item in the story-key row (`suggestions/S-009`).
 - **Ray's history** (`suggestions/S-045`, 2026-10-29): a Levee kid who ran errands for the Cinder Room under the old Umbra boss and stayed twenty years; has worked for Wren two years. He kept the old ledger drive on purpose, as insurance, and still has its key written down. The hour in his car after Gus signs is backstory, not a plate.
@@ -1996,9 +1997,13 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `people/wren.md`: "at a price well below their worth, because the real payment is the data." Notebook: "NOT 'cheap'".
 - `pages/room9.md` never mentions the blackmail; "cash up front" appears nowhere else.
 
+- **Resolved (2026-10-29, by `suggestions/S-043`, accepted):** Wren offered the cameras at a fraction of their worth (the real payment is the data); when Gus refused, her people showed him Cinder Room footage of his gambling, with her in the car outside, and he signed knowing it was Umbra. "Cash up front" and the blackmail-free version in `pages/room9.md` are stale.
+
 **OQ 14. Kiran's "Umbra, maybe" tie.**
 - `people/kiran.md` header: "Supporting · Umbra, maybe · the Prairie Queen"; Planning record "Ties to: Umbra, maybe."
 - M3 says Ray (Umbra) makes him skim and "Umbra collects by having him skim." Whether Kiran is part of Umbra or only owes Ray is not settled.
+
+- **Resolved (Mike, 2026-10-29):** Kiran only owes Ray. He is not part of Umbra, and he doesn't know or ask who Ray answers to. His tie becomes Ray, not "Umbra, maybe." See 4.1.8.
 
 **OQ 15. Wren-Bennett edge wording.**
 - `data/story.js` `E`: "owns him: his hidden cut, on camera."
@@ -2031,6 +2036,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `people/dot.md` voice sheet: "Gossip about everyone; never talks about Gus."
 - `pages/storymap-beats.md` A1.7 / `data/story.js` R1: "Dot and Gus each ask you how the other is doing."
 
+- **Resolved (2026-10-29, by `suggestions/S-056`, accepted):** Dot doesn't talk about Gus; she asks about him once a season and changes the subject before you answer. She says "he," never his name, until she speaks to him at her lot (`suggestions/S-016`).
+
 **OQ 21. Event "Where" and cast mismatches in the act tables.**
 - `pages/storymap-beats.md` A3.5 Where: "Aurelian, RailYard, Kasia's Tap, Cinder Room." `data/story.js` A3.5 where: "Aurelian, RailYard, Kasia's"; the description never mentions the Cinder Room.
 - `data/story.js` `EVX` A3.4: "Tae (offstage)"; `EV` A3.4 lists `tae` among its characters, and Tae's `appears` list includes A3.4.
@@ -2053,6 +2060,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `data/story.js` `E`: "stole the wrong envelope from his car."
 - Also the drive is "Ray's secret insurance copy," yet the Planning-record Hook still says the drive holds "face-match logs from Wren's cameras and a list of who pays her to stay quiet, which is where her leverage comes from."
 - `people/raffy.md` Planning record: "Ties to: Unknown."
+
+- **Resolved (2026-10-29, by `suggestions/S-050` and `S-058`, accepted):** he stole the envelope from Ray's car, thinking it was only collection cash, and took $450 of it for rent. "Skimmed" is stale. The drive is Revaris's old key ledger, not face-match logs and a payers list. His tie is Ray.
 
 **OQ 25. How the O2 mechanism works.**
 - `plan/t07.md`: "The only way to win the name back is leverage traded for the name going back to Gus."
@@ -2143,6 +2152,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 **OQ 40. Dot's age and background.**
 - `people/dot.md`: "Slightly older, sympathetic and in the know." Older than whom is not stated. Age is not given.
 
+- **Resolved (Mike, 2026-10-29):** Dot is in her early 60s, a few years older than Gus; she was Alice's older sister (`suggestions/S-017`). See 4.1.8.
+
 **OQ 41. Troy's portrait and ties; Richard and Troy in the cast counts.**
 - `pages/gdd.md`: "about 19 (9 core, 10 supporting), plus Richard and the six romance versions"; Troy is not listed.
 - `data/story.js` GINTRO: "Supporting roles with their own portraits (Ed and Kiran) and Troy, the pawn shop owner. The walk-ons and offstage figures, who have no portrait yet."
@@ -2174,6 +2185,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 **OQ 45. Wren's grandfather and the uncles.**
 - `people/wren.md`: "the old Umbra boss's granddaughter." `pages/room9.md`: "her grandfather, still Umbra's boss then." Name, whether he is alive and where he is now are not stated. The uncles' names and roles are not stated. `pages/walkons.md` lists "Umbra's old guard and the uncles" under A4.5, but A4.5 has no stated role for them.
 
+- **Resolved (Mike, 2026-10-29):** the grandfather died within a year of handing Wren the outfit. Nobody in her family is named. The uncles are cut from A4.5: Wren is alone in her scenes. The uncles still exist offstage (they resent her; she has their faces on file, `suggestions/S-043`). See 4.1.8.
+
 **OQ 46. Two Aurelian meetings with Bennett.**
 - `people/felix.md`: "The filing lawyer checks into the Aurelian the week the purchase goes through ... you see him with Bennett" (M2).
 - `people/felix.md` exclusive route / A4.3: "Wren's people meeting Bennett" at the Aurelian (her showcase, S13).
@@ -2183,6 +2196,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `people/ray.md`: "He's the go-between and never knows the whole plan."
 - `data/story.js` A2.2: "Ray swears about Revaris, 'I just know a guy, never met him' (S11)"; M2: "Ray calls the company 'us'" (while you work off your debt).
 - How much Ray knows about Revaris-Umbra, and why he says "us" if he doesn't know the whole plan, is not stated.
+
+- **Resolved (Mike, 2026-10-29):** Ray knows Revaris is Umbra's company (he enrolls the Cinder Room men in its system, `suggestions/S-058`), so "us" is honest and A2.2's "I just know a guy, never met him" is a lie told to keep the naming rule. What he never knows is the land plan: the Stadium District, Bennett's hidden cut and why the Flare's land mattered. He learns that when M2 is solved, like everyone else. See 4.1.8.
 
 **OQ 48. A1.10 and A2.1 describe the same scene.**
 - A1.10: "Ray walks into Gus's office with his roll of cash ... Gus's markers are due. This closes act 1."
@@ -2232,6 +2247,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 
 **OQ 58. Tae's age vs the house band and "through the wall."**
 - `people/tae.md`: "he grew up hearing the Flare through the wall." Which wall (his family's home next to the Flare?) and when the house band played relative to Tae's childhood are not stated ("rocket-age").
+
+- **Resolved (2026-10-29, by `suggestions/S-037`, accepted):** Tae grew up in a second-floor flat on the Flare's block and did his homework to the house band through the wall; his father drummed in it while Tae was a boy.
 
 ---
 
