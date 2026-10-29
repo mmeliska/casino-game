@@ -6,13 +6,13 @@ Editor's assessment: [00-diagnosis.md](00-diagnosis.md). Reference: [story bible
 
 | Status | Count |
 | --- | --- |
-| proposed | 8 |
-| accepted | 38 |
+| proposed | 5 |
+| accepted | 41 |
 | rejected | 12 |
 | other | 0 |
 | **Total** | **58** |
 
-Accepted: S-001, S-003, S-004, S-005, S-009, S-011, S-012, S-013, S-014, S-016, S-017, S-019, S-020, S-021, S-022, S-023, S-024, S-025, S-026, S-028, S-029, S-030, S-031, S-032, S-033, S-035, S-036, S-037, S-038, S-039, S-040, S-041, S-042, S-043, S-045, S-055, S-056, S-058.
+Accepted: S-001, S-003, S-004, S-005, S-009, S-011, S-012, S-013, S-014, S-016, S-017, S-019, S-020, S-021, S-022, S-023, S-024, S-025, S-026, S-028, S-029, S-030, S-031, S-032, S-033, S-035, S-036, S-037, S-038, S-039, S-040, S-041, S-042, S-043, S-044, S-045, S-046, S-047, S-055, S-056, S-058.
 
 ## All suggestions
 
@@ -43,13 +43,13 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-018](S-018-pete-secret-his-retirement-is-in-the-flare.md) | Pete's secret: his retirement went into the Flare after the funeral, and Gus has never mentioned it | rejected | character | Pete | medium | low | S-019 | none |
 | [S-020](S-020-pete-backstory.md) | Pete's expanded backstory | accepted | character | Pete | low | low | none | none |
 | [S-050](S-050-raffy-companion-and-the-fifty.md) | Raffy as a runner you can send, and the fifty dollars he keeps trying to give back | proposed | character | Raffy | medium | medium | none | none |
-| [S-044](S-044-ray-arc-give-him-the-drive-back.md) | Ray's arc: the big man shrinks, and the player can give him his drive back | proposed | character | Ray | medium | low | S-058 | none |
+| [S-044](S-044-ray-arc-give-him-the-drive-back.md) | Ray's arc: the big man shrinks, and the player can give him his drive back | accepted | character | Ray | medium | low | S-058 | none |
 | [S-045](S-045-ray-backstory-and-dialogue.md) | Ray's expanded backstory and sample dialogue | accepted | character | Ray | low | low | S-038, S-044, S-058 | none |
 | [S-041](S-041-richard-want-need-backstory.md) | Richard: what he wants (to be asked, not helped), and his expanded backstory | accepted | character | Richard | medium | low | S-040 | none |
 | [S-021](S-021-rosa-arc-the-threshold.md) | Rosa's arc: the woman who won't say the Starflare's name, and the day she walks in | accepted | character | Rosa | high | low | S-001, S-014, S-022, S-023 | none |
 | [S-022](S-022-rosa-backstory.md) | Rosa's expanded backstory | accepted | character | Rosa | low | low | none | none |
-| [S-046](S-046-stella-arc-the-number-she-doesnt-say.md) | Stella's arc: the analyst who stops saying the number, and when she learns her father gambles | proposed | character | Stella | medium | low | S-004, S-011, S-001, S-003 | none |
-| [S-047](S-047-stella-backstory.md) | Stella's expanded backstory | proposed | character | Stella | low | low | S-012, S-013, S-020, S-037, S-046 | none |
+| [S-046](S-046-stella-arc-the-number-she-doesnt-say.md) | Stella's arc: the analyst who stops saying the number, and when she learns her father gambles | accepted | character | Stella | medium | low | S-004, S-011, S-001, S-003 | none |
+| [S-047](S-047-stella-backstory.md) | Stella's expanded backstory | accepted | character | Stella | low | low | S-012, S-013, S-020, S-037, S-046 | none |
 | [S-036](S-036-tae-wound-his-fathers-drums.md) | Tae's wound and contradiction: his father's drum kit is still in the Flare's basement | accepted | character | Tae | medium | low | S-003 | none |
 | [S-037](S-037-tae-backstory-and-dialogue.md) | Tae's expanded backstory and sample dialogue | accepted | character | Tae | low | low | S-036 | none |
 | [S-033](S-033-vivian-secret-the-handshake.md) | Vivian's secret: she isn't on a losing streak, she's spending the family down on purpose | accepted | character | Vivian | high | low | none | none |

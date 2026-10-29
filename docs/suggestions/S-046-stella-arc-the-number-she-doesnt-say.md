@@ -1,7 +1,7 @@
 ---
 id: S-046
 title: "Stella's arc: the analyst who stops saying the number, and when she learns her father gambles"
-status: proposed
+status: accepted
 area: character
 character: Stella
 type: expansion
@@ -25,12 +25,12 @@ Stella: mid-20s, finance analyst, has run the Flare's numbers; wants Gus to sell
 **Arc stages:**
 1. **The nine ways** (acts 1 and 2): figures, worry as health, the meetings with Tae, the false lead.
 2. **The remortgage** (act 2 or 3): she tells you about it as proof he's propping up the Flare. She's wrong, and the player may know it.
-3. **The morning after** (A4.1/A4.2, only if you told her): she comes to Dot's. Her line, to the voice sheet: "Dad. ... How much." He gives her the number; she already knows the rest from you. She doesn't write it down.
+3. **The morning after** (A4.1/A4.2, only if you told her): she arrives at Dot's lot that morning, and Dot, Gus and Stella are together once, as part of the A4.2 reunion (Mike, 2026-10-29). Her line, to the voice sheet: "Dad. ... How much." He gives her the number; she already knows the rest from you. She doesn't write it down.
 4. **The hearing** (A5.7): add her to the people who can speak for you (the settled list is Rosa, Pete, Vivian's lawyer, Ed and Graham/Claire). If she does, she speaks in stories, not figures, for the first time. She speaks for you only if she heard about the gambling from you and not from the patch.
 
 **Signature moment.** Opening night, O1 (Gus retired and a guest; S-001). She's at the new cage with the first night's drop in front of her. Insert: the count sheet, blank. Pose: the analyst pose, then a swap. She closes the ledger without writing the total. To Gus: "It's enough." That's the only number she says all night.
 
-**Badly (O6, Gus lets go):** the resting point's "visits with sober Gus, Dot and Stella" are at the picnic table, and she brings a deck, not a laptop. That ending is hers more than anyone's; it should feel earned, not like a consolation.
+**Badly (O6, Gus lets go):** the resting point's "visits with sober Gus, Dot and Stella" are at the picnic table, and she comes without the laptop. Nothing in her hands (Mike, 2026-10-29: no deck; a deck is an odd thing to hand a man who just quit gambling). That ending is hers more than anyone's; it should feel earned, not like a consolation.
 
 ## Why it works
 The bible's ordering gap is a gift: making the telling the player's choice gives Stella her one scene with her father that isn't about the Flare, and makes keeping quiet a thing the player did. The unsaid total is the analyst's version of the game's rule that the key line is the one nobody says.
@@ -43,3 +43,5 @@ Changes A4.1's choice from two options to three; keeps the two existing effects.
 
 ## Decision notes
 - Mike, 2026-10-27: Stella learns from the player, if the player chooses to tell her. Rewritten above (the draft had Gus tell her).
+- Mike, 2026-10-29: the morning scene is at Dot's lot, as part of the reunion.
+- Mike, 2026-10-29: accepted with a change: no deck at the O6 visits; she simply comes without the laptop.

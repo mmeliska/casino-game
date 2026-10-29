@@ -1,7 +1,7 @@
 ---
 id: S-044
 title: "Ray's arc: the big man shrinks, and the player can give him his drive back"
-status: proposed
+status: accepted
 area: character
 character: Ray
 type: expansion
@@ -56,5 +56,6 @@ A player who gives the drive back trades the clean route and O8 for a friend in 
 If the drive was ever plugged into anything online it phoned home (S-058): Wren already knows the old drive survived. Ray getting it back doesn't make him safe. It means she lets him go on digging, which is what his epilogue's "left town the week before" pays off.
 
 ## Decision notes
-- Mike, 2026-10-29: the money reward is tiered. A plain return lowers Ray's interest (the docs' "easier loans"); saying "I looked" makes it zero. Not yet decided as a whole.
+- Mike, 2026-10-29: the money reward is tiered. A plain return lowers Ray's interest (the docs' "easier loans"); saying "I looked" makes it zero.
 - Mike, 2026-10-29: the player can always read the drive once they've solved the puzzle, so the drive can't leave their hands at A1.5. Giving it back to Ray moves to act 2 or later; the line is "I read it" if they read it, "I looked" if they only plugged it in.
+- Mike, 2026-10-29: accepted, including the notebook rule: a player who read the drive before giving it away keeps the names (enough to lean on payers, not evidence for Ed, not the device Wren wants).
