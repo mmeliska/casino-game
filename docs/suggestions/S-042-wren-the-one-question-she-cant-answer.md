@@ -20,13 +20,13 @@ Wren: early 30s, tech genius, the old boss's granddaughter passed over for the u
 ## Proposed change
 **Want:** to be the one who knows. She built a company so that nobody could ever surprise her again the way her family did when they handed the room to the uncles. **Need:** to be asked something by someone who isn't afraid of her, and to not know the answer.
 
-**Before the meeting, she is only felt.** Ray says "she." Her proxies run the room. Her cameras are everywhere, and the player learns that the readers on the streets and the Levee bridges are hers (the Long Bridge's are smashed, which is why it's a dead zone) before they ever see her face. Her portrait appears in no scene before A4.5.
+**Before the meeting, she is only felt.** Ray says "she." Her proxies run the room. Her cameras are everywhere, and the player learns that the readers on the streets and the Levee bridges are hers (before M2 is solved, only that they're "the company's"; naming rule) (the Long Bridge's are smashed, which is why it's a dead zone) before they ever see her face. Her portrait appears in no scene before A4.5.
 
 **The meeting (A4.5).** A text from a number that isn't saved: the Cinder Room, the office, tonight. When the player arrives, the room's regulars have been sent home and Ray is standing outside the office door, not inside it. Panels:
 
 1. Plate: the Cinder Room office. A desk, the enrollment station under a cover, a shredder, a closet door. A camera in each corner.
 2. Two-shot: Wren, seated, tablet face-down on the desk; the player at the door.
-3. Insert: her hand on the tablet. The four camera lights in the corners go dark, one by one. No caption.
+3. Insert: her hand on the tablet, and the four camera lights in the corners dark. A still, not a sequence (no animation). No caption.
 4. Pose swap: Wren, hands folded. "Now it's just us. I don't do that for many people."
 5. The deal, as the docs have it. She knows the player has the drive, or can get it. She wants the device, unopened or not. In return she pulls the Starflare name out of the District for her own floor, with the player in it (O8), or, if the player brings Gus's markers instead, pays them out and lets them walk (O10; bible 4.1.8).
 6. Black panel before the choice.
@@ -52,3 +52,4 @@ Players who never hold the drive or the markers never meet her, which is right. 
 - Mike, 2026-10-28: the first draft (the Cinder Room kept out of sentiment, her grandfather's bandits, a scene in Backwater with no signal) was rejected: "It's crazy to think Wren doesn't have cameras in her own building. Wren needs to be a very mysterious figure. There should be a point where the player does come in contact with her because she needs something and offers the player something in trade." The Cinder Room is kept for intel and for running Umbra's dealings through proxies; she rarely goes there. Rewritten as the one A4.5 meeting in the Cinder Room office, with Mike's addition: she can turn off the cameras in the meeting room. Accepted in this form.
 - 2026-10-29: checker fix. The Long Bridge is a dead zone (its readers are smashed), so the line now names the streets and the other Levee bridges.
 - Mike, 2026-10-29: a player who doesn't hold the drive is asked "Where is it?" instead of "Did you read it?" (checker flagged that the original question had nothing to refer to on the O10 path).
+- 2026-10-29: checker fixes. naming-rule gate on the readers line; panel 3 is a single still with the lights already dark.

@@ -221,7 +221,7 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
 - **Arc/outcomes:**
   - A1.5: Ray asks around and the envelope comes due. Return it to Ray; keep the cash; hand the drive to Ed; or find Raffy hiding at Millstone Lanes with Juan and help him pay Ray back. (Superseded 2026-10-29, see 4.1.8: A1.5 settles the cash and Raffy; the drive stays with you and its fate, Ed included, comes from act 2 on.)
   - Later: A4.3 (the drive as proof), A4.5 (Wren wants the drive), O8, O10.
-  - Companion (review proposal): "A runner: gets messages and cash across the river."
+  - Companion (review proposal): "A runner: gets messages and cash across the river." (Cut 2026-10-29, see 4.1.8 and `suggestions/S-050`.)
 - **Relationships:**
   - Related line: Ray, Kasia, Dot, Juan, Ed, Wren.
   - Ties in `data/story.js`:

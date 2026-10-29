@@ -15,7 +15,7 @@ conflicts_with: none
 A 300-word history of Stella, consistent with the bible and with S-013 (her mother's name and the ceiling).
 
 ## Current state
-Mid-20s, long brown hair, well educated; finance analyst downtown; Dot is her aunt, Pete is "Uncle", Tae was like a big brother when she was little; her voice sheet mentions "counting chips" as a childhood memory; the remortgage seed (people/stella.md, people/pete.md, people/tae.md). The cage scene with Pete is this set's addition (S-020), not the bible's.
+Mid-20s, long brown hair, well educated; finance analyst downtown; Dot is her aunt, Pete is "Uncle", Tae was like a big brother when she was little; her voice sheet mentions "counting chips" as a childhood memory; the remortgage seed (people/stella.md, people/pete.md, people/tae.md). The cage memory with her mother is this set's addition, not the bible's.
 
 ## Proposed change
 Stella learned to count at the cage. Her mother ran the drop with her on a stool beside the window, and the first numbers she ever said out loud were stacks of twenties called back to her mother. The Flare was where she did homework, had birthdays, learned the band's songs through the office door, and learned, at ten, that her grandfather was gone and her father now owned a place he loved more than he could run. She was twelve when her mother died. She has never been told where her father was that night (S-012); she has never asked, because she was told he was doing the books, and she decided then that someone in the family should actually do them.
@@ -36,3 +36,4 @@ Fixes her age at twelve when her mother died and ten when her grandfather died, 
 ## Decision notes
 - 2026-10-29: added how she gets the numbers (Mike asked). Gus keeps the books himself; she runs quarterly copies and has never been on the payroll. Payroll night (about six years ago) happened while she was at school, and Rosa dealt Gus back to even, so the books never showed it.
 - Mike, 2026-10-29: accepted with a change: no Pete at the cage. Stella calls the stacks back to her mother.
+- 2026-10-29: checker fixes. Current-state line no longer mentions Pete at the cage.

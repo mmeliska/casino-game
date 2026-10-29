@@ -27,7 +27,7 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-032](S-032-rival-backstory-and-dialogue.md) | Chase/Brooke's expanded backstory and sample dialogue | accepted | character | Chase/Brooke | low | low | S-030 | none |
 | [S-016](S-016-dot-arc-crossing-the-river.md) | Dot's arc: the woman who warns everyone and never crosses the river | accepted | character | Dot | high | low | S-004, S-012, S-013 | none |
 | [S-017](S-017-dot-backstory-and-the-shirt.md) | Dot's expanded backstory, and who she took on the trip | accepted | character | Dot | medium | low | S-011, S-012, S-013, S-016 | none |
-| [S-048](S-048-ed-the-honest-cop-who-runs-on-wrens-readers.md) | Ed's contradiction: the honest cop whose squad runs on Wren's plate readers, and the one lookup he deletes | accepted | character | Ed | medium | low | S-004 | none |
+| [S-048](S-048-ed-the-honest-cop-who-runs-on-wrens-readers.md) | Ed's contradiction: the honest cop whose squad runs on Wren's plate readers, and the one lookup he deletes | accepted | character | Ed | medium | low | S-004, S-058 | none |
 | [S-011](S-011-gus-arc-the-keeper-of-a-mausoleum.md) | Gus's arc: want, need, turning point, and how it ends badly | accepted | character | Gus | high | low | S-013 | none |
 | [S-012](S-012-gus-wound-the-night-alice-died.md) | Gus's wound: the night his wife died, he was in the Cinder Room | accepted | character | Gus | high | low | S-013, S-046 | none |
 | [S-013](S-013-gus-wife-alice-and-three-touches.md) | Name Gus's wife and give her three touches you can find in the Flare | accepted | character | Gus | medium | low | none | none |
@@ -42,8 +42,8 @@ Sorted by area (alphabetically), then character (alphabetically, "none" last), t
 | [S-051](S-051-mitch-the-bad-tip-was-the-backwater-vote.md) | Mitch's bad tip was the Backwater vote | accepted | character | Mitch | medium | low | S-025, S-039 | none |
 | [S-018](S-018-pete-secret-his-retirement-is-in-the-flare.md) | Pete's secret: his retirement went into the Flare after the funeral, and Gus has never mentioned it | rejected | character | Pete | medium | low | S-019 | none |
 | [S-020](S-020-pete-backstory.md) | Pete's expanded backstory | accepted | character | Pete | low | low | none | none |
-| [S-050](S-050-raffy-companion-and-the-fifty.md) | Raffy's envelope: the missing $500, the fifty, and the lie | accepted | character | Raffy | medium | medium | none | none |
-| [S-044](S-044-ray-arc-give-him-the-drive-back.md) | Ray's arc: the big man shrinks, and the player can give him his drive back | accepted | character | Ray | medium | low | S-058 | none |
+| [S-050](S-050-raffy-companion-and-the-fifty.md) | Raffy's envelope: the missing $500, the fifty, and the lie | accepted | character | Raffy | medium | medium | S-058 | none |
+| [S-044](S-044-ray-arc-give-him-the-drive-back.md) | Ray's arc: the big man shrinks, and the player can give him his drive back | accepted | character | Ray | medium | low | S-042, S-058 | none |
 | [S-045](S-045-ray-backstory-and-dialogue.md) | Ray's expanded backstory and sample dialogue | accepted | character | Ray | low | low | S-038, S-044, S-058 | none |
 | [S-041](S-041-richard-want-need-backstory.md) | Richard: what he wants (to be asked, not helped), and his expanded backstory | accepted | character | Richard | medium | low | S-040 | none |
 | [S-021](S-021-rosa-arc-the-threshold.md) | Rosa's arc: the woman who won't say the Starflare's name, and the day she walks in | accepted | character | Rosa | high | low | S-001, S-014, S-022, S-023 | none |
@@ -99,9 +99,7 @@ Status: S-001 is accepted and S-002 is rejected, so the group has no open confli
 - **Accepted suggestions depending on a rejected or missing suggestion:** none. Every dependency of an accepted suggestion exists and is not rejected.
 - **Accepted suggestions that conflict with each other:** none. The only declared conflict (S-001 and S-002) has S-002 rejected.
 
-For information (not warnings, since the dependency is proposed rather than rejected or missing): S-012 (accepted) depends on S-046, which is proposed.
-
-Circular dependencies: none. The full depends_on graph of all 57 files (proposed and rejected included) was checked and contains no cycle.
+Circular dependencies: none. The full depends_on graph of all 58 files (proposed and rejected included) was checked and contains no cycle.
 
 ## Problems
 

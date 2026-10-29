@@ -20,7 +20,7 @@ Stella: mid-20s, finance analyst, has run the Flare's numbers; wants Gus to sell
 ## Proposed change
 **Want:** to keep him. **Need:** to stop running him nine ways.
 
-**When she learns (OQ 33, settled by Mike 2026-10-27).** She learns from you, if you choose to tell her. After Gus's confession at A4.1 (S-004 places it at Dot's), the player's forgive-or-hold choice gets a third stake: "Tell Stella." If you tell her, A4.2 opens with her already there, colder, and "help him quit, with Dot and Stella" is literal; the torn patch then leaves her speechless for a different reason: not that he gambles, but that someone else paid for it years ago and he let them. If you don't tell her, she doesn't know: A4.2 runs with Dot alone, and she learns from the torn patch, speechless, exactly as her sheet says. Gus never tells her himself; he can't finish the sentence.
+**When she learns (OQ 33, settled by Mike 2026-10-27).** She learns from you, if you choose to tell her. After Gus's confession at A4.1 (S-004 places it at Dot's), the player's forgive-or-hold choice gets a third stake: "Tell Stella." If you tell her, she is at Dot's lot when the A4.2 drive ends, colder, and "help him quit, with Dot and Stella" is literal; the torn patch then leaves her speechless for a different reason: not that he gambles, but that someone else paid for it years ago and he let them. If you don't tell her, she doesn't know: the A4.2 reunion is Dot alone, and she learns from the torn patch, speechless, exactly as her sheet says. Gus never tells her himself; he can't finish the sentence.
 
 **Arc stages:**
 1. **The nine ways** (acts 1 and 2): figures, worry as health, the meetings with Tae, the false lead.
@@ -39,9 +39,10 @@ The bible's ordering gap is a gift: making the telling the player's choice gives
 A third option at A4.1; a short morning scene; the hearing in stories; the blank count sheet. No new art beyond one Stella pose.
 
 ## Risks and tradeoffs
-Changes A4.1's choice from two options to three; keeps the two existing effects. A player who never tells her gets the docs' version (speechless at the patch) and loses her as a hearing witness. If S-004 is rejected, the morning scene happens in Gus's office. O6's picnic-table version depends on nothing else.
+Changes A4.1's choice from two options to three; keeps the two existing effects. A player who never tells her gets the docs' version (speechless at the patch) and loses her as a hearing witness. O6's picnic-table version depends on nothing else.
 
 ## Decision notes
 - Mike, 2026-10-27: Stella learns from the player, if the player chooses to tell her. Rewritten above (the draft had Gus tell her).
 - Mike, 2026-10-29: the morning scene is at Dot's lot, as part of the reunion.
 - Mike, 2026-10-29: accepted with a change: no deck at the O6 visits; she simply comes without the laptop.
+- 2026-10-29: checker fixes. Stella joins at Dot's lot, not at the start of A4.2; the stale Gus's-office fallback is dropped. S-016 (the reunion at Dot's lot) is referenced in prose only: listing it would make a cycle (S-012 -> S-046 -> S-016 -> S-012).

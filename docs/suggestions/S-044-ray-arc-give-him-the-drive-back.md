@@ -7,7 +7,7 @@ character: Ray
 type: expansion
 impact: medium
 effort: low
-depends_on: S-058
+depends_on: S-042, S-058
 conflicts_with: none
 ---
 
@@ -37,7 +37,7 @@ Pose swap: arms-wide to hands in pockets (the review's tell). He's a different m
 3. Blackspruce (winter): the real Umbra at the table; he shrinks in front of you; if you hold his secret he's the one who makes sure you leave with your money.
 4. Loose ends (act 4): the plate from S11, the skim, the drive, and the burn bag (S-058) if the player took it. He is the most leverageable man in the game and knows it.
 
-**Epilogue, two ends:** if Wren falls (A4.3, by Ed's subpoena if you gave him the drive, or by the Aurelian footage if you gave it back to Ray), Ray's front page is either a man testifying (if the S11 plate put him at the lawyer's meeting and you gave it to Ed) or a man who left town the week before. If Wren stands, he's still at the Flare's bar in whatever the Flare became, a little older, the car gone, and he says "buddy" to you and means it as a question.
+**Epilogue, two ends:** if Wren falls (A4.3, by Ed's subpoena if you gave him the drive, or by Felix/Nora's Aurelian footage if the drive went back to Ray), Ray's front page is either a man testifying (if the S11 plate put him at the lawyer's meeting and you gave it to Ed) or a man who left town the week before. If Wren stands, he's still at the Flare's bar in whatever the Flare became, a little older, the car gone, and he says "buddy" to you and means it as a question.
 
 ## Why it works
 The hub character of the debt system has no mercy in him and none available to the player; adding one choice that treats him as a person gives the loan shark a face and the player a kind of power the game doesn't otherwise offer: knowing something about someone and not using it. (Technique: unexpected mercy, reciprocity.) It also closes a logical gap: a player who has read the drive knows Ray's secret, and the docs never let them say so.
@@ -59,3 +59,4 @@ If the drive was ever plugged into anything online it phoned home (S-058): Wren 
 - Mike, 2026-10-29: the money reward is tiered. A plain return lowers Ray's interest (the docs' "easier loans"); saying "I looked" makes it zero.
 - Mike, 2026-10-29: the player can always read the drive once they've solved the puzzle, so the drive can't leave their hands at A1.5. Giving it back to Ray moves to act 2 or later; the line is "I read it" if they read it, "I looked" if they only plugged it in.
 - Mike, 2026-10-29: accepted, including the notebook rule: a player who read the drive before giving it away keeps the names (enough to lean on payers, not evidence for Ed, not the device Wren wants).
+- 2026-10-29: checker fixes. epilogue wording clarified; S-042 added to depends_on ("Where is it?").

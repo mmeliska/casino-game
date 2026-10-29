@@ -70,7 +70,7 @@ The one instance of NPCs asking about each other (Dot and Gus) is the docs' best
 
 1. **The hidden scales are felt only through gating.** The docs say the player feels them through NPC reactions, but no scene is specified that *is* a scale reading. **S-026** (Kasia's ledger page) is one; S-016's torn register and S-019's name are two more. Each scale should have one such scene.
 2. **Story keys are inventory.** A thumb drive and a key sit in a row like items. The act 4 routes read as "which object do I spend." **S-009.**
-3. **Jobs are economy, not character.** Repeat jobs "open their story," which is right, but the stories aren't written. S-050 (Raffy as runner) and S-053 (rejected) show the shape: a job that is a relationship.
+3. **Jobs are economy, not character.** Repeat jobs "open their story," which is right, but the stories aren't written. S-053 (rejected) showed the shape: a job that is a relationship. (S-050's runner was cut, 2026-10-29.)
 4. **The last night is a beat, not a night.** The time system (parts of the day) could make the fall a thing the player spends; **S-003** uses the three slots the clock already has.
 5. **The epilogue reads standing, not objects.** The builder picks panels by numbers; nothing says what's in them. **S-057** (rejected).
 6. **Nothing is ever done *for* the player.** Every mechanic in the broke path is the player working or borrowing. **S-053** was the one scene for it; rejected, because the remedy for going broke is doing jobs.

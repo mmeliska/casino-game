@@ -7,7 +7,7 @@ character: Raffy
 type: expansion
 impact: medium
 effort: low
-depends_on: none
+depends_on: S-058
 conflicts_with: none
 ---
 
@@ -28,7 +28,7 @@ Raffy: 19, runs envelopes for Ray, stole the wrong envelope, hides at Millstone 
 
 **The lie** (Mike, 2026-10-29). Raffy believes he's clear, so he stops hiding at the Lanes. Ray is still looking and finds him within days, so the player collects a payment or two at most. Raffy tells Ray, "They said they paid you." Ray comes to the player's table, friendly as ever: "Buddy. We need to talk about an envelope." The $2,000, plus interest, goes on the player's debt to Ray, and Ray never trusts them again: no lowered interest, and S-044's give-back has no effect beyond the plain one. Raffy disappears. His mom calls Kasia's looking for him, Kasia tells you she said you were the last one he talked to, and Dot stops warning you about the bridge. Ray still never says "drive" (S-058).
 
-**Badly:** if you keep the $2,000 without lying, or hand him to Ray, Kasia tells you his mother called the bar looking for him, and that she told her you were the last one he talked to. Dot stops warning you about the bridge.
+**Badly:** if you keep the $2,000 without lying, or tell Ray where he's hiding, Kasia tells you his mother called the bar looking for him, and that she told her you were the last one he talked to. Dot stops warning you about the bridge.
 
 ## Why it works
 The docs' "help him pay Ray back" had no cost and no number. Now it has both, and the debt gives Raffy a reason to keep turning up after A1.5. The fifty becomes the last piece of it, and the one thing he wants to be clean. The lie gives the dark player a real temptation with a cost that follows from the story, not from a rule: their own lie is what sends Raffy back into Ray's sight.
@@ -44,3 +44,4 @@ The repayments are cash events, not a new system. The lie path adds $2,000 plus 
 - Mike, 2026-10-29: the envelope's numbers settled ($2,500 lifted, $450 rent, $50 tip, $2,000 to you), so helping Raffy means covering the missing $500, which he repays, ending with the fifty. New darker A1.5 option: lie that it's settled and collect from him; Ray finds Raffy within days, Raffy names you, and Ray adds the $2,000 plus interest to your debt. The runner jobs are still undecided.
 - Mike, 2026-10-29: cut the runner. Raffy appears through the repayment, the fifty scene and the lie path. Title and summary rewritten.
 - Mike, 2026-10-29: accepted as rewritten.
+- 2026-10-29: checker fixes. "hand him to Ray" reworded to "tell Ray where he's hiding" (not one of the four cash choices); S-058 added to depends_on (the read rule).
