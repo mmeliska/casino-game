@@ -1644,6 +1644,7 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **Backwater has cameras; three places refuse them** (Mike, 2026-10-30): Backwater voted only on casinos, not cameras. Its streets have the city's "Safe Streets" readers, and most of its shops took Revaris cameras below worth. Three places refuse, each on its own for its own reasons, with no pact or tie between them: Kasia's Tap (her back room), Millstone Lanes (Juan's dice and his regulars) and the Slack Water Motel (Dot's guests' privacy). The Long Bridge stays dark (the hoodlums smash its readers). The S-004 rule becomes: the truth is told inside those three places or on the Long Bridge; every truth scene so far already is. Raffy still hides at Millstone. Umbra still watches room 9's door in person. Wren's file (S10) gets the player's Backwater movements from cameras; what happens inside the three places reaches her only through her people (Ray, his collectors, the Umbra crew at Millstone). Side effect: the street readers log Bennett's plate on his Tuesday drives to the motel lot (S-038), so Wren knows Richard is his father. She keeps it to herself, one more hold on him. Room 9's box is still Richard's and Gus's secret. This replaces "all of Backwater, which voted the cameras down" in `pages/gdd.md`, `pages/northlight.md`, `people/wren.md`, `pages/changelog.md`, `pages/room9.md`, `people/richard.md` and `plan/t08.md`.
 - **Juan owns Millstone Lanes** (Mike, 2026-10-30): he started as a teenager clearing jammed pins and learned the machines from the old mechanic. About ten years ago the old owner, ready to retire, sold him the alley on a handshake payment plan. The back-lot dice paid for it and still keep the old pinsetters running. He still does his own repairs (the grease-stained shirt and name patch stay). The "Millstone Lanes owner" walk-on is cut.
 - **Venue access** (Mike, 2026-10-30): Blackspruce Lodge needs Ray's winter invitation (once you're a Cinder Room regular) and a best bankroll of about $25,000; the yacht games need Vivian's invitation (after A3.6) and about $100,000. Both floors are starting values to tune, and neither belongs on the $250,000 row. The Gilded Pine is open in every season, not just summer (winter pines make good scenery); Vivian can be met there any time at $25,000, which supersedes "(summer)" on the money table, A3.6, X2 and the excursion list. The Aurelian, lobby included, opens at $10,000 in act 2, so Felix/Nora are first met in act 2. Once the player is in the Cinder Room they stay in for good, even if Ray cuts them off; every visit raises heat, with its consequences.
+- **Small settlements** (Mike, 2026-10-30): Ray is first on screen at A1.5, asking about "the envelope"; Bennett is on posters and bar TVs from act 2 and first in person at A2.6 (OQ 17). The Aurelian meeting is one meeting seen twice: the filing lawyer is Revaris's lawyer, glimpsed with Bennett the week the purchase goes through (M2 clue, act 2), and the same meeting is on the Aurelian's archive footage that Felix/Nora get in act 4 (A4.3 proof) (OQ 46). Gus's lucky chip is a last-night keepsake: at A3.3 he presses one of the Flare's own chips into the player's hand; it can't be cashed after the closing, and Troy buys it for almost nothing (OQ 39). Troy stays a functional NPC with a portrait and no story, on purpose, counted as minor with portrait alongside Richard and the three regulars (OQ 41). "Hamilton" is only for the founder; Gus and Stella have no surname in the game (OQ 51). A3.9 is a one-panel notebook beat, "Revaris is Umbra," written as M2 is solved, and act 4 opens (OQ 54).
 - **Motel scenes reviewed** (Mike, 2026-10-29): a motel is an odd place for most encounters, but these stay at the Slack Water: Richard's War games, Gus's A4.1 confession at the picnic table, the A4.2 Dot–Gus reunion in the lot, and the O6 visits. Don't add new motel scenes without a reason tied to Dot or Richard.
 - **No deck from Richard** (Mike, 2026-10-29): Richard doesn't give the player his deck of cards, and he has no item in the story-key row (`suggestions/S-009`).
 - **Ray's history** (`suggestions/S-045`, 2026-10-29): a Levee kid who ran errands for the Cinder Room under the old Umbra boss and stayed twenty years; has worked for Wren two years. He kept the old ledger drive on purpose, as insurance, and still has its key written down. The hour in his car after Gus signs is backstory, not a plate.
@@ -2038,6 +2039,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - Wren's first listed code is A2.2, but she is "rarely seen"; her first on-screen scene is not stated.
 - Bennett appears in A2.2 only as a name on the sale; A2.6 is his "first good look."
 
+- **Resolved (Mike, 2026-10-30):** Ray is first on screen at A1.5, asking about "the envelope" (`suggestions/S-050`). Bennett is seen on posters and bar TVs from act 2 and first in person at A2.6. Wren's face appears in no scene before A4.5 (`suggestions/S-042`). See 4.1.8.
+
 **OQ 18. Felix/Nora's first meeting vs the Aurelian's gate.**
 - `people/felix.md`: "First met: the Aurelian's front desk, act 1 or 2."
 - The Aurelian opens at best bankroll $10,000 (A2.5, act 2) (`pages/gdd.md`, `pages/storymap-intro.md`). Act 1 closes at $5,000.
@@ -2181,6 +2184,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 **OQ 39. "Gus's lucky chip."**
 - `pages/gdd.md` and `plan/t13.md`: "Gus's lucky chip" is an example of a meaningful Pockets item. No other page defines it, who has it or what it unlocks.
 
+- **Resolved (Mike, 2026-10-30):** Gus's lucky chip is a last-night keepsake: at A3.3 Gus presses one of the Flare's own chips into the player's hand. After the closing it can't be cashed anywhere, so it's worth nothing except to him; Troy buys it for almost nothing. See 4.1.8.
+
 **OQ 40. Dot's age and background.**
 - `people/dot.md`: "Slightly older, sympathetic and in the know." Older than whom is not stated. Age is not given.
 
@@ -2191,6 +2196,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `data/story.js` GINTRO: "Supporting roles with their own portraits (Ed and Kiran) and Troy, the pawn shop owner. The walk-ons and offstage figures, who have no portrait yet."
 - `plan/t06.md` tier lists do not include Richard or Troy; `data/story.js` calls Richard "Supporting (story)" and Troy "Minor."
 - Troy has no codes, ties, want or backstory.
+
+- **Resolved (Mike, 2026-10-30):** Troy stays a functional NPC with a portrait and no story, ties or codes, on purpose. The cast count lists him as minor, with portrait, alongside Richard and the three Flare regulars. See 4.1.8.
 
 **OQ 42. Pete's service years and the 25-year pin.**
 - `people/pete.md`: "about 60"; the founder hired him "at 19"; "gold 25-year rocket pin from Gus's father." Audit 1.7 says "The 25-year pin still works."
@@ -2224,6 +2231,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `people/felix.md` exclusive route / A4.3: "Wren's people meeting Bennett" at the Aurelian (her showcase, S13).
 - Two separate meetings (lawyer with Bennett; Wren's people with Bennett) are both said to occur at the Aurelian. The A4.3 meeting must postdate the camera install in act 2, but the dates of both meetings are not stated.
 
+- **Resolved (Mike, 2026-10-30):** one meeting, seen twice. The filing lawyer is Revaris's lawyer, one of Wren's people. The player glimpses the meeting with Bennett at the Aurelian the week the purchase goes through (the M2 clue, act 2), and in act 4 Felix/Nora get them the Aurelian's archive footage of the same meeting (the A4.3 proof). See 4.1.8.
+
 **OQ 47. Ray's knowledge level.**
 - `people/ray.md`: "He's the go-between and never knows the whole plan."
 - `data/story.js` A2.2: "Ray swears about Revaris, 'I just know a guy, never met him' (S11)"; M2: "Ray calls the company 'us'" (while you work off your debt).
@@ -2255,6 +2264,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 **OQ 51. Gus's and Stella's surname.** (Partly settled 2026-10-29, see 4.1.8: the founder is always "Mr. Hamilton"; Gus is never called by it.)
 - `pages/walkons.md`: Mr. Hamilton is the founder. `people/gus.md`: "surname Hamilton if a story needs it." The audit text mentions "the Hamilton family company"; that phrasing was an audit suggestion and is not in the docs. Gus's and Stella's surname is "Not stated."
 
+- **Resolved (Mike, 2026-10-30):** "Hamilton" is used only for the founder, Mr. Hamilton. Gus and Stella are never called by a surname. See 4.1.8.
+
 **OQ 52. Gus's trust mechanics.**
 - `pages/storymap-open.md`: "same standing value every key NPC has, with no special system." A1.10's gate includes "Gus's trust" with no threshold given. The thresholds for NPC standing (e.g. `npc_standing_min: {"gus": 20}` in `pages/gdd.md`) are example values only.
 
@@ -2266,6 +2277,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 
 **OQ 54. A3.9 has no content.**
 - `data/story.js` `["A3.9", ..., "", []]`: no location and no characters. `pages/storymap-beats.md` gives no location, choice or characters either; it is purely a gate.
+
+- **Resolved (Mike, 2026-10-30):** A3.9 becomes a one-panel notebook beat: as M2 is solved, the player writes "Revaris is Umbra," and act 4 opens. See 4.1.8.
 
 **OQ 55. Cinder Room entry vs heat.**
 - `pages/gdd.md`: "Heat above a threshold or an Umbra vouch; Ray slips you the first password (A1.9)." and "High heat ... opens the Cinder Room's [door]."
