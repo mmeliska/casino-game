@@ -4,6 +4,42 @@
 
 19, Filipino-American, skinny, oversized hoodie, cracked phone in hand, one earbud in, a delivery-bike helmet clipped to his backpack. Talks fast, laughs nervously.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** hair; the hoodie's colour; the joggers and sneakers.
+
+**Sheet prompt** (16:9, hoodie outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Raffy: a skinny 19-year-old Filipino-American guy, messy black hair, one white earbud in. An oversized grey hoodie with a cracked phone peeking from the front pocket, a backpack with a bike helmet clipped to it, baggy black joggers, beat-up sneakers.
+Panels: 1) turned to the right as if heading out the door, a nervous grin, one hand up; 2) laughing nervously, rubbing the back of his neck; 3) hood up, hunched, scared, glancing sideways to the right; 4) calm and serious for once, hands still at his sides.
+```
+
+**Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
+
+*Hoodie* (default):
+
+```
+Raffy: a skinny 19-year-old Filipino-American guy, messy black hair, one white earbud in. An oversized grey hoodie with a cracked phone peeking from the front pocket, a backpack with a bike helmet clipped to it, baggy black joggers, beat-up sneakers.
+```
+
+*Helmet on*:
+
+```
+Raffy: a skinny 19-year-old Filipino-American guy, messy black hair, one white earbud in. A bike helmet on his head, an oversized grey hoodie, a backpack, baggy black joggers, beat-up sneakers.
+```
+
+| Pose tag | Outfit | Pose line | Used for |
+| --- | --- | --- | --- |
+| `raffy_neutral` | Hoodie | turned to the right as if heading out the door, a nervous grin, one hand up | A1.2, the envelope (the envelope is an insert) |
+| `raffy_nervous_laugh` | Hoodie | laughing nervously, rubbing the back of his neck | Lying by talking faster |
+| `raffy_hiding` | Hoodie | hood up, hunched, scared, glancing sideways to the right | Hiding at Millstone Lanes |
+| `raffy_last_payment` | Hoodie | calm and serious for once, hands still at his sides | "This one's mine." |
+| `raffy_free` | Helmet on | grinning, one fist raised | His epilogue panel, debt-free |
+
 ## Backstory
 
 Grew up in Backwater. Runs envelopes for Ray's collections because it paid better than delivery and made him feel like somebody. His mom is a nurse working double shifts; he lifted a fat envelope from Ray's car to cover her rent, thinking it was only collection cash. It held $2,500. He took $450 for the rent (Mike, 2026-10-29). It also held something that wasn't cash (see the drive), and when he realized what he was holding, he panicked. A good kid making a dumb mistake.

@@ -46,6 +46,7 @@ const PARTS=[
 {"path": "pages/table-time", "title": "Rules and systems: time at the table", "page": "rules"},
 {"path": "pages/titles", "title": "About: working title", "page": "sources"},
 {"path": "pages/walkons", "title": "Walk-ons and offstage figures", "page": "cast"},
+{"path": "pages/portraits", "title": "Portrait prompts", "page": "portraits"},
 {"path": "pages/writing", "title": "Writing guide", "page": "writing"},
 {"path": "plan/t01", "title": "Planning record: task 1. Time period", "page": "city"},
 {"path": "plan/t02", "title": "Planning record: task 2. The city", "page": "city"},

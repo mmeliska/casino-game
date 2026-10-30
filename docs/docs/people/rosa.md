@@ -4,6 +4,35 @@
 
 Early 40s, hair pinned up with a pencil, her old dealer's vest with the casino patch torn off. Fast, precise hands are description only.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** slim build; the vest's colour; the shirt, trousers and shoes.
+
+**Sheet prompt** (16:9, dealer outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Rosa: a Puerto Rican woman in her early 40s, slim, dark hair pinned up in a bun with a pencil through it, sharp watchful eyes. A white long-sleeved shirt, an old black dealer's vest with a frayed patch mark on the chest where a logo was torn off, black trousers, flat black shoes.
+Panels: 1) hands loosely clasped in front of her, calm, watchful; 2) one finger raised, a quiet warning look; 3) one hand turned palm-up, explaining, patient; 4) eyes down, hands at her sides, expressionless, not looking up.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+Rosa: a Puerto Rican woman in her early 40s, slim, dark hair pinned up in a bun with a pencil through it, sharp watchful eyes. A white long-sleeved shirt, an old black dealer's vest with a frayed patch mark on the chest where a logo was torn off, black trousers, flat black shoes.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `rosa_neutral` | hands loosely clasped in front of her, calm, watchful | Default: dealing Kasia's back room (cards are an insert) |
+| `rosa_one_finger` | one finger raised, a quiet warning look | Warning you off a hand |
+| `rosa_teaching` | one hand turned palm-up, explaining, patient | The five lessons |
+| `rosa_eyes_down` | eyes down, hands at her sides, expressionless, not looking up | The bad route: the Harborlight dealer who doesn't look up |
+| `rosa_at_door` | one hand raised to shoulder height as if resting on a door frame, hesitating | Opening night, the door |
+| `rosa_landing` | arms folded, looking off to the right, distant | The Prairie Queen landing |
+
 ## Backstory
 
 Puerto Rican. Her mother ran a sewing machine at the uniform plant on the Levee's south end and her father fed a furnace; both came up from Ponce in the last decade the mills were hiring. She grew up two streets from the Stacks and learned cards from the men on her father's stoop, who played for cigarettes and taught her that a cheat's hands are quieter than an honest man's. She could deal a clean game at twelve and spot a dirty one at fourteen (Mike 2026-10-28).

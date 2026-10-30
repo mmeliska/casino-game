@@ -4,6 +4,33 @@
 
 A Korean-American man in his early 40s; a sharp charcoal suit, no tie, sleeves never wrinkled, North Light lighthouse cufflinks.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** build; hair; the shirt and shoes.
+
+**Sheet prompt** (16:9, suit outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Tae: a Korean-American man in his early 40s, fit, short neat black hair, clean-shaven. A sharp charcoal suit, a white shirt open at the collar with no tie, crisp sleeves with small silver lighthouse cufflinks, polished black oxford shoes.
+Panels: 1) a warm, confident smile, adjusting one cuff; 2) one open hand sweeping outward as if showing a skyline; 3) smile gone, quiet, eyes down, hands at his sides; 4) very still, hands clasped in front of him, emotion held back.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+Tae: a Korean-American man in his early 40s, fit, short neat black hair, clean-shaven. A sharp charcoal suit, a white shirt open at the collar with no tie, crisp sleeves with small silver lighthouse cufflinks, polished black oxford shoes.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `tae_neutral` | a warm, confident smile, adjusting one cuff | Default |
+| `tae_pitch` | one open hand sweeping outward as if showing a skyline | "Northlight deserves a world-class house." |
+| `tae_guard_down` | smile gone, quiet, eyes down, hands at his sides | S4: "Is the kit still there?" |
+| `tae_listening` | very still, hands clasped in front of him, emotion held back | O1, the house band reunion |
+
 ## Backstory
 
 His parents came to the Levee when he was small, a drummer and a seamstress, and the Flare's house band was the only steady gig in a city that was running out of them. He grew up in a second-floor flat on the Flare's block, doing his homework to the band through the wall while his father drummed in it, and learned two things early: the Flare was the warmest room in the Levee, and it paid his father late. His father played there eleven years. Tae hung around the floor as a kid because Gus let him, and later he was the big brother little Stella followed around the lounge. He's an old family friend of Gus's family; no romance (Mike, 2026-10-28).

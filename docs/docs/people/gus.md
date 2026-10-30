@@ -4,6 +4,43 @@
 
 Very heavyset (Teddy from Bob's Burgers without the beanie, as an artist reference only), silver hair combed back, his dad's old Starflare dinner jacket straining at the buttons, a chipped coffee mug with the rocket logo.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** white; clean-shaven; the shirt, bow tie, trousers and shoes; the whole new-jacket outfit (the docs say only "a jacket that fits").
+
+**Sheet prompt** (16:9, dinner jacket outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Gus: a very heavyset white man in his late 50s, a broad, round, kind face, clean-shaven, silver hair combed back. His father's old black supper-club dinner jacket straining at the buttons, a white dress shirt, a loosened black bow tie, black trousers, worn black dress shoes.
+Panels: 1) chin up, proud, a warm tired smile, one hand open toward the viewer in welcome; 2) smile gone, eyes down, hands clasped over his belly; 3) mid-story, one hand raised, looking off to the right, into the past, nostalgic; 4) shoulders slumped, head bowed, hands hanging at his sides, ashamed.
+```
+
+**Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
+
+*Dinner jacket* (default):
+
+```
+Gus: a very heavyset white man in his late 50s, a broad, round, kind face, clean-shaven, silver hair combed back. His father's old black supper-club dinner jacket straining at the buttons, a white dress shirt, a loosened black bow tie, black trousers, worn black dress shoes.
+```
+
+*New jacket*:
+
+```
+Gus: a very heavyset white man in his late 50s, a broad, round, kind face, clean-shaven, silver hair combed back. A plain charcoal suit jacket that fits him well, a white shirt open at the collar, charcoal trousers, polished black shoes.
+```
+
+| Pose tag | Outfit | Pose line | Used for |
+| --- | --- | --- | --- |
+| `gus_neutral` | Dinner jacket | chin up, proud, a warm tired smile, one hand open toward the viewer in welcome | Default: "Anyway. Coffee?" |
+| `gus_eyes_down` | Dinner jacket | smile gone, eyes down, hands clasped over his belly | His tell, hiding the debt (the chipped mug is now an insert) |
+| `gus_old_days` | Dinner jacket | mid-story, one hand raised, looking off to the right, into the past, nostalgic | Changing the subject to the old days |
+| `gus_confession` | Dinner jacket | shoulders slumped, head bowed, hands hanging at his sides, ashamed | A4.1, the confession |
+| `gus_hunched` | Dinner jacket | hunched forward, jacket hanging open, hands deep in his trouser pockets, staring at the floor, exhausted | The Cinder Room, A1.9 and A4.2 |
+| `gus_new_jacket` | New jacket | standing straight, hands folded in front of him, a small quiet smile | Opening night, as a guest (O1) |
+
 ## Backstory
 
 Late 50s, the son of the founder, Mr. Hamilton, who built the Starflare as a rocket-age supper club. Gus was nearly born there: his mother went into labor at a supper-club table, and his dad finished the set before he drove her. He grew up under the planetarium ceiling, doing homework at the bar while Pete, three years older and already busing, taught him to count a rack by eye. He was the owner's boy, so everyone was kind and nobody was straight with him, and he learned to fill a silence with a story about the old days. When the license came, his dad ran the floor and Gus ran the room: comps, birthdays, the band's bar tab.

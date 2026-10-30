@@ -4,6 +4,42 @@
 
 Early 20s, Black, a Starflare busboy vest over a white shirt with the sleeves pushed up, a fade haircut; plays a handheld game on his breaks (a made-up brand).
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** clean-shaven; the vest's colour and logo; the trousers and shoes; the host jacket's colour and pin.
+
+**Sheet prompt** (16:9, busboy outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Jalen: a young Black man in his early 20s, slim, a fade haircut, clean-shaven, a friendly, open face. A black busboy vest with a small rocket logo over a white shirt with the sleeves pushed up, black trousers, black work shoes.
+Panels: 1) hands clasped behind his back, an attentive, polite half-smile; 2) grinning, one fist pumped, younger and looser; 3) glancing up, one hand half raised, caught off guard; 4) a tired but polite smile, shadows under his eyes, shoulders sagging.
+```
+
+**Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
+
+*Busboy* (default):
+
+```
+Jalen: a young Black man in his early 20s, slim, a fade haircut, clean-shaven, a friendly, open face. A black busboy vest with a small rocket logo over a white shirt with the sleeves pushed up, black trousers, black work shoes.
+```
+
+*Host*:
+
+```
+Jalen: a young Black man in his early 20s, slim, a fade haircut, clean-shaven, a friendly, open face. A tailored midnight-blue host's jacket with a small gold rocket pin, a white shirt, a dark tie, black trousers, polished black shoes.
+```
+
+| Pose tag | Outfit | Pose line | Used for |
+| --- | --- | --- | --- |
+| `jalen_neutral` | Busboy | hands clasped behind his back, an attentive, polite half-smile | Default; reads on the regulars (the bus tray is an insert) |
+| `jalen_gaming` | Busboy | grinning, one fist pumped, younger and looser | Breaks; when video games come up |
+| `jalen_caught` | Busboy | glancing up, one hand half raised, caught off guard | The notebook seed |
+| `jalen_tired` | Busboy | a tired but polite smile, shadows under his eyes, shoulders sagging | Covering tuition with double shifts |
+| `jalen_host` | Host | standing tall, one hand open in welcome, a confident, warm smile | Opening night at the host stand |
+
 ## Backstory
 
 Grew up in the Levee, a few blocks from the Flare, in an ordinary family with no story the game needs to tell and no tie to anyone in the cast (Mike, 2026-10-28). At seventeen he walked in on a Tuesday and asked Pete for any job; Pete gave him a bus tray and called him "kid." He takes hospitality classes at the city college by day and buses tables at the Flare by night, and every dollar of tips goes to tuition. What he wants is to run a hotel: the front desk, the comps, the way a room feels when someone remembers your name. He watches the Flare like a case study, and he watches the poker room because it's where he learned that reading people is the whole job. He learned poker by watching and doesn't play for money.

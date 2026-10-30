@@ -5,6 +5,60 @@
 - **Graham:** Late 30s, wire-rim glasses, a tweed blazer, a loosened tie, a beat-up briefcase of bills he's marking up; earnest and a bit rumpled.
 - **Claire (Mike):** Japanese-American, late 30s, long dark hair; inspired by Tifa from Final Fantasy VII Remake but in more modest, professional clothes (an artist reference only; the portrait must be original); a trench coat, a laptop and a thermos of tea; calm, with a sly sense of humor about politics.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+### Graham
+
+**Proposed, not settled:** white; build; hair; the shirt, trousers and shoes.
+
+**Sheet prompt** (16:9, blazer outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Graham: a white man in his late 30s, slim, wavy brown hair a bit messy, wire-rim glasses. A brown tweed blazer, a light-blue shirt with a loosened tie, grey trousers, scuffed brown brogues.
+Panels: 1) an earnest, slightly nervous smile, hands in his pockets; 2) one eyebrow raised, arms folded, a wry look; 3) one hand at his chin, thinking; 4) looking off to the right, disappointed, hands at his sides.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+Graham: a white man in his late 30s, slim, wavy brown hair a bit messy, wire-rim glasses. A brown tweed blazer, a light-blue shirt with a loosened tie, grey trousers, scuffed brown brogues.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `graham_neutral` | an earnest, slightly nervous smile, hands in his pockets | Default; the club car (the briefcase is an insert) |
+| `graham_eyebrow` | one eyebrow raised, arms folded, a wry look | "Nobody at the statehouse lies." |
+| `graham_thinking` | one hand at his chin, thinking | Explaining how licenses get decided |
+| `graham_disappointed` | looking off to the right, disappointed, hands at his sides | Beat 4, the fundraiser envelope |
+
+### Claire
+
+**Proposed, not settled:** eyes; the blouse, trousers and boots.
+
+**Sheet prompt** (16:9, trench coat outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Claire: a Japanese-American woman in her late 30s, long straight dark hair, calm dark eyes. A belted beige trench coat over a grey blouse and dark trousers, black ankle boots.
+Panels: 1) a calm, sly smile, hands in her coat pockets; 2) one eyebrow raised, arms folded, a sly look; 3) one hand at her chin, thinking; 4) looking off to the right, disappointed, hands at her sides.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+Claire: a Japanese-American woman in her late 30s, long straight dark hair, calm dark eyes. A belted beige trench coat over a grey blouse and dark trousers, black ankle boots.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `claire_neutral` | a calm, sly smile, hands in her coat pockets | Default; the club car (her laptop and tea are inserts) |
+| `claire_eyebrow` | one eyebrow raised, arms folded, a sly look | "Nobody at the statehouse lies." |
+| `claire_thinking` | one hand at her chin, thinking | Explaining how licenses get decided |
+| `claire_disappointed` | looking off to the right, disappointed, hands at her sides | Beat 4, the fundraiser envelope |
+
 ## Plot role
 
 A statehouse staffer who rides the train every spring for the legislative session, so it's a once-a-year reunion. Knows how gaming licenses really get decided, which helps with Bennett: the state gaming commission grants every casino license, and the alderman gives only the local sign-off (zoning and permits) (Mike, 2026-10-30).

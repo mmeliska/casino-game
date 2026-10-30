@@ -4,6 +4,41 @@
 
 Early 50s, very professional (Mike). A photo of his father on his office desk is a clue in M4. In the motel lot he is only a hand on the wheel and a folded campaign flyer on the dashboard; if you've seen the desk photo, the jaw gives him away (Mike, 2026-10-28).
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** white; hair; the suit colour, tie and shoes; the private outfit.
+
+**Sheet prompt** (16:9, suit outfit):
+
+```
+Full-body character expression sheet: 2 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Bennett: a white man in his early 50s, trim, greying dark hair neatly parted, a strong square jaw, clean-shaven. A well-cut navy suit, a white shirt, a red tie, polished black oxford shoes.
+Panels: 1) a campaign smile, one hand out for a handshake; 2) one hand raised mid-speech, sincere.
+```
+
+**Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
+
+*Suit* (default):
+
+```
+Bennett: a white man in his early 50s, trim, greying dark hair neatly parted, a strong square jaw, clean-shaven. A well-cut navy suit, a white shirt, a red tie, polished black oxford shoes.
+```
+
+*Private*:
+
+```
+Bennett: a white man in his early 50s, trim, greying dark hair neatly parted, a strong square jaw, clean-shaven. No jacket, a white shirt with the sleeves rolled up, a loosened red tie, navy suit trousers, polished black oxford shoes.
+```
+
+| Pose tag | Outfit | Pose line | Used for |
+| --- | --- | --- | --- |
+| `bennett_neutral` | Suit | a campaign smile, one hand out for a handshake | Default, in public |
+| `bennett_speech` | Suit | one hand raised mid-speech, sincere | Lying with speeches; the council hearing |
+| `bennett_private` | Private | unsmiling, tired, jaw set, arms folded | The plain private voice |
+| `bennett_go_to_bed` | Private | hands in his pockets, a flat, cold stare | "Go to bed." (the car window is an insert) |
+
 ## Backstory
 
 The Levee's alderman and ward boss. Genuinely loves the Levee and plays every room for his own gain. Publicly against gambling, but takes bribes from the casino business, which makes him a hypocrite.

@@ -4,6 +4,41 @@
 
 Stocky, a thin, neatly trimmed beard (not a mustache), short sandy-grey hair combed neat, a dark three-piece suit with the vest always buttoned, a gold 25-year rocket pin from Gus's father, reading glasses on his head, a rating card in hand.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** the suit's colour, the tie and the shoes.
+
+**Sheet prompt** (16:9, suit outfit):
+
+```
+Full-body character expression sheet: 3 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Pete: a stocky Lithuanian-American man about 60, a thin, neatly trimmed beard with no moustache, short sandy-grey hair combed neat, reading glasses pushed up on his head. A charcoal three-piece suit with the vest buttoned, a white shirt, a dark tie, a small gold rocket pin on the lapel, a rating card in the breast pocket, polished black shoes.
+Panels: 1) hands clasped behind his back, a flat expression; 2) pulling his glasses down onto his nose with one finger, looking the viewer over; 3) eyes down, jaw set, not answering.
+```
+
+**Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
+
+*Suit* (default):
+
+```
+Pete: a stocky Lithuanian-American man about 60, a thin, neatly trimmed beard with no moustache, short sandy-grey hair combed neat, reading glasses pushed up on his head. A charcoal three-piece suit with the vest buttoned, a white shirt, a dark tie, a small gold rocket pin on the lapel, a rating card in the breast pocket, polished black shoes.
+```
+
+*No pin*:
+
+```
+Pete: a stocky Lithuanian-American man about 60, a thin, neatly trimmed beard with no moustache, short sandy-grey hair combed neat, reading glasses pushed up on his head. A charcoal three-piece suit with the vest buttoned, a white shirt, a dark tie, nothing on the lapel, polished black shoes.
+```
+
+| Pose tag | Outfit | Pose line | Used for |
+| --- | --- | --- | --- |
+| `pete_neutral` | Suit | hands clasped behind his back, a flat expression | Default: "Kid." |
+| `pete_appraising` | Suit | pulling his glasses down onto his nose with one finger, looking the viewer over | Your name scene |
+| `pete_eyes_down` | Suit | eyes down, jaw set, not answering | Lying by not answering; Rosa's name |
+| `pete_pin` | No pin | alone and tired, one open hand held out palm-up, offering | A3.4, the dark pit (the pin is an insert) |
+
 ## Backstory
 
 Lithuanian-American, about 60, the third son of a mill family in the Levee: his grandfather came over for the furnaces and his father kept the same job until they went cold. Pete was supposed to follow. At 19 he walked into the Starflare supper club in his brother's suit, and the founder, Mr. Hamilton, gave him a bus tray and a rule: count everything, say nothing. He has kept it for forty-one years and never worked anywhere else. He learned cards by watching, and when land casinos came and the Flare got its license he was one of the first men Mr. Hamilton handed a shoe. He dealt for years and has run the pit for decades. The only time he ever risked his job was telling Mr. Hamilton the band was being paid too much. At his 25th year, a few months before his own death, Mr. Hamilton gave him the gold rocket pin with a note that said only "You were right about the band." He started exactly where Jalen is now, so he keeps a quiet eye on the kid (audit 1.7, Mike 2026-10-24).

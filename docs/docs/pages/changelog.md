@@ -1,5 +1,13 @@
 ## 30 Oct 2026
 
+### Portrait prompts
+
+Every character with a portrait has a new Portrait prompt section on their page, after their Look, with a Leonardo.ai or Adobe Firefly prompt. A new page, Portrait prompts (under People), has the how-to, a single-pose template, a negative prompt, and Walt, Lorraine and Augie. Each prompt makes an expression sheet in the inked graphic-novel style of the Dot proof of concept, and a table lists the character's poses with the tag scenes use. Every pose comes from a settled scene or tell. Every portrait is full body and standing, facing the viewer or turned to the right, with nothing in the hands (hands carry the expression; held props become inserts), and every prompt describes the character head to toe, with a second outfit where a scene needs one. Details the docs don't settle are proposed and marked on each page. Unsettled looks (ethnicity for several characters, Walt, Lorraine and Augie, Alice) are listed at the end.
+
+### Art style: inked graphic novel
+
+The game's look is now gritty, inked graphic-novel art in the style of the Dot proof of concept, replacing 16-bit pixel art (Mike, 2026-10-30). The GDD's design pillars, art direction and asset table are updated: backgrounds are illustrated in the same style with a palette per district. Portraits are no longer commissioned, for budget reasons: the final game ships AI-generated portraits unless funds later allow commissions. They are generated with Leonardo.ai or Adobe Firefly from the Portrait prompts page, an expression sheet first and then each pose as its own image. Other AI art is still for placeholders and concepts only.
+
 A story-editing pass reviewed 58 suggestions (46 accepted, 12 rejected) and settled most of the open questions. Every character page, the story map, the outcomes, the GDD, the planning tasks and the story data were updated to match. Older pages that are kept as history (the direction document, the 18 Oct review, the notebook, cast planning) keep their text, with "Superseded" notes where it's now wrong.
 
 ### Suggestions folded in

@@ -12,7 +12,7 @@ This page is the build spec: the systems, their data and the rules they enforce.
 - **Every choice is remembered.** Choices nudge hidden scales, NPC standing and flags, and consequences surface much later, often as a surprise.
 - **Fair tables.** Ordinary play always uses real odds. Doubt about a table only ever comes from a story moment.
 - **Built for short sessions.** A hand, spin or roll (5 to 30 seconds) is the unit of play, and the game saves after every one.
-- **Low art burden.** Pixel art, still panels and commissioned portraits; no character animation.
+- **Low art burden.** Inked graphic-novel art, still panels and AI-generated portraits; no character animation.
 
 ## Setting in one paragraph
 
@@ -347,20 +347,20 @@ Game modules never read story state. A story moment that makes a table crooked s
 
 ## Art and audio direction
 
-A 16-bit-style pixel art look keeps the art burden low and suits a Vegas Stakes tribute.
+A gritty, inked graphic-novel look: bold black outlines, heavy shadows, cel shading and muted, desaturated colour with a little warm neon. Still panels keep the art burden low. It replaces the earlier 16-bit pixel-art look (Mike, 2026-10-30). The prompts and pose lists for every portrait are on [Portrait prompts](#portraits).
 
 | Asset | Source |
 | --- | --- |
 | Cards, chips, dice | Drawn in code, or Kenney.nl CC0 packs for prototyping |
 | UI elements | Kenney.nl CC0 packs, restyled |
-| Tables, slot symbols, backgrounds | Made in Aseprite with a fixed palette per district, or itch.io packs |
-| Character portraits | Commissioned pixel-art portraits ($20 to $80 each): about 24 (9 core, 10 supporting, and 5 minor with portrait: Richard, Troy and the Flare regulars Walt, Lorraine and Augie), plus the six romance versions if they get portraits |
+| Tables, slot symbols, backgrounds | Illustrated in the same inked style, with a fixed palette per district |
+| Character portraits | Generated with Leonardo.ai or Adobe Firefly from the [Portrait prompts](#portraits) (Mike, 2026-10-30): an expression sheet per character, then each pose as its own image. About 24 characters, (9 core, 10 supporting, and 5 minor with portrait: Richard, Troy and the Flare regulars Walt, Lorraine and Augie), plus the six romance versions if they get portraits |
 | Story panels | Still poses over backgrounds; a seed's panel is reused as its callback inset |
 | Music and sound | Not yet decided |
 
 - **No character animation.** Characters change by swapping poses; motion is written as text.
 - **Districts read at a glance.** Each has its own key light and palette (on [Northlight](#city)); weather and seasons are cheap overlay layers on reused backgrounds.
-- AI-generated art is for placeholders and concept exploration only.
+- AI-generated portraits ship in the final game, because there's no budget for commissions now (Mike, 2026-10-30). If funds allow later, commissioned portraits can replace them; the pose tags and expression sheets carry over as the brief. For everything else, AI art is still for placeholders and concept exploration only.
 
 ## Monetization and store
 

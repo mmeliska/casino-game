@@ -4,6 +4,43 @@
 
 Mid-20s, long brown hair, well educated and attractive (confirmed by Mike 2026-10-23).
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** white; both outfits.
+
+**Sheet prompt** (16:9, office outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Stella: a white woman in her mid-20s, slim, long straight brown hair, attractive, a sharp, intelligent look. A tailored navy blazer over a cream blouse, slim grey trousers, low black heels, a small silver watch.
+Panels: 1) composed, hands loosely clasped in front of her; 2) counting points off on her fingers, focused; 3) a small fond smile, one hand at her collarbone, looking off to the right; 4) arms crossed tight, looking straight at someone, tense.
+```
+
+**Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
+
+*Office* (default):
+
+```
+Stella: a white woman in her mid-20s, slim, long straight brown hair, attractive, a sharp, intelligent look. A tailored navy blazer over a cream blouse, slim grey trousers, low black heels, a small silver watch.
+```
+
+*Casual*:
+
+```
+Stella: a white woman in her mid-20s, slim, long straight brown hair, attractive, a sharp, intelligent look. A soft grey knit sweater, jeans, white sneakers.
+```
+
+| Pose tag | Outfit | Pose line | Used for |
+| --- | --- | --- | --- |
+| `stella_neutral` | Office | composed, hands loosely clasped in front of her | Default; the Aurelian meetings (the laptop is an insert) |
+| `stella_figures` | Office | counting points off on her fingers, focused | The Flare in figures |
+| `stella_warm` | Office | a small fond smile, one hand at her collarbone, looking off to the right | Her dad, in stories |
+| `stella_how_much` | Office | arms crossed tight, looking straight at someone, tense | A4.2: "Dad. ... How much." |
+| `stella_stop` | Office | one hand raised flat, eyes down, stopping herself | A3.3, the last count: "You don't need the number." |
+| `stella_casual` | Casual | relaxed, hands in her sweater pockets, an easy smile | O6, the picnic-table visits |
+
 ## Backstory
 
 Gus's grown daughter, a finance analyst downtown. She learned to count at the cage: her mother, Alice, ran the drop with Stella on a stool beside the window, and the first numbers she ever said out loud were stacks of twenties called back to her mother (Mike, 2026-10-29). The Flare was where she did homework, had birthdays and learned the band's songs through the office door. She was ten when her grandfather died and twelve when her mother died. She was told her father was doing the books that night; she has never asked, and she decided then that someone in the family should actually do them.

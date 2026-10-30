@@ -4,6 +4,32 @@
 
 A typical Chicago-style cop: white, late 40s, slightly overweight, a big bushy horseshoe mustache, a rumpled sport coat, a loosened tie, a badge clipped to his belt, always a coffee or a Stacker sandwich in hand.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** hair; the coat's colour; the tie, trousers and shoes.
+
+**Sheet prompt** (16:9, sport coat outfit):
+
+```
+Full-body character expression sheet: 3 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Ed: a white vice cop in his late 40s, slightly overweight, thinning brown hair, a big bushy horseshoe moustache. A rumpled brown sport coat, a white shirt with a loosened striped tie, a police badge clipped to his belt, khaki trousers, scuffed brown shoes.
+Panels: 1) hands on his hips, tired, looking at the viewer; 2) eyebrows up, palms half raised, innocent; 3) leaning in, one hand raised, serious and quiet.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+Ed: a white vice cop in his late 40s, slightly overweight, thinning brown hair, a big bushy horseshoe moustache. A rumpled brown sport coat, a white shirt with a loosened striped tie, a police badge clipped to his belt, khaki trousers, scuffed brown shoes.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `ed_neutral` | hands on his hips, tired, looking at the viewer | Default; heat (his coffee and sandwich are inserts) |
+| `ed_playing_dumb` | eyebrows up, palms half raised, innocent | Lying by playing dumber than he is |
+| `ed_straight` | leaning in, one hand raised, serious and quiet | Straight talk at the Lanes or the Tap |
+
 ## Backstory
 
 Honest to the bone, a bit gruff, tired of watching the big fish get away. Works out of the Northlight vice squad at Lock Street Station (Mike, 2026-10-23), next to the old canal lock; "Lock Street" doubles as slang for the lockup.

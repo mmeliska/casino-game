@@ -4,6 +4,33 @@
 
 Early 40s, Mexican-American, dark stubble, a grease-stained work shirt with his name patch, a bowling-alley logo cap, a rag in his back pocket.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** build; the colours of the shirt and cap; the trousers and boots.
+
+**Sheet prompt** (16:9, work outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Juan: a Mexican-American man in his early 40s, solid build, dark stubble. A grey grease-stained work shirt with a name patch, a navy cap with a bowling-pin logo, dark work trousers with a rag hanging from the back pocket, black work boots.
+Panels: 1) thumbs hooked in his pockets, an easy, friendly grin; 2) arms crossed, a flat, indifferent look; 3) a shrug, palms up, a blank face; 4) leaning back, one boot raised behind him, hands in pockets, quiet, looking off to the right.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+Juan: a Mexican-American man in his early 40s, solid build, dark stubble. A grey grease-stained work shirt with a name patch, a navy cap with a bowling-pin logo, dark work trousers with a rag hanging from the back pocket, black work boots.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `juan_neutral` | thumbs hooked in his pockets, an easy, friendly grin | With league bowlers |
+| `juan_flat` | arms crossed, a flat, indifferent look | With casuals |
+| `juan_shrug` | a shrug, palms up, a blank face | "Couldn't tell you." |
+| `juan_back_lot` | leaning back, one boot raised behind him, hands in pockets, quiet, looking off to the right | The mirror line, after the last frame |
+
 ## Backstory
 
 Started as a teenager clearing jammed pins and learned the machines from the old mechanic, so he's been there about 25 years. About ten years ago the old owner, ready to retire, sold him the alley on a handshake payment plan, and the dice in the back lot after the last frame paid for it (Mike, 2026-10-30). The late game still keeps the ancient pinsetters running. He owns the place and still does his own repairs.

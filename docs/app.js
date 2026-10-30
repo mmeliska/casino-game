@@ -194,6 +194,10 @@ ${part("pages/walkons","walk","cast")}
 ${planRec([6],"cast")}
 </div>`;
 
+P.portraits=()=>`<div class="page wide"><p class="eyebrow">People · art</p><h1>Portrait prompts</h1>
+<p class="lede">A prompt for an AI image generator for every character with a portrait: an expression sheet, plus each pose's tag for scene scripts. Looks come from the character pages; anything unsettled is listed at the end.</p>
+${part("pages/portraits","pp","portraits")}</div>`;
+
 function charPage(c){
   const ties=E.filter(e=>e[0]===c.id||e[1]===c.id).map(e=>{const o=e[0]===c.id?e[1]:e[0];return `<li><span class="chip" style="pointer-events:none"><span class="sw" style="background:${ETYPE[e[2]].col}"></span>${ETYPE[e[2]].label}</span> <a href="#${o}">${BY[o].name}</a>: ${esc(e[3])}</li>`}).join("");
   return `<div class="page"><p class="eyebrow" style="color:${GCOL[c.group]}">${c.tier} · ${GROUPS[c.group]}</p>
@@ -304,7 +308,7 @@ P.rules=()=>`<div class="page"><p class="eyebrow">Systems</p><h1>Rules and syste
 ${[["Lane shift","juan","Afternoon","$50","A league regular is short on fees"],["Bar-back","kasia","Night","$60 cash","A drunk regular drops a fat wallet"],["Wedding shift (once)","kasia","Night","$80 + tips","Server or busser; the dance offers"],["Motel rooms","dot","Morning","A night off rent","Something left behind in room 9"],["Valet","pete","Night","$80 + tips","A guest wants their car \"lost\" for an hour"],["Drive Vivian","vivian","Day","$150","Keep quiet about the jeweler (settled)"],["Envelope run","ray","1 hour","$200","The envelope is light, or Ed is watching"],["Count the bets","mitch","A few days","A cut","A bettor is short"]].map(r=>`<tr><td>${r[0]}</td><td>${who([r[1]])}</td><td>${r[2]}</td><td class="num">${r[3]}</td><td>${r[4]}</td></tr>`).join("")}
 </tbody></table></div>
 <h2>Art and writing</h2><ul>
-<li>16-bit pixel art; commissioned portraits ($20 to $80 each), AI art only as placeholders. About 19 portraits (9 core, 10 supporting).</li>
+<li>Inked graphic-novel art. Portraits are AI-generated with Leonardo.ai or Adobe Firefly; other AI art is only for placeholders and concepts. About 24 portraits (9 core, 10 supporting, 5 minor), plus the romance versions. Prompts and poses are on <a href="#portraits">Portrait prompts</a>.</li>
 <li>No character animation. Characters change by swapping poses; motion is written as text.</li>
 <li>First names only; a surname only when a story needs one. Check every name against real places, people and other IP. Looks that reference other IP are artist notes only.</li>
 <li>No religion anywhere. Say plainly "took a bribe". Register: Great Lakes understatement; slang is rare.</li>

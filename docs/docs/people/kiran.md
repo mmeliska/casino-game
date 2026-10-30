@@ -4,6 +4,47 @@
 
 The Prairie Queen's old-time riverboat uniform (striped vest, sleeve garters, a bow tie always a little crooked), neat black hair, a wedding ring he turns when nervous (text only), a photo of his daughter tucked by his chip tray.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** clean-shaven; the vest's colours; the plain clothes.
+
+**Sheet prompt** (16:9, uniform outfit):
+
+```
+Full-body character expression sheet: 2 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Kiran: an Indian-American man in his early 30s, slim, neat black hair, clean-shaven, a gold wedding ring. An old-time riverboat dealer's uniform: a white shirt, a red-and-cream striped vest, black sleeve garters, a black bow tie a little crooked, black trousers, polished black shoes.
+Panels: 1) leaning forward, a big friendly smile, hands open mid-joke; 2) upright, unsmiling, eyes down, hands flat at his sides.
+```
+
+**Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
+
+*Uniform* (default):
+
+```
+Kiran: an Indian-American man in his early 30s, slim, neat black hair, clean-shaven, a gold wedding ring. An old-time riverboat dealer's uniform: a white shirt, a red-and-cream striped vest, black sleeve garters, a black bow tie a little crooked, black trousers, polished black shoes.
+```
+
+*No bow tie*:
+
+```
+Kiran: an Indian-American man in his early 30s, slim, neat black hair, clean-shaven, a gold wedding ring. A white shirt with the collar open and no bow tie, a red-and-cream striped vest, black sleeve garters, black trousers, polished black shoes.
+```
+
+*Plain clothes*:
+
+```
+Kiran: an Indian-American man in his early 30s, slim, neat black hair, clean-shaven, a gold wedding ring. A plain dark jacket over a grey T-shirt, jeans, worn sneakers.
+```
+
+| Pose tag | Outfit | Pose line | Used for |
+| --- | --- | --- | --- |
+| `kiran_smile_lean` | Uniform | leaning forward, a big friendly smile, hands open mid-joke | Default: "Welcome aboard!" |
+| `kiran_upright_eyes_down` | Uniform | upright, unsmiling, eyes down, hands flat at his sides | His tell: he goes quiet on a fixed hand |
+| `kiran_at_rail_no_bow_tie` | No bow tie | tired, shoulders down, hands in his pockets | Confronted on deck |
+| `kiran_looks_away` | Plain clothes | turned to the right, looking off into the distance, saying nothing | Called out: at the landing |
+
 ## Backstory
 
 An Indian-American man in his early 30s who grew up in the Levee. A young dad who co-signed a loan for his wife's brother. The brother stopped paying and left town; nobody knows where, and Kiran has stopped looking. The whole debt fell on Kiran, and with the default on his record no bank would help, so he borrowed from Ray to pay it off, and the interest buried him. None of it was his fault; he lives with all of the consequences. His wife feels responsible, and he never blames her. The brother-in-law and the wife stay offstage, with no portraits and no ties to the cast (Mike, 2026-10-29).

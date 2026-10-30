@@ -4,6 +4,34 @@
 
 Early 30s (about 32), a hoodie, expensive sneakers, a plain watch that costs more than Ray's car, always on a phone or tablet. When she shows up in person it unsettles everyone.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+Seen once, at A4.5, so three poses.
+
+**Proposed, not settled:** white; build; hair; eyes; jeans; the hoodie's colour.
+
+**Sheet prompt** (16:9, hoodie outfit):
+
+```
+Full-body character expression sheet: 3 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Wren: a white woman about 32, slight, straight dark hair in a low ponytail, pale, calm grey eyes. A plain black hoodie, black jeans, expensive white designer sneakers, a plain minimalist watch.
+Panels: 1) hands in her hoodie pocket, calm, unreadable; 2) arms folded, head tilted slightly, a level, decided stare; 3) leaning slightly forward, hands loosely together, intent, uncertain for once.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+Wren: a white woman about 32, slight, straight dark hair in a low ponytail, pale, calm grey eyes. A plain black hoodie, black jeans, expensive white designer sneakers, a plain minimalist watch.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `wren_neutral` | hands in her hoodie pocket, calm, unreadable | The office, A4.5 (the tablet is an insert) |
+| `wren_eyes_up` | arms folded, head tilted slightly, a level, decided stare | Her tell: she's already decided |
+| `wren_question` | leaning slightly forward, hands loosely together, intent, uncertain for once | "Did you read it?" |
+
 ## Backstory
 
 A tech genius and the old Umbra boss's granddaughter, whom nobody took seriously; the family expected a grandson or one of the uncles to inherit. She grew up in a Silvershore house that Umbra money had bought, at a breakfast table where her grandfather's sons talked and she listened. She understood the books at twelve and nobody asked her. The lesson she took: being right is nothing, being seen to be right is everything, and the only way to be seen is to see first (Mike, 2026-10-28).

@@ -5,6 +5,60 @@
 - **Miles:** Black, mid-30s, close-cropped hair and a trim beard, a vintage tux jacket with a loosened bow tie, his grandfather's old wristwatch, an easy smile; hums while he plays.
 - **Audrey (Mike):** Early 30s, purple hair in pinned-up curls, round glasses, an emerald vintage-style dress, dry wit.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+### Miles
+
+**Proposed, not settled:** build; the shirt, trousers and shoes.
+
+**Sheet prompt** (16:9, stage outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Miles: a Black man in his mid-30s, lean, close-cropped hair and a trim beard, an easy smile. A vintage black tuxedo jacket with satin lapels over a white shirt, a loosened black bow tie, black trousers, black patent shoes, an old gold wristwatch.
+Panels: 1) an easy smile, hands in his pockets; 2) eyes half closed, humming, one hand keeping time in the air; 3) serious, arms folded, asking a question; 4) a small nod, a half-smile.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+Miles: a Black man in his mid-30s, lean, close-cropped hair and a trim beard, an easy smile. A vintage black tuxedo jacket with satin lapels over a white shirt, a loosened black bow tie, black trousers, black patent shoes, an old gold wristwatch.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `miles_neutral` | an easy smile, hands in his pockets | Default, the lounge (the piano is part of the plate) |
+| `miles_humming` | eyes half closed, humming, one hand keeping time in the air | Humming between sentences |
+| `miles_the_test` | serious, arms folded, asking a question | Beat 4, the last night |
+| `miles_nod` | a small nod, a half-smile | Ended: across the room at the Aurelian |
+
+### Audrey
+
+**Proposed, not settled:** white; the glasses' frames; lipstick; the dress length and shoes.
+
+**Sheet prompt** (16:9, stage outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Audrey: a white woman in her early 30s, purple hair in pinned-up vintage curls, round tortoiseshell glasses, red lipstick. An emerald vintage-style tea-length dress, black T-strap heels.
+Panels: 1) a wry smile, hands clasped behind her back; 2) eyes half closed, humming, one hand keeping time in the air; 3) serious, arms folded, asking a question; 4) a small nod, a half-smile.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+Audrey: a white woman in her early 30s, purple hair in pinned-up vintage curls, round tortoiseshell glasses, red lipstick. An emerald vintage-style tea-length dress, black T-strap heels.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `audrey_neutral` | a wry smile, hands clasped behind her back | Default, the lounge |
+| `audrey_humming` | eyes half closed, humming, one hand keeping time in the air | Humming between sentences |
+| `audrey_the_test` | serious, arms folded, asking a question | Beat 4, the last night |
+| `audrey_nod` | a small nod, a half-smile | Ended: across the room at the Aurelian |
+
 ## Plot role
 
 Plays the lounge nightly, knows every regular's song and overhears everything. Loves the Flare; the piano was Gus's late wife Alice's pick, and it gets covered as the Flare declines (Mike, 2026-10-27). Can play the new Starflare's showroom once you own a floor. Table event (proposal): the song request.

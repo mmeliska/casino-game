@@ -4,6 +4,34 @@
 
 Grey hair, a headband, an open Hawaiian-style shirt over a white T-shirt, jeans rolled at the ankles, white socks and gym shoes.
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** white; sturdy build; the shirt's colours (taken from the proof of concept).
+
+**Sheet prompt** (16:9, shirt outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Dot: a white woman in her early 60s, sturdy, short grey hair with a cloth headband, a warm, lined face. An open, loud teal Hawaiian-style shirt with big cream flowers over a white T-shirt, light-blue jeans rolled at the ankles, white socks, white gym shoes. No jewellery.
+Panels: 1) hands clasped together in front of her, a warm welcoming smile; 2) leaning forward, one hand raised, voice lowered, concerned; 3) arms folded, unreadable, watching; 4) laughing mid-story, both hands up.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+Dot: a white woman in her early 60s, sturdy, short grey hair with a cloth headband, a warm, lined face. An open, loud teal Hawaiian-style shirt with big cream flowers over a white T-shirt, light-blue jeans rolled at the ankles, white socks, white gym shoes. No jewellery.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `dot_neutral` | hands clasped together in front of her, a warm welcoming smile | Default; check-in |
+| `dot_warning` | leaning forward, one hand raised, voice lowered, concerned | Her warnings: "I'd stay on this side of the river tonight, hon." |
+| `dot_doorway` | arms folded, unreadable, watching | A4.1: watching from the office door |
+| `dot_story` | laughing mid-story, both hands up | Her stories (the flood) |
+| `dot_two_ten` | standing very straight, arms at her sides, steady, unsmiling | A4.2: "Two ten." |
+
 ## Backstory
 
 Owns the Slack Water Motel and works the desk herself. Early 60s, a few years older than Gus; sympathetic and in the know (Mike, 2026-10-29). She and her younger sister, Alice, grew up in a Backwater two-flat. Their father ran the hoist at the Backwater grain elevator and bowled Tuesdays at the alley that became Millstone Lanes; their mother taught both girls to cook, the two of them standing on chairs to reach the counter. Her recipe box went to Alice at the wedding. Dot was the older one, the practical one, the one who stayed; Alice was the one who went over the water and married Gus, so Dot is Gus's sister-in-law and Stella's aunt. Dot bought the Slack Water with the settlement after the elevator accident that killed their father, and runs it the way he ran his crew: everyone fed, everyone's business their own (Mike 2026-10-28).

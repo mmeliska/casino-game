@@ -4,6 +4,33 @@
 
 Early 60s, a sleek silver bob, pearls, a camel coat, dark sunglasses indoors. The pearls are copies: the real ones went first (Mike, 2026-10-28).
 
+## Portrait prompt
+
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+
+**Proposed, not settled:** the turtleneck, trousers and heels.
+
+**Sheet prompt** (16:9, coat outfit):
+
+```
+Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Vivian: a Black woman in her early 60s, slender and upright, a sleek silver bob, dark sunglasses worn indoors, a long strand of pearls. A camel wool coat over a black turtleneck, black tailored trousers, low black heels.
+Panels: 1) one hand resting at her collar, a faint amused smile; 2) one hand closed in a fist around her pearls, face composed; 3) sunglasses pushed up on her head, looking straight at the viewer, serious, one hand gesturing to sit; 4) coat collar turned up, hands in her coat pockets, gazing off to the right.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+Vivian: a Black woman in her early 60s, slender and upright, a sleek silver bob, dark sunglasses worn indoors, a long strand of pearls. A camel wool coat over a black turtleneck, black tailored trousers, low black heels.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `vivian_neutral` | one hand resting at her collar, a faint amused smile | Default |
+| `vivian_pearls_fist` | one hand closed in a fist around her pearls, face composed | Her tell: the one thing about her that tells the truth |
+| `vivian_sunglasses_up` | sunglasses pushed up on her head, looking straight at the viewer, serious, one hand gesturing to sit | A5.1: "Nobody's asked me that. Sit down." |
+| `vivian_yacht` | coat collar turned up, hands in her coat pockets, gazing off to the right | The yacht |
+
 ## Backstory
 
 Black old money, three generations old. Her grandfather founded the family's insurance company: as a young man he wrote policies for the furnace men and dock crews the lakefront firms wouldn't touch, collected door to door in Backwater and the Levee, and paid out when the others found reasons not to. By the time Vivian was a girl the company owned half of Silvershore and the parcel at the line. He took his granddaughter, not his sons, to the card games at his club, because she could sit still and count (Mike, 2026-10-28).
