@@ -6,11 +6,37 @@ Early 40s, hair pinned up with a pencil, her old dealer's vest with the casino p
 
 ## Backstory
 
-Puerto Rican; her parents came up for factory work and she grew up in the Levee. Blacklisted from dealing. She really was guilty, but for a good reason: Gus, drunk, lost the staff payroll at her table, so she dealt him back to even. Cameras caught it and she took the fall without saying why (M1). The commission only ever saw the overhead dealer camera: Rosa's hands and the chip flow, no faces. Gus kept the only wide-angle tape, which shows him in the seat (audit 3.7). The commission's penalty for that night ordered new cameras at the Flare, which opened the door to Wren's deal (M4). The torn patch is from the Starflare. She was never a Flare regular and won't step inside it.
+Puerto Rican. Her mother ran a sewing machine at the uniform plant on the Levee's south end and her father fed a furnace; both came up from Ponce in the last decade the mills were hiring. She grew up two streets from the Stacks and learned cards from the men on her father's stoop, who played for cigarettes and taught her that a cheat's hands are quieter than an honest man's. She could deal a clean game at twelve and spot a dirty one at fourteen (S-022, Mike 2026-10-28).
+
+The Flare hired her at twenty-two, already fading, because Pete watched her shuffle at a dealer-school audition and said nothing, which from Pete is a recommendation. She dealt blackjack on its floor for fifteen years and organized the dealers' local in its break room. Then payroll night, about six years before the game: Gus, drunk, sat down at her table with the staff's money and started losing it, so she dealt him back to even. It took forty minutes. Pete was at the pit and didn't look up. The commission only ever saw the overhead dealer camera: Rosa's hands and a strange run of cards, no faces. She said nothing, because saying something meant saying his name, and she was blacklisted. She really was guilty, but for a good reason (M1). Gus kept the only wide-angle tape, which shows him in the seat (audit 3.7). The commission's penalty for that night ordered new cameras at the Flare, which opened the door to Wren's deal (M4).
+
+She tore the Starflare patch off the vest the day the letter came and kept wearing the vest: she won't throw away what she's lost, and she won't pretend it's still hers. She was never a Flare regular, and she won't step inside it now. She deals Kasia's back room for cash, and the union pays her dues. She stands at the Prairie Queen landing because the river is the closest she'll get to a licensed floor. She has not seen Gus since. She doesn't hate him; she has put him where she puts everything she can't fix, behind the rules.
 
 ## Role
 
-Teaches the player the rules of the games and sharpens their read of tells, never giving certainty. You meet her dealing Kasia's back room, where she quietly warns you off a hand or flags a cheat. Tied to the dealers' union.
+Teaches the player the rules of the games and sharpens their read of tells, never giving certainty. You meet her dealing Kasia's back room, where she quietly warns you off a hand or flags a cheat. Tied to the dealers' union. If you skip out on Kasia's book, Rosa still deals you but stops warning you off hands (S-026). If Kasia takes Umbra's protection, Rosa stops dealing there (S-024).
+
+She wants to deal again, licensed, where people can see her hands. What she needs is to stop paying for Gus: his silence has become her rule, and the rule is a cell with the door open.
+
+## Lessons
+
+Her lessons are her confession (S-023, Mike 2026-10-28). Five lessons, one per act or trust step, dialogue only, with no hints in the results strip. Each is a true rule and a true memory of payroll night:
+
+| # | The lesson | What it teaches you to look for | What it really is |
+| --- | --- | --- | --- |
+| 1 | "Watch his hands, not his face. Faces are for amateurs." | Dealer tells on a flagged table | The overhead camera: hands, no faces |
+| 2 | "A drunk bets the same whether he's winning or losing. That's how you know." | Opponent tilt in poker | Gus at her table, betting the payroll flat |
+| 3 | "A run of cards isn't luck. Count how many hands it took." | The results strip's pattern, only on a table a story moment has flagged | Forty minutes to deal him back to even |
+| 4 | "The dealer who's helping you is the one who stops talking." | Kiran's quiet hand (M3) and any dealer a story moment has flagged | Herself, that night |
+| 5 | "When the pit comes over, look at who doesn't look up." | Who at a table knows something | Pete, at the pit, who didn't look up |
+
+After M1 is solved, each lesson gets a one-line callback in the past tense the next time it fires, rare and optional: "It took forty minutes."
+
+## Story
+
+- **The hearing** (A5.7): if she is one of your witnesses, she speaks for you and not about herself. If you take the concealment onto your own record ("Take it"), she doesn't know the camera story, but she knows what taking a cost for Gus looks like, and her pose swaps once. Her "never mentions the Starflare" rule holds all game.
+- **The door:** on opening night (O1, O2) or the first night of a floor you run (O3, O4), she stops at the door, one finger on the frame, the same gesture as on the felt. Then she walks in. Gus, at the first table, says "Rosa." Nothing else. In O2 Pete says it. No speech; the finger on the frame is the line (S-021, Mike 2026-10-28).
+- **Badly:** if you ride a crooked table she flagged, or push her into the Flare before her license, she stops teaching. Every later scene is rules only, no reads. Her payoff still fires through M1, but she never walks onto your floor: she deals at the Harborlight, and one night the dealer at your table is her, and she doesn't look up.
 
 ## Voice
 
@@ -20,15 +46,15 @@ Precise, quiet, teacherly; rules and odds; never mentions the Starflare. Lies by
 
 | Rhythm | Says / never says | Lies by | Sample line |
 | --- | --- | --- | --- |
-| Precise, quiet, teacherly | Rules and odds; never mentions the Starflare | Telling the truth about the wrong thing | "Watch his hands, not his face. Faces are for amateurs." |
+| Precise, quiet, teacherly | Rules and odds; never mentions the Starflare | Telling the truth about the wrong thing | "Watch his hands, not his face. Faces are for amateurs." / About Pete: "Is he still wearing the vest buttoned. Good." (Mike, 2026-10-28) / On Kiran, if you called him out: "Watch the hand that isn't busy. His aren't, anymore." (Mike, 2026-10-29) |
 
 ## Payoff
 
-Her license, won back in any ending by solving M1. If you run a floor (O1, O2, O3, O4) she manages all casino staff; otherwise she deals at the Harborlight.
+Her license, won back in any ending by solving M1. Any act 4 leverage route can trade for Gus's tape as part of its deal; the romance pair (Miles/Audrey) is only the easiest way (Mike, 2026-10-27, OQ 34). If you run a floor (O1, O2, O3, O4) she manages all casino staff; otherwise she deals at the Harborlight.
 
 ## Related
 
-Gus (she covered for him), Pete (goes quiet at her name), Kasia, Bennett (holds the tape after the fall), Vivian (her lawyer can pull the commission file), Kiran (she may flag his table).
+Gus (she covered for him), Pete (got her hired; goes quiet at her name), Kasia, Bennett (holds the tape after the fall), Vivian (her lawyer can pull the commission file), Kiran (she may flag his table).
 
 ## Planning record
 

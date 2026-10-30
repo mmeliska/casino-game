@@ -12,13 +12,36 @@ Honest to the bone, a bit gruff, tired of watching the big fish get away. Works 
 
 The face of the heat system. Illegal games raise heat: low means they're around and know you, medium means warnings and sweeps that shut a game for the night, high means a raid (lose the table money, pay a fine or spend a night in lockup, and the venue goes quiet). He doesn't care about your dice game; he wants Wren for illegal surveillance and blackmail and leans on you to become an informant. He once gave Bennett the Umbra link behind the Flare's cameras in good faith, and Bennett used it for himself. His squad runs on the city's Revaris plate readers ("Safe Streets"), so Wren sees whatever Ed's people look up; he knows it and hates it (Mike, 2026-10-26).
 
+Want: Wren in a courtroom. Need: to admit that the city he polices is already hers, and that his badge is one of her cameras (Mike, 2026-10-29).
+
+**The lookup** (Mike, 2026-10-29). Any time he has reason to check you (a raid, the informant path, a tip about Raffy), he can run your plate. The game shows it once as an insert: a terminal at Lock Street, your plate, a list of where your car has been. Everything on it is true. The readers feed Revaris whether or not he looks, but what his squad looks up tells Wren who the police are interested in: her file on you (S10) gains a line saying the vice squad pulled your plate, and why. Before M2 is solved, nothing on the insert or in his mouth names Wren or ties the readers to Umbra; he says "the company."
+
+**The one he deletes** (Mike, 2026-10-29). If you've helped him once and asked nothing back (handed him Raffy's drive, got Kiran clear, or warned him about Bennett), he tells you at Millstone Lanes that he pulled your plate once, that he won't again, and that he logged that lookup under a case number that isn't yours, which he's not supposed to do. From then on his squad never adds to her file on you, and the file loses its police line. It's the only time the game gives the player privacy as a reward, and the only time Ed breaks a rule. The readers still see you; he only controls what his squad looks up.
+
+**Where he talks straight** (Mike, 2026-10-27, 2026-10-30). His honest conversations, the informant path included, happen inside Millstone Lanes or Kasia's Tap, which refuse cameras. Everywhere else his own squad's readers could pull the tape.
+
+**The informant path.** Your tips go into a system Wren reads, and he knows it. He uses you as bait as much as a source, and if you ask him straight he says so; here, for once, he plays smart (Mike, 2026-10-29).
+
+**What reaches him.** From act 2 on, Raffy's drive, opened or not (never at A1.5; Mike, 2026-10-29); the Aurelian footage (A4.3); the skim (A4.7); Richard's box (A4.4). He trusts you more if you never scanned in for a players' card (S10). If you were his informant he can speak for you at the license hearing (A5.7).
+
+**The Ed route** (Mike, 2026-10-28, 2026-10-30). The clean way to expose Umbra at A4.3: you hand him the drive or the Aurelian footage. The drive, even locked, is probable cause: Revaris-serialized hardware from a collector's car, with Raffy's statement. He can't serve a subpoena on Revaris through his own squad, whose readers are Wren's, so he goes around his department to the commission or the state. Revaris must show what its system does with the ledger's IDs: nothing, citywide. The encryption works for him; Wren can produce the real key or refuse, and refusing is its own answer. His case proves Revaris is Umbra's front and that Wren forced the camera deal and the sale with the footage. A sale obtained by blackmail is undone, and the name goes back to Gus; the District keeps the site. It only works if Gus testifies that he was blackmailed, admitting in public that he gambled and signed knowing who she was, so it needs his A4.1 confession and his trust. It's slow and loud, so the Field timer matters more, and Umbra and its payers go down together, some of whom didn't deserve it. If his case names Bennett, Bennett loses the mayor's race. While the case builds, Wren may move first: Revaris hands the name back to Gus publicly and blames Ray, and you choose whether to push Ed's case or take her deal. If you gave the drive back to Ray, there is no Ed case from it.
+
 ## Lowering heat
 
 It cools one step for each week you play only licensed venues; Vivian's lawyer clears a raid for a fee; or a tip to Ed drops it at once but starts the informant path, and Umbra may notice.
 
 ## Voice
 
-Gruff, tired, cop shorthand; names and favours; never threatens directly. Lies by playing dumber than he is. *"I don't care about your dice. I care who you owe."*
+Gruff, tired, cop shorthand; names and favours; never threatens directly. Lies by playing dumber than he is. *"I don't care about your dice. I care who you owe."* Before M2 is solved he never says Wren's name and calls her "the company"; the lines that put her behind the readers fire only after M2 (Mike, 2026-10-29).
+
+Sample lines:
+- "Every plate I run, she reads. I run them anyway. That's the job now." (Mike, 2026-10-29)
+- "I gave Bennett a name once because I thought he was a decent man. I'm not making that mistake with you. I don't think you're decent. I think you're useful." (Mike, 2026-10-29)
+- (At the Lanes) "This conversation isn't happening. Not because it's secret. Because there's no camera to prove it did." (Mike, 2026-10-29)
+- (The deleted lookup) "The readers still see you. I can't fix that. But nobody on my floor is looking for you anymore. Don't tell Wren. She'll know anyway." Before M2: "Don't tell the company. They'll know anyway." (Mike, 2026-10-29)
+- (The informant path, asked straight) "You tip me, she sees the tip. She wonders who. That's the point." (Mike, 2026-10-29)
+- (Why the Lanes, once) "My own squad's readers. I don't talk business where my boss can pull the tape." (Mike, 2026-10-27)
+- (About the rival, if you have heat) "Your friend's clean. I checked." (Mike, 2026-10-28)
 
 ### Voice sheet (settled 2026-10-18; write every line of dialogue to this)
 
@@ -28,7 +51,7 @@ Gruff, tired, cop shorthand; names and favours; never threatens directly. Lies b
 
 ## Related
 
-Wren, Ray (keeps a file on him), Juan (leaves him alone), Kiran, Raffy, Vivian.
+Wren, Ray (keeps a file on him), Juan (leaves him alone), Kiran, Raffy, Vivian, Bennett (the Umbra link he gave away).
 
 ## Planning record
 
