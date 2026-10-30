@@ -1,4 +1,4 @@
-*Supporting (story) · Backwater · room 9 at the Slack Water Motel*
+*Minor, with portrait (story) · Backwater · room 9 at the Slack Water Motel*
 
 ## Look
 
