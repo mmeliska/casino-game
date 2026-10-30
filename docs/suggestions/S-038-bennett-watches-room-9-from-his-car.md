@@ -40,3 +40,4 @@ Umbra also watches the door in person; make sure the player can tell a campaign 
 - Mike, 2026-10-28: accepted. Bennett "never visits" now means "never visits the room."
 - Mike, 2026-10-27: keep both parked-car scenes (this and Ray's hour in S-045). The rhyme stays.
 - 2026-10-29: Ray's half of the rhyme is now seed S11 (his car on the Long Bridge), not a Flare-lot plate (S-045).
+- Mike, 2026-10-30: follow-up. Backwater street readers log his plate on the way to the lot, so Wren knows Richard is his father and keeps it to herself (bible 4.1.8).

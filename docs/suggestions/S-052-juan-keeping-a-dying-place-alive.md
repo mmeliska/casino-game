@@ -39,3 +39,4 @@ Nearly free. Keep Juan's line to one; he is "indifferent to everyone else" and s
 
 ## Decision notes
 - Mike, 2026-10-29: accepted with a change: cut "Don't tell him I said so", which implied Juan knows Gus personally.
+- Mike, 2026-10-30: follow-up. Juan owns Millstone Lanes, bought on a handshake about ten years ago (bible 4.1.8).
