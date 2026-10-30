@@ -52,6 +52,6 @@ If you approve this, these are the edits to Planning Tasks, the Story Map, North
 | Dot's stories | Four stories, including the suitcase at dawn (tied to the founder's back room and lost bet) and the man in room 9 | **Settled (Mike):** the suitcase story is dropped and folded into room 9. A quiet man has lived there the last couple of years, the bill comes in an envelope, she doesn't know his story, and he never takes off the key on a lanyard around his neck. Her stories become the flood, room 9 and the shirt. |
 | Cinder Room | Has "the founder's old one-armed bandits" | Simply old one-armed bandits |
 | Story Map, act 4 "Leverage" | Old Levee bank, room 9 | Unchanged, plus the Ed option |
-| Inventory (task 13) | "A room 9 key" | Unchanged: the deposit box key from Gus |
+| Inventory (task 13) | "A room 9 key" | Cut (Mike, 2026-10-30): Richard keeps the key all game; it is never in your Pockets |
 
 **Still open:** nothing. The "taught Bennett" line is settled (`suggestions/S-041`, Mike, 2026-10-28), and so is Ed's part. The Ed option is in, the picnic table and War are settled (Mike, 2026-10-22).

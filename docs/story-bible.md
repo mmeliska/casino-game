@@ -1646,6 +1646,7 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **Venue access** (Mike, 2026-10-30): Blackspruce Lodge needs Ray's winter invitation (once you're a Cinder Room regular) and a best bankroll of about $25,000; the yacht games need Vivian's invitation (after A3.6) and about $100,000. Both floors are starting values to tune, and neither belongs on the $250,000 row. The Gilded Pine is open in every season, not just summer (winter pines make good scenery); Vivian can be met there any time at $25,000, which supersedes "(summer)" on the money table, A3.6, X2 and the excursion list. The Aurelian, lobby included, opens at $10,000 in act 2, so Felix/Nora are first met in act 2. Once the player is in the Cinder Room they stay in for good, even if Ray cuts them off; every visit raises heat, with its consequences.
 - **Small settlements** (Mike, 2026-10-30): Ray is first on screen at A1.5, asking about "the envelope"; Bennett is on posters and bar TVs from act 2 and first in person at A2.6 (OQ 17). The Aurelian meeting is one meeting seen twice: the filing lawyer is Revaris's lawyer, glimpsed with Bennett the week the purchase goes through (M2 clue, act 2), and the same meeting is on the Aurelian's archive footage that Felix/Nora get in act 4 (A4.3 proof) (OQ 46). Gus's lucky chip is a last-night keepsake: at A3.3 he presses one of the Flare's own chips into the player's hand; it can't be cashed after the closing, and Troy buys it for almost nothing (OQ 39). Troy stays a functional NPC with a portrait and no story, on purpose, counted as minor with portrait alongside Richard and the three regulars (OQ 41). "Hamilton" is only for the founder; Gus and Stella have no surname in the game (OQ 51). A3.9 is a one-panel notebook beat, "Revaris is Umbra," written as M2 is solved, and act 4 opens (OQ 54).
 - **Follow-ups from the character-page update** (Mike, 2026-10-30): Juan's "Lane six is running dry tonight" stays: it's bowling talk for a lane with little oil, a deliberate exception to the no-"dry" rule, and he never uses the word about Backwater. Wren's early offer needs the drive in Ed's case (she blames Ray for it); a footage-only case goes straight to Gus's testimony with no early offer. The Revaris install at the Aurelian (S13) comes before the week the Flare's sale goes through, so the one meeting is on her own cameras at her showcase; the chain's separate archive is the copy she can't erase. That puts S13's pitch before A2.2: if the player can't reach the Aurelian in time, Tae installs it with no chance to warn him. Richard is "Minor, with portrait." If Ed's case exposes Umbra but never names Bennett, he still wins the race. Alice died about thirteen years before the game (3.1). Troy's buy-back price is what he paid plus his cut, so S-031's $200 is only an example.
+- **Leftovers from the doc update** (Mike, 2026-10-30): the A4.3 silence trade and the ruthless name purchase are made through Wren's lawyer (Revaris's filing lawyer); her face still appears only at A4.5. At A3.4 Pete asks you to tell Gus he's leaving: tell Gus yourself, make Pete do it, or push him to stay (he can't, because of Tomas's bills); he goes either way. The room 9 key is never in the player's Pockets; Richard keeps it. Staking stays as a broke-path job, but as a contract, not a rescue: a backer fronts your bankroll for a big cut, and you owe them. At the A1.4 wedding, for Prefer not to answer, both attendants ask at once and you pick one or neither. O8 keeps both ways in: handing Wren the drive at A4.5, or deep debt to Ray plus a crooked lean. The spaceman is a flag, never carried. A3.7 is at Bridgehead and the Slack Water Motel. Raffy is dropped from Mitch's related list. Revaris is the District's biggest investor on paper.
 - **Motel scenes reviewed** (Mike, 2026-10-29): a motel is an odd place for most encounters, but these stay at the Slack Water: Richard's War games, Gus's A4.1 confession at the picnic table, the A4.2 Dot–Gus reunion in the lot, and the O6 visits. Don't add new motel scenes without a reason tied to Dot or Richard.
 - **No deck from Richard** (Mike, 2026-10-29): Richard doesn't give the player his deck of cards, and he has no item in the story-key row (`suggestions/S-009`).
 - **Ray's history** (`suggestions/S-045`, 2026-10-29): a Levee kid who ran errands for the Cinder Room under the old Umbra boss and stayed twenty years; has worked for Wren two years. He kept the old ledger drive on purpose, as insurance, and still has its key written down. The hour in his car after Gus signs is backstory, not a plate.
@@ -1937,10 +1938,14 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - "Considered and set aside ... Last Week of the Starlight". The name Starlight was replaced by Starflare (`plan/t03.md`).
 - Whether this page is meant as historical or live is not marked on the page.
 
+- **Fixed in the doc update (2026-10-30):** `pages/direction.md` is marked as the original direction document, kept as history, with its stale lines marked.
+
 **OQ 3. `plan/t09.md` JSON example is stale (audit 1.6).**
 - `"id": "trucker_saves_fin"`, `"scene": "ink:seeds.trucker_saves_fin"`, `"effects": { "inventory_add": "rocket_fin", ... }`.
 - The audit: "The fin is gone. The lucky object is now the spaceman." `pages/gdd.md` uses `trucker_saves_spaceman`. The S3 row in `plan/t09.md` is already updated.
 - Whether the spaceman is a Pockets item or stays a statue is not stated (S3 "stands in the new Starflare's lobby").
+
+- **Resolved (Mike, 2026-10-30):** the spaceman is never carried. Saving it sets a flag (`spaceman_saved`), and the statue stands in the new Starflare's lobby. `plan/t09.md`'s example is fixed.
 
 **OQ 4. `pages/review.md` carries superseded details.**
 - "The rebuild costs ($250k to free Gus, ~$1M for Vivian's land, $250k for the rocket)." Audit 2.8: "Gus freed" removed everywhere; the $250k is a gate in savings, not a price.
@@ -1950,6 +1955,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - "Wren's people should know your reads if you've been careless on her app." Wren's betting app was replaced by cameras (2026-10-21).
 - "Dot's four stories (the guest who paid everyone's week, the flood, room 9, the shirt)." The suitcase story was dropped 2026-10-22.
 - `pages/review.md` presents these as proposals, but it is on the site as a page.
+
+- **Fixed in the doc update (2026-10-30):** `pages/review.md` is marked as a record, with its stale items marked.
 
 **OQ 5. `pages/notebook.md` carries superseded details** (the page says it records planning "word for word").
 - "act 4 mystery solved + $50k; act 5 Gus freed + $250k"; "~40 hours to opening night." Current: name won back; about 42 hours.
@@ -1962,11 +1969,15 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - Rosa "ultimately the player gives her a job at the reopened Starflare." Now the license is her payoff.
 - Dutch/Teddy are explained in context and flagged in the character entries.
 
+- **Fixed in the doc update (2026-10-30):** `pages/notebook.md` entries carry Superseded markers.
+
 **OQ 6. `people/kasia.md` Hook is stale.**
 - Planning record: "First credit and first friend; mentions the Flare on night one."
 - `plan/t05.md`: "Kasia doesn't send you to the Flare; she'd rather keep you for her back room (Mike, 2026-10-23)."
 - `data/story.js` A1.2: "She doesn't send you anywhere else."
 - `pages/storymap-beats.md` A1.3: Juan "tells you about the Flare."
+
+- **Fixed in the doc update (2026-10-30):** `people/kasia.md` is updated.
 
 **OQ 7. `people/chase.md` hangouts disagree.**
 - Header: "Core · moves up and down the ladder · Bridgehead, RailYard, Starflare, Harborlight."
@@ -1975,13 +1986,19 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `pages/storymap-beats.md` A1.8: the rival is first met at the RailYard; A2.4: a regular at the Harborlight.
 - Whether Chase/Brooke appears at Bridgehead and the Flare is not clear.
 
+- **Fixed in the doc update (2026-10-30):** Chase/Brooke's hangouts are the three nights-out venues: the RailYard, the Harborlight and the Prairie Queen.
+
 **OQ 8. `plan/t06.md` and `pages/cast-planning.md` Already-decided text uses stale names and a stale gap list.**
 - "Draft cast: Rosa (blacklisted former dealer), Dutch (loan shark), Teddy (the other newcomer) ..."
 - "Not yet covered: Stella, Jalen, Juan, Raffy, Kiran, Mayor Dabareski, Richard and the romance characters." Voice sheets now exist for all but the romance characters (which are marked "Voice (proposal)").
 - Both pages say "That's 9 core and 10 supporting" but Troy and Richard are not counted (see OQ 41).
 
+- **Fixed in the doc update (2026-10-30):** `plan/t06.md` and `pages/cast-planning.md` are marked and the cast count is about 24 portraits plus the romance versions.
+
 **OQ 9. `pages/gdd.md` Venues: "Ten places to gamble" lists 11 rows.**
 - Same wording in `pages/northlight.md`: "Ten places to gamble." The RailYard was added 2026-10-19 (`plan/t03.md`).
+
+- **Fixed in the doc update (2026-10-30):** "Eleven places to gamble."
 
 **OQ 10. What happens to the old rocket sign is described several ways.**
 - `pages/storymap-beats.md` A5.4: "the old sign stays over the Starflare Field gate."
@@ -1996,6 +2013,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 
 **OQ 11. `pages/storymap-open.md` has an unticked box for a fixed item.**
 - "[ ] Rosa's license snag is fixed (2026-10-22)."
+
+- **Fixed in the doc update (2026-10-30):** The box is ticked.
 
 **OQ 12. Blackspruce Lodge and yacht-game unlocks are described inconsistently.**
 - `pages/gdd.md` and `pages/storymap-intro.md` money table: "$250,000 | Blackspruce Lodge and yacht games fill the climb."
@@ -2026,6 +2045,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - Audit 3.1 and `people/wren.md`: "She pays his hidden cut of the stadium deal herself, through Revaris, so her own books are the proof"; but she "has dirt on Bennett taking casino money" (from cameras).
 - The edge text implies the hidden cut is on camera; the fixed text says the books are the proof.
 
+- **Fixed in the doc update (2026-10-30):** The edge now reads that she pays his hidden cut through Revaris.
+
 **OQ 16. `data/story.js` `C.appears` lists disagree with `EV`/`SEEDS`.**
 - Kasia lists S11; Juan lists S11; Gus lists S11. `SEEDS` S11 `who` is `["dot","ray"]`.
 - Gus's list omits A4.4 (`EV` includes him).
@@ -2034,6 +2055,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - Pete's list includes M4 but `EV` M4 `who` does not.
 - Richard's list includes A5.7 but `EV` A5.7 does not.
 - Vivian's list includes A2.4; `EV` A2.4 `who` is `["chase"]` only (`EVD` mentions her).
+
+- **Fixed in the doc update (2026-10-30):** `appears` lists match `EV`/`SEEDS`/outcomes (0 mismatches).
 
 **OQ 17. First in-person appearance of Ray, Wren and Bennett is not stated.**
 - Ray's first coded appearance is A1.5, yet in A1.5 he only "starts asking around"; he is "hanging around the Flare" at A1.9. Hangouts "Starflare bar, Cinder Room, Blackspruce Lodge."
@@ -2052,6 +2075,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 **OQ 19. `people/mitch.md` Related line is unclear.**
 - "Raffy (Wren files Mitch's slips)." Nothing else ties Raffy to Mitch; `data/story.js` has no Mitch-Raffy edge. `plan/t09.md` S10: Wren's file on you includes "Mitch's slips."
 
+- **Resolved (Mike, 2026-10-30):** Raffy is dropped from Mitch's related list; Mitch's slips can still be in Wren's file on you.
+
 **OQ 20. Dot's voice vs her events.**
 - `people/dot.md` voice sheet: "Gossip about everyone; never talks about Gus."
 - `pages/storymap-beats.md` A1.7 / `data/story.js` R1: "Dot and Gus each ask you how the other is doing."
@@ -2063,9 +2088,13 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `data/story.js` `EVX` A3.4: "Tae (offstage)"; `EV` A3.4 lists `tae` among its characters, and Tae's `appears` list includes A3.4.
 - `pages/storymap-beats.md` A3.7 Where: "Mitch's, room 9"; `data/story.js`: "Bridgehead, Slack Water Motel."
 
+- **Resolved (Mike, 2026-10-30):** A3.7 is at Bridgehead and the Slack Water Motel on every page. The other mismatches were fixed in the 2026-10-30 doc update.
+
 **OQ 22. Ed's station placement is a proposal on one page and fact on another.**
 - `pages/northlight.md`: "Placement (proposal): the Levee, beside the old canal lock on the river."
 - `people/ed.md`: "Works out of the Northlight vice squad at Lock Street Station (Mike, 2026-10-23), next to the old canal lock."
+
+- **Fixed in the doc update (2026-10-30):** Ed's station is settled next to the old canal lock.
 
 **OQ 23. "Taught Bennett" line status.**
 - `pages/room9.md` "Still open": "the 'taught Bennett' line is a proposal."
@@ -2073,6 +2102,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - Also `pages/room9.md` labels "Proposal, Ed's part" while `people/ed.md` and `plan/t08.md` state it as settled.
 
 ## 5B. Contradictions and gaps inside the live material
+
+- **Fixed in the doc update (2026-10-30):** "Taught Bennett" and Ed's part are settled on `pages/room9.md`.
 
 **OQ 24. Raffy: skimmed vs stole.**
 - `people/raffy.md` Backstory: "he lifted a fat envelope from Ray's car to cover her rent, thinking it was only collection cash."
@@ -2126,6 +2157,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `people/gus.md`, `plan/t07.md`, `data/story.js` M2: "Umbra then puts the land into the Stadium District, which makes Umbra its biggest investor."
 - `people/bennett.md`: "Revaris, as the District's biggest investor, insists the District hold the Starflare name."
 - The notes shift between Revaris and Umbra as the investor; the naming rule says player-facing text never ties them before M2 is solved.
+
+- **Resolved (Mike, 2026-10-30):** Revaris is the District's biggest investor on paper; Umbra owns Revaris. Design notes may say "Umbra, through Revaris"; player-facing text says Revaris (or "the company") until M2.
 
 **OQ 31. O9 (burned down) sequencing and consequences.**
 - `plan/t07.md`: "the empty building torched as a message before demolition; the rocket sign, still on the shell, burns with it."

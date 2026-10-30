@@ -37,7 +37,7 @@ Count the bets for a few days for a cut; the "slip across the bridge" table even
 
 ## Related
 
-Bennett, Raffy (Wren files Mitch's slips), the player's Haybale tip.
+Bennett, the player's Haybale tip. (Mitch's slips can still end up in Wren's file on you.)
 
 ## Planning record
 
