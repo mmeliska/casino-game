@@ -6,11 +6,11 @@ A woman in her late 60s with a big laugh, a red blazer and a photographer always
 
 ## Backstory
 
-The casino mayor, in office forever. She brought in the riverboats and land casinos after the mills closed and is openly friendly with the casino business and the Aurelian. Seen rarely. The name is a wink at "Da Bears" and the one exception to first names only.
+The casino mayor, in office forever. She brought in the riverboats and land casinos after the mills closed and is openly friendly with the casino business and the Aurelian. She signed the city's "Safe Streets" contract that put Revaris plate readers on Northlight's streets and bridges, the one Bennett champions. Seen rarely. The name is a wink at "Da Bears" and one of only two exceptions to first names only, with Mr. Hamilton (Mike, 2026-10-29).
 
 ## Role
 
-Bennett's boss in the Machine and his quiet target; their mayor's race drifts in the background and lands on the epilogue's newspaper front page.
+Bennett's boss in the Machine and his quiet target; their mayor's race drifts in the background and lands on the epilogue's newspaper front page. Bennett wins unless he is publicly exposed in act 4 (the commission finds his hidden cut, room 9 shames him, or Ed's case names him); then she is re-elected. A room 9 reconcile means Bennett wins with a kinder headline. Graham/Claire's choices set only the headline's tone (Mike, 2026-10-30).
 
 ## Voice
 

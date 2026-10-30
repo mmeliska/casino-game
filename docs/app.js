@@ -33,7 +33,7 @@ P.home=()=>`<div class="page">
 <p>Every page here links to every other. Click any name for that character's page, and any code like <a class="code" href="#A3.4">A3.4</a> for the event it names. Everything is <b>settled</b> unless it carries a <span class="pill prop">Proposal</span> tag.</p>
 <h2>The five acts</h2>
 <div class="acts">${ACTS.map(a=>`<a class="act" href="#timeline"><div class="n">${a.n}</div><div class="t">${a.name}</div><div class="g">${a.hours}</div></a>`).join("")}</div>
-<p class="small muted">About 42 hours to opening night. Each act opens on a money milestone <b>and</b> a minimum time. Only outcomes 1 and 2 end the main story; every other outcome is a resting point you can climb back from. <a href="#timeline">See the timeline</a> or <a href="#outcomes">the outcomes</a>.</p>
+<p class="small muted">About 42 hours to opening night. Each act opens on a money milestone <b>and</b> a minimum time. Only outcomes 1 and 2 end the main story; every other outcome is a resting point you can climb back from, except 9, a setback you play through. <a href="#timeline">See the timeline</a> or <a href="#outcomes">the outcomes</a>.</p>
 <h2>The story in brief</h2>
 <h3>The place</h3>
 <p>Northlight is a casino city on a lake, run by the same mayor for as long as anyone remembers. You start in Backwater, its run-down edge, with $200 and a car. The heart of the game is the Starflare Club, called "the Flare": a rocket-age casino that was once the best in the city and is now slowly dying, with dark floor lights, a bucket under the roof leak and a flickering rocket sign.</p>
@@ -156,10 +156,10 @@ P.outcomes=()=>{
 <text x="${x+10}" y="${y+42}" font-size="11.5" fill="var(--muted)">${o.final?"Final: ends the main story":"Back: "+esc(backShort(n))}</text></a>`})});
   g+=`</svg>`;
   return `<div class="page wide"><p class="eyebrow">Story · outcomes</p><h1>Outcomes</h1>
-<p class="lede">Ten places a playthrough can land. Solid blue boxes end the main story; dashed boxes are resting points you can always climb back from. Opening night of the lakefront floor is the end trigger.</p>
+<p class="lede">Ten places a playthrough can land. Solid blue boxes end the main story; dashed boxes are resting points you can always climb back from (9 is a setback you play through). Opening night of the lakefront floor is the end trigger.</p>
 <div class="figure"><div class="scroll">${g}</div><figcaption>Outcome 10, the sellout, can happen in act 4 (Wren) or act 5 (Tae). Outcome 9 can also happen in act 4.</figcaption></div>
 <div class="tablewrap"><table><thead><tr><th>#</th><th>Outcome</th><th>What leads there</th><th>Way back</th><th>After it, the city has</th></tr></thead><tbody>
-${OUT.map(o=>`<tr id="row-O${o.n}"><td class="num"><a class="code" href="#O${o.n}">O${o.n}</a></td><td><b>${esc(o.name)}</b> ${o.final?'<span class="pill final">final</span>':'<span class="pill rest">resting</span>'}<br><span class="small muted">${who(o.who)}</span></td><td>${esc(o.leads)}</td><td>${esc(o.back)}</td><td>${esc(o.after)}</td></tr>`).join("")}
+${OUT.map(o=>`<tr id="row-O${o.n}"><td class="num"><a class="code" href="#O${o.n}">O${o.n}</a></td><td><b>${esc(o.name)}</b> ${o.final?'<span class="pill final">final</span>':'<span class="pill rest">'+(o.n===9?'setback':'resting')+'</span>'}<br><span class="small muted">${who(o.who)}</span></td><td>${esc(o.leads)}</td><td>${esc(o.back)}</td><td>${esc(o.after)}</td></tr>`).join("")}
 </tbody></table></div>
 <h2>Ending rules</h2><ul>
 <li><b>Drive away:</b> from act 2 on, a phone option lets you drive away over the Long Bridge. It plays a leaving epilogue built from that day; the save is kept and you can resume from the morning you left.</li>
@@ -169,7 +169,7 @@ ${OUT.map(o=>`<tr id="row-O${o.n}"><td class="num"><a class="code" href="#O${o.n
 };
 function oShort(n){return {1:"Lakefront, with Gus",2:"Lakefront, without Gus",3:"The Starflare floats",4:"The people's Starflare",5:"Tae's restaurant",6:"Gus lets go",7:"Name stays with the Field",8:"Mob takeover",9:"Burned down",10:"The sellout"}[n]}
 function gateShort(a){return ["$5k + trust + 2 wks","$25k + a season","M2 + $50k","Name won back + $250k"][a-1]}
-function backShort(n){return {3:"move ashore later",4:"lakefront later",5:"buy name from Tae",6:"Gus asks to reopen",7:"win the name back later",8:"expose Wren later",9:"stay clear of Umbra",10:"leverage or win Gus"}[n]}
+function backShort(n){return {3:"move ashore later",4:"lakefront later",5:"buy name from Tae",6:"Gus asks to reopen",7:"win the name back later",8:"expose Wren later",9:"play on; backers wait a season",10:"leverage or win Gus"}[n]}
 
 P.mysteries=()=>`<div class="page"><p class="eyebrow">Story · mysteries</p><h1>Mysteries</h1>
 <p class="lede">Four mysteries at launch. Clues are flags spread across broke and rich venues, found in any order. Only "who bought the Flare" moves the main story; the others deepen a character, and the room 9 box becomes one of the leverage routes to winning back the name.</p>

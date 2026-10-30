@@ -23,8 +23,9 @@ Each district's light, palette, recurring image and weather now live in [Northli
 - **Noir by night, warm by day.** Northlight is a city people like. Daylight scenes are warm and busy (pierogi at Kasia's, league night at Millstone Lanes); the grit belongs to the hours after the tables close.
 - **Weather is a free mood layer.** A static rain, fog or snow overlay changes a reused background more than a new pose would. Seasons do the same.
 - **Show the clue, say nothing.** Clues arrive as inserts with no caption. The player who notices is rewarded; the one who doesn't hasn't been told.
-- **Props replace exposition.** City history is never a paragraph: it's Kasia's dad's union pin, Pete's 25-year rocket pin, the Stacks outside every Levee window, the founder's jacket straining on Gus.
+- **Props replace exposition.** City history is never a paragraph: it's the old meeting sign on Kasia's back-room door, Pete's 25-year rocket pin, the Stacks outside every Levee window, the founder's jacket straining on Gus.
 - **Let decline show.** The Flare's plate gets darker over time (more lights out, a roped-off table, the piano covered) without anyone saying so.
+- **Truth is told where nothing records.** Confessions and straight talk happen inside Kasia's Tap, Millstone Lanes or the Slack Water Motel, the three places that refuse cameras, or on the Long Bridge, where the readers stay smashed. Gus confesses at the Slack Water picnic table (A4.1); Ed talks straight at the Lanes. Wren, once, makes her own quiet: she darkens the Cinder Room office cameras before she speaks (A4.5). The Levee's neon is where people perform. Nothing on screen names the rule, and keep it to confessions (`suggestions/S-004`; Mike, 2026-10-30).
 - **Backstory in 3 or 4 panels.** A character's story (Dot's flood, Richard's lost house) is told as a short run of old-photo panels, not a monologue.
 
 ## Dialogue and choices
@@ -41,7 +42,7 @@ Each district's light, palette, recurring image and weather now live in [Northli
 
 ## Tension at the table
 
-- **Put a stake on the choice.** When a decision matters, say what it costs: "Cover Jalen's $500 buy-in", "Bet again and watch where the chips go (-$25)". A choice with no stake reads as a menu.
+- **Put a stake on the choice.** When a decision matters, say what it costs: "Cover Raffy's missing $500", "Bet again and watch where the chips go (-$25)". A choice with no stake reads as a menu.
 - **Tells are shown, never narrated.** A tell is a pose swap or a prop insert, plus an empty bubble where a talker goes quiet. Write "# pose: kiran\_upright\_eyes\_down", not "he stopped talking".
 - **Tells belong to people, not house games.** Read poker opponents, dealers in a story moment, and characters who may be lying. Never blackjack, roulette, craps or slots in normal play.
 - **Follow the cheating rule.** Regular play is always fair. Doubt comes only in story moments (a tip, Rosa's look, a short payout), and the player can't be sure: some tips are wrong. Every call has a cost (accuse a crooked dealer and Umbra notices you; accuse an honest one and you lose standing; ride it and you bleed money; walk and you never know), and the truth surfaces later.

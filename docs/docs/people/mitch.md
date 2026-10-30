@@ -6,11 +6,20 @@ Early 50s, white, straight brown hair, jeans and a clerk-style collared shirt, a
 
 ## Backstory
 
-Years ago he made big bets on supposedly inside information and lost almost everything. The bad tip came from Bennett. It left him distrustful of everyone; finding out about Bennett is how you finally earn his trust.
+About thirty years ago, when the districts voted on gaming licenses, Bennett, barely twenty and already running errands for the ward office, told a dozen Levee and Backwater people the fix was in: Backwater would vote yes, and anyone holding a storefront on its main drag would have a slot license by spring. Several bought. Mitch, newly married and about the same age, bought biggest: a corner building on Backwater's main street, with his savings and most of his father-in-law's. Backwater voted no. The friends selling the storefronts made money, and Bennett got a cut, or a favor, or just the lesson that a tip is a product. Mitch lost the building, the marriage and the savings. Years later he took the one job on the Bridges that sits exactly halfway between the vote he lost and the casinos he can't afford (Mike, 2026-10-29).
+
+It left him distrustful of everyone. Finding out about Bennett is how you finally earn his trust. He never tells the story straight; Dot or Kasia can tell you a version of it.
 
 ## Role
 
-The side-action guy. Cynical and not inviting, but talks if you hit the right subjects. Quietly books Haybale Downs race bets out the back (an event source, not a game). Your straight/crooked lean decides how far he lets you in. Recognizes the lawyer on the Flare's sale filing from Bennett's old deals (a clue in M2). Once he trusts you he can name that lawyer's trust account, the one his bad tip ran through years ago and the one that now carries Bennett's hidden stadium cut; that's the proof for the by-the-book route (A4.11; audit 4.3).
+The side-action guy. Cynical and not inviting, but talks if you hit the right subjects. Quietly books Haybale Downs race bets out the back (an event source, not a game): a man who lost everything on one bet now sells small ones he can price himself. Your straight/crooked lean decides how far he lets you in.
+
+The filing lawyer on the Flare's sale is the same lawyer who handled those storefront sales, which is why Mitch recognizes him (a clue in M2). Once he trusts you he can name that lawyer's trust account: his own money went through it once, and it now carries Bennett's hidden stadium cut. That's the proof for the by-the-book route (A4.11; audit 4.3), Mitch's revenge served as a subpoena (Mike, 2026-10-29).
+
+**How it shows** (Mike, 2026-10-29):
+- "Pump four's broken. Has been since I started." The pump's old service sticker has a Backwater main-street address on it. An insert, for the one player who looks.
+- Earning his trust gets a scene: you say Bennett's name, he says nothing, and the next day the back room is open.
+- If Bennett loses the mayor's race (he loses only if he's publicly exposed in act 4, Mike 2026-10-30), Mitch's epilogue panel is him at Haybale Downs with a program, betting a horse himself for the first time since the storefront.
 
 ## Voice
 
@@ -28,7 +37,7 @@ Count the bets for a few days for a cut; the "slip across the bridge" table even
 
 ## Related
 
-Bennett, Raffy (Wren files Mitch's slips), the player's Haybale tip.
+Bennett, the player's Haybale tip. (Mitch's slips can still end up in Wren's file on you.)
 
 ## Planning record
 

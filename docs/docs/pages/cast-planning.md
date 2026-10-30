@@ -1,6 +1,6 @@
 **Goal:** settle the key characters and sketch each one's arc.
 
-**Already decided:** NPCs carry most of the story, and influence runs both ways. Each key NPC has a fortune (broke, getting by, flush), an arc stage and standing with you. Arcs cross, and some NPCs change through authored drift. Draft cast: Rosa (blacklisted former dealer), Dutch (loan shark), Teddy (the other newcomer), Vivian (high roller on a losing streak), Gus (owner of the Starflare Club).
+**Already decided:** NPCs carry most of the story, and influence runs both ways. Each key NPC has a fortune (broke, getting by, flush), an arc stage and standing with you. Arcs cross, and some NPCs change through authored drift. Draft cast: Rosa (blacklisted former dealer), Dutch (loan shark), Teddy (the other newcomer), Vivian (high roller on a losing streak), Gus (owner of the Starflare Club). (Superseded 2026-10-30: Dutch was renamed Ray and Teddy became the rival, Chase or Brooke; the settled cast is in the table below.)
 
 **Questions to answer**
 
@@ -15,10 +15,10 @@
 
 *(The cast table rows are on each character's page, under Planning record; the voice sheets are under Voice.)*
 
-That's 9 core and 10 supporting, about 19 portraits ($380 to $1,520 at $20 to $80 each), plus Richard and the six romance versions if they get portraits.
+That's 9 core and 10 supporting, about 19 portraits ($380 to $1,520 at $20 to $80 each). Five minor characters also get portraits: Richard, Troy and the Flare's three regulars, Walt, Lorraine and Augie (Mike, 2026-10-30), which makes about 24 ($480 to $1,920). Plus the six romance versions if they get portraits.
 
 **Voice sheets (settled 2026-10-18, from the Story & Character Review).** Write every line of dialogue to these. The register is Great Lakes, not movie-gangster: understatement, dry humour, work-and-weather talk, people who say less than they feel. Settled slang (riding the light, gone dark, going over the water) stays rare, a few uses per act. Sample lines show the register and are not final script.
 
 *(The cast table rows are on each character's page, under Planning record; the voice sheets are under Voice.)*
 
-Not yet covered: Stella, Jalen, Juan, Raffy, Kiran, Mayor Dabareski, Richard and the romance characters.
+Not yet covered: Stella, Jalen, Juan, Raffy, Kiran, Mayor Dabareski, Richard and the romance characters. (Superseded 2026-10-30: voice sheets now exist for everyone except the romance characters, whose voices are marked as proposals.)

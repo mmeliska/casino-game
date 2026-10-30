@@ -11,21 +11,21 @@ An inside view of the Aurelian: who checks in, who gets comped suites, who Stell
 
 ## Romance arc
 
-**In short:** Values honesty. Story role: shows you the filing lawyer meeting Bennett at the Aurelian (M2) and clears Stella early. Exclusive route: the Aurelian's own copy of its camera footage, which Wren can't erase, gives you leverage over Wren. If they leave for the Starflare, Tae takes it personally only if you used their inside view against the Aurelian (settled).
+**In short:** Values honesty. Story role: shows you the filing lawyer meeting Bennett at the Aurelian (M2) and clears Stella early. Exclusive route: the Aurelian's own archive footage of that same meeting, which Wren can't erase, is proof against Umbra in act 4 (A4.3). If they leave for the Starflare, Tae takes it personally only if you used their inside view against the Aurelian (settled).
 
 *The rest of this section is from Romance Arcs: a proposal unless marked settled.*
 
-**First met:** the Aurelian's front desk, act 1 or 2. **Value: honesty.** Felix is a little too honest for a front desk; Nora bends the dress code but never the truth. They see every guest lie at check-in, so they notice whether you lie too.
+**First met:** the Aurelian's front desk, act 2. The whole Aurelian, lobby included, opens at a best bankroll of $10,000, so they can't be met in act 1 (Mike, 2026-10-30). **Value: honesty.** Felix is a little too honest for a front desk; Nora bends the dress code but never the truth. They see every guest lie at check-in, so they notice whether you lie too.
 
-**Story role: who bought the Flare (M2).** The filing lawyer checks into the Aurelian the week the purchase goes through. **Together:** they quietly tell you which night he meets someone in the lounge, and you see him with Bennett. That proves who's behind the purchase and opens act 4 sooner. They also clear Stella early (her meetings were only with Tae) and get you a comped suite one step before you'd earn it. **Friend:** they tell you the lawyer is staying there, nothing more; you still need Mitch to place him. **Ended:** no help, and Stella stays a suspect longer.
+**Story role: who bought the Flare (M2).** The filing lawyer, Revaris's lawyer and one of Wren's people, checks into the Aurelian the week the purchase goes through. **Together:** they quietly tell you which night he meets someone in the lounge, and you see him with Bennett. That proves who's behind the purchase and opens act 4 sooner. They also clear Stella early (her meetings were only with Tae) and get you a comped suite one step before you'd earn it. **Friend:** they tell you the lawyer is staying there, nothing more; you still need Mitch to place him. **Ended:** no help, and Stella stays a suspect longer.
 
-**Exclusive route: the copy Wren can't erase (together only).** Every venue keeps its own copies of its footage, and Wren can wipe her servers but never theirs (Mike 2026-10-26). Wren's people meet Bennett at the Aurelian because it's her new showcase (S13) and she thinks she controls every copy, but the chain's security keeps its own archive under corporate policy (audit 3.10). Only the clerk can get you into that archive, which shows Wren's people meeting Bennett. That opens an act 4 option where you hold leverage over Wren herself, which no one else in the game has.
+**Exclusive route: the copy Wren can't erase (together only).** Every venue keeps its own copies of its footage, and Wren can wipe her servers but never theirs (Mike 2026-10-26). The meeting you glimpsed in act 2 is the one that matters: there is one meeting, seen twice (Mike, 2026-10-30, OQ 46). It took place at the Aurelian, Wren's new showcase (S13), and she thinks she controls every copy, but the chain's security keeps its own archive under corporate policy (audit 3.10). In act 4 only the clerk can get you into that archive, and its footage of Revaris's lawyer with Bennett is the A4.3 proof. It's one of the two things that can expose Umbra: hand it, or Raffy's drive, to Ed for the clean route (Mike, 2026-10-30). It still exists if the drive went back to Ray.
 
 ### Beats
 
 | # | Beat | When and where | What happens | Direct choice |
 | --- | --- | --- | --- | --- |
-| 1 | Meet | Act 1 or 2, Aurelian front desk | You ask about a room. They tell you straight that a suite isn't worth it at your level yet: "Come back when the hosts know your name." | None |
+| 1 | Meet | Act 2, Aurelian front desk | You ask about a room. They tell you straight that a suite isn't worth it at your level yet: "Come back when the hosts know your name." | None |
 | 2 | First date | Act 2, their day off, lunch on the Mile | They tell you about the funniest lie a guest ever told at check-in. | Tell them a true story about yourself or an impressive made-up one (they can tell; counts) |
 | 3 | Opening up | Act 2, during the hunt for who bought the Flare (M2) | They mention, carefully, that Stella has been meeting Tae upstairs. | Ask what they saw (neutral), don't push (for), or ask them to pull the guest records for you (against: you asked them to break the rules) |
 | 4 | The test | Act 3 or 4, when you reach the comped-suite step | A billing mix-up puts another guest's comp on your account, in your favor; if nobody says anything, a coworker on the night shift gets blamed. | Tell them (for), or keep quiet and keep the comp (against) |
@@ -36,7 +36,7 @@ An inside view of the Aurelian: who checks in, who gets comped suites, who Stell
 - **How you treat the Aurelian's staff:** tipping, patience on a bad night, or taking a loss out on a dealer. They see it from the desk.
 - **Stella, after M2:** clearing her privately counts for; spreading that she met Tae counts against. Desk gossip.
 - **Chase/Brooke asks you for cash:** an honest yes or no counts for; stringing them along with a promise you don't keep counts against. Chase/Brooke complains about you at the Aurelian bar.
-- **Repaying what you owe:** paying back Ray, Kasia's tab or Jalen's stake on time counts for; skipping out counts against. It gets around.
+- **Repaying what you owe:** paying back Ray or Kasia's ledger on time counts for; skipping out counts against. It gets around.
 
 ### Voice (proposal)
 

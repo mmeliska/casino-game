@@ -1,0 +1,39 @@
+---
+id: S-047
+title: "Stella's expanded backstory"
+status: accepted
+area: character
+character: Stella
+type: expansion
+impact: low
+effort: low
+depends_on: S-012, S-013, S-020, S-037, S-046
+conflicts_with: none
+---
+
+## Summary
+A 300-word history of Stella, consistent with the bible and with S-013 (her mother's name and the ceiling).
+
+## Current state
+Mid-20s, long brown hair, well educated; finance analyst downtown; Dot is her aunt, Pete is "Uncle", Tae was like a big brother when she was little; her voice sheet mentions "counting chips" as a childhood memory; the remortgage seed (people/stella.md, people/pete.md, people/tae.md). The cage memory with her mother is this set's addition, not the bible's.
+
+## Proposed change
+Stella learned to count at the cage. Her mother ran the drop with her on a stool beside the window, and the first numbers she ever said out loud were stacks of twenties called back to her mother. The Flare was where she did homework, had birthdays, learned the band's songs through the office door, and learned, at ten, that her grandfather was gone and her father now owned a place he loved more than he could run. She was twelve when her mother died. She has never been told where her father was that night (S-012); she has never asked, because she was told he was doing the books, and she decided then that someone in the family should actually do them.
+
+She went downstate on a scholarship, studied the thing nobody in the Levee studied, and came back to a desk downtown with a view of the Stacks, because she wanted to be close enough to run the Flare's numbers and far enough not to work there. Her father keeps the books himself, badly, in the office. Since she came home she has asked for copies every quarter and runs them at her kitchen table. She has never been on the payroll. She has run them nine ways. Every way loses. She took the figures to Tae because Tae was the only adult who ever let her count, and because she needed someone to tell her the number was real.
+
+She does not know her father gambles. She knows he remortgaged the house, and she has decided it was for the Flare, because that is the kind of thing he does, and because the other explanations don't fit the man who hummed the house band's songs to her when she couldn't sleep. She calls him Dad to his face and "my father" to strangers and the Flare "the property" in meetings, and she thinks, privately, that the ceiling in the lounge is the most beautiful thing in Northlight and that her mother got one constellation wrong on purpose (S-013), which is the only thing she's ever said to her father about her mother that made him laugh.
+
+## Why it works
+It gives the voice sheet (figures for the Flare, stories for Dad) a single scene of origin at the cage, which Alice's backstory also touches. The ceiling line is the one warm Gus-Stella exchange the docs lack.
+
+## How the player experiences it
+Through her stories, the ceiling, the remortgage, and the cage on opening night (S-046).
+
+## Risks and tradeoffs
+Fixes her age at twelve when her mother died and ten when her grandfather died, which places the founder's death about fifteen years before the game. Those figures match the settled order in the bible's section 3.1 (Mike, 2026-10-27) and S-014 and S-020.
+
+## Decision notes
+- 2026-10-29: added how she gets the numbers (Mike asked). Gus keeps the books himself; she runs quarterly copies and has never been on the payroll. Payroll night (about six years ago) happened while she was at school, and Rosa dealt Gus back to even, so the books never showed it.
+- Mike, 2026-10-29: accepted with a change: no Pete at the cage. Stella calls the stacks back to her mother.
+- 2026-10-29: checker fixes. Current-state line no longer mentions Pete at the cage.

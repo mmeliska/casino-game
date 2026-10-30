@@ -1,3 +1,5 @@
+*This is the original direction document, kept as history. Later decisions changed parts of it; lines that are now wrong are marked. The settled design is on [Game design](#design) and the [Story timeline](#timeline).*
+
 ## Summary
 
 The story is an open-ended life sim: a blank-slate protagonist arrives in a big gambling city, and the town's NPCs carry the story, shaping your path while you shape theirs.
@@ -10,12 +12,12 @@ The story is an open-ended life sim: a blank-slate protagonist arrives in a big 
 - NPCs have their own stories that affect your advancement, and you can affect theirs.
 - Consequences can surface much later, in a chance meeting with an NPC whose life changed because of you.
 - Some NPCs also change because the story is written that way, independent of the player. The Starflare's fate is the background story, with several possible outcomes; most play time goes to exploring the city, moving up and down the casino ladder, and uncovering NPC stories and a mystery or two.
-- One big fictional Great Lakes city as home base, split by a river that forms a state line, with occasional excursions out of town. Midwestern, not desert, so it doesn't read as another Las Vegas.
+- One big fictional Great Lakes city as home base, split by a river that forms a state line, with occasional excursions out of town. Midwestern, not desert, so it doesn't read as another Las Vegas. (Superseded 2026-10-30: the river splits one city in one state; Backwater has no casinos by local vote.)
 
 **Proposed, not yet confirmed**
 
 - "New in Town" as the framing premise: you arrive in the city with about $200.
-- The draft cast below (Rosa, Dutch, Teddy, Vivian, Gus).
+- The draft cast below (Rosa, Dutch, Teddy, Vivian, Gus). (Superseded 2026-10-30: Dutch was renamed Ray and Teddy became the rival, Chase or Brooke.)
 - Seeds and reveals as the mechanism for delayed consequences.
 
 ## Structure: an open-ended life sim
@@ -39,7 +41,7 @@ The player is the protagonist, so the game never tells them who they are; the to
 
 ## Setting: a big city with excursions
 
-The game is set in a big fictional Great Lakes city, Chicago-like rather than Vegas-like, where a river flows into the lake and the river is the state line. One side legalized gambling, at first only on the water, so the oldest casinos are boats. Later the law loosened and land casinos rose along the lakefront. The other side of the river stayed dry.
+The game is set in a big fictional Great Lakes city, Chicago-like rather than Vegas-like, where a river flows into the lake and the river is the state line. One side legalized gambling, at first only on the water, so the oldest casinos are boats. Later the law loosened and land casinos rose along the lakefront. The other side of the river stayed dry. (Superseded 2026-10-30: the river is not a state line; it splits one city in one state, and Backwater voted no on casinos.)
 
 The backdrop: machine politics, an old mob history, union power, and old money versus new money.
 
@@ -53,7 +55,7 @@ The backdrop: machine politics, an old mob history, union power, and old money v
 
 | District | Character | Venues |
 | --- | --- | --- |
-| Across the river (dry side) | Steel mills, rail yards, corner taverns, union halls; cheap to live, high heat; Dutch's territory | Street dice, back-room card games, a numbers racket, bookies, pawn shops, the weekly motel |
+| Across the river (dry side) | Steel mills, rail yards, corner taverns, union halls; cheap to live, high heat; Dutch's territory (Superseded 2026-10-30: Dutch is now Ray.) | Street dice, back-room card games, a numbers racket, bookies, pawn shops, the weekly motel |
 | The bridges | Drawbridges that lift for boat traffic and strand everyone waiting, a natural spot for chance meetings | Gas station slots at the foot of the main bridge |
 | River district (old downtown) | The original casino district, faded but storied | Old riverboat casinos, some docked and rusting; early land casinos; the Starflare Club |
 | Lakefront strip | Tall towers along the shore with an elevated train running past | Hotel casinos |
@@ -63,7 +65,7 @@ The backdrop: machine politics, an old mob history, union power, and old money v
 
 The Starflare's fate is the game's overarching story, but it stays in the background: most play time goes to exploring the city, working up and down the casino ladder, and uncovering NPC stories and mysteries. Its beats surface occasionally, triggered by milestones and choices.
 
-The Starflare Club, "the Flare" to locals, is one of the first land casinos, built in the 1960s at the height of the space race, with a giant rocket sign and a planetarium lounge. By the time you arrive it is a run-down river district casino and an early hangout you grow attached to: Gus, the regulars, the rocket sign. Partway through the story it runs into trouble, and what happens next depends on you.
+The Starflare Club, "the Flare" to locals, is one of the first land casinos, built in the 1960s at the height of the space race, with a giant rocket sign and a planetarium lounge. (Superseded 2026-10-30: the game never names a year; the Flare was a rocket-age supper club that became a licensed casino when land casinos came.) By the time you arrive it is a run-down river district casino and an early hangout you grow attached to: Gus, the regulars, the rocket sign. Partway through the story it runs into trouble, and what happens next depends on you.
 
 | Outcome | Likely path there |
 | --- | --- |
@@ -72,13 +74,13 @@ The Starflare Club, "the Flare" to locals, is one of the first land casinos, bui
 | Closes for good | You couldn't or didn't step in |
 | Taken over by organized crime | High heat, debts or deals with the wrong people |
 | Condemned | Neglect; nobody with money cares enough |
-| Burns down | The worst case, possibly tied to a mystery: accident, insurance job or message |
+| Burns down | The worst case, possibly tied to a mystery: accident, insurance job or message (Superseded 2026-10-30: this outcome table was replaced by the ten settled outcomes on [Outcomes](#outcomes).) |
 
-The lakefront rebuild, renamed simply the Starflare, is the 1960s dream of the future finally built. Possible phases: buy the name and sign; move and relight the rocket; the gaming floor; a tower with space-station suites and an observation deck; a rooftop "launch pad" high-roller room. After it opens, owner mode (hosting whales, poaching dealers, rival casinos) can carry post-story play.
+The lakefront rebuild, renamed simply the Starflare, is the 1960s dream of the future finally built. (Superseded 2026-10-30: the game never names a year.) Possible phases: buy the name and sign; move and relight the rocket; the gaming floor; a tower with space-station suites and an observation deck; a rooftop "launch pad" high-roller room. After it opens, owner mode (hosting whales, poaching dealers, rival casinos) can carry post-story play.
 
-Who you bring in (Gus, Vivian, Rosa, Dutch, Teddy) shapes each outcome, and the regulars scattering across the city when the Starflare falls into trouble is natural material for later reveals.
+Who you bring in (Gus, Vivian, Rosa, Dutch, Teddy) shapes each outcome (Superseded 2026-10-30: Dutch is now Ray, and Teddy is now Chase or Brooke.), and the regulars scattering across the city when the Starflare falls into trouble is natural material for later reveals.
 
-Considered and set aside: a small town, which can't credibly hold high-end resorts; a multi-city tour, which turns the life sim into a journey and scatters the cast; and a desert setting, which reads too much like Las Vegas. Earlier premises set aside: The Wager, Hot Money and Last Week of the Starlight (built on hard deadlines), and The Inheritance and The Comeback (defined protagonists).
+Considered and set aside: a small town, which can't credibly hold high-end resorts; a multi-city tour, which turns the life sim into a journey and scatters the cast; and a desert setting, which reads too much like Las Vegas. Earlier premises set aside: The Wager, Hot Money and Last Week of the Starlight (built on hard deadlines) (Superseded 2026-10-30: the casino's name is the Starflare, not the Starlight.), and The Inheritance and The Comeback (defined protagonists).
 
 ## NPCs with two-way stories
 
@@ -97,8 +99,8 @@ Arcs should cross, so helping one person can cost or help another.
 | Character | Where you meet them | Their story | How you can change it | How it changes yours |
 | --- | --- | --- | --- | --- |
 | Rosa | Gas station | Former dealer, blacklisted from the big casinos | Dig into the blacklisting and clear her name | Teaches poker tells and how to spot rigged games; later deals at the hotel casino, a friend on the inside |
-| Dutch | Street and run-down casino | Loan shark | Be his client, run collections for him, or bring him down | Loans and heat-raising jobs; if he falls, someone worse may take his corner |
-| Teddy | Arrives when you do | The other newcomer climbing the same ladder | Stake him when he's broke, or leave him to sink | Ally who brings you into games, or a rival who sells you out |
+| Dutch | Street and run-down casino | Loan shark | Be his client, run collections for him, or bring him down | Loans and heat-raising jobs; if he falls, someone worse may take his corner (Superseded 2026-10-30: Dutch was renamed Ray.) |
+| Teddy | Arrives when you do | The other newcomer climbing the same ladder | Stake him when he's broke, or leave him to sink | Ally who brings you into games, or a rival who sells you out (Superseded 2026-10-30: Teddy was replaced by the rival, Chase or Brooke.) |
 | Vivian | Hotel and fancy casino | High roller on her own losing streak | Help her before she loses everything, or not | Treats you as a lucky charm and opens rooms you can't afford, until your luck turns |
 | Gus | The Starflare Club | Owner of the struggling casino | Stand by him before and after the Starflare closes | His casino closes partway through; whether he's part of its reopening depends on your relationship |
 
@@ -139,7 +141,7 @@ Three sections of the game design document assume a story clock or a defined pro
 **Open questions**
 
 - Should the player pick a one-line reason for coming to town, or is it never asked?
-- What is the city called, and what is its era: a period setting such as the 1980s or early 90s, or present day?
+- What is the city called, and what is its era: a period setting such as the 1980s or early 90s, or present day? (Superseded 2026-10-30: answered: the city is Northlight, and the game never names a year.)
 - Which draft cast members stay, and who else belongs in the town?
 - How far can an NPC drift on their own before the player must be involved in their outcome?
 - Which mysteries run alongside the Starflare story, and how do players uncover them?

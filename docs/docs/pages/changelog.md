@@ -1,3 +1,34 @@
+## 30 Oct 2026
+
+A story-editing pass reviewed 58 suggestions (46 accepted, 12 rejected) and settled most of the open questions. Every character page, the story map, the outcomes, the GDD, the planning tasks and the story data were updated to match. Older pages that are kept as history (the direction document, the 18 Oct review, the notebook, cast planning) keep their text, with "Superseded" notes where it's now wrong.
+
+### The main story
+
+- **Raffy's drive** is Revaris's old encrypted key ledger, the only place a face ID is tied to a name. Ray kept it when he was told to destroy it. You open it by rebuilding his shredded password in the jigsaw puzzle; plugging it in online tells Wren it's alive. A1.5 settles only the envelope's cash and Raffy (four choices); what you do with the drive is chosen from act 2 on.
+- **The Ed route** is the clean way to expose Umbra. Ed's case undoes the sale because Gus signed under blackmail, but only if Gus testifies. If the drive is in the case, Wren may move first: she returns the name early and blames Ray. Trading your silence to Wren (through her lawyer) is the dirty version.
+- **Wren's markers offer (A4.5):** bring Gus back to her table so he signs new markers against his house. Wren's face appears in only one scene, A4.5.
+- **The fire (O9)** is a setback you play through, not an ending. It can only happen after the last night.
+- **The new Starflare:** you own it and hold the license; Jalen and Vivian are minority partners. Gus never owns it; he signs the name over when act 5 opens. The $250,000 act 5 gate is your quarter of the land.
+- **The Field timer** starts at the A3.5 ground-breaking. The old rocket sign is restored by the District over the Field gate.
+- **No leaving ending.** The cash-out / drive-away is cut.
+- A1.10 and A2.1 are two separate visits from Ray. A3.9 is a one-panel notebook beat. O6 doesn't need the name.
+- The commission grants every license; the alderman only gives local sign-off. O3 and O4 get short hearings.
+- Bennett wins the mayor's race unless he's publicly exposed in act 4.
+
+### Characters
+
+- New backstories, arcs and sample lines for almost the whole cast. Gus's late wife is Alice; the founder is always "Mr. Hamilton," and Gus and Stella have no surname.
+- Kiran's debt now comes from a loan he co-signed for his wife's brother. Pete's son Tomas has a chronic illness. Juan owns Millstone Lanes. Jalen is from the Levee and isn't staked; he studies hospitality and runs the hotel. Dot is in her early 60s.
+- The Flare has three named regulars with portraits: Walt, Lorraine and Augie. Portraits now total about 24, plus the romance versions.
+
+### Rules and the city
+
+- **Backwater has cameras.** Only Kasia's Tap, Millstone Lanes and the Slack Water refuse them; the Long Bridge stays dark. The truth is told in those places.
+- Say "interest," never "vig." "Dry" stays out of player-facing text (Juan's bowling-lane line is the one exception).
+- Not every character needs a tie to another; the city should feel big.
+- Going broke is fixed by jobs. Staking stays as a job (a contract, not a rescue).
+- **Venues:** the Gilded Pine is open all year; Blackspruce needs Ray's invite plus about $25,000; the yachts need Vivian's invite plus about $100,000; the whole Aurelian opens at $10,000; once you're in the Cinder Room you stay in, but every visit raises heat.
+
 ## 26 Oct 2026
 
 The rest of the consistency audit was fixed and merged, and a few new rules came out of it. The game design document was then brought up to date, which finishes the planning tasks.
@@ -7,6 +38,7 @@ The rest of the consistency audit was fixed and merged, and a few new rules came
 - The [Game design](#design) page was rewritten as the build spec, matching every decision on the site (task 12). It now covers time and pacing without a story clock; the full state model (best bankroll, debts, heat, the hidden scales, NPC state, flags, Pockets); the money gates; venues by district; the games and the cheating rule; heat and Wren's camera network; jobs, the phone and inventory; the event director with beats, reveals, table events and the merged event schema; the five acts, clean or dirty and the license hearing; and the outcomes, epilogue and post-game.
 - All thirteen planning tasks are now done.
 - **Engine: Unity**, with Ink for the story (Mike). Day length (about 15 minutes) and season length (28 days) stay as starting values until the prototype runs; audio, price and demo length are left for later.
+- **A blackjack hand takes 5 in-game minutes** (Mike, after playing the prototype). That is close to a real table, so a six-hour part of the day fills after about 72 hands; travel and jobs fill the rest of a day.
 - **Clue puzzles.** Visual clues are worked with short randomized puzzles (slide, spot the difference, tile rotate or jigsaw). They are optional, have no fail state, cost a slice of the day, give evidence but never certainty, and once solved in the story they can be replayed from a puzzle shelf on the phone.
 
 ### New rules and additions

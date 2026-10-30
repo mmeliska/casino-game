@@ -40,14 +40,14 @@ Time runs on what you do, not the real clock (settled 19 Oct 2026).
 | Rule | Spec |
 | --- | --- |
 | Parts of the day | Morning, afternoon, night, plus a before-dawn window a few events use |
-| Rounds | Each round advances the clock a few minutes, but only to the end of the current part of the day; after that play is unlimited |
+| Rounds | Each round advances the clock a few minutes (blackjack: 5, Mike 2026-10-26), but only to the end of the current part of the day; after that play is unlimited |
 | Days | Pass only when you move, sleep, travel or take a job |
 | App closed | No in-game time passes; small timers count in-game time only |
 | Day length | About 15 minutes of normal play (starting value; tune once the prototype runs, Mike 2026-10-26) |
 | Season | 28 days, about 7 hours (starting value; tune once the prototype runs) |
 | Main story | About 42 hours to opening night, about six seasons: act 1 ~8h, act 2 ~8h, act 3 ~8h, act 4 ~10h, act 5 ~8h |
 
-There is no story clock. The only deadline on the main line is Starflare Field's Opening Day, the first one at least three seasons after the fall, and missing it leads to a resting point (outcome 7), not a fail. Seasons gate the excursions and a few beats. Small deadlines ("done by Friday", Ray's due date) are fine; a game-ending timer is not.
+There is no story clock. The only deadline on the main line is Starflare Field's Opening Day, the first one at least three seasons after the ground-breaking at A3.5, when posters and the bar TV announce the date (Mike, 2026-10-29). Missing it leads to a resting point (outcome 7), not a fail; it should be rare, catching players who drift away for many hours. Seasons gate the excursions and a few beats. Small deadlines ("done by Friday", Ray's due date) are fine; a game-ending timer is not.
 
 ## Player state model
 
@@ -70,9 +70,9 @@ Notes for the build:
 - **Gus's trust** is ordinary NPC standing, with no special system; a few beats also check flags (for example whether you helped him quit).
 - **The scales are never shown as numbers.** The player feels them through reactions, events opening or closing and things like how much credit Kasia gives.
 - **Straight/crooked is separate from heat.** Heat is who's watching you; crooked is who you are.
-- **Raffy's envelope** sits in story keys, and its $2,000 doesn't count toward best bankroll until you choose to keep it (A1.5).
+- **Raffy's envelope** sits in story keys, and its $2,000 doesn't count toward best bankroll until you choose to keep it (A1.5). A1.5 settles only the cash and Raffy (return it to Ray, help Raffy pay, keep it, or keep it and lie to Raffy); the drive stays in your pocket, and its fate is chosen from act 2 on (`suggestions/S-050`, Mike, 2026-10-29).
 - **The car** can't be sold. It's always the floor: rock bottom is sleeping in it under the Bridges.
-- **Name and gender** are set once on Dot's register at check-in (A1.1). Gender sets the rival's version (Chase or Brooke) and which wedding dance is offered first; the wedding (A1.4) sets which romance versions you meet.
+- **Name and register box** are set once on Dot's register at check-in (A1.1): your name, and a box with Mr., Ms. and Prefer not to answer (Mike, 2026-10-27). The box sets honorifics (an NPC who says "sir" says "ma'am" for Ms. and uses none for Prefer not to answer), the rival's version (Chase or Brooke, picked at random for Prefer not to answer) and which wedding dance is offered first; the wedding (A1.4) sets which romance versions you meet.
 
 **Gating rule.** Content checks combinations, for example `best_bankroll >= 25000 AND days_since("bailout") >= 28`, never one threshold alone.
 
@@ -85,16 +85,17 @@ Notes for the build:
 | $200 (start) | Kasia's Tap, Millstone Lanes, Bridgehead, the Flare, the Prairie Queen | Act 1 |
 | $1,500 | The RailYard | First rung up (A1.8) |
 | $5,000 | The Harborlight | Act 2, with Gus's trust and two weeks in the city |
-| $10,000 | The Aurelian, the Northern Ledger (spring) | The Stella and Tae false lead |
-| $25,000 | Aurelian high-limit, the Gilded Pine (summer) | Act 3, a season after the bailout; meet Vivian |
-| $50,000 | The Obsidian (plus a suit and Vivian's sponsorship), which brings the yacht games invitation | Act 4, once who bought the Flare is solved |
-| $250,000 | Blackspruce Lodge and the yacht games fill the climb | Act 5, once the name is won back |
+| $10,000 | The whole Aurelian, lobby included (act 2 at the earliest), the Northern Ledger (spring) | The Stella and Tae false lead; meet Felix/Nora |
+| $25,000 | Aurelian high-limit, the Gilded Pine (any season); Blackspruce Lodge with Ray's winter invitation | Act 3, a season after the bailout; meet Vivian (at the Gilded Pine any time) |
+| $50,000 | The Obsidian (plus a suit and Vivian's sponsorship) | Act 4, once who bought the Flare is solved |
+| $100,000 | The yacht games, with Vivian's invitation (A3.6) | |
+| $250,000 | | Act 5, once the name is won back: your quarter of Vivian's land |
 
-The rebuild then spends money in phases (starting values): Vivian's land about $1M, a brand-new rocket sign about $250k, the gaming floor about $1M (opening night ends the main story), then post-game the hotel tower about $2M and the rooftop launch pad about $1.5M. The only backers are Jalen and Vivian, and you pay at least a quarter of every phase yourself. The Cinder Room and the yacht games open by heat and invitation, not money.
+The rebuild then spends money in phases (starting values): Vivian's land about $1M, a brand-new rocket sign about $250k, the gaming floor about $1M (opening night ends the main story), then post-game the hotel tower about $2M and the rooftop launch pad about $1.5M. You own the new Starflare and hold its license; the only backers are Jalen and Vivian, minority partners with shares equal to what they paid in (Vivian silent, Jalen running the hotel). You pay at least a quarter of every phase yourself: the $250,000 act 5 gate is your quarter of the land, and your quarters of the sign and the floor are earned during act 5, each phase gated on having that quarter (Mike, 2026-10-30). The Cinder Room opens by heat and invitation, not money; once you're in, you're in for good. Blackspruce and the yacht games each need an invitation plus a bankroll floor (about $25,000 and about $100,000, starting values to tune).
 
 ## Venues
 
-Ten places to gamble, ladder-ordered and mapped to districts. Bets and entry rules are starting values to tune in playtesting. Full descriptions and who you'll find are on [Northlight](#city).
+Eleven places to gamble, ladder-ordered and mapped to districts. Bets and entry rules are starting values to tune in playtesting. Full descriptions and who you'll find are on [Northlight](#city).
 
 | Venue | District | Games | Bets | Getting in |
 | --- | --- | --- | --- | --- |
@@ -103,14 +104,14 @@ Ten places to gamble, ladder-ordered and mapped to districts. Bets and entry rul
 | Bridgehead Fuel & Food | The Bridges | Three-reel slots, video poker, pull tabs, scratchers | $1–$5 | Anyone |
 | Starflare Club (the Flare) | The Levee | Rocket slots, video poker, blackjack, craps, roulette, poker, keno, the Rocket Wheel | $5–$100 | Anyone, until the fall |
 | Prairie Queen | The Levee | Blackjack, craps, roulette, paddlewheel slots, video poker | $5–$200 | A ticket for a set sailing |
-| Cinder Room | The Levee | Casino war (house game), craps, no-limit poker, one-armed bandits | $100 to no limit, cash | Heat above a threshold or an Umbra vouch; Ray slips you the first password (A1.9) |
+| Cinder Room | The Levee | Casino war (house game), craps, no-limit poker, one-armed bandits | $100 to no limit, cash | Heat above a threshold or an Umbra vouch; Ray slips you the first password (A1.9). Once in, in for good; every visit raises heat |
 | The RailYard | The Levee | Core five, video poker, keno, rail slots; players' card, slot tournaments | $10–$500 | Best bankroll $1,500 |
 | Harborlight | Marquee Mile | Core five, video poker, keno, lighthouse slots | $25–$1,000 | $5,000; heat below a limit; smart casual |
-| Aurelian | Marquee Mile | Core five, video poker, big-screen slots; baccarat in high-limit | $25–$5,000 | $10,000; low heat; high-limit at $25,000 |
+| Aurelian | Marquee Mile | Core five, video poker, big-screen slots; baccarat in high-limit | $25–$5,000 | $10,000 (lobby included); low heat; high-limit at $25,000 |
 | Obsidian | Silvershore | Blackjack, poker (incl. seven-card stud), roulette, craps, slot salon, baccarat | $500 and up | $50,000; a suit; a member sponsors you; low heat |
-| Yacht games | Silvershore | Poker, baccarat, craps | $1,000 and up | Vivian's invitation (A3.6) |
+| Yacht games | Silvershore | Poker, baccarat, craps | $1,000 and up | Vivian's invitation (A3.6) and about $100,000 |
 
-Excursions add one trip per season: the Northern Ledger in spring, the Gilded Pine in summer, Haybale Downs late summer to fall, and Blackspruce Lodge once in winter. Housing climbs with you: the car, the Slack Water Motel, a room over a Levee bar, a comped suite on the Mile, Silvershore.
+Excursions: the Northern Ledger in spring, the Gilded Pine in any season, Haybale Downs late summer to fall, and Blackspruce Lodge once in winter (Ray's invitation and about $25,000). Housing climbs with you: the car, the Slack Water Motel, a room over a Levee bar, a comped suite on the Mile, Silvershore.
 
 ## Casino games
 
@@ -145,14 +146,14 @@ Ordinary play is always fair: a losing player is never being cheated by the game
 
 Heat has four steps: none, low (they know you), medium (warnings and sweeps) and high (a raid: you lose the table money, pay a fine or spend a night in Lock Street lockup, and the venue goes quiet for a while). Ed, the honest vice cop, is its face.
 
-- **Raises heat:** illegal games (Millstone dice, Kasia's back room, the Cinder Room, Mitch's book), crooked jobs and the dirty versions of the act 4 routes. Kasia's bar machines are too small for Ed to care about.
+- **Raises heat:** illegal games (Millstone dice, Kasia's back room, every Cinder Room visit, Mitch's book), crooked jobs and the dirty versions of the act 4 routes. Kasia's bar machines are too small for Ed to care about.
 - **Lowers heat:** one step per week of licensed-only play; Vivian's lawyer clears a raid for a fee; a tip to Ed drops it at once but starts the informant path (R4).
 - **Gates:** high heat closes the Mile and Silvershore doors and opens the Cinder Room's.
 
 **Wren's cameras cover the city** (settled 26 Oct 2026). Revaris cameras sit in casinos, bars, shops, motels and parking lots, and the city's "Safe Streets" contract puts Revaris plate readers on streets and bridges. They're the story reason Wren always has something on you by act 4 (S10).
 
 - **Every venue keeps its own footage.** Wren can wipe her own servers but never a venue's copy. City readers feed Revaris directly.
-- **Dead zones:** all of Backwater (it voted the cameras down) and the Long Bridge (the hoodlums smash the readers). Scenes that need to happen off camera happen there.
+- **Off camera:** Backwater voted only on casinos, not cameras, so its streets have the readers and most of its shops took Revaris cameras. Only three places refuse them: Kasia's Tap, Millstone Lanes and the Slack Water Motel. The Long Bridge stays dark (the hoodlums smash its readers). Scenes that need to happen off camera happen inside those three places or on the Long Bridge; what happens inside the three reaches Wren only through her people (Mike, 2026-10-30).
 - **Build note:** this is story logic, not a simulated system. A flag such as `face_scanned` (S10) plus the player's record of illegal play and debts is enough to build Wren's file.
 
 ## Jobs, the phone and inventory
@@ -161,7 +162,7 @@ The phone is the menu hub (settled 24 Oct 2026). It can't place bets, since onli
 
 | Tab | Holds |
 | --- | --- |
-| Wallet | Cash, Ray's loan and due date, Kasia's ledger, Flare markers, what Jalen owes you; the drive-away option from act 2 on |
+| Wallet | Cash, Ray's loan and due date, Kasia's ledger, Flare markers (your own debts at the Flare's cage), what Jalen owes you |
 | Jobs | Every job available right now; refreshes daily |
 | Messages | Texts from people you've met, and shady jobs from unknown numbers |
 | Pockets | 12 item slots plus a separate story-key row |
@@ -175,7 +176,7 @@ The phone is the menu hub (settled 24 Oct 2026). It can't place bets, since onli
 - Crooked jobs form a ladder: running bets for Mitch, steering marks to the Cinder Room and selling information open early; collecting for Ray opens after several Ray jobs and can put someone you know (the rival, Kiran, even Gus in act 4) in front of you.
 - The full job table is on [Rules and systems](#rules) and in task 13's planning record.
 
-**Pockets.** Every item is meaningful: a suit for the Obsidian door, a gift to patch up Dot and Gus, Gus's lucky chip. Story keys (Raffy's envelope and thumb drive, a room 9 key) sit outside the 12 slots and can't be pawned unless a scene offers it. Troy at Bridgehead Loan & Pawn buys items for a fraction and holds them a few days so you can buy them back.
+**Pockets.** Every item is meaningful: a suit for the Obsidian door, a gift to patch up Dot and Gus, Gus's lucky chip (a last-night keepsake: at A3.3 he presses one of the Flare's own chips into your hand; it can't be cashed after the closing, and Troy buys it for almost nothing; Mike, 2026-10-30). Story keys sit outside the 12 slots and can't be pawned unless a scene offers it. The row is what people gave you (`suggestions/S-009`): Raffy's envelope and the drive in it (Revaris's old encrypted key ledger, `suggestions/S-058`), Gus's IOU, Pete's pin, the Cinder Room password, and Vivian's jeweler's receipt. No room 9 key: Richard keeps it all game (Mike, 2026-10-30). Tapping a key shows what it is and who gave it to you; options that spend one name the giver, and the record card ends with what you still hold. Richard gives no item. Troy at Bridgehead Loan & Pawn buys items for a fraction and holds them a few days so you can buy them back.
 
 ## Clue puzzles
 
@@ -272,24 +273,24 @@ One main storyline in five acts, with places to settle along the way. The Starfl
 | --- | --- | --- |
 | 1. The Flare (~8h) | Start: $200 and a car | Backwater to the Starflare; you get attached to Gus and the regulars as the decline shows |
 | 2. The bailout (~8h) | $5,000 + Gus's trust + two weeks | Ray collects; Gus refuses Tae; "a friend of Ray's" (really Revaris, Umbra's secret front) buys the Flare and puts its land into the Levee Stadium District |
-| 3. The fall (~8h, always happens) | $25,000 + a season after the bailout | Starflare Field is announced, the Flare is condemned, the regulars scatter, the Field timer starts |
+| 3. The fall (~8h, always happens) | $25,000 + a season after the bailout | Starflare Field is announced, the Flare is condemned, the regulars scatter, the Field timer starts at the ground-breaking (A3.5) |
 | 4. Winning back the name (~10h) | Who bought the Flare solved (M2) + $50,000 | Gus admits he sold to the mob; you win the name back by leverage, clean or dirty |
-| 5. The new Starflare (~8h) | Name won back + $250,000 | Vivian's land, backers, a new rocket sign, the license hearing, opening night |
+| 5. The new Starflare (~8h) | Name won back + $250,000 (your quarter of the land) | Gus signs the name over to you (O1), Vivian's land, backers, a new rocket sign, the license hearing, opening night |
 
 **The other story systems**
 
 - **NPC arcs.** Core characters get a full arc with stages, NPC state and a portrait; supporting characters get a portrait and events. Influence runs both ways: you change their lives and they change your path. Side arcs (R1 to R10) hook into the spine at fixed beats.
 - **Authored drift.** Some NPCs change on schedule regardless of the player (Pete goes to the Aurelian at the fall; the rival slides into debt). The player's flags decide the flavour, not whether it happens.
 - **Mysteries.** Four at launch (M1 to M4). Clues are flags spread across broke and rich venues, found in any order. Only M2, who bought the Flare, gates the main story.
-- **Broke and rich paths.** Going broke opens side stories and jobs (the car under the Bridges, Ray's loans, Backwater work, staking) but doesn't move the main line. Getting rich opens venues, people and the act gates. Some players will lose on purpose to see the broke content; that's the design working.
+- **Broke and rich paths.** Going broke opens side stories and jobs (the car under the Bridges, Ray's loans, Backwater work, staking: a backer fronts your bankroll for a big cut and you owe them, a contract, not a rescue, Mike 2026-10-30) but doesn't move the main line. Getting rich opens venues, people and the act gates. Some players will lose on purpose to see the broke content; that's the design working.
 
 **Clean or dirty** (settled 26 Oct 2026). Act 4 has no cash route: once sold, it's sold, and the name comes back only through leverage. There are three routes: Richard's box against Bennett (A4.4), evidence against Umbra (A4.3) and the by-the-book conflict-of-interest complaint (A4.11). Each has a white-hat version (proof of real wrongdoing that never hurts an innocent person) and a black-hat version that is faster or cheaper. The dirty version wins the name too, and the game remembers: heat goes up, the crooked or ruthless lean grows, Gus, Dot, Rosa, Ed and Richard cool on you, Wren takes notice, the license hearing sets stricter conditions, and the story leans toward the Starflare without Gus (outcome 2) unless you repair things.
 
-**The license hearing** (A5.7). Before opening night the gaming commission judges your whole record: heat, raids, illegal games, the informant path, and flags such as your name on Bennett's petition (S7) and Wren's file (S10). You pick who speaks for you from people you've earned, then answer one hard question honestly or not. It never fails: the worst result is conditions (a fine, a delay, a few weeks of clean play), never a lost license.
+**The license hearing** (A5.7). The state gaming commission grants every casino license; the alderman gives only the local sign-off (zoning and permits). Before opening night the commission judges your whole record: heat, raids, illegal games, the informant path, and flags such as your name on Bennett's petition (S7) and Wren's file (S10). You pick who speaks for you from people you've earned. If you heard Gus's confession at A4.1, you then face one hard question about the camera deal (did Gus know what he was signing, and when did you find out): tell the truth, bluff, or take the concealment onto your own record (`suggestions/S-001`). O3 and O4 each get a short version of the hearing with the same question (Mike, 2026-10-30). It never fails: the worst result is conditions (a fine, a delay, a few weeks of clean play), never a lost license.
 
 ## Outcomes, endings and post-game
 
-Ten outcomes. Only 1 and 2 end the main story; the other eight are resting points you can always climb back from. What leads to each and the way back: [Outcomes](#outcomes).
+Ten outcome codes. Only 1 and 2 end the main story; seven are resting points you can always climb back from, and 9 is a setback you play through, not an ending (the code stays so nothing is renumbered; Mike, 2026-10-29). What leads to each and the way back: [Outcomes](#outcomes).
 
 | # | Outcome | Kind |
 | --- | --- | --- |
@@ -300,12 +301,12 @@ Ten outcomes. Only 1 and 2 end the main story; the other eight are resting point
 | 5 | Tae's restaurant | Resting point |
 | 6 | Gus lets go | Resting point |
 | 7 | The name stays with Starflare Field | Resting point (the Field timer ran out) |
-| 8 | Mob takeover | Resting point |
-| 9 | Burned down | Resting point |
+| 8 | Mob takeover (the Revaris showcase) | Resting point |
+| 9 | Burned down | Setback, not an ending (only after A3.3; no epilogue) |
 | 10 | The sellout | Resting point |
 
 - **End trigger:** opening night of the lakefront floor (A5.6), after the license hearing.
-- **Drive away:** from act 2 on, the Wallet offers to drive away over the Long Bridge. It plays a leaving epilogue built from that day; the save is kept and you can resume from the morning you left.
+- **No leaving ending:** the cash-out / drive-away is cut (Mike, 2026-10-27; `suggestions/S-010` rejected). At the end you stay and run the new casino/hotel.
 - **Epilogue builder:** about 8 still panels, one builder for every ending: (1) what became of the Starflare, (2 to 7) the 5 or 6 cast you touched most, picked from standing, flags, heat and the scales, (8) a Northlight newspaper front page (the mayor's race, Starflare Field, Umbra), then your record card.
 - **Post-game:** endings 1 and 2 lead to light owner mode (hiring, hosting whales, keeping up with the Aurelian; gambling stays the main activity) with the tower and launch pad as goals. Each resting point adds one place or routine to the city plus its way back. No new systems beyond light owner mode.
 
@@ -331,7 +332,7 @@ Ship on iOS and Android first; consider a Switch 2 port if the game succeeds. Th
 | Clock | Parts of the day, days, seasons, the Field timer; advances only by the rules above |
 | Event director | The table-event counter and break-point selection over the event files |
 | Ink runtime | Scenes; reads and writes state through a narrow variable bridge |
-| Phone | Wallet, Jobs, Messages, Pockets; the job list and the drive-away |
+| Phone | Wallet, Jobs, Messages, Pockets; the job list |
 | City | Map, travel, housing, venue entry checks |
 | Puzzle components | Slide, spot the difference, tile rotate or jigsaw; take an image and a difficulty; the phone's puzzle shelf |
 | Epilogue builder | Picks and orders panels from state |
@@ -347,7 +348,7 @@ A 16-bit-style pixel art look keeps the art burden low and suits a Vegas Stakes 
 | Cards, chips, dice | Drawn in code, or Kenney.nl CC0 packs for prototyping |
 | UI elements | Kenney.nl CC0 packs, restyled |
 | Tables, slot symbols, backgrounds | Made in Aseprite with a fixed palette per district, or itch.io packs |
-| Character portraits | Commissioned pixel-art portraits ($20 to $80 each): about 19 (9 core, 10 supporting), plus Richard and the six romance versions if they get portraits |
+| Character portraits | Commissioned pixel-art portraits ($20 to $80 each): about 24 (9 core, 10 supporting, and 5 minor with portrait: Richard, Troy and the Flare regulars Walt, Lorraine and Augie), plus the six romance versions if they get portraits |
 | Story panels | Still poses over backgrounds; a seed's panel is reused as its callback inset |
 | Music and sound | Not yet decided |
 
