@@ -7,4 +7,4 @@ Event codes are the cross-reference. Each character page ends with an *Appears i
 | S1 to S13 | Seed and reveal pairs (task 9) |
 | R1 to R10 | Side arcs and character threads |
 | X1 to X4 | Excursions (task 4) |
-| O1 to O10, EP | Outcomes (task 7) and the epilogue (task 10) |
+| O1 to O10, EP | Outcomes (task 7; O9 is a setback, not an ending) and the epilogue (task 10) |

@@ -6,25 +6,28 @@ The main story moves forward only when you make money and spend time in the city
 - **Gates:** money, standing with a character, the four hidden scales, heat, and flags from seeds and mysteries. Each act gate needs a money milestone **and** a minimum amount of time.
 - **Side arcs:** mysteries, cast arcs and jobs hook into the spine at fixed beats. Going broke opens side stories and jobs, but doesn't move the main line.
 - **Pacing:** about 42 hours to opening night. One in-game day is about 15 minutes and a season is 28 days (about 7 hours), so that's about six seasons, roughly a year and a half in game. By act: 1 \~8h, 2 \~8h, 3 \~8h, 4 \~10h, 5 \~8h. Act 2 can't be shorter than the season its gate waits for (audit 1.1, Mike 2026-10-24).
-- **No story clock:** the only deadline on the main line is Starflare Field's Opening Day, the first one at least three seasons after the fall. It leads to a resting point (outcome 7), not a fail.
+- **No story clock:** the only deadline on the main line is Starflare Field's Opening Day, the first one at least three seasons after the A3.5 ground-breaking (Mike, 2026-10-29). It leads to a resting point (outcome 7), not a fail.
 
 Each act opens only when its money and time gate is met. Outcomes on the right are where a playthrough can settle, and all but 1 and 2 let you pick the main line back up.
 
 ## Money thresholds
 
-The game tracks two numbers. **Best bankroll** is the most of your own money you've ever held: cash minus what you owe (Ray's loan, Kasia's ledger, Flare markers), so borrowing can't open anything. Raffy's envelope is a story key in Pockets and doesn't count until you decide to keep it at A1.5 (audit 2.10, Mike 2026-10-26). It opens venues and story gates and never drops, so a bad night can't lock anything again. **Bankroll now** is what you can spend. When it runs low, the broke content opens up: the car under the Bridges, Ray's loans and the Backwater jobs.
+The game tracks two numbers. **Best bankroll** is the most of your own money you've ever held: cash minus what you owe (Ray's loan, Kasia's ledger, Flare markers), so borrowing can't open anything. Raffy's envelope cash doesn't count until you decide to keep it at A1.5 (audit 2.10, Mike 2026-10-26); the drive stays a story key in Pockets. It opens venues and story gates and never drops, so a bad night can't lock anything again. **Bankroll now** is what you can spend. When it runs low, the broke content opens up: the car under the Bridges, Ray's loans and the Backwater jobs.
 
 | Best bankroll | Venues it opens | Story it opens |
 | --- | --- | --- |
 | $200 | Start: Kasia's Tap, Millstone Lanes, Bridgehead, the Flare, the Prairie Queen | Act 1 |
 | $1,500 | The RailYard | Act 1, first rung up |
 | $5,000 | The Harborlight | Act 2 can open (with Gus's trust and two weeks) |
-| $10,000 | The Aurelian, the Northern Ledger (spring) | Stella and Tae false lead |
-| $25,000 | The Gilded Pine (summer), the Aurelian high-limit room | Act 3 can open (a season after the bailout); meet Vivian |
+| $10,000 | The Aurelian (lobby included), the Northern Ledger (spring) | Stella and Tae false lead; meet Felix/Nora (act 2) |
+| $25,000 | The Gilded Pine (any season), the Aurelian high-limit room, Blackspruce Lodge (with Ray's winter invitation) | Act 3 can open (a season after the bailout); meet Vivian |
 | $50,000 | The Obsidian | Act 4 can open (once you solve who bought the Flare) |
-| $250,000 | Blackspruce Lodge and yacht games fill the climb | Savings for the rebuild; act 5 can open once the name is won back (no cash route, 2026-10-23) |
+| \~$100,000 | Yacht games (with Vivian's invitation, after A3.6) |  |
+| $250,000 |  | Your quarter of the land; act 5 can open once the name is won back (no cash route, 2026-10-23) |
 | \~$1M |  | Vivian's land |
 | \~$250k |  | Relight the rocket sign |
 | \~$1M |  | The gaming floor; opening night ends the main story |
 
-The only backers are Jalen and Vivian (Mike, 2026-10-21). They can cover part of a phase, but you pay at least a quarter of every phase yourself. The Cinder Room and yacht games open by heat and invitation, not money.
+The only backers are Jalen and Vivian (Mike, 2026-10-21). They can cover part of a phase, but you pay at least a quarter of every phase yourself. You own the new Starflare and hold its license; they are minority partners with shares equal to what they paid in. The $250,000 gate is your quarter of the land; your quarters of the sign (\~$62,500) and the floor (\~$250,000) are earned during act 5, each phase gated on having that quarter (Mike, 2026-10-30).
+
+Venue access (Mike, 2026-10-30): Blackspruce Lodge needs Ray's winter invitation (once you're a Cinder Room regular) and about $25,000; the yacht games need Vivian's invitation and about $100,000. Both floors are starting values. The Cinder Room opens by Ray's password (A1.9), heat or an Umbra vouch, not money; once you're in, you're in for good, even if Ray cuts you off, and every visit raises heat.

@@ -1,3 +1,5 @@
+*This review from 18 October 2026 is kept as a record. Its proposals were later taken, changed or dropped; lines that later decisions made wrong are marked.*
+
 ## Summary
 
 The story bones are strong: Gus's secret debt, Bennett's stadium and Richard's ledger give Northlight a real noir engine, and money, heat and the four hidden scales already gate content. What's missing is the layer players touch every minute: visual tells, stakes on story choices, a crew that travels with you, and written voices. Since no script or dialogue exists yet, this review works from the settled design (Planning Tasks tasks 1 to 8, Story Direction, cast and mystery notes) and section 5 shows a scene I wrote for the purpose.
@@ -22,7 +24,7 @@ The economy of access is already good; the moment-to-moment choices are not yet 
 **What works**
 
 - **The access ladder is a real wager.** Harborlight at $5,000, the Aurelian at $10,000 (high-limit room at $25,000), the Obsidian at $50,000 give every session a target, and "reach it once" means a hot streak is rewarded even if you give it back.
-- **Heat pulls in two directions.** The Cinder Room needs high heat; the Harborlight, Aurelian and Obsidian need low heat. That is a genuine fork in how a player builds a career, and it should be surfaced through Ed and Dot, not hidden in tables.
+- **Heat pulls in two directions.** The Cinder Room needs high heat; the Harborlight, Aurelian and Obsidian need low heat. (Superseded 2026-10-30: the Cinder Room's first password can also come from Ray (A1.9) or an Umbra vouch; once in, the player stays in for good, and every visit raises heat.) That is a genuine fork in how a player builds a career, and it should be surfaced through Ed and Dot, not hidden in tables.
 - **Broke opens content.** Sleeping under the Bridges, Raffy's $2,000 envelope as a temptation, and the people's Starflare (ending 4) for never-rich players mean losing is a story state, not a game over. That is the single best idea in the design for gambling psychology, because it removes the urge to quit after a bad night.
 - **Debt is personal.** Kasia's ledger, Ray's loans and Gus's hidden marker are three debt flavours (friendly, predatory, inherited) that mirror each other.
 
@@ -30,11 +32,11 @@ The economy of access is already good; the moment-to-moment choices are not yet 
 
 | Gap | Why it matters | Fix |
 | --- | --- | --- |
-| Story choices rarely cost money in the moment | A choice with no stake feels safe, which kills tension in a gambling game | Add **stake choices**: the option names what it costs or risks ("Cover Jalen's $500 buy-in", "Hold the envelope, $50 tip") so the player prices the decision |
-| Ray's loans have no pressure curve | Without a story clock, debt can sit forever | Use the allowed small local timers: a weekly vig that Ray collects in person, escalating from a joke, to a favour, to taking your car (which removes the under-the-Bridges fallback, a real threat) |
-| Comps are mentioned (Pete, the comped suite) but not tuned | Comps are the casino's hook on the player; they should feel like a leash | Let Pete's rating card show what the Flare thinks you're worth; comps rise on hot streaks and the suite is lost when you cool off, as already settled, with Pete telling you why |
+| Story choices rarely cost money in the moment | A choice with no stake feels safe, which kills tension in a gambling game | Add **stake choices**: the option names what it costs or risks ("Cover Jalen's $500 buy-in", "Hold the envelope, $50 tip") so the player prices the decision (Superseded 2026-10-30: Jalen is not staked and doesn't play for money; the player can lend him tuition instead.) |
+| Ray's loans have no pressure curve | Without a story clock, debt can sit forever | Use the allowed small local timers: a weekly interest payment that Ray collects in person, escalating from a joke, to a favour, to taking your car (which removes the under-the-Bridges fallback, a real threat) |
+| Comps are mentioned (Pete, the comped suite) but not tuned | Comps are the casino's hook on the player; they should feel like a leash | Let Pete's rating card show what the Flare thinks you're worth; comps rise on hot streaks and the suite is lost when you cool off, as already settled, with Pete telling you why (Superseded 2026-10-30: Pete's rating of the player is never shown on screen.) |
 | Reputation scales are invisible | Hidden is right, but players need to feel them | Show each scale through one recurring place: Kasia's ledger (reliable/flaky), Ed's greeting (straight/crooked), the regulars' tips (generous/tight), how Ray talks to you (ruthless/soft) |
-| Stakes plateau after the Obsidian | Late-game money has nowhere exciting to go | The rebuild costs ($250k to free Gus, \~$1M for Vivian's land, $250k for the rocket) are the late-game sink; make each phase a choice between paying cash, calling in a backer, or using leverage, with different scale costs |
+| Stakes plateau after the Obsidian | Late-game money has nowhere exciting to go | The rebuild costs ($250k to free Gus, \~$1M for Vivian's land, $250k for the rocket) are the late-game sink; make each phase a choice between paying cash, calling in a backer, or using leverage, with different scale costs (Superseded 2026-10-30: "Gus freed" is gone; act 5 opens when the name is won back, and the $250,000 gate is the player's quarter of the land, not a price.) |
 
 ### Scams, tells and information
 
@@ -49,7 +51,7 @@ Because there is no animation, every tell must be a **pose swap** or a **prop in
 | --- | --- | --- | --- |
 | Kiran (settled tell: goes quiet) | Friendly lean swaps to upright, eyes on the shoe | Daughter's photo turned slightly away | This hand is fixed |
 | Ray | Arms-wide big-man pose swaps to hands in coat pockets | Pinky ring turned inward | His boss is squeezing him; he'll take a worse deal |
-| Vivian | Sunglasses pushed up | Pearls in her fist | She's on tilt and will overbet; also that she's close to selling the land |
+| Vivian | Sunglasses pushed up | Pearls in her fist | She's on tilt and will overbet; also that she's close to selling the land (Superseded 2026-10-30: she isn't on tilt; she is spending the family money down on purpose and holds the land for whoever asks what it should become.) |
 | Gus | Proud chin-up swaps to looking at the mug | Chipped rocket mug, empty | He's hiding the debt or has been gambling |
 | Chase / Brooke | Relaxed lean swaps to checking their phone | Watch or cuff adjusted | They're lying about money (foreshadows the Ray debt) |
 | Bennett | Handshake pose held a beat too long (text) | Photo on his desk face-down | Richard is close to the surface |
@@ -57,7 +59,7 @@ Because there is no animation, every tell must be a **pose swap** or a **prop in
 
 **Make Rosa the teacher of reading.** Each lesson she gives unlocks one tell type, so returning to her has a gambling payoff, and her own arc (the torn patch) rewards you for paying attention to her the same way. Juan teaches weighted dice in his opt-in story; Mitch can teach reading a bookie's board. A small "read" note in the results strip ("Kiran hasn't said a word in three hands") is enough UI.
 
-**Seed false tells too.** Chase/Brooke should once fake a tell to bait you, and Wren's people should know your reads if you've been careless on her app. A tell system that can be gamed back feels like poker.
+**Seed false tells too.** Chase/Brooke should once fake a tell to bait you, and Wren's people should know your reads if you've been careless on her app. (Superseded 2026-10-30: Wren's betting app was replaced by her camera company on 2026-10-21.) A tell system that can be gamed back feels like poker.
 
 ## 2. Chicago-noir atmosphere and visual flow
 
@@ -79,7 +81,7 @@ The setting is rich on paper (the river split, the Stacks, the North Light, the 
 
 **Let the Flare's decline be visible on every visit.** Already settled: thin crowds, dark floor lights, the bucket, the flickering sign. Make it a state the background tracks, with 3 or 4 swappable plate states (more dark lights, a roped-off table, the lounge piano covered), so the player sees the slide without anyone saying it.
 
-**Noir by night, warm by day.** Mike's tone rule (Northlight is a city people like) and the noir brief don't conflict if they're split by time: daylight plates are warm, busy and kind (pierogi at Kasia's, league night at Millstone Lanes, the lakefront in summer); grit belongs to the hours after the tables close. Seasons do the same work: summer is the Gilded Pine and the open lake, winter is Blackspruce Lodge and frozen breath outside the Cinder Room.
+**Noir by night, warm by day.** Mike's tone rule (Northlight is a city people like) and the noir brief don't conflict if they're split by time: daylight plates are warm, busy and kind (pierogi at Kasia's, league night at Millstone Lanes, the lakefront in summer); grit belongs to the hours after the tables close. Seasons do the same work: summer is the Gilded Pine and the open lake, winter is Blackspruce Lodge and frozen breath outside the Cinder Room. (Superseded 2026-10-30: the Gilded Pine is open in every season, not just summer.)
 
 ### Panel economy
 
@@ -97,13 +99,13 @@ With no animation, the screen is the panel. Define a small grammar and every sce
 
 - **One line of dialogue per panel, 15 words at most** on a portrait phone. Anything longer splits into two panels or becomes an insert.
 - **Show the clue, say less.** The tape in Gus's office, the photo of the sisters, Bennett's desk photo and Richard's weekly envelope should each arrive as an insert with no caption. The player who notices is rewarded; the one who doesn't hasn't been told.
-- **Replace exposition with recurring props.** Northlight's history (mills closed, riverboats came, the Flare's back room) should never be a paragraph. It's Kasia's dad's union pin, Pete's 25-year rocket pin, the Stacks outside every Levee window, and the founder's dinner jacket straining on Gus.
+- **Replace exposition with recurring props.** Northlight's history (mills closed, riverboats came, the Flare's back room) should never be a paragraph. It's Kasia's dad's union pin, Pete's 25-year rocket pin, the Stacks outside every Levee window, and the founder's dinner jacket straining on Gus. (Superseded 2026-10-30: Kasia's dad was a businessman and she wears no union pin; the Flare's old back room was dropped 2026-10-22.)
 - **Motion is description, so make it short.** "Quick hands" becomes one caption under an insert of the chip tray, not a sentence of action.
 - **Weather is a free mood layer.** A static rain overlay, a fog band, or snow on the window frame changes a reused background more than a new pose would.
 
 **Where heavy exposition currently lives and should become images**
 
-- Dot's four stories (the guest who paid everyone's week, the flood, room 9, the shirt): tell each as 3 to 4 panels with an old-photo filter, not as a monologue.
+- Dot's four stories (the guest who paid everyone's week, the flood, room 9, the shirt): tell each as 3 to 4 panels with an old-photo filter, not as a monologue. (Superseded 2026-10-30: the guest who paid everyone's week, the suitcase story, was dropped 2026-10-22.)
 - Wren's takeover backstory: never told in one go; the player assembles it from what Ray won't say, what Ed says, and what the thumb drive shows.
 - Richard's lost house and Bennett's first bribe: one insert of the ledger entry, one of the photo, one of the motel key. The player can do the rest.
 
@@ -118,20 +120,20 @@ Right now the cast is a city of people you visit. Vegas Stakes-style games feel 
 | Companion | Edge they bring | How they join | How you lose them |
 | --- | --- | --- | --- |
 | Rosa | Teaches tells; flags a bad table; can sit in on a high-stakes hand | After she warns you off a hand at Kasia's and you listen | You ride a crooked table she flagged, or push her into the Flare before she's ready |
-| Jalen | A staked player: his wins pay you back, and he can play a seat you can't | You stake his first buy-in | You push him to climb dirty, or cut his stake when he's cold |
-| Juan | Reads dice, hears every Backwater rumour, a safe place to hide someone | Help push Revaris's loaded dice out of Millstone Lanes | Bring heat to the Lanes (a raid traced to you) |
+| Jalen | A staked player: his wins pay you back, and he can play a seat you can't | You stake his first buy-in | You push him to climb dirty, or cut his stake when he's cold (Superseded 2026-10-30: Jalen is not staked and doesn't play for money; the player can lend him tuition, which he repays in tip envelopes.) |
+| Juan | Reads dice, hears every Backwater rumour, a safe place to hide someone | Help push Revaris's loaded dice out of Millstone Lanes (Superseded 2026-10-30: the outfit is Umbra, and Juan owns Millstone Lanes.) | Bring heat to the Lanes (a raid traced to you) |
 | Raffy | A runner: gets messages and cash across the river, finds people | Find him at Millstone Lanes and help him pay Ray | Hand him to Ray, or keep his $2,000 |
 
 Guidelines that keep this in line with what's settled:
 
 - **No meters.** Like romance, standing is felt through behaviour: who shows up, who calls, who covers for you. NPC state (fortune, arc stage, standing) already exists in the design to drive this.
 - **One companion per scene, chosen by the player.** Taking Rosa onto the Prairie Queen versus taking Raffy changes what you can learn there. That's a strong, cheap agency lever.
-- **Companions have their own lives.** Authored drift (already planned) should move them when you're away: Jalen wins a tournament without you, Raffy gets picked up by Ed. Coming back to a changed person is the payoff for having cared.
-- **Each companion is a bet the player makes on a person.** Staking Jalen is literally a wager; the other three should feel the same, with a cost up front and a payoff later.
+- **Companions have their own lives.** Authored drift (already planned) should move them when you're away: Jalen wins a tournament without you, Raffy gets picked up by Ed. (Superseded 2026-10-30: Jalen doesn't play for money.) Coming back to a changed person is the payoff for having cared.
+- **Each companion is a bet the player makes on a person.** Staking Jalen is literally a wager; the other three should feel the same, with a cost up front and a payoff later. (Superseded 2026-10-30: Jalen is not staked.)
 
 ### Syndicate standing
 
-The four power blocs are clear: the Machine (Bennett, Mayor Dabareski), Revaris (Wren, Ray), the unions (Rosa, Kasia's dad's mill local, the dockworkers), and new versus old money (Tae, Vivian). Track standing with each bloc as an authored flag set rather than a number, and let every outcome in the outcomes list read back from it: the people's Starflare needs the unions, the mob takeover needs Revaris, the lakefront Starflare needs old money. That already matches "what leads where"; it just needs to be stated as the rule.
+The four power blocs are clear: the Machine (Bennett, Mayor Dabareski), Revaris (Wren, Ray), the unions (Rosa, Kasia's dad's mill local, the dockworkers), and new versus old money (Tae, Vivian). Track standing with each bloc as an authored flag set rather than a number, and let every outcome in the outcomes list read back from it: the people's Starflare needs the unions, the mob takeover needs Revaris, the lakefront Starflare needs old money. That already matches "what leads where"; it just needs to be stated as the rule. (Superseded 2026-10-30: the outfit is Umbra to everyone, and Revaris is only Wren's camera company; the union doesn't invest in any Starflare (conflict of interest), so outcome 4 has no union stake; Kasia's dad was a businessman who rented the Tap's back room to the local, not a mill man.)
 
 ### Continuity and consequences
 
@@ -142,7 +144,7 @@ The four power blocs are clear: the Machine (Bennett, Mayor Dabareski), Revaris 
 | # | Snag | Where | Suggested fix |
 | --- | --- | --- | --- |
 | 1 | Rosa lost her dealer's license, but act 3 sends her "to the Prairie Queen", a licensed riverboat | Starflare story, act 3 | She works the boat in another job (cocktail floor, cage, or as a paid regular who spots for the pit), and only deals again after the torn-patch mystery restores her license |
-| 2 | Millstone Lanes venue twist says "dice are loaded some nights"; Dot warns about "dice on bad nights" | Venue table (Planning Tasks task 3); Dot's warnings | Breaks the always-fair rule. Change to: the game is fair, but Revaris's loaded dice are Juan's opt-in story; Dot's warning becomes about robberies and sweeps |
+| 2 | Millstone Lanes venue twist says "dice are loaded some nights"; Dot warns about "dice on bad nights" | Venue table (Planning Tasks task 3); Dot's warnings | Breaks the always-fair rule. Change to: the game is fair, but Revaris's loaded dice are Juan's opt-in story (Superseded 2026-10-30: the outfit is Umbra.); Dot's warning becomes about robberies and sweeps |
 | 3 | "Ward money = bribe" is in the city slang list | Northlight lore | Conflicts with Mike's writing rule (say "took a bribe" plainly). Drop it from the slang list |
 | 4 | The suitcase man with a locker key to the founder's ledger is still in the minor-cast notes | Cast minor notes ("later idea") | Superseded: the ledger is in a safety deposit box and Richard has the key. Retire the old idea so nobody writes it |
 | 5 | Rosa's payoff is "you give her a job at the reopened Starflare" | Cast notes, mysteries | Only endings 1 to 4 have a Starflare you influence. Give her a payoff that survives resting points: her license restored, then a dealing job at the Harborlight until a Starflare opens |
@@ -320,7 +322,7 @@ KIRAN: You counted.
 
 **What changed and why**
 
-- **Walt asks you to look, not to judge.** He's a placeholder regular (name not checked for clashes). He never says "cheating", so the opt-in is a favour, and finding the skim is the player's achievement.
+- **Walt asks you to look, not to judge.** He's a placeholder regular (name not checked for clashes). (Superseded 2026-10-30: the name Walt now belongs to one of the Flare's three named regulars, with Lorraine and Augie.) He never says "cheating", so the opt-in is a favour, and finding the skim is the player's achievement.
 - **The tell is an absence.** Two hands of patter, then a hand with no bubble, a pose swap to upright, and the daughter's photo turned away. That's Kiran's settled tell, shown with zero animation.
 - **The results strip carries the proof,** as the cheating rule already specifies, so the player can verify the read rather than take the game's word for it.
 - **Every option is an action, and none is labelled.** Tapping the felt, looking at the pit, leaving, and betting again each mean something different, and the hidden scales move off-screen.

@@ -28,7 +28,7 @@ Table events are short interruptions that break up long play. They can win or lo
 | Lucky charm | Scam | Bridgehead, Prairie Queen | A man sells a "lucky spaceman" bobblehead | Buy it or laugh | Money gone; an inventory item |
 | Fake comp | Scam | Phone | A text offers a free suite if you "confirm your card" | Tap it or delete it | Lose money if tapped |
 | Distract the dealer | Scam | Prairie Queen, RailYard | A player asks you to chat up the dealer while he past-posts | Help, refuse, or tell the pit | Crooked and heat, or venue standing |
-| Stadium talk | News | Bar TVs | Bennett on TV talking up "a new Levee" | None | Flavour; foreshadows act 3 |
+| Stadium talk | News | Bar TVs | Bennett on TV talking up "a new Levee" (from act 2) | None | Flavour; foreshadows act 3 |
 | Storm on the lake | News | Prairie Queen, yachts | The sailing is cut short by weather | Cash out or ride it | Session ends early |
 | Jackpot fever | News | Bridgehead, phone | The state lottery jackpot is huge | Buy tickets or not | Long odds, small cost |
 | Race results | News | Bridgehead, Haybale | Results come in on a race you heard about | None, or collect | Pays if you took the tip |
