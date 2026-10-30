@@ -1643,6 +1643,7 @@ These answer open questions below and were given while reviewing `docs/suggestio
 - **The mayor's race (R6)** (Mike, 2026-10-30): Bennett wins unless he is publicly exposed in act 4 (the commission finds his hidden cut, room 9 shames him, or Ed's case names him), in which case Mayor Dabareski is re-elected. A room 9 reconcile means Bennett wins with a kinder headline. Graham/Claire's choices set the headline's tone only.
 - **Backwater has cameras; three places refuse them** (Mike, 2026-10-30): Backwater voted only on casinos, not cameras. Its streets have the city's "Safe Streets" readers, and most of its shops took Revaris cameras below worth. Three places refuse, each on its own for its own reasons, with no pact or tie between them: Kasia's Tap (her back room), Millstone Lanes (Juan's dice and his regulars) and the Slack Water Motel (Dot's guests' privacy). The Long Bridge stays dark (the hoodlums smash its readers). The S-004 rule becomes: the truth is told inside those three places or on the Long Bridge; every truth scene so far already is. Raffy still hides at Millstone. Umbra still watches room 9's door in person. Wren's file (S10) gets the player's Backwater movements from cameras; what happens inside the three places reaches her only through her people (Ray, his collectors, the Umbra crew at Millstone). Side effect: the street readers log Bennett's plate on his Tuesday drives to the motel lot (S-038), so Wren knows Richard is his father. She keeps it to herself, one more hold on him. Room 9's box is still Richard's and Gus's secret. This replaces "all of Backwater, which voted the cameras down" in `pages/gdd.md`, `pages/northlight.md`, `people/wren.md`, `pages/changelog.md`, `pages/room9.md`, `people/richard.md` and `plan/t08.md`.
 - **Juan owns Millstone Lanes** (Mike, 2026-10-30): he started as a teenager clearing jammed pins and learned the machines from the old mechanic. About ten years ago the old owner, ready to retire, sold him the alley on a handshake payment plan. The back-lot dice paid for it and still keep the old pinsetters running. He still does his own repairs (the grease-stained shirt and name patch stay). The "Millstone Lanes owner" walk-on is cut.
+- **Venue access** (Mike, 2026-10-30): Blackspruce Lodge needs Ray's winter invitation (once you're a Cinder Room regular) and a best bankroll of about $25,000; the yacht games need Vivian's invitation (after A3.6) and about $100,000. Both floors are starting values to tune, and neither belongs on the $250,000 row. The Gilded Pine is open in every season, not just summer (winter pines make good scenery); Vivian can be met there any time at $25,000, which supersedes "(summer)" on the money table, A3.6, X2 and the excursion list. The Aurelian, lobby included, opens at $10,000 in act 2, so Felix/Nora are first met in act 2. Once the player is in the Cinder Room they stay in for good, even if Ray cuts them off; every visit raises heat, with its consequences.
 - **Motel scenes reviewed** (Mike, 2026-10-29): a motel is an odd place for most encounters, but these stay at the Slack Water: Richard's War games, Gus's A4.1 confession at the picnic table, the A4.2 Dot–Gus reunion in the lot, and the O6 visits. Don't add new motel scenes without a reason tied to Dot or Richard.
 - **No deck from Richard** (Mike, 2026-10-29): Richard doesn't give the player his deck of cards, and he has no item in the story-key row (`suggestions/S-009`).
 - **Ray's history** (`suggestions/S-045`, 2026-10-29): a Levee kid who ran errands for the Cinder Room under the old Umbra boss and stayed twenty years; has worked for Wren two years. He kept the old ledger drive on purpose, as insurance, and still has its key written down. The hour in his car after Gus signs is backstory, not a plate.
@@ -2002,6 +2003,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - Is Blackspruce gated by $250,000 at all? The invitation timing (a first winter as a Cinder Room regular, an early-game state) cannot match a $250,000 best bankroll.
 - Yachts: the GDD venue table says "Vivian's invitation (A3.6)", but the money table lists yachts at $250,000.
 
+- **Resolved (Mike, 2026-10-30):** each needs the invitation and a bankroll floor. Blackspruce: Ray's winter invitation once you're a Cinder Room regular, plus a best bankroll of about $25,000. Yachts: Vivian's invitation after A3.6, plus about $100,000. The floors are starting values to tune. Neither is a $250,000 unlock. See 4.1.8.
+
 **OQ 13. Wren's motive and terms for the camera deal differ.**
 - `pages/room9.md` step 1: "Wren's security company offers cheap AI cameras plus cash up front... Gus signs knowing the company is Umbra's front, because it keeps the doors open."
 - `people/gus.md`, `plan/t08.md`: "when he refused she showed him Cinder Room footage of his gambling and threatened to send it to Stella and the commission, so he signed knowing it was Umbra."
@@ -2039,6 +2042,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - `people/felix.md`: "First met: the Aurelian's front desk, act 1 or 2."
 - The Aurelian opens at best bankroll $10,000 (A2.5, act 2) (`pages/gdd.md`, `pages/storymap-intro.md`). Act 1 closes at $5,000.
 - Whether the desk can be reached earlier than $10,000 is not stated. (Graham's first meet needs the spring train: Bennett's invite or $10,000.)
+
+- **Resolved (Mike, 2026-10-30):** act 2 only. The whole Aurelian, lobby included, opens at $10,000; `people/felix.md` changes "act 1 or 2" to act 2. See 4.1.8.
 
 **OQ 19. `people/mitch.md` Related line is unclear.**
 - "Raffy (Wren files Mitch's slips)." Nothing else ties Raffy to Mitch; `data/story.js` has no Mitch-Raffy edge. `plan/t09.md` S10: Wren's file on you includes "Mitch's slips."
@@ -2153,6 +2158,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 - A3.6: meet Vivian at the Gilded Pine "$25,000 (summer)"; the Obsidian opens at $50,000 "with a suit and her sponsorship."
 - The Gilded Pine is summer only. If a player reaches $25,000 or $50,000 outside summer, whether the Obsidian can open before the Gilded Pine meeting (the sponsorship comes from Vivian) is not stated.
 
+- **Resolved (Mike, 2026-10-30):** the Gilded Pine is open in every season (winter pines are good scenery), so Vivian can be met there any time at $25,000. See 4.1.8.
+
 **OQ 36. The A4.3 "trade your silence" route versus the clean/dirty rule.**
 - `data/story.js` A4.3 lists "Trade your silence to Wren for the Starflare name" as the base route, and "blackmail with the payers list" as a dirty version.
 - Graham/Claire's observed choices: shaming Bennett "counts against (it's blackmail, however good the cause)."
@@ -2263,6 +2270,8 @@ Format: the conflict or gap, quotes, and where each appears. Items 1 to 23 are p
 **OQ 55. Cinder Room entry vs heat.**
 - `pages/gdd.md`: "Heat above a threshold or an Umbra vouch; Ray slips you the first password (A1.9)." and "High heat ... opens the Cinder Room's [door]."
 - Whether the player who entered via Ray's password in act 1 (low heat) keeps access, and what "the password changes" does for return visits, are not stated.
+
+- **Resolved (Mike, 2026-10-30):** once you're in, you're in: after the first password (A1.9, or high heat or an Umbra vouch) the Cinder Room stays open to the player for good, even if Ray stops trusting them. Every visit raises heat, with its usual consequences. "The password changes" is only the door line. See 4.1.8.
 
 **OQ 56. The `p` and `r` fields in `data/story.js` `SEEDS` are undocumented.**
 - Values like `p:1, r:3` appear to mean the act planted and the act revealed. S12 has `r:0`. The file does not say.
