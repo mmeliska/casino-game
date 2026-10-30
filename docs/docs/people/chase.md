@@ -8,13 +8,13 @@ Chase if the player ticks Mr. at the register, Brooke if Ms. For Prefer not to a
 
 White, in their 30s, from upper-middle-income families, well dressed but not over the top at first. Divorced, no kids, starting fresh, and they arrive with a clear head start on you.
 
-They grew up in a suburb where nobody gambled and everybody bet: on houses, on schools, on which car said what. They married at twenty-six someone who was better at that betting than they were, bought a house that was a stretch, and spent ten years keeping up. The marriage ended without a villain, and the house went to the one who'd put more in. They took the settlement (the head start), the car and the watch their father gave them at their first job, and drove until the money said stop. Northlight said stop. The only true version of why they came is the one they tell nobody: it's the first city they ever saw where you could lose in public and come back the next night (`suggestions/S-032`, Mike, 2026-10-28).
+They grew up in a suburb where nobody gambled and everybody bet: on houses, on schools, on which car said what. They married at twenty-six someone who was better at that betting than they were, bought a house that was a stretch, and spent ten years keeping up. The marriage ended without a villain, and the house went to the one who'd put more in. They took the settlement (the head start), the car and the watch their father gave them at their first job, and drove until the money said stop. Northlight said stop. The only true version of why they came is the one they tell nobody: it's the first city they ever saw where you could lose in public and come back the next night (Mike, 2026-10-28).
 
 They are a good player: careful, patient, the kind who leaves a table up.
 
 ## Arc
 
-**Wound, want, need** (`suggestions/S-030`, Mike, 2026-10-28). The divorce took the house; "starting fresh" is what you call it when you can't say "I lost the house." They want to win back a house-sized number before anyone notices they lost one. They need to say the word "lost" out loud. They never say "house" except about the casino; once, if you help them at A3.8, they say "my house" about the ex's, and correct it.
+**Wound, want, need** (Mike, 2026-10-28). The divorce took the house; "starting fresh" is what you call it when you can't say "I lost the house." They want to win back a house-sized number before anyone notices they lost one. They need to say the word "lost" out loud. They never say "house" except about the casino; once, if you help them at A3.8, they say "my house" about the ex's, and correct it.
 
 **They play clean, all game.** No crooked jobs, no Cinder Room, never a day's work for Umbra. The loan from Ray is their only contact with him, and it's a loan, not a job. Their fall is fair tables and bad luck, then Ray's interest, the only unfair thing that touches them. Ed has nothing on them; if you have heat, he can say so: "Your friend's clean. I checked."
 
@@ -28,7 +28,7 @@ They are a good player: careful, patient, the kind who leaves a table up.
 
 **What the standing changes at A3.8.** High: they come to you before the debt gets worse, and if you refuse there's no theft; they go quiet and the friendship ends. Middle: if you refuse, they steal from you. Low: they go to Ray first and you last, and if you refuse the theft is certain. Lend, and all is well.
 
-**The theft (A4.8)** (`suggestions/S-031`, Mike, 2026-10-28). The first crooked thing they do in Northlight is against you, and it's a pawn ticket, not a job. At a break point, with no scene, the item in your Pockets worth the most to someone else is gone (an authored rank: Gus's lucky chip first, then the Dot-and-Gus gift, then the spaceman bobblehead, then anything; never a story key). Days later it's behind Troy's glass at Bridgehead Loan & Pawn with a buy-back date, and the rival's watch is on the shelf beside it. Troy doesn't say who sold it. Buy yours back (what Troy paid plus his cut, so the lucky chip comes back cheap); buy the watch too ($150) and give it back to them, which reopens the "all is well" branch; leave both; or tell Ed (ruthless; their heat appears for the first time). If you never buy it back, it stays gone, and whoever it mattered to notices once and says nothing. Once the watch is pawned, the watch tell leaves their poses.
+**The theft (A4.8)** (Mike, 2026-10-28). The first crooked thing they do in Northlight is against you, and it's a pawn ticket, not a job. At a break point, with no scene, the item in your Pockets worth the most to someone else is gone (an authored rank: Gus's lucky chip first, then the Dot-and-Gus gift, then the spaceman bobblehead, then anything; never a story key). Days later it's behind Troy's glass at Bridgehead Loan & Pawn with a buy-back date, and the rival's watch is on the shelf beside it. Troy doesn't say who sold it. Buy yours back (what Troy paid plus his cut, so the lucky chip comes back cheap); buy the watch too ($150) and give it back to them, which reopens the "all is well" branch; leave both; or tell Ed (ruthless; their heat appears for the first time). If you never buy it back, it stays gone, and whoever it mattered to notices once and says nothing. Once the watch is pawned, the watch tell leaves their poses.
 
 **The mirror line** (act 4, the "all is well" branch, only if you went on at least two nights out): "You know what the difference between us was? You picked a side of the river. I just kept crossing."
 
@@ -42,7 +42,7 @@ Friendly, then clipped and showy; their wins, never their losses. Lies by overst
 | --- | --- | --- | --- |
 | Friendly, then clipped and showy | Their wins; never their losses | Overstating | "Just a cold night. I'll be up by Friday." |
 
-Settled lines across the arc (`suggestions/S-032`, Mike, 2026-10-28):
+Settled lines across the arc (Mike, 2026-10-28):
 - Act 1, friendly: "First night? Me too, more or less. Crowd thins out after eleven. Easier to get a seat. Don't tell anyone I told you."
 - Act 2, showy: "Just a cold night. I'll be up by Friday."
 - Act 2, the tell: (checks the watch) "This? Nothing. Habit."

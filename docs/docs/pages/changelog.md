@@ -2,6 +2,17 @@
 
 A story-editing pass reviewed 58 suggestions (46 accepted, 12 rejected) and settled most of the open questions. Every character page, the story map, the outcomes, the GDD, the planning tasks and the story data were updated to match. Older pages that are kept as history (the direction document, the 18 Oct review, the notebook, cast planning) keep their text, with "Superseded" notes where it's now wrong.
 
+### Suggestions folded in
+
+Every accepted suggestion was checked against the live pages and the gaps were filled, so the suggestion files have been removed. The additions:
+
+- **New on the site:** the five emotional beats, one per act, on the story map intro. "They ask about each other" (one line per pair, once a season) in the writing rules. The three answers to the A5.7 hard question and what each costs, in the GDD.
+- **Everyone gets the hard question at A5.7.** Only "take it" needs Gus's A4.1 confession; the GDD had gated the whole question.
+- **Story keys and puzzles:** a story key names who gave it to you. Ray's burn-bag key is a jigsaw with handwritten scraps mixed into printed strips.
+- **The Flare's last night (A3.3):** three time slots (afternoon, night, before dawn). After it, no Flare game can be played. Tae's father's drum kit has to leave the building, and in O5 it's on a riser under the band photo.
+- **Smaller details on the character pages:** Alice's three touches (the covered piano, the wrong constellation, the mug chip), Gus's turn told in panels, Rosa's stoop, Kasia's mother and the pierogi, Jalen's notebook, Pete telling Mr. Hamilton the band was paid too much, Wren's "never been asked a question she couldn't answer," Ray's written-down key, and Richard's trust that rises only when you ask him for something.
+- **Event data:** Kasia stands with the league at A3.2 and faces Umbra's protection offer at R3. Vivian's hidden "what should the land become" question is at A5.1. The rival's standing decides what happens when you refuse them at A3.8. Wren's A4.5 meeting needs the drive or a Gus who still plays.
+
 ### The main story
 
 - **Raffy's drive** is Revaris's old encrypted key ledger, the only place a face ID is tied to a name. Ray kept it when he was told to destroy it. You open it by rebuilding his shredded password in the jigsaw puzzle; plugging it in online tells Wren it's alive. A1.5 settles only the envelope's cash and Raffy (four choices); what you do with the drive is chosen from act 2 on.

@@ -6,13 +6,13 @@ Dark hair in a braid, a bar towel over her shoulder, a flannel shirt with the sl
 
 ## Backstory
 
-Mid-40s. Born in Backwater to a Polish-American dad and a Mexican-American mom. Her dad was a businessman, not a mill man (Mike, 2026-10-28). He sold restaurant supply out of a van, saw three shifts a day walk out of the rolling mill gate past a block with no bar on it, bought the corner building on credit and called it the Tap. Her mother ran the kitchen and the books; the pierogi are her mother's recipe. Kasia grew up on the stool at the end of the bar, doing homework in the ledger's margins.
+Mid-40s. Born in Backwater to a Polish-American dad and a Mexican-American mom. Her dad was a businessman, not a mill man (Mike, 2026-10-28). He sold restaurant supply out of a van, saw three shifts a day walk out of the rolling mill gate past a block with no bar on it, bought the corner building on credit and called it the Tap. Her mother ran the kitchen and the books; the pierogi are her mother's recipe served in her father's bar, which Kasia thinks is the correct ratio for most things. Kasia grew up on the stool at the end of the bar, doing homework in the ledger's margins.
 
 Her dad rented the back room to the mill local for its meetings, because a hall full of thirsty men was good business. When the state opened the door to land casinos, Backwater's vote was counted in that back room, and Backwater voted no on the casinos. Kasia was fifteen. Her father backed the "no" vote because a casino on this side of the river would have emptied his bar in a year. Kasia remembers it as a town standing up for itself and has never once thought about the rent. The local's old meeting sign is still on the back-room door.
 
-By the time of the vote the mills had already closed, and the old shifts were crossing the Long Bridge to the riverboats instead. Her father kept the bar open on credit until the credit ran out, then on the "for amusement only" machines she talked him into. He never played one. He died with the bar in her name and the ledger in her hand. She has run it twenty years. She has never once forgiven a skipped debt, because the one time her father did, the bar nearly went under.
+By the time of the vote the mills had already closed, and the old shifts were crossing the Long Bridge to the riverboats instead. Her father kept the bar open on credit until the credit ran out, then on the "for amusement only" machines she talked him into. He never played one. He died with the bar in her name and the ledger in her hand. She has run it twenty years. The back room is a card game because a card game is what the room was built for. She has never been across the river for pleasure. She extends credit because her father did, and keeps the ledger because her mother did. She has never once forgiven a skipped debt, because the one time her father did, the bar nearly went under.
 
-She knows about Gus the way Backwater knows about the Levee: as weather. They have never met. She thinks a man who keeps a dead man's place open on debt is a fool, and she would not like to be asked how the Tap stays open. (`suggestions/S-025`.)
+She knows about Gus the way Backwater knows about the Levee: as weather. They have never met; she knows Dot's sister married him. She thinks a man who keeps a dead man's place open on debt is a fool, and she would not like to be asked how the Tap stays open.
 
 ## Personality
 
@@ -26,12 +26,12 @@ Warm but tough. Runs a tight bar, gives credit but keeps a ledger and remembers 
 
 ## Arc
 
-Want: to keep her dad's bar open and Backwater the way he voted it. Need: to admit she's a casino. The contradiction is the back-room door: the local voted no on casinos in that room, and it's a card game now (`suggestions/S-024`, Mike, 2026-10-28).
+Want: to keep her dad's bar open and Backwater the way he voted it. Need: to admit she's a casino. The contradiction is the back-room door: the local voted no on casinos in that room, and it's a card game now (Mike, 2026-10-28).
 
 1. **Ledger.** Act 1: credit, the two jobs, the wedding.
 2. **The door.** Act 2 or 3, the Umbra crew that muscles Juan's late game (R3) comes to her back room next. She asks you what to do, which she never does. Her choice, which you can tip: take Umbra's "protection," close the room, or call Ed herself and invite a sweep that takes Umbra's crew out along with her own game. That costs her the back room for a season and means admitting to a vice cop what the Tap is. One scene; the outcome is authored drift flavored by your lean.
 3. **Over the water.** Act 3, the council hearing (A3.2): Kasia crosses the river for the first time in the game, standing beside the league (in their shirts if S1 fired), to speak for the Levee's "old places," because one of them is hers. If you never did her jobs, she doesn't come.
-4. **The page.** At opening night, or when a resting point settles, if you ever had credit at the Tap, she opens the ledger to your page (`suggestions/S-026`). Paid every cent on time: she draws a line under it and writes the date, and your credit is unlimited from then on. Paid, but late and often: she turns to a fresh page with your name at the top. Skipped out, ever: she tears the page out and puts it in the till; you can still drink but can't run a tab, and Rosa deals you without warning you off a hand. Never owed her anything: she says so. The ledger insert is the same prop every time; only the hand and the line change. It must never fire in the same act as Dot's torn register.
+4. **The page.** At opening night, or when a resting point settles, if you ever had credit at the Tap, she opens the ledger to your page. Paid every cent on time: she draws a line under it and writes the date, and your credit is unlimited from then on. Paid, but late and often: she turns to a fresh page with your name at the top. Skipped out, ever: she tears the page out and puts it in the till; you can still drink but can't run a tab, and Rosa deals you without warning you off a hand. Never owed her anything: she says so. The ledger insert is the same prop every time; only the hand and the line change. It must never fire in the same act as Dot's torn register.
 
 **Badly:** she takes Umbra's protection, the back room becomes a Cinder Room annex, Rosa stops dealing there, and the ledger is kept by Ray's man. Your page has interest on it then, Ray's terms, not hers.
 
@@ -48,8 +48,8 @@ Brisk, warm, bar talk; weather, the mill and the regulars; never discusses the b
 | Brisk, warm, bar-talk | Weather, the mill, the regulars; never discusses the back room in front of strangers | A joke | "Your tab's in the book. The book never forgets. Neither do I." |
 
 More settled lines:
-- Closing your page (Mike, 2026-10-28): "Book's closed. Drinks aren't." / "New page. Same book." / "I keep these."
-- Asking about Juan, once a season (`suggestions/S-056`, Mike, 2026-10-28): "Tell Juan his Tuesday crowd owes me for the coupons. He'll know it's a joke. Tell him anyway."
+- Closing your page (Mike, 2026-10-28): "Book's closed. Drinks aren't." / "New page. Same book." / "I keep these." / If you never had credit: "You never owed me anything."
+- Asking about Juan, once a season (Mike, 2026-10-28): "Tell Juan his Tuesday crowd owes me for the coupons. He'll know it's a joke. Tell him anyway."
 
 ## Jobs (proposal)
 

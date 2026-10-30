@@ -10,7 +10,7 @@ Started as a teenager clearing jammed pins and learned the machines from the old
 
 ## Personality
 
-Friendly with league bowlers, indifferent to everyone else, and annoyed by casuals. Keeps his game fair, knows every Backwater rumor, and Ed leaves him alone. Wants the pinsetters running one more season. Needs to admit the Lanes are a casino with a bowling problem (`suggestions/S-052`, Mike, 2026-10-29).
+Friendly with league bowlers, indifferent to everyone else, and annoyed by casuals. Keeps his game fair, knows every Backwater rumor, and Ed leaves him alone. Wants the pinsetters running one more season. Needs to admit the Lanes are a casino with a bowling problem (Mike, 2026-10-29).
 
 ## Story
 
@@ -34,7 +34,7 @@ Friendly and easy with league bowlers, flat and indifferent with everyone else; 
 | --- | --- | --- | --- |
 | Friendly and easy with league bowlers, flat and indifferent with everyone else; talks while he works, half under a pinsetter | Machines, averages, who's on a hot streak in the league; respects serious bowlers, grumbles about casuals who don't know the rules and leave a mess on the lanes (Mike). Never says "dice" inside the alley; it's "the late game". Bowling in the Tuesday league is how the player warms him up | A shrug and "Couldn't tell you" | To a casual: "Shoes go back on the counter. Not the ball return." / To a league bowler: "Lane six is running dry tonight. Move left two boards. And the late game's out back after the last frame." (Mike, 2026-10-23) |
 
-More settled lines (Mike, 2026-10-29): "Gus runs a casino that wishes it was a supper club. I run a bowling alley that's a dice game. Same thing." / "They take the late game, the parts money goes with it. Lane six is dead by the first snow." / "Somebody's gotta keep the lights on where I am." Asking about Kasia, once a season (`suggestions/S-056`, Mike, 2026-10-28): "She still keeping that book? Tell her lane six says hi."
+More settled lines (Mike, 2026-10-29): "Gus runs a casino that wishes it was a supper club. I run a bowling alley that's a dice game. Same thing." / "They take the late game, the parts money goes with it. Lane six is dead by the first snow." / "Somebody's gotta keep the lights on where I am." Asking about Kasia, once a season (Mike, 2026-10-28): "She still keeping that book? Tell her lane six says hi."
 
 ## Jobs (proposal)
 
