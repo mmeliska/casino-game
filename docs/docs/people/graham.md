@@ -1,4 +1,4 @@
-*Romance · out of town · the club car of the Northern Ledger, every spring*
+*Romance · Northlight (statehouse staffer) · the club car of the Northern Ledger, every spring*
 
 ## Look
 

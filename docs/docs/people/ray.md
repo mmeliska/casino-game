@@ -57,7 +57,7 @@ Too loud, too friendly, a sales pitch. "Friend", "buddy", big numbers; never say
 
 Sample lines (Mike, 2026-10-29):
 - (On Gus) "He's a host. Hosts don't say no. That's not me taking advantage, that's hospitality."
-- (Blackspruce, the shrink) "...Yeah. No, I'm good. I'm good. You want another drink? I'll get it." (He gets up. He doesn't come back for a while.)
+- (Blackspruce, the shrink) "...Yeah. No, I'm good. I'm good. You want another drink? I'll get it." (Next panel: his chair is empty, and stays empty for a while.)
 - (If you gave him the drive back, once, quietly) "You read it." (or "You looked.") "... Okay. Okay. Your money's clean with me. Always. Don't make me say it twice."
 - (The lie path) "Buddy. We need to talk about an envelope."
 

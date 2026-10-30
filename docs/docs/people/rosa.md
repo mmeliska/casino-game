@@ -35,7 +35,7 @@ After M1 is solved, each lesson gets a one-line callback in the past tense the n
 ## Story
 
 - **The hearing** (A5.7): if she is one of your witnesses, she speaks for you and not about herself. If you take the concealment onto your own record ("Take it"), she doesn't know the camera story, but she knows what taking a cost for Gus looks like, and her pose swaps once. Her "never mentions the Starflare" rule holds all game.
-- **The door:** on opening night (O1, O2) or the first night of a floor you run (O3, O4), she stops at the door, one finger on the frame, the same gesture as on the felt. Then she walks in. Gus, at the first table, says "Rosa." Nothing else. In O2 Pete says it. No speech; the finger on the frame is the line (S-021, Mike 2026-10-28).
+- **The door:** on opening night (O1, O2) or the first night of a floor you run (O3, O4), she stops at the door, one finger on the frame, the same gesture as on the felt. Next panel: she's inside. Gus, at the first table, says "Rosa." Nothing else. In O2 Pete says it. No speech; the finger on the frame is the line (S-021, Mike 2026-10-28).
 - **Badly:** if you ride a crooked table she flagged, or push her into the Flare before her license, she stops teaching. Every later scene is rules only, no reads. Her payoff still fires through M1, but she never walks onto your floor: she deals at the Harborlight, and one night the dealer at your table is her, and she doesn't look up.
 
 ## Voice
