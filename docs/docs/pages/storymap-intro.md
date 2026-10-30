@@ -10,6 +10,20 @@ The main story moves forward only when you make money and spend time in the city
 
 Each act opens only when its money and time gate is met. Outcomes on the right are where a playthrough can settle, and all but 1 and 2 let you pick the main line back up.
 
+## The five beats
+
+One emotional beat per act, and one scene that carries it (Mike, 2026-10-27). Every other scene should be able to answer "which of the five is this setting up or paying off?" Each gets a black-panel pause before its choice, and the epilogue's cast panels can quote one line from each beat the player reached. Keep them unmarked: the writing never winks at them.
+
+| Act | Beat | Feeling | The scene that carries it |
+| --- | --- | --- | --- |
+| 1 | Pete says your name | Belonging | After a few sittings at the Flare, Pete drops "kid" and uses the name you wrote on Dot's register (A1.7) |
+| 2 | The photo of the sisters | The Flare is a mausoleum | In Gus's office at A2.1, the insert of the two sisters, no caption; later Dot says her sister's name and you can say it to Gus |
+| 3 | The last night | Loss | Three slots, six scenes, and the ones you didn't choose (A3.3) |
+| 4 | Gus goes over the water | Confession | Gus at the Slack Water picnic table admitting he sold his dad's place to the people who blackmailed him (A4.1) |
+| 5 | The hard question | What you'll carry for someone | The license hearing (A5.7), then the ribbon |
+
+Beats 1 and 2 come before the player has spent much money, so they're cheap to reach; 3 is the midpoint and always happens; 4 and 5 are gated by money, so the player earns them.
+
 ## Money thresholds
 
 The game tracks two numbers. **Best bankroll** is the most of your own money you've ever held: cash minus what you owe (Ray's loan, Kasia's ledger, Flare markers), so borrowing can't open anything. Raffy's envelope cash doesn't count until you decide to keep it at A1.5 (audit 2.10, Mike 2026-10-26); the drive stays a story key in Pockets. It opens venues and story gates and never drops, so a bad night can't lock anything again. **Bankroll now** is what you can spend. When it runs low, the broke content opens up: the car under the Bridges, Ray's loans and the Backwater jobs.

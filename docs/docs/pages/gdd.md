@@ -68,9 +68,10 @@ The bankroll alone doesn't decide what's open. These variables do, in combinatio
 Notes for the build:
 
 - **Gus's trust** is ordinary NPC standing, with no special system; a few beats also check flags (for example whether you helped him quit).
+- **Richard's trust runs backwards.** His standing never rises when you give him something (money, food, a ride); it rises when you ask him for something (a game, a rule, the story of a hand). Offering to pay his room drops it. Nothing on screen explains this (Mike, 2026-10-28).
 - **The scales are never shown as numbers.** The player feels them through reactions, events opening or closing and things like how much credit Kasia gives.
 - **Straight/crooked is separate from heat.** Heat is who's watching you; crooked is who you are.
-- **Raffy's envelope** sits in story keys, and its $2,000 doesn't count toward best bankroll until you choose to keep it (A1.5). A1.5 settles only the cash and Raffy (return it to Ray, help Raffy pay, keep it, or keep it and lie to Raffy); the drive stays in your pocket, and its fate is chosen from act 2 on (`suggestions/S-050`, Mike, 2026-10-29).
+- **Raffy's envelope** sits in story keys, and its $2,000 doesn't count toward best bankroll until you choose to keep it (A1.5). A1.5 settles only the cash and Raffy (return it to Ray, help Raffy pay, keep it, or keep it and lie to Raffy); the drive stays in your pocket, and its fate is chosen from act 2 on (Mike, 2026-10-29).
 - **The car** can't be sold. It's always the floor: rock bottom is sleeping in it under the Bridges.
 - **Name and register box** are set once on Dot's register at check-in (A1.1): your name, and a box with Mr., Ms. and Prefer not to answer (Mike, 2026-10-27). The box sets honorifics (an NPC who says "sir" says "ma'am" for Ms. and uses none for Prefer not to answer), the rival's version (Chase or Brooke, picked at random for Prefer not to answer) and which wedding dance is offered first; the wedding (A1.4) sets which romance versions you meet.
 
@@ -124,7 +125,7 @@ Each game is a self-contained module that plays continuously, round after round,
 | Blackjack | ~20 s | Kasia's back room and up | Strongest fit for one-handed portrait play; the planned first prototype |
 | Craps | ~20 s | Millstone back lot (street rules) and every casino | Street version uses simplified rules |
 | Roulette | ~20 s | The Flare and up | The bet board needs careful touch layout |
-| Poker | 1–2 min | Kasia's back room and up; private games | Needs opponent AI; the vehicle for named characters (Jalen, the rival, Vivian) |
+| Poker | 1–2 min | Kasia's back room and up; private games | Needs opponent AI; the vehicle for named characters (the rival, Vivian); Jalen deals only the last night's no-money game |
 | Extras | Varies | Per venue | Keno, pull tabs, scratchers, the Rocket Wheel, baccarat, casino war |
 
 - **Core five:** slots, blackjack, craps, roulette, poker.
@@ -176,7 +177,7 @@ The phone is the menu hub (settled 24 Oct 2026). It can't place bets, since onli
 - Crooked jobs form a ladder: running bets for Mitch, steering marks to the Cinder Room and selling information open early; collecting for Ray opens after several Ray jobs and can put someone you know (the rival, Kiran, even Gus in act 4) in front of you.
 - The full job table is on [Rules and systems](#rules) and in task 13's planning record.
 
-**Pockets.** Every item is meaningful: a suit for the Obsidian door, a gift to patch up Dot and Gus, Gus's lucky chip (a last-night keepsake: at A3.3 he presses one of the Flare's own chips into your hand; it can't be cashed after the closing, and Troy buys it for almost nothing; Mike, 2026-10-30). Story keys sit outside the 12 slots and can't be pawned unless a scene offers it. The row is what people gave you (`suggestions/S-009`): Raffy's envelope and the drive in it (Revaris's old encrypted key ledger, `suggestions/S-058`), Gus's IOU, Pete's pin, the Cinder Room password, and Vivian's jeweler's receipt. No room 9 key: Richard keeps it all game (Mike, 2026-10-30). Tapping a key shows what it is and who gave it to you; options that spend one name the giver, and the record card ends with what you still hold. Richard gives no item. Troy at Bridgehead Loan & Pawn buys items for a fraction and holds them a few days so you can buy them back.
+**Pockets.** Every item is meaningful: a suit for the Obsidian door, a gift to patch up Dot and Gus, Gus's lucky chip (a last-night keepsake: at A3.3 he presses one of the Flare's own chips into your hand; it can't be cashed after the closing, and Troy buys it for almost nothing; Mike, 2026-10-30). Story keys sit outside the 12 slots and can't be pawned unless a scene offers it. The row is what people gave you: Raffy's envelope and the drive in it (Revaris's old encrypted key ledger), Gus's IOU, Pete's pin, the Cinder Room password, and Vivian's jeweler's receipt. No room 9 key: Richard keeps it all game (Mike, 2026-10-30). Tapping a key opens a small dialog (no portraits) with what it is and who gave it to you, and where; options that spend one name the giver ("Hand Wren the drive Raffy gave you"), and the record card ends with what you still hold, each with its giver's name, names only and no counts (Mike, 2026-10-28). Richard gives no item. Troy at Bridgehead Loan & Pawn buys items for a fraction and holds them a few days so you can buy them back.
 
 ## Clue puzzles
 
@@ -186,7 +187,7 @@ Visual clues are worked with a short puzzle (settled by Mike, 26 Oct 2026). Solv
 | --- | --- | --- |
 | Slide puzzle | A torn photo or a cut-up surveillance still | Rosa's torn patch (M1), the band photo (S4) |
 | Spot the difference | Two panels that should match | Kiran's color-up before and after (M3), two signatures |
-| Tile rotate or jigsaw | A shredded or scrambled document | A ledger page, a plate-reader still |
+| Tile rotate or jigsaw | A shredded or scrambled document | A ledger page, a plate-reader still, Ray's shredded key from the Cinder Room burn bag (a "haystack" setting: a few handwritten scraps, old key and new, among months of printed strips, Mike 2026-10-28) |
 
 - **Randomized for replay:** a fresh shuffle each time, the difference in a different spot, and tile count scaled to the clue's difficulty.
 - **Optional:** you can skip a puzzle and get the clue a weaker way (pay someone, or ask Felix or Nora).
@@ -286,7 +287,12 @@ One main storyline in five acts, with places to settle along the way. The Starfl
 
 **Clean or dirty** (settled 26 Oct 2026). Act 4 has no cash route: once sold, it's sold, and the name comes back only through leverage. There are three routes: Richard's box against Bennett (A4.4), evidence against Umbra (A4.3) and the by-the-book conflict-of-interest complaint (A4.11). Each has a white-hat version (proof of real wrongdoing that never hurts an innocent person) and a black-hat version that is faster or cheaper. The dirty version wins the name too, and the game remembers: heat goes up, the crooked or ruthless lean grows, Gus, Dot, Rosa, Ed and Richard cool on you, Wren takes notice, the license hearing sets stricter conditions, and the story leans toward the Starflare without Gus (outcome 2) unless you repair things.
 
-**The license hearing** (A5.7). The state gaming commission grants every casino license; the alderman gives only the local sign-off (zoning and permits). Before opening night the commission judges your whole record: heat, raids, illegal games, the informant path, and flags such as your name on Bennett's petition (S7) and Wren's file (S10). You pick who speaks for you from people you've earned. If you heard Gus's confession at A4.1, you then face one hard question about the camera deal (did Gus know what he was signing, and when did you find out): tell the truth, bluff, or take the concealment onto your own record (`suggestions/S-001`). O3 and O4 each get a short version of the hearing with the same question (Mike, 2026-10-30). It never fails: the worst result is conditions (a fine, a delay, a few weeks of clean play), never a lost license.
+**The license hearing** (A5.7). The state gaming commission grants every casino license; the alderman gives only the local sign-off (zoning and permits). Before opening night the commission judges your whole record: heat, raids, illegal games, the informant path, and flags such as your name on Bennett's petition (S7) and Wren's file (S10). You pick who speaks for you from people you've earned. You then face one hard question about the camera deal (did Gus know what he was signing, and when did you find out): tell the truth, bluff, or, only if you heard Gus's confession at A4.1, take the concealment onto your own record (Mike, 2026-10-28). O3 and O4 each get a short version of the hearing with the same question (Mike, 2026-10-30). It never fails: the worst result is conditions (a fine, a delay, a few weeks of clean play), never a lost license.
+
+- **Tell the truth** ("He knew. He told me. I used it to get the name back."): the conditions name Gus in the record and bar him from ever running or hosting a licensed floor; he can still cut the ribbon as a guest. Your license comes with a year of commission audits, black-hat act 4 leverage comes out too and the conditions stack, and Ed and Graham/Claire count the honesty for you (Mike, 2026-10-27).
+- **Dress it up** ("He was defrauded like everyone else."): a bluff on information, told for Gus while he says nothing. It holds unless someone in the room knows better: a hostile Bennett (he traced the camera company himself) or Gus's recording in evidence (Richard's box went to Ed at A4.4). Exposing Umbra at A4.3 doesn't break it on its own. A failed bluff sets the strictest conditions in the game (Mike, 2026-10-27).
+- **Take it** ("I won't speak for him. I knew before I filed, and I filed anyway."): you own the non-disclosure, not the deal. Gus holds no license, so the cost is yours: a probation year (licensed-only play before opening night, a fine, a commission observer on opening night), and Gus is never named (Mike, 2026-10-28).
+- If you bought the name from Wren and Gus has turned on you (O2), the question is about your own purchase and only the first two answers exist. Conditions show in the Wallet as a line item, like any other debt. Sample black panel: *Nobody at the table looked at Gus. That was the tell.* (Mike, 2026-10-27)
 
 ## Outcomes, endings and post-game
 
@@ -306,7 +312,7 @@ Ten outcome codes. Only 1 and 2 end the main story; seven are resting points you
 | 10 | The sellout | Resting point |
 
 - **End trigger:** opening night of the lakefront floor (A5.6), after the license hearing.
-- **No leaving ending:** the cash-out / drive-away is cut (Mike, 2026-10-27; `suggestions/S-010` rejected). At the end you stay and run the new casino/hotel.
+- **No leaving ending:** the cash-out / drive-away is cut (Mike, 2026-10-27). At the end you stay and run the new casino/hotel.
 - **Epilogue builder:** about 8 still panels, one builder for every ending: (1) what became of the Starflare, (2 to 7) the 5 or 6 cast you touched most, picked from standing, flags, heat and the scales, (8) a Northlight newspaper front page (the mayor's race, Starflare Field, Umbra), then your record card.
 - **Post-game:** endings 1 and 2 lead to light owner mode (hiring, hosting whales, keeping up with the Aurelian; gambling stays the main activity) with the tower and launch pad as goals. Each resting point adds one place or routine to the city plus its way back. No new systems beyond light owner mode.
 
