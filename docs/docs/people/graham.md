@@ -59,6 +59,32 @@ Claire: a Japanese-American woman in her late 30s, long straight dark hair, calm
 | `claire_thinking` | one hand at her chin, thinking | Explaining how licenses get decided |
 | `claire_disappointed` | looking off toward the viewer's left, disappointed, hands at her sides | Beat 4, the fundraiser envelope |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** what's in the briefcase and on the table.
+
+### Graham's briefcase
+
+The club car of the Northern Ledger: the bills he's marking up.
+
+`graham_briefcase` (insert, square 1:1)
+
+```
+Close-up insert panel. A battered brown leather briefcase open on a small train table, stuffed with thick stacks of printed legislative documents marked up in pen, coloured sticky tabs along their edges, a rain-streaked window behind. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### Claire's laptop and tea
+
+The club car of the Northern Ledger: her laptop and thermos of tea.
+
+`claire_laptop` (insert, square 1:1)
+
+```
+Close-up insert panel. A slim laptop open on a small train table, its screen glowing blank, a steel thermos beside it with steam rising from its cup lid, a rain-streaked window behind. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
 ## Plot role
 
 A statehouse staffer who rides the train every spring for the legislative session, so it's a once-a-year reunion. Knows how gaming licenses really get decided, which helps with Bennett: the state gaming commission grants every casino license, and the alderman gives only the local sign-off (zoning and permits) (Mike, 2026-10-30).

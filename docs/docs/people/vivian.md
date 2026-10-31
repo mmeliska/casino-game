@@ -31,6 +31,22 @@ Vivian: a Black woman in her early 60s, slender and upright, a sleek silver bob,
 | `vivian_sunglasses_up` | sunglasses pushed up on her head, looking straight at the viewer, serious, one hand gesturing to sit | A5.1: "Nobody's asked me that. Sit down." |
 | `vivian_yacht` | coat collar turned up, hands in her coat pockets, gazing off toward the viewer's left | The yacht |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** where she hands it over (in your car, at the end of the day).
+
+### The jeweler's receipt
+
+The driving job: keep quiet about the jeweler on the Mile and her receipt goes in your story-key row. What it says is in the Pockets dialog, not the art. Her hand is in frame; use the hand negative prompt.
+
+`vivian_receipt` (insert, square 1:1)
+
+```
+Close-up insert panel. An older Black woman's slender hand in the cuff of a camel wool coat, holding out a small folded paper receipt, the leather seat of a car behind it. Bright, windy daylight off the lake. Palette: magenta, gold, lake blue. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 Black old money, three generations old. Her grandfather founded the family's insurance company: as a young man he wrote policies for the furnace men and dock crews the lakefront firms wouldn't touch, collected door to door in Backwater and the Levee, and paid out when the others found reasons not to. By the time Vivian was a girl the company owned half of Silvershore and the parcel at the line. He took his granddaughter, not his sons, to the card games at his club, because she could sit still and count (Mike, 2026-10-28).

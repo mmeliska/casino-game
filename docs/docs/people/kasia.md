@@ -31,6 +31,44 @@ Kasia: a Polish-Mexican-American woman in her mid-40s, sturdy, dark hair in a lo
 | `kasia_stern` | arms folded, unsmiling, one eyebrow up | "The book never forgets." (the ledger is an insert) |
 | `kasia_asks` | one hand rubbing the back of her neck, worried, looking off toward the viewer's left | The door: the one time she asks you what to do |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** the ledger itself (an old clothbound book with ruled columns).
+
+The ledger is the same prop every time; only her hand and the line change (her arc, step 4). Make the first one, then the others from it as a reference image, so it stays the same book. Your name, the line under it and the date are added in layout. Never use these in the same act as Dot's torn register. Her hand is in each one; use the hand negative prompt.
+
+### The ledger
+
+Credit at the Tap ("put it on the book"), and the page at the end when you paid every cent on time: she draws a line under it and writes the date.
+
+`kasia_ledger` (insert, square 1:1)
+
+```
+Close-up insert panel. A thick old clothbound ledger open on a worn wooden bar top, ruled columns of blank lines, a woman's strong hand holding a pencil at the foot of the page, the sleeve of a red-and-black flannel shirt rolled up to the forearm. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
+### A fresh page
+
+Paid, but late and often: she turns to a fresh page with your name at the top.
+
+`kasia_ledger_fresh` (insert, square 1:1)
+
+```
+Close-up insert panel. A thick old clothbound ledger open on a worn wooden bar top, a woman's strong hand turning to a fresh page of blank ruled lines, the sleeve of a red-and-black flannel shirt rolled up to the forearm. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
+### The page torn out
+
+Skipped out, ever: she tears your page out and puts it in the till.
+
+`kasia_ledger_torn` (insert, square 1:1)
+
+```
+Close-up insert panel. A thick old clothbound ledger open on a worn wooden bar top, a woman's strong hand tearing a page out at the spine, the sleeve of a red-and-black flannel shirt rolled up to the forearm. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 Mid-40s. Born in Backwater to a Polish-American dad and a Mexican-American mom. Her dad was a businessman, not a mill man (Mike, 2026-10-28). He sold restaurant supply out of a van, saw three shifts a day walk out of the rolling mill gate past a block with no bar on it, bought the corner building on credit and called it the Tap. Her mother ran the kitchen and the books; the pierogi are her mother's recipe served in her father's bar, which Kasia thinks is the correct ratio for most things. Kasia grew up on the stool at the end of the bar, doing homework in the ledger's margins.

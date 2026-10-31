@@ -35,3 +35,13 @@ The games aboard.
 ```
 Background plate, no people. A private yacht's salon: a card table under a low brass lamp, leather banquettes, polished wood, round windows onto the dark lake. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
+
+### What Vivian looks at
+
+From the deck she looks at the Levee and Backwater, not the Mile. One insert, no caption. It leaves the rocket sign out, so it works in any act.
+
+`yacht_view_levee` (insert, square 1:1)
+
+```
+Close-up insert panel. Over a polished yacht rail at night, far across dark water, the low lights of an old mill district, its cold chimneys and a few amber streetlamps, the bright towers left out of frame. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```

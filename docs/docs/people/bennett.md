@@ -39,6 +39,20 @@ Bennett: a white man in his early 50s, trim, greying dark hair neatly parted, a 
 | `bennett_private` | Private | unsmiling, tired, jaw set, arms folded | The plain private voice |
 | `bennett_go_to_bed` | Private | hands in his pockets, a flat, cold stare | "Go to bed." (the car window is an insert) |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+### The weekly envelope
+
+Richard's room bill, dropped at Dot's desk every week by a driver (M4). It arrives uncaptioned. The car window and the desk photo are on the place pages ([Slack Water](#slack-water), [Bennett's office](#bennett-office)).
+
+`bennett_envelope` (insert, square 1:1)
+
+```
+Close-up insert panel. A plain sealed white envelope lying on a worn wooden motel front desk beside a desk bell. Warm, busy daylight. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 The Levee's alderman and ward boss. Genuinely loves the Levee and plays every room for his own gain. Publicly against gambling, but takes bribes from the casino business, which makes him a hypocrite.

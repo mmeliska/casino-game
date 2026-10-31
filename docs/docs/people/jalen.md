@@ -40,6 +40,52 @@ Jalen: a young Black man in his early 20s, slim, a fade haircut, clean-shaven, a
 | `jalen_tired` | Busboy | a tired but polite smile, shadows under his eyes, shoulders sagging | Covering tuition with double shifts |
 | `jalen_host` | Host | standing tall, one hand open in welcome, a confident, warm smile | Opening night at the host stand |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** the notebook (small, black, with an elastic band); where he reads the letter.
+
+### The tuition bill
+
+Act 1 or 2, after A1.7: a billing notice under his bus tray, the amount circled. The amount is added in layout.
+
+`jalen_tuition_bill` (insert, square 1:1)
+
+```
+Close-up insert panel. A folded billing notice half under a grey plastic bus tray of empty glasses on a service counter, one blank box on the notice circled in red pen. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### The notebook, closed
+
+An early seed: the notebook is closed when you walk up, and a textbook sits under his tray.
+
+`jalen_notebook` (insert, square 1:1)
+
+```
+Close-up insert panel. A small black notebook closed with an elastic band beside a handheld game console and a thick college textbook on a casino service counter. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### The lawyer's letter
+
+Act 4, the inheritance: a lawyer's letter folded in a textbook.
+
+`jalen_letter` (insert, square 1:1)
+
+```
+Close-up insert panel. A folded letter on heavy cream paper tucked between the pages of a thick open college textbook, a highlighter beside it, on a small kitchen table by a window. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### The notebook, open
+
+Opening night at the new Starflare: the notebook open on the host stand.
+
+`jalen_notebook_open` (insert, square 1:1)
+
+```
+Close-up insert panel. A small black notebook lying open on a polished hotel host stand, pages of blank ruled lines, a pen across it. Night: hotel marquees and LED walls. Palette: magenta, gold, lake blue. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 Grew up in the Levee, a few blocks from the Flare, in an ordinary family with no story the game needs to tell and no tie to anyone in the cast (Mike, 2026-10-28). At seventeen he walked in on a Tuesday and asked Pete for any job; Pete gave him a bus tray and called him "kid." He takes hospitality classes at the city college by day and buses tables at the Flare by night, and every dollar of tips goes to tuition. What he wants is to run a hotel: the front desk, the comps, the way a room feels when someone remembers your name. He watches the Flare like a case study, and he watches the poker room because it's where he learned that reading people is the whole job. He learned poker by watching and doesn't play for money.

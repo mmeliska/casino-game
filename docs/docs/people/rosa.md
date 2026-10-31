@@ -33,6 +33,32 @@ Rosa: a short, slim Puerto Rican woman in her late 40s, about 5'1", warm medium-
 | `rosa_at_door` | one hand raised to shoulder height as if resting on a door frame, hesitating | Opening night, the door |
 | `rosa_landing` | arms folded, looking off toward the viewer's left, distant | The Prairie Queen landing |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** how she deals (one hand, face down).
+
+### The cards
+
+Dealing Kasia's back room. Her hand is in frame; use the hand negative prompt.
+
+`rosa_cards` (insert, square 1:1)
+
+```
+Close-up insert panel. A small woman's hand with warm medium-brown skin, a white shirt cuff and the edge of a black vest, dealing a playing card face down across green felt with a quick flick. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
+### The torn patch
+
+The frayed spot on her vest where the Starflare patch was (M1): for the moment someone looks at it. Her chest is in frame, not her face; use the hand negative prompt.
+
+`rosa_vest_patch` (insert, square 1:1)
+
+```
+Close-up insert panel. The chest of an old black dealer's vest over a white shirt, close on a frayed rectangle of loose threads and darker cloth where a sewn-on patch was torn away. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no face, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 Puerto Rican. Her mother ran a sewing machine at the uniform plant on the Levee's south end and her father fed a furnace; both came up from Ponce in the last decade the mills were hiring. She grew up two streets from the Stacks and learned cards from the men on her father's stoop, who played for cigarettes and taught her that a cheat's hands are quieter than an honest man's. She could deal a clean game at twelve and spot a dirty one at fourteen (Mike 2026-10-28).
