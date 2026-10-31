@@ -376,7 +376,7 @@ function mdDoc(src,pre){
   const hid=t=>{let b=pre+"-"+slug(t);let k=b,n=2;while(used[k])k=b+"-"+n++;used[k]=1;return k};
   while(i<L.length){
     let l=L[i];
-    if(/^```/.test(l)){i++;let b=[];while(i<L.length&&!/^```/.test(L[i]))b.push(L[i++]);i++;h+=`<pre class="docpre">${esc(b.join("\n"))}</pre>`;continue}
+    if(/^```/.test(l)){i++;let b=[];while(i<L.length&&!/^```/.test(L[i]))b.push(L[i++]);i++;h+=`<div class="prewrap"><button class="copybtn" type="button" aria-label="Copy to clipboard">Copy</button><pre class="docpre">${esc(b.join("\n"))}</pre></div>`;continue}
     let m=l.match(/^(#{1,4})\s+(.*)$/);
     if(m){const lv=Math.max(2,Math.min(m[1].length,4)),t=inl(m[2]),id=hid(m[2]);if(lv===2)toc.push([id,t]);h+=`<h${lv} id="${id}">${t}</h${lv}>`;i++;continue}
     if(/^\s*\|/.test(l)&&i+1<L.length&&/^\s*\|?\s*:?-{3,}/.test(L[i+1])){
@@ -404,6 +404,10 @@ function mdDoc(src,pre){
 }
 const LOADFAIL=`<p class="muted">This section couldn't be loaded. Open the site from its published link, or serve this folder over http (for example <code>python3 -m http.server</code>); browsers block loading files from a page opened straight from disk.</p>`;
 function rerender(h){if((decodeURIComponent(location.hash.slice(1))||"home")===h)route()}
+document.addEventListener("click",e=>{const b=e.target.closest(".copybtn");if(!b)return;const t=b.parentElement.querySelector("pre").textContent;
+  const done=ok=>{b.textContent=ok?"Copied":"Copy failed";clearTimeout(b._t);b._t=setTimeout(()=>{b.textContent="Copy"},1500)};
+  const old=()=>{const ta=document.createElement("textarea");ta.value=t;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand("copy")}catch(err){}ta.remove();done(ok)};
+  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(()=>done(true),old);else old()});
 document.addEventListener("click",e=>{const a=e.target.closest("a[data-jump]");if(a){e.preventDefault();const el=document.getElementById(a.dataset.jump);if(el)el.scrollIntoView({block:"start"})}});
 /* Search: every Markdown file the site uses, listed in docs/index.js. */
 const loadAll=()=>Promise.all(PARTS.map(d=>loadMd(d.path)));

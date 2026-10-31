@@ -6,16 +6,16 @@ Dark hair in a braid, a bar towel over her shoulder, a flannel shirt with the sl
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** sturdy build; dark eyes; the flannel's colours; the T-shirt, jeans and boots.
 
 **Sheet prompt** (16:9, bar outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Kasia: a Polish-Mexican-American woman in her mid-40s, sturdy, dark hair in a long braid, dark eyes, a no-nonsense face. A red-and-black flannel shirt with the sleeves rolled up over a dark T-shirt, a white bar towel over one shoulder, dark jeans, scuffed brown work boots. No pins or badges.
-Panels: 1) hands on her hips, a brisk knowing smile; 2) laughing at her own joke, one hand waving it off; 3) arms folded, unsmiling, one eyebrow up; 4) one hand rubbing the back of her neck, worried, looking off to the right.
+Panels: 1) hands on her hips, a brisk knowing smile; 2) laughing at her own joke, one hand waving it off; 3) arms folded, unsmiling, one eyebrow up; 4) one hand rubbing the back of her neck, worried, looking off toward the viewer's left.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
@@ -29,7 +29,7 @@ Kasia: a Polish-Mexican-American woman in her mid-40s, sturdy, dark hair in a lo
 | `kasia_neutral` | hands on her hips, a brisk knowing smile | Default |
 | `kasia_joke` | laughing at her own joke, one hand waving it off | Lying with a joke |
 | `kasia_stern` | arms folded, unsmiling, one eyebrow up | "The book never forgets." (the ledger is an insert) |
-| `kasia_asks` | one hand rubbing the back of her neck, worried, looking off to the right | The door: the one time she asks you what to do |
+| `kasia_asks` | one hand rubbing the back of her neck, worried, looking off toward the viewer's left | The door: the one time she asks you what to do |
 
 ## Backstory
 

@@ -7,7 +7,7 @@
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 ### Graham
 
@@ -16,9 +16,9 @@ For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and
 **Sheet prompt** (16:9, blazer outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Graham: a white man in his late 30s, slim, wavy brown hair a bit messy, wire-rim glasses. A brown tweed blazer, a light-blue shirt with a loosened tie, grey trousers, scuffed brown brogues.
-Panels: 1) an earnest, slightly nervous smile, hands in his pockets; 2) one eyebrow raised, arms folded, a wry look; 3) one hand at his chin, thinking; 4) looking off to the right, disappointed, hands at his sides.
+Panels: 1) an earnest, slightly nervous smile, hands in his pockets; 2) one eyebrow raised, arms folded, a wry look; 3) one hand at his chin, thinking; 4) looking off toward the viewer's left, disappointed, hands at his sides.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
@@ -32,7 +32,7 @@ Graham: a white man in his late 30s, slim, wavy brown hair a bit messy, wire-rim
 | `graham_neutral` | an earnest, slightly nervous smile, hands in his pockets | Default; the club car (the briefcase is an insert) |
 | `graham_eyebrow` | one eyebrow raised, arms folded, a wry look | "Nobody at the statehouse lies." |
 | `graham_thinking` | one hand at his chin, thinking | Explaining how licenses get decided |
-| `graham_disappointed` | looking off to the right, disappointed, hands at his sides | Beat 4, the fundraiser envelope |
+| `graham_disappointed` | looking off toward the viewer's left, disappointed, hands at his sides | Beat 4, the fundraiser envelope |
 
 ### Claire
 
@@ -41,9 +41,9 @@ Graham: a white man in his late 30s, slim, wavy brown hair a bit messy, wire-rim
 **Sheet prompt** (16:9, trench coat outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Claire: a Japanese-American woman in her late 30s, long straight dark hair, calm dark eyes. A belted beige trench coat over a grey blouse and dark trousers, black ankle boots.
-Panels: 1) a calm, sly smile, hands in her coat pockets; 2) one eyebrow raised, arms folded, a sly look; 3) one hand at her chin, thinking; 4) looking off to the right, disappointed, hands at her sides.
+Panels: 1) a calm, sly smile, hands in her coat pockets; 2) one eyebrow raised, arms folded, a sly look; 3) one hand at her chin, thinking; 4) looking off toward the viewer's left, disappointed, hands at her sides.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
@@ -57,7 +57,7 @@ Claire: a Japanese-American woman in her late 30s, long straight dark hair, calm
 | `claire_neutral` | a calm, sly smile, hands in her coat pockets | Default; the club car (her laptop and tea are inserts) |
 | `claire_eyebrow` | one eyebrow raised, arms folded, a sly look | "Nobody at the statehouse lies." |
 | `claire_thinking` | one hand at her chin, thinking | Explaining how licenses get decided |
-| `claire_disappointed` | looking off to the right, disappointed, hands at her sides | Beat 4, the fundraiser envelope |
+| `claire_disappointed` | looking off toward the viewer's left, disappointed, hands at her sides | Beat 4, the fundraiser envelope |
 
 ## Plot role
 

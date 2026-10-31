@@ -6,16 +6,16 @@ A woman in her late 60s with a big laugh, a red blazer and a photographer always
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** Polish-American; build; hair; everything but the red blazer.
 
 **Sheet prompt** (16:9, blazer outfit):
 
 ```
-Full-body character expression sheet: 3 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 3 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Mayor Dabareski: a Polish-American woman in her late 60s, sturdy, short coiffed silver-blonde hair, a big smile. A bright red blazer over a black blouse, a black skirt, black pumps, a gold brooch.
-Panels: 1) a big laugh, one hand out for a handshake; 2) grin fixed, eyes flicking to the right as if to a camera; 3) both arms up, delighted with herself.
+Panels: 1) a big laugh, one hand out for a handshake; 2) grin fixed, eyes flicking toward the viewer's left as if to a camera; 3) both arms up, delighted with herself.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
@@ -27,7 +27,7 @@ Mayor Dabareski: a Polish-American woman in her late 60s, sturdy, short coiffed 
 | Pose tag | Pose line | Used for |
 | --- | --- | --- |
 | `mayor_neutral` | a big laugh, one hand out for a handshake | Default: "friend" |
-| `mayor_photo_check` | grin fixed, eyes flicking to the right as if to a camera | Checking that the photographer got it |
+| `mayor_photo_check` | grin fixed, eyes flicking toward the viewer's left as if to a camera | Checking that the photographer got it |
 | `mayor_booming` | both arms up, delighted with herself | "Honey, I built Northlight." |
 
 ## Backstory

@@ -6,16 +6,16 @@ Mid-40s and trying a bit too hard: a leather car coat over an open-collared shir
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** white; build; hair; the shirt, slacks and loafers.
 
 **Sheet prompt** (16:9, coat outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Ray: a white man in his mid-40s, thick-set, slicked-back dark hair, a too-wide grin. A brown leather car coat over an open-collared patterned shirt, a gold chain, a gold pinky ring, dark slacks, shiny pointed loafers.
-Panels: 1) arms spread wide, a big welcoming grin; 2) hands deep in his coat pockets, grin gone, looking off to the right; 3) leaning in, one finger pointed at the viewer, a salesman's wink; 4) shoulders hunched, hands rubbing together, a forced smile, eyes sliding off to the right.
+Panels: 1) arms spread wide, a big welcoming grin; 2) hands deep in his coat pockets, grin gone, looking off toward the viewer's left; 3) leaning in, one finger pointed at the viewer, a salesman's wink; 4) shoulders hunched, hands rubbing together, a forced smile, eyes sliding off toward the viewer's left.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
@@ -27,9 +27,9 @@ Ray: a white man in his mid-40s, thick-set, slicked-back dark hair, a too-wide g
 | Pose tag | Pose line | Used for |
 | --- | --- | --- |
 | `ray_neutral` | arms spread wide, a big welcoming grin | Default: "Buddy!" |
-| `ray_hands_in_pockets` | hands deep in his coat pockets, grin gone, looking off to the right | Squeezed by his boss; taking the drive back |
+| `ray_hands_in_pockets` | hands deep in his coat pockets, grin gone, looking off toward the viewer's left | Squeezed by his boss; taking the drive back |
 | `ray_pitch` | leaning in, one finger pointed at the viewer, a salesman's wink | The pitch, the loans (the cash roll is an insert) |
-| `ray_shrink` | shoulders hunched, hands rubbing together, a forced smile, eyes sliding off to the right | Blackspruce, in front of the real Umbra |
+| `ray_shrink` | shoulders hunched, hands rubbing together, a forced smile, eyes sliding off toward the viewer's left | Blackspruce, in front of the real Umbra |
 | `ray_flat` | no smile, arms at his sides, staring, saying nothing | Returning the envelope without the drive |
 
 ## Backstory

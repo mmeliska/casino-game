@@ -7,7 +7,7 @@
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 ### Miles
 
@@ -16,7 +16,7 @@ For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and
 **Sheet prompt** (16:9, stage outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Miles: a Black man in his mid-30s, lean, close-cropped hair and a trim beard, an easy smile. A vintage black tuxedo jacket with satin lapels over a white shirt, a loosened black bow tie, black trousers, black patent shoes, an old gold wristwatch.
 Panels: 1) an easy smile, hands in his pockets; 2) eyes half closed, humming, one hand keeping time in the air; 3) serious, arms folded, asking a question; 4) a small nod, a half-smile.
 ```
@@ -41,7 +41,7 @@ Miles: a Black man in his mid-30s, lean, close-cropped hair and a trim beard, an
 **Sheet prompt** (16:9, stage outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Audrey: a white woman in her early 30s, purple hair in pinned-up vintage curls, round tortoiseshell glasses, red lipstick. An emerald vintage-style tea-length dress, black T-strap heels.
 Panels: 1) a wry smile, hands clasped behind her back; 2) eyes half closed, humming, one hand keeping time in the air; 3) serious, arms folded, asking a question; 4) a small nod, a half-smile.
 ```

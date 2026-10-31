@@ -6,16 +6,16 @@ The Prairie Queen's old-time riverboat uniform (striped vest, sleeve garters, a 
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** clean-shaven; the vest's colours; the plain clothes.
 
 **Sheet prompt** (16:9, uniform outfit):
 
 ```
-Full-body character expression sheet: 2 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Kiran: an Indian-American man in his early 30s, slim, neat black hair, clean-shaven, a gold wedding ring. An old-time riverboat dealer's uniform: a white shirt, a red-and-cream striped vest, black sleeve garters, a black bow tie a little crooked, black trousers, polished black shoes.
-Panels: 1) leaning forward, a big friendly smile, hands open mid-joke; 2) upright, unsmiling, eyes down, hands flat at his sides.
+Panels: 1) leaning forward, a big friendly smile, hands open mid-joke; 2) upright, unsmiling, eyes down, hands flat at his sides; 3) tired, shoulders down, hands in his pockets; 4) turned toward the viewer's left, looking off into the distance, saying nothing.
 ```
 
 **Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
@@ -43,7 +43,7 @@ Kiran: an Indian-American man in his early 30s, slim, neat black hair, clean-sha
 | `kiran_smile_lean` | Uniform | leaning forward, a big friendly smile, hands open mid-joke | Default: "Welcome aboard!" |
 | `kiran_upright_eyes_down` | Uniform | upright, unsmiling, eyes down, hands flat at his sides | His tell: he goes quiet on a fixed hand |
 | `kiran_at_rail_no_bow_tie` | No bow tie | tired, shoulders down, hands in his pockets | Confronted on deck |
-| `kiran_looks_away` | Plain clothes | turned to the right, looking off into the distance, saying nothing | Called out: at the landing |
+| `kiran_looks_away` | Plain clothes | turned toward the viewer's left, looking off into the distance, saying nothing | Called out: at the landing |
 
 ## Backstory
 

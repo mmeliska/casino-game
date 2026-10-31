@@ -6,16 +6,16 @@ Early 50s, white, straight brown hair, jeans and a clerk-style collared shirt, a
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** lean build; stubble; the shirt's colour and sleeves; the sneakers.
 
 **Sheet prompt** (16:9, counter outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Mitch: a white man in his early 50s, lean, straight brown hair a little too long, five o'clock shadow, a cynical squint. A short-sleeved light-blue collared clerk's shirt, faded jeans, worn white sneakers.
-Panels: 1) arms folded, unimpressed; 2) a small shrug, palms half up, looking off to the right; 3) very still, staring, jaw tight; 4) hands in his pockets, a rare small smile.
+Panels: 1) arms folded, unimpressed; 2) a small shrug, palms half up, looking off toward the viewer's left; 3) very still, staring, jaw tight; 4) hands in his pockets, a rare small smile.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
@@ -27,7 +27,7 @@ Mitch: a white man in his early 50s, lean, straight brown hair a little too long
 | Pose tag | Pose line | Used for |
 | --- | --- | --- |
 | `mitch_neutral` | arms folded, unimpressed | Default: "Pump four's broken." |
-| `mitch_shrug` | a small shrug, palms half up, looking off to the right | Pretending not to know |
+| `mitch_shrug` | a small shrug, palms half up, looking off toward the viewer's left | Pretending not to know |
 | `mitch_still` | very still, staring, jaw tight | You say Bennett's name |
 | `mitch_haybale` | hands in his pockets, a rare small smile | His epilogue panel at Haybale Downs |
 

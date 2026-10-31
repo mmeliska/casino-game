@@ -6,16 +6,16 @@ Early 60s, a sleek silver bob, pearls, a camel coat, dark sunglasses indoors. Th
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** the turtleneck, trousers and heels.
 
 **Sheet prompt** (16:9, coat outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Vivian: a Black woman in her early 60s, slender and upright, a sleek silver bob, dark sunglasses worn indoors, a long strand of pearls. A camel wool coat over a black turtleneck, black tailored trousers, low black heels.
-Panels: 1) one hand resting at her collar, a faint amused smile; 2) one hand closed in a fist around her pearls, face composed; 3) sunglasses pushed up on her head, looking straight at the viewer, serious, one hand gesturing to sit; 4) coat collar turned up, hands in her coat pockets, gazing off to the right.
+Panels: 1) one hand resting at her collar, a faint amused smile; 2) one hand closed in a fist around her pearls, face composed; 3) sunglasses pushed up on her head, looking straight at the viewer, serious, one hand gesturing to sit; 4) coat collar turned up, hands in her coat pockets, gazing off toward the viewer's left.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
@@ -29,7 +29,7 @@ Vivian: a Black woman in her early 60s, slender and upright, a sleek silver bob,
 | `vivian_neutral` | one hand resting at her collar, a faint amused smile | Default |
 | `vivian_pearls_fist` | one hand closed in a fist around her pearls, face composed | Her tell: the one thing about her that tells the truth |
 | `vivian_sunglasses_up` | sunglasses pushed up on her head, looking straight at the viewer, serious, one hand gesturing to sit | A5.1: "Nobody's asked me that. Sit down." |
-| `vivian_yacht` | coat collar turned up, hands in her coat pockets, gazing off to the right | The yacht |
+| `vivian_yacht` | coat collar turned up, hands in her coat pockets, gazing off toward the viewer's left | The yacht |
 
 ## Backstory
 

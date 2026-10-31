@@ -6,16 +6,16 @@ Mid-20s, long brown hair, well educated and attractive (confirmed by Mike 2026-1
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** white; both outfits.
 
 **Sheet prompt** (16:9, office outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Stella: a white woman in her mid-20s, slim, long straight brown hair, attractive, a sharp, intelligent look. A tailored navy blazer over a cream blouse, slim grey trousers, low black heels, a small silver watch.
-Panels: 1) composed, hands loosely clasped in front of her; 2) counting points off on her fingers, focused; 3) a small fond smile, one hand at her collarbone, looking off to the right; 4) arms crossed tight, looking straight at someone, tense.
+Panels: 1) composed, hands loosely clasped in front of her; 2) counting points off on her fingers, focused; 3) a small fond smile, one hand at her collarbone, looking off toward the viewer's left; 4) arms crossed tight, looking straight at someone, tense.
 ```
 
 **Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
@@ -36,7 +36,7 @@ Stella: a white woman in her mid-20s, slim, long straight brown hair, attractive
 | --- | --- | --- | --- |
 | `stella_neutral` | Office | composed, hands loosely clasped in front of her | Default; the Aurelian meetings (the laptop is an insert) |
 | `stella_figures` | Office | counting points off on her fingers, focused | The Flare in figures |
-| `stella_warm` | Office | a small fond smile, one hand at her collarbone, looking off to the right | Her dad, in stories |
+| `stella_warm` | Office | a small fond smile, one hand at her collarbone, looking off toward the viewer's left | Her dad, in stories |
 | `stella_how_much` | Office | arms crossed tight, looking straight at someone, tense | A4.2: "Dad. ... How much." |
 | `stella_stop` | Office | one hand raised flat, eyes down, stopping herself | A3.3, the last count: "You don't need the number." |
 | `stella_casual` | Casual | relaxed, hands in her sweater pockets, an easy smile | O6, the picnic-table visits |

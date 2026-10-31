@@ -6,16 +6,16 @@ Stocky, a thin, neatly trimmed beard (not a mustache), short sandy-grey hair com
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** the suit's colour, the tie and the shoes.
 
 **Sheet prompt** (16:9, suit outfit):
 
 ```
-Full-body character expression sheet: 3 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
-Pete: a stocky Lithuanian-American man about 60, a thin, neatly trimmed beard with no moustache, short sandy-grey hair combed neat, reading glasses pushed up on his head. A charcoal three-piece suit with the vest buttoned, a white shirt, a dark tie, a small gold rocket pin on the lapel, a rating card in the breast pocket, polished black shoes.
-Panels: 1) hands clasped behind his back, a flat expression; 2) pulling his glasses down onto his nose with one finger, looking the viewer over; 3) eyes down, jaw set, not answering.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Pete: a stocky Lithuanian-American man about 60, a thin trimmed beard, no moustache, short sandy-grey hair combed neat, reading glasses pushed up on his head. A charcoal three-piece suit with the vest buttoned, a white shirt, a dark tie, a small gold rocket pin on the lapel, a rating card in the breast pocket, polished black shoes.
+Panels: 1) hands clasped behind his back, a flat expression; 2) one finger pulling his glasses down his nose, looking the viewer over; 3) eyes down, jaw set, not answering; 4) alone and tired, one open hand held out palm-up, offering.
 ```
 
 **Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
@@ -23,19 +23,19 @@ Panels: 1) hands clasped behind his back, a flat expression; 2) pulling his glas
 *Suit* (default):
 
 ```
-Pete: a stocky Lithuanian-American man about 60, a thin, neatly trimmed beard with no moustache, short sandy-grey hair combed neat, reading glasses pushed up on his head. A charcoal three-piece suit with the vest buttoned, a white shirt, a dark tie, a small gold rocket pin on the lapel, a rating card in the breast pocket, polished black shoes.
+Pete: a stocky Lithuanian-American man about 60, a thin trimmed beard, no moustache, short sandy-grey hair combed neat, reading glasses pushed up on his head. A charcoal three-piece suit with the vest buttoned, a white shirt, a dark tie, a small gold rocket pin on the lapel, a rating card in the breast pocket, polished black shoes.
 ```
 
 *No pin*:
 
 ```
-Pete: a stocky Lithuanian-American man about 60, a thin, neatly trimmed beard with no moustache, short sandy-grey hair combed neat, reading glasses pushed up on his head. A charcoal three-piece suit with the vest buttoned, a white shirt, a dark tie, nothing on the lapel, polished black shoes.
+Pete: a stocky Lithuanian-American man about 60, a thin trimmed beard, no moustache, short sandy-grey hair combed neat, reading glasses pushed up on his head. A charcoal three-piece suit with the vest buttoned, a white shirt, a dark tie, nothing on the lapel, polished black shoes.
 ```
 
 | Pose tag | Outfit | Pose line | Used for |
 | --- | --- | --- | --- |
 | `pete_neutral` | Suit | hands clasped behind his back, a flat expression | Default: "Kid." |
-| `pete_appraising` | Suit | pulling his glasses down onto his nose with one finger, looking the viewer over | Your name scene |
+| `pete_appraising` | Suit | one finger pulling his glasses down his nose, looking the viewer over | Your name scene |
 | `pete_eyes_down` | Suit | eyes down, jaw set, not answering | Lying by not answering; Rosa's name |
 | `pete_pin` | No pin | alone and tired, one open hand held out palm-up, offering | A3.4, the dark pit (the pin is an insert) |
 

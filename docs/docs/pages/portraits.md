@@ -8,8 +8,9 @@ The portraits are generated with Leonardo.ai or Adobe Firefly (Mike, 2026-10-30)
 
 **The rules for every portrait** (Mike, 2026-10-30):
 
-- **Full body, standing.** Head to toe with the feet visible, in every pose, so pose swaps line up and characters can stand side by side in a two-shot.
-- **Facing the viewer or turned to the right, never to the left** (Mike, 2026-10-30). Heads and eyes turn right too. Mirror a finished image in layout if a scene needs someone facing left.
+- **Full body, standing.** The frame always holds the whole body, from the top of the head to the shoes, in every pose, so pose swaps line up and characters can stand side by side in a two-shot.
+- **Facing the viewer or turned to the character's own right** (Mike, 2026-10-30). In the picture that's toward the **viewer's left**, and the prompts always say it that way, because generators read a bare "right" as either the character's right or the picture's. Heads and eyes turn the same way. If a result faces the other way, regenerate it, or flip it horizontally and check anything one-sided (a watch, a badge, a lapel pin, the vest patch, a hair parting). Flip a finished image in layout if a scene ever needs the other direction.
+- **Poses never overlap** (Mike, 2026-10-30). On a sheet, each pose has its own panel with clear space around it, so each one can be cut out cleanly.
 - **Nothing in the hands.** Hands carry the expression: folded arms, a raised finger, an open palm. Anything a character holds (Gus's mug, Kasia's ledger, Wren's tablet, the drive) is an insert, a close-up panel of its own. Worn things stay: Kasia's towel, Pete's glasses, Richard's key on its lanyard.
 - **The full look.** Build, hair and face, and clothes down to the shoes. Where the docs don't settle a detail, the prompt proposes one and the page says so under **Proposed, not settled**. Change those freely.
 
@@ -21,7 +22,7 @@ The portraits are generated with Leonardo.ai or Adobe Firefly (Mike, 2026-10-30)
 Single-pose prompt:
 
 ```
-Full-body character portrait of one person standing, facing the viewer or turned to the right, never to the left, head to toe with feet visible, centred, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body character portrait of one person standing, facing the viewer or turned toward the viewer's left, the whole body in frame from head to shoes, centred, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 [CHARACTER]
 Pose: [POSE].
 ```
@@ -29,7 +30,7 @@ Pose: [POSE].
 Negative prompt (Leonardo only):
 
 ```
-text, letters, captions, speech bubbles, watermark, logo, signature, holding objects, props in hands, sitting, facing left, turned left, looking left, cropped feet, cropped head, close-up, photorealistic, 3D render, anime, chibi, extra fingers, deformed hands, busy background, extra people
+text, letters, captions, speech bubbles, watermark, logo, signature, holding objects, props in hands, sitting, barefoot, overlapping figures, crowded panels, facing the viewer's right, turned toward the right side of the image, looking toward the viewer's right, cropped feet, cropped head, close-up, photorealistic, 3D render, anime, chibi, extra fingers, deformed hands, busy background, extra people
 ```
 
 **Tool settings:**
@@ -68,7 +69,7 @@ The three Flare regulars have portraits but no pages, and only their roles are s
 **Sheet prompt** (16:9, regular outfit):
 
 ```
-Full-body character expression sheet: 2 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 2 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Walt: a white man in his early 70s, wiry, bald with a white fringe, sharp eyes. A tan windbreaker over a checked shirt, brown slacks, brown shoes.
 Panels: 1) arms folded, a knowing look; 2) a short nod, mouth shut.
 ```
@@ -91,7 +92,7 @@ Walt: a white man in his early 70s, wiry, bald with a white fringe, sharp eyes. 
 **Sheet prompt** (16:9, regular outfit):
 
 ```
-Full-body character expression sheet: 2 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 2 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Lorraine: a white woman in her late 60s, short permed grey hair, cat-eye glasses. A lavender cardigan over a floral blouse, navy slacks, comfortable white shoes.
 Panels: 1) hands on her hips, scolding; 2) standing up straight, chin up, determined.
 ```
@@ -114,9 +115,9 @@ Lorraine: a white woman in her late 60s, short permed grey hair, cat-eye glasses
 **Sheet prompt** (16:9, regular outfit):
 
 ```
-Full-body character expression sheet: 3 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 3 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Augie: a Black man in his late 70s, thin, short white hair, a neat white moustache. A brown tweed flat cap, a grey cardigan over a collared shirt, brown corduroy trousers, polished brown shoes.
-Panels: 1) hands folded in front of him, content; 2) looking off to the right, wistful; 3) turned to the right to leave, one hand raised in a small wave.
+Panels: 1) hands folded in front of him, content; 2) looking off toward the viewer's left, wistful; 3) turned toward the viewer's left to leave, one hand raised in a small wave.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
@@ -128,8 +129,8 @@ Augie: a Black man in his late 70s, thin, short white hair, a neat white moustac
 | Pose tag | Pose line | Used for |
 | --- | --- | --- |
 | `augie_neutral` | hands folded in front of him, content | "I come for the band." (his coffee is an insert) |
-| `augie_wistful` | looking off to the right, wistful | The covered piano |
-| `augie_leaving` | turned to the right to leave, one hand raised in a small wave | The last night (A3.3) |
+| `augie_wistful` | looking off toward the viewer's left, wistful | The covered piano |
+| `augie_leaving` | turned toward the viewer's left to leave, one hand raised in a small wave | The last night (A3.3) |
 
 ## Not settled yet
 

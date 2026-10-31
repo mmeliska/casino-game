@@ -6,14 +6,14 @@ Early 20s, Black, a Starflare busboy vest over a white shirt with the sleeves pu
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** clean-shaven; the vest's colour and logo; the trousers and shoes; the host jacket's colour and pin.
 
 **Sheet prompt** (16:9, busboy outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Jalen: a young Black man in his early 20s, slim, a fade haircut, clean-shaven, a friendly, open face. A black busboy vest with a small rocket logo over a white shirt with the sleeves pushed up, black trousers, black work shoes.
 Panels: 1) hands clasped behind his back, an attentive, polite half-smile; 2) grinning, one fist pumped, younger and looser; 3) glancing up, one hand half raised, caught off guard; 4) a tired but polite smile, shadows under his eyes, shoulders sagging.
 ```

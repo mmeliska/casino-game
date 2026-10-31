@@ -2,35 +2,35 @@
 
 ## Look
 
-Early 30s (about 32), a hoodie, expensive sneakers, a plain watch that costs more than Ray's car, always on a phone or tablet. When she shows up in person it unsettles everyone.
+Early 30s (about 32), a hoodie, expensive sneakers, a plain watch that costs more than Ray's car, always on a phone or tablet. When she shows up in person it unsettles everyone. In person her hoodie is dark purple and its hood is always up and its shadow hides most of her face: she is mysterious, and she should look like the villain she is. Her face should always be expressionless, like she knows more than you (Mike, 2026-10-30).
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 Seen once, at A4.5, so three poses.
 
-**Proposed, not settled:** white; build; hair; eyes; jeans; the hoodie's colour.
+**Proposed, not settled:** white; build; grey eyes; jeans.
 
-**Sheet prompt** (16:9, hoodie outfit):
+**Sheet prompt** (16:9, hood up outfit):
 
 ```
-Full-body character expression sheet: 3 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
-Wren: a white woman about 32, slight, straight dark hair in a low ponytail, pale, calm grey eyes. A plain black hoodie, black jeans, expensive white designer sneakers, a plain minimalist watch.
-Panels: 1) hands in her hoodie pocket, calm, unreadable; 2) arms folded, head tilted slightly, a level, decided stare; 3) leaning slightly forward, hands loosely together, intent, uncertain for once.
+Full-body expression sheet: 3 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Wren: a slight white woman about 32, a menacing villain. A dark purple hoodie, hood up, its shadow hiding her eyes and most of her face; only her pale chin and mouth show. Her face is always expressionless, like she knows more than you. Black jeans, expensive white designer sneakers, a plain watch.
+Panels: 1) hands in her hoodie pocket, head lowered, face lost in the hood's shadow; 2) arms folded, chin lifted just enough that cold grey eyes catch the light under the hood; 3) leaning slightly forward, hands loosely together, eyes glinting inside the hood.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
 
 ```
-Wren: a white woman about 32, slight, straight dark hair in a low ponytail, pale, calm grey eyes. A plain black hoodie, black jeans, expensive white designer sneakers, a plain minimalist watch.
+Wren: a slight white woman about 32, a menacing villain. A dark purple hoodie, hood up, its shadow hiding her eyes and most of her face; only her pale chin and mouth show. Her face is always expressionless, like she knows more than you. Black jeans, expensive white designer sneakers, a plain watch.
 ```
 
 | Pose tag | Pose line | Used for |
 | --- | --- | --- |
-| `wren_neutral` | hands in her hoodie pocket, calm, unreadable | The office, A4.5 (the tablet is an insert) |
-| `wren_eyes_up` | arms folded, head tilted slightly, a level, decided stare | Her tell: she's already decided |
-| `wren_question` | leaning slightly forward, hands loosely together, intent, uncertain for once | "Did you read it?" |
+| `wren_neutral` | hands in her hoodie pocket, head lowered, face lost in the hood's shadow | The office, A4.5 (the tablet is an insert) |
+| `wren_eyes_up` | arms folded, chin lifted just enough that cold grey eyes catch the light under the hood | Her tell: she's already decided |
+| `wren_question` | leaning slightly forward, hands loosely together, eyes glinting inside the hood | "Did you read it?" |
 
 ## Backstory
 

@@ -6,14 +6,14 @@ A typical Chicago-style cop: white, late 40s, slightly overweight, a big bushy h
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** hair; the coat's colour; the tie, trousers and shoes.
 
 **Sheet prompt** (16:9, sport coat outfit):
 
 ```
-Full-body character expression sheet: 3 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 3 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Ed: a white vice cop in his late 40s, slightly overweight, thinning brown hair, a big bushy horseshoe moustache. A rumpled brown sport coat, a white shirt with a loosened striped tie, a police badge clipped to his belt, khaki trousers, scuffed brown shoes.
 Panels: 1) hands on his hips, tired, looking at the viewer; 2) eyebrows up, palms half raised, innocent; 3) leaning in, one hand raised, serious and quiet.
 ```

@@ -14,7 +14,7 @@ They are a good player: careful, patient, the kind who leaves a table up.
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 Two versions, same poses; generate both. The watch leaves their poses if they pawn it (A4.8), so make every pose a second time with the wristwatch taken out of the description.
 
@@ -25,9 +25,9 @@ Two versions, same poses; generate both. The watch leaves their poses if they pa
 **Sheet prompt** (16:9, act 1 outfit):
 
 ```
-Full-body character expression sheet: 1 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Chase: a white man in his mid-30s, fit, short neat light-brown hair, clean-shaven. A navy quarter-zip sweater over a collared shirt, grey chinos, brown leather loafers, a silver wristwatch on his left wrist.
-Panels: 1) relaxed, a friendly open smile, hands in his pockets.
+Panels: 1) relaxed, a friendly open smile, hands in his pockets; 2) chin up, a smug grin, arms spread a little; 3) glancing at the wristwatch on his raised wrist, smile fixed; 4) no smile, collar rumpled, hands open at his sides, looking straight at the viewer, honest and tired.
 ```
 
 **Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
@@ -58,9 +58,9 @@ Chase: a white man in his mid-30s, fit, short neat light-brown hair, clean-shave
 **Sheet prompt** (16:9, act 1 outfit):
 
 ```
-Full-body character expression sheet: 1 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Brooke: a white woman in her mid-30s, fit, shoulder-length blonde hair, light makeup. A cream knit sweater, dark tailored trousers, tan leather loafers, a silver wristwatch on her left wrist.
-Panels: 1) relaxed, a friendly open smile, hands in her pockets.
+Panels: 1) relaxed, a friendly open smile, hands in her pockets; 2) chin up, a smug grin, arms spread a little; 3) glancing at the wristwatch on her raised wrist, smile fixed; 4) no smile, a little rumpled, hands open at her sides, looking straight at the viewer, honest and tired.
 ```
 
 **Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):

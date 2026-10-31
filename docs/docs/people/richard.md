@@ -6,16 +6,16 @@ Late 70s and a little worn down: thin white hair that isn't always combed, grey 
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** white; the cardigan's and trousers' colours.
 
 **Sheet prompt** (16:9, cardigan outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Richard: a white man in his late 70s, thin and slightly stooped, thin uncombed white hair, grey stubble, tired eyes, a strong square jaw. A faded plaid flannel shirt under a brown thrift-store cardigan with one button missing, a small key on a lanyard around his neck, worn grey work trousers, scuffed brown shoes.
-Panels: 1) hands in his cardigan pockets, a dry, quiet look; 2) one hand flat over the key on his chest, an "it's nothing" face; 3) one finger raised, a small proud smile; 4) looking up and to the right, softened, proud and tired.
+Panels: 1) hands in his cardigan pockets, a dry, quiet look; 2) one hand flat over the key on his chest, an "it's nothing" face; 3) one finger raised, a small proud smile; 4) looking up and toward the viewer's left, softened, proud and tired.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
@@ -29,7 +29,7 @@ Richard: a white man in his late 70s, thin and slightly stooped, thin uncombed w
 | `richard_neutral` | hands in his cardigan pockets, a dry, quiet look | Default; the picnic table (cards are an insert) |
 | `richard_hand_on_key` | one hand flat over the key on his chest, an "it's nothing" face | Lying with "It's nothing" |
 | `richard_proud` | one finger raised, a small proud smile | "War's an honest game." |
-| `richard_softened` | looking up and to the right, softened, proud and tired | The reconcile: "You could have knocked." |
+| `richard_softened` | looking up and toward the viewer's left, softened, proud and tired | The reconcile: "You could have knocked." |
 
 ## Backstory
 

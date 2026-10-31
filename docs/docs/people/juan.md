@@ -2,26 +2,26 @@
 
 ## Look
 
-Early 40s, Mexican-American, dark stubble, a grease-stained work shirt with his name patch, a bowling-alley logo cap, a rag in his back pocket.
+Early 40s, Mexican-American, warm medium-brown skin (Mike, 2026-10-30), dark stubble, a grease-stained work shirt with his name patch, a bowling-alley logo cap, a rag in his back pocket.
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
-**Proposed, not settled:** build; the colours of the shirt and cap; the trousers and boots.
+**Proposed, not settled:** build; his facial features and hair; the colours of the shirt and cap; the trousers and boots.
 
 **Sheet prompt** (16:9, work outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
-Juan: a Mexican-American man in his early 40s, solid build, dark stubble. A grey grease-stained work shirt with a name patch, a navy cap with a bowling-pin logo, dark work trousers with a rag hanging from the back pocket, black work boots.
-Panels: 1) thumbs hooked in his pockets, an easy, friendly grin; 2) arms crossed, a flat, indifferent look; 3) a shrug, palms up, a blank face; 4) leaning back, one boot raised behind him, hands in pockets, quiet, looking off to the right.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Juan: a Mexican-American man in his early 40s of mestizo descent, solid build, warm medium-brown skin, a broad face, high cheekbones, a wide nose, dark brown eyes, thick black brows, dark stubble. A grey grease-stained work shirt with a name patch, a navy cap with a bowling-pin logo, dark work pants, a rag in the back pocket, black work boots.
+Panels: 1) thumbs hooked in his pockets, an easy, friendly grin; 2) arms crossed, a flat, indifferent look; 3) a shrug, palms up, a blank face; 4) leaning back, hands in pockets, quiet, looking off toward the viewer's left.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
 
 ```
-Juan: a Mexican-American man in his early 40s, solid build, dark stubble. A grey grease-stained work shirt with a name patch, a navy cap with a bowling-pin logo, dark work trousers with a rag hanging from the back pocket, black work boots.
+Juan: a Mexican-American man in his early 40s of mestizo descent, solid build, warm medium-brown skin, a broad face, high cheekbones, a wide nose, dark brown eyes, thick black brows, dark stubble. A grey grease-stained work shirt with a name patch, a navy cap with a bowling-pin logo, dark work pants, a rag in the back pocket, black work boots.
 ```
 
 | Pose tag | Pose line | Used for |
@@ -29,7 +29,7 @@ Juan: a Mexican-American man in his early 40s, solid build, dark stubble. A grey
 | `juan_neutral` | thumbs hooked in his pockets, an easy, friendly grin | With league bowlers |
 | `juan_flat` | arms crossed, a flat, indifferent look | With casuals |
 | `juan_shrug` | a shrug, palms up, a blank face | "Couldn't tell you." |
-| `juan_back_lot` | leaning back, one boot raised behind him, hands in pockets, quiet, looking off to the right | The mirror line, after the last frame |
+| `juan_back_lot` | leaning back, hands in pockets, quiet, looking off toward the viewer's left | The mirror line, after the last frame |
 
 ## Backstory
 

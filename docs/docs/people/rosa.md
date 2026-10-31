@@ -2,26 +2,26 @@
 
 ## Look
 
-Early 40s, hair pinned up with a pencil, her old dealer's vest with the casino patch torn off. Fast, precise hands are description only.
+Late 40s, short, with warm medium-brown skin, full, rounded cheeks and lines around her eyes and mouth (Mike, 2026-10-30), hair pinned up with a pencil, her old dealer's vest with the casino patch torn off. Fast, precise hands are description only.
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
-**Proposed, not settled:** slim build; the vest's colour; the shirt, trousers and shoes.
+**Proposed, not settled:** slim build; the exact height; the vest's colour; the shirt, trousers and shoes.
 
 **Sheet prompt** (16:9, dealer outfit):
 
 ```
-Full-body character expression sheet: 4 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
-Rosa: a Puerto Rican woman in her early 40s, slim, dark hair pinned up in a bun with a pencil through it, sharp watchful eyes. A white long-sleeved shirt, an old black dealer's vest with a frayed patch mark on the chest where a logo was torn off, black trousers, flat black shoes.
-Panels: 1) hands loosely clasped in front of her, calm, watchful; 2) one finger raised, a quiet warning look; 3) one hand turned palm-up, explaining, patient; 4) eyes down, hands at her sides, expressionless, not looking up.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Rosa: a short, slim Puerto Rican woman in her late 40s, about 5'1", warm medium-brown skin, full, rounded cheeks, lines around her eyes and mouth, dark hair in a bun with a pencil through it, sharp watchful eyes. A white shirt, an old black dealer's vest with a frayed spot on the chest where a patch was torn off, black trousers, flat black shoes.
+Panels: 1) hands loosely clasped in front of her, calm, watchful; 2) one finger raised, a quiet warning look; 3) one hand turned palm-up, explaining, patient; 4) eyes down, hands at her sides, expressionless.
 ```
 
 **Look** (paste as `[CHARACTER]` in the single-pose prompt):
 
 ```
-Rosa: a Puerto Rican woman in her early 40s, slim, dark hair pinned up in a bun with a pencil through it, sharp watchful eyes. A white long-sleeved shirt, an old black dealer's vest with a frayed patch mark on the chest where a logo was torn off, black trousers, flat black shoes.
+Rosa: a short, slim Puerto Rican woman in her late 40s, about 5'1", warm medium-brown skin, full, rounded cheeks, lines around her eyes and mouth, dark hair in a bun with a pencil through it, sharp watchful eyes. A white shirt, an old black dealer's vest with a frayed spot on the chest where a patch was torn off, black trousers, flat black shoes.
 ```
 
 | Pose tag | Pose line | Used for |
@@ -29,15 +29,15 @@ Rosa: a Puerto Rican woman in her early 40s, slim, dark hair pinned up in a bun 
 | `rosa_neutral` | hands loosely clasped in front of her, calm, watchful | Default: dealing Kasia's back room (cards are an insert) |
 | `rosa_one_finger` | one finger raised, a quiet warning look | Warning you off a hand |
 | `rosa_teaching` | one hand turned palm-up, explaining, patient | The five lessons |
-| `rosa_eyes_down` | eyes down, hands at her sides, expressionless, not looking up | The bad route: the Harborlight dealer who doesn't look up |
+| `rosa_eyes_down` | eyes down, hands at her sides, expressionless | The bad route: the Harborlight dealer who doesn't look up |
 | `rosa_at_door` | one hand raised to shoulder height as if resting on a door frame, hesitating | Opening night, the door |
-| `rosa_landing` | arms folded, looking off to the right, distant | The Prairie Queen landing |
+| `rosa_landing` | arms folded, looking off toward the viewer's left, distant | The Prairie Queen landing |
 
 ## Backstory
 
 Puerto Rican. Her mother ran a sewing machine at the uniform plant on the Levee's south end and her father fed a furnace; both came up from Ponce in the last decade the mills were hiring. She grew up two streets from the Stacks and learned cards from the men on her father's stoop, who played for cigarettes and taught her that a cheat's hands are quieter than an honest man's. She could deal a clean game at twelve and spot a dirty one at fourteen (Mike 2026-10-28).
 
-The Flare hired her at twenty-two, already fading, because Pete watched her shuffle at a dealer-school audition and said nothing, which from Pete is a recommendation. She dealt blackjack on its floor for fifteen years and organized the dealers' local in its break room. Then payroll night, about six years before the game: Gus, drunk, sat down at her table with the staff's money and started losing it, so she dealt him back to even. It took forty minutes. Pete was at the pit and didn't look up. The commission only ever saw the overhead dealer camera: Rosa's hands and a strange run of cards, no faces. She said nothing, because saying something meant saying his name, and because the men on the stoop had taught her that the hand that isn't busy doesn't talk. She was blacklisted. She really was guilty, but for a good reason (M1). Gus kept the only wide-angle tape, which shows him in the seat (audit 3.7). The commission's penalty for that night ordered new cameras at the Flare, which opened the door to Wren's deal (M4).
+The Flare hired her at twenty-two, already fading, because Pete watched her shuffle at a dealer-school audition and said nothing, which from Pete is a recommendation. She dealt blackjack on its floor for twenty years and organized the dealers' local in its break room. Then payroll night, about six years before the game: Gus, drunk, sat down at her table with the staff's money and started losing it, so she dealt him back to even. It took forty minutes. Pete was at the pit and didn't look up. The commission only ever saw the overhead dealer camera: Rosa's hands and a strange run of cards, no faces. She said nothing, because saying something meant saying his name, and because the men on the stoop had taught her that the hand that isn't busy doesn't talk. She was blacklisted. She really was guilty, but for a good reason (M1). Gus kept the only wide-angle tape, which shows him in the seat (audit 3.7). The commission's penalty for that night ordered new cameras at the Flare, which opened the door to Wren's deal (M4).
 
 She tore the Starflare patch off the vest the day the letter came and kept wearing the vest: she won't throw away what she's lost, and she won't pretend it's still hers. She was never a Flare regular, and she won't step inside it now. She deals Kasia's back room for cash, and the union pays her dues. She stands at the Prairie Queen landing because the river is the closest she'll get to a licensed floor. She has not seen Gus since. She doesn't hate him; she has put him where she puts everything she can't fix, behind the rules. She teaches the rules to anyone who'll listen, because teaching is the one way to keep her hands in the game. When she tells you faces are for amateurs, she is telling you how she survived (Mike 2026-10-28). The mill local's old sign on Kasia's back-room door is something she looks at once.
 

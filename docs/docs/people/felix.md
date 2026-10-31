@@ -7,7 +7,7 @@
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned to the right, with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 ### Felix
 
@@ -16,9 +16,9 @@ For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and
 **Sheet prompt** (16:9, uniform outfit):
 
 ```
-Full-body character expression sheet: 3 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Felix: a slim Cuban-American man in his early 30s, neat dark hair, clean-shaven, warm eyes. The hotel uniform: a charcoal vest over a white shirt, a black tie, a gold name badge with no readable name, a pen behind his ear, charcoal trousers, polished black shoes.
-Panels: 1) a polished professional smile, hands clasped in front; 2) the smile held, eyes saying nothing, politely shut; 3) leaning in, one hand beside his mouth, voice lowered.
+Panels: 1) a polished professional smile, hands clasped in front; 2) the smile held, eyes saying nothing, politely shut; 3) leaning in, one hand beside his mouth, voice lowered; 4) laughing, one hand on his chest.
 ```
 
 **Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
@@ -49,9 +49,9 @@ Felix: a slim Cuban-American man in his early 30s, neat dark hair, clean-shaven,
 **Sheet prompt** (16:9, uniform outfit):
 
 ```
-Full-body character expression sheet: 3 panels side by side of the same person standing, facing the viewer or turned right, never left, head to toe with feet visible, nothing in the hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Nora: a white woman in her early 30s, freckles, an auburn bob. The hotel uniform: a charcoal blazer and skirt, a white blouse, a gold name badge with no readable name, one bright orange scarf, black flats.
-Panels: 1) a polished professional smile, hands clasped in front; 2) the smile held, eyes saying nothing, politely shut; 3) leaning in, one hand beside her mouth, voice lowered.
+Panels: 1) a polished professional smile, hands clasped in front; 2) the smile held, eyes saying nothing, politely shut; 3) leaning in, one hand beside her mouth, voice lowered; 4) laughing, one hand on her chest.
 ```
 
 **Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
