@@ -15,7 +15,7 @@ Northlight has five districts, poorest to richest, and the climb from one to the
 - **Noir by night, warm by day.** Northlight is a city people like. Daylight is warm and busy (pierogi at Kasia's, league night at Millstone Lanes, the lakefront in summer); the grit belongs to the hours after the tables close.
 - **Weather and seasons are free mood layers.** A static rain, fog or snow overlay changes a reused background more than a new pose would.
 - **Props carry history.** The city's past is never a paragraph: it's the old meeting sign on Kasia's back-room door, Pete's 25-year rocket pin, the Stacks outside every Levee window.
-- **Match the big compositions.** The rocket sign seen from Dot's motel lot on night one, and the city seen from Vivian's yacht later with the rocket a tiny coral dot across the water, show how far the player has climbed.
+- **Match the big compositions.** The rocket sign seen from Dot's motel lot on night one, and the lakefront towers seen from Vivian's yacht later, framed the same way, show how far the player has climbed. The Flare is inland on the river, so the yacht can't see the rocket sign (Mike, 2026-10-31).
 
 ## Venues
 

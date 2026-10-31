@@ -30,6 +30,22 @@ Ed: a white vice cop in his late 40s, slightly overweight, thinning brown hair, 
 | `ed_playing_dumb` | eyebrows up, palms half raised, innocent | Lying by playing dumber than he is |
 | `ed_straight` | leaning in, one hand raised, serious and quiet | Straight talk at the Lanes or the Tap |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** everything (where he eats: his unmarked car).
+
+### Coffee and a sandwich
+
+The heat check-ins: his coffee and sandwich. His plate lookup is a Lock Street insert (`lockstreet_lookup`, on [Lock Street](#lock-street)).
+
+`ed_coffee` (insert, square 1:1)
+
+```
+Close-up insert panel. A paper coffee cup and a half-eaten deli sandwich in wax paper on the dashboard of an old unmarked sedan, a rain-streaked windshield beyond. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 Honest to the bone, a bit gruff, tired of watching the big fish get away. Works out of the Northlight vice squad at Lock Street Station (Mike, 2026-10-23), next to the old canal lock; "Lock Street" doubles as slang for the lockup.

@@ -5,7 +5,7 @@ Every place in the game has its own page (listed on [Northlight](#city)) with a 
 Two kinds of panel from the [panel kit](#writing):
 
 - **Plates** are backgrounds with no people: portrait 9:16, the full phone screen. Portraits are laid over them for two-shots and pose swaps.
-- **Inserts** are close-ups of a place's props: square 1:1. Clues arrive this way, uncaptioned.
+- **Inserts** are close-ups of a prop: square 1:1. Clues arrive this way, uncaptioned. A place's props are on its page; what a character carries or hands over is on the character's page, under **Insert prompts**, because portraits keep their hands empty.
 
 **These plates ship.** Like the portraits, AI-generated plates and inserts are final art, because there's no budget for commissions now (Mike, 2026-10-31). If plates are ever commissioned, each prompt and its note is the brief.
 
@@ -19,9 +19,9 @@ Two kinds of panel from the [panel kit](#writing):
 - **Weather is a layer.** Rain, fog and snow are overlays made in layout over a reused plate. Weather is baked into a plate only where a scene names it: the Prairie Queen's mist, the Long Bridge's fog before dawn, Blackspruce's snow.
 - **One room, many states.** Each place's first plate is its base. Make its variants (day, before dawn, the Flare's decline, the last night, cameras off) from the base as a reference image, so it stays the same room and only the light or the props change.
 - **The rocket sign comes down.** It glows across the river or down the street only until the Flare is demolished, right before the stadium's construction starts at the ground-breaking (A3.5; Mike, 2026-10-31). Then it goes into storage (see [the Flare](#the-flare)). Plates that show it are for acts 1 to 3; make a variant without it for later scenes. Plates used in every act leave it out.
-- **Match the big compositions.** The motel lot on night one and the yacht deck later share their framing: the city across the water with the rocket a coral dot. Use the lot as the yacht deck's composition reference.
+- **Match the big compositions.** The motel lot on night one and the yacht deck later share their framing: the city across the water in the upper left. From the lot it's the Levee with the rocket sign; from the yacht it's the lakefront towers, because the Flare is inland on the river and can't be seen from the lake (Mike, 2026-10-31). Use the lot as the yacht deck's composition reference.
 
-**Tags.** A plate's tag is `place_area_time`, plus a state or a baked-in weather where there is one (`flare_floor_night_decline`, `pq_deck_night_mist`), as in the [writing guide's](#writing) script layout. An insert's tag is `place_prop` (`flare_bucket`). The tag is also the image's file name.
+**Tags.** A plate's tag is `place_area_time`, plus a state or a baked-in weather where there is one (`flare_floor_night_decline`, `pq_deck_night_mist`), as in the [writing guide's](#writing) script layout. An insert's tag is `place_prop` (`flare_bucket`), or `character_prop` for something a character carries (`gus_mug`). The tag is also the image's file name.
 
 **Negative prompts** (Leonardo only):
 
@@ -37,7 +37,13 @@ Inserts:
 people, face, hands, text, letters, words, numbers, captions, logo, watermark, signature, photorealistic, 3D render, anime, blurry, cluttered
 ```
 
-Photo inserts (a framed photograph with people in it: the Flare's band photo, the two sisters, Bennett's desk photo):
+Hand inserts (a character's hand or chest in frame: Gus's lucky chip, Kasia's ledger, Richard's key; each note says so):
+
+```
+face, head, extra fingers, extra hands, deformed hands, text, letters, words, numbers, captions, logo, watermark, signature, photorealistic, 3D render, anime, blurry, cluttered
+```
+
+Photo inserts (a framed or tucked photograph with people in it: the Flare's band photo, the two sisters, Bennett's desk photo, Kiran's daughter):
 
 ```
 text, letters, words, numbers, captions, logo, watermark, signature, photorealistic, 3D render, anime, blurry, extra fingers, deformed faces
@@ -56,7 +62,7 @@ text, letters, words, numbers, captions, logo, watermark, signature, photorealis
 - **The same room.** Across a place's variants, the doors, windows and the sign stay where they were.
 - **Nothing that contradicts the docs.** Settled details (the spaceman by the doors, the meeting sign on Kasia's back-room door, the Stacks outside every Levee window) beat whatever the generator invents. Each place page lists its own proposals under **Proposed, not settled**.
 
-The style sentence is the same in every prompt. If the style changes, change it everywhere.
+The style sentence is the same in every prompt. If the style changes, change it everywhere. Only an insert's last sentence varies: "no people" for a prop alone, "one hand only, no face" (or "two hands only, no faces") when a hand is in frame, "no face" for a chest, and no people clause for a photo with people in it.
 
 ## Not settled yet
 
@@ -66,5 +72,5 @@ The style sentence is the same in every prompt. If the style changes, change it 
 | Unnamed places | The old Levee bank, the bar under your Levee room, and where Bennett's office is. |
 | The new rocket sign | You pick its design at A5.4; how many designs there are, and what they look like, isn't settled. The prompt proposes one. |
 | Wren's Starflare (O8) | Where the Revaris showcase stands isn't settled; no plates yet. |
-| Characters' own props | Things a character carries (Gus's mug, Kasia's ledger, Wren's tablet, Raffy's envelope and the drive, Kiran's chip-tray photo) are inserts too, but they belong to the characters and aren't prompted yet. |
+| Characters' own props | Prompted on each character's page under **Insert prompts**, and the walk-ons' on [the cast page's walk-ons](#cast). How each prop looks is a proposal unless that page says otherwise. Troy's "item" insert is whatever you pawned, so it's the pawn case on [Bridgehead Loan & Pawn](#pawn-shop). |
 | Game screens | Table felts, slot symbols and the Rocket Wheel are game art, not panels, and aren't covered here. |

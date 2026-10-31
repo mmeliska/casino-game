@@ -40,6 +40,42 @@ Raffy: a skinny 19-year-old Filipino-American guy, messy black hair, one white e
 | `raffy_last_payment` | Hoodie | calm and serious for once, hands still at his sides | "This one's mine." |
 | `raffy_free` | Helmet on | grinning, one fist raised | His epilogue panel, debt-free |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** the drive (a small black metal thumb drive); the lock screen.
+
+### The envelope
+
+Night one at Kasia's Tap (A1.2): "Hold this till Friday, don't open it." His hand is in frame; use the hand negative prompt.
+
+`raffy_envelope` (insert, square 1:1)
+
+```
+Close-up insert panel. A skinny young Filipino-American man's hand, the sleeve of an oversized grey hoodie pushed back, sliding a fat sealed manila envelope across a worn wooden bar top. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
+### Inside the envelope
+
+What's inside, if you open it: $2,000 and a thumb drive (A1.5 at the latest).
+
+`raffy_envelope_open` (insert, square 1:1)
+
+```
+Close-up insert panel. A manila envelope torn open on a faded motel bedspread, a thick fold of plain banknotes and a small black metal thumb drive spilling out of it. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### The locked drive
+
+Plugged in, it shows a locked volume with Revaris's name and a serial number (A1.5). The name and the number are added in layout.
+
+`raffy_drive_locked` (insert, square 1:1)
+
+```
+Close-up insert panel. A small black metal thumb drive plugged into the side of an old laptop on a faded motel bedspread, the screen showing a blank grey dialog box with a padlock icon. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 Grew up in Backwater. Runs envelopes for Ray's collections because it paid better than delivery and made him feel like somebody. His mom is a nurse working double shifts; he lifted a fat envelope from Ray's car to cover her rent, thinking it was only collection cash. It held $2,500. He took $450 for the rent (Mike, 2026-10-29). It also held something that wasn't cash (see the drive), and when he realized what he was holding, he panicked. A good kid making a dumb mistake.

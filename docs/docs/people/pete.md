@@ -39,6 +39,32 @@ Pete: a stocky Lithuanian-American man about 60, a thin trimmed beard, no mousta
 | `pete_eyes_down` | Suit | eyes down, jaw set, not answering | Lying by not answering; Rosa's name |
 | `pete_pin` | No pin | alone and tired, one open hand held out palm-up, offering | A3.4, the dark pit (the pin is an insert) |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** the rating card (a cream index card with ruled lines).
+
+### The pin
+
+The dark pit on the Flare's last night (A3.4): he hands you his gold rocket pin, and calls you "kid" once more. His hand is in frame; use the hand negative prompt.
+
+`pete_pin_hand` (insert, square 1:1)
+
+```
+Close-up insert panel. An older white man's hand, a charcoal suit sleeve over a white shirt cuff, held out open, palm up, a small gold rocket-shaped lapel pin lying in the palm. Most of the lights are dark. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
+### The rating card
+
+Your name scene at the pit, card in hand. The card never shows numbers. His hand is in frame; use the hand negative prompt.
+
+`pete_rating_card` (insert, square 1:1)
+
+```
+Close-up insert panel. An older white man's hand, a charcoal suit sleeve over a white shirt cuff, holding a small cream index card with blank ruled lines and a short pencil, against a casino pit podium. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 Lithuanian-American, about 60, the third son of a mill family in the Levee: his grandfather came over for the furnaces and his father kept the same job until they went cold. Pete was supposed to follow. At 19 he walked into the Starflare supper club in his brother's suit, and the founder, Mr. Hamilton, gave him a bus tray and a rule: count everything, say nothing. He has kept it for forty-one years and never worked anywhere else. He learned cards by watching, and when land casinos came and the Flare got its license he was one of the first men Mr. Hamilton handed a shoe. He dealt for years and has run the pit for decades. The only time he ever risked his job was telling Mr. Hamilton the band was being paid too much. At his 25th year, a few months before his own death, Mr. Hamilton gave him the gold rocket pin with a note that said only "You were right about the band." He started exactly where Jalen is now, so he keeps a quiet eye on the kid (audit 1.7, Mike 2026-10-24).

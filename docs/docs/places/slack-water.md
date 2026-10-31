@@ -126,6 +126,16 @@ The register turned around for you to sign (A1.1). The name, the Mr./Ms. box and
 Close-up insert panel. An open guest register book on a worn wooden counter, turned to face the viewer, a ballpoint pen on a chain beside it, the lines empty. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
+### The register, torn
+
+If you sell Gus out (O10), Dot tears your page out of the register. Make it from the register. Never in the same act as Kasia's ledger.
+
+`motel_register_torn` (insert, square 1:1)
+
+```
+Close-up insert panel. An open guest register book on a worn wooden counter, a page torn out at the spine leaving a ragged stub, a ballpoint pen on a chain beside it. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
 ### The recipe box
 
 The tin recipe box on Dot's desk, set down by Gus (R1, act 5). Uncaptioned.
