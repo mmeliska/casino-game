@@ -6,6 +6,8 @@ Portraits keep their hands empty, so everything a character holds or hands over 
 
 The yacht deck plate no longer shows the rocket sign. The Flare is inland on the river, so from the lake you see the lakefront towers instead. The plate keeps the motel lot's framing (Mike).
 
+From the yacht, Vivian now looks at her family's empty lakefront land, not the Levee and Backwater. Those are inland on the river and can't be seen from the lake. The yacht insert shows the land (Mike).
+
 ### Places and plate prompts
 
 Every place in the game now has its own page (34 in all, linked from Northlight), the way characters do: each one's details moved off the Northlight tables into its page, with the scenes it appears in. Northlight keeps the districts, a venue ladder (bets and entry), the housing ladder, the cameras, the landmarks and links to every place. The RailYard's section moved onto its page. Each place page has a **Plate prompts** section: a Leonardo.ai or Adobe Firefly prompt for every panel its scenes need, 135 in all, each with a note above it saying what it's for and its tag. Plates are 9:16 backgrounds with no people, eye level with open floor for standing portraits; inserts are 1:1 close-ups of the place's props. A new Plate prompts page (under World) has the how-to, the negative prompts and what isn't settled. Layouts and furnishings in the prompts are proposals. The people's Starflare (O4) uses the Levee union hall's plate. The Flare is demolished right before the stadium's construction starts, at the ground-breaking (A3.5), so from act 4 on the rocket sign is in storage and plates leave it out (Mike).

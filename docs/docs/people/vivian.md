@@ -66,7 +66,7 @@ One of two backers, with Jalen. She is a silent minority partner in the new Star
 **Want:** to lose with dignity. **Need:** to be asked for the thing she's been holding (Mike, 2026-10-28).
 
 How it shows (Mike, 2026-10-28):
-- **The yacht.** From the deck she looks at the Levee and Backwater, not the Mile: the part of the city her family's money came from. One insert, no caption.
+- **The yacht.** From the deck she doesn't look at the Mile's towers. She looks at her family's empty lakefront land at the Silvershore line, dark between the neon and the old houses: the one thing she won't let the lawyers have. One insert, no caption. (Mike, 2026-10-31. This replaces the Levee and Backwater, which are inland on the river and can't be seen from the lake.)
 - **The pearls.** She keeps the fist tell because it's the only thing about her that still tells the truth.
 - **The first policy.** A framed policy on the Obsidian's wall in her grandfather's hand, for a furnace man (no name shown). One insert.
 
