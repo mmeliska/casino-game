@@ -50,7 +50,7 @@ Background plate, no people. A private high-limit baccarat room: one table under
 
 ### Tae's office
 
-Tae's offers (A2.2, A4.6); Pete's new job (A3.5).
+Tae's offer (A4.6); Pete's new job (A3.5); Tae hearing his dad's name and asking about the kit (S4).
 
 `aurelian_office_day` (plate, portrait 9:16)
 

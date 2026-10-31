@@ -29,5 +29,5 @@ Waking up in the car. Make it from the night version.
 `car_bridges_dawn` (plate, portrait 9:16)
 
 ```
-Background plate, no people. An old sedan parked under the concrete underside of a big bridge beside a river, pillars stained with water, cold grey light at the river's edge, mist on the water. Before dawn: cold blue-grey light, the last sodium lamps still on. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. An old sedan parked under the concrete underside of a big bridge beside a river, pillars stained with water, cold grey light at the river's edge. Before dawn: cold blue-grey light, the last sodium lamps still on. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```

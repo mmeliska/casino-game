@@ -46,6 +46,26 @@ Daytime visits. Make it from the night front.
 Background plate, no people. The front of a low rocket-age supper-club casino in daylight: a boomerang-shaped entrance canopy, glass doors, a tall pylon with an unlit rocket sign in the upper left, a chrome astronaut statue waving beside the doors, paint faded, old mill chimneys behind. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
+### The floor, the last season
+
+Act 3 before the closing (A3.1): the stadium drawing taped to the cage glass, the Rocket Wheel roped off, the floor emptier. Make it from the declining floor.
+
+`flare_floor_night_lastseason` (plate, portrait 9:16)
+
+```
+Background plate, no people. Inside a fading rocket-age casino floor: a deep teal carpet with coral starbursts, half the starburst lights dark, the big Rocket Wheel on the far wall roped off with a velvet rope, a cashier's cage with a large architectural drawing taped to its glass, a bucket under a ceiling stain. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+```
+
+### Out front, the banner
+
+Act 3 (A3.1): a banner hung on the sign by Bennett's people. The banner is blank; its words (FOR THE LEVEE) go in layout. Make it from the night front.
+
+`flare_front_night_banner` (plate, portrait 9:16)
+
+```
+Background plate, no people. The front of a low rocket-age supper-club casino at night: a boomerang canopy with rows of bulbs, glass doors, a tall pylon with a coral-and-teal neon rocket sign in the upper left with a long blank cloth banner tied across it, a chrome astronaut statue waving beside the doors, old mill chimneys behind. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+```
+
 ### Out front, the spaceman covered
 
 The last night without the trucker (A3.3): the District's crew has bolted a cover over the spaceman. Make it from the night front.
@@ -53,7 +73,7 @@ The last night without the trucker (A3.3): the District's crew has bolted a cove
 `flare_front_dawn_covered` (plate, portrait 9:16)
 
 ```
-Background plate, no people. The front of a closed rocket-age casino before dawn: a boomerang canopy with dead bulbs, chained glass doors, the coral rocket sign still glowing on its pylon in the upper left, and beside the doors a statue-shaped bulk under a bolted grey tarp. Before dawn: grey-blue light, the neon still on and fading. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. The front of a rocket-age casino before dawn on its last night: a boomerang canopy with its bulbs still lit, glass doors open and lit inside, the coral rocket sign glowing on its pylon in the upper left, and beside the doors a statue-shaped bulk under a bolted grey tarp. Before dawn: grey-blue light, the neon still on and fading. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### Out front, the flatbed
@@ -63,7 +83,7 @@ The last night with the trucker (S3): his flatbed is backed up to the doors to s
 `flare_front_dawn_flatbed` (plate, portrait 9:16)
 
 ```
-Background plate, no people. The front of a closed rocket-age casino before dawn: a boomerang canopy with dead bulbs, the coral rocket sign glowing on its pylon in the upper left, a flatbed truck backed up to the doors with straps ready beside a chrome astronaut statue. Before dawn: grey-blue light, the neon still on and fading. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. The front of a rocket-age casino before dawn on its last night: a boomerang canopy with its bulbs still lit, the coral rocket sign glowing on its pylon in the upper left, a flatbed truck backed up to the doors with straps ready beside a chrome astronaut statue. Before dawn: grey-blue light, the neon still on and fading. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### Out front, condemned
@@ -123,7 +143,7 @@ Pete alone at the dark pit after closing (A3.4). Make it from the floor plate.
 `flare_pit_dark` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A casino pit after closing: blackjack tables with their covers on in a ring, the floor lights off, one work light left on over the pit stand, the rest of the room in deep shadow, a coral glow from the sign through the far windows. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A casino pit after closing: blackjack tables with their covers on in a ring, the floor lights off, one work light left on over the pit stand, the rest of the room in deep shadow, far windows showing old mill chimneys and a coral glow from the sign. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The lounge
@@ -163,7 +183,7 @@ Gus boxing up his office on the last night (A3.3). Make it from the office plate
 `flare_office_boxed` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A casino owner's office being emptied: a heavy old desk, cardboard boxes half packed on the floor, pale rectangles on the wood-panelled walls where photographs hung, an empty videotape shelf, a lamp, old mill chimneys outside the window. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A casino owner's office being emptied: a heavy old desk, cardboard boxes half packed on the floor, pale rectangles on the wood-panelled walls where photographs hung, an shelf of old videotapes still in place, a lamp, old mill chimneys outside the window. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The count room
@@ -248,12 +268,12 @@ Close-up insert panel. A faded old framed photograph on a wall: a five-piece sup
 
 ### The sisters' photo
 
-The framed photo of Dot and her sister Alice in Gus's office (R1). Use Dot's approved sheet as a reference; Alice's look isn't settled. Uses the photo negative prompt.
+The framed photo of Dot and her younger sister Alice on Gus's office shelf, with a tin recipe box under it (R1). Use Dot's approved sheet as a reference; Alice's look isn't settled. Uses the photo negative prompt.
 
 `flare_sisters_photo` (insert, square 1:1)
 
 ```
-Close-up insert panel. A framed old photograph on a desk: two women in their thirties laughing on a beach, one in each of two bright shirts. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no text, no lettering.
+Close-up insert panel. A framed old photograph on a wooden shelf, a small tin recipe box beneath it: two sisters laughing on a beach, one in each of two bright shirts. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no text, no lettering.
 ```
 
 ### The tape

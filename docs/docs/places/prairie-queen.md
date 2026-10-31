@@ -22,7 +22,7 @@ For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an ins
 
 ### The deck at night, mist
 
-At the rail; Walt's tip about table four; the port side with Kiran (the Quiet Hand scene, M3).
+At the rail; the port side with Kiran (M3). Shows the rocket sign on the shore: for sailings after the Flare is demolished, make a variant without it.
 
 `pq_deck_night_mist` (plate, portrait 9:16)
 

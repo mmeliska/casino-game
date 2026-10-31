@@ -18,6 +18,7 @@ Two kinds of panel from the [panel kit](#writing):
 - **District light and palette in every prompt.** Each place's prompts carry its district's key light and palette from the districts table on [Northlight](#city), so a player knows where they are at a glance.
 - **Weather is a layer.** Rain, fog and snow are overlays made in layout over a reused plate. Weather is baked into a plate only where a scene names it: the Prairie Queen's mist, the Long Bridge's fog before dawn, Blackspruce's snow.
 - **One room, many states.** Each place's first plate is its base. Make its variants (day, before dawn, the Flare's decline, the last night, cameras off) from the base as a reference image, so it stays the same room and only the light or the props change.
+- **The rocket sign comes down.** It glows across the river or down the street only until the Flare is demolished, then goes into storage (see [the Flare](#the-flare)). Plates that show it are for before then; make a variant without it for later scenes. Plates used in every act leave it out.
 - **Match the big compositions.** The motel lot on night one and the yacht deck later share their framing: the city across the water with the rocket a coral dot. Use the lot as the yacht deck's composition reference.
 
 **Tags.** A plate's tag is `place_area_time`, plus a state or a baked-in weather where there is one (`flare_floor_night_decline`, `pq_deck_night_mist`), as in the [writing guide's](#writing) script layout. An insert's tag is `place_prop` (`flare_bucket`). The tag is also the image's file name.
@@ -62,6 +63,7 @@ The style sentence is the same in every prompt. If the style changes, change it 
 | What | Not settled |
 | --- | --- |
 | Every interior and building | The layouts, furniture and materials in the prompts are proposals unless the place page says otherwise. |
+| When the Flare is demolished | The sign is in storage after demolition, but when demolition happens against acts 4 and 5 isn't settled, so it's unclear which later scenes still see it. |
 | Unnamed places | The old Levee bank, the bar under your Levee room, and where Bennett's office is. |
 | The new rocket sign | You pick its design at A5.4; how many designs there are, and what they look like, isn't settled. The prompt proposes one. |
 | Wren's Starflare (O8) | Where the Revaris showcase stands isn't settled; no plates yet. |

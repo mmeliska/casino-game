@@ -19,7 +19,7 @@ Walking in with Richard (A4.4).
 `bank_hall_day` (plate, portrait 9:16)
 
 ```
-Background plate, no people. An old bank's banking hall: marble floor, tall columns, brass teller cages along the right, a high coffered ceiling, light through tall windows. Timeless retro details. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. An old bank's banking hall: marble floor, tall columns, brass teller cages along the right, a high coffered ceiling, light through tall windows with old mill chimneys outside. Timeless retro details. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The box room

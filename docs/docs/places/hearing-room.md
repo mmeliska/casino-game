@@ -19,5 +19,5 @@ Every hearing (A3.2, A4.11, A5.5, A5.7).
 `hearing_room_day` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A civic hearing room: a raised wooden dais with a row of empty chairs and microphones, a plain round emblem on the wall with no lettering, a witness table, rows of public seating, tall windows. Flat daylight from tall windows. Muted, desaturated palette: wood brown, grey, faded green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A civic hearing room: a raised wooden dais with a row of empty chairs and microphones, a plain round emblem on the wall with no lettering, a witness table, rows of public seating, tall windows with old mill chimneys outside. Flat daylight from tall windows. Muted, desaturated palette: wood brown, grey, faded green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```

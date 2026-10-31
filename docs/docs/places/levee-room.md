@@ -14,7 +14,7 @@ For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an ins
 
 ### Your room at night
 
-Going to sleep; the phone at night.
+Going to sleep; the phone at night. Shows the rocket sign: once the Flare is demolished, make a variant without it.
 
 `levee_room_night` (plate, portrait 9:16)
 

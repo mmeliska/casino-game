@@ -29,5 +29,5 @@ Your stolen item behind Troy's glass with the rival's watch beside it (A4.8). Th
 `pawn_case` (insert, square 1:1)
 
 ```
-Close-up insert panel. Inside a glass pawn-shop display case: an empty spot on dark velvet with a small blank paper tag, and a man's wristwatch lying beside it. Night: flat white gas-station fluorescents against black. Palette: flat white, oil-slick purple. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. Inside a glass pawn-shop display case: an empty spot on dark velvet with a small blank paper tag, and a silver wristwatch lying beside it. Night: flat white gas-station fluorescents against black. Palette: flat white, oil-slick purple. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```

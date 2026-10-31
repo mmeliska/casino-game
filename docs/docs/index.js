@@ -81,7 +81,6 @@ const PARTS=[
 {"path": "places/new-starflare", "title": "The lakefront Starflare", "page": "new-starflare"},
 {"path": "places/starflare-afloat", "title": "The Starflare afloat", "page": "starflare-afloat"},
 {"path": "places/tae-restaurant", "title": "Tae's Starflare restaurant", "page": "tae-restaurant"},
-{"path": "places/you", "title": "You", "page": "you"},
 {"path": "pages/writing", "title": "Writing guide", "page": "writing"},
 {"path": "plan/t01", "title": "Planning record: task 1. Time period", "page": "city"},
 {"path": "plan/t02", "title": "Planning record: task 2. The city", "page": "city"},

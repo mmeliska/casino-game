@@ -29,5 +29,5 @@ The photo on his desk: a clue to Richard (M4). Use Richard's and Bennett's appro
 `bennett_desk_photo` (insert, square 1:1)
 
 ```
-Close-up insert panel. A framed old photograph on a polished desk: a man with a strong square jaw and a boy of about ten sitting at a picnic table playing cards. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no text, no lettering.
+Close-up insert panel. A framed old photograph on a polished desk: a man with a strong square jaw and a boy of about ten playing cards at a kitchen table. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no text, no lettering.
 ```

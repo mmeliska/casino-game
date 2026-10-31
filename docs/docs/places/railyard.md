@@ -45,7 +45,7 @@ The buffet the pensioners love.
 `railyard_buffet_day` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A casino buffet in an old rail depot: steam trays under a sneeze guard, a carving station, tables with checked cloths, big arched windows onto old rail tracks. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A casino buffet in an old rail depot: steam trays under a sneeze guard, a carving station, tables with checked cloths, big arched windows onto old rail tracks and old mill chimneys. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### Out front

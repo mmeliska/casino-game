@@ -14,7 +14,7 @@ For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an ins
 
 ### A street at night
 
-Walking the Levee at night.
+Walking the Levee at night. Shows the rocket sign: once the Flare is demolished, make a variant without it.
 
 `levee_street_night` (plate, portrait 9:16)
 

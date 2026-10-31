@@ -44,10 +44,10 @@ Background plate, no people. A new casino floor with rocket-age styling: teal ca
 
 ### The showroom
 
-The showroom: the piano player (A5.3), the house band reunion with the drum kit on stage (O1).
+The showroom: the piano player (A5.3), the house band reunion with the drum kit on stage (O1). Alice's star ceiling from the old lounge is offered at A5.4 (not if the Flare burned); for that version, make a variant using the Flare's lounge plate as a reference.
 
 `newstar_showroom_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A small supper-club showroom: a stage with a grand piano and a drum kit, curved booths, a painted midnight-blue star ceiling, candle lamps. Night: hotel marquees and LED walls. Palette: magenta, gold, lake blue. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A small supper-club showroom: a stage with a grand piano and a drum kit, curved booths, a dark ceiling with small warm lights, candle lamps. Night: hotel marquees and LED walls. Palette: magenta, gold, lake blue. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
