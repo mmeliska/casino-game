@@ -42,7 +42,7 @@ text, letters, captions, speech bubbles, watermark, logo, signature, holding obj
 
 - **Match the look.** Generators add things, like the necklace on the Dot proof of concept, and they like to put something in an empty hand. Regenerate rather than keep it.
 - **No text in the image.** Generators garble lettering (one caption on the Dot proof of concept came out as "Angry oulbber"). Add names and labels in layout. Any sample line comes from the character's voice sheet, never from the generator: a line like "Don't you dare talk about Gus that way!" would break Dot's rule that she never talks about Gus.
-- **Same scale in every pose.** Pose swaps are the game's only animation, so every pose is the same size on the same flat grey, ready to cut out. Plates (backgrounds) are separate art.
+- **Same scale in every pose.** Pose swaps are the game's only animation, so every pose is the same size on the same flat grey, ready to cut out. Plates (backgrounds) are separate art; their prompts are on [Plate prompts](#plates).
 - **Artist references stay out.** Gus's and Claire's pages name a cartoon and a game character as references. Naming them in a prompt pulls the generator toward a copy, and the portrait must be original, so the prompts describe the traits instead.
 
 The style sentence is the same in every prompt. If the style changes, change it everywhere.
