@@ -198,6 +198,10 @@ P.portraits=()=>`<div class="page wide"><p class="eyebrow">People · art</p><h1>
 <p class="lede">A prompt for an AI image generator for every character with a portrait: an expression sheet, plus each pose's tag for scene scripts. Looks come from the character pages; anything unsettled is listed at the end.</p>
 ${part("pages/portraits","pp","portraits")}</div>`;
 
+P.plates=()=>`<div class="page wide"><p class="eyebrow">World · art</p><h1>Plate prompts</h1>
+<p class="lede">A prompt for an AI image generator for every panel a place needs: its backgrounds (plates) and its props (inserts). The prompts are on each place's page; this page has the how-to.</p>
+${part("pages/plates","pl","plates")}</div>`;
+
 function charPage(c){
   const ties=E.filter(e=>e[0]===c.id||e[1]===c.id).map(e=>{const o=e[0]===c.id?e[1]:e[0];return `<li><span class="chip" style="pointer-events:none"><span class="sw" style="background:${ETYPE[e[2]].col}"></span>${ETYPE[e[2]].label}</span> <a href="#${o}">${BY[o].name}</a>: ${esc(e[3])}</li>`}).join("");
   return `<div class="page"><p class="eyebrow" style="color:${GCOL[c.group]}">${c.tier} · ${GROUPS[c.group]}</p>
@@ -206,6 +210,14 @@ function charPage(c){
 ${part("people/"+c.id,c.id,c.id)}
 ${ties?`<h2>Ties</h2><p class="small muted">From the <a href="#map" data-sel="${c.id}">relationship map</a>.</p><ul style="list-style:none;padding:0">${ties}</ul>`:""}
 ${c.appears.length?`<h2>Appears in</h2><div class="card">${c.appears.map(evLine).join("")}</div>`:""}
+</div>`;
+}
+function placePage(p){
+  return `<div class="page"><p class="eyebrow">${esc(p.kind)} · ${esc(p.district)}</p>
+<h1>${esc(p.name)}</h1>
+<p class="lede">${esc(p.line)}</p>
+${part("places/"+p.id,p.id,p.id)}
+${p.appears.length?`<h2>Appears in</h2><div class="card">${p.appears.map(evLine).join("")}</div>`:""}
 </div>`;
 }
 
@@ -269,7 +281,6 @@ P.city=()=>`<div class="page wide"><p class="eyebrow">World</p><h1>Northlight</h
 <p class="lede">A nice Great Lakes city people like living in, with rough edges like any big city. A river splits dry Backwater from the gambling side. Era-agnostic: no named year, a timeless retro feel, full smartphones.</p>
 <div class="grid cards">${DIST.map(d=>`<div class="card"><h3>${d[0]}</h3><div class="swatches">${d[3].map(c=>`<span style="background:${c}"></span>`).join("")}</div><p class="small muted">${d[4]}. Swatches are approximate.</p></div>`).join("")}</div>
 ${part("pages/northlight","nl","city")}
-${sec("","railyard","city")}
 ${planRec([1,2,3,4],"city")}
 </div>`;
 
@@ -308,7 +319,7 @@ P.rules=()=>`<div class="page"><p class="eyebrow">Systems</p><h1>Rules and syste
 ${[["Lane shift","juan","Afternoon","$50","A league regular is short on fees"],["Bar-back","kasia","Night","$60 cash","A drunk regular drops a fat wallet"],["Wedding shift (once)","kasia","Night","$80 + tips","Server or busser; the dance offers"],["Motel rooms","dot","Morning","A night off rent","Something left behind in room 9"],["Valet","pete","Night","$80 + tips","A guest wants their car \"lost\" for an hour"],["Drive Vivian","vivian","Day","$150","Keep quiet about the jeweler (settled)"],["Envelope run","ray","1 hour","$200","The envelope is light, or Ed is watching"],["Count the bets","mitch","A few days","A cut","A bettor is short"]].map(r=>`<tr><td>${r[0]}</td><td>${who([r[1]])}</td><td>${r[2]}</td><td class="num">${r[3]}</td><td>${r[4]}</td></tr>`).join("")}
 </tbody></table></div>
 <h2>Art and writing</h2><ul>
-<li>Inked graphic-novel art. Portraits are AI-generated with Leonardo.ai or Adobe Firefly; other AI art is only for placeholders and concepts. About 24 portraits (9 core, 10 supporting, 5 minor), plus the romance versions. Prompts and poses are on <a href="#portraits">Portrait prompts</a>.</li>
+<li>Inked graphic-novel art. Portraits and backgrounds are AI-generated with Leonardo.ai or Adobe Firefly. About 24 portraits (9 core, 10 supporting, 5 minor), plus the romance versions. Prompts and poses are on <a href="#portraits">Portrait prompts</a>; background prompts are on <a href="#plates">Plate prompts</a>.</li>
 <li>No character animation. Characters change by swapping poses; motion is written as text.</li>
 <li>First names only; a surname only when a story needs one. Check every name against real places, people and other IP. Looks that reference other IP are artist notes only.</li>
 <li>No religion anywhere. Say plainly "took a bribe". Register: Great Lakes understatement; slang is rare.</li>
@@ -340,7 +351,7 @@ P.sources=()=>`<div class="page"><p class="eyebrow">Reference</p><h1>About this 
 <li>Older material (the first story framing and the planning notebook) is on <a href="#history">Early drafts and notes</a>.</li>
 <li><a href="#find">Search everything</a> looks through every page at once.</li></ul>
 <h2>Editing</h2>
-<p>Each page's text is a Markdown file in the site folder: <code>docs/people/&lt;id&gt;.md</code> for a character, <code>docs/pages/*.md</code> for page sections and <code>docs/plan/tNN.md</code> for each planning task. Lists, the map and the timeline read <code>data/story.js</code>. Edit the file, then republish.</p>
+<p>Each page's text is a Markdown file in the site folder: <code>docs/people/&lt;id&gt;.md</code> for a character, <code>docs/places/&lt;id&gt;.md</code> for a place, <code>docs/pages/*.md</code> for page sections and <code>docs/plan/tNN.md</code> for each planning task. Lists, the map and the timeline read <code>data/story.js</code>. Edit the file, then republish.</p>
 <h2>Working title</h2>
 <p>Settled 24 Oct 2026: <b>Starflare Casino</b>.</p>
 ${part("pages/titles","ti","sources")}
@@ -489,6 +500,7 @@ function route(){
   if(OLD[h]){location.replace("#"+OLD[h]);return}
   let target=null, page=h;
   if(BY[h]&&h!=="you"){main.innerHTML=charPage(BY[h]);}
+  else if(PLBY[h]){main.innerHTML=placePage(PLBY[h]);}
   else if(EVBY[h]){ // event code: go to the most specific page
     if(/^S\d+$/.test(h)){page="seeds";target="row-"+h}
     else if(/^O\d+$/.test(h)){page="outcomes";target="row-"+h}
@@ -500,7 +512,7 @@ function route(){
   else {page="home";main.innerHTML=P.home();}
   if(TOP[page]&&!BY[h]){const ld=main.querySelector(".page>.lede");if(ld)ld.insertAdjacentHTML("afterend",TOP[page]())}
   if(EXTRA[page]&&!BY[h]){const pg=main.querySelector(".page");if(pg)pg.insertAdjacentHTML("beforeend",EXTRA[page]())}
-  document.querySelectorAll("[data-nav]").forEach(a=>a.classList.toggle("on",!!(a.dataset.nav===page||(BY[h]&&a.dataset.nav==="cast"))));
+  document.querySelectorAll("[data-nav]").forEach(a=>a.classList.toggle("on",!!(a.dataset.nav===page||(BY[h]&&a.dataset.nav==="cast")||(PLBY[h]&&a.dataset.nav==="city"))));
   document.querySelectorAll("#peopleNav a").forEach(a=>a.classList.toggle("on",!!(a.getAttribute("href")==="#"+h)));
   if(page==="map"){bindMap();drawMap()}
   if(h==="find")findReady();
@@ -519,7 +531,7 @@ document.getElementById("menuBtn").addEventListener("click",()=>{const r=documen
 function people(q){q=(q||"").toLowerCase();document.getElementById("peopleNav").innerHTML=C.filter(c=>!q||c.name.toLowerCase().includes(q)||(c.line||"").toLowerCase().includes(q)).map(c=>`<a href="#${c.id}"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${GCOL[c.group]};margin-right:7px"></span>${esc(c.name)}</a>`).join("")}
 document.getElementById("q").addEventListener("input",e=>people(e.target.value));
 people("");
-if(!location.hash){try{const l=localStorage.getItem("sfdocs-last");if(l&&(P[l]||BY[l]))history.replaceState(null,"","#"+l)}catch(e){}}
+if(!location.hash){try{const l=localStorage.getItem("sfdocs-last");if(l&&(P[l]||BY[l]||PLBY[l]))history.replaceState(null,"","#"+l)}catch(e){}}
 const THEMES=["system","light","dark"];
 function applyTheme(t){if(t==="system")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",t);document.querySelectorAll(".themebtn").forEach(b=>b.textContent="Theme: "+t);try{localStorage.setItem("sfdocs-theme",t)}catch(e){}}
 let THEME="system";try{THEME=localStorage.getItem("sfdocs-theme")||"system"}catch(e){}

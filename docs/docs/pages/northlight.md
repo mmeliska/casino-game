@@ -1,4 +1,4 @@
-Every place in the game, grouped by district, with the look and mood each one should have. Settled names come from Planning Tasks; anything marked proposed is not decided yet.
+Every place in the game, grouped by district, with the look and mood each one should have. Each place has its own page with its details and the prompts for its plates and inserts (the how-to is on [Plate prompts](#plates)). Settled names come from Planning Tasks; anything marked proposed is not decided yet.
 
 ## The districts
 
@@ -19,49 +19,41 @@ Northlight has five districts, poorest to richest, and the climb from one to the
 
 ## Venues
 
-Eleven places to gamble, from the settled venue table (the RailYard was added 2026-10-19) in Planning Tasks task 3. Bets and entry rules are starting values. Regular play everywhere is fair; any doubt about a table is a story moment. Every venue except the yacht games has a few versions of slots themed to the place (themes are proposals), and video poker is everywhere except the Cinder Room and the yachts. Millstone Lanes' machines are free play, just for fun: the place to practise.
+Eleven places to gamble, from the settled venue table (the RailYard was added 2026-10-19) in Planning Tasks task 3. Bets and entry rules are starting values. Regular play everywhere is fair; any doubt about a table is a story moment. Every venue except the yacht games has a few versions of slots themed to the place (themes are proposals), and video poker is everywhere except the Cinder Room and the yachts. Millstone Lanes' machines are free play, just for fun: the place to practise. Games, who you'll find and the full entry rules are on each venue's page.
 
-| Venue | District | What it is | Games | Bets | Getting in | Who you'll find |
-| --- | --- | --- | --- | --- | --- | --- |
-| Millstone Lanes (back lot) | Backwater | Juan's struggling bowling alley (he bought it from the old owner on a handshake payment plan; Mike, 2026-10-30); he runs dice out back after the last frame | Craps in the back lot (real money); inside, bowling-themed slots and video poker on free play, just for fun: a practice spot with no money | $1–$20 | Anyone; sweeps likelier when your heat is high | Juan, league regulars; Raffy hiding out later |
-| Kasia's Tap | Backwater | Kasia's dad's old tavern at the mill gate (he was a businessman, not a mill man); "for amusement only" machines at the bar that Kasia quietly pays out from the till, pull tabs from under the counter, cards in the back room | Poker, blackjack, old "for amusement only" reel slots and video poker, pull tabs | $1–$50 | Bar open to all (illegal but too small for Ed to care); back room by Kasia's invitation, once you've done her two jobs (the bar-back shift and the coupons to Juan; A1.3) | Kasia, Rosa dealing the back room, Raffy on night one |
-| Bridgehead Fuel & Food | The Bridges | Gas station at the main bridge; worst odds in town, best gossip | Cheap three-reel slots, video poker, pull tabs, scratchers | $1–$5 | Anyone | Mitch at the counter (and his race book out back) |
-| Starflare Club ("the Flare") | The Levee | Gus's rocket-age casino, slowly fading | Rocket-themed slots, video poker, blackjack, craps, roulette, poker, keno, the Rocket Wheel | $5–$100 | Anyone | Gus, Pete, Jalen, Stella, the regulars (Walt, Lorraine, Augie), Miles/Audrey in the lounge, Ray at the bar (from A1.5 on) |
-| Prairie Queen | The Levee | Old-time riverboat; you're aboard until it docks | Blackjack, craps, roulette, paddlewheel slots, video poker | $5–$200 | A ticket for a set sailing | Kiran; Rosa near the landing |
-| Cinder Room | The Levee | Umbra's after-hours game in an old mill basement; password changes | Casino war (house game: high card wins; on a tie you go to war or surrender), craps, no-limit poker, old one-armed bandits | $100 to no limit, cash only | Heat above a threshold or an Umbra vouch; first time, Ray slips you the password once you've won at the Flare (A1.9). Once in, you're in for good, even if Ray cuts you off; every visit raises heat (Mike, 2026-10-30) | Ray, Umbra muscle; Wren only once, in the office (A4.5) |
-| The RailYard | The Levee | Locals' casino in the old rail depot on the Levee's edge; clean, busy, a little plain, with a buffet; what the Flare could be if Gus ran it well | Rail-themed slots, video poker, blackjack, craps, roulette, poker, keno; players' card and weeknight slot tournaments | $10–$500 | Reach $1,500 once | Mill pensioners, Chase/Brooke early on; most Flare regulars after the fall |
-| Harborlight | Marquee Mile | Lighthouse-themed hotel casino; a friendly first rung up | Lighthouse-themed slots, video poker, blackjack, craps, roulette, poker, keno | $25–$1,000 | Reach $5,000 once; heat below a limit; smart casual | Bennett, Vivian at the high tables (glimpsed only until act 3), Chase/Brooke |
-| Aurelian | Marquee Mile | The out-of-town chain; cameras everywhere, counters get backed off | Big-screen video slots and progressive jackpots, video poker, blackjack, craps, roulette, poker, baccarat in the high-limit room | $25–$5,000 | Reach $10,000 once (the whole Aurelian, lobby included, so act 2 at the earliest; Mike, 2026-10-30); low heat; high-limit room at $25,000 | Tae, Felix/Nora at the desk, Stella in meetings |
-| Obsidian | Silvershore | Members-only card room | Blackjack (high-roller side bets), poker (including seven-card stud), roulette, craps, a small high-limit salon of slots and video poker, baccarat | $500 and up | Reach $50,000 once; a suit; a member sponsors you; low heat | Vivian |
-| Yacht games | Silvershore | Private games on the lake; can't leave until the boat comes in | Poker, baccarat, craps | $1,000 and up | Vivian's invitation, which comes with her Obsidian sponsorship (A3.6), plus a best bankroll of about $100,000 (a starting value; Mike, 2026-10-30) | Vivian and old money |
+| Venue | District | Bets | Getting in |
+| --- | --- | --- | --- |
+| [Millstone Lanes](#millstone-lanes) (back lot) | Backwater | $1–$20 | Anyone |
+| [Kasia's Tap](#kasias-tap) | Backwater | $1–$50 | Bar open to all; back room by Kasia's invitation (A1.3) |
+| [Bridgehead Fuel & Food](#bridgehead) | The Bridges | $1–$5 | Anyone |
+| [Starflare Club ("the Flare")](#the-flare) | The Levee | $5–$100 | Anyone |
+| [Prairie Queen](#prairie-queen) | The Levee | $5–$200 | A ticket for a set sailing |
+| [Cinder Room](#cinder-room) | The Levee | $100 to no limit, cash only | Heat above a threshold or an Umbra vouch |
+| [The RailYard](#railyard) | The Levee | $10–$500 | Reach $1,500 once |
+| [Harborlight](#harborlight) | Marquee Mile | $25–$1,000 | Reach $5,000 once; heat below a limit; smart casual |
+| [Aurelian](#aurelian) | Marquee Mile | $25–$5,000 | Reach $10,000 once; low heat |
+| [Obsidian](#obsidian) | Silvershore | $500 and up | Reach $50,000 once; a suit; a member sponsors you; low heat |
+| [Yacht games](#yachts) | Silvershore | $1,000 and up | Vivian's invitation plus a best bankroll of about $100,000 |
 
 ## Story places
 
-Places that matter to the story but aren't venues. Unnamed ones are marked; their names are still to be picked.
+Places that matter to the story but aren't venues. Unnamed ones are marked on their pages; their names are still to be picked.
 
-| Place | District | What happens there | Key details |
-| --- | --- | --- | --- |
-| Slack Water Motel | Backwater | Your first home; Dot works the desk and asks what brings you to Northlight | The rocket sign visible across the river from the lot |
-| Room 9, Slack Water Motel | Backwater | Richard, Bennett's father, lives here; Bennett pays the bill weekly and never visits the room, but most Tuesdays sits in his car in the lot; Umbra watches the door in person, since the motel refuses cameras | The weekly envelope drop Dot sees; Richard's key on a lanyard; War with Richard at the picnic table in the motel lot |
-| Gus's office, the Flare | The Levee | Where Gus's secrets live | The tape of Rosa's table; the framed photo of Dot and her sister Alice |
-| The Flare's lounge | The Levee | Half-empty piano lounge; Miles or Audrey plays nightly and overhears everything | Covered piano as the Flare declines |
-| Prairie Queen landing | The Levee | Rosa's hangout near the boat | Paddle lights, river mist |
-| Old Levee bank | The Levee | Gus's safety deposit box (Wren's camera contract and Gus's own recording of Bennett's demand); Richard wears the key | Bank not yet named |
-| Bennett's office | The Levee | Where you deal with the alderman | The photo on his desk (a clue to Richard); location not yet named |
-| Mitch's back room, Bridgehead | The Bridges | His Haybale Downs race book (events, not a game) | Opens up as your straight/crooked scale allows |
-| Aurelian front desk | Marquee Mile | Felix or Nora's post; an inside view of check-ins, comped suites and Stella's meetings |  |
-| Vivian's lakefront land | Lakefront | The site the lakefront Starflare needs; the Aurelian wants it too | On the Marquee Mile, right at the Silvershore line: licensed and on the lake (audit 2.5, Mike 2026-10-26) |
-| Lock Street Station (the Northlight vice squad) | Citywide | Ed's base; a night in lockup after a raid | Named by Mike 2026-10-23. Ed's base, next to the old canal lock; "Lock Street" doubles as slang for the lockup |
+- **Backwater:** [Slack Water Motel](#slack-water) (Dot's desk, room 9, the picnic table), [Backwater streets](#backwater-streets)
+- **The Bridges:** [Bridgehead Loan & Pawn](#pawn-shop) (Troy), [the Long Bridge](#long-bridge); Mitch's back room is on [Bridgehead's](#bridgehead) page
+- **The Levee:** the Flare's lounge and Gus's office are on [the Flare's](#the-flare) page, the landing on [the Prairie Queen's](#prairie-queen); [the old Levee bank](#levee-bank), [Bennett's office](#bennett-office), [Levee streets](#levee-streets) (the Stacks, the rally), [the hearing room](#hearing-room), [the Levee union hall](#union-hall)
+- **Marquee Mile:** the front desk is on [the Aurelian's](#aurelian) page; [the strip](#marquee-mile) (the North Light), [Vivian's lakefront land](#lakefront-land)
+- **Citywide:** [Lock Street Station](#lock-street) (the Northlight vice squad)
 
 ## Where you live
 
 Your home moves with your bankroll, from the settled housing ladder.
 
-1. **Your car under the Bridges** (Backwater side): where you sleep when you go broke. It's why the car matters.
-2. **Slack Water Motel, Backwater**: the weekly motel you start in.
-3. **A room over a bar in the Levee**: the first step up. The bar isn't named yet.
-4. **A comped suite on the Marquee Mile**: lost when you cool off at the tables.
-5. **Silvershore**: buy in, or stay as someone's guest.
+1. **[Your car under the Bridges](#your-car)** (Backwater side): where you sleep when you go broke. It's why the car matters.
+2. **[Slack Water Motel](#slack-water), Backwater**: the weekly motel you start in.
+3. **[A room over a bar in the Levee](#levee-room)**: the first step up. The bar isn't named yet.
+4. **A comped suite on the Marquee Mile** (the first is at the [Harborlight](#harborlight)): lost when you cool off at the tables.
+5. **[Silvershore](#silvershore-home)**: buy in, or stay as someone's guest.
 
 ## The cameras
 
@@ -71,29 +63,29 @@ Revaris cameras cover the city (Mike, 2026-10-26): casinos, bars, shops, motels 
 
 | Landmark | Where | Meaning in the city |
 | --- | --- | --- |
-| The North Light | Harbor, seen from the Marquee Mile | The lighthouse the city is named for; when it flickers, the house is running cold |
-| The Long Bridge | Between Backwater and the Levee | The main crossing; locals say don't carry winnings across before dawn |
-| The Stacks | The Levee | The dead mill chimneys, outside every Levee window |
-| The Starflare rocket sign | Over the Flare, the Levee | Stays on the empty Flare until demolition, then in the District's storage until the District restores it and hangs it over the Starflare Field gate as a heritage piece; lost if the Flare burns first (O9); in outcome 5 Tae takes it from storage or the gate (Mike, 2026-10-29). The new Starflare always gets a brand-new sign |
-| The spaceman | By the Flare's front doors, the Levee | A life-size chrome astronaut statue, waving; regulars rub his boot toe for luck, worn shiny. If you helped the trucker (S3) he's saved on the last night and stands in the new Starflare's lobby |
+| The North Light | Harbor, seen from [the Marquee Mile](#marquee-mile) | The lighthouse the city is named for; when it flickers, the house is running cold |
+| [The Long Bridge](#long-bridge) | Between Backwater and the Levee | The main crossing; locals say don't carry winnings across before dawn |
+| The Stacks | [The Levee](#levee-streets) | The dead mill chimneys, outside every Levee window |
+| The Starflare rocket sign | Over [the Flare](#the-flare) | The Levee's key light; its fate (storage, the Field gate, Tae, the fire) is on the Flare's page. The new Starflare always gets a brand-new sign |
+| The spaceman | By [the Flare's](#the-flare) front doors | A life-size chrome astronaut statue, waving; regulars rub his boot toe for luck. Saved on the last night if you helped the trucker (S3) |
 
 ## Out of town and later in the story
 
-**Excursions** (all repeatable except the lodge)
+**Excursions** (all repeatable except the lodge). Unlocks and who you'll find are on each trip's page.
 
-| Trip | Season | What it is | Games | Unlock | Who you'll find |
-| --- | --- | --- | --- | --- | --- |
-| The Northern Ledger | Spring | Overnight train to the state capital during the legislative session | Club-car poker | Levee alderman's invite or $10,000 once | The Machine, Bennett, Mayor Dabareski, Graham/Claire |
-| The Gilded Pine | Any season (winter pines make good scenery; Mike, 2026-10-30) | Old-money lake resort up north | Resort tables | $25,000 once | Vivian (met here any time once you reach $25,000), Tae, the mayor, rebuild backers |
-| Haybale Downs | Late summer to fall | Harness racing track; broke-friendly | Race betting | A tip at Bridgehead | Mitch's world |
-| Blackspruce Lodge | Winter | One-time, invite-only high-stakes poker | Poker | Ray's winter invitation once you're a Cinder Room regular, plus a best bankroll of about $25,000 (a starting value; Mike, 2026-10-30) | Umbra, old money, Ray |
+| Trip | Season | What it is |
+| --- | --- | --- |
+| [The Northern Ledger](#northern-ledger) | Spring | Overnight train to the state capital during the legislative session |
+| [The Gilded Pine](#gilded-pine) | Any season | Old-money lake resort up north |
+| [Haybale Downs](#haybale-downs) | Late summer to fall | Harness racing track; broke-friendly |
+| [Blackspruce Lodge](#blackspruce) | Winter | One-time, invite-only high-stakes poker |
 
 **Places that appear only as the story moves**
 
-- **Starflare Field**: Bennett's stadium on the Flare's site, with the restored rocket sign over its gate. Its timer starts at the ground-breaking (A3.5).
-- **The lakefront Starflare**: the futuristic rebuild on Vivian's land, owned and licensed by you, with Jalen and Vivian as minority partners; its opening night ends the main story. The tower and rooftop launch pad come after.
-- **The Starflare afloat**: the Flare relaunched on an old riverboat (outcome 3).
-- **The Starflare restaurant inside the Aurelian**: Tae's version, with Gus as greeter (outcome 5).
-- **The burned shell**: the empty Flare, torched by Umbra before demolition as a message (O9). A setback you play through, not an ending: the Field is built on the burned site on its normal schedule (Mike, 2026-10-29).
+- **[Starflare Field](#starflare-field)**: Bennett's stadium on the Flare's site, with the restored rocket sign over its gate. Its timer starts at the ground-breaking (A3.5).
+- **[The lakefront Starflare](#new-starflare)**: the futuristic rebuild on Vivian's land, owned and licensed by you, with Jalen and Vivian as minority partners; its opening night ends the main story. The tower and rooftop launch pad come after.
+- **[The Starflare afloat](#starflare-afloat)**: the Flare relaunched on an old riverboat (outcome 3).
+- **[The Starflare restaurant inside the Aurelian](#tae-restaurant)**: Tae's version, with Gus as greeter (outcome 5).
+- **The burned shell**: the empty Flare, torched by Umbra before demolition as a message (O9). A setback you play through, not an ending; it's on [the Flare's](#the-flare) page.
 
 An ice shanty camp is parked as a later add-on.

@@ -41,6 +41,46 @@ const C=[
 {id:"graham",name:"Graham / Claire",tier:"Romance",group:"romance",where:"Club car of the Northern Ledger, every spring",line:"Statehouse staffer on the spring train. Value: integrity with power.",appears:["R9","X1","A4.11","A5.7"]}
 ];
 const BY=Object.fromEntries(C.map(c=>[c.id,c]));
+
+/* Places: every location with its own page. Each place's details and plate prompts live in docs/places/<id>.md;
+   PL holds only what lists and routing need. kind: Venue, Story place, Home, Street, Excursion or Later. */
+const PL=[
+{id:"slack-water",name:"Slack Water Motel",district:"Backwater",kind:"Story place",line:"Your first home; Dot's desk, room 9 and the picnic table.",appears:["A1.1","A1.5","A3.7","A4.1","A4.2","A4.4","M4","R1","R10","O6"]},
+{id:"kasias-tap",name:"Kasia's Tap",district:"Backwater",kind:"Venue",line:"Kasia's tavern at the mill gate, and its back-room card game.",appears:["A1.2","A1.3","A1.4","A1.5","A2.8","A3.5","A5.3","R3","S2"]},
+{id:"millstone-lanes",name:"Millstone Lanes",district:"Backwater",kind:"Venue",line:"Juan's bowling alley: free-play machines inside, dice in the back lot.",appears:["A1.3","A1.5","R3","S1"]},
+{id:"backwater-streets",name:"Backwater streets",district:"Backwater",kind:"Street",line:"Brick walk-ups, mill gates and sodium light.",appears:[]},
+{id:"your-car",name:"Your car under the Bridges",district:"Backwater",kind:"Home",line:"Where you sleep when you go broke.",appears:[]},
+{id:"bridgehead",name:"Bridgehead Fuel & Food",district:"The Bridges",kind:"Venue",line:"Worst odds, best gossip; Mitch's race book out back.",appears:["A1.6","A3.7","R5","S3","X3"]},
+{id:"pawn-shop",name:"Bridgehead Loan & Pawn",district:"The Bridges",kind:"Story place",line:"Troy's cage counter, open until 3am.",appears:["A4.8"]},
+{id:"long-bridge",name:"The Long Bridge",district:"The Bridges",kind:"Story place",line:"The main crossing, dark to Revaris's cameras.",appears:["A1.6","A4.2","A4.7","S11"]},
+{id:"the-flare",name:"Starflare Club (the Flare)",district:"The Levee",kind:"Venue",line:"Gus's fading rocket-age casino: the floor, the lounge, his office.",appears:["A1.6","A1.7","A1.9","A1.10","A2.1","A2.2","A2.3","A3.1","A3.3","A3.4","A3.5","M1","R1","R7","S3","S4","O9"]},
+{id:"prairie-queen",name:"Prairie Queen",district:"The Levee",kind:"Venue",line:"The old-time riverboat, its landing and its rusting sister boat.",appears:["A4.7","M3","S5"]},
+{id:"cinder-room",name:"Cinder Room",district:"The Levee",kind:"Venue",line:"Umbra's after-hours game under the Stacks.",appears:["A1.9","A4.2","A4.3","A4.5","S6"]},
+{id:"railyard",name:"The RailYard",district:"The Levee",kind:"Venue",line:"The locals' casino in the old rail depot.",appears:["A1.8","A3.5","S2","S10"]},
+{id:"levee-bank",name:"Old Levee bank",district:"The Levee",kind:"Story place",line:"Gus's safety deposit box.",appears:["A4.4","M4"]},
+{id:"bennett-office",name:"Bennett's office",district:"The Levee",kind:"Story place",line:"The alderman's office and the photo on his desk.",appears:["M4"]},
+{id:"levee-room",name:"Room over a bar",district:"The Levee",kind:"Home",line:"Your first step up from the motel.",appears:[]},
+{id:"levee-streets",name:"Levee streets",district:"The Levee",kind:"Street",line:"Old downtown under the Stacks; the union rally.",appears:["A3.2"]},
+{id:"hearing-room",name:"The hearing room",district:"The Levee",kind:"Story place",line:"The council hearing, then the commission's license hearing.",appears:["A3.2","A4.11","A5.5","A5.7"]},
+{id:"union-hall",name:"Levee union hall",district:"The Levee",kind:"Story place",line:"Where the regulars go co-op: the people's Starflare.",appears:["A5.5","O4"]},
+{id:"lock-street",name:"Lock Street Station",district:"Citywide",kind:"Story place",line:"Ed's vice squad, and the lockup.",appears:["R4"]},
+{id:"harborlight",name:"Harborlight",district:"Marquee Mile",kind:"Venue",line:"The lighthouse-themed first rung up, and your first comped suite.",appears:["A2.4","A2.6","S7"]},
+{id:"aurelian",name:"Aurelian",district:"Marquee Mile",kind:"Venue",line:"The out-of-town chain: cameras everywhere.",appears:["A2.5","A3.5","A4.3","A4.6","A5.3","R8","S8","S13"]},
+{id:"marquee-mile",name:"The Marquee Mile strip",district:"Marquee Mile",kind:"Street",line:"The neon lakefront, swept by the North Light.",appears:[]},
+{id:"lakefront-land",name:"Vivian's lakefront land",district:"Marquee Mile",kind:"Story place",line:"The site the new Starflare needs.",appears:["A5.1","A5.4"]},
+{id:"obsidian",name:"Obsidian",district:"Silvershore",kind:"Venue",line:"The members-only card room.",appears:["A3.6","A5.1","S9"]},
+{id:"yachts",name:"Yacht games",district:"Silvershore",kind:"Venue",line:"Private games on the lake.",appears:["A3.6"]},
+{id:"silvershore-home",name:"Silvershore",district:"Silvershore",kind:"Home",line:"The top of the housing ladder.",appears:[]},
+{id:"northern-ledger",name:"The Northern Ledger",district:"Out of town",kind:"Excursion",line:"The spring train to the state capital.",appears:["X1","R9"]},
+{id:"gilded-pine",name:"The Gilded Pine",district:"Out of town",kind:"Excursion",line:"The old-money lake resort up north.",appears:["X2","A3.6","A5.1"]},
+{id:"haybale-downs",name:"Haybale Downs",district:"Out of town",kind:"Excursion",line:"The harness track, friendly to a broke player.",appears:["X3"]},
+{id:"blackspruce",name:"Blackspruce Lodge",district:"Out of town",kind:"Excursion",line:"One winter weekend of high-stakes poker.",appears:["X4"]},
+{id:"starflare-field",name:"Starflare Field",district:"The Levee",kind:"Later",line:"Bennett's stadium on the Flare's site.",appears:["A3.1","A3.5","A4.9","O7"]},
+{id:"new-starflare",name:"The lakefront Starflare",district:"Marquee Mile",kind:"Later",line:"The rebuild you own; opening night ends the story.",appears:["A5.4","A5.6","O1","O2"]},
+{id:"starflare-afloat",name:"The Starflare afloat",district:"The Levee",kind:"Later",line:"The Flare relaunched on an old riverboat.",appears:["A5.5","O3"]},
+{id:"tae-restaurant",name:"Tae's Starflare restaurant",district:"Marquee Mile",kind:"Later",line:"The Starflare name as a restaurant inside the Aurelian.",appears:["O5"]}
+];
+const PLBY=Object.fromEntries(PL.map(p=>[p.id,p]));
 BY.you={id:"you",name:"You",group:"you"};
 
 /* Relationship edges: type = family | ally | money | secret | rival */

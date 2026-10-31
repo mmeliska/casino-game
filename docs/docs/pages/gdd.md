@@ -12,7 +12,7 @@ This page is the build spec: the systems, their data and the rules they enforce.
 - **Every choice is remembered.** Choices nudge hidden scales, NPC standing and flags, and consequences surface much later, often as a surprise.
 - **Fair tables.** Ordinary play always uses real odds. Doubt about a table only ever comes from a story moment.
 - **Built for short sessions.** A hand, spin or roll (5 to 30 seconds) is the unit of play, and the game saves after every one.
-- **Low art burden.** Inked graphic-novel art, still panels and AI-generated portraits; no character animation.
+- **Low art burden.** Inked graphic-novel art, still panels, AI-generated portraits and backgrounds; no character animation.
 
 ## Setting in one paragraph
 
@@ -347,7 +347,7 @@ Game modules never read story state. A story moment that makes a table crooked s
 
 ## Art and audio direction
 
-A gritty, inked graphic-novel look: bold black outlines, heavy shadows, cel shading and muted, desaturated colour with a little warm neon. Still panels keep the art burden low. It replaces the earlier 16-bit pixel-art look (Mike, 2026-10-30). The prompts and pose lists for every portrait are on [Portrait prompts](#portraits).
+A gritty, inked graphic-novel look: bold black outlines, heavy shadows, cel shading and muted, desaturated colour with a little warm neon. Still panels keep the art burden low. It replaces the earlier 16-bit pixel-art look (Mike, 2026-10-30). The prompts and pose lists for every portrait are on [Portrait prompts](#portraits); the prompts for every place's plates and inserts are on each place's page, with the how-to on [Plate prompts](#plates).
 
 | Asset | Source |
 | --- | --- |
@@ -360,7 +360,7 @@ A gritty, inked graphic-novel look: bold black outlines, heavy shadows, cel shad
 
 - **No character animation.** Characters change by swapping poses; motion is written as text.
 - **Districts read at a glance.** Each has its own key light and palette (on [Northlight](#city)); weather and seasons are cheap overlay layers on reused backgrounds.
-- AI-generated portraits ship in the final game, because there's no budget for commissions now (Mike, 2026-10-30). If funds allow later, commissioned portraits can replace them; the pose tags and expression sheets carry over as the brief. For everything else, AI art is still for placeholders and concept exploration only.
+- AI-generated art ships in the final game, portraits and plates alike, because there's no budget for commissions now (Mike, 2026-10-30; plates, Mike 2026-10-31). If funds allow later, commissioned art can replace it; the pose tags, expression sheets and plate prompts carry over as the brief. Plate prompts are on each place's page, with the how-to on [Plate prompts](#plates).
 
 ## Monetization and store
 

@@ -51,8 +51,8 @@ cd docs && python3 -m http.server 8000
 How it fits together:
 
 - `docs/app.js`: page templates (`P.<page>`), router, and a small custom Markdown renderer. Pages pull Markdown in with `part(path, ...)`; `EXTRA`/`TOP` append sections to pages; `planRec([n])` embeds planning-task records; `OLD` redirects retired addresses.
-- `docs/data/story.js`: the structured data: characters `C`, relationship ties `E`, events `EV`/`EVD`, walk-ons `EVX`, seeds, outcomes, acts, mysteries. Each character's full profile lives in `docs/docs/people/<id>.md`; `C` holds only what lists and the map need. In strings, `[id]` / `[id|label]` links a character and `{CODE}` links an event code.
-- `docs/docs/`: page text as Markdown: `people/` (one per character), `pages/` (story map, outcomes, GDD, writing rules, etc.), `plan/` (planning tasks `tNN.md`, whose "Already decided" paragraphs hold dated decisions).
+- `docs/data/story.js`: the structured data: characters `C`, places `PL`, relationship ties `E`, events `EV`/`EVD`, walk-ons `EVX`, seeds, outcomes, acts, mysteries. Each character's full profile lives in `docs/docs/people/<id>.md`; `C` holds only what lists and the map need. Each place's details and plate prompts live in `docs/docs/places/<id>.md`, the same way. In strings, `[id]` / `[id|label]` links a character and `{CODE}` links an event code.
+- `docs/docs/`: page text as Markdown: `people/` (one per character), `places/` (one per location), `pages/` (story map, outcomes, GDD, writing rules, etc.), `plan/` (planning tasks `tNN.md`, whose "Already decided" paragraphs hold dated decisions).
 - `docs/docs/index.js`: lists every Markdown file for search. **Add an entry whenever you add a file.**
 - `docs/docs/pages/changelog.md`: newest first under `## D Mon YYYY` headings. The site's "updated" date is read from the first heading, so add an entry whenever the design changes.
 
