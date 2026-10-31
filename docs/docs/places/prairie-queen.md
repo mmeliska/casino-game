@@ -22,7 +22,7 @@ For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an ins
 
 ### The deck at night, mist
 
-At the rail; the port side with Kiran (M3). Shows the rocket sign on the shore: for sailings after the Flare is demolished, make a variant without it.
+At the rail; the port side with Kiran (M3). Shows the rocket sign on the shore: for sailings from the ground-breaking (A3.5) on, when the Flare is demolished, make a variant without it.
 
 `pq_deck_night_mist` (plate, portrait 9:16)
 

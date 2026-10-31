@@ -8,7 +8,7 @@ Your first home: the weekly motel you start in, and one of the three places that
 
 ## Look and mood
 
-Backwater's key light: sodium streetlamps and the motel's own sign. The lot looks across the river at the Levee, so the Starflare's rocket sign is a small coral glow on the far bank until the Flare is demolished; plates for later scenes leave it out. This framing is one of the game's two big compositions: the yacht deck later shows the same city from the other side of the climb.
+Backwater's key light: sodium streetlamps and the motel's own sign. The lot looks across the river at the Levee, so the Starflare's rocket sign is a small coral glow on the far bank until the Flare is demolished at the ground-breaking (A3.5); plates for act 4 on leave it out. This framing is one of the game's two big compositions: the yacht deck later shows the same city from the other side of the climb.
 
 ## Plate prompts
 

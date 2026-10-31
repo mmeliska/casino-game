@@ -10,7 +10,7 @@ Gus's rocket-age casino, the Starflare Club, called "the Flare": once the best i
 
 **The lounge.** A half-empty piano lounge; Miles or Audrey plays nightly and overhears everything. The piano is covered as the Flare declines. Alice picked the piano and repainted the lounge's star ceiling with one constellation wrong on purpose.
 
-**The rocket sign** stays on the empty Flare until demolition, then goes into the District's storage until the District restores it and hangs it over the Starflare Field gate as a heritage piece. It's lost if the Flare burns first (O9). In outcome 5 Tae takes it from storage or the gate (Mike, 2026-10-29). The new Starflare always gets a brand-new sign.
+**The rocket sign** stays on the empty Flare until demolition, which comes right before the stadium's construction starts at the ground-breaking (A3.5; Mike, 2026-10-31). Then it goes into the District's storage until the District restores it and hangs it over the Starflare Field gate as a heritage piece. It's lost if the Flare burns first (O9). In outcome 5 Tae takes it from storage or the gate (Mike, 2026-10-29). The new Starflare always gets a brand-new sign.
 
 **The spaceman.** A life-size chrome astronaut statue by the front doors, waving. Regulars rub his boot toe for luck, worn shiny. If you helped the trucker (S3), he's saved on the last night and stands in the new Starflare's lobby.
 
