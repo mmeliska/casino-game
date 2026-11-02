@@ -1,6 +1,6 @@
 ## About
 
-Gus's rocket-age casino, the Starflare Club, called "the Flare": once the best in the city, now slowly fading. Gus's father, Mr. Hamilton, founded it.
+Gus's rocket-age casino, the Starflare Club, called "the Flare": once the best in the city, now slowly fading. Gus's father, Mr. Hamilton, founded it. It stands on the Levee's waterfront where the river bends and meets the canal, across the water from the Slack Water Motel (Mike, 2026-11-02).
 
 | District | Games | Bets | Getting in | Who you'll find |
 | --- | --- | --- | --- | --- |

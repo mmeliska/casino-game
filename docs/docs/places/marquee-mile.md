@@ -1,6 +1,6 @@
 ## About
 
-The neon lakefront strip: hotel casinos and new money. **The North Light**, the lighthouse the city is named for, sweeps it from the harbour; when it flickers, the house is running cold.
+The neon lakefront strip: hotel casinos and new money. **The North Light**, the lighthouse the city is named for, sweeps it from the harbour; when it flickers, the house is running cold. The Mile is bounded by water: the river on the west, the lake on the north and east, and a canal from the river to the lake on the south, so the only way onto it is a bridge (Mike, 2026-11-02). The map is on [Northlight](#city).
 
 ## Look and mood
 

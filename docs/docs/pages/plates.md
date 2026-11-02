@@ -69,7 +69,7 @@ The style sentence is the same in every prompt. If the style changes, change it 
 | What | Not settled |
 | --- | --- |
 | Every interior and building | The layouts, furniture and materials in the prompts are proposals unless the place page says otherwise. |
-| Unnamed places | The old Levee bank, the bar under your Levee room, and where Bennett's office is. |
+| Unnamed places | The bar under your Levee room, and where Bennett's office is. |
 | The new rocket sign | You pick its design at A5.4; how many designs there are, and what they look like, isn't settled. The prompt proposes one. |
 | Wren's Starflare (O8) | Where the Revaris showcase stands isn't settled; no plates yet. |
 | Characters' own props | Prompted on each character's page under **Insert prompts**, and the walk-ons' on [the cast page's walk-ons](#cast). How each prop looks is a proposal unless that page says otherwise. Troy's "item" insert is whatever you pawned, so it's the pawn case on [Bridgehead Loan & Pawn](#pawn-shop). |

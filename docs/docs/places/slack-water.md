@@ -1,6 +1,6 @@
 ## About
 
-Your first home: the weekly motel you start in, and one of the three places that refuse Revaris cameras (Dot's guests' privacy). Dot works the desk and asks what brings you to Northlight. The rocket sign is visible across the river from the lot.
+Your first home: the weekly motel you start in, and one of the three places that refuse Revaris cameras (Dot's guests' privacy). Dot works the desk and asks what brings you to Northlight. The rocket sign is visible across the river from the lot. The motel sits on the north bank where the river bends west for a short stretch, facing the First Levee Bank on the south bank (Mike, 2026-11-02).
 
 **Room 9.** Richard, Bennett's father, lives here. Bennett pays the bill weekly and never visits the room, but most Tuesdays he sits in his car in the lot. Umbra watches the door in person, since the motel refuses cameras. Key details: the weekly envelope drop Dot sees, Richard's key on a lanyard, and War with Richard at the picnic table in the lot.
 

@@ -1,3 +1,27 @@
+## 2 Nov 2026
+
+### A map of Northlight
+
+Northlight has a city map, on [Northlight](#city) under **The city map**. You view it and tap a place to travel there. Settled: a Great Lake runs along the city's north and east sides and looks like an ocean shore, and the river runs down the middle from the lake. A canal runs from the river to the lake as the Mile's southern border, so the only way onto the Mile is a bridge (Mike). Backwater has a clear western edge with open country beyond it, and the river sits west of centre so the Levee and the Mile are the biggest districts (Mike); the edge is a tree-lined highway (proposal). Where the canal leaves the river, the river bends west for a short stretch in line with the canal, then south again: the Slack Water Motel sits on the north bank and the old Levee bank, now named the First Levee Bank after the sign in the motel lot plate, faces it from the south bank (Mike). The Long Bridge is the bridge across that bend, with Bridgehead, the pawn shop and your car at its Backwater foot (Mike). The Flare stands on the Levee's waterfront where the river meets the canal, across the water from the motel (Mike), and the room over a bar moved a block from it. The final base map is `Images/Map/city_map.png`, and the pins are measured on it, with a check image drawing them over the map. The map is a flat, plain base with no buildings, and every place is an illustrated icon laid on top that you tap (Mike). A place that changes swaps its icon: the Flare's site goes from the Flare to the burned shell, the construction site and Starflare Field. The page has ChatGPT prompts for the base map and for nine icon sheets (34 icons, sliced with `tools/slice_sheet.py`), and a pin table placing all 30 places, excursions included. The layout sketch in `Images/Map/` goes to ChatGPT as the layout reference, with Dot's sheet as the base map's style reference. The icons match the motel lot plate instead: each place seen from street level at night, in the plate's inked style (Mike). Proposals, not settled: Backwater on the west bank and the Levee on the east, the Mile along the north lakefront and Silvershore down the east shore, Vivian's land at the canal's mouth, the lock and Lock Street beside it, the three bridges onto the Mile, the civic hall, and every pin position.
+
+### Landscape in the prototype
+
+Every screen in the prototype now has a landscape layout as well as portrait, and phones may turn either way, as the GDD's "portrait first, adaptable to landscape" has it. Story scenes put the portrait on the left and the dialogue and choices on the right. Place screens put the header top left and the choices down the right. Video poker puts the paytable beside the cards. Blackjack puts the table on the left and your money and controls on the right. In landscape the wide plates show whole.
+
+### Millstone Lanes is in the prototype
+
+You can now go to Millstone Lanes, and you get there the way A1.3 has it. The first time you walk into Kasia's Tap after night one, she asks you to take Juan a box of drink coupons for his Tuesday league. Take the box and Millstone Lanes appears on the motel lot's choices. You can also turn her down; she offers again next time. Your first visit is the coupons scene: Juan is flat with you, a casual, and he's the one who tells you about the Starflare across the river. After that you can find him at the counter, where he's busy and the back door gets "Couldn't tell you." The free-play machines and the late game out back come later, along with the bar-back shift and the back room. The outside and lanes plates are Mike's Millstone images. Proposals, not settled: Kasia's and Juan's lines, $2 shoe rentals, and you meeting Juan before Kasia's other job.
+
+### The arrival at the Slack Water is playable
+
+The Unity prototype now opens at the Slack Water Motel (A1.1): the lot at night with the rocket sign across the river, then Dot at her desk with her four poses. You sign her register with your name and tick Mr., Ms. or Prefer not to answer, and she asks what brings you to Northlight; the four answers are the ones A1.1 lists (slide a twenty across, shrug, ask about the rocket, tell her it's your business). After that you choose where to go from the lot: back into the office, where Dot has small talk and one sideways warning (the Long Bridge before dawn); Kasia's Tap down the block; or your room, where on night one you can't sleep (A1.2). Proposals, not settled: Dot's lines (including the bowling shoe left in room 3 and the sign that lost its M), the "weekly" room with no rent charged yet, and walking down the block taking no time.
+
+## 1 Nov 2026
+
+### Night one at Kasia's Tap is playable
+
+The Unity prototype now opens on night one at Kasia's Tap (A1.2): the bar plate, Kasia's poses and a short Ink scene, then video poker at the bar. Getting up from the machine is a break point where Kasia has a line for the moment, including her book when you're broke. The game starts with $200 on the night of day 1, as A1.1 has it. Proposals, not settled: Jacks or Better on the full-pay 9/6 table at $1 a credit (1 to 5 credits), 2 in-game minutes a hand, and Kasia's night-one and break-point lines. Raffy's envelope waits for his portrait.
+
 ## 31 Oct 2026
 
 ### Insert prompts for what characters carry

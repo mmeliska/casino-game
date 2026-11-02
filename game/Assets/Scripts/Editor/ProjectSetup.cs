@@ -9,13 +9,15 @@ using UnityEngine.Rendering.Universal;
 namespace Starflare.EditorTools
 {
     /// <summary>
-    /// Rebuilds the prototype scene and player settings from code, so neither has to be
+    /// Rebuilds the prototype scenes and player settings from code, so neither has to be
     /// hand-edited. Run from the Starflare menu, or headless:
     /// Unity -batchmode -quit -projectPath game -executeMethod Starflare.EditorTools.ProjectSetup.Run
     /// </summary>
     public static class ProjectSetup
     {
-        const string ScenePath = "Assets/Scenes/Blackjack.unity";
+        const string CityScenePath = "Assets/Scenes/City.unity";
+        const string BlackjackScenePath = "Assets/Scenes/Blackjack.unity";
+        const string ArtRoot = "Assets/Resources";
 
         const string SettingsDir = "Assets/Settings";
         const string RendererPath = SettingsDir + "/URP Renderer.asset";
@@ -26,7 +28,28 @@ namespace Starflare.EditorTools
         {
             ConfigurePlayer();
             ConfigureRenderPipeline();
-            BuildBlackjackScene();
+            ReimportArt();
+            BuildScene(CityScenePath, "City", typeof(City));
+            BuildScene(BlackjackScenePath, "Blackjack Table", typeof(BlackjackTable));
+
+            // The city is the build's first scene; the blackjack table stays for testing.
+            EditorBuildSettings.scenes = new[]
+            {
+                new EditorBuildSettingsScene(CityScenePath, true),
+                new EditorBuildSettingsScene(BlackjackScenePath, true),
+            };
+            AssetDatabase.SaveAssets();
+        }
+
+        /// <summary>Art imported before <see cref="ArtImporter"/> existed picks up its settings.</summary>
+        static void ReimportArt()
+        {
+            foreach (var folder in new[] { "Plates", "Poses", "Inserts" })
+            {
+                string path = $"{ArtRoot}/{folder}";
+                if (AssetDatabase.IsValidFolder(path))
+                    AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive);
+            }
         }
 
         /// <summary>URP replaces the deprecated Built-in pipeline for every quality level.</summary>
@@ -57,14 +80,19 @@ namespace Starflare.EditorTools
         {
             PlayerSettings.companyName = "Starflare";
             PlayerSettings.productName = "Starflare Casino";
-            PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
+            // Portrait first, but every screen has a landscape layout too, so phones may turn.
+            PlayerSettings.defaultInterfaceOrientation = UIOrientation.AutoRotation;
+            PlayerSettings.allowedAutorotateToPortrait = true;
+            PlayerSettings.allowedAutorotateToPortraitUpsideDown = false;
+            PlayerSettings.allowedAutorotateToLandscapeLeft = true;
+            PlayerSettings.allowedAutorotateToLandscapeRight = true;
             PlayerSettings.defaultScreenWidth = 540;
             PlayerSettings.defaultScreenHeight = 960;
             PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
             PlayerSettings.resizableWindow = true;
         }
 
-        static void BuildBlackjackScene()
+        static void BuildScene(string path, string rootName, System.Type component)
         {
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -75,12 +103,10 @@ namespace Starflare.EditorTools
             camera.backgroundColor = Color.black;
             camera.orthographic = true;
 
-            new GameObject("Blackjack Table", typeof(BlackjackTable));
+            new GameObject(rootName, component);
 
-            Directory.CreateDirectory(Path.GetDirectoryName(ScenePath));
-            EditorSceneManager.SaveScene(scene, ScenePath);
-            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
-            AssetDatabase.SaveAssets();
+            Directory.CreateDirectory(Path.GetDirectoryName(path));
+            EditorSceneManager.SaveScene(scene, path);
         }
     }
 }

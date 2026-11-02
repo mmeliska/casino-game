@@ -1,6 +1,6 @@
 ## About
 
-The main crossing between Backwater and the Levee. Locals say don't carry winnings across before dawn. It stays dark to Revaris: the hoodlums keep smashing its plate readers (Mike, 2026-10-30), so it's one of the places where truth gets told. Ray meets the filing lawyer here before dawn (S11).
+The main crossing between Backwater and the Levee. It spans the short westward stretch where the river bends at the canal, from the Slack Water Motel's bank to the Levee (Mike, 2026-11-02). Locals say don't carry winnings across before dawn. It stays dark to Revaris: the hoodlums keep smashing its plate readers (Mike, 2026-10-30), so it's one of the places where truth gets told. Ray meets the filing lawyer here before dawn (S11).
 
 ## Look and mood
 

@@ -1,0 +1,243 @@
+using System;
+using System.Collections.Generic;
+using Ink.Runtime;
+using Ink.UnityIntegration;
+using Starflare.State;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static Starflare.Game.UiKit;
+
+namespace Starflare.Game
+{
+    /// <summary>
+    /// The city layer of the core loop: it holds the player state and the one Ink story, plays
+    /// the arrival at the Slack Water (A1.1), then lets you move between places. A venue gets
+    /// the state and story through it and hands control back when you walk out.
+    /// </summary>
+    public sealed class City : MonoBehaviour
+    {
+        const string StoryResource = "Story/northlight";
+        const string Motel = "slack-water";
+        const string Tap = "kasias-tap";
+        const string Lanes = "millstone-lanes";
+
+        public PlayerState State { get; private set; }
+        public Story Story { get; private set; }
+
+        StoryPlayer _player;
+        RegisterCard _register;
+        KasiasTap _tap;
+
+        GameObject _placeScreen;
+        Image _plate;
+        CoverFit _plateFit;
+        Text _placeName, _district, _status;
+        RectTransform _actions;
+
+        void Awake()
+        {
+            State = SaveStore.Load();
+            Story = LoadStory();
+
+            _player = gameObject.AddComponent<StoryPlayer>();
+            _player.Init(Story);
+            _register = gameObject.AddComponent<RegisterCard>();
+            _tap = gameObject.AddComponent<KasiasTap>();
+            _tap.Init(this, () => GoTo(Motel), ShowTap);
+            BuildPlaceScreen();
+        }
+
+        void Start()
+        {
+            if (!(bool)Story.variablesState["checked_in"]) CheckIn();
+            else GoTo(State.Place);
+        }
+
+        void OnApplicationPause(bool paused)
+        {
+            if (paused) SaveAll();
+        }
+
+        void OnApplicationQuit() => SaveAll();
+
+        Story LoadStory()
+        {
+            var file = Resources.Load<InkFile>(StoryResource);
+            if (file == null || !file.isCompiled)
+                throw new InvalidOperationException($"Ink story Resources/{StoryResource}.ink is missing or didn't compile.");
+
+            var story = new Story(file.storyJson);
+            string saved = SaveStore.LoadStory();
+            if (saved != null)
+            {
+                try { story.state.LoadJson(saved); }
+                catch (Exception e) { Debug.LogWarning($"Couldn't read the story save, starting it fresh: {e.Message}"); }
+            }
+
+            // The story spends, borrows and sleeps through these, so the rules stay in PlayerState.
+            // They change state, so Ink must never call them during lookahead.
+            story.BindExternalFunction("spend", (int amount) => State.Spend(amount), false);
+            story.BindExternalFunction("borrow", (int amount) => State.Borrow(amount), false);
+            story.BindExternalFunction("repay", (int amount) => State.Repay(amount), false);
+            story.BindExternalFunction("sleep", () => State.Clock.Sleep(), false);
+            return story;
+        }
+
+        /// <summary>Plays one knot with the shared variables up to date, saves, then calls back.</summary>
+        public void PlayScene(string knot, Action then)
+        {
+            _placeScreen.SetActive(false);
+            Story.variablesState["player_name"] = State.Name;
+            Story.variablesState["bankroll"] = State.BankrollNow;
+            Story.variablesState["book"] = State.Debts;
+            _player.Play(knot, () =>
+            {
+                SaveAll();
+                then();
+            });
+        }
+
+        /// <summary>Arrival, the register, then Dot's question. Picks up after the register if you'd signed it.</summary>
+        void CheckIn()
+        {
+            if (State.HasSigned) PlayScene("checking_in", () => GoTo(Motel));
+            else PlayScene("arrival", () => _register.Show(SignRegister));
+        }
+
+        void SignRegister(string name, RegisterBox box)
+        {
+            State.SignRegister(name, box);
+            SaveAll();
+            PlayScene("checking_in", () => GoTo(Motel));
+        }
+
+        void GoTo(string place)
+        {
+            State.Place = place;
+            SaveAll();
+            if (place == Tap)
+            {
+                _placeScreen.SetActive(false);
+                _tap.Enter();
+            }
+            else if (place == Lanes)
+            {
+                // Kasia's coupons are how you first walk in (A1.3).
+                if (!(bool)Story.variablesState["met_juan"]) PlayScene("coupons", ShowLanes);
+                else ShowLanes();
+            }
+            else ShowMotel();
+        }
+
+        void ShowMotel()
+        {
+            var actions = new List<(string, UnityAction)>
+            {
+                ("Step into the office", () => PlayScene("office", ShowMotel)),
+                ("Walk down the block to Kasia's Tap", () => GoTo(Tap)),
+            };
+            // The Lanes opens once Kasia's given you the box to carry.
+            if ((bool)Story.variablesState["carrying_coupons"] || (bool)Story.variablesState["met_juan"])
+                actions.Add(("Walk up to Millstone Lanes", () => GoTo(Lanes)));
+            actions.Add(("Go to your room", () => PlayScene("turn_in", ShowMotel)));
+            actions.Add(("Start over (wipe save)", StartOver));
+            ShowPlace("Slack Water Motel", "Backwater", "motel_lot_night", actions.ToArray());
+        }
+
+        void ShowTap()
+        {
+            ShowPlace("Kasia's Tap", "Backwater", "kasia_bar_night",
+                ("Sit down at the machine", () =>
+                {
+                    _placeScreen.SetActive(false);
+                    _tap.SitDown();
+                }),
+                ("Walk back to the motel", () => GoTo(Motel)));
+        }
+
+        void ShowLanes()
+        {
+            ShowPlace("Millstone Lanes", "Backwater", "lanes_lanes_night",
+                ("Find Juan at the counter", () => PlayScene("juan", ShowLanes)),
+                ("Walk back to the motel", () => GoTo(Motel)));
+        }
+
+        void ShowPlace(string name, string district, string plate, params (string label, UnityAction action)[] actions)
+        {
+            _plateFit.Show(_plate, Art.Plate(plate), Art.Focus(plate));
+            _placeName.text = name;
+            _district.text = district;
+            var clock = State.Clock;
+            _status.text = $"Day {clock.Day}, {clock.Part} {clock.TimeLabel}   Cash {Money(State.BankrollNow)}" +
+                           (State.Debts > 0 ? $"   Owed {Money(State.Debts)}" : "");
+
+            ClearChildren(_actions);
+            foreach (var (label, action) in actions) MakeButton(_actions, label, action);
+            _placeScreen.SetActive(true);
+        }
+
+        void StartOver()
+        {
+            SaveStore.Wipe();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        void SaveAll()
+        {
+            SaveStore.Save(State);
+            SaveStore.SaveStory(Story.state.ToJson());
+        }
+
+        void BuildPlaceScreen()
+        {
+            var canvas = MakeCanvas(transform, "Place Canvas", 1);
+            _placeScreen = canvas.gameObject;
+
+            var backdrop = MakeImage(canvas.transform, "Backdrop", Color.black);
+            Stretch(backdrop.rectTransform);
+            _plate = MakeImage(backdrop.transform, "Plate", Color.white);
+            _plate.raycastTarget = false;
+            _plateFit = _plate.gameObject.AddComponent<CoverFit>();
+
+            var safe = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
+            safe.transform.SetParent(canvas.transform, false);
+            Stretch((RectTransform)safe.transform);
+
+            var header = MakeImage(safe.transform, "Header", new Color(0.06f, 0.05f, 0.05f, 0.85f));
+            header.sprite = Rounded;
+            header.type = Image.Type.Sliced;
+            var headerColumn = AddVertical(header.gameObject, 8, new RectOffset(52, 52, 36, 36));
+
+            _placeName = MakeText(headerColumn, "", 64, TextAnchor.MiddleLeft, 84);
+            _placeName.color = Gold;
+            _placeName.fontStyle = FontStyle.Bold;
+            _district = MakeText(headerColumn, "", 40, TextAnchor.MiddleLeft, 52);
+            _district.fontStyle = FontStyle.Italic;
+            _status = MakeText(headerColumn, "", 38, TextAnchor.MiddleLeft, 52);
+
+            var actionsGo = new GameObject("Actions", typeof(RectTransform));
+            actionsGo.transform.SetParent(safe.transform, false);
+            _actions = AddVertical(actionsGo, 20, new RectOffset(56, 56, 0, 0));
+            _actions.GetComponent<VerticalLayoutGroup>().childAlignment = TextAnchor.LowerCenter;
+
+            // Portrait: the header across the top, the actions along the bottom. Landscape: the
+            // header top left, the actions down the right half, so the plate shows between.
+            OnTurn(canvas, landscape =>
+            {
+                if (landscape)
+                {
+                    Pin(header.rectTransform, Vector2.up, new Vector2(0.5f, 1), new Vector2(32, -300), new Vector2(-16, -32));
+                    Pin(_actions, new Vector2(0.5f, 0), Vector2.one, new Vector2(0, 48), new Vector2(0, -48));
+                }
+                else
+                {
+                    Pin(header.rectTransform, Vector2.up, Vector2.one, new Vector2(32, -300), new Vector2(-32, -32));
+                    Pin(_actions, Vector2.zero, Vector2.right, new Vector2(0, 80), new Vector2(0, 780));
+                }
+            });
+            _placeScreen.SetActive(false);
+        }
+    }
+}
