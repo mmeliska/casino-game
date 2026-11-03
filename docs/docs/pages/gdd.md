@@ -167,6 +167,7 @@ The phone is the menu hub (settled 24 Oct 2026). It can't place bets, since onli
 | Jobs | Every job available right now; refreshes daily |
 | Messages | Texts from people you've met, and shady jobs from unknown numbers |
 | Pockets | 12 item slots plus a separate story-key row |
+| Map | Northlight's map with every place open to you; tap one to go there (Mike, 2026-11-02) |
 
 **Jobs** earn less than a good night at the tables, so gambling stays the way up.
 
@@ -338,7 +339,7 @@ Ship on iOS and Android first; consider a Switch 2 port if the game succeeds. Th
 | Clock | Parts of the day, days, seasons, the Field timer; advances only by the rules above |
 | Event director | The table-event counter and break-point selection over the event files |
 | Ink runtime | Scenes; reads and writes state through a narrow variable bridge |
-| Phone | Wallet, Jobs, Messages, Pockets; the job list |
+| Phone | Wallet, Jobs, Messages, Pockets, Map; the job list |
 | City | Map, travel, housing, venue entry checks |
 | Puzzle components | Slide, spot the difference, tile rotate or jigsaw; take an image and a difficulty; the phone's puzzle shelf |
 | Epilogue builder | Picks and orders panels from state |

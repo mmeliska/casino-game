@@ -18,7 +18,7 @@ The scene and player settings are built from code: **Starflare > Rebuild Project
 | Folder | Assembly | What's in it |
 | --- | --- | --- |
 | `Assets/Scripts/Core` | `Starflare.Core` | Pure C# with no engine references: cards and shoe, blackjack and video poker rules, player state and clock |
-| `Assets/Scripts/Game` | `Starflare.Game` | MonoBehaviours: the city (state, story, moving between places), Dot's register, the Kasia's Tap venue, Millstone Lanes, the Ink story player, the video poker machine and blackjack table UIs, autosave, safe area |
+| `Assets/Scripts/Game` | `Starflare.Game` | MonoBehaviours: the city (state, story, moving between places) and the phone's map, Dot's register, the Kasia's Tap venue, Millstone Lanes, the Ink story player, the video poker machine and blackjack table UIs, autosave, safe area |
 | `Assets/Scripts/Editor` | `Starflare.Editor` | Project setup menu, art import settings |
 | `Assets/Tests/EditMode` | `Starflare.Tests.EditMode` | NUnit tests for the rules and state |
 
@@ -49,12 +49,14 @@ Window > General > Test Runner > EditMode > Run All, or headless:
 
 ## Prototype scope
 
-The arrival (A1.1): the motel lot at night with the rocket sign across the river, then Dot's desk. You sign her register (your name, used from then on, and Mr., Ms. or Prefer not to answer) and she asks what brings you to Northlight. From the lot you can step back into the office to talk with Dot, walk down the block to Kasia's Tap or go to your room; on night one you can't sleep, and from then on your room sleeps you till morning. Walking into the Tap after night one, Kasia says hello and you're at the bar; from there you sit down at the machine or walk back to the motel. Her break menu, when you get up, offers the same. Walking doesn't take time yet.
+The arrival (A1.1): the motel lot at night with the rocket sign across the river, then Dot's desk. You sign her register (your name, used from then on, and Mr., Ms. or Prefer not to answer) and she asks what brings you to Northlight. From the lot you can step back into the office to talk with Dot or go to your room; on night one you can't sleep, and from then on your room sleeps you till morning. Walking into the Tap after night one, Kasia says hello and you're at the bar, where you can sit down at the machine.
+
+The map: every screen outside the games (each place, and Kasia's break menu) has a map button that opens Northlight's map on your phone. Drag to pan, pinch or scroll to zoom. Each place open to you is a pin, a circle with its name beside it, until the place icons exist; tap one to go there. The pins are in `City.Places`, from the pin table on the Northlight page; the base map is `Assets/Resources/Map/city_map.png`, a copy of `Images/Map/city_map.png`. Walking doesn't take time yet.
 
 Night one at Kasia's Tap (A1.2): an Ink scene with Kasia, then the bar, where you can sit down at Jacks or Better on the full-pay 9/6 table, $1 a credit, 1 to 5 credits, a fresh deck every hand, 2 in-game minutes a hand. Getting up is a break point where Kasia has a line for the moment: when you're broke she offers $50 on her book (no interest, no due date), and when you're up she asks you to settle it. You start with $200 on the night of day 1. The story state saves beside the player state.
 
-Millstone Lanes (A1.3): the first time you walk into the Tap after night one, Kasia asks you to take Juan a box of drink coupons for his Tuesday league. Carrying the box adds Millstone Lanes to the motel lot's choices; walking in plays Juan's scene, where he tells you about the Starflare across the river. After that the Lanes is a place screen where you can find Juan at the counter. Its free-play machines and the late game out back (craps) aren't built yet.
+Millstone Lanes (A1.3): the first time you walk into the Tap after night one, Kasia asks you to take Juan a box of drink coupons for his Tuesday league. Carrying the box puts Millstone Lanes on the map; walking in plays Juan's scene, where he tells you about the Starflare across the river. After that the Lanes is a place screen where you can find Juan at the counter. Its free-play machines and the late game out back (craps) aren't built yet.
 
 Also in the project: fair blackjack at the Flare's limits: six decks with a 75% cut card, dealer stands on soft 17, blackjack pays 3:2 (an odd bet's half dollar rounds down), hit, stand, double (also after a split) and one split; split aces get one card each. Each round takes 5 in-game minutes, up to the end of the part of the day. The game autosaves after every settled round.
 
-Not yet: Raffy's envelope (it waits for his portrait), table events, heat, debts, the city and the phone.
+Not yet: Raffy's envelope (it waits for his portrait), table events, heat, debts, the place icons on the map, and the phone's other tabs.

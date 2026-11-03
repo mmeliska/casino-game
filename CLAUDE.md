@@ -32,7 +32,7 @@ Unity -batchmode -quit -projectPath game -executeMethod Starflare.EditorTools.Pr
 Assembly layout and its rules:
 
 - `Starflare.Core` (`Assets/Scripts/Core`): pure C#, `noEngineReferences: true`. Cards/shoe, blackjack and video poker rules and rounds, `PlayerState`, `GameClock`. Keep Unity APIs out of it so it stays testable.
-- `Starflare.Game` (`Assets/Scripts/Game`): MonoBehaviours, each building its UI in code with `UiKit`, with a portrait and a landscape layout (`UiKit.OnTurn` rearranges a screen when it turns). `City` holds the player state and the one Ink story (`northlight.ink`, which includes each place's file) and moves you between places; `KasiasTap` is a venue; `StoryPlayer` plays Ink scenes; `VideoPokerMachine` and `BlackjackTable` are the game modules.
+- `Starflare.Game` (`Assets/Scripts/Game`): MonoBehaviours, each building its UI in code with `UiKit`, with a portrait and a landscape layout (`UiKit.OnTurn` rearranges a screen when it turns). `City` holds the player state and the one Ink story (`northlight.ink`, which includes each place's file) and moves you between places, which you pick on `PhoneMap` (the phone's map; its pins are `City.Places`); `KasiasTap` is a venue; `StoryPlayer` plays Ink scenes; `VideoPokerMachine` and `BlackjackTable` are the game modules.
 - `Starflare.Editor`: the project setup menu.
 - `Starflare.Tests.EditMode`: NUnit tests; references only `Starflare.Core`.
 

@@ -71,7 +71,9 @@ Revaris cameras cover the city (Mike, 2026-10-26): casinos, bars, shops, motels 
 
 ## The city map
 
-The City screen opens on one illustrated map of Northlight. You look at it and tap a place to travel there.
+Northlight has one illustrated map. You look at it and tap a place to travel there.
+
+**Settled (Mike, 2026-11-02):** the map is on your phone. Every screen outside the games has a map button that opens it, and it shows only the places open to you. Until the icons exist, each place is a circle with its name beside it.
 
 **Settled (Mike, 2026-11-02):** the lake is a Great Lake and the map shows it like an ocean shore, with no far shore. It lies along the city's north and east sides. The river runs down the middle of the city from the lake in the north. The map is an image the player views and travels from. A canal runs from the river to the lake and is the Marquee Mile's southern border, so the Mile is bounded by water on every side: the river on the west, the lake on the north and east, and the canal on the south. The only way onto the Mile is a bridge. Backwater has a clear western edge with open country beyond it, and the river sits west of centre, so the Levee and the Mile are the biggest districts. Where the canal leaves the river, the river bends: it turns west for a short stretch in line with the canal, then south again, so from the motel the water seems to run straight on east into the canal. The Long Bridge spans that westward stretch, from the motel's bank to the Levee. The Flare stands on the Levee's waterfront where the river meets the canal, across the water from the motel. The Slack Water Motel sits on the north bank of that stretch, and the First Levee Bank faces it from the south bank.
 

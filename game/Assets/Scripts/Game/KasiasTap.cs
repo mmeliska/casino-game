@@ -14,17 +14,15 @@ namespace Starflare.Game
     public sealed class KasiasTap : MonoBehaviour
     {
         City _city;
-        Action _leave;
         Action _atBar;
         VideoPokerMachine _machine;
 
         GameObject _menu;
         Text _menuText;
 
-        public void Init(City city, Action leave, Action atBar)
+        public void Init(City city, Action atBar)
         {
             _city = city;
-            _leave = leave;
             _atBar = atBar;
             _machine = gameObject.AddComponent<VideoPokerMachine>();
             _machine.BreakPointReached += OnBreakPoint;
@@ -71,11 +69,8 @@ namespace Starflare.Game
             _menu.SetActive(true);
         }
 
-        void Leave()
-        {
-            _menu.SetActive(false);
-            _leave();
-        }
+        /// <summary>Puts the break menu away as you head somewhere else.</summary>
+        public void Close() => _menu.SetActive(false);
 
         void BuildMenu()
         {
@@ -89,7 +84,13 @@ namespace Starflare.Game
 
             _menuText = MakeText(column, "", 44, TextAnchor.MiddleCenter, 400);
             MakeButton(column, "Back to the machine", SitDown);
-            MakeButton(column, "Walk back to the motel", Leave);
+
+            var safe = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
+            safe.transform.SetParent(canvas.transform, false);
+            Stretch((RectTransform)safe.transform);
+            var mapButton = (RectTransform)MakeMapButton(safe.transform, _city.OpenMap).transform;
+            mapButton.anchorMin = mapButton.anchorMax = mapButton.pivot = Vector2.one;
+            mapButton.anchoredPosition = new Vector2(-48, -48);
             OnTurn(canvas, landscape => column.GetComponent<VerticalLayoutGroup>().padding =
                 landscape ? new RectOffset(560, 560, 80, 80) : new RectOffset(80, 80, 300, 300));
             _menu.SetActive(false);

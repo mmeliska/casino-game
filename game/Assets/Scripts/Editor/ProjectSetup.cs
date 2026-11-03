@@ -44,7 +44,7 @@ namespace Starflare.EditorTools
         /// <summary>Art imported before <see cref="ArtImporter"/> existed picks up its settings.</summary>
         static void ReimportArt()
         {
-            foreach (var folder in new[] { "Plates", "Poses", "Inserts" })
+            foreach (var folder in new[] { "Plates", "Poses", "Inserts", "Map" })
             {
                 string path = $"{ArtRoot}/{folder}";
                 if (AssetDatabase.IsValidFolder(path))

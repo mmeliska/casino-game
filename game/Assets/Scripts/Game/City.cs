@@ -23,12 +23,21 @@ namespace Starflare.Game
         const string Tap = "kasias-tap";
         const string Lanes = "millstone-lanes";
 
+        /// <summary>Every place built so far, with its map pin (from the pin table on the Northlight page).</summary>
+        static readonly PhoneMap.Place[] Places =
+        {
+            new PhoneMap.Place(Motel, "Slack Water Motel", 0.45f, 0.32f),
+            new PhoneMap.Place(Tap, "Kasia's Tap", 0.41f, 0.30f, labelLeft: true),
+            new PhoneMap.Place(Lanes, "Millstone Lanes", 0.22f, 0.44f),
+        };
+
         public PlayerState State { get; private set; }
         public Story Story { get; private set; }
 
         StoryPlayer _player;
         RegisterCard _register;
         KasiasTap _tap;
+        PhoneMap _map;
 
         GameObject _placeScreen;
         Image _plate;
@@ -45,7 +54,8 @@ namespace Starflare.Game
             _player.Init(Story);
             _register = gameObject.AddComponent<RegisterCard>();
             _tap = gameObject.AddComponent<KasiasTap>();
-            _tap.Init(this, () => GoTo(Motel), ShowTap);
+            _tap.Init(this, ShowTap);
+            _map = gameObject.AddComponent<PhoneMap>();
             BuildPlaceScreen();
         }
 
@@ -113,8 +123,25 @@ namespace Starflare.Game
             PlayScene("checking_in", () => GoTo(Motel));
         }
 
+        /// <summary>Opens the map on your phone with the places open to you; tap one to go there.</summary>
+        public void OpenMap()
+        {
+            var open = new List<PhoneMap.Place>();
+            foreach (var place in Places)
+                if (IsOpen(place.Id)) open.Add(place);
+            _map.Show(open, State.Place, place =>
+            {
+                if (place != State.Place) GoTo(place);
+            });
+        }
+
+        bool IsOpen(string place) =>
+            // The Lanes opens once Kasia's given you the box to carry.
+            place != Lanes || (bool)Story.variablesState["carrying_coupons"] || (bool)Story.variablesState["met_juan"];
+
         void GoTo(string place)
         {
+            _tap.Close();
             State.Place = place;
             SaveAll();
             if (place == Tap)
@@ -133,17 +160,10 @@ namespace Starflare.Game
 
         void ShowMotel()
         {
-            var actions = new List<(string, UnityAction)>
-            {
+            ShowPlace("Slack Water Motel", "Backwater", "motel_lot_night",
                 ("Step into the office", () => PlayScene("office", ShowMotel)),
-                ("Walk down the block to Kasia's Tap", () => GoTo(Tap)),
-            };
-            // The Lanes opens once Kasia's given you the box to carry.
-            if ((bool)Story.variablesState["carrying_coupons"] || (bool)Story.variablesState["met_juan"])
-                actions.Add(("Walk up to Millstone Lanes", () => GoTo(Lanes)));
-            actions.Add(("Go to your room", () => PlayScene("turn_in", ShowMotel)));
-            actions.Add(("Start over (wipe save)", StartOver));
-            ShowPlace("Slack Water Motel", "Backwater", "motel_lot_night", actions.ToArray());
+                ("Go to your room", () => PlayScene("turn_in", ShowMotel)),
+                ("Start over (wipe save)", StartOver));
         }
 
         void ShowTap()
@@ -153,15 +173,13 @@ namespace Starflare.Game
                 {
                     _placeScreen.SetActive(false);
                     _tap.SitDown();
-                }),
-                ("Walk back to the motel", () => GoTo(Motel)));
+                }));
         }
 
         void ShowLanes()
         {
             ShowPlace("Millstone Lanes", "Backwater", "lanes_lanes_night",
-                ("Find Juan at the counter", () => PlayScene("juan", ShowLanes)),
-                ("Walk back to the motel", () => GoTo(Motel)));
+                ("Find Juan at the counter", () => PlayScene("juan", ShowLanes)));
         }
 
         void ShowPlace(string name, string district, string plate, params (string label, UnityAction action)[] actions)
@@ -208,7 +226,7 @@ namespace Starflare.Game
             var header = MakeImage(safe.transform, "Header", new Color(0.06f, 0.05f, 0.05f, 0.85f));
             header.sprite = Rounded;
             header.type = Image.Type.Sliced;
-            var headerColumn = AddVertical(header.gameObject, 8, new RectOffset(52, 52, 36, 36));
+            var headerColumn = AddVertical(header.gameObject, 8, new RectOffset(52, 220, 36, 36));
 
             _placeName = MakeText(headerColumn, "", 64, TextAnchor.MiddleLeft, 84);
             _placeName.color = Gold;
@@ -216,6 +234,11 @@ namespace Starflare.Game
             _district = MakeText(headerColumn, "", 40, TextAnchor.MiddleLeft, 52);
             _district.fontStyle = FontStyle.Italic;
             _status = MakeText(headerColumn, "", 38, TextAnchor.MiddleLeft, 52);
+
+            // You travel from the phone's map, on the right of the header.
+            var mapButton = (RectTransform)MakeMapButton(header.transform, OpenMap).transform;
+            mapButton.anchorMin = mapButton.anchorMax = mapButton.pivot = new Vector2(1, 0.5f);
+            mapButton.anchoredPosition = new Vector2(-40, 0);
 
             var actionsGo = new GameObject("Actions", typeof(RectTransform));
             actionsGo.transform.SetParent(safe.transform, false);

@@ -18,7 +18,7 @@ namespace Starflare.Game
         public static readonly Color CardBlack = new Color(0.08f, 0.08f, 0.08f);
 
         static Font _font;
-        static Sprite _rounded;
+        static Sprite _rounded, _circle, _mapGlyph;
 
         public static Font Font => _font ??= Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
 
@@ -45,6 +45,54 @@ namespace Starflare.Game
                     0, SpriteMeshType.FullRect, new Vector4(radius, radius, radius, radius));
                 return _rounded;
             }
+        }
+
+        /// <summary>A white disc, for map pins.</summary>
+        public static Sprite Circle => _circle ??= Draw(64, (x, y) =>
+            Mathf.Clamp01(32 - Mathf.Sqrt((x - 32) * (x - 32) + (y - 32) * (y - 32)) + 0.5f));
+
+        /// <summary>A white folded map in three panels, the middle one shaded, for the map button.</summary>
+        public static Sprite MapGlyph => _mapGlyph ??= Draw(128, (x, y) =>
+        {
+            const float left = 8, right = 120, panel = (right - left) / 3, rise = 14;
+            if (x < left - 1 || x > right + 1) return 0;
+            int fold = Mathf.Clamp((int)((x - left) / panel), 0, 2);
+            // The panels zigzag: each fold edge sits higher or lower than the last.
+            float t = (x - left) / panel - fold;
+            float lift = (fold % 2 == 0 ? t : 1 - t) * rise;
+            float bottom = 14 + lift, top = 100 + lift;
+            float edge = Mathf.Clamp01(Mathf.Min(Mathf.Min(x - left, right - x), Mathf.Min(y - bottom, top - y)) + 0.5f);
+            return edge * (fold == 1 ? 0.65f : 1f);
+        });
+
+        /// <summary>Draws a white sprite from a coverage function of the pixel centre.</summary>
+        static Sprite Draw(int size, System.Func<float, float, float> alpha)
+        {
+            var texture = new Texture2D(size, size, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp };
+            var pixels = new Color32[size * size];
+            for (int y = 0; y < size; y++)
+            for (int x = 0; x < size; x++)
+                pixels[y * size + x] = new Color32(255, 255, 255, (byte)(alpha(x + 0.5f, y + 0.5f) * 255));
+            texture.SetPixels32(pixels);
+            texture.Apply();
+            return Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), 100);
+        }
+
+        /// <summary>The map button every screen outside the games carries: it opens the phone's map.</summary>
+        public static Button MakeMapButton(Transform parent, UnityAction onClick)
+        {
+            var image = MakeImage(parent, "Map Button", ButtonColor);
+            image.sprite = Rounded;
+            image.type = Image.Type.Sliced;
+            image.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
+            image.rectTransform.sizeDelta = new Vector2(150, 150);
+            var button = image.gameObject.AddComponent<Button>();
+            button.onClick.AddListener(onClick);
+            var glyph = MakeImage(image.transform, "Glyph", Gold);
+            glyph.sprite = MapGlyph;
+            glyph.raycastTarget = false;
+            glyph.rectTransform.sizeDelta = new Vector2(96, 96);
+            return button;
         }
 
         /// <summary>
