@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-**Starflare Casino**: a story-driven casino life sim for iOS and Android (portrait). Two halves:
+**Starflare Casino**: a story-driven casino life sim for iOS and Android (portrait first; every screen also has a landscape layout). Two halves:
 
-- `game/`: the Unity project (prototype: fair blackjack only). See `game/README.md`.
+- `game/`: the Unity project (prototype: the arrival at the Slack Water Motel, night one at Kasia's Tap with video poker, Kasia's coupon run to Juan at Millstone Lanes, plus a blackjack table). See `game/README.md`.
 - `docs/`: the design docs site, which is the **source of truth for the design**. Its GDD (`docs/docs/pages/gdd.md`) is the build spec. Where the GDD and a story page differ on a story detail, the story page wins.
 
 Most work in this repo so far is design and story editing in `docs/`, not code.
@@ -31,10 +31,12 @@ Unity -batchmode -quit -projectPath game -executeMethod Starflare.EditorTools.Pr
 
 Assembly layout and its rules:
 
-- `Starflare.Core` (`Assets/Scripts/Core`): pure C#, `noEngineReferences: true`. Cards/shoe, blackjack rules and round, `PlayerState`, `GameClock`. Keep Unity APIs out of it so it stays testable.
-- `Starflare.Game` (`Assets/Scripts/Game`): MonoBehaviours. `BlackjackTable` builds its portrait UI in code.
+- `Starflare.Core` (`Assets/Scripts/Core`): pure C#, `noEngineReferences: true`. Cards/shoe, blackjack and video poker rules and rounds, `PlayerState`, `GameClock`. Keep Unity APIs out of it so it stays testable.
+- `Starflare.Game` (`Assets/Scripts/Game`): MonoBehaviours, each building its UI in code with `UiKit`, with a portrait and a landscape layout (`UiKit.OnTurn` rearranges a screen when it turns). `City` holds the player state and the one Ink story (`northlight.ink`, which includes each place's file) and moves you between places, which you pick on `PhoneMap` (the phone's map; its pins are `City.Places`); `KasiasTap` is a venue; `StoryPlayer` plays Ink scenes; `VideoPokerMachine` and `BlackjackTable` are the game modules.
 - `Starflare.Editor`: the project setup menu.
 - `Starflare.Tests.EditMode`: NUnit tests; references only `Starflare.Core`.
+
+Scenes are Ink files in `Assets/Resources/Story/` (inkle's ink-unity-integration package). Their `# plate:`/`# pose:`/`# insert:` tags are file names under `Assets/Resources/Plates`, `Poses`, `Inserts`. Slice a portrait sheet into poses with `tools/slice_sheet.py`.
 
 Game modules never read story state. A table reports each settled round through `PlayerState.ApplyRoundResult` and raises `BreakPointReached` when the player gets up; story beats fire only at break points, never mid-game. The game autosaves after every settled round (`SaveStore`).
 

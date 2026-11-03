@@ -1,6 +1,6 @@
 ## About
 
-The old Levee bank holds Gus's safety deposit box: Wren's camera contract and Gus's own recording of Bennett's demand, the only copy. Richard wears the key. You open it together when Umbra comes after Richard over the debt (A4.4). The bank isn't named yet.
+The First Levee Bank, the old bank in the Levee, holds Gus's safety deposit box: Wren's camera contract and Gus's own recording of Bennett's demand, the only copy. Richard wears the key. You open it together when Umbra comes after Richard over the debt (A4.4). Named for the sign in the motel lot plate (Mike, 2026-11-02). It stands on the south bank of the river's bend, facing the Slack Water Motel across the water.
 
 ## Look and mood
 

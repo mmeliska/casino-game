@@ -57,3 +57,13 @@ Mitch's Haybale Downs race book (R5); Mitch recognizing the lawyer (A3.7).
 ```
 Background plate, no people. A cramped stockroom behind a gas station: a metal desk with a cash box and an old radio, a chalkboard of horse-race odds on the wall with only blank chalk marks, cases of motor oil, a single hanging bulb. Night: flat white gas-station fluorescents against black. Palette: flat white, oil-slick purple. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
+
+### Pump four
+
+"Pump four's broken. Has been since I started." Its old service sticker has a Backwater main-street address on it, for the one player who looks (see [Mitch](#mitch)). The address is added in layout.
+
+`bridgehead_pump_sticker` (insert, square 1:1)
+
+```
+Close-up insert panel. The side of an old gas pump, a faded, peeling service sticker with blank lines on it, a plastic bag taped over the nozzle. Night: flat white gas-station fluorescents against black. Palette: flat white, oil-slick purple. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```

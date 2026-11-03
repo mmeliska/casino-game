@@ -59,7 +59,7 @@ const PARTS=[
 {"path": "places/prairie-queen", "title": "Prairie Queen", "page": "prairie-queen"},
 {"path": "places/cinder-room", "title": "Cinder Room", "page": "cinder-room"},
 {"path": "places/railyard", "title": "The RailYard", "page": "railyard"},
-{"path": "places/levee-bank", "title": "Old Levee bank", "page": "levee-bank"},
+{"path": "places/levee-bank", "title": "First Levee Bank", "page": "levee-bank"},
 {"path": "places/bennett-office", "title": "Bennett's office", "page": "bennett-office"},
 {"path": "places/levee-room", "title": "Room over a bar", "page": "levee-room"},
 {"path": "places/levee-streets", "title": "Levee streets", "page": "levee-streets"},

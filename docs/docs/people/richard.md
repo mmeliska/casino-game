@@ -31,6 +31,32 @@ Richard: a white man in his late 70s, thin and slightly stooped, thin uncombed w
 | `richard_proud` | one finger raised, a small proud smile | "War's an honest game." |
 | `richard_softened` | looking up and toward the viewer's left, softened, proud and tired | The reconcile: "You could have knocked." |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** the lanyard (worn cloth).
+
+### The key
+
+The key he never takes off (M4). Dot mentions it; the player sees it at the picnic table. His chest is in frame, not his face; use the hand negative prompt.
+
+`richard_key` (insert, square 1:1)
+
+```
+Close-up insert panel. A small brass key on a worn cloth lanyard hanging against the front of a brown thrift-store cardigan with one button missing, a faded plaid flannel shirt beneath. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no face, no text, no lettering; labels blank.
+```
+
+### The cards
+
+War at the picnic table in the motel lot, or the moment you ask him how to shuffle one-handed. His hand is in frame; use the hand negative prompt.
+
+`richard_cards` (insert, square 1:1)
+
+```
+Close-up insert panel. An old white man's weathered hand cutting a worn deck of cards one-handed above a weathered wooden picnic table, the cuff of a brown cardigan at the wrist, two face-down cards on the table. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 Bennett's father (Mike's pick for the name). He ran a crane on the Levee docks for thirty-eight years and bought a house four blocks from the Flare, because it was the brightest thing on the river and his wife liked the band. He taught his boy War at the kitchen table and let him win, and has never decided whether that was the right thing (Mike, 2026-10-28).

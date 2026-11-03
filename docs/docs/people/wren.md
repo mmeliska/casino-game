@@ -32,6 +32,22 @@ Wren: a slight white woman about 32, a menacing villain. A dark purple hoodie, h
 | `wren_eyes_up` | arms folded, chin lifted just enough that cold grey eyes catch the light under the hood | Her tell: she's already decided |
 | `wren_question` | leaning slightly forward, hands loosely together, eyes glinting inside the hood | "Did you read it?" |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** how the dark cameras show (one corner camera, its light off).
+
+### The tablet
+
+The meeting (A4.5): her hand on the tablet, face down, with the room's camera lights already dark. A still, no caption. Her hand is in frame; use the hand negative prompt.
+
+`wren_tablet` (insert, square 1:1)
+
+```
+Close-up insert panel. A pale, slight hand in the cuff of a dark purple hoodie, a plain steel watch at the wrist, resting flat on a tablet lying face down on a bare office desk; in the shadowy corner behind, a small ceiling security camera with its indicator light dark. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 A tech genius and the old Umbra boss's granddaughter, whom nobody took seriously; the family expected a grandson or one of the uncles to inherit. She grew up in a Silvershore house that Umbra money had bought, at a breakfast table where her grandfather's sons talked and she listened. She understood the books at twelve and nobody asked her. The lesson she took: being right is nothing, being seen to be right is everything, and the only way to be seen is to see first (Mike, 2026-10-28).

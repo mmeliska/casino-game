@@ -4,16 +4,15 @@ using Starflare.Blackjack;
 using Starflare.Cards;
 using Starflare.State;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static Starflare.Game.UiKit;
 
 namespace Starflare.Game
 {
     public enum BreakPoint { GotUpFromTable }
 
     /// <summary>
-    /// The blackjack table: portrait UI built in code, one round at a time. It reports each
+    /// The blackjack table: UI built in code, portrait or landscape, one round at a time. It reports each
     /// settled round to the player state and raises a break point when you get up. It never
     /// reads story state.
     /// </summary>
@@ -22,11 +21,7 @@ namespace Starflare.Game
         static readonly int[] ChipValues = { 5, 25, 100 };
 
         static readonly Color Felt = new Color(0.05f, 0.33f, 0.2f);
-        static readonly Color Gold = new Color(0.95f, 0.76f, 0.25f);
-        static readonly Color ButtonColor = new Color(0.12f, 0.12f, 0.16f);
         static readonly Color CardBack = new Color(0.16f, 0.2f, 0.55f);
-        static readonly Color CardRed = new Color(0.8f, 0.1f, 0.12f);
-        static readonly Color CardBlack = new Color(0.08f, 0.08f, 0.08f);
 
         /// <summary>Raised at a break point, where story beats and seed reveals may fire.</summary>
         public event Action<BreakPoint> BreakPointReached;
@@ -40,16 +35,15 @@ namespace Starflare.Game
         int _sittingRounds;
         string _message = "";
 
-        Font _font;
         Text _bankrollText, _clockText, _dealerLabel, _messageText, _betText, _breakText;
         RectTransform _dealerCards, _playerHands;
+        RectTransform _portraitColumn, _landscapeRow, _tableSide, _controlSide, _controlSpacer;
         GameObject _bettingControls, _actionRow, _breakPanel;
         Button _dealButton, _hitButton, _standButton, _doubleButton, _splitButton, _getUpButton;
         Button[] _chipButtons;
 
         void Awake()
         {
-            _font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             _state = SaveStore.Load();
             _shoe = new Shoe(_rules.Decks, _rules.Penetration, new System.Random());
             BuildUi();
@@ -226,27 +220,11 @@ namespace Starflare.Game
             return sb.ToString().TrimEnd();
         }
 
-        static string Money(int amount, bool signed = false)
-        {
-            string body = "$" + Math.Abs(amount).ToString("N0");
-            if (amount < 0) return "-" + body;
-            return signed && amount > 0 ? "+" + body : body;
-        }
-
         // ---- UI construction ----
 
         void BuildUi()
         {
-            if (FindAnyObjectByType<EventSystem>() == null)
-                new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
-
-            var canvasGo = new GameObject("Table Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
-            canvasGo.transform.SetParent(transform, false);
-            canvasGo.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
-            var scaler = canvasGo.GetComponent<CanvasScaler>();
-            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1080, 1920);
-            scaler.matchWidthOrHeight = 0f;
+            var canvasGo = MakeCanvas(transform, "Table Canvas", 0).gameObject;
 
             var background = MakeImage(canvasGo.transform, "Felt", Felt);
             Stretch(background.rectTransform);
@@ -254,7 +232,23 @@ namespace Starflare.Game
             var root = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
             root.transform.SetParent(canvasGo.transform, false);
             Stretch((RectTransform)root.transform);
-            var column = AddVertical(root, 24, new RectOffset(40, 40, 40, 40));
+            _portraitColumn = MakeColumn(root.transform, "Portrait", 40);
+            var column = _portraitColumn;
+
+            _landscapeRow = MakeRow(root.transform, "Landscape");
+            Stretch(_landscapeRow);
+            var sides = _landscapeRow.GetComponent<HorizontalLayoutGroup>();
+            sides.spacing = 48;
+            sides.padding = new RectOffset(40, 40, 40, 40);
+            sides.childForceExpandHeight = true;
+            _tableSide = MakeColumn(_landscapeRow, "Table", 0);
+            _tableSide.gameObject.AddComponent<LayoutElement>().flexibleWidth = 1.6f;
+            _controlSide = MakeColumn(_landscapeRow, "Controls", 0);
+            _controlSide.gameObject.AddComponent<LayoutElement>().flexibleWidth = 1;
+            var spacer = new GameObject("Spacer", typeof(RectTransform), typeof(LayoutElement));
+            spacer.transform.SetParent(_controlSide, false);
+            spacer.GetComponent<LayoutElement>().flexibleHeight = 1;
+            _controlSpacer = (RectTransform)spacer.transform;
 
             _bankrollText = MakeText(column, "", 46, TextAnchor.MiddleLeft, 64);
             _clockText = MakeText(column, "", 36, TextAnchor.MiddleLeft, 52);
@@ -299,6 +293,39 @@ namespace Starflare.Game
             _getUpButton = MakeButton(column, "Get up", GetUp);
 
             BuildBreakPanel(canvasGo.transform);
+            OnTurn(canvasGo.GetComponent<Canvas>(), Rearrange);
+        }
+
+        /// <summary>
+        /// Portrait is one column, top to bottom. Landscape puts the table (dealer, message, your
+        /// hands) on the left and your money and the controls on the right.
+        /// </summary>
+        void Rearrange(bool landscape)
+        {
+            _portraitColumn.gameObject.SetActive(!landscape);
+            _landscapeRow.gameObject.SetActive(landscape);
+            if (landscape)
+            {
+                Arrange(_tableSide, _dealerLabel, _dealerCards, _messageText, _playerHands);
+                Arrange(_controlSide, _bankrollText, _clockText, _controlSpacer, _betText,
+                    _bettingControls.transform, _actionRow.transform, _getUpButton);
+            }
+            else
+            {
+                Arrange(_portraitColumn, _bankrollText, _clockText, _dealerLabel, _dealerCards, _messageText,
+                    _playerHands, _betText, _bettingControls.transform, _actionRow.transform, _getUpButton);
+            }
+            _breakPanel.GetComponent<VerticalLayoutGroup>().padding =
+                landscape ? new RectOffset(560, 560, 60, 60) : new RectOffset(80, 80, 300, 300);
+            _breakText.GetComponent<LayoutElement>().preferredHeight = landscape ? 360 : 600;
+        }
+
+        static RectTransform MakeColumn(Transform parent, string name, int padding)
+        {
+            var go = new GameObject(name, typeof(RectTransform));
+            go.transform.SetParent(parent, false);
+            Stretch((RectTransform)go.transform);
+            return AddVertical(go, 24, new RectOffset(padding, padding, padding, padding));
         }
 
         void BuildBreakPanel(Transform canvas)
@@ -353,87 +380,5 @@ namespace Starflare.Game
 
         static void SetCardSpacing(RectTransform row, int count) =>
             row.GetComponent<HorizontalLayoutGroup>().spacing = count > 6 ? -40 : 12;
-
-        RectTransform MakeRow(Transform parent, string name)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(HorizontalLayoutGroup), typeof(LayoutElement));
-            go.transform.SetParent(parent, false);
-            var group = go.GetComponent<HorizontalLayoutGroup>();
-            group.spacing = 16;
-            group.childControlWidth = true;
-            group.childControlHeight = true;
-            group.childForceExpandWidth = true;
-            group.childForceExpandHeight = false;
-            return (RectTransform)go.transform;
-        }
-
-        static RectTransform AddVertical(GameObject go, float spacing, RectOffset padding)
-        {
-            var group = go.AddComponent<VerticalLayoutGroup>();
-            group.spacing = spacing;
-            group.padding = padding;
-            group.childControlWidth = true;
-            group.childControlHeight = true;
-            group.childForceExpandWidth = true;
-            group.childForceExpandHeight = false;
-            return (RectTransform)go.transform;
-        }
-
-        Button MakeButton(Transform parent, string label, UnityAction onClick)
-        {
-            var image = MakeImage(parent, label + " Button", ButtonColor);
-            var layout = image.gameObject.AddComponent<LayoutElement>();
-            layout.preferredHeight = 140;
-            layout.flexibleWidth = 1;
-            var button = image.gameObject.AddComponent<Button>();
-            button.onClick.AddListener(onClick);
-            var text = MakeText(image.transform, label, 44, TextAnchor.MiddleCenter, 0);
-            Stretch(text.rectTransform);
-            return button;
-        }
-
-        Text MakeText(Transform parent, string content, int size, TextAnchor anchor, float height)
-        {
-            var go = new GameObject("Text", typeof(RectTransform), typeof(Text));
-            go.transform.SetParent(parent, false);
-            var text = go.GetComponent<Text>();
-            text.font = _font;
-            text.fontSize = size;
-            text.alignment = anchor;
-            text.color = Color.white;
-            text.text = content;
-            text.horizontalOverflow = HorizontalWrapMode.Wrap;
-            text.verticalOverflow = VerticalWrapMode.Overflow;
-            text.raycastTarget = false;
-            if (height > 0) go.AddComponent<LayoutElement>().preferredHeight = height;
-            return text;
-        }
-
-        static Image MakeImage(Transform parent, string name, Color color)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image));
-            go.transform.SetParent(parent, false);
-            var image = go.GetComponent<Image>();
-            image.color = color;
-            return image;
-        }
-
-        static void Stretch(RectTransform rect)
-        {
-            rect.anchorMin = Vector2.zero;
-            rect.anchorMax = Vector2.one;
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-        }
-
-        static void ClearChildren(Transform parent)
-        {
-            for (int i = parent.childCount - 1; i >= 0; i--)
-            {
-                var child = parent.GetChild(i).gameObject;
-                child.SetActive(false);
-                Destroy(child);
-            }
-        }
     }
 }

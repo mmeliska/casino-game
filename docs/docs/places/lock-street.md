@@ -41,3 +41,13 @@ A night in lockup after a raid.
 ```
 Background plate, no people. A holding cell: a steel bench, bars across the front, a tiled wall, one caged light, a corridor beyond the bars. Night: cold streetlamps and blue-white station light. Muted palette: grey, navy, brick. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
+
+### The lookup
+
+Ed runs your plate (see [Ed](#ed)): a terminal, your plate, a list of where your car has been. The plate and the list are added in layout.
+
+`lockstreet_lookup` (insert, square 1:1)
+
+```
+Close-up insert panel. An old computer terminal on a cluttered police desk, its screen glowing with a blank grid of rows beside a small blank map, a cold cup of coffee by the keyboard. Night: cold streetlamps and blue-white station light. Muted palette: grey, navy, brick. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```

@@ -32,6 +32,32 @@ Ray: a white man in his mid-40s, thick-set, slicked-back dark hair, a too-wide g
 | `ray_shrink` | shoulders hunched, hands rubbing together, a forced smile, eyes sliding off toward the viewer's left | Blackspruce, in front of the real Umbra |
 | `ray_flat` | no smile, arms at his sides, staring, saying nothing | Returning the envelope without the drive |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** the napkin for the password.
+
+### The cash roll
+
+The pitch and the loans. His hand is in frame; use the hand negative prompt.
+
+`ray_cash_roll` (insert, square 1:1)
+
+```
+Close-up insert panel. A thick white man's hand with a gold pinky ring, the cuff of a brown leather car coat at the wrist, holding out a fat roll of plain banknotes wrapped in a rubber band. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
+### The password
+
+A1.9: he slips you the Cinder Room password. The password is a story key; any writing is added in layout. His hand is in frame; use the hand negative prompt.
+
+`ray_password` (insert, square 1:1)
+
+```
+Close-up insert panel. A thick white man's hand with a gold pinky ring, the cuff of a brown leather car coat at the wrist, sliding a folded cocktail napkin across a polished casino bar top. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 The loan shark and your easiest big debt. A little too confident; acts like the big man but answers to Wren, which is a sore spot. Renamed from Dutch (clashed with Dutch Schultz and Red Dead Redemption 2); read Ray wherever older notes say Dutch.

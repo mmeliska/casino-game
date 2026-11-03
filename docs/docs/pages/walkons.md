@@ -25,3 +25,27 @@ No portraits planned unless noted. Walt, Lorraine and Augie are minor characters
 | The lucky charm seller | Sells a "lucky spaceman" bobblehead. | Gus (laughs at it) | S12 |
 | Kiran's family, Raffy's mom | Offstage family who explain why each one owes Ray. Kiran co-signed a loan for his wife's brother, who stopped paying and left town; the whole debt fell on Kiran, and he borrowed from Ray to pay it off. His wife feels responsible; his daughter's photo sits by his tray (Mike, 2026-10-29). Raffy's mom is a nurse working doubles; Raffy took $450 from Ray's envelope for her rent. No portraits. | Kiran, Raffy | M3, A1.5 |
 | The mayor's photographer | Always nearby. | Mayor Dabareski | R6 |
+
+## Insert prompts
+
+Two walk-on props, prompted like a character's inserts; the how-to is on [Plate prompts](#plates).
+
+### The lucky spaceman
+
+S12: the bobblehead you can buy (Gus laughs at it). Afterwards it's a Pockets item, third on the rival's list (A4.8). The scene can be anywhere; this one is lit for the Levee.
+
+`spaceman_bobblehead` (insert, square 1:1)
+
+```
+Close-up insert panel. A cheap plastic bobblehead of a cartoon chrome astronaut waving, its head on a spring, the paint a little smudged, standing on a scuffed bar top. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### Augie's coffee
+
+Augie at the Flare's bar: a coffee, never plays.
+
+`augie_coffee` (insert, square 1:1)
+
+```
+Close-up insert panel. A full cup of black coffee on a saucer on a chrome-edged casino bar, untouched, a teal napkin under it. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```

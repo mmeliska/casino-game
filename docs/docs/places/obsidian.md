@@ -35,3 +35,13 @@ Playing the Obsidian; Vivian's table; the columnist (S9).
 ```
 Background plate, no people. An old-money private card room: green felt tables under brass lamps, leather chairs, wood-panelled walls, a fireplace, ivory and deep green, candlelight. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
+
+### The first policy
+
+Vivian's grandfather's first policy, in his hand, for a furnace man (no name shown). One insert, uncaptioned.
+
+`obsidian_policy` (insert, square 1:1)
+
+```
+Close-up insert panel. An old framed insurance policy on a wood-panelled wall: a yellowed document of faded, blank handwritten lines in a narrow gilt frame, lamplight on the glass. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```

@@ -57,7 +57,7 @@ const PL=[
 {id:"prairie-queen",name:"Prairie Queen",district:"The Levee",kind:"Venue",line:"The old-time riverboat, its landing and its rusting sister boat.",appears:["A4.7","A5.5","M3","S5"]},
 {id:"cinder-room",name:"Cinder Room",district:"The Levee",kind:"Venue",line:"Umbra's after-hours game under the Stacks.",appears:["A1.9","A4.2","A4.3","A4.5","S6"]},
 {id:"railyard",name:"The RailYard",district:"The Levee",kind:"Venue",line:"The locals' casino in the old rail depot.",appears:["A1.8","A3.5","S2","S10"]},
-{id:"levee-bank",name:"Old Levee bank",district:"The Levee",kind:"Story place",line:"Gus's safety deposit box.",appears:["A4.4","M4"]},
+{id:"levee-bank",name:"First Levee Bank",district:"The Levee",kind:"Story place",line:"Gus's safety deposit box.",appears:["A4.4","M4"]},
 {id:"bennett-office",name:"Bennett's office",district:"The Levee",kind:"Story place",line:"The alderman's office and the photo on his desk.",appears:["M4"]},
 {id:"levee-room",name:"Room over a bar",district:"The Levee",kind:"Home",line:"Your first step up from the motel.",appears:[]},
 {id:"levee-streets",name:"Levee streets",district:"The Levee",kind:"Street",line:"Old downtown under the Stacks; the union rally.",appears:["A3.2"]},

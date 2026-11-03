@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using Starflare.State;
 using UnityEngine;
@@ -11,19 +12,19 @@ namespace Starflare.Tests
         {
             var state = new PlayerState();
             state.ApplyRoundResult(100, 0);
-            Assert.That(state.BestBankroll, Is.EqualTo(600));
+            Assert.That(state.BestBankroll, Is.EqualTo(300));
 
-            state.ApplyRoundResult(-300, 0);
-            Assert.That(state.BankrollNow, Is.EqualTo(300));
-            Assert.That(state.BestBankroll, Is.EqualTo(600));
+            state.ApplyRoundResult(-150, 0);
+            Assert.That(state.BankrollNow, Is.EqualTo(150));
+            Assert.That(state.BestBankroll, Is.EqualTo(300));
         }
 
         [Test]
         public void BestBankroll_CountsOnlyYourOwnMoney()
         {
-            var state = new PlayerState { Debts = 200 };
-            state.ApplyRoundResult(100, 0);
-            Assert.That(state.OwnMoney, Is.EqualTo(400));
+            var state = new PlayerState { Debts = 100 };
+            state.ApplyRoundResult(50, 0);
+            Assert.That(state.OwnMoney, Is.EqualTo(150));
             Assert.That(state.BestBankroll, Is.EqualTo(PlayerState.StartingBankroll));
         }
 
@@ -37,7 +38,45 @@ namespace Starflare.Tests
             Assert.That(state.Clock.MinutesIntoPart, Is.EqualTo(GameClock.MinutesPerPart));
             Assert.That(state.Clock.PartIsOver, Is.True);
             Assert.That(state.Clock.Day, Is.EqualTo(1));
-            Assert.That(state.Clock.Part, Is.EqualTo(PartOfDay.Morning));
+            Assert.That(state.Clock.Part, Is.EqualTo(PartOfDay.Night));
+        }
+
+        [Test]
+        public void NewGame_StartsOnTheFirstNightWith200()
+        {
+            var state = new PlayerState();
+            Assert.That(state.BankrollNow, Is.EqualTo(200));
+            Assert.That(state.Clock.Day, Is.EqualTo(1));
+            Assert.That(state.Clock.Part, Is.EqualTo(PartOfDay.Night));
+        }
+
+        [Test]
+        public void Borrowing_AddsCashAndDebt_ButNotBestBankroll()
+        {
+            var state = new PlayerState();
+            state.ApplyRoundResult(-200, 0);
+            state.Borrow(50);
+
+            Assert.That(state.BankrollNow, Is.EqualTo(50));
+            Assert.That(state.Debts, Is.EqualTo(50));
+            Assert.That(state.OwnMoney, Is.EqualTo(0));
+            Assert.That(state.BestBankroll, Is.EqualTo(PlayerState.StartingBankroll));
+
+            state.ApplyRoundResult(100, 0);
+            state.Repay(50);
+            Assert.That(state.BankrollNow, Is.EqualTo(100));
+            Assert.That(state.Debts, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void Repay_NeedsTheCashAndAnOpenDebt()
+        {
+            var state = new PlayerState();
+            Assert.Throws<ArgumentOutOfRangeException>(() => state.Repay(10));
+
+            state.Borrow(50);
+            state.ApplyRoundResult(-240, 0);
+            Assert.Throws<InvalidOperationException>(() => state.Repay(50));
         }
 
         [Test]
@@ -70,10 +109,45 @@ namespace Starflare.Tests
             state.Clock.Sleep();
 
             var loaded = JsonUtility.FromJson<PlayerState>(JsonUtility.ToJson(state));
-            Assert.That(loaded.BankrollNow, Is.EqualTo(750));
-            Assert.That(loaded.BestBankroll, Is.EqualTo(750));
+            Assert.That(loaded.BankrollNow, Is.EqualTo(450));
+            Assert.That(loaded.BestBankroll, Is.EqualTo(450));
             Assert.That(loaded.RoundsPlayed, Is.EqualTo(1));
             Assert.That(loaded.Clock.Day, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void NewGame_StartsUnsignedAtTheMotel()
+        {
+            var state = new PlayerState();
+            Assert.That(state.HasSigned, Is.False);
+            Assert.That(state.Place, Is.EqualTo("slack-water"));
+        }
+
+        [Test]
+        public void SigningTheRegister_KeepsTheTrimmedNameAndBox()
+        {
+            var state = new PlayerState();
+            state.SignRegister("  Sam Novak ", RegisterBox.PreferNotToAnswer);
+
+            Assert.That(state.HasSigned, Is.True);
+            Assert.That(state.Name, Is.EqualTo("Sam Novak"));
+            Assert.That(state.Box, Is.EqualTo(RegisterBox.PreferNotToAnswer));
+
+            var loaded = JsonUtility.FromJson<PlayerState>(JsonUtility.ToJson(state));
+            Assert.That(loaded.Name, Is.EqualTo("Sam Novak"));
+            Assert.That(loaded.Box, Is.EqualTo(RegisterBox.PreferNotToAnswer));
+        }
+
+        [Test]
+        public void SigningTheRegister_NeedsANameAndABox_AndHappensOnce()
+        {
+            var state = new PlayerState();
+            Assert.Throws<ArgumentException>(() => state.SignRegister("   ", RegisterBox.Ms));
+            Assert.Throws<ArgumentException>(() => state.SignRegister("Sam", RegisterBox.Unticked));
+
+            state.SignRegister("Sam", RegisterBox.Ms);
+            Assert.Throws<InvalidOperationException>(() => state.SignRegister("Alex", RegisterBox.Mr));
+            Assert.That(state.Name, Is.EqualTo("Sam"));
         }
     }
 }

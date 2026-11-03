@@ -41,6 +41,52 @@ Gus: a very heavyset white man in his late 50s, a broad, round, kind face, clean
 | `gus_hunched` | Dinner jacket | hunched forward, jacket hanging open, hands deep in his trouser pockets, staring at the floor, exhausted | The Cinder Room, A1.9 and A4.2 |
 | `gus_new_jacket` | New jacket | standing straight, hands folded in front of him, a small quiet smile | Opening night, as a guest (O1) |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** what the IOU is written on; the Flare's chip design (coral and teal clay, a rocket inlay).
+
+### The chipped mug
+
+One of Alice's three touches, never captioned: he chipped it the night she died and has drunk from the chip since. It's also his tell when he's hiding the debt (`gus_eyes_down`). His office and the floor, acts 1 and 2.
+
+`gus_mug` (insert, square 1:1)
+
+```
+Close-up insert panel. A white diner coffee mug with a small coral rocket logo, a chip broken out of its rim, a little coffee left inside, on a cluttered wooden office desk. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### The IOU
+
+S6, the Cinder Room: lend him cash and he signs you an IOU. It's the only paper on him that survives the sale, and at A4.5 it can go into Wren's pile. The amount and his signature are added in layout.
+
+`gus_iou` (insert, square 1:1)
+
+```
+Close-up insert panel. A small sheet torn from a notepad, folded once and opened again, a few blank handwritten lines and a signature line, lying on green card-table felt beside a few casino chips. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### The IOU, torn up
+
+Tearing it up in front of him (S6). Make it from the IOU.
+
+`gus_iou_torn` (insert, square 1:1)
+
+```
+Close-up insert panel. The same small notepad sheet torn in two, the halves lying apart on green card-table felt beside a few casino chips. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### The lucky chip
+
+The Flare's last night (A3.3): he presses one of the Flare's own chips into your hand. His hand is in frame; use the hand negative prompt. Afterwards it's a Pockets item: Troy buys it for almost nothing, and it's first on the rival's list (A4.8).
+
+`gus_lucky_chip` (insert, square 1:1)
+
+```
+Close-up insert panel. A heavyset older white man's hand, the cuff of a dark red dinner jacket over a white shirt cuff at the wrist, holding out a single coral-and-teal clay casino chip with a small rocket inlay between thumb and forefinger. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 Late 50s, the son of the founder, Mr. Hamilton, who built the Starflare as a rocket-age supper club. Gus was nearly born there: his mother went into labor at a supper-club table, and his dad finished the set before he drove her. He grew up under the planetarium ceiling, doing homework at the bar while Pete, three years older and already busing, taught him to count a rack by eye. He was the owner's boy, so everyone was kind and nobody was straight with him, and he learned to fill a silence with a story about the old days. When the license came, his dad ran the floor and Gus ran the room: comps, birthdays, the band's bar tab.

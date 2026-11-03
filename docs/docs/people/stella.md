@@ -41,6 +41,22 @@ Stella: a white woman in her mid-20s, slim, long straight brown hair, attractive
 | `stella_stop` | Office | one hand raised flat, eyes down, stopping herself | A3.3, the last count: "You don't need the number." |
 | `stella_casual` | Casual | relaxed, hands in her sweater pockets, an easy smile | O6, the picnic-table visits |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** the table (a white tablecloth at the Aurelian).
+
+### The laptop
+
+Her meetings with Tae at the Aurelian, the Flare's numbers run nine ways. In O6 she comes without it.
+
+`stella_laptop` (insert, square 1:1)
+
+```
+Close-up insert panel. A laptop open on a white restaurant tablecloth, its screen glowing blank, a neat stack of printed spreadsheets and a glass of water beside it. Night: hotel marquees and LED walls. Palette: magenta, gold, lake blue. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 Gus's grown daughter, a finance analyst downtown. She learned to count at the cage: her mother, Alice, ran the drop with Stella on a stool beside the window, and the first numbers she ever said out loud were stacks of twenties called back to her mother (Mike, 2026-10-29). The Flare was where she did homework, had birthdays and learned the band's songs through the office door. She was ten when her grandfather died and twelve when her mother died. She was told her father was doing the books that night; she has never asked, and she decided then that someone in the family should actually do them.

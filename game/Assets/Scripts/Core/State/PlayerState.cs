@@ -2,27 +2,53 @@ using System;
 
 namespace Starflare.State
 {
+    /// <summary>The box on Dot's register (A1.1): it sets honorifics, the rival and the first wedding dance.</summary>
+    public enum RegisterBox { Unticked, Mr, Ms, PreferNotToAnswer }
+
     /// <summary>
-    /// The slice of the GDD's player state model the blackjack prototype needs. Debts,
-    /// heat, scales, NPC state, flags and Pockets join it as their systems are built.
+    /// The slice of the GDD's player state model the prototype needs. Heat, scales, NPC
+    /// state, flags and Pockets join it as their systems are built.
     /// </summary>
     [Serializable]
     public sealed class PlayerState
     {
-        public const int StartingBankroll = 500;
+        /// <summary>You drive in with about $200 and a car (A1.1).</summary>
+        public const int StartingBankroll = 200;
 
         public int BankrollNow = StartingBankroll;
 
         /// <summary>Most of your own money ever held (cash minus debts). Only goes up; gates venues and acts.</summary>
         public int BestBankroll = StartingBankroll;
 
-        /// <summary>Total owed. Stays 0 until the Wallet and creditors exist.</summary>
+        /// <summary>Total owed. For now the only creditor is Kasia's book; the Wallet splits it by creditor later.</summary>
         public int Debts;
 
         public int RoundsPlayed;
-        public GameClock Clock = new GameClock();
+
+        /// <summary>Your name and box, signed once on Dot's register at check-in (A1.1).</summary>
+        public string Name = "";
+        public RegisterBox Box;
+
+        /// <summary>Where you are: a place id, as on the docs' place pages. You start at the motel.</summary>
+        public string Place = "slack-water";
+
+        /// <summary>You arrive at night (A1.1).</summary>
+        public GameClock Clock = new GameClock { Part = PartOfDay.Night };
 
         public int OwnMoney => BankrollNow - Debts;
+
+        public bool HasSigned => !string.IsNullOrEmpty(Name);
+
+        /// <summary>Signing the register: set once, used from then on.</summary>
+        public void SignRegister(string name, RegisterBox box)
+        {
+            if (HasSigned) throw new InvalidOperationException("Already signed.");
+            name = name?.Trim();
+            if (string.IsNullOrEmpty(name)) throw new ArgumentException("A name is required.", nameof(name));
+            if (box == RegisterBox.Unticked) throw new ArgumentException("A box must be ticked.", nameof(box));
+            Name = name;
+            Box = box;
+        }
 
         /// <summary>Called by a game module when a round settles.</summary>
         public void ApplyRoundResult(int net, int minutes)
@@ -31,6 +57,35 @@ namespace Starflare.State
             RoundsPlayed++;
             Clock.AdvanceForPlay(minutes);
             RaiseBestBankroll();
+        }
+
+        /// <summary>Cash in hand changes outside a game: a tip, a drink, a job's pay.</summary>
+        public void Spend(int amount)
+        {
+            if (amount > BankrollNow) throw new InvalidOperationException("Not enough cash.");
+            BankrollNow -= amount;
+        }
+
+        public void Earn(int amount)
+        {
+            BankrollNow += amount;
+            RaiseBestBankroll();
+        }
+
+        /// <summary>Credit: cash now, owed later. Own money, and so best bankroll, doesn't move.</summary>
+        public void Borrow(int amount)
+        {
+            if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount));
+            BankrollNow += amount;
+            Debts += amount;
+        }
+
+        public void Repay(int amount)
+        {
+            if (amount <= 0 || amount > Debts) throw new ArgumentOutOfRangeException(nameof(amount));
+            if (amount > BankrollNow) throw new InvalidOperationException("Not enough cash.");
+            BankrollNow -= amount;
+            Debts -= amount;
         }
 
         void RaiseBestBankroll()

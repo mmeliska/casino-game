@@ -45,6 +45,94 @@ Kiran: an Indian-American man in his early 30s, slim, neat black hair, clean-sha
 | `kiran_at_rail_no_bow_tie` | No bow tie | tired, shoulders down, hands in his pockets | Confronted on deck |
 | `kiran_looks_away` | Plain clothes | turned toward the viewer's left, looking off into the distance, saying nothing | Called out: at the landing |
 
+## Insert prompts
+
+For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+
+**Proposed, not settled:** the chip colours; the daughter's photo (she's offstage, with no portrait).
+
+The color-up clue is a spot-the-difference nobody points out, so the two racks must match except for one chip: make `kiran_rack_after` from `kiran_rack_before` as a reference image, and paint out one chip by hand if the generator changes anything else. Five tags come from the [sample scene](#writing) as written there. Where his hand is in frame, use the hand negative prompt.
+
+### The photo by the tray
+
+His daughter's photo, tucked by his chip tray, facing out (the sample scene). After the walk-away ending it's still there at a new dealer's table. Use the photo negative prompt.
+
+`kiran_chip_tray_photo` (insert, square 1:1)
+
+```
+Close-up insert panel. A dealer's chip tray of neat coloured chip stacks at the edge of a green blackjack table, a small worn photograph of a smiling seven-year-old girl tucked upright at its end, facing out. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no text, no lettering.
+```
+
+### The photo turned
+
+His tell on the hand where he palms a chip: the photo turned away (the sample scene). Make it from the photo by the tray.
+
+`kiran_chip_tray_photo_turned` (insert, square 1:1)
+
+```
+Close-up insert panel. A dealer's chip tray of neat coloured chip stacks at the edge of a green blackjack table, a small photograph tucked upright at its end, turned around so its plain white back faces out. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### The rack before
+
+The color-up clue, before. In the helped ending, a season on, this panel is shown twice, before and after, and they match.
+
+`kiran_rack_before` (insert, square 1:1)
+
+```
+Close-up insert panel. Looking straight down into a dealer's chip tray set in green felt: ten neat columns of chips in red, green and black, every column the same height. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### The rack after
+
+The color-up clue, after: one chip gone. Make it from the rack before.
+
+`kiran_rack_after` (insert, square 1:1)
+
+```
+Close-up insert panel. Looking straight down into a dealer's chip tray set in green felt: ten neat columns of chips in red, green and black, one column a single chip shorter than the rest. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### Four chips, not five
+
+The short payout (the sample scene). The results strip carries the numbers; this panel only shows the chips.
+
+`payout_four_chips_not_five` (insert, square 1:1)
+
+```
+Close-up insert panel. A short stack of four red casino chips pushed onto a betting spot on green blackjack felt beside two playing cards. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### His hand on the felt
+
+Called to the pit (the sample scene): his hand goes flat and still.
+
+`kiran_ring_hand_flat_on_felt` (insert, square 1:1)
+
+```
+Close-up insert panel. An Indian-American man's hand with a gold wedding ring, a white shirt cuff and a black sleeve garter above the wrist, pressed flat and still on green blackjack felt, a chip tray behind it. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
+### The vest pocket
+
+Betting again to watch where the chips go (the sample scene).
+
+`kiran_palm_to_vest_pocket` (insert, square 1:1)
+
+```
+Close-up insert panel. An Indian-American man's hand with a gold wedding ring, a white shirt cuff and a black sleeve garter above the wrist, slipping a single casino chip into the small pocket of a red-and-cream striped waistcoat. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+```
+
+### The envelope at the landing
+
+After a sailing, he passes an envelope to one of Ray's men at the landing. Two hands; use the hand negative prompt.
+
+`kiran_envelope_handoff` (insert, square 1:1)
+
+```
+Close-up insert panel. Two hands passing a thick plain envelope at a riverboat landing at night, river mist: an Indian-American man's hand with a gold wedding ring, a white shirt cuff and a black sleeve garter above the wrist, and a man's hand in a dark jacket sleeve. Wet planks and a mooring rope below. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, two hands only, no faces, no text, no lettering; labels blank.
+```
+
 ## Backstory
 
 An Indian-American man in his early 30s who grew up in the Levee. A young dad who co-signed a loan for his wife's brother. The brother stopped paying and left town; nobody knows where, and Kiran has stopped looking. The whole debt fell on Kiran, and with the default on his record no bank would help, so he borrowed from Ray to pay it off, and the interest buried him. None of it was his fault; he lives with all of the consequences. His wife feels responsible, and he never blames her. The brother-in-law and the wife stay offstage, with no portraits and no ties to the cast (Mike, 2026-10-29).

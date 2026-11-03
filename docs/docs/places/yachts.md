@@ -8,7 +8,7 @@ Private games on the lake; you can't leave until the boat comes in. Vivian's inv
 
 ## Look and mood
 
-Yachts on a dark lake, the city glowing far off. The deck plate matches the motel lot's framing: the rocket a tiny coral dot across the water shows how far you've climbed.
+Yachts on a dark lake, the city glowing far off. The deck plate keeps the motel lot's framing, the city across the water in the upper left, but what's across the water now is the lakefront skyline. The Flare is inland on the river and can't be seen from the lake, so there's no rocket sign (Mike, 2026-10-31).
 
 ## Plate prompts
 
@@ -23,7 +23,7 @@ On deck between hands. Use the motel lot plate as the composition reference so t
 `yacht_deck_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. On the teak deck of a private yacht at night on a dark, still lake, a polished rail, and far across the water in the upper left the whole city glowing, with one tiny coral dot of a rocket sign among its lights. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. On the teak deck of a private yacht at night on a dark, still lake, a polished rail, and far across the water in the upper left the city's lakefront skyline glowing, hotel towers and a lighthouse on the harbour. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The salon
@@ -34,4 +34,14 @@ The games aboard.
 
 ```
 Background plate, no people. A private yacht's salon: a card table under a low brass lamp, leather banquettes, polished wood, round windows onto the dark lake. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+```
+
+### What Vivian looks at
+
+From the deck she doesn't look at the Mile's towers. She looks at her family's empty lakefront land, the one thing she won't let the lawyers have (see [Vivian](#vivian) and [the lakefront land](#lakefront-land)). One insert, no caption. Use the land's day plate as a reference so the shore matches.
+
+`yacht_view_land` (insert, square 1:1)
+
+```
+Close-up insert panel. Over a polished yacht rail at night, far across dark water, a dark, empty stretch of lakeshore with old trees and a low stone wall, neon hotel towers glowing to its left and dark old mansions to its right. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```

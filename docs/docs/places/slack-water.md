@@ -1,6 +1,6 @@
 ## About
 
-Your first home: the weekly motel you start in, and one of the three places that refuse Revaris cameras (Dot's guests' privacy). Dot works the desk and asks what brings you to Northlight. The rocket sign is visible across the river from the lot.
+Your first home: the weekly motel you start in, and one of the three places that refuse Revaris cameras (Dot's guests' privacy). Dot works the desk and asks what brings you to Northlight. The rocket sign is visible across the river from the lot. The motel sits on the north bank where the river bends west for a short stretch, facing the First Levee Bank on the south bank (Mike, 2026-11-02).
 
 **Room 9.** Richard, Bennett's father, lives here. Bennett pays the bill weekly and never visits the room, but most Tuesdays he sits in his car in the lot. Umbra watches the door in person, since the motel refuses cameras. Key details: the weekly envelope drop Dot sees, Richard's key on a lanyard, and War with Richard at the picnic table in the lot.
 
@@ -124,6 +124,16 @@ The register turned around for you to sign (A1.1). The name, the Mr./Ms. box and
 
 ```
 Close-up insert panel. An open guest register book on a worn wooden counter, turned to face the viewer, a ballpoint pen on a chain beside it, the lines empty. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### The register, torn
+
+If you sell Gus out (O10), Dot tears your page out of the register. Make it from the register. Never in the same act as Kasia's ledger.
+
+`motel_register_torn` (insert, square 1:1)
+
+```
+Close-up insert panel. An open guest register book on a worn wooden counter, a page torn out at the spine leaving a ragged stub, a ballpoint pen on a chain beside it. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
 ### The recipe box

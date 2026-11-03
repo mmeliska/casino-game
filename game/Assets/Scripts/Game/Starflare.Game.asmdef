@@ -3,7 +3,9 @@
     "rootNamespace": "Starflare",
     "references": [
         "Starflare.Core",
-        "UnityEngine.UI"
+        "UnityEngine.UI",
+        "Ink",
+        "Ink-Libraries"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
