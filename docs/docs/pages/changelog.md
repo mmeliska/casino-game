@@ -4,6 +4,10 @@
 
 The back-room plate is in: the card table under its one lamp. The shade is always down, so it's one plate for any time of day, with no day, rain or snow versions (Mike). Nothing shows it yet; it waits for the card game in A1.3.
 
+### The wedding goes upstairs, and Rosa and Raffy have faces
+
+The A1.4 reception is in the hall upstairs at Kasia's Tap, not the bar: string lights and white drapes across the beams, round tables, the cake by the far door (Mike). Rosa's and Raffy's portraits are in, four poses each, so Raffy's envelope on night one (A1.2) and Rosa's back-room game (A1.3) can be built.
+
 ### Kasia's Tap from the street
 
 Going to Kasia's Tap now puts you outside it first: the corner tavern across from the mill gate, by day or night, with a winter version (Mike). "Go inside" takes you in to Kasia, and the bar has a "Step back outside" choice, the same as Millstone Lanes. Rain versions are drawn too, for when the game has weather. The plate prompt is on [Kasia's Tap](#kasias-tap).

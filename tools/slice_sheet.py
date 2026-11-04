@@ -12,6 +12,8 @@ jump or rescale the character.
 Tags are listed left to right as the poses appear on the sheet (not in prompt order).
 A sheet with loose dark hair against the grey (Kasia's) leaves a pale haze between the
 strands; add --wisp 20 for it. Leave it off for pale grey hair (Dot's), which it thins.
+A sheet whose grey is uneven, with narrow gaps between panels (Raffy's), leaves grey
+between the legs and a sliver of the next pose; add --tolerance 54 --pad 4 for it.
 Needs Pillow, NumPy and SciPy.
 """
 
