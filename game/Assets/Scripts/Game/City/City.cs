@@ -12,31 +12,22 @@ namespace Starflare.Game
     /// <summary>
     /// The city layer of the core loop: it owns the player state and the one Ink story (through
     /// <see cref="StoryBridge"/>), saves both on every settled change, plays the arrival at the
-    /// Slack Water (A1.1), then lets you move between places. A venue gets the state and story
-    /// through it and hands control back when you walk out.
+    /// Slack Water (A1.1), then moves you between the places. Each place owns its own screens
+    /// and scene triggers (<see cref="IPlace"/>) and sees the city as an <see cref="IPlaceHost"/>.
     /// </summary>
-    public sealed class City : MonoBehaviour
+    public sealed class City : MonoBehaviour, IPlaceHost
     {
-        const string Motel = "slack-water";
-        const string Tap = "kasias-tap";
-        const string Lanes = "millstone-lanes";
-
-        /// <summary>Every place built so far, with its map pin (from the pin table on the Northlight page).</summary>
-        static readonly PhoneMap.Place[] Places =
-        {
-            new PhoneMap.Place(Motel, "Slack Water Motel", 0.45f, 0.32f),
-            new PhoneMap.Place(Tap, "Kasia's Tap", 0.41f, 0.30f, labelLeft: true),
-            new PhoneMap.Place(Lanes, "Millstone Lanes", 0.22f, 0.44f),
-        };
-
         public PlayerState State { get; private set; }
         public StoryBridge Story { get; private set; }
 
         SaveStore _saves;
 
+        /// <summary>Every place built so far; its pins are the phone map's.</summary>
+        IPlace[] _places;
+        IPlace _current;
+
         StoryPlayer _player;
         RegisterCard _register;
-        KasiasTap _tap;
         PhoneMap _map;
         Hud _hud;
 
@@ -58,12 +49,14 @@ namespace Starflare.Game
             _player = gameObject.AddComponent<StoryPlayer>();
             _player.Init(Story.Ink);
             _register = gameObject.AddComponent<RegisterCard>();
-            _tap = gameObject.AddComponent<KasiasTap>();
-            _tap.Init(this, ShowTap);
             _map = gameObject.AddComponent<PhoneMap>();
             _hud = gameObject.AddComponent<Hud>();
             _hud.Init(State, OpenMap, () => Look(true), () => Look(false));
             BuildPlaceScreen();
+
+            var tap = gameObject.AddComponent<KasiasTap>();
+            tap.Init(this);
+            _places = new IPlace[] { new SlackWaterMotel(this), tap, new MillstoneLanes(this) };
         }
 
         void Start()
@@ -81,11 +74,10 @@ namespace Starflare.Game
 
         void OnDestroy() => State.Changed -= SaveAll;
 
-        /// <summary>Plays one knot with the shared variables up to date, saves, then calls back.</summary>
         public void PlayScene(string knot, Action then)
         {
             _placeScreen.SetActive(false);
-            _hud.Show(PlaceName(State.Place), buttons: false);
+            _hud.Show(Find(State.Place).Name, buttons: false);
             Story.Sync(State);
             _player.Play(knot, () =>
             {
@@ -98,95 +90,44 @@ namespace Starflare.Game
         /// <summary>Arrival, the register, then Dot's question. Picks up after the register if you'd signed it.</summary>
         void CheckIn()
         {
-            if (State.HasSigned) PlayScene(StoryContract.Knots.CheckingIn, () => GoTo(Motel));
+            if (State.HasSigned) PlayScene(StoryContract.Knots.CheckingIn, () => GoTo(SlackWaterMotel.PlaceId));
             else PlayScene(StoryContract.Knots.Arrival, () => _register.Show(SignRegister));
         }
 
         void SignRegister(string name, RegisterBox box)
         {
             State.SignRegister(name, box);
-            PlayScene(StoryContract.Knots.CheckingIn, () => GoTo(Motel));
+            PlayScene(StoryContract.Knots.CheckingIn, () => GoTo(SlackWaterMotel.PlaceId));
         }
 
-        /// <summary>Opens the map on your phone with the places open to you; tap one to go there.</summary>
         public void OpenMap()
         {
             var open = new List<PhoneMap.Place>();
-            foreach (var place in Places)
-                if (IsOpen(place.Id)) open.Add(place);
-            _map.Show(open, State.Place, place =>
+            foreach (var place in _places)
+                if (place.IsOpen) open.Add(place.Pin);
+            _map.Show(open, State.Place, id =>
             {
-                if (place != State.Place) GoTo(place);
+                if (id != State.Place) GoTo(id);
             });
         }
 
-        static string PlaceName(string id) => Array.Find(Places, place => place.Id == id).Name ?? "";
-
-        bool IsOpen(string place) =>
-            // The Lanes opens once Kasia's given you the box to carry.
-            place != Lanes || Story.Flag(StoryContract.CarryingCoupons) || Story.Flag(StoryContract.MetJuan);
-
-        void GoTo(string place)
+        IPlace Find(string id)
         {
-            _tap.Close();
+            var place = Array.Find(_places, p => p.Id == id);
+            if (place == null) throw new InvalidOperationException($"No place is built for '{id}'.");
+            return place;
+        }
+
+        void GoTo(string id)
+        {
+            _current?.Leave();
             Art.ForgetLooks();
-            State.MoveTo(place);
-            if (place == Tap) ShowTapOutside();
-            else if (place == Lanes) ShowLanesOutside();
-            else ShowMotel();
+            State.MoveTo(id);
+            _current = Find(id);
+            _current.Arrive();
         }
 
-        void ShowMotel()
-        {
-            ShowPlace("Slack Water Motel", "motel_lot",
-                ("Step into the office", () => PlayScene(StoryContract.Knots.Office, ShowMotel)),
-                ("Go to your room", () => PlayScene(StoryContract.Knots.TurnIn, ShowMotel)),
-                ("Start over (wipe save)", StartOver));
-        }
-
-        /// <summary>You arrive at the Tap on the sidewalk, across from the mill gate.</summary>
-        void ShowTapOutside()
-        {
-            ShowPlace("Kasia's Tap", "kasia_front",
-                ("Go inside", () =>
-                {
-                    LeavePlaceScreen();
-                    _tap.Enter();
-                }));
-        }
-
-        void ShowTap()
-        {
-            ShowPlace("Kasia's Tap", "kasia_bar",
-                ("Sit down at the machine", () =>
-                {
-                    LeavePlaceScreen();
-                    _tap.SitDown();
-                }),
-                ("Step back outside", ShowTapOutside));
-        }
-
-        /// <summary>You arrive at the Lanes in its lot, under the sign.</summary>
-        void ShowLanesOutside()
-        {
-            ShowPlace("Millstone Lanes", "lanes_front",
-                ("Go inside", () =>
-                {
-                    // Kasia's coupons are how you first walk in (A1.3).
-                    if (!Story.Flag(StoryContract.MetJuan)) PlayScene(StoryContract.Knots.Coupons, ShowLanes);
-                    else ShowLanes();
-                }));
-        }
-
-        void ShowLanes()
-        {
-            ShowPlace("Millstone Lanes", "lanes_lanes",
-                ("Find Juan at the counter", () => PlayScene(StoryContract.Knots.Juan, ShowLanes)),
-                ("Step back outside", ShowLanesOutside));
-        }
-
-        /// <summary>Shows a place screen over the view's plate for the time of day and season.</summary>
-        void ShowPlace(string name, string view, params (string label, UnityAction action)[] actions)
+        public void ShowPlace(string view, params (string label, UnityAction action)[] actions)
         {
             Look(false);
             _view = view;
@@ -194,11 +135,11 @@ namespace Starflare.Game
             _plateFit.Show(_plate, Art.Plate(plate), Art.Focus(plate));
             ClearChildren(_actions);
             foreach (var (label, action) in actions) MakeChoiceButton(_actions, label, action);
-            _hud.Show(name, buttons: true);
+            _hud.Show(_current.Name, buttons: true);
             _placeScreen.SetActive(true);
         }
 
-        void LeavePlaceScreen()
+        public void LeavePlaceScreen()
         {
             _placeScreen.SetActive(false);
             _hud.Hide();
@@ -216,7 +157,7 @@ namespace Starflare.Game
             _hud.Looking(on);
         }
 
-        void StartOver()
+        public void StartOver()
         {
             State.Changed -= SaveAll;
             _saves.Wipe();

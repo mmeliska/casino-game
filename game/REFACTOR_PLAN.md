@@ -119,21 +119,20 @@ landscape. No phase changes player-facing behaviour unless it says so.
   pushes the numbers, that the externals reach the state, and that a saved story state comes
   back. The test assembly now references `Ink-Libraries`.
 
-### Phase 3: places out of the city
+### Phase 3: places out of the city (done 2026-11-04)
 
-- New `Game/Places/` with one class per place implementing a small `IPlace` interface:
-  `Id`, `Name`, `Pin`, `Arrive(PlaceHost)`. `SlackWaterMotel`, `KasiasTap` (the existing venue,
-  moved), `MillstoneLanes`. Each owns its views, actions and scene triggers that are now
-  `City.ShowMotel`, `ShowTapOutside`, `ShowLanesOutside`, `ShowLanes` and the `IsOpen` rule.
-- `PlaceHost` (what the places see of the city): `State`, `Story`, `PlayScene`, `ShowPlace`,
-  `OpenMap`, `LeavePlaceScreen`. `City` implements it and shrinks to boot, arrival, navigation
-  and saving.
-- `City.Places` becomes a registry built from the place classes, so `PhoneMap` pins and
-  `IsOpen` come from the same list.
-- Game folders become feature folders: `Game/City`, `Game/Places`, `Game/Story`,
-  `Game/Tables` (the two game modules), `Game/Ui` (`UiKit`, `Hud`, `CoverFit`, `LookAround`,
-  `SafeAreaFitter`, `OrientationLayout`), `Game/Save`. Namespaces stay `Starflare.Game`; only
-  files move. One commit for the moves, so blame survives.
+- `Game/Places/IPlace` (`Id`, `Name`, `Pin`, `IsOpen`, `Arrive`, `Leave`) and `IPlaceHost`
+  (`State`, `Story`, `PlayScene`, `ShowPlace`, `LeavePlaceScreen`, `OpenMap`, `StartOver`).
+- `SlackWaterMotel` and `MillstoneLanes` are plain classes built with the host; `KasiasTap`
+  stays a MonoBehaviour (it owns the machine and its break menu) and implements `IPlace`.
+  Each owns the screens, the open rule and the scene triggers that were `City.ShowMotel`,
+  `ShowTapOutside`, `ShowTap`, `ShowLanesOutside`, `ShowLanes` and `IsOpen`.
+- `City` keeps boot, the arrival and check-in, navigation (`GoTo` is now `Leave`, move,
+  `Arrive`), the shared place screen and saving. Its place list is the `IPlace[]`, so the map's
+  pins and the open rule come from the same objects. Adding a place is a new class and one
+  entry in that array.
+- Feature folders: `City`, `Places`, `Story`, `Tables`, `Ui`, `Save`, `Art`; moved in their
+  own commit first. Namespaces are unchanged.
 
 ### Phase 4: TextMeshPro
 
