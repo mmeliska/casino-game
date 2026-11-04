@@ -48,7 +48,7 @@ Background plate, no people. A Great Lakes neighbourhood tavern in daytime: a lo
 
 ### The back room
 
-The card game Rosa deals (A1.3), Umbra's protection offer (R3), Rosa still dealing after the scatter (A3.5), hiring the crew (A5.3).
+The card game Rosa deals (A1.3), Umbra's protection offer (R3), Rosa still dealing after the scatter (A3.5), hiring the crew (A5.3). The shade is always down, so this one plate serves any time of day, with no day, rain or snow versions (Mike, 2026-11-04).
 
 `kasia_backroom_night` (plate, portrait 9:16)
 

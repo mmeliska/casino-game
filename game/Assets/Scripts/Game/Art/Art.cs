@@ -18,6 +18,7 @@ namespace Starflare.Game
         /// </summary>
         static readonly Dictionary<string, float> PlateFocus = new Dictionary<string, float>
         {
+            ["kasia_backroom"] = 0.58f,
             ["kasia_bar"] = 0.74f,
             ["kasia_front"] = 0.58f,
             ["lanes_front"] = 0.66f,
