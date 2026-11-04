@@ -9,8 +9,6 @@ using static Starflare.Game.UiKit;
 
 namespace Starflare.Game
 {
-    public enum BreakPoint { GotUpFromTable }
-
     /// <summary>
     /// The blackjack table: UI built in code, portrait or landscape, one round at a time. It reports each
     /// settled round to the player state and raises a break point when you get up. It never
