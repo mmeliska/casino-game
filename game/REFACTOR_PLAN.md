@@ -107,17 +107,17 @@ landscape. No phase changes player-facing behaviour unless it says so.
   redraw or a turn, since the cash pill's width isn't known until layout has run.
 - `tools/compile_check.sh` compiles all four assemblies offline, for when the editor is open.
 
-### Phase 2: one file for the Ink contract
+### Phase 2: one file for the Ink contract (done 2026-11-04)
 
-- New `Game/Story/StoryVars.cs`: `const string` for every Ink variable the C# side reads or
-  writes (`checked_in`, `met_kasia`, `met_juan`, `carrying_coupons`, `player_name`, `bankroll`,
-  `book`, `broke`, `sitting_net`), and every external function name.
-- New `Game/Story/StoryBridge.cs`: owns `LoadStory`, binds the four externals, and has
-  `Sync(PlayerState)` to push the shared variables before a scene. `City.PlayScene` and
-  `KasiasTap.PlayScene` call it instead of writing `variablesState[...]` themselves.
-- An EditMode test compiles `northlight.ink` (the Ink compiler is engine-free) and asserts
-  every `StoryVars` name exists as a global and every `EXTERNAL` has a binding. This catches
-  story/code drift on every test run, which is the main reason to do this phase.
+- `Game/Story/StoryContract.cs`: every Ink variable the C# side reads or writes, every
+  EXTERNAL it binds, and every knot it starts, as constants with `All` lists.
+- `Game/Story/StoryBridge.cs`: loads the story, restores its saved state, binds the externals
+  to `PlayerState`, validates the bindings on construction, and has `Flag`, `Set`, `Sync` and
+  `SaveJson`. `City.Story` is now the bridge; `StoryPlayer` gets the raw Ink story from it.
+- `StoryContractTests` compiles `northlight.ink` with the Ink compiler (Ink-Libraries is pure
+  C#) and checks every name in the contract exists, that every EXTERNAL is bound, that `Sync`
+  pushes the numbers, that the externals reach the state, and that a saved story state comes
+  back. The test assembly now references `Ink-Libraries`.
 
 ### Phase 3: places out of the city
 

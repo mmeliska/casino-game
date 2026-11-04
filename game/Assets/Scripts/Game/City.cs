@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Ink.Runtime;
-using Ink.UnityIntegration;
 using Starflare.State;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,13 +10,13 @@ using static Starflare.Game.UiKit;
 namespace Starflare.Game
 {
     /// <summary>
-    /// The city layer of the core loop: it holds the player state and the one Ink story, plays
-    /// the arrival at the Slack Water (A1.1), then lets you move between places. A venue gets
-    /// the state and story through it and hands control back when you walk out.
+    /// The city layer of the core loop: it owns the player state and the one Ink story (through
+    /// <see cref="StoryBridge"/>), saves both on every settled change, plays the arrival at the
+    /// Slack Water (A1.1), then lets you move between places. A venue gets the state and story
+    /// through it and hands control back when you walk out.
     /// </summary>
     public sealed class City : MonoBehaviour
     {
-        const string StoryResource = "Story/northlight";
         const string Motel = "slack-water";
         const string Tap = "kasias-tap";
         const string Lanes = "millstone-lanes";
@@ -32,7 +30,7 @@ namespace Starflare.Game
         };
 
         public PlayerState State { get; private set; }
-        public Story Story { get; private set; }
+        public StoryBridge Story { get; private set; }
 
         SaveStore _saves;
 
@@ -55,10 +53,10 @@ namespace Starflare.Game
             State = _saves.Load();
             // The city is the one owner of the save: every settled change writes it.
             State.Changed += SaveAll;
-            Story = LoadStory();
+            Story = StoryBridge.Load(_saves.LoadStory(), State);
 
             _player = gameObject.AddComponent<StoryPlayer>();
-            _player.Init(Story);
+            _player.Init(Story.Ink);
             _register = gameObject.AddComponent<RegisterCard>();
             _tap = gameObject.AddComponent<KasiasTap>();
             _tap.Init(this, ShowTap);
@@ -70,7 +68,7 @@ namespace Starflare.Game
 
         void Start()
         {
-            if (!(bool)Story.variablesState["checked_in"]) CheckIn();
+            if (!Story.Flag(StoryContract.CheckedIn)) CheckIn();
             else GoTo(State.Place);
         }
 
@@ -83,37 +81,12 @@ namespace Starflare.Game
 
         void OnDestroy() => State.Changed -= SaveAll;
 
-        Story LoadStory()
-        {
-            var file = Resources.Load<InkFile>(StoryResource);
-            if (file == null || !file.isCompiled)
-                throw new InvalidOperationException($"Ink story Resources/{StoryResource}.ink is missing or didn't compile.");
-
-            var story = new Story(file.storyJson);
-            string saved = _saves.LoadStory();
-            if (saved != null)
-            {
-                try { story.state.LoadJson(saved); }
-                catch (Exception e) { Debug.LogWarning($"Couldn't read the story save, starting it fresh: {e.Message}"); }
-            }
-
-            // The story spends, borrows and sleeps through these, so the rules stay in PlayerState.
-            // They change state, so Ink must never call them during lookahead.
-            story.BindExternalFunction("spend", (int amount) => State.Spend(amount), false);
-            story.BindExternalFunction("borrow", (int amount) => State.Borrow(amount), false);
-            story.BindExternalFunction("repay", (int amount) => State.Repay(amount), false);
-            story.BindExternalFunction("sleep", () => State.Sleep(), false);
-            return story;
-        }
-
         /// <summary>Plays one knot with the shared variables up to date, saves, then calls back.</summary>
         public void PlayScene(string knot, Action then)
         {
             _placeScreen.SetActive(false);
             _hud.Show(PlaceName(State.Place), buttons: false);
-            Story.variablesState["player_name"] = State.Name;
-            Story.variablesState["bankroll"] = State.BankrollNow;
-            Story.variablesState["book"] = State.Debts;
+            Story.Sync(State);
             _player.Play(knot, () =>
             {
                 _hud.Hide();
@@ -125,14 +98,14 @@ namespace Starflare.Game
         /// <summary>Arrival, the register, then Dot's question. Picks up after the register if you'd signed it.</summary>
         void CheckIn()
         {
-            if (State.HasSigned) PlayScene("checking_in", () => GoTo(Motel));
-            else PlayScene("arrival", () => _register.Show(SignRegister));
+            if (State.HasSigned) PlayScene(StoryContract.Knots.CheckingIn, () => GoTo(Motel));
+            else PlayScene(StoryContract.Knots.Arrival, () => _register.Show(SignRegister));
         }
 
         void SignRegister(string name, RegisterBox box)
         {
             State.SignRegister(name, box);
-            PlayScene("checking_in", () => GoTo(Motel));
+            PlayScene(StoryContract.Knots.CheckingIn, () => GoTo(Motel));
         }
 
         /// <summary>Opens the map on your phone with the places open to you; tap one to go there.</summary>
@@ -151,7 +124,7 @@ namespace Starflare.Game
 
         bool IsOpen(string place) =>
             // The Lanes opens once Kasia's given you the box to carry.
-            place != Lanes || (bool)Story.variablesState["carrying_coupons"] || (bool)Story.variablesState["met_juan"];
+            place != Lanes || Story.Flag(StoryContract.CarryingCoupons) || Story.Flag(StoryContract.MetJuan);
 
         void GoTo(string place)
         {
@@ -166,8 +139,8 @@ namespace Starflare.Game
         void ShowMotel()
         {
             ShowPlace("Slack Water Motel", "motel_lot",
-                ("Step into the office", () => PlayScene("office", ShowMotel)),
-                ("Go to your room", () => PlayScene("turn_in", ShowMotel)),
+                ("Step into the office", () => PlayScene(StoryContract.Knots.Office, ShowMotel)),
+                ("Go to your room", () => PlayScene(StoryContract.Knots.TurnIn, ShowMotel)),
                 ("Start over (wipe save)", StartOver));
         }
 
@@ -200,7 +173,7 @@ namespace Starflare.Game
                 ("Go inside", () =>
                 {
                     // Kasia's coupons are how you first walk in (A1.3).
-                    if (!(bool)Story.variablesState["met_juan"]) PlayScene("coupons", ShowLanes);
+                    if (!Story.Flag(StoryContract.MetJuan)) PlayScene(StoryContract.Knots.Coupons, ShowLanes);
                     else ShowLanes();
                 }));
         }
@@ -208,7 +181,7 @@ namespace Starflare.Game
         void ShowLanes()
         {
             ShowPlace("Millstone Lanes", "lanes_lanes",
-                ("Find Juan at the counter", () => PlayScene("juan", ShowLanes)),
+                ("Find Juan at the counter", () => PlayScene(StoryContract.Knots.Juan, ShowLanes)),
                 ("Step back outside", ShowLanesOutside));
         }
 
@@ -255,7 +228,7 @@ namespace Starflare.Game
         {
             if (Story == null) return;
             _saves.Save(State);
-            _saves.SaveStory(Story.state.ToJson());
+            _saves.SaveStory(Story.SaveJson());
         }
 
         void BuildPlaceScreen()

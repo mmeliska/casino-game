@@ -36,18 +36,18 @@ namespace Starflare.Game
         /// </summary>
         public void Enter()
         {
-            var story = _city.Story.variablesState;
-            if (!(bool)story["met_kasia"]) PlayScene("night_one", _atBar);
-            else if (_city.State.Clock.Day > 1 && !(bool)story["carrying_coupons"] && !(bool)story["met_juan"])
-                PlayScene("coupon_job", _atBar);
-            else PlayScene("walk_in", _atBar);
+            var story = _city.Story;
+            if (!story.Flag(StoryContract.MetKasia)) PlayScene(StoryContract.Knots.NightOne, _atBar);
+            else if (_city.State.Clock.Day > 1 && !story.Flag(StoryContract.CarryingCoupons) && !story.Flag(StoryContract.MetJuan))
+                PlayScene(StoryContract.Knots.CouponJob, _atBar);
+            else PlayScene(StoryContract.Knots.WalkIn, _atBar);
         }
 
         void PlayScene(string knot, Action then)
         {
             _menu.SetActive(false);
-            _city.Story.variablesState["broke"] = _city.State.BankrollNow < _machine.Rules.CreditValue;
-            _city.Story.variablesState["sitting_net"] = _machine.SittingNet;
+            _city.Story.Set(StoryContract.Broke, _city.State.BankrollNow < _machine.Rules.CreditValue);
+            _city.Story.Set(StoryContract.SittingNet, _machine.SittingNet);
             _city.PlayScene(knot, then);
         }
 
@@ -57,7 +57,7 @@ namespace Starflare.Game
             _machine.SitDown(_city.State);
         }
 
-        void OnBreakPoint(BreakPoint point) => PlayScene("get_up", ShowMenu);
+        void OnBreakPoint(BreakPoint point) => PlayScene(StoryContract.Knots.GetUp, ShowMenu);
 
         void ShowMenu()
         {
