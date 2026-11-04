@@ -59,12 +59,18 @@ namespace Starflare.EditorTools
                 string package = Path.Combine(Path.GetFullPath("Packages/com.unity.ugui"),
                     "Package Resources", "TMP Essential Resources.unitypackage");
                 UnityEditor.AssetPackage.Package.Import(package, false);
-                AssetDatabase.Refresh();
+                // The package's files land on disk at once but import on the next refresh, so pull them in now.
+                AssetDatabase.ImportAsset("Assets/TextMesh Pro",
+                    ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive | ImportAssetOptions.ForceSynchronousImport);
             }
 
             var font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(TmpFontPath);
             if (font == null)
-                throw new System.InvalidOperationException($"TextMesh Pro's default font wasn't imported at {TmpFontPath}.");
+            {
+                // Don't stop the rest of the rebuild over it; the next run finds the font.
+                Debug.LogWarning($"TextMesh Pro's default font isn't imported yet at {TmpFontPath}. Run Starflare > Rebuild Project Setup again.");
+                return;
+            }
             if (font.atlasPopulationMode != AtlasPopulationMode.Dynamic)
             {
                 font.atlasPopulationMode = AtlasPopulationMode.Dynamic;
