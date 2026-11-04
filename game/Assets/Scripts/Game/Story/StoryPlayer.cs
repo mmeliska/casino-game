@@ -1,6 +1,7 @@
 using System;
 using System.Text.RegularExpressions;
 using Ink.Runtime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static Starflare.Game.UiKit;
@@ -29,7 +30,7 @@ namespace Starflare.Game
         GameObject _root;
         Image _plate, _pose, _insert, _black, _rule;
         CoverFit _plateFit;
-        Text _speaker, _line, _blackLine, _more;
+        TMP_Text _speaker, _line, _blackLine, _more;
         RectTransform _bottom, _choices, _box;
         LayoutElement _boxLayout;
 
@@ -169,7 +170,7 @@ namespace Starflare.Game
 
             _black.gameObject.SetActive(black);
             _speaker.text = speaker;
-            _line.fontStyle = speaker.Length == 0 ? FontStyle.Italic : FontStyle.Normal;
+            _line.fontStyle = speaker.Length == 0 ? FontStyles.Italic : FontStyles.Normal;
             _fullLine = text;
             _shown = 0;
             SetVisibleText("");
@@ -189,8 +190,7 @@ namespace Starflare.Game
 
             var padding = _bottom.GetComponent<VerticalLayoutGroup>().padding;
             float width = _bottom.rect.width - padding.horizontal - 96;
-            var settings = _line.GetGenerationSettings(new Vector2(width, 0));
-            float height = _line.cachedTextGeneratorForLayout.GetPreferredHeight(_fullLine, settings) / _line.pixelsPerUnit;
+            float height = _line.GetPreferredValues(_fullLine, width, 0).y;
             _boxLayout.preferredHeight = top + height + 44;
             _box.gameObject.SetActive(_fullLine.Length > 0);
         }
@@ -332,7 +332,7 @@ namespace Starflare.Game
 
             _speaker = MakeText(box.transform, "", 40, TextAnchor.LowerLeft, 0);
             _speaker.color = Teal;
-            _speaker.fontStyle = FontStyle.Bold;
+            _speaker.fontStyle = FontStyles.Bold;
             _speaker.rectTransform.anchorMin = new Vector2(0, 1);
             _speaker.rectTransform.anchorMax = new Vector2(1, 1);
             _speaker.rectTransform.offsetMin = new Vector2(48, -84);
@@ -343,7 +343,7 @@ namespace Starflare.Game
             Stretch(_line.rectTransform);
             _line.rectTransform.offsetMin = new Vector2(48, 36);
             _line.rectTransform.offsetMax = new Vector2(-48, -112);
-            _line.lineSpacing = 1.1f;
+            _line.lineSpacing = 10; // a tenth of the size between lines, as the legacy 1.1 did
 
             _more = MakeText(box.transform, "▼", 32, TextAnchor.LowerRight, 0);
             _more.color = Teal;

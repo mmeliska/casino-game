@@ -37,7 +37,7 @@ step Starflare.Game -out:"$OUT/Starflare.Game.dll" "${NS[@]}" "${ENG[@]}" -r:"$O
 step Starflare.Editor -out:"$OUT/Starflare.Editor.dll" -define:UNITY_EDITOR "${NS[@]}" "${ENG[@]}" "${EDI[@]}" \
   -r:"$OUT/Starflare.Core.dll" -r:"$OUT/Starflare.Game.dll" \
   -r:$SA/Unity.RenderPipelines.Core.Runtime.dll -r:$SA/Unity.RenderPipelines.Universal.Runtime.dll \
-  Assets/Scripts/Editor/**/*.cs
+  -r:$SA/Unity.TextMeshPro.dll Assets/Scripts/Editor/**/*.cs
 step Starflare.Tests.EditMode -out:"$OUT/Starflare.Tests.EditMode.dll" -define:UNITY_EDITOR -define:UNITY_INCLUDE_TESTS \
   "${FW[@]}" "${ENG[@]}" "${EDI[@]}" -r:"$OUT/Starflare.Core.dll" -r:"$OUT/Starflare.Game.dll" \
   -r:"$NUNIT" -r:$SA/Ink-Libraries.dll -r:$SA/UnityEngine.TestRunner.dll -r:$SA/UnityEditor.TestRunner.dll \

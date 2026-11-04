@@ -4,6 +4,7 @@
     "references": [
         "Starflare.Core",
         "UnityEngine.UI",
+        "Unity.TextMeshPro",
         "Ink",
         "Ink-Libraries"
     ],

@@ -1,5 +1,6 @@
 using System;
 using Starflare.State;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static Starflare.Game.UiKit;
@@ -21,7 +22,7 @@ namespace Starflare.Game
         VideoPokerMachine _machine;
 
         GameObject _menu;
-        Text _menuText;
+        TMP_Text _menuText;
 
         public void Init(IPlaceHost host)
         {

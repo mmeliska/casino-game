@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -24,10 +25,15 @@ namespace Starflare.Game
         public static readonly Color ChoiceFill = new Color(0.15f, 0.26f, 0.26f, 0.92f);
         public static readonly Color Paper = new Color(0.93f, 0.95f, 0.95f);
 
-        static Font _font;
         static Sprite _rounded, _roundedFrame, _circle, _fade, _phoneGlyph, _eyeGlyph, _closeGlyph, _cashGlyph;
 
-        public static Font Font => _font ??= Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        /// <summary>
+        /// The one typeface, TextMesh Pro's default (set up by Starflare > Rebuild Project Setup,
+        /// which imports the TMP essentials and makes the font dynamic so card suits render).
+        /// </summary>
+        public static TMP_FontAsset FontAsset =>
+            TMP_Settings.defaultFontAsset ?? throw new System.InvalidOperationException(
+                "TextMesh Pro's essentials aren't imported. Run Starflare > Rebuild Project Setup.");
 
         /// <summary>A white rounded rectangle, nine-sliced, for cards, buttons and panels.</summary>
         public static Sprite Rounded => _rounded ??= MakeRounded(0);
@@ -265,22 +271,51 @@ namespace Starflare.Game
             return button;
         }
 
-        public static Text MakeText(Transform parent, string content, int size, TextAnchor anchor, float height)
+        /// <summary>A TextMesh Pro label that wraps and never clips; <paramref name="anchor"/> is where the text sits in it.</summary>
+        public static TMP_Text MakeText(Transform parent, string content, int size, TextAnchor anchor, float height)
         {
-            var go = new GameObject("Text", typeof(RectTransform), typeof(Text));
+            var go = new GameObject("Text", typeof(RectTransform), typeof(TextMeshProUGUI));
             go.transform.SetParent(parent, false);
-            var text = go.GetComponent<Text>();
-            text.font = Font;
+            var text = go.GetComponent<TextMeshProUGUI>();
+            text.font = FontAsset;
             text.fontSize = size;
-            text.alignment = anchor;
+            text.alignment = Align(anchor);
             text.color = Color.white;
             text.text = content;
-            text.horizontalOverflow = HorizontalWrapMode.Wrap;
-            text.verticalOverflow = VerticalWrapMode.Overflow;
+            text.textWrappingMode = TextWrappingModes.Normal;
+            text.overflowMode = TextOverflowModes.Overflow;
             text.raycastTarget = false;
             if (height > 0) go.AddComponent<LayoutElement>().preferredHeight = height;
             return text;
         }
+
+        /// <summary>Keeps the text on one line, however long it gets.</summary>
+        public static void NoWrap(TMP_Text text) => text.textWrappingMode = TextWrappingModes.NoWrap;
+
+        /// <summary>A soft dark drop shadow, for text that sits straight on a plate.</summary>
+        public static void Shadowed(TMP_Text text)
+        {
+            var material = text.fontMaterial;
+            material.EnableKeyword(ShaderUtilities.Keyword_Underlay);
+            material.SetColor(ShaderUtilities.ID_UnderlayColor, new Color(0, 0, 0, 0.8f));
+            material.SetFloat(ShaderUtilities.ID_UnderlayOffsetX, 0.35f);
+            material.SetFloat(ShaderUtilities.ID_UnderlayOffsetY, -0.35f);
+            material.SetFloat(ShaderUtilities.ID_UnderlayDilate, 0.2f);
+            material.SetFloat(ShaderUtilities.ID_UnderlaySoftness, 0.25f);
+        }
+
+        static TextAlignmentOptions Align(TextAnchor anchor) => anchor switch
+        {
+            TextAnchor.UpperLeft => TextAlignmentOptions.TopLeft,
+            TextAnchor.UpperCenter => TextAlignmentOptions.Top,
+            TextAnchor.UpperRight => TextAlignmentOptions.TopRight,
+            TextAnchor.MiddleLeft => TextAlignmentOptions.Left,
+            TextAnchor.MiddleCenter => TextAlignmentOptions.Center,
+            TextAnchor.MiddleRight => TextAlignmentOptions.Right,
+            TextAnchor.LowerLeft => TextAlignmentOptions.BottomLeft,
+            TextAnchor.LowerCenter => TextAlignmentOptions.Bottom,
+            _ => TextAlignmentOptions.BottomRight,
+        };
 
         public static Image MakeImage(Transform parent, string name, Color color)
         {

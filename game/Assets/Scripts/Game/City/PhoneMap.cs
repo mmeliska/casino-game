@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static Starflare.Game.UiKit;
@@ -148,9 +149,9 @@ namespace Starflare.Game
             // The name is part of the button too, so it's an easy tap.
             var label = MakeText(ring.transform, place.Name, 40, place.LabelLeft ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft, 0);
             if (here) label.text += "\n<size=30><i>You're here</i></size>";
-            label.fontStyle = FontStyle.Bold;
+            label.fontStyle = FontStyles.Bold;
             label.raycastTarget = true;
-            label.horizontalOverflow = HorizontalWrapMode.Overflow;
+            NoWrap(label);
             label.gameObject.AddComponent<Outline>().effectDistance = new Vector2(3, -3);
             var fit = label.gameObject.AddComponent<ContentSizeFitter>();
             fit.horizontalFit = fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
@@ -207,7 +208,7 @@ namespace Starflare.Game
             Pin(bar.rectTransform, Vector2.up, Vector2.one, new Vector2(0, -120), Vector2.zero);
             var title = MakeText(bar.transform, "Northlight", 48, TextAnchor.MiddleLeft, 0);
             title.color = Gold;
-            title.fontStyle = FontStyle.Bold;
+            title.fontStyle = FontStyles.Bold;
             Stretch(title.rectTransform);
             title.rectTransform.offsetMin = new Vector2(40, 0);
             var close = MakeButton(bar.transform, "Close", Close);

@@ -1,5 +1,6 @@
 using System.IO;
 using Starflare.Game;
+using TMPro;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -19,6 +20,9 @@ namespace Starflare.EditorTools
         const string BlackjackScenePath = "Assets/Scenes/Blackjack.unity";
         const string ArtRoot = "Assets/Resources";
 
+        const string TmpSettingsPath = "Assets/TextMesh Pro/Resources/TMP Settings.asset";
+        const string TmpFontPath = "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset";
+
         const string SettingsDir = "Assets/Settings";
         const string RendererPath = SettingsDir + "/URP Renderer.asset";
         const string PipelinePath = SettingsDir + "/URP Pipeline.asset";
@@ -28,6 +32,7 @@ namespace Starflare.EditorTools
         {
             ConfigurePlayer();
             ConfigureRenderPipeline();
+            SetUpTextMeshPro();
             ReimportArt();
             BuildScene(CityScenePath, "City", typeof(City));
             BuildScene(BlackjackScenePath, "Blackjack Table", typeof(BlackjackScene));
@@ -39,6 +44,33 @@ namespace Starflare.EditorTools
                 new EditorBuildSettingsScene(BlackjackScenePath, true),
             };
             AssetDatabase.SaveAssets();
+        }
+
+        /// <summary>
+        /// Every label is TextMesh Pro (UiKit.MakeText), so the project needs TMP's essential
+        /// resources: the settings asset and the default font. The import is the same one as
+        /// Window > TextMeshPro > Import TMP Essential Resources. The font is then made dynamic,
+        /// so glyphs outside its shipped atlas (the card suits, the ▼ prompt) render from the TTF.
+        /// </summary>
+        static void SetUpTextMeshPro()
+        {
+            if (AssetDatabase.LoadAssetAtPath<TMP_Settings>(TmpSettingsPath) == null)
+            {
+                string package = Path.Combine(Path.GetFullPath("Packages/com.unity.ugui"),
+                    "Package Resources", "TMP Essential Resources.unitypackage");
+                UnityEditor.AssetPackage.Package.Import(package, false);
+                AssetDatabase.Refresh();
+            }
+
+            var font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(TmpFontPath);
+            if (font == null)
+                throw new System.InvalidOperationException($"TextMesh Pro's default font wasn't imported at {TmpFontPath}.");
+            if (font.atlasPopulationMode != AtlasPopulationMode.Dynamic)
+            {
+                font.atlasPopulationMode = AtlasPopulationMode.Dynamic;
+                font.isMultiAtlasTexturesEnabled = true;
+                EditorUtility.SetDirty(font);
+            }
         }
 
         /// <summary>Art imported before <see cref="ArtImporter"/> existed picks up its settings.</summary>

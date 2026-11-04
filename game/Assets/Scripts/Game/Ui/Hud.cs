@@ -1,4 +1,5 @@
 using Starflare.State;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -21,7 +22,7 @@ namespace Starflare.Game
         PlayerState _state;
         GameObject _root, _info, _corner, _phone, _eye, _close;
         Image _shade, _backing;
-        Text _title, _date, _cash, _owed;
+        TMP_Text _title, _date, _cash, _owed;
         RectTransform _pill;
         bool _buttons, _looking, _fitDirty;
         (int cash, int owed, int day, int minutes) _shown;
@@ -135,19 +136,19 @@ namespace Starflare.Game
 
             // The title shrinks to fit rather than run past the backing.
             _title = MakeText(info.transform, "", 52, TextAnchor.MiddleLeft, 0);
-            _title.fontStyle = FontStyle.Bold;
-            _title.resizeTextForBestFit = true;
-            _title.resizeTextMinSize = 34;
-            _title.resizeTextMaxSize = 52;
-            _title.verticalOverflow = VerticalWrapMode.Truncate;
-            _title.gameObject.AddComponent<Shadow>().effectDistance = new Vector2(2, -2);
+            _title.fontStyle = FontStyles.Bold;
+            _title.enableAutoSizing = true;
+            _title.fontSizeMin = 34;
+            _title.fontSizeMax = 52;
+            _title.overflowMode = TextOverflowModes.Truncate;
+            Shadowed(_title);
             Pin(_title.rectTransform, Vector2.up, Vector2.one, new Vector2(Margin + 36, -96), new Vector2(-460, -34));
 
             _date = MakeText(info.transform, "", 34, TextAnchor.MiddleLeft, 0);
-            _date.fontStyle = FontStyle.Italic;
+            _date.fontStyle = FontStyles.Italic;
             _date.color = new Color(Paper.r, Paper.g, Paper.b, 0.85f);
-            _date.horizontalOverflow = HorizontalWrapMode.Overflow;
-            _date.gameObject.AddComponent<Shadow>().effectDistance = new Vector2(2, -2);
+            NoWrap(_date);
+            Shadowed(_date);
             Pin(_date.rectTransform, Vector2.up, Vector2.one, new Vector2(Margin + 36, -140), new Vector2(-460, -96));
 
             // Top right: the cash pill, then the phone. The pill slides into the corner when the phone steps away.
@@ -188,10 +189,10 @@ namespace Starflare.Game
             // Expanding would make the pill flexible, and the corner row would stretch it across the bar.
             amountsColumn.childForceExpandWidth = false;
             _cash = MakeText(amounts.transform, "", 40, TextAnchor.MiddleLeft, 0);
-            _cash.horizontalOverflow = HorizontalWrapMode.Overflow;
+            NoWrap(_cash);
             _owed = MakeText(amounts.transform, "", 26, TextAnchor.MiddleLeft, 0);
             _owed.color = new Color(Paper.r, Paper.g, Paper.b, 0.7f);
-            _owed.horizontalOverflow = HorizontalWrapMode.Overflow;
+            NoWrap(_owed);
 
             var phone = MakePhoneButton(rowGo.transform, openPhone);
             var phoneLayout = phone.GetComponent<LayoutElement>();

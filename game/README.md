@@ -11,7 +11,7 @@ The game itself. The build spec is the GDD at `docs/docs/pages/gdd.md`.
 1. Unity Hub > Add > select this `game/` folder.
 2. Open `Assets/Scenes/City.unity` and press Play. Set the Game view to a portrait size, such as 1080x1920, or a landscape one, such as 1920x1080: every screen has both layouts and rearranges when the window turns. `Assets/Scenes/Blackjack.unity` is the older blackjack table.
 
-The scene and player settings are built from code: **Starflare > Rebuild Project Setup** regenerates them.
+The scene and player settings are built from code: **Starflare > Rebuild Project Setup** regenerates them. Run it once after cloning: it also imports TextMesh Pro's essential resources into `Assets/TextMesh Pro/` (every label is TMP) and makes the default font dynamic so the card suits render.
 
 ## Layout
 

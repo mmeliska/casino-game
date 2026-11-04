@@ -3,6 +3,7 @@ using System.Text;
 using Starflare.Blackjack;
 using Starflare.Cards;
 using Starflare.State;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static Starflare.Game.UiKit;
@@ -37,7 +38,7 @@ namespace Starflare.Game
         int _sittingRounds;
         string _message = "";
 
-        Text _bankrollText, _clockText, _dealerLabel, _messageText, _betText, _breakText;
+        TMP_Text _bankrollText, _clockText, _dealerLabel, _messageText, _betText, _breakText;
         RectTransform _dealerCards, _playerHands;
         RectTransform _portraitColumn, _landscapeRow, _tableSide, _controlSide, _controlSpacer;
         GameObject _bettingControls, _actionRow, _breakPanel;
@@ -274,7 +275,7 @@ namespace Starflare.Game
             MakeButton(chips, "Clear", ClearBet);
             _dealButton = MakeButton(betting, "Deal", Deal);
             _dealButton.GetComponent<Image>().color = Gold;
-            _dealButton.GetComponentInChildren<Text>().color = CardBlack;
+            _dealButton.GetComponentInChildren<TMP_Text>().color = CardBlack;
 
             var actions = MakeRow(column, "Actions");
             _actionRow = actions.gameObject;

@@ -134,17 +134,23 @@ landscape. No phase changes player-facing behaviour unless it says so.
 - Feature folders: `City`, `Places`, `Story`, `Tables`, `Ui`, `Save`, `Art`; moved in their
   own commit first. Namespaces are unchanged.
 
-### Phase 4: TextMeshPro
+### Phase 4: TextMeshPro (done 2026-11-04; needs one editor step)
 
-- `UiKit.MakeText` returns `TMP_Text`; a bundled TMP font asset replaces `LegacyRuntime.ttf`
-  (generate it with TMP's Font Asset Creator from a chosen typeface, checked in under
-  `Assets/Fonts`, and have `ProjectSetup` verify it exists).
-- Replace `Text` fields across `Hud`, `StoryPlayer`, `KasiasTap`, `PhoneMap`, `RegisterCard`,
-  `VideoPokerMachine`, `BlackjackTable`. `StoryPlayer.FitBox` uses
-  `TMP_Text.GetPreferredValues` instead of `cachedTextGeneratorForLayout`.
-- The `Starflare.Game` asmdef adds `Unity.TextMeshPro`.
-- **Player-facing change**: text renders sharper. Check the dialogue box sizing and the
-  title's best-fit shrink in both orientations.
+- `UiKit.MakeText` builds a `TextMeshProUGUI` and returns `TMP_Text`; the `TextAnchor` call
+  sites stay and map to `TextAlignmentOptions`. `UiKit.FontAsset` is TMP's default font;
+  `NoWrap` and `Shadowed` (an underlay, since uGUI's `Shadow` effect doesn't apply to TMP)
+  replace the legacy overflow and shadow settings.
+- Every `Text` field is `TMP_Text`; `FontStyle` is `FontStyles`; the HUD title auto-sizes with
+  `enableAutoSizing`; `StoryPlayer.FitBox` uses `GetPreferredValues`; Dot's register uses
+  `TMP_InputField` with a clipped text area.
+- `ProjectSetup.SetUpTextMeshPro` imports TMP's essential resources (the same package as
+  Window > TextMeshPro > Import TMP Essential Resources) when `Assets/TextMesh Pro` is missing,
+  and makes the default font asset dynamic so the card suits and the ▼ prompt render from the
+  TTF instead of showing as missing glyphs.
+- **Editor step:** run Starflare > Rebuild Project Setup once and commit the new
+  `Assets/TextMesh Pro/` folder. Until then every screen throws on its first label.
+- Check in both orientations: the dialogue box height, the HUD title shrink, the register's
+  typed name, the paytable columns and the card ranks and suits.
 
 ### Phase 5: Input System
 

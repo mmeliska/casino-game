@@ -2,6 +2,7 @@ using System;
 using Starflare.Cards;
 using Starflare.State;
 using Starflare.VideoPoker;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static Starflare.Game.UiKit;
@@ -46,15 +47,15 @@ namespace Starflare.Game
         string _message = "";
 
         GameObject _root;
-        Text _bankrollText, _clockText, _statusText, _betText;
-        Text[,] _paytableCells;
+        TMP_Text _bankrollText, _clockText, _statusText, _betText;
+        TMP_Text[,] _paytableCells;
         Image[] _paytableRows, _paytableColumns;
         Image[] _cardFaces;
-        Text[] _cardRanks, _cardSuits, _heldLabels;
+        TMP_Text[] _cardRanks, _cardSuits, _heldLabels;
         GameObject[] _cardBacks;
         Button[] _cardButtons;
         Button _betOneButton, _betMaxButton, _dealButton, _getUpButton;
-        Text _dealLabel;
+        TMP_Text _dealLabel;
         RectTransform _paytable, _paytablePane, _playPane;
 
         void Awake()
@@ -223,7 +224,7 @@ namespace Starflare.Game
             info.GetComponent<LayoutElement>().flexibleWidth = 3;
             AddVertical(info, 4, new RectOffset());
             _bankrollText = MakeText(info.transform, "", 46, TextAnchor.MiddleLeft, 60);
-            _bankrollText.fontStyle = FontStyle.Bold;
+            _bankrollText.fontStyle = FontStyles.Bold;
             _clockText = MakeText(info.transform, "", 32, TextAnchor.MiddleLeft, 44);
             _clockText.color = new Color(1, 1, 1, 0.8f);
             _getUpButton = MakeButton(header, "Get up", GetUp);
@@ -288,22 +289,22 @@ namespace Starflare.Game
             }
 
             _cardFaces = new Image[5];
-            _cardRanks = new Text[5];
-            _cardSuits = new Text[5];
+            _cardRanks = new TMP_Text[5];
+            _cardSuits = new TMP_Text[5];
             _cardBacks = new GameObject[5];
             _cardButtons = new Button[5];
-            _heldLabels = new Text[5];
+            _heldLabels = new TMP_Text[5];
             for (int i = 0; i < 5; i++)
             {
                 _heldLabels[i] = MakeText(holds, "HELD", 34, TextAnchor.MiddleCenter, 0);
                 _heldLabels[i].color = Gold;
-                _heldLabels[i].fontStyle = FontStyle.Bold;
+                _heldLabels[i].fontStyle = FontStyles.Bold;
                 _heldLabels[i].gameObject.AddComponent<LayoutElement>().flexibleWidth = 1;
                 BuildCard(cards, i);
             }
 
             _statusText = MakeText(_playPane, "", 44, TextAnchor.MiddleCenter, 64);
-            _statusText.fontStyle = FontStyle.Bold;
+            _statusText.fontStyle = FontStyles.Bold;
 
             var buttons = MakeRow(body, "Buttons");
             buttons.GetComponent<LayoutElement>().preferredHeight = 140;
@@ -311,9 +312,9 @@ namespace Starflare.Game
             _betMaxButton = MakeButton(buttons, "Bet max", BetMax);
             _dealButton = MakeButton(buttons, "Deal", DealOrDraw);
             _dealButton.GetComponent<Image>().color = Gold;
-            _dealLabel = _dealButton.GetComponentInChildren<Text>();
+            _dealLabel = _dealButton.GetComponentInChildren<TMP_Text>();
             _dealLabel.color = CardBlack;
-            _dealLabel.fontStyle = FontStyle.Bold;
+            _dealLabel.fontStyle = FontStyles.Bold;
 
             _betText = MakeText(body, "", 34, TextAnchor.MiddleCenter, 44);
             _betText.color = new Color(1, 1, 1, 0.75f);
@@ -350,7 +351,7 @@ namespace Starflare.Game
             }
 
             _paytableRows = new Image[PaytableRows.Length];
-            _paytableCells = new Text[PaytableRows.Length, Rules.MaxCredits + 1];
+            _paytableCells = new TMP_Text[PaytableRows.Length, Rules.MaxCredits + 1];
             for (int r = 0; r < PaytableRows.Length; r++)
             {
                 var rank = PaytableRows[r];
@@ -386,7 +387,7 @@ namespace Starflare.Game
             button.onClick.AddListener(() => ToggleHold(index));
 
             var rank = MakeText(face.transform, "", 52, TextAnchor.UpperLeft, 0);
-            rank.fontStyle = FontStyle.Bold;
+            rank.fontStyle = FontStyles.Bold;
             Stretch(rank.rectTransform);
             rank.rectTransform.offsetMin = new Vector2(14, 0);
             rank.rectTransform.offsetMax = new Vector2(0, -8);

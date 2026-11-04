@@ -1,5 +1,6 @@
 using System;
 using Starflare.State;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static Starflare.Game.UiKit;
@@ -29,10 +30,10 @@ namespace Starflare.Game
         GameObject _root;
         Image _plate;
         CoverFit _plateFit;
-        InputField _name;
+        TMP_InputField _name;
         Button _sign;
         readonly Image[] _boxImages = new Image[Boxes.Length];
-        readonly Text[] _boxLabels = new Text[Boxes.Length];
+        readonly TMP_Text[] _boxLabels = new TMP_Text[Boxes.Length];
 
         void Awake() => Build();
 
@@ -95,10 +96,10 @@ namespace Starflare.Game
 
             var title = MakeText(column, "SLACK WATER MOTEL", 52, TextAnchor.MiddleCenter, 72);
             title.color = InkBlack;
-            title.fontStyle = FontStyle.Bold;
+            title.fontStyle = FontStyles.Bold;
             var subtitle = MakeText(column, "Guest register", 40, TextAnchor.MiddleCenter, 56);
             subtitle.color = InkBlack;
-            subtitle.fontStyle = FontStyle.Italic;
+            subtitle.fontStyle = FontStyles.Italic;
 
             var nameLabel = MakeText(column, "Name", 38, TextAnchor.LowerLeft, 80);
             nameLabel.color = InkBlack;
@@ -113,7 +114,7 @@ namespace Starflare.Game
                 var box = Boxes[i].box;
                 var button = MakeButton(row, Boxes[i].label, () => Tick(box));
                 _boxImages[i] = button.GetComponent<Image>();
-                _boxLabels[i] = button.GetComponentInChildren<Text>();
+                _boxLabels[i] = button.GetComponentInChildren<TMP_Text>();
                 _boxLabels[i].fontSize = 36;
             }
 
@@ -122,7 +123,7 @@ namespace Starflare.Game
             spacer.GetComponent<LayoutElement>().flexibleHeight = 1;
 
             _sign = MakeButton(column, "Sign", Sign);
-            _sign.GetComponentInChildren<Text>().color = Gold;
+            _sign.GetComponentInChildren<TMP_Text>().color = Gold;
 
             OnTurn(canvas, landscape =>
             {
@@ -136,34 +137,39 @@ namespace Starflare.Game
             _root.SetActive(false);
         }
 
-        InputField MakeNameField(Transform parent)
+        TMP_InputField MakeNameField(Transform parent)
         {
             var field = MakeImage(parent, "Name Field", Color.white);
             field.sprite = Rounded;
             field.type = Image.Type.Sliced;
             field.gameObject.AddComponent<LayoutElement>().preferredHeight = 120;
 
-            var text = MakeText(field.transform, "", 54, TextAnchor.MiddleLeft, 0);
+            // The text area clips the typed line and the caret inside the field's margins.
+            var area = new GameObject("Text Area", typeof(RectTransform), typeof(RectMask2D));
+            area.transform.SetParent(field.transform, false);
+            var areaRect = (RectTransform)area.transform;
+            Stretch(areaRect);
+            areaRect.offsetMin = new Vector2(32, 0);
+            areaRect.offsetMax = new Vector2(-32, 0);
+
+            var text = MakeText(areaRect, "", 54, TextAnchor.MiddleLeft, 0);
             text.color = InkBlack;
-            text.supportRichText = false;
-            text.horizontalOverflow = HorizontalWrapMode.Overflow;
+            text.richText = false;
+            NoWrap(text);
             Stretch(text.rectTransform);
-            text.rectTransform.offsetMin = new Vector2(32, 0);
-            text.rectTransform.offsetMax = new Vector2(-32, 0);
 
-            var placeholder = MakeText(field.transform, "Your name", 54, TextAnchor.MiddleLeft, 0);
+            var placeholder = MakeText(areaRect, "Your name", 54, TextAnchor.MiddleLeft, 0);
             placeholder.color = new Color(0.45f, 0.42f, 0.38f);
-            placeholder.fontStyle = FontStyle.Italic;
+            placeholder.fontStyle = FontStyles.Italic;
             Stretch(placeholder.rectTransform);
-            placeholder.rectTransform.offsetMin = new Vector2(32, 0);
-            placeholder.rectTransform.offsetMax = new Vector2(-32, 0);
 
-            var input = field.gameObject.AddComponent<InputField>();
+            var input = field.gameObject.AddComponent<TMP_InputField>();
             input.targetGraphic = field;
+            input.textViewport = areaRect;
             input.textComponent = text;
             input.placeholder = placeholder;
             input.characterLimit = NameLimit;
-            input.lineType = InputField.LineType.SingleLine;
+            input.lineType = TMP_InputField.LineType.SingleLine;
             input.onValueChanged.AddListener(_ => Refresh());
             return input;
         }
