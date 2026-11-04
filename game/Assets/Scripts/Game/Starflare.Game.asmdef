@@ -5,6 +5,7 @@
         "Starflare.Core",
         "UnityEngine.UI",
         "Unity.TextMeshPro",
+        "Unity.InputSystem",
         "Ink",
         "Ink-Libraries"
     ],

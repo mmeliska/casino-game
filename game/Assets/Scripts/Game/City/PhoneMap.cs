@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.UI;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using static Starflare.Game.UiKit;
 
 namespace Starflare.Game
@@ -62,6 +65,11 @@ namespace Starflare.Game
 
         void Close() => _phone.SetActive(false);
 
+        // Pinch zoom reads two active touches through EnhancedTouch, which is off until asked.
+        void OnEnable() => EnhancedTouchSupport.Enable();
+
+        void OnDisable() => EnhancedTouchSupport.Disable();
+
         void Pick(string id)
         {
             Close();
@@ -86,17 +94,21 @@ namespace Starflare.Game
                 SetPosition(new Vector2((0.5f - centre.x) * size, (centre.y - 0.5f) * size));
             }
 
-            if (Input.touchCount == 2)
+            var touches = Touch.activeTouches;
+            if (touches.Count == 2)
             {
-                var a = Input.GetTouch(0);
-                var b = Input.GetTouch(1);
-                float before = Vector2.Distance(a.position - a.deltaPosition, b.position - b.deltaPosition);
-                if (before > 0) Zoom(Vector2.Distance(a.position, b.position) / before, (a.position + b.position) / 2);
+                Touch a = touches[0], b = touches[1];
+                float before = Vector2.Distance(a.screenPosition - a.delta, b.screenPosition - b.delta);
+                if (before > 0) Zoom(Vector2.Distance(a.screenPosition, b.screenPosition) / before, (a.screenPosition + b.screenPosition) / 2);
             }
-            else if (Input.mouseScrollDelta.y != 0)
-                Zoom(1 + 0.1f * Input.mouseScrollDelta.y, Input.mousePosition);
+            else if (Mouse.current != null && Mouse.current.scroll.ReadValue().y != 0)
+            {
+                // A wheel notch reads about 120 on some platforms and a few units on others; cap a step at 10%.
+                float notch = Mathf.Clamp(Mouse.current.scroll.ReadValue().y / 120f, -1f, 1f);
+                Zoom(1 + 0.1f * notch, Mouse.current.position.ReadValue());
+            }
             // Two fingers zoom; the scroll view would read them as a drag.
-            _scroll.enabled = Input.touchCount < 2;
+            _scroll.enabled = touches.Count < 2;
 
             // The map always covers the screen, even after the phone turns.
             if (_content.sizeDelta.x < MinSize) SetSize(MinSize);

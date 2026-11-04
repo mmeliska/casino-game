@@ -11,6 +11,8 @@ U="/Applications/Unity/Hub/Editor/$EDITOR_VERSION/Unity.app/Contents/Resources/S
 CSC=$(find "$(dirname "$(readlink -f "$(which dotnet)")")/sdk" -name csc.dll -path "*Roslyn/bincore*" | sort | tail -1)
 NUNIT=$(find Library/PackageCache -name nunit.framework.dll -path "*unity-custom*" | head -1)
 SA=Library/ScriptAssemblies
+# A package the editor has not installed yet can be pointed at from a local build of it.
+INPUTSYSTEM_DLL=${INPUTSYSTEM_DLL:-$SA/Unity.InputSystem.dll}
 OUT=$(mktemp -d)
 trap 'rm -rf "$OUT"' EXIT
 
@@ -32,7 +34,7 @@ step() {
 
 step Starflare.Core -out:"$OUT/Starflare.Core.dll" "${NS[@]}" Assets/Scripts/Core/**/*.cs
 step Starflare.Game -out:"$OUT/Starflare.Game.dll" "${NS[@]}" "${ENG[@]}" -r:"$OUT/Starflare.Core.dll" \
-  -r:$SA/UnityEngine.UI.dll -r:$SA/Ink.dll -r:$SA/Ink-Libraries.dll -r:$SA/Unity.TextMeshPro.dll \
+  -r:$SA/UnityEngine.UI.dll -r:$SA/Ink.dll -r:$SA/Ink-Libraries.dll -r:$SA/Unity.TextMeshPro.dll -r:"$INPUTSYSTEM_DLL" \
   Assets/Scripts/Game/**/*.cs
 step Starflare.Editor -out:"$OUT/Starflare.Editor.dll" -define:UNITY_EDITOR "${NS[@]}" "${ENG[@]}" "${EDI[@]}" \
   -r:"$OUT/Starflare.Core.dll" -r:"$OUT/Starflare.Game.dll" \
@@ -42,4 +44,8 @@ step Starflare.Tests.EditMode -out:"$OUT/Starflare.Tests.EditMode.dll" -define:U
   "${FW[@]}" "${ENG[@]}" "${EDI[@]}" -r:"$OUT/Starflare.Core.dll" -r:"$OUT/Starflare.Game.dll" \
   -r:"$NUNIT" -r:$SA/Ink-Libraries.dll -r:$SA/UnityEngine.TestRunner.dll -r:$SA/UnityEditor.TestRunner.dll \
   Assets/Tests/EditMode/**/*.cs
+step Starflare.Tests.PlayMode -out:"$OUT/Starflare.Tests.PlayMode.dll" -define:UNITY_INCLUDE_TESTS \
+  "${FW[@]}" "${ENG[@]}" -r:"$OUT/Starflare.Core.dll" -r:"$OUT/Starflare.Game.dll" \
+  -r:"$NUNIT" -r:$SA/Ink-Libraries.dll -r:$SA/UnityEngine.TestRunner.dll \
+  Assets/Tests/PlayMode/**/*.cs
 exit $failed

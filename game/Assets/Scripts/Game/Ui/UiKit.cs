@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 namespace Starflare.Game
@@ -193,7 +194,7 @@ namespace Starflare.Game
         public static Canvas MakeCanvas(Transform parent, string name, int sortingOrder)
         {
             if (Object.FindAnyObjectByType<EventSystem>() == null)
-                new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
+                new GameObject("EventSystem", typeof(EventSystem), typeof(InputSystemUIInputModule));
 
             var go = new GameObject(name, typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             go.transform.SetParent(parent, false);

@@ -122,6 +122,23 @@ namespace Starflare.EditorTools
             PlayerSettings.defaultScreenHeight = 960;
             PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
             PlayerSettings.resizableWindow = true;
+            UseInputSystemOnly();
+        }
+
+        /// <summary>
+        /// Input goes through the Input System package (uGUI's InputSystemUIInputModule and
+        /// EnhancedTouch), so the legacy Input Manager is switched off. The setting has no API;
+        /// it's the player settings' activeInputHandler (0 old, 1 both, 2 new) and takes effect
+        /// after the editor restarts.
+        /// </summary>
+        static void UseInputSystemOnly()
+        {
+            var settings = new SerializedObject(Unsupported.GetSerializedAssetInterfaceSingleton("PlayerSettings"));
+            var handler = settings.FindProperty("activeInputHandler");
+            if (handler == null || handler.intValue == 2) return;
+            handler.intValue = 2;
+            settings.ApplyModifiedPropertiesWithoutUndo();
+            Debug.LogWarning("Active Input Handling is now Input System only. Restart the editor for it to take effect.");
         }
 
         static void BuildScene(string path, string rootName, System.Type component)
