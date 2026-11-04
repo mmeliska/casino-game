@@ -17,6 +17,9 @@ namespace Starflare.Game
     /// </summary>
     public sealed class City : MonoBehaviour, IPlaceHost
     {
+        /// <summary>Where the save files go; null means the device's persistent data path. Tests set it.</summary>
+        public static string SaveFolder;
+
         public PlayerState State { get; private set; }
         public StoryBridge Story { get; private set; }
 
@@ -40,7 +43,7 @@ namespace Starflare.Game
 
         void Awake()
         {
-            _saves = new SaveStore(Application.persistentDataPath);
+            _saves = new SaveStore(SaveFolder ?? Application.persistentDataPath);
             State = _saves.Load();
             // The city is the one owner of the save: every settled change writes it.
             State.Changed += SaveAll;

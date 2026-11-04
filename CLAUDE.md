@@ -21,7 +21,7 @@ Run the EditMode tests headless from the repo root:
   -runTests -testPlatform EditMode -testResults TestResults.xml
 ```
 
-Add `-testFilter <FullTestName or regex>` to run a single test or fixture. Unity can't run headless while the editor has the project open.
+Run the PlayMode tests the same way with `-testPlatform PlayMode`. Add `-testFilter <FullTestName or regex>` to run a single test or fixture. Unity can't run headless while the editor has the project open.
 
 The scene and player settings are generated from code, not hand-edited. After changing `game/Assets/Scripts/Editor/ProjectSetup.cs`, regenerate with the **Starflare > Rebuild Project Setup** menu, or headless:
 
@@ -34,7 +34,8 @@ Assembly layout and its rules:
 - `Starflare.Core` (`Assets/Scripts/Core`): pure C#, `noEngineReferences: true`. Cards/shoe, blackjack and video poker rules and rounds, `PlayerState`, `GameClock`. Keep Unity APIs out of it so it stays testable.
 - `Starflare.Game` (`Assets/Scripts/Game`, grouped by feature): MonoBehaviours, each building its UI in code with `UiKit` (`Ui/`), with a portrait and a landscape layout (`UiKit.OnTurn` rearranges a screen when it turns). `City/City.cs` owns the player state and the one Ink story (`northlight.ink`, which includes each place's file, through `Story/StoryBridge`), saves both (`Save/SaveStore`) and moves you between places, which you pick on `PhoneMap`. Each place is a class in `Places/` implementing `IPlace` (`SlackWaterMotel`, `KasiasTap`, `MillstoneLanes`); it owns its screens and scene triggers and sees the city as `IPlaceHost`. `Story/StoryContract` names every Ink variable, external and knot the code uses; `Story/StoryPlayer` plays scenes; `Tables/` holds the game modules `VideoPokerMachine` and `BlackjackTable`; `Art/Art.cs` finds plates and poses by tag.
 - `Starflare.Editor`: the project setup menu.
-- `Starflare.Tests.EditMode`: NUnit tests; references only `Starflare.Core` (a `SaveStore` fixture referencing `Starflare.Game` is planned).
+- `Starflare.Tests.EditMode`: NUnit tests for the rules, state, save store and the Ink contract (it compiles the story); references `Starflare.Core`, `Starflare.Game` and `Ink-Libraries`.
+- `Starflare.Tests.PlayMode` (`Assets/Tests/PlayMode`): smoke tests that boot the `City` into a temp save folder (`City.SaveFolder`).
 
 Scenes are Ink files in `Assets/Resources/Story/` (inkle's ink-unity-integration package). Their `# plate:`/`# pose:`/`# insert:` tags are file names under `Assets/Resources/Plates`, `Poses`, `Inserts`. Slice a portrait sheet into poses with `tools/slice_sheet.py`.
 

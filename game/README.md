@@ -39,7 +39,7 @@ python3 tools/slice_sheet.py Images/Characters/Kasia.png \
 
 ## Tests
 
-Window > General > Test Runner > EditMode > Run All, or headless:
+Window > General > Test Runner, EditMode and PlayMode, or headless (add `-testPlatform PlayMode` for the second run):
 
 ```sh
 /Applications/Unity/Hub/Editor/6000.6.7f1/Unity.app/Contents/MacOS/Unity \
@@ -53,7 +53,7 @@ The arrival (A1.1): the motel lot at night with the rocket sign across the river
 
 The top bar (`Hud`): place screens and story scenes share a bar across the top with the place's name, the date (season, day and year) and time, your cash (and what you owe, once you owe), and the phone button. During a scene the buttons step away. Dialogue and place actions are dark glass panels with teal edges; a scene's choices sit under the dialogue box.
 
-The map: every screen outside the games (each place, and Kasia's break menu) has a phone button that opens Northlight's map on your phone. Drag to pan, pinch or scroll to zoom. Each place open to you is a pin, a circle with its name beside it, until the place icons exist; tap one to go there. Each place's pin is its `IPlace.Pin`, from the pin table on the Northlight page; the base map is `Assets/Resources/Map/city_map.png`, a copy of `Images/Map/city_map.png`. Walking doesn't take time yet.
+The map: every screen outside the games (each place, and Kasia's break menu) has a phone button that opens Northlight's map on your phone. Drag to pan, pinch or scroll to zoom (through the Input System package; the legacy Input Manager is off). Each place open to you is a pin, a circle with its name beside it, until the place icons exist; tap one to go there. Each place's pin is its `IPlace.Pin`, from the pin table on the Northlight page; the base map is `Assets/Resources/Map/city_map.png`, a copy of `Images/Map/city_map.png`. Walking doesn't take time yet.
 
 Looking around: a portrait screen crops a place's plate, so a place screen in portrait has an eye button on the right, under the phone button. Tap it and the top bar and actions step aside; drag to pan the plate edge to edge, then tap the picture or the eye to come back, and the plate eases back to its framing (`LookAround`). Story scenes don't have it yet.
 

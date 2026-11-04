@@ -69,7 +69,8 @@ Keep these; they match the guidance.
 
 ## Phases
 
-Each phase ends with: EditMode tests green headless, **Starflare > Rebuild Project Setup**,
+All six phases are in on the branch `architecture-phase-0` (2026-11-04); what's left is the
+editor steps noted under Phases 4 and 5, then a play-through. Each phase ends with: EditMode tests green headless, **Starflare > Rebuild Project Setup**,
 and a manual play of the arrival through to sitting down at the Tap, in portrait and in
 landscape. No phase changes player-facing behaviour unless it says so.
 
@@ -152,24 +153,32 @@ landscape. No phase changes player-facing behaviour unless it says so.
 - Check in both orientations: the dialogue box height, the HUD title shrink, the register's
   typed name, the paytable columns and the card ranks and suits.
 
-### Phase 5: Input System
+### Phase 5: Input System (done 2026-11-04; needs the editor to install the package)
 
-- Add `com.unity.inputsystem`; set Active Input Handling to Input System only in
-  `ProjectSetup.ConfigurePlayer`.
-- `UiKit.MakeCanvas` creates `InputSystemUIInputModule` instead of `StandaloneInputModule`.
-- `PhoneMap` pinch and scroll zoom move to `EnhancedTouch` (two active touches) and
-  `Mouse.current.scroll`. Everything else already goes through uGUI pointer events and keeps
-  working.
-- Test on a phone or the device simulator: drag, pinch, scroll, tap pins.
+- `com.unity.inputsystem` 1.20.0 (the version Unity 6.6's own URP template pins) is in the
+  manifest; `Starflare.Game` references `Unity.InputSystem`.
+- `UiKit.MakeCanvas` creates an `InputSystemUIInputModule`; every button, drag and tap already
+  went through uGUI pointer events, so nothing else changed.
+- `PhoneMap` pinches with EnhancedTouch's two active touches and zooms with
+  `Mouse.current.scroll` (a notch is capped at a 10% step, since its scale differs by platform).
+  No `UnityEngine.Input` call is left.
+- `ProjectSetup.UseInputSystemOnly` sets the player settings' `activeInputHandler` to Input
+  System only. It has no public API, so it goes through the serialized PlayerSettings object,
+  and it takes effect after an editor restart.
+- Compile-checked against a local build of the package's runtime (`tools/compile_check.sh`
+  takes `INPUTSYSTEM_DLL` until the editor has installed it).
+- **Editor steps:** let the editor resolve the new package, run Starflare > Rebuild Project
+  Setup, restart the editor, then try the map: drag, pinch (device simulator or a phone),
+  scroll, tap a pin.
 
-### Phase 6: PlayMode tests
+### Phase 6: PlayMode tests (done 2026-11-04)
 
-- New `Assets/Tests/PlayMode` with `Starflare.Tests.PlayMode.asmdef` (platforms empty,
-  references `Starflare.Game`, `Starflare.Core`, `UnityEngine.TestRunner`).
-- Smoke tests: the city boots from an empty save into the arrival scene; signing the register
-  with a stacked story reaches the motel lot; `UiKit.OnTurn` rearranges when the screen
-  aspect flips (drive `OrientationLayout.Apply` directly rather than resizing the window).
-- Add PlayMode to the headless test command in `CLAUDE.md`.
+- `Assets/Tests/PlayMode` with `Starflare.Tests.PlayMode.asmdef` (no platform restriction).
+- `CityBootTests`: a new game opens on the arrival; a save that has checked in opens on the
+  motel lot; a settled change is on disk at once. They point `City.SaveFolder` (a static hook,
+  null in play) at a temp folder, so the real save is never touched.
+- `OrientationLayoutTests`: `UiKit.OnTurn` calls back once, now, for the current orientation.
+- The headless command in `CLAUDE.md` gains a PlayMode line.
 
 ### Later, on a trigger, not a date
 
