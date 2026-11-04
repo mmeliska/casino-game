@@ -89,16 +89,39 @@ namespace Starflare.Tests
         }
 
         [Test]
-        public void Sleep_StartsANewDay_AndSeasonsTurnEvery28Days()
+        public void Sleep_StartsANewDay()
         {
             var clock = new GameClock();
             clock.AdvanceForPlay(100);
-            for (int i = 0; i < GameClock.DaysPerSeason; i++) clock.Sleep();
+            clock.Sleep();
 
-            Assert.That(clock.Day, Is.EqualTo(29));
-            Assert.That(clock.Season, Is.EqualTo(Season.Summer));
-            Assert.That(clock.DayOfSeason, Is.EqualTo(1));
+            Assert.That(clock.Day, Is.EqualTo(2));
+            Assert.That(clock.Part, Is.EqualTo(PartOfDay.Morning));
             Assert.That(clock.MinutesIntoPart, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void Clock_StartsOnMayFourthInSpring()
+        {
+            var clock = new GameClock();
+            Assert.That(clock.DateLabel, Is.EqualTo("May 4, Year 1"));
+            Assert.That(clock.Season, Is.EqualTo(Season.Spring));
+        }
+
+        [TestCase(28, "May 31, Year 1", Season.Spring)]
+        [TestCase(29, "Jun 1, Year 1", Season.Summer)]
+        [TestCase(121, "Sep 1, Year 1", Season.Fall)]
+        [TestCase(212, "Dec 1, Year 1", Season.Winter)]
+        [TestCase(242, "Dec 31, Year 1", Season.Winter)]
+        [TestCase(243, "Jan 1, Year 2", Season.Winter)]
+        [TestCase(301, "Feb 28, Year 2", Season.Winter)]
+        [TestCase(302, "Mar 1, Year 2", Season.Spring)]
+        [TestCase(608, "Jan 1, Year 3", Season.Winter)]
+        public void Clock_DatesFollowTheCalendar(int day, string date, Season season)
+        {
+            var clock = new GameClock { Day = day };
+            Assert.That(clock.DateLabel, Is.EqualTo(date));
+            Assert.That(clock.Season, Is.EqualTo(season));
         }
 
         [Test]

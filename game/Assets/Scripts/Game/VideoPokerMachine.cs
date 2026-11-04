@@ -143,7 +143,7 @@ namespace Starflare.Game
         {
             var clock = _state.Clock;
             _bankrollText.text = $"Cash {Money(_state.BankrollNow)}" + (_state.Debts > 0 ? $"    Owed {Money(_state.Debts)}" : "");
-            _clockText.text = $"Day {clock.Day} · {clock.Season} {clock.DayOfSeason} · {clock.Part} {clock.TimeLabel}"
+            _clockText.text = $"{clock.DateLabel} · {clock.Part} {clock.TimeLabel}"
                 + (clock.PartIsOver ? " (late)" : "");
 
             bool betting = Betting;

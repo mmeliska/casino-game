@@ -17,53 +17,104 @@ namespace Starflare.Game
         public static readonly Color CardRed = new Color(0.78f, 0.1f, 0.12f);
         public static readonly Color CardBlack = new Color(0.08f, 0.08f, 0.08f);
 
+        // The city and story screens: dark glass panels with teal edges.
+        public static readonly Color Teal = new Color(0.36f, 0.79f, 0.82f);
+        public static readonly Color Edge = new Color(0.36f, 0.79f, 0.82f, 0.45f);
+        public static readonly Color Panel = new Color(0.04f, 0.07f, 0.08f, 0.88f);
+        public static readonly Color ChoiceFill = new Color(0.15f, 0.26f, 0.26f, 0.92f);
+        public static readonly Color Paper = new Color(0.93f, 0.95f, 0.95f);
+
         static Font _font;
-        static Sprite _rounded, _circle, _mapGlyph;
+        static Sprite _rounded, _roundedFrame, _circle, _fade, _phoneGlyph, _eyeGlyph, _closeGlyph, _cashGlyph;
 
         public static Font Font => _font ??= Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
 
         /// <summary>A white rounded rectangle, nine-sliced, for cards, buttons and panels.</summary>
-        public static Sprite Rounded
+        public static Sprite Rounded => _rounded ??= MakeRounded(0);
+
+        /// <summary>The outline of <see cref="Rounded"/>, nine-sliced, for a panel's edge.</summary>
+        public static Sprite RoundedFrame => _roundedFrame ??= MakeRounded(3);
+
+        /// <summary>A rounded rectangle, filled, or just its outline <paramref name="line"/> pixels thick.</summary>
+        static Sprite MakeRounded(float line)
         {
-            get
+            const int size = 64, radius = 20;
+            var texture = new Texture2D(size, size, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp };
+            var pixels = new Color32[size * size];
+            for (int y = 0; y < size; y++)
+            for (int x = 0; x < size; x++)
             {
-                if (_rounded != null) return _rounded;
-                const int size = 64, radius = 20;
-                var texture = new Texture2D(size, size, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp };
-                var pixels = new Color32[size * size];
-                for (int y = 0; y < size; y++)
-                for (int x = 0; x < size; x++)
-                {
-                    float dx = Mathf.Max(radius - x - 0.5f, x + 0.5f - (size - radius), 0);
-                    float dy = Mathf.Max(radius - y - 0.5f, y + 0.5f - (size - radius), 0);
-                    float edge = Mathf.Clamp01(radius - Mathf.Sqrt(dx * dx + dy * dy) + 0.5f);
-                    pixels[y * size + x] = new Color32(255, 255, 255, (byte)(edge * 255));
-                }
-                texture.SetPixels32(pixels);
-                texture.Apply();
-                _rounded = Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), 100,
-                    0, SpriteMeshType.FullRect, new Vector4(radius, radius, radius, radius));
-                return _rounded;
+                float dx = Mathf.Max(radius - x - 0.5f, x + 0.5f - (size - radius), 0);
+                float dy = Mathf.Max(radius - y - 0.5f, y + 0.5f - (size - radius), 0);
+                float inside = radius - Mathf.Sqrt(dx * dx + dy * dy);
+                float edge = Mathf.Clamp01(inside + 0.5f);
+                if (line > 0) edge *= Mathf.Clamp01(line - inside + 0.5f);
+                pixels[y * size + x] = new Color32(255, 255, 255, (byte)(edge * 255));
             }
+            texture.SetPixels32(pixels);
+            texture.Apply();
+            return Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), 100,
+                0, SpriteMeshType.FullRect, new Vector4(radius, radius, radius, radius));
         }
 
         /// <summary>A white disc, for map pins.</summary>
         public static Sprite Circle => _circle ??= Draw(64, (x, y) =>
             Mathf.Clamp01(32 - Mathf.Sqrt((x - 32) * (x - 32) + (y - 32) * (y - 32)) + 0.5f));
 
-        /// <summary>A white folded map in three panels, the middle one shaded, for the map button.</summary>
-        public static Sprite MapGlyph => _mapGlyph ??= Draw(128, (x, y) =>
+        /// <summary>White fading to clear from top to bottom, for a shade behind the top bar.</summary>
+        public static Sprite Fade => _fade ??= Draw(64, (x, y) => y / 64);
+
+        /// <summary>A white phone outline with its speaker slot, for the phone button.</summary>
+        public static Sprite PhoneGlyph => _phoneGlyph ??= Draw(128, (x, y) =>
+            Mathf.Max(Stroke(Box(x, y, 64, 64, 30, 54, 12), 8), Fill(Box(x, y, 64, 100, 9, 3, 3))));
+
+        /// <summary>A white stack of three bills, for the cash pill.</summary>
+        public static Sprite CashGlyph => _cashGlyph ??= Draw(128, (x, y) =>
         {
-            const float left = 8, right = 120, panel = (right - left) / 3, rise = 14;
-            if (x < left - 1 || x > right + 1) return 0;
-            int fold = Mathf.Clamp((int)((x - left) / panel), 0, 2);
-            // The panels zigzag: each fold edge sits higher or lower than the last.
-            float t = (x - left) / panel - fold;
-            float lift = (fold % 2 == 0 ? t : 1 - t) * rise;
-            float bottom = 14 + lift, top = 100 + lift;
-            float edge = Mathf.Clamp01(Mathf.Min(Mathf.Min(x - left, right - x), Mathf.Min(y - bottom, top - y)) + 0.5f);
-            return edge * (fold == 1 ? 0.65f : 1f);
+            const float line = 7;
+            float front = Box(x, y, 64, 50, 52, 24, 6), middle = Box(x, y, 64, 64, 52, 24, 6), back = Box(x, y, 64, 78, 52, 24, 6);
+            float seal = Mathf.Sqrt((x - 64) * (x - 64) + (y - 50) * (y - 50)) - 10;
+            // Each bill shows only above the one in front of it.
+            float behindFront = Fill(line / 2 - front), behindMiddle = Fill(line / 2 - Mathf.Min(front, middle));
+            return Mathf.Max(Mathf.Max(Stroke(front, line), Stroke(seal, 6)),
+                Mathf.Max(Stroke(middle, line) * behindFront, Stroke(back, line) * behindMiddle));
         });
+
+        /// <summary>A white eye, an almond outline round a pupil, for the look-around button.</summary>
+        public static Sprite EyeGlyph => _eyeGlyph ??= Draw(128, (x, y) =>
+        {
+            // The almond is where two discs overlap, one centred above the eye and one below,
+            // each meeting the other at the eye's corners.
+            const float radius = 67.3f, offset = 37.3f, line = 8, pupil = 15;
+            float above = Mathf.Sqrt((x - 64) * (x - 64) + (y - 64 - offset) * (y - 64 - offset)) - radius;
+            float below = Mathf.Sqrt((x - 64) * (x - 64) + (y - 64 + offset) * (y - 64 + offset)) - radius;
+            float outline = Mathf.Clamp01(line / 2 - Mathf.Abs(Mathf.Max(above, below) + line / 2) + 0.5f);
+            float centre = Mathf.Clamp01(pupil - Mathf.Sqrt((x - 64) * (x - 64) + (y - 64) * (y - 64)) + 0.5f);
+            return Mathf.Max(outline, centre);
+        });
+
+        /// <summary>A white cross, two strokes corner to corner, for a close button.</summary>
+        public static Sprite CloseGlyph => _closeGlyph ??= Draw(128, (x, y) =>
+        {
+            const float arm = 34, line = 10;
+            float u = (x - 64) / Mathf.Sqrt(2), v = (y - 64) / Mathf.Sqrt(2);
+            float one = new Vector2(Mathf.Max(Mathf.Abs(u + v) - arm, 0), u - v).magnitude;
+            float other = new Vector2(Mathf.Max(Mathf.Abs(u - v) - arm, 0), u + v).magnitude;
+            return Fill(Mathf.Min(one, other) - line / 2);
+        });
+
+        /// <summary>Signed distance from a point to a rounded box: negative inside, positive outside.</summary>
+        static float Box(float x, float y, float centreX, float centreY, float halfWidth, float halfHeight, float radius)
+        {
+            float qx = Mathf.Abs(x - centreX) - halfWidth + radius, qy = Mathf.Abs(y - centreY) - halfHeight + radius;
+            return new Vector2(Mathf.Max(qx, 0), Mathf.Max(qy, 0)).magnitude + Mathf.Min(Mathf.Max(qx, qy), 0) - radius;
+        }
+
+        /// <summary>Coverage of a line <paramref name="width"/> thick along a shape's edge, from its signed distance.</summary>
+        static float Stroke(float distance, float width) => Mathf.Clamp01(width / 2 - Mathf.Abs(distance) + 0.5f);
+
+        /// <summary>Coverage of a shape's inside, from its signed distance.</summary>
+        static float Fill(float distance) => Mathf.Clamp01(0.5f - distance);
 
         /// <summary>Draws a white sprite from a coverage function of the pixel centre.</summary>
         static Sprite Draw(int size, System.Func<float, float, float> alpha)
@@ -78,20 +129,54 @@ namespace Starflare.Game
             return Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), 100);
         }
 
-        /// <summary>The map button every screen outside the games carries: it opens the phone's map.</summary>
-        public static Button MakeMapButton(Transform parent, UnityAction onClick)
+        /// <summary>The phone button every screen outside the games carries: it opens the phone's map.</summary>
+        public static Button MakePhoneButton(Transform parent, UnityAction onClick) =>
+            MakeIconButton(parent, "Phone Button", PhoneGlyph, onClick);
+
+        /// <summary>A square glass button with a light glyph on it, like the phone button.</summary>
+        public static Button MakeIconButton(Transform parent, string name, Sprite glyphSprite, UnityAction onClick)
         {
-            var image = MakeImage(parent, "Map Button", ButtonColor);
-            image.sprite = Rounded;
-            image.type = Image.Type.Sliced;
+            var image = MakePanel(parent, name, Panel);
             image.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
-            image.rectTransform.sizeDelta = new Vector2(150, 150);
+            image.rectTransform.sizeDelta = new Vector2(IconButtonSize, IconButtonSize);
             var button = image.gameObject.AddComponent<Button>();
             button.onClick.AddListener(onClick);
-            var glyph = MakeImage(image.transform, "Glyph", Gold);
-            glyph.sprite = MapGlyph;
+            var glyph = MakeImage(image.transform, "Glyph", Paper);
+            glyph.sprite = glyphSprite;
             glyph.raycastTarget = false;
-            glyph.rectTransform.sizeDelta = new Vector2(96, 96);
+            glyph.rectTransform.sizeDelta = new Vector2(64, 64);
+            return button;
+        }
+
+        public const float IconButtonSize = 104;
+
+        /// <summary>A rounded panel with a thin teal edge, the city and story screens' glass.</summary>
+        public static Image MakePanel(Transform parent, string name, Color fill)
+        {
+            var image = MakeImage(parent, name, fill);
+            image.sprite = Rounded;
+            image.type = Image.Type.Sliced;
+            var edge = MakeImage(image.transform, "Edge", Edge);
+            edge.sprite = RoundedFrame;
+            edge.type = Image.Type.Sliced;
+            edge.raycastTarget = false;
+            Stretch(edge.rectTransform);
+            return image;
+        }
+
+        /// <summary>A story choice or a place's action: a teal glass bar with its label on the left.</summary>
+        public static Button MakeChoiceButton(Transform parent, string label, UnityAction onClick)
+        {
+            var image = MakePanel(parent, label + " Button", ChoiceFill);
+            var layout = image.gameObject.AddComponent<LayoutElement>();
+            layout.preferredHeight = 112;
+            layout.flexibleWidth = 1;
+            var button = image.gameObject.AddComponent<Button>();
+            button.onClick.AddListener(onClick);
+            var text = MakeText(image.transform, label, 44, TextAnchor.MiddleLeft, 0);
+            Stretch(text.rectTransform);
+            text.rectTransform.offsetMin = new Vector2(44, 0);
+            text.rectTransform.offsetMax = new Vector2(-32, 0);
             return button;
         }
 

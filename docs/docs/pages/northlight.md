@@ -95,7 +95,7 @@ The map is square, so it pans and pinch-zooms the same way in portrait and lands
 
 ### Map prompts
 
-For ChatGPT's image generation. The base map uses `Images/Characters/Dot.png` as its style reference, because it shows the flat line and shading style and has no lettering to copy. The icons use the motel lot plate, `Images/Locations/slackwater_motel/outside.png`, so each place looks like a small piece of the game's own scenes (Mike, 2026-11-02). ChatGPT drifts towards its own glossy, detailed look, so every prompt also spells the style out in words.
+For ChatGPT's image generation. The base map uses `Images/Characters/Dot.png` as its style reference, because it shows the flat line and shading style and has no lettering to copy. The icons use the motel lot plate, `Images/Locations/slackwater_motel/outside_night.png`, so each place looks like a small piece of the game's own scenes (Mike, 2026-11-02). ChatGPT drifts towards its own glossy, detailed look, so every prompt also spells the style out in words.
 
 **The base map.** In a new chat, attach `Images/Map/city_map_layout.png` and then `Dot.png`, and send this. Upscale the result to at least 4096 px.
 
@@ -126,7 +126,7 @@ If the game wants a night map, send this in the same chat:
 Now the same map at night: keep everything exactly where it is and only darken it. The lake and river a deep navy, the land in dark, muted versions of the same four district colours, the streets faint amber lines. Same flat style, still no buildings and no text.
 ```
 
-**The icons.** Nine sheets make 34 icons: each place's pin, plus the states it changes into. Each icon is drawn the way the motel lot plate is: from street level, at night, with lit windows and glowing signs. Run all the sheets in one new chat with `outside.png` attached to the first message, so they share one look. That plate has lettering on its signs, so the prompt says plainly that the icons' signs are blank. Each sheet puts its icons in a row on flat grey, like the portrait sheets. Slice each sheet with `tools/slice_sheet.py`, listing the tags left to right, for example:
+**The icons.** Nine sheets make 34 icons: each place's pin, plus the states it changes into. Each icon is drawn the way the motel lot plate is: from street level, at night, with lit windows and glowing signs. Run all the sheets in one new chat with `outside_night.png` attached to the first message, so they share one look. That plate has lettering on its signs, so the prompt says plainly that the icons' signs are blank. Each sheet puts its icons in a row on flat grey, like the portrait sheets. Slice each sheet with `tools/slice_sheet.py`, listing the tags left to right, for example:
 
 ```sh
 python3 tools/slice_sheet.py sheet1.png map_slack_water map_kasias_tap map_millstone_lanes map_backwater_streets --out game/Assets/Resources/MapIcons

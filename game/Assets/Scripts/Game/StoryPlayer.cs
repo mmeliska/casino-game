@@ -27,10 +27,11 @@ namespace Starflare.Game
         Action _onDone;
 
         GameObject _root;
-        Image _plate, _pose, _insert, _black;
+        Image _plate, _pose, _insert, _black, _rule;
         CoverFit _plateFit;
         Text _speaker, _line, _blackLine, _more;
-        RectTransform _choices, _box;
+        RectTransform _bottom, _choices, _box;
+        LayoutElement _boxLayout;
 
         string _fullLine = "";
         float _shown;
@@ -54,6 +55,9 @@ namespace Starflare.Game
             _root.SetActive(true);
             _plate.enabled = false;
             _pose.enabled = false;
+            _speaker.text = _fullLine = _line.text = "";
+            _box.gameObject.SetActive(false);
+            _choices.gameObject.SetActive(false);
             Advance();
         }
 
@@ -153,6 +157,7 @@ namespace Starflare.Game
         {
             _waitingOnChoice = false;
             ClearChildren(_choices);
+            _choices.gameObject.SetActive(false);
 
             string speaker = "";
             var match = SpeakerLine.Match(text);
@@ -168,6 +173,26 @@ namespace Starflare.Game
             _fullLine = text;
             _shown = 0;
             SetVisibleText("");
+            FitBox();
+        }
+
+        /// <summary>
+        /// Sizes the dialogue box to the whole line before it types out, so it doesn't grow as
+        /// it goes. Narration has no name, so its box drops the name and rule.
+        /// </summary>
+        void FitBox()
+        {
+            bool speaking = _speaker.text.Length > 0;
+            _speaker.enabled = _rule.enabled = speaking;
+            float top = speaking ? 112 : 40;
+            _line.rectTransform.offsetMax = new Vector2(-48, -top);
+
+            var padding = _bottom.GetComponent<VerticalLayoutGroup>().padding;
+            float width = _bottom.rect.width - padding.horizontal - 96;
+            var settings = _line.GetGenerationSettings(new Vector2(width, 0));
+            float height = _line.cachedTextGeneratorForLayout.GetPreferredHeight(_fullLine, settings) / _line.pixelsPerUnit;
+            _boxLayout.preferredHeight = top + height + 44;
+            _box.gameObject.SetActive(_fullLine.Length > 0);
         }
 
         void SetVisibleText(string text)
@@ -183,18 +208,16 @@ namespace Starflare.Game
             foreach (var choice in _story.currentChoices)
             {
                 int index = choice.index;
-                var button = MakeButton(_choices, choice.text.Trim(), () => Choose(index));
-                button.GetComponent<LayoutElement>().preferredHeight = 128;
-                var label = button.GetComponentInChildren<Text>();
-                label.fontSize = 42;
-                label.color = Gold;
+                MakeChoiceButton(_choices, choice.text.Trim(), () => Choose(index));
             }
+            _choices.gameObject.SetActive(true);
         }
 
         void Choose(int index)
         {
             _waitingOnChoice = false;
             ClearChildren(_choices);
+            _choices.gameObject.SetActive(false);
             _story.ChooseChoiceIndex(index);
             Advance();
         }
@@ -226,12 +249,18 @@ namespace Starflare.Game
             _pose.raycastTarget = false;
 
             BuildInsert(safe.transform);
-            BuildDialogueBox(safe.transform);
+
+            // The dialogue box with the choices under it, stacked up from the bottom. The
+            // choices sit a little narrower than the box.
+            var bottomGo = new GameObject("Dialogue", typeof(RectTransform));
+            bottomGo.transform.SetParent(safe.transform, false);
+            _bottom = AddVertical(bottomGo, 24, new RectOffset(32, 32, 0, 0));
+            _bottom.GetComponent<VerticalLayoutGroup>().childAlignment = TextAnchor.LowerCenter;
+            BuildDialogueBox(_bottom);
 
             var choicesGo = new GameObject("Choices", typeof(RectTransform));
-            choicesGo.transform.SetParent(safe.transform, false);
-            _choices = AddVertical(choicesGo, 20, new RectOffset(56, 56, 0, 0));
-            _choices.GetComponent<VerticalLayoutGroup>().childAlignment = TextAnchor.LowerCenter;
+            choicesGo.transform.SetParent(_bottom, false);
+            _choices = AddVertical(choicesGo, 20, new RectOffset(28, 28, 0, 0));
 
             _black = MakeImage(canvas.transform, "Black Panel", Color.black);
             Stretch(_black.rectTransform);
@@ -246,8 +275,9 @@ namespace Starflare.Game
         }
 
         /// <summary>
-        /// Portrait stacks the pose over the dialogue box with the choices above it. Landscape
-        /// stands the pose (and any insert) on the left and puts the box and choices on the right.
+        /// Portrait stacks the pose over the dialogue box, with the choices under the box. Landscape
+        /// stands the pose (and any insert) on the left and puts the box and choices on the right,
+        /// under the top bar (Hud).
         /// </summary>
         void Rearrange(bool landscape)
         {
@@ -257,9 +287,7 @@ namespace Starflare.Game
                 Pin(_pose.rectTransform, poseFoot, poseFoot, new Vector2(-380, 0), new Vector2(380, 1040));
                 var middle = new Vector2(0.28f, 0.5f);
                 Pin(_insert.rectTransform, middle, middle, new Vector2(-360, -360), new Vector2(360, 360));
-                var right = new Vector2(0.5f, 0);
-                Pin(_box, right, Vector2.right, new Vector2(24, 32), new Vector2(-32, 432));
-                Pin(_choices, right, Vector2.right, new Vector2(-32, 460), new Vector2(24, 1060));
+                Pin(_bottom, new Vector2(0.5f, 0), Vector2.one, new Vector2(0, 32), new Vector2(-8, -170));
             }
             else
             {
@@ -267,9 +295,9 @@ namespace Starflare.Game
                 Pin(_pose.rectTransform, foot, foot, new Vector2(-500, 150), new Vector2(500, 1650));
                 var top = new Vector2(0.5f, 1);
                 Pin(_insert.rectTransform, top, top, new Vector2(-390, -1040), new Vector2(390, -260));
-                Pin(_box, Vector2.zero, Vector2.right, new Vector2(32, 32), new Vector2(-32, 512));
-                Pin(_choices, Vector2.zero, Vector2.right, new Vector2(0, 560), new Vector2(0, 1160));
+                Pin(_bottom, Vector2.zero, Vector2.right, new Vector2(0, 40), new Vector2(0, 1400));
             }
+            FitBox();
         }
 
         void BuildInsert(Transform parent)
@@ -290,38 +318,38 @@ namespace Starflare.Game
 
         void BuildDialogueBox(Transform parent)
         {
-            var box = MakeImage(parent, "Dialogue Box", new Color(0.06f, 0.05f, 0.05f, 0.93f));
-            box.sprite = Rounded;
-            box.type = Image.Type.Sliced;
+            var box = MakePanel(parent, "Dialogue Box", Panel);
             box.raycastTarget = false;
             _box = box.rectTransform;
+            _boxLayout = box.gameObject.AddComponent<LayoutElement>();
 
-            var rule = MakeImage(box.transform, "Rule", new Color(Gold.r, Gold.g, Gold.b, 0.5f));
-            rule.raycastTarget = false;
-            rule.rectTransform.anchorMin = new Vector2(0, 1);
-            rule.rectTransform.anchorMax = new Vector2(1, 1);
-            rule.rectTransform.offsetMin = new Vector2(48, -100);
-            rule.rectTransform.offsetMax = new Vector2(-48, -97);
+            _rule = MakeImage(box.transform, "Rule", new Color(Teal.r, Teal.g, Teal.b, 0.6f));
+            _rule.raycastTarget = false;
+            _rule.rectTransform.anchorMin = new Vector2(0, 1);
+            _rule.rectTransform.anchorMax = new Vector2(1, 1);
+            _rule.rectTransform.offsetMin = new Vector2(48, -90);
+            _rule.rectTransform.offsetMax = new Vector2(-48, -88);
 
-            _speaker = MakeText(box.transform, "", 44, TextAnchor.LowerLeft, 0);
-            _speaker.color = Gold;
+            _speaker = MakeText(box.transform, "", 40, TextAnchor.LowerLeft, 0);
+            _speaker.color = Teal;
             _speaker.fontStyle = FontStyle.Bold;
             _speaker.rectTransform.anchorMin = new Vector2(0, 1);
             _speaker.rectTransform.anchorMax = new Vector2(1, 1);
-            _speaker.rectTransform.offsetMin = new Vector2(52, -96);
-            _speaker.rectTransform.offsetMax = new Vector2(-52, -24);
+            _speaker.rectTransform.offsetMin = new Vector2(48, -84);
+            _speaker.rectTransform.offsetMax = new Vector2(-48, -20);
 
-            _line = MakeText(box.transform, "", 54, TextAnchor.UpperLeft, 0);
+            // FitBox sets the line's top, below the name or not.
+            _line = MakeText(box.transform, "", 52, TextAnchor.UpperLeft, 0);
             Stretch(_line.rectTransform);
-            _line.rectTransform.offsetMin = new Vector2(52, 64);
-            _line.rectTransform.offsetMax = new Vector2(-52, -124);
+            _line.rectTransform.offsetMin = new Vector2(48, 36);
+            _line.rectTransform.offsetMax = new Vector2(-48, -112);
             _line.lineSpacing = 1.1f;
 
-            _more = MakeText(box.transform, "▼", 36, TextAnchor.LowerRight, 0);
-            _more.color = Gold;
+            _more = MakeText(box.transform, "▼", 32, TextAnchor.LowerRight, 0);
+            _more.color = Teal;
             Stretch(_more.rectTransform);
-            _more.rectTransform.offsetMin = new Vector2(0, 24);
-            _more.rectTransform.offsetMax = new Vector2(-40, 0);
+            _more.rectTransform.offsetMin = new Vector2(0, 18);
+            _more.rectTransform.offsetMax = new Vector2(-28, 0);
         }
     }
 }

@@ -6,25 +6,25 @@ namespace Starflare.Game
     [RequireComponent(typeof(RectTransform))]
     public sealed class SafeAreaFitter : MonoBehaviour
     {
-        Rect _applied;
-        Vector2Int _appliedScreen;
-
         void OnEnable() => Fit();
         void Update() => Fit();
 
         void Fit()
         {
-            // When a phone turns, the safe area and the screen size can change a frame apart,
-            // so refit on either.
+            // Compare against the anchors themselves, not the last safe area applied: screens
+            // stretch the panel after adding this, and when a phone turns the safe area and
+            // the screen size can change a frame apart.
             var safe = Screen.safeArea;
-            var screen = new Vector2Int(Screen.width, Screen.height);
-            if (safe == _applied && screen == _appliedScreen || screen.x == 0 || screen.y == 0) return;
-            _applied = safe;
-            _appliedScreen = screen;
+            float width = Screen.width, height = Screen.height;
+            if (width == 0 || height == 0) return;
+            var min = new Vector2(safe.xMin / width, safe.yMin / height);
+            var max = new Vector2(safe.xMax / width, safe.yMax / height);
 
             var rect = (RectTransform)transform;
-            rect.anchorMin = new Vector2(safe.xMin / screen.x, safe.yMin / screen.y);
-            rect.anchorMax = new Vector2(safe.xMax / screen.x, safe.yMax / screen.y);
+            if (rect.anchorMin == min && rect.anchorMax == max && rect.offsetMin == Vector2.zero && rect.offsetMax == Vector2.zero)
+                return;
+            rect.anchorMin = min;
+            rect.anchorMax = max;
             rect.offsetMin = Vector2.zero;
             rect.offsetMax = Vector2.zero;
         }

@@ -44,7 +44,8 @@ Time runs on what you do, not the real clock (settled 19 Oct 2026).
 | Days | Pass only when you move, sleep, travel or take a job |
 | App closed | No in-game time passes; small timers count in-game time only |
 | Day length | About 15 minutes of normal play (starting value; tune once the prototype runs, Mike 2026-10-26) |
-| Season | 28 days, about 7 hours (starting value; tune once the prototype runs) |
+| Calendar | Days fall on real dates. You arrive on May 4, Year 1, and Year 2 starts the next Jan 1; years have 365 days, with no leap years (Mike, 2026-11-03) |
+| Season | Follows the calendar: spring is March to May, summer June to August, fall September to November, winter December to February, so a season is about 91 days (Mike, 2026-11-03). At the starting day length that is about 23 hours of play, so the day length and the season-based gaps below need retuning |
 | Main story | About 42 hours to opening night, about six seasons: act 1 ~8h, act 2 ~8h, act 3 ~8h, act 4 ~10h, act 5 ~8h |
 
 There is no story clock. The only deadline on the main line is Starflare Field's Opening Day, the first one at least three seasons after the ground-breaking at A3.5, when posters and the bar TV announce the date (Mike, 2026-10-29). Missing it leads to a resting point (outcome 7), not a fail; it should be rare, catching players who drift away for many hours. Seasons gate the excursions and a few beats. Small deadlines ("done by Friday", Ray's due date) are fine; a game-ending timer is not.
@@ -389,4 +390,4 @@ Premium, or a free demo with a one-time unlock. Never sell chips.
 - [ ] Prototype blackjack wired to the state model, clock and event director
 - [ ] Write act 1's beats in Ink against the schema above
 - [x] Settle the engine choice (Unity)
-- [ ] Tune day and season length once the prototype runs
+- [ ] Tune day length once the prototype runs, now that seasons follow the calendar (about 91 days each): the six-season main story and the season gaps (a season after the bailout, three seasons to Opening Day) were sized for 28-day seasons

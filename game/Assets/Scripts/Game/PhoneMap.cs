@@ -162,7 +162,7 @@ namespace Starflare.Game
 
         void Build()
         {
-            var canvas = MakeCanvas(transform, "Phone Canvas", 8);
+            var canvas = MakeCanvas(transform, "Phone Canvas", 13);
             _phone = canvas.gameObject;
 
             // Tapping outside the phone puts it away.
