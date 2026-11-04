@@ -50,8 +50,8 @@ Set 2026-11-04 from Unity 6 guidance (see `game/REFACTOR_PLAN.md` for the source
 
 - Rules, state and anything you can reason about without a screen go in `Starflare.Core`. If a class needs `UnityEngine`, it belongs in `Starflare.Game`; if it's thin enough to need no test, that's the sign it's in the right place (humble object).
 - Dependencies are passed in explicitly through `Init(...)` or a constructor. No singletons, no static service locators, no `FindObjectOfType` in gameplay code. The one bootstrap lookup (`UiKit.MakeCanvas` finding the `EventSystem`) is the exception.
-- Systems talk through events, not references to each other: game modules raise `RoundSettled` and `BreakPointReached`; `PlayerState` raises `Changed`; screens subscribe. Don't poll state in `Update`/`LateUpdate` when an event can tell you.
-- Only the `City` (the owner of the state) saves. Game modules, venues and screens never call `SaveStore`.
+- Systems talk through events, not references to each other: every change to `PlayerState` goes through one of its methods and raises `Changed`; game modules raise `BreakPointReached`; screens subscribe. Don't poll state in `Update`/`LateUpdate` when an event can tell you, and don't write a `PlayerState` field from outside it.
+- Only the owner of the state saves: the `City`, or `BlackjackScene` in the standalone table scene. It saves on `PlayerState.Changed`. Game modules, venues and screens never touch `SaveStore`.
 - The Ink/C# boundary lives in one place (`Game/Story`): every variable name and external function the C# side touches is a constant there, and a test checks them against the compiled story. Don't write `variablesState["..."]` with a literal anywhere else.
 - Shared contracts (`BreakPoint`, place ids, state events) get their own file; nothing shared hides inside a module's file.
 
@@ -72,7 +72,7 @@ Set 2026-11-04 from Unity 6 guidance (see `game/REFACTOR_PLAN.md` for the source
 **Tests and CI**
 
 - Every rule or state change lands with an EditMode test in `Starflare.Core`. MonoBehaviour flows get PlayMode smoke tests in `Assets/Tests/PlayMode`. Prefer `[Test]`; use `[UnityTest]` only when a test must yield.
-- There is no CI yet (decided 2026-11-04). Run the tests headless before asking for review.
+- There is no CI yet (decided 2026-11-04). Run the tests headless before asking for review. While the editor has the project open (so headless can't run), `tools/compile_check.sh` compiles all four assemblies with Roslyn against the Unity install's DLLs and catches compile errors; it doesn't run the tests.
 
 **Style**
 

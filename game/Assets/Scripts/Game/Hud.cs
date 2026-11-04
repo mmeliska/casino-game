@@ -23,15 +23,18 @@ namespace Starflare.Game
         Image _shade, _backing;
         Text _title, _date, _cash, _owed;
         RectTransform _pill;
-        bool _buttons, _looking;
+        bool _buttons, _looking, _fitDirty;
         (int cash, int owed, int day, int minutes) _shown;
 
         public void Init(PlayerState state, UnityAction openPhone, UnityAction look, UnityAction stopLooking)
         {
             _state = state;
+            _state.Changed += Refresh;
             Build(openPhone, look, stopLooking);
             _root.SetActive(false);
         }
+
+        void OnDestroy() => _state.Changed -= Refresh;
 
         /// <summary>Shows the bar for a place; <paramref name="buttons"/> is false during a scene.</summary>
         public void Show(string place, bool buttons)
@@ -43,7 +46,6 @@ namespace Starflare.Game
             _shown = default;
             _root.SetActive(true);
             Refresh();
-            FitBacking();
         }
 
         public void Hide() => _root.SetActive(false);
@@ -59,11 +61,11 @@ namespace Starflare.Game
             _close.SetActive(on);
         }
 
-        // A scene can spend or borrow, so the bar keeps up with the state while it's up.
+        // The pill's width is only known after layout, so a refresh fits the backing a frame later.
         void LateUpdate()
         {
-            if (!_root.activeSelf) return;
-            Refresh();
+            if (!_fitDirty || !_root.activeSelf) return;
+            _fitDirty = false;
             FitBacking();
         }
 
@@ -83,8 +85,11 @@ namespace Starflare.Game
             _date.rectTransform.offsetMax = new Vector2(right - 24, _date.rectTransform.offsetMax.y);
         }
 
+        /// <summary>Redraws from the state: on Show, and whenever the state says it changed (a scene can spend or borrow).</summary>
         void Refresh()
         {
+            _fitDirty = true;
+            if (!_root.activeSelf) return;
             var clock = _state.Clock;
             var now = (_state.BankrollNow, _state.Debts, clock.Day, (int)clock.Part * GameClock.MinutesPerPart + clock.MinutesIntoPart);
             if (now == _shown) return;
@@ -212,6 +217,7 @@ namespace Starflare.Game
                 Pin(shade.rectTransform, Vector2.up, Vector2.one, new Vector2(0, landscape ? -240 : -320), Vector2.zero);
                 // A 16:9 plate fills a landscape screen whole, so there's nothing to look round.
                 _eye.SetActive(_buttons && !landscape && !_looking);
+                _fitDirty = true;
             });
         }
     }

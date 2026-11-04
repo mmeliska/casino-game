@@ -87,21 +87,25 @@ landscape. No phase changes player-facing behaviour unless it says so.
 - No CI for now (Mike, 2026-11-04). Tests run headless before review; GameCI can be added
   later, which needs a Unity license in repo secrets.
 
-### Phase 1: state events and save ownership
+### Phase 1: state events and save ownership (done 2026-11-04)
 
-- `PlayerState` raises `Changed` after every mutating method (`ApplyRoundResult`, `Spend`,
-  `Borrow`, `Repay`, `Earn`, `SignRegister`, and `Clock.Sleep` through the clock). Pure C#
-  event, tested in `PlayerStateTests`.
-- Add `public int Version = 1` to `PlayerState`; `SaveStore.Load` reads the version from raw
-  JSON first and runs a `Migrate(json, fromVersion)` chain before deserialising. Add a
-  `SaveStoreTests` fixture (EditMode, referencing `Starflare.Game`) with a round trip and a
-  version-0 fixture file.
-- Game modules stop calling `SaveStore`. They raise `RoundSettled` (new event beside
-  `BreakPointReached`); whoever owns the state (the `City`, or the standalone `BlackjackTable`
-  scene's bootstrap) subscribes and saves. `BlackjackTable` loses its `SaveStore.Load` in
-  `Awake` and gets the state through `SitDown(PlayerState)` like the machine does.
-- `Hud` subscribes to `PlayerState.Changed` instead of polling in `LateUpdate`.
-  `FitBacking` stays, called from the same handler.
+- `PlayerState` raises `Changed` after every mutating method. Two new methods close the last
+  gaps where callers wrote fields or reached into the clock: `Sleep()` and `MoveTo(place)`.
+  The event is `[field: NonSerialized]` so JsonUtility skips it. Tested in `PlayerStateTests`.
+- `PlayerState.Version` (currently 1) and `PlayerState.CurrentVersion`. `SaveStore.Parse`
+  reads the version from the raw JSON first and runs the `Steps` chain (each step takes
+  version n's JSON and returns n + 1) before deserialising; a newer save is refused, an
+  unreadable one starts fresh with a warning. `SaveStoreTests` covers the round trip, a
+  version-0 fixture, a future version and garbage.
+- `SaveStore` is an instance built on a folder, so tests use a temp directory.
+- **Deviation from the plan:** no `RoundSettled` event. Game modules mutate the state only at
+  settle, through `ApplyRoundResult`, so the owner saving on `PlayerState.Changed` covers it
+  with one event instead of two. `VideoPokerMachine` and `BlackjackTable` no longer call
+  `SaveStore`; the table gets its state through `SitDown(PlayerState)` and raises
+  `StartOverRequested`. A new `BlackjackScene` host owns the state in the standalone scene.
+- `Hud` redraws on `Changed`; its `LateUpdate` only fits the backing on the frame after a
+  redraw or a turn, since the cash pill's width isn't known until layout has run.
+- `tools/compile_check.sh` compiles all four assemblies offline, for when the editor is open.
 
 ### Phase 2: one file for the Ink contract
 

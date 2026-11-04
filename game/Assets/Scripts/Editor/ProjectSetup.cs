@@ -30,7 +30,7 @@ namespace Starflare.EditorTools
             ConfigureRenderPipeline();
             ReimportArt();
             BuildScene(CityScenePath, "City", typeof(City));
-            BuildScene(BlackjackScenePath, "Blackjack Table", typeof(BlackjackTable));
+            BuildScene(BlackjackScenePath, "Blackjack Table", typeof(BlackjackScene));
 
             // The city is the build's first scene; the blackjack table stays for testing.
             EditorBuildSettings.scenes = new[]

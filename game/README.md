@@ -22,7 +22,7 @@ The scene and player settings are built from code: **Starflare > Rebuild Project
 | `Assets/Scripts/Editor` | `Starflare.Editor` | Project setup menu, art import settings |
 | `Assets/Tests/EditMode` | `Starflare.Tests.EditMode` | NUnit tests for the rules and state |
 
-Game modules never read story state. The table reports each settled round through `PlayerState.ApplyRoundResult` and raises `BreakPointReached` when you get up.
+Game modules never read story state or save. A table reports each settled round through `PlayerState.ApplyRoundResult`, which raises the state's `Changed` event (the city saves on it), and raises `BreakPointReached` when you get up. `Assets/Scenes/Blackjack.unity` is the table on its own, with `BlackjackScene` standing in for the city as the state's owner.
 
 ## Story and art
 

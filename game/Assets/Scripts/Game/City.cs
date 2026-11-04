@@ -34,6 +34,8 @@ namespace Starflare.Game
         public PlayerState State { get; private set; }
         public Story Story { get; private set; }
 
+        SaveStore _saves;
+
         StoryPlayer _player;
         RegisterCard _register;
         KasiasTap _tap;
@@ -49,7 +51,10 @@ namespace Starflare.Game
 
         void Awake()
         {
-            State = SaveStore.Load();
+            _saves = new SaveStore(Application.persistentDataPath);
+            State = _saves.Load();
+            // The city is the one owner of the save: every settled change writes it.
+            State.Changed += SaveAll;
             Story = LoadStory();
 
             _player = gameObject.AddComponent<StoryPlayer>();
@@ -76,6 +81,8 @@ namespace Starflare.Game
 
         void OnApplicationQuit() => SaveAll();
 
+        void OnDestroy() => State.Changed -= SaveAll;
+
         Story LoadStory()
         {
             var file = Resources.Load<InkFile>(StoryResource);
@@ -83,7 +90,7 @@ namespace Starflare.Game
                 throw new InvalidOperationException($"Ink story Resources/{StoryResource}.ink is missing or didn't compile.");
 
             var story = new Story(file.storyJson);
-            string saved = SaveStore.LoadStory();
+            string saved = _saves.LoadStory();
             if (saved != null)
             {
                 try { story.state.LoadJson(saved); }
@@ -95,7 +102,7 @@ namespace Starflare.Game
             story.BindExternalFunction("spend", (int amount) => State.Spend(amount), false);
             story.BindExternalFunction("borrow", (int amount) => State.Borrow(amount), false);
             story.BindExternalFunction("repay", (int amount) => State.Repay(amount), false);
-            story.BindExternalFunction("sleep", () => State.Clock.Sleep(), false);
+            story.BindExternalFunction("sleep", () => State.Sleep(), false);
             return story;
         }
 
@@ -125,7 +132,6 @@ namespace Starflare.Game
         void SignRegister(string name, RegisterBox box)
         {
             State.SignRegister(name, box);
-            SaveAll();
             PlayScene("checking_in", () => GoTo(Motel));
         }
 
@@ -151,8 +157,7 @@ namespace Starflare.Game
         {
             _tap.Close();
             Art.ForgetLooks();
-            State.Place = place;
-            SaveAll();
+            State.MoveTo(place);
             if (place == Tap) ShowTapOutside();
             else if (place == Lanes) ShowLanesOutside();
             else ShowMotel();
@@ -240,14 +245,17 @@ namespace Starflare.Game
 
         void StartOver()
         {
-            SaveStore.Wipe();
+            State.Changed -= SaveAll;
+            _saves.Wipe();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
+        /// <summary>Both files together, so the story's flags and the cash they refer to agree.</summary>
         void SaveAll()
         {
-            SaveStore.Save(State);
-            SaveStore.SaveStory(Story.state.ToJson());
+            if (Story == null) return;
+            _saves.Save(State);
+            _saves.SaveStory(Story.state.ToJson());
         }
 
         void BuildPlaceScreen()

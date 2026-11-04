@@ -11,7 +11,8 @@ namespace Starflare.Game
     /// <summary>
     /// A Jacks or Better machine: UI built in code, portrait or landscape, over the venue's plate, one hand
     /// at a time. Like the blackjack table it reports each settled hand to the player state,
-    /// raises a break point when you get up, and never reads story state.
+    /// raises a break point when you get up, and never reads story state or saves: the state's
+    /// owner does that on its Changed event.
     /// </summary>
     public sealed class VideoPokerMachine : MonoBehaviour
     {
@@ -114,7 +115,6 @@ namespace Starflare.Game
             _round.Draw();
             _state.ApplyRoundResult(_round.Net, Rules.MinutesPerRound);
             SittingRounds++;
-            SaveStore.Save(_state);
 
             _message = _round.Rank == PokerHandRank.Nothing
                 ? "Game over"

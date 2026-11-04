@@ -3,6 +3,7 @@
     "rootNamespace": "Starflare.Tests",
     "references": [
         "Starflare.Core",
+        "Starflare.Game",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],

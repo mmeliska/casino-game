@@ -12,7 +12,8 @@ namespace Starflare.Game
     /// <summary>
     /// The blackjack table: UI built in code, portrait or landscape, one round at a time. It reports each
     /// settled round to the player state and raises a break point when you get up. It never
-    /// reads story state.
+    /// reads story state or saves; whoever owns the state (see <see cref="BlackjackScene"/>)
+    /// hands it in through <see cref="SitDown(PlayerState)"/> and saves on its Changed event.
     /// </summary>
     public sealed class BlackjackTable : MonoBehaviour
     {
@@ -23,6 +24,9 @@ namespace Starflare.Game
 
         /// <summary>Raised at a break point, where story beats and seed reveals may fire.</summary>
         public event Action<BreakPoint> BreakPointReached;
+
+        /// <summary>The break panel's "start over": the owner wipes the save and sits you back down.</summary>
+        public event Action StartOverRequested;
 
         readonly BlackjackRules _rules = new BlackjackRules();
         PlayerState _state;
@@ -42,18 +46,16 @@ namespace Starflare.Game
 
         void Awake()
         {
-            _state = SaveStore.Load();
             _shoe = new Shoe(_rules.Decks, _rules.Penetration, new System.Random());
             BuildUi();
+        }
+
+        /// <summary>Sits you down with this state; the same shoe carries on between sittings.</summary>
+        public void SitDown(PlayerState state)
+        {
+            _state = state;
             SitDown();
         }
-
-        void OnApplicationPause(bool paused)
-        {
-            if (paused) SaveStore.Save(_state);
-        }
-
-        void OnApplicationQuit() => SaveStore.Save(_state);
 
         void SitDown()
         {
@@ -111,7 +113,6 @@ namespace Starflare.Game
             {
                 _state.ApplyRoundResult(_round.Net, _rules.MinutesPerRound);
                 _sittingRounds++;
-                SaveStore.Save(_state);
                 _message = DescribeResult(_round);
                 _bet = Mathf.Min(_bet, MaxAffordableBet);
             }
@@ -135,17 +136,11 @@ namespace Starflare.Game
 
         void SleepUntilMorning()
         {
-            _state.Clock.Sleep();
-            SaveStore.Save(_state);
+            _state.Sleep();
             SitDown();
         }
 
-        void StartOver()
-        {
-            _state = new PlayerState();
-            SaveStore.Save(_state);
-            SitDown();
-        }
+        void StartOver() => StartOverRequested?.Invoke();
 
         // ---- Display ----
 
