@@ -1,3 +1,9 @@
+## 4 Nov 2026
+
+### Kasia's Tap from the street
+
+Going to Kasia's Tap now puts you outside it first: the corner tavern across from the mill gate, by day or night, with a winter version (Mike). "Go inside" takes you in to Kasia, and the bar has a "Step back outside" choice, the same as Millstone Lanes. Rain versions are drawn too, for when the game has weather. The plate prompt is on [Kasia's Tap](#kasias-tap).
+
 ## 3 Nov 2026
 
 ### The clock keeps real dates

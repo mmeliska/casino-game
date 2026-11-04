@@ -16,6 +16,16 @@ For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an ins
 
 **Proposed, not settled:** dark wood bar with brass rail; the machines along the wall; green-shaded lamp over the back-room table; the wedding dressing (string lights, white tablecloths).
 
+### The front
+
+Where you arrive, on the corner sidewalk across from the mill gate, before you go in. Day and night, each in clear weather, rain and snow (`_rain`, `_winter`). Make the others from the night front.
+
+`kasia_front_night` (plate, landscape 16:9)
+
+```
+Background plate, no people. A small old corner tavern on a Backwater street: a two-storey brick building with a dark wood front, two front windows glowing with warm bar light and blank neon beer signs, a heavy wooden door with a small window under a short awning, a blank projecting sign on an iron bracket above the door. Across the street, the dark iron mill gate and a tall mill chimney against the night sky. Wet sidewalk, a sodium streetlamp at the kerb. Timeless retro details. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+```
+
 ### The bar at night
 
 Night one (A1.2): pull tabs and video poker, Raffy's envelope. Most nights at the Tap.

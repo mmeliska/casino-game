@@ -153,11 +153,7 @@ namespace Starflare.Game
             Art.ForgetLooks();
             State.Place = place;
             SaveAll();
-            if (place == Tap)
-            {
-                LeavePlaceScreen();
-                _tap.Enter();
-            }
+            if (place == Tap) ShowTapOutside();
             else if (place == Lanes) ShowLanesOutside();
             else ShowMotel();
         }
@@ -170,6 +166,17 @@ namespace Starflare.Game
                 ("Start over (wipe save)", StartOver));
         }
 
+        /// <summary>You arrive at the Tap on the sidewalk, across from the mill gate.</summary>
+        void ShowTapOutside()
+        {
+            ShowPlace("Kasia's Tap", "kasia_front",
+                ("Go inside", () =>
+                {
+                    LeavePlaceScreen();
+                    _tap.Enter();
+                }));
+        }
+
         void ShowTap()
         {
             ShowPlace("Kasia's Tap", "kasia_bar",
@@ -177,7 +184,8 @@ namespace Starflare.Game
                 {
                     LeavePlaceScreen();
                     _tap.SitDown();
-                }));
+                }),
+                ("Step back outside", ShowTapOutside));
         }
 
         /// <summary>You arrive at the Lanes in its lot, under the sign.</summary>
