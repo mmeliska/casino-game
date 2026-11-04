@@ -1,3 +1,9 @@
+## 3 Nov 2026
+
+### The clock keeps real dates
+
+The in-game clock now keeps a real date. You arrive on May 4, Year 1, the days count up from there, and Year 2 starts on Jan 1 (Mike). Years have 365 days, with no leap years. Seasons follow the calendar instead of running 28 days each: spring is March to May, summer June to August, fall September to November, winter December to February (Mike). A season is now about 91 days, so at the starting day length one takes about 23 hours of play, not 7. The six-season main story and the season gaps (a season after the bailout, three seasons to Opening Day) were sized for 28-day seasons and need retuning; the [GDD](#design) notes it. The prototype's top bar shows the date and time, such as "May 4, Year 1 • 18:00", and the game tables show the date too.
+
 ## 2 Nov 2026
 
 ### Travel by the map on your phone

@@ -38,12 +38,14 @@ namespace Starflare.Game
         RegisterCard _register;
         KasiasTap _tap;
         PhoneMap _map;
+        Hud _hud;
 
         GameObject _placeScreen;
         Image _plate;
         CoverFit _plateFit;
-        Text _placeName, _district, _status;
+        LookAround _look;
         RectTransform _actions;
+        string _view;
 
         void Awake()
         {
@@ -56,6 +58,8 @@ namespace Starflare.Game
             _tap = gameObject.AddComponent<KasiasTap>();
             _tap.Init(this, ShowTap);
             _map = gameObject.AddComponent<PhoneMap>();
+            _hud = gameObject.AddComponent<Hud>();
+            _hud.Init(State, OpenMap, () => Look(true), () => Look(false));
             BuildPlaceScreen();
         }
 
@@ -99,11 +103,13 @@ namespace Starflare.Game
         public void PlayScene(string knot, Action then)
         {
             _placeScreen.SetActive(false);
+            _hud.Show(PlaceName(State.Place), buttons: false);
             Story.variablesState["player_name"] = State.Name;
             Story.variablesState["bankroll"] = State.BankrollNow;
             Story.variablesState["book"] = State.Debts;
             _player.Play(knot, () =>
             {
+                _hud.Hide();
                 SaveAll();
                 then();
             });
@@ -135,6 +141,8 @@ namespace Starflare.Game
             });
         }
 
+        static string PlaceName(string id) => Array.Find(Places, place => place.Id == id).Name ?? "";
+
         bool IsOpen(string place) =>
             // The Lanes opens once Kasia's given you the box to carry.
             place != Lanes || (bool)Story.variablesState["carrying_coupons"] || (bool)Story.variablesState["met_juan"];
@@ -142,25 +150,21 @@ namespace Starflare.Game
         void GoTo(string place)
         {
             _tap.Close();
+            Art.ForgetLooks();
             State.Place = place;
             SaveAll();
             if (place == Tap)
             {
-                _placeScreen.SetActive(false);
+                LeavePlaceScreen();
                 _tap.Enter();
             }
-            else if (place == Lanes)
-            {
-                // Kasia's coupons are how you first walk in (A1.3).
-                if (!(bool)Story.variablesState["met_juan"]) PlayScene("coupons", ShowLanes);
-                else ShowLanes();
-            }
+            else if (place == Lanes) ShowLanesOutside();
             else ShowMotel();
         }
 
         void ShowMotel()
         {
-            ShowPlace("Slack Water Motel", "Backwater", "motel_lot_night",
+            ShowPlace("Slack Water Motel", "motel_lot",
                 ("Step into the office", () => PlayScene("office", ShowMotel)),
                 ("Go to your room", () => PlayScene("turn_in", ShowMotel)),
                 ("Start over (wipe save)", StartOver));
@@ -168,32 +172,62 @@ namespace Starflare.Game
 
         void ShowTap()
         {
-            ShowPlace("Kasia's Tap", "Backwater", "kasia_bar_night",
+            ShowPlace("Kasia's Tap", "kasia_bar",
                 ("Sit down at the machine", () =>
                 {
-                    _placeScreen.SetActive(false);
+                    LeavePlaceScreen();
                     _tap.SitDown();
+                }));
+        }
+
+        /// <summary>You arrive at the Lanes in its lot, under the sign.</summary>
+        void ShowLanesOutside()
+        {
+            ShowPlace("Millstone Lanes", "lanes_front",
+                ("Go inside", () =>
+                {
+                    // Kasia's coupons are how you first walk in (A1.3).
+                    if (!(bool)Story.variablesState["met_juan"]) PlayScene("coupons", ShowLanes);
+                    else ShowLanes();
                 }));
         }
 
         void ShowLanes()
         {
-            ShowPlace("Millstone Lanes", "Backwater", "lanes_lanes_night",
-                ("Find Juan at the counter", () => PlayScene("juan", ShowLanes)));
+            ShowPlace("Millstone Lanes", "lanes_lanes",
+                ("Find Juan at the counter", () => PlayScene("juan", ShowLanes)),
+                ("Step back outside", ShowLanesOutside));
         }
 
-        void ShowPlace(string name, string district, string plate, params (string label, UnityAction action)[] actions)
+        /// <summary>Shows a place screen over the view's plate for the time of day and season.</summary>
+        void ShowPlace(string name, string view, params (string label, UnityAction action)[] actions)
         {
+            Look(false);
+            _view = view;
+            string plate = Art.PlateAt(view, State.Clock);
             _plateFit.Show(_plate, Art.Plate(plate), Art.Focus(plate));
-            _placeName.text = name;
-            _district.text = district;
-            var clock = State.Clock;
-            _status.text = $"Day {clock.Day}, {clock.Part} {clock.TimeLabel}   Cash {Money(State.BankrollNow)}" +
-                           (State.Debts > 0 ? $"   Owed {Money(State.Debts)}" : "");
-
             ClearChildren(_actions);
-            foreach (var (label, action) in actions) MakeButton(_actions, label, action);
+            foreach (var (label, action) in actions) MakeChoiceButton(_actions, label, action);
+            _hud.Show(name, buttons: true);
             _placeScreen.SetActive(true);
+        }
+
+        void LeavePlaceScreen()
+        {
+            _placeScreen.SetActive(false);
+            _hud.Hide();
+        }
+
+        /// <summary>
+        /// Looking around: the top bar and actions step aside so you can pan the plate. When you
+        /// close it, the view keeps where you panned to, in scenes too (Art.KeepLook).
+        /// </summary>
+        void Look(bool on)
+        {
+            if (_look.On && !on) Art.KeepLook(_view, _plateFit.KeepLook());
+            _look.On = on;
+            _actions.gameObject.SetActive(!on);
+            _hud.Looking(on);
         }
 
         void StartOver()
@@ -218,47 +252,27 @@ namespace Starflare.Game
             _plate = MakeImage(backdrop.transform, "Plate", Color.white);
             _plate.raycastTarget = false;
             _plateFit = _plate.gameObject.AddComponent<CoverFit>();
+            _look = backdrop.gameObject.AddComponent<LookAround>();
+            _look.Init(_plateFit);
 
             var safe = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
             safe.transform.SetParent(canvas.transform, false);
             Stretch((RectTransform)safe.transform);
 
-            var header = MakeImage(safe.transform, "Header", new Color(0.06f, 0.05f, 0.05f, 0.85f));
-            header.sprite = Rounded;
-            header.type = Image.Type.Sliced;
-            var headerColumn = AddVertical(header.gameObject, 8, new RectOffset(52, 220, 36, 36));
-
-            _placeName = MakeText(headerColumn, "", 64, TextAnchor.MiddleLeft, 84);
-            _placeName.color = Gold;
-            _placeName.fontStyle = FontStyle.Bold;
-            _district = MakeText(headerColumn, "", 40, TextAnchor.MiddleLeft, 52);
-            _district.fontStyle = FontStyle.Italic;
-            _status = MakeText(headerColumn, "", 38, TextAnchor.MiddleLeft, 52);
-
-            // You travel from the phone's map, on the right of the header.
-            var mapButton = (RectTransform)MakeMapButton(header.transform, OpenMap).transform;
-            mapButton.anchorMin = mapButton.anchorMax = mapButton.pivot = new Vector2(1, 0.5f);
-            mapButton.anchoredPosition = new Vector2(-40, 0);
-
             var actionsGo = new GameObject("Actions", typeof(RectTransform));
             actionsGo.transform.SetParent(safe.transform, false);
-            _actions = AddVertical(actionsGo, 20, new RectOffset(56, 56, 0, 0));
+            _actions = AddVertical(actionsGo, 20, new RectOffset(60, 60, 0, 0));
             _actions.GetComponent<VerticalLayoutGroup>().childAlignment = TextAnchor.LowerCenter;
 
-            // Portrait: the header across the top, the actions along the bottom. Landscape: the
-            // header top left, the actions down the right half, so the plate shows between.
+            // The top bar (Hud) is shared with the scenes. Under it, portrait puts the actions
+            // along the bottom; landscape puts them down the right half, so the plate shows beside.
             OnTurn(canvas, landscape =>
             {
+                Look(false);
                 if (landscape)
-                {
-                    Pin(header.rectTransform, Vector2.up, new Vector2(0.5f, 1), new Vector2(32, -300), new Vector2(-16, -32));
-                    Pin(_actions, new Vector2(0.5f, 0), Vector2.one, new Vector2(0, 48), new Vector2(0, -48));
-                }
+                    Pin(_actions, new Vector2(0.5f, 0), Vector2.one, new Vector2(0, 40), new Vector2(-16, -180));
                 else
-                {
-                    Pin(header.rectTransform, Vector2.up, Vector2.one, new Vector2(32, -300), new Vector2(-32, -32));
-                    Pin(_actions, Vector2.zero, Vector2.right, new Vector2(0, 80), new Vector2(0, 780));
-                }
+                    Pin(_actions, Vector2.zero, Vector2.right, new Vector2(0, 40), new Vector2(0, 780));
             });
             _placeScreen.SetActive(false);
         }

@@ -155,7 +155,7 @@ namespace Starflare.Game
         {
             var clock = _state.Clock;
             _bankrollText.text = $"Bankroll {Money(_state.BankrollNow)}     Best {Money(_state.BestBankroll)}";
-            _clockText.text = $"Day {clock.Day} · {clock.Season} {clock.DayOfSeason} · {clock.Part} {clock.TimeLabel}"
+            _clockText.text = $"{clock.DateLabel} · {clock.Part} {clock.TimeLabel}"
                 + (clock.PartIsOver ? " (late)" : "");
 
             ClearChildren(_dealerCards);

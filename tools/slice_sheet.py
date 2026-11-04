@@ -10,6 +10,8 @@ jump or rescale the character.
         --out game/Assets/Resources/Poses
 
 Tags are listed left to right as the poses appear on the sheet (not in prompt order).
+A sheet with loose dark hair against the grey (Kasia's) leaves a pale haze between the
+strands; add --wisp 20 for it. Leave it off for pale grey hair (Dot's), which it thins.
 Needs Pillow, NumPy and SciPy.
 """
 
@@ -42,9 +44,11 @@ def pose_columns(ink, min_width):
     return [r for r in runs if r[1] - r[0] >= min_width]
 
 
-def cut_out(rgb, distance, tolerance, pocket_min):
-    """Alpha for one pose: the background reached from the border, plus enclosed pockets
-    of background (between an arm and the body) that match it closely, with a soft edge."""
+def cut_out(rgb, distance, background, tolerance, pocket_min, halo, wisp):
+    """RGBA for one pose: the background reached from the border, plus enclosed pockets
+    of background (between an arm and the body) that match it closely, cleared; then the
+    light halo the generator leaves outside the ink line; then a soft edge against the ink,
+    reaching into loose hair."""
     bg_like = distance < tolerance
     labels, count = ndimage.label(bg_like)
     border = set(np.unique(np.concatenate([labels[0], labels[-1], labels[:, 0], labels[:, -1]])))
@@ -57,13 +61,43 @@ def cut_out(rgb, distance, tolerance, pocket_min):
         if i in border or size < pocket_min:
             continue
         pocket = labels == i
-        if tight[pocket].mean() > 0.95:
+        if tight[pocket].mean() > 0.9:
             remove |= pocket
 
+    # The generator sharpens its ink lines, which leaves a ring a pixel or two wide that is
+    # lighter than the background just outside them. It reads as a white border on a dark
+    # plate, so eat into anything no darker than the background, up to `halo` pixels in.
+    lum = rgb.mean(axis=2)
+    bg_lum = background.mean()
+    for _ in range(halo):
+        ring = ndimage.binary_dilation(remove) & ~remove & (lum > bg_lum - tolerance / 3)
+        if not ring.any():
+            break
+        remove |= ring
+
+    # Loose strands of hair are thin grey lines, ink blended with the background, with
+    # background caught between them; kept whole they read as a pale haze on a dark plate.
+    # Reach in through faint, colourless pixels like these, up to `wisp` pixels; a solid ink
+    # line (or any colour) stops it, so it never gets inside the figure.
+    chroma = rgb.max(axis=2) - rgb.min(axis=2)
+    faint = (lum > 0.4 * bg_lum) & (chroma < 30)
+    reach = remove.copy()
+    for _ in range(wisp):
+        grown = ndimage.binary_dilation(reach) & faint
+        if not (grown & ~reach).any():
+            break
+        reach |= grown
+
+    # The pixels left along the edge are ink blended with the background: take their alpha
+    # from how dark they are, and unmix the background out of their colour.
     alpha = np.where(remove, 0.0, 1.0)
-    band = ndimage.binary_dilation(remove, iterations=2) & ~remove
-    alpha[band] = np.clip((distance[band] - tolerance / 4) / tolerance, 0, 1)
-    return (alpha * 255).astype(np.uint8)
+    band = ndimage.binary_dilation(reach) & ~remove
+    alpha[band] = np.clip((bg_lum - lum[band]) / (0.5 * bg_lum), 0, 1)
+    colour = rgb.copy()
+    a = np.maximum(alpha[band], 1e-3)[:, None]
+    colour[band] = np.clip((rgb[band] - (1 - a) * background) / a, 0, 255)
+    colour[remove] = 0
+    return np.dstack([colour, alpha * 255]).astype(np.uint8)
 
 
 def main():
@@ -73,11 +107,14 @@ def main():
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--tolerance", type=float, default=36, help="colour distance still counted as background")
     parser.add_argument("--pocket-min", type=int, default=400, help="smallest enclosed background pocket to clear, in pixels")
+    parser.add_argument("--halo", type=int, default=3, help="how far in, in pixels, to clear the light ring outside the ink line")
+    parser.add_argument("--wisp", type=int, default=0, help="how far, in pixels, to soften loose dark hair; it also thins pale grey hair, so only for sheets that need it")
     parser.add_argument("--pad", type=int, default=16)
     args = parser.parse_args()
 
     rgb = np.asarray(Image.open(args.sheet).convert("RGB")).astype(np.float32)
-    distance = np.abs(rgb - background_colour(rgb)).sum(axis=2)
+    background = background_colour(rgb)
+    distance = np.abs(rgb - background).sum(axis=2)
     ink = distance > args.tolerance
 
     columns = pose_columns(ink, min_width=rgb.shape[1] // 40)
@@ -92,12 +129,11 @@ def main():
     for tag, (left, right) in zip(args.tags, columns):
         x0, x1 = max(left - args.pad, 0), min(right + args.pad, rgb.shape[1])
         crop = rgb[top:bottom, x0:x1]
-        alpha = cut_out(crop, distance[top:bottom, x0:x1], args.tolerance, args.pocket_min)
+        pose = cut_out(crop, distance[top:bottom, x0:x1], background, args.tolerance, args.pocket_min, args.halo, args.wisp)
 
         canvas = np.zeros((bottom - top, width, 4), dtype=np.uint8)
         offset = (width - (x1 - x0)) // 2
-        canvas[:, offset:offset + x1 - x0, :3] = crop.astype(np.uint8)
-        canvas[:, offset:offset + x1 - x0, 3] = alpha
+        canvas[:, offset:offset + x1 - x0] = pose
         path = args.out / f"{tag}.png"
         Image.fromarray(canvas, "RGBA").save(path)
         print(f"{path}  {width}x{bottom - top}")

@@ -88,9 +88,9 @@ namespace Starflare.Game
             var safe = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
             safe.transform.SetParent(canvas.transform, false);
             Stretch((RectTransform)safe.transform);
-            var mapButton = (RectTransform)MakeMapButton(safe.transform, _city.OpenMap).transform;
-            mapButton.anchorMin = mapButton.anchorMax = mapButton.pivot = Vector2.one;
-            mapButton.anchoredPosition = new Vector2(-48, -48);
+            var phoneButton = (RectTransform)MakePhoneButton(safe.transform, _city.OpenMap).transform;
+            phoneButton.anchorMin = phoneButton.anchorMax = phoneButton.pivot = Vector2.one;
+            phoneButton.anchoredPosition = new Vector2(-36, -36);
             OnTurn(canvas, landscape => column.GetComponent<VerticalLayoutGroup>().padding =
                 landscape ? new RectOffset(560, 560, 80, 80) : new RectOffset(80, 80, 300, 300));
             _menu.SetActive(false);

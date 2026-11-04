@@ -11,7 +11,7 @@ VAR told_dot = ""
 
 // You pull in at night; the rocket sign across the river is the game's first image.
 === arrival ===
-# plate: motel_lot_night
+# plate: motel_river_night
 Backwater, after dark. Two hundred dollars and a car that made it.
 Across the river, a little neon rocket glows on the far bank.
 The motel office still has a light on.
