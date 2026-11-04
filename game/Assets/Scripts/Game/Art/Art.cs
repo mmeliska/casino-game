@@ -62,24 +62,40 @@ namespace Starflare.Game
         /// <summary>Back to each view's own framing, as you arrive somewhere.</summary>
         public static void ForgetLooks() => Looked.Clear();
 
-        /// <summary>The view a plate tag shows: the tag without its <c>_day</c>/<c>_night</c> and <c>_winter</c>.</summary>
-        static string ViewOf(string plateTag)
+        /// <summary>
+        /// The view a plate tag shows: the tag without its weather or season (<c>_rain</c>,
+        /// <c>_winter</c>) and then its time of day (<c>_day</c>, <c>_night</c>), so
+        /// <c>kasia_front_night_winter</c> and <c>kasia_bar_winter</c> are both their view's.
+        /// </summary>
+        public static string ViewOf(string plateTag)
         {
-            string tag = plateTag.EndsWith("_winter") ? plateTag.Substring(0, plateTag.Length - "_winter".Length) : plateTag;
-            int cut = tag.LastIndexOf('_');
-            return cut < 0 ? tag : tag.Substring(0, cut);
+            string tag = StripSuffix(StripSuffix(plateTag, "_winter"), "_rain");
+            return StripSuffix(StripSuffix(tag, "_day"), "_night");
         }
+
+        static string StripSuffix(string tag, string suffix) =>
+            tag.EndsWith(suffix) ? tag.Substring(0, tag.Length - suffix.Length) : tag;
 
         /// <summary>
         /// The plate tag for a view at this time: <c>view_day</c> (morning and afternoon) or
-        /// <c>view_night</c>, with <c>_winter</c> on the end in winter when that plate exists.
-        /// A view drawn only at night shows its night plate all day.
+        /// <c>view_night</c>. In winter it's the snow plate when the view has one: first
+        /// <c>view_day_winter</c> or <c>view_night_winter</c>, else <c>view_winter</c>, one snow
+        /// plate for any time of day. A view drawn only at night shows its night plate all day.
+        /// Rain plates follow the same rule (<c>view_night_rain</c>, else <c>view_rain</c>) once
+        /// there's weather to choose them.
         /// </summary>
-        public static string PlateAt(string view, GameClock clock)
+        public static string PlateAt(string view, GameClock clock) => PlateAt(view, clock, HasPlate);
+
+        /// <summary><see cref="PlateAt(string, GameClock)"/> with the plates that exist given, for tests.</summary>
+        public static string PlateAt(string view, GameClock clock, System.Func<string, bool> hasPlate)
         {
             string tag = clock.Part == PartOfDay.Night ? $"{view}_night" : $"{view}_day";
-            if (clock.Season == Season.Winter && HasPlate($"{tag}_winter")) return $"{tag}_winter";
-            return HasPlate(tag) ? tag : $"{view}_night";
+            if (clock.Season == Season.Winter)
+            {
+                if (hasPlate($"{tag}_winter")) return $"{tag}_winter";
+                if (hasPlate($"{view}_winter")) return $"{view}_winter";
+            }
+            return hasPlate(tag) ? tag : $"{view}_night";
         }
 
         static bool HasPlate(string tag) => Resources.Load<Sprite>($"Plates/{FileFor(tag)}") != null;
