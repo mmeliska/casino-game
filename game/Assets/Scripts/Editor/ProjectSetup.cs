@@ -1,5 +1,6 @@
 using System.IO;
 using Starflare.Game;
+using TMPro;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -19,6 +20,9 @@ namespace Starflare.EditorTools
         const string BlackjackScenePath = "Assets/Scenes/Blackjack.unity";
         const string ArtRoot = "Assets/Resources";
 
+        const string TmpSettingsPath = "Assets/TextMesh Pro/Resources/TMP Settings.asset";
+        const string TmpFontPath = "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset";
+
         const string SettingsDir = "Assets/Settings";
         const string RendererPath = SettingsDir + "/URP Renderer.asset";
         const string PipelinePath = SettingsDir + "/URP Pipeline.asset";
@@ -28,9 +32,10 @@ namespace Starflare.EditorTools
         {
             ConfigurePlayer();
             ConfigureRenderPipeline();
+            SetUpTextMeshPro();
             ReimportArt();
             BuildScene(CityScenePath, "City", typeof(City));
-            BuildScene(BlackjackScenePath, "Blackjack Table", typeof(BlackjackTable));
+            BuildScene(BlackjackScenePath, "Blackjack Table", typeof(BlackjackScene));
 
             // The city is the build's first scene; the blackjack table stays for testing.
             EditorBuildSettings.scenes = new[]
@@ -39,6 +44,39 @@ namespace Starflare.EditorTools
                 new EditorBuildSettingsScene(BlackjackScenePath, true),
             };
             AssetDatabase.SaveAssets();
+        }
+
+        /// <summary>
+        /// Every label is TextMesh Pro (UiKit.MakeText), so the project needs TMP's essential
+        /// resources: the settings asset and the default font. The import is the same one as
+        /// Window > TextMeshPro > Import TMP Essential Resources. The font is then made dynamic,
+        /// so glyphs outside its shipped atlas (the card suits, the ▼ prompt) render from the TTF.
+        /// </summary>
+        static void SetUpTextMeshPro()
+        {
+            if (AssetDatabase.LoadAssetAtPath<TMP_Settings>(TmpSettingsPath) == null)
+            {
+                string package = Path.Combine(Path.GetFullPath("Packages/com.unity.ugui"),
+                    "Package Resources", "TMP Essential Resources.unitypackage");
+                UnityEditor.AssetPackage.Package.Import(package, false);
+                // The package's files land on disk at once but import on the next refresh, so pull them in now.
+                AssetDatabase.ImportAsset("Assets/TextMesh Pro",
+                    ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive | ImportAssetOptions.ForceSynchronousImport);
+            }
+
+            var font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(TmpFontPath);
+            if (font == null)
+            {
+                // Don't stop the rest of the rebuild over it; the next run finds the font.
+                Debug.LogWarning($"TextMesh Pro's default font isn't imported yet at {TmpFontPath}. Run Starflare > Rebuild Project Setup again.");
+                return;
+            }
+            if (font.atlasPopulationMode != AtlasPopulationMode.Dynamic)
+            {
+                font.atlasPopulationMode = AtlasPopulationMode.Dynamic;
+                font.isMultiAtlasTexturesEnabled = true;
+                EditorUtility.SetDirty(font);
+            }
         }
 
         /// <summary>Art imported before <see cref="ArtImporter"/> existed picks up its settings.</summary>
@@ -90,6 +128,23 @@ namespace Starflare.EditorTools
             PlayerSettings.defaultScreenHeight = 960;
             PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
             PlayerSettings.resizableWindow = true;
+            UseInputSystemOnly();
+        }
+
+        /// <summary>
+        /// Input goes through the Input System package (uGUI's InputSystemUIInputModule and
+        /// EnhancedTouch), so the legacy Input Manager is switched off. The setting has no API;
+        /// it's the player settings' activeInputHandler (0 old, 1 both, 2 new) and takes effect
+        /// after the editor restarts.
+        /// </summary>
+        static void UseInputSystemOnly()
+        {
+            var settings = new SerializedObject(Unsupported.GetSerializedAssetInterfaceSingleton("PlayerSettings"));
+            var handler = settings.FindProperty("activeInputHandler");
+            if (handler == null || handler.intValue == 2) return;
+            handler.intValue = 2;
+            settings.ApplyModifiedPropertiesWithoutUndo();
+            Debug.LogWarning("Active Input Handling is now Input System only. Restart the editor for it to take effect.");
         }
 
         static void BuildScene(string path, string rootName, System.Type component)

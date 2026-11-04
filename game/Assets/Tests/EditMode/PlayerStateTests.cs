@@ -129,7 +129,7 @@ namespace Starflare.Tests
         {
             var state = new PlayerState();
             state.ApplyRoundResult(250, 24);
-            state.Clock.Sleep();
+            state.Sleep();
 
             var loaded = JsonUtility.FromJson<PlayerState>(JsonUtility.ToJson(state));
             Assert.That(loaded.BankrollNow, Is.EqualTo(450));
@@ -171,6 +171,46 @@ namespace Starflare.Tests
             state.SignRegister("Sam", RegisterBox.Ms);
             Assert.Throws<InvalidOperationException>(() => state.SignRegister("Alex", RegisterBox.Mr));
             Assert.That(state.Name, Is.EqualTo("Sam"));
+        }
+
+        [Test]
+        public void Changed_FiresOncePerSettledChange()
+        {
+            var state = new PlayerState();
+            int changes = 0;
+            state.Changed += () => changes++;
+
+            state.SignRegister("Sam", RegisterBox.Mr);
+            state.ApplyRoundResult(10, 5);
+            state.Spend(5);
+            state.Earn(5);
+            state.Borrow(20);
+            state.Repay(20);
+            state.Sleep();
+            state.MoveTo("kasias-tap");
+            Assert.That(changes, Is.EqualTo(8));
+        }
+
+        [Test]
+        public void Changed_DoesNotFireForARefusedChange_OrStayingPut()
+        {
+            var state = new PlayerState();
+            int changes = 0;
+            state.Changed += () => changes++;
+
+            Assert.Throws<InvalidOperationException>(() => state.Spend(1000));
+            Assert.Throws<ArgumentOutOfRangeException>(() => state.Repay(1));
+            Assert.Throws<ArgumentException>(() => state.SignRegister("", RegisterBox.Mr));
+            state.MoveTo(state.Place);
+            Assert.That(changes, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void Changed_IsNotSaved()
+        {
+            var state = new PlayerState();
+            state.Changed += () => throw new Exception("should not be serialised");
+            Assert.That(JsonUtility.ToJson(state), Does.Not.Contain("Changed"));
         }
     }
 }

@@ -8,12 +8,21 @@ namespace Starflare.State
     /// <summary>
     /// The slice of the GDD's player state model the prototype needs. Heat, scales, NPC
     /// state, flags and Pockets join it as their systems are built.
+    ///
+    /// Every change goes through a method here and raises <see cref="Changed"/>, so the owner
+    /// can save and the screens can redraw without polling. The fields stay public for the
+    /// JSON save; nothing else should write them.
     /// </summary>
     [Serializable]
     public sealed class PlayerState
     {
+        /// <summary>The save schema this code writes. Bump it with a migration step in the save store.</summary>
+        public const int CurrentVersion = 1;
+
         /// <summary>You drive in with about $200 and a car (A1.1).</summary>
         public const int StartingBankroll = 200;
+
+        public int Version = CurrentVersion;
 
         public int BankrollNow = StartingBankroll;
 
@@ -35,6 +44,10 @@ namespace Starflare.State
         /// <summary>You arrive at night (A1.1).</summary>
         public GameClock Clock = new GameClock { Part = PartOfDay.Night };
 
+        /// <summary>Raised after every settled change, once per change. Never mid-round.</summary>
+        [field: NonSerialized]
+        public event Action Changed;
+
         public int OwnMoney => BankrollNow - Debts;
 
         public bool HasSigned => !string.IsNullOrEmpty(Name);
@@ -48,6 +61,7 @@ namespace Starflare.State
             if (box == RegisterBox.Unticked) throw new ArgumentException("A box must be ticked.", nameof(box));
             Name = name;
             Box = box;
+            Changed?.Invoke();
         }
 
         /// <summary>Called by a game module when a round settles.</summary>
@@ -57,6 +71,7 @@ namespace Starflare.State
             RoundsPlayed++;
             Clock.AdvanceForPlay(minutes);
             RaiseBestBankroll();
+            Changed?.Invoke();
         }
 
         /// <summary>Cash in hand changes outside a game: a tip, a drink, a job's pay.</summary>
@@ -64,12 +79,14 @@ namespace Starflare.State
         {
             if (amount > BankrollNow) throw new InvalidOperationException("Not enough cash.");
             BankrollNow -= amount;
+            Changed?.Invoke();
         }
 
         public void Earn(int amount)
         {
             BankrollNow += amount;
             RaiseBestBankroll();
+            Changed?.Invoke();
         }
 
         /// <summary>Credit: cash now, owed later. Own money, and so best bankroll, doesn't move.</summary>
@@ -78,6 +95,7 @@ namespace Starflare.State
             if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount));
             BankrollNow += amount;
             Debts += amount;
+            Changed?.Invoke();
         }
 
         public void Repay(int amount)
@@ -86,6 +104,23 @@ namespace Starflare.State
             if (amount > BankrollNow) throw new InvalidOperationException("Not enough cash.");
             BankrollNow -= amount;
             Debts -= amount;
+            Changed?.Invoke();
+        }
+
+        /// <summary>Your room, or a night anywhere: the clock moves to the next morning.</summary>
+        public void Sleep()
+        {
+            Clock.Sleep();
+            Changed?.Invoke();
+        }
+
+        /// <summary>Arriving somewhere on the map.</summary>
+        public void MoveTo(string place)
+        {
+            if (string.IsNullOrEmpty(place)) throw new ArgumentException("A place is required.", nameof(place));
+            if (place == Place) return;
+            Place = place;
+            Changed?.Invoke();
         }
 
         void RaiseBestBankroll()

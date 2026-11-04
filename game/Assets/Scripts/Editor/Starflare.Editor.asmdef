@@ -3,6 +3,7 @@
     "rootNamespace": "Starflare",
     "references": [
         "Starflare.Game",
+        "Unity.TextMeshPro",
         "Unity.RenderPipelines.Core.Runtime",
         "Unity.RenderPipelines.Universal.Runtime"
     ],
