@@ -33,3 +33,21 @@ TestResults*.xml
 *.aab
 *.ipa
 *.app
+
+# Test runner and crash recovery (left in Assets when a run or the editor is cut short)
+/[Aa]ssets/InitTestScene*.unity*
+/[Aa]ssets/_Recovery/
+mono_crash.*
+sysinfo.txt
+*.tmp
+*.stackdump
+
+# Android build output
+.gradle/
+ExportedObj/
+*.obb
+crashlytics-build.properties
+
+# Addressables build output (for when art moves off Resources)
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
