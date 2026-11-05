@@ -30,7 +30,9 @@ namespace Starflare.Game
 
         /// <summary>
         /// The one typeface, TextMesh Pro's default (set up by Starflare > Rebuild Project Setup,
-        /// which imports the TMP essentials and makes the font dynamic so card suits render).
+        /// which imports the TMP essentials; card suits and other glyphs outside its atlas come
+        /// from the essentials' dynamic fallback). Liberation Sans has no star or emoji; FontTests
+        /// checks every character the scripts and story put on screen.
         /// </summary>
         public static TMP_FontAsset FontAsset =>
             TMP_Settings.defaultFontAsset ?? throw new System.InvalidOperationException(

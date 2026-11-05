@@ -13,12 +13,18 @@ namespace Starflare.Game
     /// on the left edge opens it over any screen. It loads a checkpoint (a beat's recipe) or a
     /// snapshot (a copy of a real save), and edits the live state through the same methods play
     /// uses: cash, Kasia's book, the clock, the hidden scales, every story flag, and where you
-    /// stand. Flags and places change what a screen offers, so closing after either boots the
+    /// stand. It also sets the clock's pace (story minutes per real minute, hours a sitting),
+    /// which this device remembers, so a pace being tried survives reloads and relaunches. Flags and places change what a screen offers, so closing after either boots the
     /// city again from the save. The city adds it in Editor and Development builds only.
     /// </summary>
     public sealed class DebugPanel : MonoBehaviour
     {
         const float Row = 88;
+
+        const string RateKey = "debug.pace.rate";
+        const string CapKey = "debug.pace.cap";
+        static readonly int[] Rates = { 15, 30, 60, 120 };
+        static readonly int[] Caps = { 4, 8, 12 };
 
         IDebugHost _host;
         GameObject _root;
@@ -29,6 +35,8 @@ namespace Starflare.Game
         public void Init(IDebugHost host)
         {
             _host = host;
+            _host.Pace.StoryMinutesPerRealMinute = PlayerPrefs.GetInt(RateKey, ClockPace.DefaultStoryMinutesPerRealMinute);
+            _host.Pace.MaxHoursPerSitting = PlayerPrefs.GetInt(CapKey, ClockPace.DefaultMaxHoursPerSitting);
             _host.State.Changed += Redraw;
             Build();
         }
@@ -101,8 +109,16 @@ namespace Starflare.Game
                     }));
 
             Heading("Clock");
-            Buttons(("Use up the " + clock.Part.ToString().ToLowerInvariant(), () => state.WorkShift(0)),
+            Buttons(("+1 hour", () => state.PassTime(60)),
+                    ("Until " + (clock.NextPart == PartOfDay.BeforeDawn ? "midnight" : clock.NextPart.ToString().ToLowerInvariant()), () => state.PassTime(clock.MinutesToNextPart)),
                     ("Sleep till morning", state.Sleep));
+
+            var pace = _host.Pace;
+            Heading("Pace (story minutes per real minute; hours a sitting)");
+            Buttons(Array.ConvertAll(Rates, rate => PaceButton($"{rate} min", rate == pace.StoryMinutesPerRealMinute,
+                () => pace.StoryMinutesPerRealMinute = rate, RateKey, rate)));
+            Buttons(Array.ConvertAll(Caps, cap => PaceButton($"{cap} h", cap == pace.MaxHoursPerSitting,
+                () => pace.MaxHoursPerSitting = cap, CapKey, cap)));
 
             Heading("Hidden scales");
             var scales = state.Scales;
@@ -144,6 +160,16 @@ namespace Starflare.Game
             Heading("Start again");
             Wide("Start over (wipe save)", _host.StartOver);
         }
+
+        /// <summary>A pace setting: takes effect at once, even mid-sitting, and this device keeps it.</summary>
+        (string, UnityAction) PaceButton(string label, bool on, Action set, string key, int value) =>
+            (on ? $"<color=#5cc9d1>{label}</color>" : label, () =>
+            {
+                set();
+                PlayerPrefs.SetInt(key, value);
+                PlayerPrefs.Save();
+                Redraw();
+            });
 
         void Heading(string text)
         {

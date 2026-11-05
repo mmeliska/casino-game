@@ -52,7 +52,7 @@ namespace Starflare.Game
                 story.Set(StoryContract.OfferedBarBack, true);
                 state.Lean("straight");
                 state.Lean("flaky");
-                state.WorkShift(60);
+                state.WorkShift(60, 4);
                 story.Set(StoryContract.DidBarBack, true);
             });
 

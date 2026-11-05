@@ -39,6 +39,7 @@ namespace Starflare.Game
         {
             _host.ShowPlace("lanes_lanes",
                 ("Find Juan at the counter", () => _host.PlayScene(StoryContract.Knots.Juan, ShowInside)),
+                ("Watch the lanes", () => _host.ShowWait("lanes_lanes", "Watch the lanes", 0, ShowInside)),
                 ("Step back outside", ShowOutside));
         }
     }

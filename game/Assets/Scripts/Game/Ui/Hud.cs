@@ -92,7 +92,7 @@ namespace Starflare.Game
             _fitDirty = true;
             if (!_root.activeSelf) return;
             var clock = _state.Clock;
-            var now = (_state.BankrollNow, _state.Debts, clock.Day, (int)clock.Part * GameClock.MinutesPerPart + clock.MinutesIntoPart);
+            var now = (_state.BankrollNow, _state.Debts, clock.Day, clock.MinuteOfDay);
             if (now == _shown) return;
             _shown = now;
             _date.text = $"{clock.DateLabel}  •  {clock.TimeLabel}";

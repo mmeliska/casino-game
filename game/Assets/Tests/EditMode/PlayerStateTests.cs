@@ -28,17 +28,79 @@ namespace Starflare.Tests
             Assert.That(state.BestBankroll, Is.EqualTo(PlayerState.StartingBankroll));
         }
 
+        /// <summary>The bug this clock fixed: play through the afternoon and it's night.</summary>
         [Test]
-        public void Rounds_FillThePartOfTheDay_ThenPlayIsFree()
+        public void Rounds_RunTheClockOnIntoTheNextPart()
         {
             var state = new PlayerState();
-            for (int i = 0; i < 20; i++) state.ApplyRoundResult(0, 24);
+            state.Sleep();
+            state.PassTime(GameClock.AfternoonStart - GameClock.MorningStart + 5 * 60);
+            for (int i = 0; i < 12; i++) state.ApplyRoundResult(0, 10);
 
-            Assert.That(state.RoundsPlayed, Is.EqualTo(20));
-            Assert.That(state.Clock.MinutesIntoPart, Is.EqualTo(GameClock.MinutesPerPart));
-            Assert.That(state.Clock.PartIsOver, Is.True);
-            Assert.That(state.Clock.Day, Is.EqualTo(1));
+            Assert.That(state.RoundsPlayed, Is.EqualTo(12));
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("19:00"));
             Assert.That(state.Clock.Part, Is.EqualTo(PartOfDay.Night));
+            Assert.That(state.Clock.Day, Is.EqualTo(2));
+        }
+
+        [TestCase(0, PartOfDay.BeforeDawn)]
+        [TestCase(359, PartOfDay.BeforeDawn)]
+        [TestCase(360, PartOfDay.Morning)]
+        [TestCase(720, PartOfDay.Afternoon)]
+        [TestCase(1079, PartOfDay.Afternoon)]
+        [TestCase(1080, PartOfDay.Night)]
+        [TestCase(1439, PartOfDay.Night)]
+        public void Clock_ReadsThePartFromTheHour(int minuteOfDay, PartOfDay part)
+        {
+            Assert.That(new GameClock { MinuteOfDay = minuteOfDay }.Part, Is.EqualTo(part));
+        }
+
+        /// <summary>The date changes at midnight: past midnight on Saturday is Sunday (Mike, 2026-11-05).</summary>
+        [Test]
+        public void Clock_ChangesTheDateAtMidnight()
+        {
+            var clock = new GameClock { MinuteOfDay = 23 * 60 };
+            clock.Advance(90);
+            Assert.That(clock.Day, Is.EqualTo(2));
+            Assert.That(clock.TimeLabel, Is.EqualTo("0:30"));
+            Assert.That(clock.Part, Is.EqualTo(PartOfDay.BeforeDawn));
+        }
+
+        [TestCase(7 * 60, 5 * 60, PartOfDay.Afternoon)]
+        [TestCase(15 * 60, 3 * 60, PartOfDay.Night)]
+        [TestCase(20 * 60, 4 * 60, PartOfDay.BeforeDawn)]
+        [TestCase(1 * 60, 5 * 60, PartOfDay.Morning)]
+        public void Clock_KnowsHowLongUntilTheNextPart(int minuteOfDay, int minutes, PartOfDay next)
+        {
+            var clock = new GameClock { MinuteOfDay = minuteOfDay };
+            Assert.That(clock.NextPart, Is.EqualTo(next));
+            Assert.That(clock.MinutesToNextPart, Is.EqualTo(minutes));
+            clock.Advance(clock.MinutesToNextPart);
+            Assert.That(clock.Part, Is.EqualTo(next));
+        }
+
+        [Test]
+        public void Waiting_MovesTheClock_AndNoTimeIsNoChange()
+        {
+            var state = new PlayerState();
+            int changes = 0;
+            state.Changed += () => changes++;
+            state.PassTime(0);
+            Assert.That(changes, Is.EqualTo(0));
+            state.PassTime(45);
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("18:45"));
+            Assert.That(changes, Is.EqualTo(1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => state.PassTime(-1));
+        }
+
+        [Test]
+        public void Travel_TakesItsMinutes_ButStayingPutTakesNone()
+        {
+            var state = new PlayerState();
+            state.MoveTo(state.Place, 30);
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("18:00"));
+            state.MoveTo("kasias-tap", 30);
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("18:30"));
         }
 
         [Test]
@@ -48,6 +110,7 @@ namespace Starflare.Tests
             Assert.That(state.BankrollNow, Is.EqualTo(200));
             Assert.That(state.Clock.Day, Is.EqualTo(1));
             Assert.That(state.Clock.Part, Is.EqualTo(PartOfDay.Night));
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("18:00"));
         }
 
         [Test]
@@ -80,11 +143,11 @@ namespace Starflare.Tests
         }
 
         [Test]
-        public void Clock_ShowsTimeFromSixInTheMorning()
+        public void Clock_ShowsTheTimeOfDay()
         {
             var clock = new GameClock();
             Assert.That(clock.TimeLabel, Is.EqualTo("6:00"));
-            clock.AdvanceForPlay(24);
+            clock.Advance(24);
             Assert.That(clock.TimeLabel, Is.EqualTo("6:24"));
         }
 
@@ -92,12 +155,22 @@ namespace Starflare.Tests
         public void Sleep_StartsANewDay()
         {
             var clock = new GameClock();
-            clock.AdvanceForPlay(100);
+            clock.Advance(100);
             clock.Sleep();
 
             Assert.That(clock.Day, Is.EqualTo(2));
             Assert.That(clock.Part, Is.EqualTo(PartOfDay.Morning));
-            Assert.That(clock.MinutesIntoPart, Is.EqualTo(0));
+            Assert.That(clock.TimeLabel, Is.EqualTo("6:00"));
+        }
+
+        /// <summary>Turning in at 2 a.m. after Saturday night: the date's already Sunday, so you wake Sunday.</summary>
+        [Test]
+        public void Sleep_BeforeDawn_WakesTheSameDate()
+        {
+            var clock = new GameClock { Day = 5, MinuteOfDay = 2 * 60 };
+            clock.Sleep();
+            Assert.That(clock.Day, Is.EqualTo(5));
+            Assert.That(clock.TimeLabel, Is.EqualTo("6:00"));
         }
 
         [Test]
@@ -138,16 +211,16 @@ namespace Starflare.Tests
             Assert.That(loaded.Clock.Day, Is.EqualTo(2));
         }
 
-        /// <summary>Kasia's bar-back shift (A1.3): sixty in cash, and the rest of that part of the day.</summary>
+        /// <summary>Kasia's bar-back shift (A1.3): sixty in cash, and about four hours.</summary>
         [Test]
-        public void AShift_PaysInCash_AndTakesTheRestOfThePart()
+        public void AShift_PaysInCash_AndTakesItsHours()
         {
             var state = new PlayerState();
             state.ApplyRoundResult(0, 30);
-            state.WorkShift(60);
+            state.WorkShift(60, 4);
             Assert.That(state.BankrollNow, Is.EqualTo(260));
             Assert.That(state.BestBankroll, Is.EqualTo(260));
-            Assert.That(state.Clock.PartIsOver, Is.True);
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("22:30"));
             Assert.That(state.Clock.Day, Is.EqualTo(1));
         }
 
@@ -226,9 +299,10 @@ namespace Starflare.Tests
             state.Repay(20);
             state.Sleep();
             state.MoveTo("kasias-tap");
-            state.WorkShift(60);
+            state.WorkShift(60, 4);
             state.Lean("straight");
-            Assert.That(changes, Is.EqualTo(10));
+            state.PassTime(60);
+            Assert.That(changes, Is.EqualTo(11));
         }
 
         [Test]

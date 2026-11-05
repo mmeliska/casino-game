@@ -85,12 +85,9 @@ DOT: {~There you are.|Back again, hon.|Door sticks. Lift and push.}
 -> desk
 
 
-// Going to your room. Night one you can't sleep, which is how you end up at Kasia's (A1.2).
+// Going to your room on night one: you can't sleep, which is how you end up at Kasia's (A1.2).
+// After that the room is a place screen (SlackWaterMotel): sleep, TV or the internet, by the hour.
 === turn_in ===
-{met_kasia:
-    ~ sleep()
-    -> END
-}
 # plate: motel_room_night
 The sign buzzes through the curtain. The heat ticks and doesn't come on.
 # black

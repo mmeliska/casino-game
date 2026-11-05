@@ -30,6 +30,12 @@ namespace Starflare.EditorTools
         [MenuItem("Starflare/Rebuild Project Setup")]
         public static void Run()
         {
+            // Scenes can't be rebuilt in Play mode, and font changes there don't stick.
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+            {
+                Debug.LogError("Stop Play mode, then run Starflare > Rebuild Project Setup again.");
+                return;
+            }
             ConfigurePlayer();
             ConfigureRenderPipeline();
             SetUpTextMeshPro();
@@ -49,8 +55,10 @@ namespace Starflare.EditorTools
         /// <summary>
         /// Every label is TextMesh Pro (UiKit.MakeText), so the project needs TMP's essential
         /// resources: the settings asset and the default font. The import is the same one as
-        /// Window > TextMeshPro > Import TMP Essential Resources. The font is then made dynamic,
-        /// so glyphs outside its shipped atlas (the card suits, the ▼ prompt) render from the TTF.
+        /// Window > TextMeshPro > Import TMP Essential Resources. The font stays static: glyphs outside
+        /// its shipped atlas (the card suits, the ▼ prompt) come from the essentials' own dynamic
+        /// fallback, "LiberationSans SDF - Fallback", which has the TTF and a readable atlas. Made
+        /// dynamic itself, the main font has neither, and warns for every one of those glyphs.
         /// </summary>
         static void SetUpTextMeshPro()
         {
@@ -71,10 +79,9 @@ namespace Starflare.EditorTools
                 Debug.LogWarning($"TextMesh Pro's default font isn't imported yet at {TmpFontPath}. Run Starflare > Rebuild Project Setup again.");
                 return;
             }
-            if (font.atlasPopulationMode != AtlasPopulationMode.Dynamic)
+            if (font.atlasPopulationMode != AtlasPopulationMode.Static)
             {
-                font.atlasPopulationMode = AtlasPopulationMode.Dynamic;
-                font.isMultiAtlasTexturesEnabled = true;
+                font.atlasPopulationMode = AtlasPopulationMode.Static;
                 EditorUtility.SetDirty(font);
             }
         }

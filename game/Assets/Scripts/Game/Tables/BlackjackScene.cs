@@ -13,6 +13,7 @@ namespace Starflare.Game
         /// <summary>The Flare's chips, for its $5 to $100 table.</summary>
         static readonly int[] FlareChips = { 5, 25, 100 };
 
+        readonly ClockPace _pace = new ClockPace();
         SaveStore _saves;
         PlayerState _state;
         BlackjackTable _table;
@@ -43,7 +44,7 @@ namespace Starflare.Game
             if (_state != null) _state.Changed -= Save;
             _state = state;
             _state.Changed += Save;
-            _table.SitDown(_state);
+            _table.SitDown(_state, _pace);
         }
 
         void StartOver()

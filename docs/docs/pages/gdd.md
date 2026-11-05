@@ -39,11 +39,13 @@ Time runs on what you do, not the real clock (settled 19 Oct 2026).
 
 | Rule | Spec |
 | --- | --- |
-| Parts of the day | Morning, afternoon, night, plus a before-dawn window a few events use |
-| Rounds | Each round advances the clock a few minutes (blackjack: 5, Mike 2026-10-26), but only to the end of the current part of the day; after that play is unlimited |
-| Days | Pass only when you move, sleep, travel or take a job |
-| App closed | No in-game time passes; small timers count in-game time only |
-| Day length | About 15 minutes of normal play (starting value; tune once the prototype runs, Mike 2026-10-26) |
+| Parts of the day | The clock runs straight through the hours, and the part is read from the hour: morning 6:00 to noon, afternoon noon to 6:00 p.m., night 6:00 p.m. to midnight, and before dawn midnight to 6:00, which a few events use. The date changes at midnight, so playing past midnight on Saturday makes it Sunday (Mike, 2026-11-05) |
+| Play | At a table or a mini-game the clock follows real time: 1 real minute is 30 minutes in the story (starting value; the rate and the 8-hour cap are development settings, adjustable on the debug panel while playing). One sitting moves the clock at most 8 hours; after that play is unlimited and the clock stands still until you get up. Sit down again and it runs again (Mike, 2026-11-05; replaces 5 minutes a round up to the end of the part, 2026-10-26) |
+| Outside play | Scenes, the map and menus are frozen, and so is a teaching scene played over a game. Travel, jobs and sleep cost set amounts of time: a trip across one district about 30 minutes, the bar-back shift about 4 hours, the wedding the night (starting values). Sleep moves you to the next 6:00 a.m. (Mike, 2026-11-05) |
+| Waiting | Each place has its own way to pass time without playing. In your room at the Slack Water you can sleep (1, 2, 4 or 8 hours), watch TV or browse the internet (1, 2 or 3 hours); elsewhere, nursing a beer at Kasia's ($3) or watching league night at the Lanes, for one hour or until the next part of the day; the clock jumps there, and arriving at the new time is a break point (Mike, 2026-11-05) |
+| Beats | Crossing into a new part of the day while you play doesn't interrupt the game; that part's beats wait for the next break point |
+| App closed | No in-game time passes, and the clock pauses when the app goes to the background; small timers count in-game time only |
+| Day length | About 36 minutes at the tables from 6:00 a.m. to midnight at the starting rate, plus travel and jobs; a part of the day is about 12 minutes and the 8-hour cap about 16 (tune once the prototype runs) |
 | Calendar | Days fall on real dates. You arrive on May 4, Year 1, and Year 2 starts the next Jan 1; years have 365 days, with no leap years (Mike, 2026-11-03) |
 | Season | Follows the calendar: spring is March to May, summer June to August, fall September to November, winter December to February, so a season is about 91 days (Mike, 2026-11-03). At the starting day length that is about 23 hours of play, so the day length and the season-based gaps below need retuning |
 | Main story | About 42 hours to opening night, about six seasons: act 1 ~8h, act 2 ~8h, act 3 ~8h, act 4 ~10h, act 5 ~8h |

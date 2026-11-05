@@ -10,6 +10,9 @@ namespace Starflare.Game
         PlayerState State { get; }
         StoryBridge Story { get; }
 
+        /// <summary>How fast play moves the clock; the debug panel tunes it.</summary>
+        ClockPace Pace { get; }
+
         /// <summary>Plays one knot with the shared variables up to date, saves, then calls back.</summary>
         void PlayScene(string knot, Action then);
 
@@ -24,6 +27,13 @@ namespace Starflare.Game
 
         /// <summary>Hides the place screen and top bar, for a module that fills the screen.</summary>
         void LeavePlaceScreen();
+
+        /// <summary>
+        /// Passing time without playing, the place's own way (a nap, a beer): an hour, or until the
+        /// next part of the day, for <paramref name="price"/> each time. Then <paramref name="then"/>,
+        /// at the new time, which is a break point; or straight back if you don't.
+        /// </summary>
+        void ShowWait(string view, string how, int price, Action then);
 
         /// <summary>Opens the map on your phone.</summary>
         void OpenMap();
