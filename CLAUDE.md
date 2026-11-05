@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Starflare Casino**: a story-driven casino life sim for iOS and Android (portrait first; every screen also has a landscape layout). Two halves:
 
-- `game/`: the Unity project (prototype: the arrival at the Slack Water Motel, night one at Kasia's Tap with video poker, Kasia's coupon run to Juan at Millstone Lanes, plus a blackjack table). See `game/README.md`.
+- `game/`: the Unity project (prototype: the arrival at the Slack Water Motel, night one at Kasia's Tap with video poker, Kasia's two jobs (the coupon run to Juan at Millstone Lanes and the bar-back shift), and Rosa's blackjack table in her back room). See `game/README.md`.
 - `docs/`: the design docs site, which is the **source of truth for the design**. Its GDD (`docs/docs/pages/gdd.md`) is the build spec. Where the GDD and a story page differ on a story detail, the story page wins.
 
 Most work in this repo so far is design and story editing in `docs/`, not code.

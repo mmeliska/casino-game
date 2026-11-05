@@ -46,6 +46,6 @@ step Starflare.Tests.EditMode -out:"$OUT/Starflare.Tests.EditMode.dll" -define:U
   Assets/Tests/EditMode/**/*.cs
 step Starflare.Tests.PlayMode -out:"$OUT/Starflare.Tests.PlayMode.dll" -define:UNITY_INCLUDE_TESTS \
   "${FW[@]}" "${ENG[@]}" -r:"$OUT/Starflare.Core.dll" -r:"$OUT/Starflare.Game.dll" \
-  -r:"$NUNIT" -r:$SA/Ink-Libraries.dll -r:$SA/UnityEngine.TestRunner.dll \
+  -r:"$NUNIT" -r:$SA/Ink-Libraries.dll -r:$SA/UnityEngine.TestRunner.dll -r:$SA/UnityEngine.UI.dll \
   Assets/Tests/PlayMode/**/*.cs
 exit $failed

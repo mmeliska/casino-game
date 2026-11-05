@@ -73,6 +73,7 @@ namespace Starflare.Tests
         public void DealerBlackjack_BeatsTwenty()
         {
             var round = Deal(Stack("10S", "AH", "KD", "KC"));
+            round.DeclineInsurance();
             Assert.That(round.Phase, Is.EqualTo(RoundPhase.Settled));
             Assert.That(round.Hands[0].Outcome, Is.EqualTo(HandOutcome.Lose));
             Assert.That(round.Net, Is.EqualTo(-10));
@@ -82,6 +83,7 @@ namespace Starflare.Tests
         public void BothBlackjack_Push()
         {
             var round = Deal(Stack("AS", "AH", "KD", "KC"));
+            round.DeclineInsurance();
             Assert.That(round.Hands[0].Outcome, Is.EqualTo(HandOutcome.Push));
             Assert.That(round.Net, Is.EqualTo(0));
         }
@@ -90,6 +92,7 @@ namespace Starflare.Tests
         public void DealerStandsOnSoft17()
         {
             var round = Deal(Stack("10S", "AH", "9D", "6C"));
+            round.DeclineInsurance();
             round.Stand();
             Assert.That(round.Dealer.Cards.Count, Is.EqualTo(2));
             Assert.That(round.Hands[0].Outcome, Is.EqualTo(HandOutcome.Win));
@@ -101,9 +104,72 @@ namespace Starflare.Tests
         {
             var rules = new BlackjackRules { DealerHitsSoft17 = true };
             var round = Deal(Stack("10S", "AH", "9D", "6C", "2S"), rules: rules);
+            round.DeclineInsurance();
             round.Stand();
             Assert.That(round.Dealer.Total, Is.EqualTo(19));
             Assert.That(round.Hands[0].Outcome, Is.EqualTo(HandOutcome.Push));
+        }
+
+        [Test]
+        public void DealerAce_OffersInsuranceAtHalfTheBet_BeforeAnythingElse()
+        {
+            var round = Deal(Stack("10S", "AH", "8D", "6C"));
+            Assert.That(round.Phase, Is.EqualTo(RoundPhase.InsuranceOffered));
+            Assert.That(round.InsuranceCost, Is.EqualTo(5));
+            Assert.That(round.CanHit, Is.False);
+            Assert.Throws<InvalidOperationException>(() => round.Stand());
+        }
+
+        [Test]
+        public void Insurance_PaysTwoToOne_WhenTheDealerHasBlackjack()
+        {
+            var round = Deal(Stack("10S", "AH", "KD", "KC"));
+            round.TakeInsurance();
+            Assert.That(round.Phase, Is.EqualTo(RoundPhase.Settled));
+            Assert.That(round.Hands[0].Net, Is.EqualTo(-10));
+            Assert.That(round.InsuranceNet, Is.EqualTo(10));
+            Assert.That(round.Net, Is.EqualTo(0));
+        }
+
+        /// <summary>Rosa's first hand in Kasia's back room: insurance is lost, the eighteen wins.</summary>
+        [Test]
+        public void Insurance_IsLost_WhenTheDealerHasNoBlackjack()
+        {
+            var round = Deal(Stack("10S", "AH", "8D", "6C"));
+            round.TakeInsurance();
+            Assert.That(round.Phase, Is.EqualTo(RoundPhase.PlayerTurn));
+            Assert.That(round.TotalStake, Is.EqualTo(15));
+            round.Stand();
+            Assert.That(round.Hands[0].Outcome, Is.EqualTo(HandOutcome.Win));
+            Assert.That(round.InsuranceNet, Is.EqualTo(-5));
+            Assert.That(round.Net, Is.EqualTo(5));
+        }
+
+        [Test]
+        public void DecliningInsurance_TheDealerStillPeeks()
+        {
+            var round = Deal(Stack("10S", "AH", "KD", "KC"));
+            round.DeclineInsurance();
+            Assert.That(round.Phase, Is.EqualTo(RoundPhase.Settled));
+            Assert.That(round.Insurance, Is.EqualTo(0));
+            Assert.That(round.Net, Is.EqualTo(-10));
+        }
+
+        [Test]
+        public void Insurance_NotOffered_OnADollarBet_WithoutTheMoney_OrAtATableWithout()
+        {
+            var dollar = Deal(Stack("10S", "AH", "8D", "6C"), bet: 1, rules: new BlackjackRules { MinBet = 1 });
+            Assert.That(dollar.Phase, Is.EqualTo(RoundPhase.PlayerTurn));
+            Assert.That(dollar.InsuranceTooSmall, Is.True, "the felt says why");
+            Assert.That(Deal(Stack("10S", "AH", "8D", "6C"), bet: 2, rules: new BlackjackRules { MinBet = 1 }).InsuranceTooSmall, Is.False);
+            Assert.That(Deal(Stack("10S", "9H", "8D", "6C"), bet: 1, rules: new BlackjackRules { MinBet = 1 }).InsuranceTooSmall, Is.False);
+
+            var short_ = Deal(Stack("10S", "AH", "8D", "6C"), bet: 10, bankroll: 14);
+            Assert.That(short_.Phase, Is.EqualTo(RoundPhase.PlayerTurn));
+
+            var none = Deal(Stack("10S", "AH", "8D", "6C"), rules: new BlackjackRules { OfferInsurance = false });
+            Assert.That(none.Phase, Is.EqualTo(RoundPhase.PlayerTurn));
+            Assert.Throws<InvalidOperationException>(() => none.TakeInsurance());
         }
 
         [Test]

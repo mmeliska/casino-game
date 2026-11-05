@@ -22,21 +22,28 @@ namespace Starflare.Game
         public const string MetKasia = "met_kasia";
         public const string MetJuan = "met_juan";
         public const string CarryingCoupons = "carrying_coupons";
+        public const string DidBarBack = "did_bar_back";
+        public const string BackRoomOpen = "back_room_open";
+        public const string SatWithRosa = "sat_with_rosa";
 
         public static readonly string[] Variables =
         {
-            PlayerName, Bankroll, Book, Broke, SittingNet, CheckedIn, MetKasia, MetJuan, CarryingCoupons,
+            PlayerName, Bankroll, Book, Broke, SittingNet, CheckedIn, MetKasia, MetJuan,
+            CarryingCoupons, DidBarBack, BackRoomOpen, SatWithRosa,
         };
 
         /// <summary>EXTERNAL functions the story calls; the bridge binds each to the player state.</summary>
         public static class Externals
         {
             public const string Spend = "spend";
+            public const string Earn = "earn";
             public const string Borrow = "borrow";
             public const string Repay = "repay";
             public const string Sleep = "sleep";
+            public const string Work = "work";
+            public const string Lean = "lean";
 
-            public static readonly string[] All = { Spend, Borrow, Repay, Sleep };
+            public static readonly string[] All = { Spend, Earn, Borrow, Repay, Sleep, Work, Lean };
         }
 
         /// <summary>Knots the code starts, by the event they play.</summary>
@@ -53,6 +60,13 @@ namespace Starflare.Game
             public const string WalkIn = "walk_in";
             public const string GetUp = "get_up";
             public const string CouponJob = "coupon_job";
+            public const string BarBackJob = "bar_back_job";
+            public const string BackRoomInvite = "back_room_invite";
+
+            // Kasia's back room (A1.3)
+            public const string BackRoom = "back_room";
+            public const string RosaFirstHand = "rosa_first_hand";
+            public const string RosaGetUp = "rosa_get_up";
 
             // Millstone Lanes (A1.3)
             public const string Coupons = "coupons";
@@ -60,7 +74,8 @@ namespace Starflare.Game
 
             public static readonly string[] All =
             {
-                Arrival, CheckingIn, Office, TurnIn, NightOne, WalkIn, GetUp, CouponJob, Coupons, Juan,
+                Arrival, CheckingIn, Office, TurnIn, NightOne, WalkIn, GetUp, CouponJob, BarBackJob,
+                BackRoomInvite, BackRoom, RosaFirstHand, RosaGetUp, Coupons, Juan,
             };
         }
     }

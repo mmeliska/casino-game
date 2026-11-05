@@ -69,7 +69,7 @@ She tore the Starflare patch off the vest the day the letter came and kept weari
 
 ## Role
 
-Teaches the player the rules of the games and sharpens their read of tells, never giving certainty. You meet her dealing Kasia's back room, where she quietly warns you off a hand or flags a cheat. Tied to the dealers' union. If you skip out on Kasia's book, Rosa still deals you but stops warning you off hands. If Kasia takes Umbra's protection, Rosa stops dealing there.
+Teaches the player the rules of the games and sharpens their read of tells, never giving certainty. You meet her dealing Kasia's back room, where she quietly warns you off a hand or flags a cheat. The first time is your first hand at her blackjack table, a practice hand on the house that she coaches over the table (Mike, 2026-11-04): her ace showing, she explains insurance and has you take it, the side bet loses, and she says it's your call every time. She teaches the rule, not the answer. You press the buttons she points at (Mike, 2026-11-05). Tied to the dealers' union. If you skip out on Kasia's book, Rosa still deals you but stops warning you off hands. If Kasia takes Umbra's protection, Rosa stops dealing there.
 
 She wants to deal again, licensed, where people can see her hands. What she needs is to stop paying for Gus: his silence has become her rule, and the rule is a cell with the door open.
 

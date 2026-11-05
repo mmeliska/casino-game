@@ -9,7 +9,7 @@ namespace Starflare.Game
     /// <summary>
     /// The one place the Ink story and the player state meet. It loads the story, restores its
     /// saved state, binds the story's external functions to the state (so the story spends,
-    /// borrows and sleeps through the rules in <see cref="PlayerState"/>), and pushes the
+    /// borrows, sleeps, works and leans through the rules in <see cref="PlayerState"/>), and pushes the
     /// shared variables before a scene. Everything goes by the names in <see cref="StoryContract"/>.
     /// </summary>
     public sealed class StoryBridge
@@ -32,9 +32,12 @@ namespace Starflare.Game
 
             // These change state, so Ink must never call them during lookahead (the false).
             Ink.BindExternalFunction(StoryContract.Externals.Spend, (int amount) => state.Spend(amount), false);
+            Ink.BindExternalFunction(StoryContract.Externals.Earn, (int amount) => state.Earn(amount), false);
             Ink.BindExternalFunction(StoryContract.Externals.Borrow, (int amount) => state.Borrow(amount), false);
             Ink.BindExternalFunction(StoryContract.Externals.Repay, (int amount) => state.Repay(amount), false);
             Ink.BindExternalFunction(StoryContract.Externals.Sleep, () => state.Sleep(), false);
+            Ink.BindExternalFunction(StoryContract.Externals.Work, (int pay) => state.WorkShift(pay), false);
+            Ink.BindExternalFunction(StoryContract.Externals.Lean, (string pole) => state.Lean(pole), false);
             // Fails now, not in the middle of a scene, if the story declares an EXTERNAL we don't bind.
             Ink.ValidateExternalBindings();
         }

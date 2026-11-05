@@ -83,6 +83,8 @@ namespace Starflare.Game
         {
             // 0 -> 1: the first saves had no Version field; the fields are otherwise the same.
             json => json,
+            // 1 -> 2: the hidden scales arrive. A save without them reads them as level, all zero.
+            json => json,
         };
 
         [Serializable]
