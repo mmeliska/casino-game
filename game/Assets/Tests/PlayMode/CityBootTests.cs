@@ -77,6 +77,20 @@ namespace Starflare.Tests
             Assert.That(reloaded.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + 25));
         }
 
+        [UnityTest]
+        public IEnumerator TheDebugPanel_OpensAndDrawsEverySection()
+        {
+            var city = Boot();
+            yield return null;
+
+            var panel = city.GetComponent<DebugPanel>();
+            Assert.That(panel, Is.Not.Null, "the editor build should carry the debug panel");
+            panel.Open();
+            city.State.Earn(10);
+            yield return null;
+            Assert.That(panel.IsOpen, Is.True);
+        }
+
         City Boot()
         {
             _city = new GameObject("City", typeof(City));

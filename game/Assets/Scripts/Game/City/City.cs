@@ -14,8 +14,9 @@ namespace Starflare.Game
     /// <see cref="StoryBridge"/>), saves both on every settled change, plays the arrival at the
     /// Slack Water (A1.1), then moves you between the places. Each place owns its own screens
     /// and scene triggers (<see cref="IPlace"/>) and sees the city as an <see cref="IPlaceHost"/>.
+    /// Editor and Development builds also get the debug panel (<c>City.Debug.cs</c>).
     /// </summary>
-    public sealed class City : MonoBehaviour, IPlaceHost
+    public sealed partial class City : MonoBehaviour, IPlaceHost
     {
         /// <summary>Where the save files go; null means the device's persistent data path. Tests set it.</summary>
         public static string SaveFolder;
@@ -60,7 +61,11 @@ namespace Starflare.Game
             var tap = gameObject.AddComponent<KasiasTap>();
             tap.Init(this);
             _places = new IPlace[] { new SlackWaterMotel(this), tap, new MillstoneLanes(this) };
+            AddDebugPanel();
         }
+
+        /// <summary>The debug panel, in Editor and Development builds only (<c>City.Debug.cs</c>).</summary>
+        partial void AddDebugPanel();
 
         void Start()
         {

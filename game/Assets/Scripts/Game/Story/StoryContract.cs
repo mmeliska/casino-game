@@ -26,10 +26,15 @@ namespace Starflare.Game
         public const string BackRoomOpen = "back_room_open";
         public const string SatWithRosa = "sat_with_rosa";
 
+        // Set only by the debug panel's checkpoints, so a beat's "again" lines play as they would.
+        public const string OfferedCoupons = "offered_coupons";
+        public const string OfferedBarBack = "offered_bar_back";
+        public const string MetRosa = "met_rosa";
+
         public static readonly string[] Variables =
         {
             PlayerName, Bankroll, Book, Broke, SittingNet, CheckedIn, MetKasia, MetJuan,
-            CarryingCoupons, DidBarBack, BackRoomOpen, SatWithRosa,
+            CarryingCoupons, DidBarBack, BackRoomOpen, SatWithRosa, OfferedCoupons, OfferedBarBack, MetRosa,
         };
 
         /// <summary>EXTERNAL functions the story calls; the bridge binds each to the player state.</summary>

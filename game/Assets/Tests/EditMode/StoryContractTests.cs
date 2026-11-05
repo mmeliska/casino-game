@@ -19,7 +19,7 @@ namespace Starflare.Tests
         static string _json;
 
         [OneTimeSetUp]
-        public void CompileTheStory() => _json = Compile(Path.Combine(StoryDir, "northlight.ink"));
+        public void CompileTheStory() => _json = CompileTheGamesStory();
 
         [Test]
         public void EveryVariableTheCodeUses_IsDeclared()
@@ -120,6 +120,16 @@ namespace Starflare.Tests
         }
 
         [Test]
+        public void FlagNames_AreTheStorysTrueFalseVariables()
+        {
+            var flags = new List<string>(new StoryBridge(_json, null, new PlayerState()).FlagNames());
+            Assert.That(flags, Does.Contain(StoryContract.CheckedIn));
+            Assert.That(flags, Does.Contain(StoryContract.SatWithRosa));
+            Assert.That(flags, Does.Not.Contain(StoryContract.Bankroll));
+            Assert.That(flags, Does.Not.Contain(StoryContract.PlayerName));
+        }
+
+        [Test]
         public void ASavedStoryState_ComesBack()
         {
             var state = new PlayerState();
@@ -128,6 +138,9 @@ namespace Starflare.Tests
             var second = new StoryBridge(_json, first.SaveJson(), state);
             Assert.That(second.Flag(StoryContract.MetKasia), Is.True);
         }
+
+        /// <summary>The game's story, compiled from source; other fixtures that need it use this too.</summary>
+        internal static string CompileTheGamesStory() => Compile(Path.Combine(StoryDir, "northlight.ink"));
 
         static string Compile(string pathOrSource, bool inline = false)
         {

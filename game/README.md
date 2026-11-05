@@ -18,7 +18,7 @@ The scene and player settings are built from code: **Starflare > Rebuild Project
 | Folder | Assembly | What's in it |
 | --- | --- | --- |
 | `Assets/Scripts/Core` | `Starflare.Core` | Pure C# with no engine references: cards and shoe, blackjack and video poker rules, player state and clock |
-| `Assets/Scripts/Game` | `Starflare.Game` | By feature: `City/` (state and story owner, the phone's map, Dot's register), `Places/` (one class per place behind `IPlace`), `Story/` (the Ink contract, bridge and player), `Tables/` (video poker, blackjack), `Ui/` (`UiKit`, top bar, safe area, orientation), `Save/`, `Art/` |
+| `Assets/Scripts/Game` | `Starflare.Game` | By feature: `City/` (state and story owner, the phone's map, Dot's register), `Places/` (one class per place behind `IPlace`), `Story/` (the Ink contract, bridge and player), `Tables/` (video poker, blackjack), `Ui/` (`UiKit`, top bar, safe area, orientation), `Save/`, `Art/`, `Debug/` (the debug panel and its checkpoints; shown in Editor and Development builds only) |
 | `Assets/Scripts/Editor` | `Starflare.Editor` | Project setup menu, art import settings |
 | `Assets/Tests/EditMode` | `Starflare.Tests.EditMode` | NUnit tests for the rules and state |
 
@@ -46,6 +46,14 @@ Window > General > Test Runner, EditMode and PlayMode, or headless (add `-testPl
   -batchmode -nographics -projectPath game \
   -runTests -testPlatform EditMode -testResults TestResults.xml
 ```
+
+## Debug panel
+
+In the editor and in Development builds (tick **Development Build** in Build Profiles to get it on a phone), a small **DEV** button on the left edge opens the debug panel over any screen. Release builds don't show it: the city adds it only when `Debug.isDebugBuild` (Unity 6.6 deprecates the `DEVELOPMENT_BUILD` define, so the code is compiled into every build and gated at run time).
+
+- **Checkpoints** start a new game brought to a beat, e.g. "A1.3 Juan has the box" leaves you at the Tap with the bar-back shift next. Each is a recipe in `Checkpoints.cs`, built on the one before through the same `PlayerState` methods play uses, plus the story flags the beat sets. They're recipes rather than saved files so they keep working as the Ink changes, and `CheckpointTests` plays every one against the compiled story. Add one there as each beat is built.
+- **Snapshots** copy your real save (both files) into `snapshots/` beside it, for "get me back to exactly here". They survive Start over, but they're the Ink's saved state, so a big story edit can make an old one stale; take a fresh one.
+- **Live edits**: cash, Kasia's book, the clock (use up the part of the day, sleep), the four hidden scales, every true/false story variable, and where you stand. Money, clock and scales go through `PlayerState` and save at once. Flags and places change what a screen offers, so a place jump, or closing the panel after a flag change, saves and boots the city again from the save.
 
 ## Prototype scope
 
