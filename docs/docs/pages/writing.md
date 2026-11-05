@@ -77,6 +77,12 @@ CHARACTER: One line, 15 words at most.
 -> next_scene
 ```
 
+**Teaching over a game** (Mike, 2026-11-05). When someone teaches a game (Rosa at her table, a regular at the machines), the scene plays over the game instead of in front of it: no plate, the teacher waist-up in the corner, the cards still in view. An instruction is a line tagged `# point: <control>`, naming a real button the game has (blackjack's are `deal`, `hit`, `stand`, `double`, `split`, `insurance`, `no_insurance`, `get_up`, `clear` and `chip_<value>`). Once it's read, the teacher and text step aside, that button glows and is the only one that works, and a Help button has the teacher say again what she said since the last instruction. Pressing it carries the scene on. So the player learns by doing the real action, not by picking a dialogue choice. A taught hand is a practice hand: dealt from a script, marked on the felt, and it doesn't count, so no money changes hands. The same works for every game that names its controls.
+
+```ink
+ROSA: Take it this time. See how it works. # point: insurance
+```
+
 **Before you call a scene done**
 
 - [ ] Every beat has a plate, pose, insert or black tag

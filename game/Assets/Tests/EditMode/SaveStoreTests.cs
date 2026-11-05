@@ -38,6 +38,7 @@ namespace Starflare.Tests
             state.Borrow(50);
             state.ApplyRoundResult(-30, 10);
             state.MoveTo("kasias-tap");
+            state.Lean("crooked");
             _store.Save(state);
 
             var loaded = _store.Load();
@@ -48,6 +49,7 @@ namespace Starflare.Tests
             Assert.That(loaded.RoundsPlayed, Is.EqualTo(1));
             Assert.That(loaded.Place, Is.EqualTo("kasias-tap"));
             Assert.That(loaded.Clock.MinutesIntoPart, Is.EqualTo(10));
+            Assert.That(loaded.Scales.Straight, Is.EqualTo(-1));
             Assert.That(loaded.Version, Is.EqualTo(PlayerState.CurrentVersion));
         }
 
@@ -86,6 +88,31 @@ namespace Starflare.Tests
             Assert.That(state.Place, Is.EqualTo("millstone-lanes"));
             Assert.That(state.Clock.Day, Is.EqualTo(3));
             Assert.That(state.Clock.Part, Is.EqualTo(PartOfDay.Night));
+        }
+
+        /// <summary>A version 1 save had no hidden scales; it reads them as level.</summary>
+        [Test]
+        public void VersionOne_MigratesForward_WithLevelScales()
+        {
+            const string versionOne = @"{
+                ""Version"": 1,
+                ""BankrollNow"": 240,
+                ""BestBankroll"": 260,
+                ""Debts"": 0,
+                ""RoundsPlayed"": 30,
+                ""Name"": ""Pat"",
+                ""Box"": 2,
+                ""Place"": ""kasias-tap"",
+                ""Clock"": { ""Day"": 4, ""Part"": 0, ""MinutesIntoPart"": 90 }
+            }";
+            var state = SaveStore.Parse(versionOne);
+            Assert.That(state.Version, Is.EqualTo(PlayerState.CurrentVersion));
+            Assert.That(state.BankrollNow, Is.EqualTo(240));
+            Assert.That(state.Box, Is.EqualTo(RegisterBox.Ms));
+            Assert.That(state.Clock.Day, Is.EqualTo(4));
+            Assert.That(state.Scales, Is.Not.Null);
+            Assert.That(state.Scales.Straight, Is.EqualTo(0));
+            Assert.That(state.Scales.Reliable, Is.EqualTo(0));
         }
 
         [Test]

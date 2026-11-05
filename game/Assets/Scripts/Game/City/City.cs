@@ -90,6 +90,16 @@ namespace Starflare.Game
             });
         }
 
+        public void PlaySceneOver(string knot, ICoachable game, Action then)
+        {
+            Story.Sync(State);
+            _player.PlayOver(knot, game, () =>
+            {
+                SaveAll();
+                then();
+            });
+        }
+
         /// <summary>Arrival, the register, then Dot's question. Picks up after the register if you'd signed it.</summary>
         void CheckIn()
         {

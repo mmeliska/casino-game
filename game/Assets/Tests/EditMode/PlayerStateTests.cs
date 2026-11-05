@@ -138,6 +138,44 @@ namespace Starflare.Tests
             Assert.That(loaded.Clock.Day, Is.EqualTo(2));
         }
 
+        /// <summary>Kasia's bar-back shift (A1.3): sixty in cash, and the rest of that part of the day.</summary>
+        [Test]
+        public void AShift_PaysInCash_AndTakesTheRestOfThePart()
+        {
+            var state = new PlayerState();
+            state.ApplyRoundResult(0, 30);
+            state.WorkShift(60);
+            Assert.That(state.BankrollNow, Is.EqualTo(260));
+            Assert.That(state.BestBankroll, Is.EqualTo(260));
+            Assert.That(state.Clock.PartIsOver, Is.True);
+            Assert.That(state.Clock.Day, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void Leaning_MovesOneScale_TowardThatPole()
+        {
+            var state = new PlayerState();
+            state.Lean("crooked");
+            state.Lean("crooked");
+            state.Lean("generous");
+            state.Lean("flaky");
+            Assert.That(state.Scales.Straight, Is.EqualTo(-2));
+            Assert.That(state.Scales.Generous, Is.EqualTo(1));
+            Assert.That(state.Scales.Reliable, Is.EqualTo(-1));
+            Assert.That(state.Scales.Ruthless, Is.EqualTo(0));
+
+            var loaded = JsonUtility.FromJson<PlayerState>(JsonUtility.ToJson(state));
+            Assert.That(loaded.Scales.Straight, Is.EqualTo(-2));
+        }
+
+        [Test]
+        public void EveryPole_IsAScaleStep()
+        {
+            var state = new PlayerState();
+            foreach (string pole in Scales.Poles) state.Lean(pole);
+            Assert.That(state.Scales.Generous + state.Scales.Reliable + state.Scales.Ruthless + state.Scales.Straight, Is.EqualTo(0));
+        }
+
         [Test]
         public void NewGame_StartsUnsignedAtTheMotel()
         {
@@ -188,7 +226,9 @@ namespace Starflare.Tests
             state.Repay(20);
             state.Sleep();
             state.MoveTo("kasias-tap");
-            Assert.That(changes, Is.EqualTo(8));
+            state.WorkShift(60);
+            state.Lean("straight");
+            Assert.That(changes, Is.EqualTo(10));
         }
 
         [Test]
@@ -202,6 +242,7 @@ namespace Starflare.Tests
             Assert.Throws<ArgumentOutOfRangeException>(() => state.Repay(1));
             Assert.Throws<ArgumentException>(() => state.SignRegister("", RegisterBox.Mr));
             state.MoveTo(state.Place);
+            Assert.Throws<ArgumentException>(() => state.Lean("lucky"));
             Assert.That(changes, Is.EqualTo(0));
         }
 

@@ -19,6 +19,9 @@ namespace Starflare.Blackjack
         public int MaxHands = 2;
         public bool DoubleAfterSplit = true;
 
+        /// <summary>Insurance against a dealer ace, at half the bet, paying 2:1.</summary>
+        public bool OfferInsurance = true;
+
         /// <summary>
         /// In-game minutes a round takes off the clock, close to a real table's pace (Mike,
         /// 26 Oct 2026). 72 rounds fill a six-hour part of the day.

@@ -1,4 +1,18 @@
+## 5 Nov 2026
+
+### Teaching happens over the game
+
+Scenes during play no longer cover the table. A teacher's scene plays over the game, with her waist-up in the corner and the cards in view, and when she tells you to do something, she steps aside and the real button glows: you press it yourself, and only that one works, with a Help button to hear her again (Mike). Rosa's first hand is now a practice hand on the house that doesn't count: she has you deal, explains insurance and has you take it, then stand. Her six under the ace means the side bet loses, and she tells you insurance is your call every time; she teaches the rule, not the answer (Mike). Her first lesson ("Watch his hands, not his face") is out of this scene: it's about reading a dealer, and here she is the dealer, so it waits for a story moment that fits (Mike). It replaces yesterday's version, where she warned you off insurance as a dialogue choice. Every game can be taught this way once it names its controls; the [writing guide](#writing) has the `# point:` tag.
+
+Insurance stays at most half the bet in whole dollars, as at a real table without half chips, so a $1 bet at Rosa's $1 table can't be insured; the felt now says "Insurance needs a $2 bet" when the dealer shows an ace (Mike).
+
 ## 4 Nov 2026
+
+### Kasia's jobs and the back room are playable
+
+A1.3 is built through to Rosa's table. Once Juan has his box, Kasia offers the bar-back shift: $60 cash, the rest of that part of the day, and a regular's dropped wallet: run it out to him on the sidewalk (straight, but you left the bar, so flaky) or thumb out two twenties and hand it to Kasia (crooked, but you never left your post, so reliable). It's the first choice to move the hidden scales, and a twist on "return it or keep it", since you can't keep the whole wallet. The regular is Stan, a new walk-on. With both jobs done, Kasia nods you toward the back door. Your first hand at Rosa's blackjack table is a story hand: her ace showing, she offers insurance as the rules say and raises one finger. Blackjack has no fold, so insurance is her warning (Mike). Her first lesson follows ("Watch his hands, not his face"), with her vest patch as an insert. Blackjack now offers insurance at every table: half the bet, paying 2:1.
+
+Still open: the jobs table makes the bar-back shift a night job, but after night one the clock never reaches night (sleeping goes to morning, and play stops at the end of a part), so for now Kasia offers it at any time of day. The back room doesn't raise heat yet, since heat isn't built.
 
 ### Kasia's back room
 

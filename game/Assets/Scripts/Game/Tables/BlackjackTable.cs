@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Starflare.Blackjack;
 using Starflare.Cards;
@@ -14,12 +15,12 @@ namespace Starflare.Game
     /// The blackjack table: UI built in code, portrait or landscape, one round at a time. It reports each
     /// settled round to the player state and raises a break point when you get up. It never
     /// reads story state or saves; whoever owns the state (see <see cref="BlackjackScene"/>)
-    /// hands it in through <see cref="SitDown(PlayerState)"/> and saves on its Changed event.
+    /// hands it in through <see cref="SitDown"/> and saves on its Changed event. A venue can
+    /// hand it one <see cref="PracticeHand"/> to deal first, which doesn't count, and a teacher
+    /// can coach over it (<see cref="ICoachable"/>, by the ids in <see cref="BlackjackControls"/>).
     /// </summary>
-    public sealed class BlackjackTable : MonoBehaviour
+    public sealed class BlackjackTable : MonoBehaviour, ICoachable
     {
-        static readonly int[] ChipValues = { 5, 25, 100 };
-
         static readonly Color Felt = new Color(0.05f, 0.33f, 0.2f);
         static readonly Color CardBack = new Color(0.16f, 0.2f, 0.55f);
 
@@ -29,7 +30,20 @@ namespace Starflare.Game
         /// <summary>The break panel's "start over": the owner wipes the save and sits you back down.</summary>
         public event Action StartOverRequested;
 
-        readonly BlackjackRules _rules = new BlackjackRules();
+        public event Action<string> ActionTaken;
+
+        public BlackjackRules Rules => _rules;
+
+        /// <summary>This sitting so far; still readable at the break point after you get up.</summary>
+        public int SittingNet => _state == null ? 0 : _state.BankrollNow - _sittingStartBankroll;
+
+        BlackjackRules _rules;
+        int[] _chipValues;
+        bool _standalone;
+        PracticeHand _practice;
+        bool _practicing;
+        readonly Dictionary<string, Button> _controls = new Dictionary<string, Button>();
+        string _lock;
         PlayerState _state;
         Shoe _shoe;
         BlackjackRound _round;
@@ -38,34 +52,57 @@ namespace Starflare.Game
         int _sittingRounds;
         string _message = "";
 
+        GameObject _root;
         TMP_Text _bankrollText, _clockText, _dealerLabel, _messageText, _betText, _breakText;
         RectTransform _dealerCards, _playerHands;
         RectTransform _portraitColumn, _landscapeRow, _tableSide, _controlSide, _controlSpacer;
-        GameObject _bettingControls, _actionRow, _breakPanel;
+        GameObject _bettingControls, _actionRow, _insuranceRow, _breakPanel;
         Button _dealButton, _hitButton, _standButton, _doubleButton, _splitButton, _getUpButton;
+        TMP_Text _insureLabel;
         Button[] _chipButtons;
 
-        void Awake()
+        /// <summary>
+        /// Sets the table up: its rules and chips, and whether it stands alone (the test scene,
+        /// with its own break panel) or sits in a venue that shows its own screens around it.
+        /// </summary>
+        public void Init(BlackjackRules rules, int[] chips, bool standalone)
         {
+            _rules = rules ?? throw new ArgumentNullException(nameof(rules));
+            _chipValues = chips;
+            _standalone = standalone;
             _shoe = new Shoe(_rules.Decks, _rules.Penetration, new System.Random());
             BuildUi();
+            _root.SetActive(standalone);
         }
 
-        /// <summary>Sits you down with this state; the same shoe carries on between sittings.</summary>
-        public void SitDown(PlayerState state)
+        /// <summary>
+        /// Sits you down with this state; the same shoe carries on between sittings. A practice
+        /// hand, if given, is the next hand dealt.
+        /// </summary>
+        public void SitDown(PlayerState state, PracticeHand practice = null)
         {
             _state = state;
+            _practice = practice;
             SitDown();
+        }
+
+        public RectTransform Control(string id) => _controls.TryGetValue(id, out var button) ? (RectTransform)button.transform : null;
+
+        public void Lock(string id)
+        {
+            _lock = id;
+            if (_state != null) Refresh();
         }
 
         void SitDown()
         {
+            _root.SetActive(true);
             _round = null;
             _sittingStartBankroll = _state.BankrollNow;
             _sittingRounds = 0;
             _bet = Mathf.Min(_rules.MinBet, _state.BankrollNow);
             _message = "Place your bet.";
-            _breakPanel.SetActive(false);
+            if (_breakPanel != null) _breakPanel.SetActive(false);
             Refresh();
         }
 
@@ -87,7 +124,18 @@ namespace Starflare.Game
 
         void Deal()
         {
-            if (!Betting || Broke) return;
+            if (!Betting) return;
+            if (_practice != null)
+            {
+                // Played for show: the bankroll it's checked against is the practice bet's own.
+                _round = new BlackjackRound(_rules, Shoe.Stacked(_practice.Cards), _practice.Bet, _practice.Bet * 4);
+                _practice = null;
+                _practicing = true;
+                _message = "";
+                AfterAction();
+                return;
+            }
+            if (Broke) return;
             _bet = Mathf.Clamp(_bet, _rules.MinBet, MaxAffordableBet);
 
             bool shuffled = false;
@@ -98,7 +146,8 @@ namespace Starflare.Game
             }
 
             _round = new BlackjackRound(_rules, _shoe, _bet, _state.BankrollNow);
-            _message = shuffled ? "The dealer shuffles a fresh shoe." : "";
+            _message = _round.InsuranceTooSmall ? $"Dealer shows an ace. Insurance needs a {Money(2)} bet."
+                : shuffled ? "The dealer shuffles a fresh shoe." : "";
             AfterAction();
         }
 
@@ -110,19 +159,42 @@ namespace Starflare.Game
 
         void AfterAction()
         {
-            if (_round.Phase == RoundPhase.Settled)
+            if (_round.Phase == RoundPhase.Settled && _practicing)
+            {
+                _practicing = false;
+                _message = "Practice hand, so it doesn't count.\n" + DescribeResult(_round);
+            }
+            else if (_round.Phase == RoundPhase.Settled)
             {
                 _state.ApplyRoundResult(_round.Net, _rules.MinutesPerRound);
                 _sittingRounds++;
                 _message = DescribeResult(_round);
                 _bet = Mathf.Min(_bet, MaxAffordableBet);
             }
+            else if (_round.CanInsure)
+            {
+                _message = "Dealer shows an ace. Insurance?";
+            }
             Refresh();
+        }
+
+        /// <summary>A control's press: ignored while the coach has another one, reported once done.</summary>
+        void Press(string id, Action action)
+        {
+            if (_lock != null && _lock != id) return;
+            action();
+            ActionTaken?.Invoke(id);
         }
 
         void GetUp()
         {
             if (!Betting) return;
+            if (!_standalone)
+            {
+                _root.SetActive(false);
+                BreakPointReached?.Invoke(BreakPoint.GotUpFromTable);
+                return;
+            }
             int net = _state.BankrollNow - _sittingStartBankroll;
             var clock = _state.Clock;
             _breakText.text =
@@ -173,25 +245,38 @@ namespace Starflare.Game
                 _dealerLabel.text = $"Dealer stands on soft 17 · Blackjack pays 3:2 · {Money(_rules.MinBet)}–{Money(_rules.MaxBet)}";
             }
 
-            if (Broke && Betting)
+            if (Broke && Betting && _practice == null)
                 _message = "You're broke. Get up and find another way back in.";
             _messageText.text = _message;
-            _betText.text = Betting ? $"Bet {Money(_bet)}" : $"In play {Money(_round.TotalStake)}";
+            _betText.text = _practice != null ? $"Practice hand · {Money(_practice.Bet)} on the house"
+                : _practicing ? $"Practice hand · {Money(_round.TotalStake)}, doesn't count"
+                : Betting ? $"Bet {Money(_bet)}" : $"In play {Money(_round.TotalStake)}";
+            _betText.color = _practice != null || _practicing ? Gold : Color.white;
 
             bool betting = Betting;
+            bool insuring = !betting && _round.CanInsure;
             _bettingControls.SetActive(betting);
-            _actionRow.SetActive(!betting);
-            _dealButton.interactable = betting && !Broke;
-            foreach (var chip in _chipButtons) chip.interactable = betting && !Broke && _bet < MaxAffordableBet;
-            _getUpButton.interactable = betting;
+            _actionRow.SetActive(!betting && !insuring);
+            _insuranceRow.SetActive(insuring);
+            if (insuring) _insureLabel.text = $"Insurance {Money(_round.InsuranceCost)}";
+            // Every control starts each redraw usable, then the rules and any coach's lock narrow it.
+            foreach (var control in _controls.Values) control.interactable = true;
+            _dealButton.interactable = betting && (!Broke || _practice != null);
+            foreach (var chip in _chipButtons) chip.interactable = betting && !Broke && _practice == null && _bet < MaxAffordableBet;
+            _getUpButton.interactable = betting && _practice == null;
 
-            if (!betting)
+            if (!betting && !insuring)
             {
                 _hitButton.interactable = _round.CanHit;
                 _standButton.interactable = _round.CanStand;
                 _doubleButton.interactable = _round.CanDouble;
                 _splitButton.interactable = _round.CanSplit;
             }
+
+            // While a teacher coaches, only the control they point at works.
+            if (_lock != null)
+                foreach (var control in _controls)
+                    if (control.Key != _lock) control.Value.interactable = false;
         }
 
         static string DescribeResult(BlackjackRound round)
@@ -211,6 +296,8 @@ namespace Starflare.Game
                 });
                 sb.Append(' ').Append(Money(hand.Net, true)).Append('\n');
             }
+            if (round.Insurance > 0)
+                sb.Append("Insurance ").Append(Money(round.InsuranceNet, true)).Append('\n');
             return sb.ToString().TrimEnd();
         }
 
@@ -219,6 +306,7 @@ namespace Starflare.Game
         void BuildUi()
         {
             var canvasGo = MakeCanvas(transform, "Table Canvas", 0).gameObject;
+            _root = canvasGo;
 
             var background = MakeImage(canvasGo.transform, "Felt", Felt);
             Stretch(background.rectTransform);
@@ -266,27 +354,33 @@ namespace Starflare.Game
             _bettingControls.transform.SetParent(column, false);
             var betting = AddVertical(_bettingControls, 16, new RectOffset());
             var chips = MakeRow(betting, "Chips");
-            _chipButtons = new Button[ChipValues.Length];
-            for (int i = 0; i < ChipValues.Length; i++)
+            _chipButtons = new Button[_chipValues.Length];
+            for (int i = 0; i < _chipValues.Length; i++)
             {
-                int value = ChipValues[i];
-                _chipButtons[i] = MakeButton(chips, "+" + Money(value), () => AddChip(value));
+                int value = _chipValues[i];
+                _chipButtons[i] = Control(chips, BlackjackControls.Chip(value), "+" + Money(value), () => AddChip(value));
             }
-            MakeButton(chips, "Clear", ClearBet);
-            _dealButton = MakeButton(betting, "Deal", Deal);
+            Control(chips, BlackjackControls.Clear, "Clear", ClearBet);
+            _dealButton = Control(betting, BlackjackControls.Deal, "Deal", Deal);
             _dealButton.GetComponent<Image>().color = Gold;
             _dealButton.GetComponentInChildren<TMP_Text>().color = CardBlack;
 
             var actions = MakeRow(column, "Actions");
             _actionRow = actions.gameObject;
-            _hitButton = MakeButton(actions, "Hit", () => Act(_round.Hit));
-            _standButton = MakeButton(actions, "Stand", () => Act(_round.Stand));
-            _doubleButton = MakeButton(actions, "Double", () => Act(_round.Double));
-            _splitButton = MakeButton(actions, "Split", () => Act(_round.Split));
+            _hitButton = Control(actions, BlackjackControls.Hit, "Hit", () => Act(_round.Hit));
+            _standButton = Control(actions, BlackjackControls.Stand, "Stand", () => Act(_round.Stand));
+            _doubleButton = Control(actions, BlackjackControls.Double, "Double", () => Act(_round.Double));
+            _splitButton = Control(actions, BlackjackControls.Split, "Split", () => Act(_round.Split));
 
-            _getUpButton = MakeButton(column, "Get up", GetUp);
+            var insurance = MakeRow(column, "Insurance");
+            _insuranceRow = insurance.gameObject;
+            _insureLabel = Control(insurance, BlackjackControls.Insurance, "Insurance", () => Act(_round.TakeInsurance))
+                .GetComponentInChildren<TMP_Text>();
+            Control(insurance, BlackjackControls.NoInsurance, "No insurance", () => Act(_round.DeclineInsurance));
 
-            BuildBreakPanel(canvasGo.transform);
+            _getUpButton = Control(column, BlackjackControls.GetUp, "Get up", GetUp);
+
+            if (_standalone) BuildBreakPanel(canvasGo.transform);
             OnTurn(canvasGo.GetComponent<Canvas>(), Rearrange);
         }
 
@@ -302,16 +396,26 @@ namespace Starflare.Game
             {
                 Arrange(_tableSide, _dealerLabel, _dealerCards, _messageText, _playerHands);
                 Arrange(_controlSide, _bankrollText, _clockText, _controlSpacer, _betText,
-                    _bettingControls.transform, _actionRow.transform, _getUpButton);
+                    _bettingControls.transform, _actionRow.transform, _insuranceRow.transform, _getUpButton);
             }
             else
             {
                 Arrange(_portraitColumn, _bankrollText, _clockText, _dealerLabel, _dealerCards, _messageText,
-                    _playerHands, _betText, _bettingControls.transform, _actionRow.transform, _getUpButton);
+                    _playerHands, _betText, _bettingControls.transform, _actionRow.transform,
+                    _insuranceRow.transform, _getUpButton);
             }
+            if (_breakPanel == null) return;
             _breakPanel.GetComponent<VerticalLayoutGroup>().padding =
                 landscape ? new RectOffset(560, 560, 60, 60) : new RectOffset(80, 80, 300, 300);
             _breakText.GetComponent<LayoutElement>().preferredHeight = landscape ? 360 : 600;
+        }
+
+        /// <summary>A button a coach can point at by <paramref name="id"/>.</summary>
+        Button Control(Transform parent, string id, string label, Action onClick)
+        {
+            var button = MakeButton(parent, label, () => Press(id, onClick));
+            _controls[id] = button;
+            return button;
         }
 
         static RectTransform MakeColumn(Transform parent, string name, int padding)

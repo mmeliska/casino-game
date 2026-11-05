@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Ink.Runtime;
 using TMPro;
@@ -15,12 +16,20 @@ namespace Starflare.Game
     /// story's external functions and sets its variables.
     ///
     /// Tags: "# plate: tag", "# pose: tag" (or "none"), "# insert: tag" (this line only),
-    /// "# black" (this line on black). Lines read "NAME: text" for dialogue, plain for narration.
+    /// "# black" (this line on black), "# point: control". Lines read "NAME: text" for
+    /// dialogue, plain for narration.
+    ///
+    /// A scene can also play over a game (<see cref="PlayOver"/>), so a teacher talks while you
+    /// see the table: no backdrop or plate, the speaker waist-up in the corner. A line tagged
+    /// "# point: stand" is an instruction: once it's read, the speaker and text step aside, that
+    /// control glows and is the only one that works, and a Help button repeats what was said
+    /// since the last instruction. Using the control carries the scene on.
     /// </summary>
     public sealed class StoryPlayer : MonoBehaviour
     {
         const float CharsPerSecond = 70f;
         const float PoseFadeSeconds = 0.18f;
+        static readonly Color OverShade = new Color(0f, 0f, 0f, 0.3f);
 
         static readonly Regex SpeakerLine = new Regex(@"^([A-Z][A-Z .'\-]*):\s*(.*)$");
 
@@ -28,7 +37,8 @@ namespace Starflare.Game
         Action _onDone;
 
         GameObject _root;
-        Image _plate, _pose, _insert, _black, _rule;
+        Image _backdrop, _plate, _pose, _insert, _black, _rule, _glow;
+        Button _help;
         CoverFit _plateFit;
         TMP_Text _speaker, _line, _blackLine, _more;
         RectTransform _bottom, _choices, _box;
@@ -38,6 +48,13 @@ namespace Starflare.Game
         float _shown;
         float _poseFade = 1f;
         bool _waitingOnChoice;
+
+        // Playing over a game: what's coached, the control the line just read points at, the
+        // control being waited on, and the lines since the last instruction, for Help.
+        ICoachable _game;
+        string _pointAt, _waitingFor;
+        readonly List<(string text, bool black, Sprite pose)> _step = new List<(string, bool, Sprite)>();
+        int _replay = -1;
 
         public bool IsPlaying => _root != null && _root.activeSelf;
 
@@ -49,8 +66,26 @@ namespace Starflare.Game
         }
 
         /// <summary>Plays one knot from the top and calls back when it ends.</summary>
-        public void Play(string knot, Action onDone)
+        public void Play(string knot, Action onDone) => Begin(knot, null, onDone);
+
+        /// <summary>Plays one knot over a game, which stays in view and is coached by "# point:" lines.</summary>
+        public void PlayOver(string knot, ICoachable game, Action onDone) =>
+            Begin(knot, game ?? throw new ArgumentNullException(nameof(game)), onDone);
+
+        void Begin(string knot, ICoachable game, Action onDone)
         {
+            _game = game;
+            _pointAt = _waitingFor = null;
+            _step.Clear();
+            _replay = -1;
+            _backdrop.color = game != null ? OverShade : Color.black;
+            if (game != null)
+            {
+                game.Lock("");
+                game.ActionTaken += OnAction;
+            }
+            Rearrange(OrientationLayout.IsLandscape);
+            SetTalking(true);
             _onDone = onDone;
             _story.ChoosePathString(knot);
             _root.SetActive(true);
@@ -72,6 +107,8 @@ namespace Starflare.Game
                 SetVisibleText(_fullLine.Substring(0, (int)_shown));
             }
             _more.enabled = !_waitingOnChoice && _shown >= _fullLine.Length && Mathf.Repeat(Time.time, 1f) < 0.65f;
+            if (_glow.gameObject.activeSelf)
+                _glow.color = new Color(Gold.r, Gold.g, Gold.b, 0.55f + 0.45f * Mathf.Sin(Time.time * 5f));
 
             if (_poseFade < 1f)
             {
@@ -82,11 +119,17 @@ namespace Starflare.Game
 
         void OnTap()
         {
-            if (_waitingOnChoice) return;
+            if (_waitingOnChoice || _waitingFor != null && _replay < 0) return;
             if (_shown < _fullLine.Length)
             {
                 _shown = _fullLine.Length;
                 SetVisibleText(_fullLine);
+                return;
+            }
+            if (_replay >= 0)
+            {
+                if (++_replay < _step.Count) ShowStepLine(_replay);
+                else WaitFor(_waitingFor);
                 return;
             }
             Advance();
@@ -97,12 +140,22 @@ namespace Starflare.Game
             _insert.gameObject.SetActive(false);
             _black.gameObject.SetActive(false);
 
+            // The line just read was an instruction: step aside and wait for that control.
+            if (_pointAt != null)
+            {
+                string id = _pointAt;
+                _pointAt = null;
+                WaitFor(id);
+                return;
+            }
+
             while (_story.canContinue)
             {
                 string text = _story.Continue().Trim();
                 bool black = ApplyTags();
                 if (text.Length == 0) continue;
                 ShowLine(text, black);
+                _step.Add((text, black, _pose.enabled ? _pose.sprite : null));
                 return;
             }
 
@@ -112,6 +165,12 @@ namespace Starflare.Game
                 return;
             }
 
+            if (_game != null)
+            {
+                _game.ActionTaken -= OnAction;
+                _game.Lock(null);
+                _game = null;
+            }
             _root.SetActive(false);
             var done = _onDone;
             _onDone = null;
@@ -131,6 +190,7 @@ namespace Starflare.Game
                 switch (kind)
                 {
                     case "plate":
+                        if (_game != null) break; // over a game, the game is the background
                         _plateFit.Show(_plate, Art.Plate(value), Art.Focus(value));
                         _pose.enabled = false;
                         break;
@@ -148,6 +208,9 @@ namespace Starflare.Game
                         break;
                     case "black":
                         black = true;
+                        break;
+                    case "point":
+                        _pointAt = value;
                         break;
                 }
             }
@@ -201,6 +264,80 @@ namespace Starflare.Game
             else _line.text = text;
         }
 
+        /// <summary>
+        /// The speaker and text step aside; the control glows and is the only one that works,
+        /// with Help to hear it again. A control the game doesn't have is skipped, with a warning.
+        /// </summary>
+        void WaitFor(string id)
+        {
+            var control = _game?.Control(id);
+            if (control == null)
+            {
+                Debug.LogWarning($"\"# point: {id}\" names no control here; carrying on.");
+                _step.Clear();
+                Advance();
+                return;
+            }
+            _waitingFor = id;
+            _replay = -1;
+            SetTalking(false);
+            _glow.transform.SetParent(control, false);
+            Stretch(_glow.rectTransform);
+            _glow.rectTransform.offsetMin = new Vector2(-14, -14);
+            _glow.rectTransform.offsetMax = new Vector2(14, 14);
+            _glow.gameObject.SetActive(true);
+            _help.gameObject.SetActive(true);
+            _game.Lock(id);
+        }
+
+        void OnAction(string id)
+        {
+            if (id != _waitingFor) return;
+            _waitingFor = null;
+            _replay = -1;
+            HideGlow();
+            _help.gameObject.SetActive(false);
+            _game.Lock("");
+            _step.Clear();
+            SetTalking(true);
+            Advance();
+        }
+
+        /// <summary>Help: the speaker comes back and says again what she said since the last instruction.</summary>
+        void Repeat()
+        {
+            if (_waitingFor == null || _step.Count == 0) return;
+            _game.Lock("");
+            HideGlow();
+            _help.gameObject.SetActive(false);
+            SetTalking(true);
+            _replay = 0;
+            ShowStepLine(0);
+        }
+
+        void ShowStepLine(int index)
+        {
+            var (text, black, pose) = _step[index];
+            _pose.sprite = pose;
+            _pose.enabled = pose != null;
+            ShowLine(text, black);
+        }
+
+        void HideGlow()
+        {
+            _glow.gameObject.SetActive(false);
+            _glow.transform.SetParent(_root.transform, false);
+        }
+
+        /// <summary>The backdrop (which takes the taps), speaker and text, on or out of the way.</summary>
+        void SetTalking(bool on)
+        {
+            _backdrop.enabled = on;
+            _pose.gameObject.SetActive(on);
+            _bottom.gameObject.SetActive(on);
+            if (!on) _insert.gameObject.SetActive(false);
+        }
+
         void ShowChoices()
         {
             _waitingOnChoice = true;
@@ -231,6 +368,7 @@ namespace Starflare.Game
 
             var backdrop = MakeImage(canvas.transform, "Backdrop", Color.black);
             Stretch(backdrop.rectTransform);
+            _backdrop = backdrop;
             _plate = MakeImage(backdrop.transform, "Plate", Color.white);
             _plateFit = _plate.gameObject.AddComponent<CoverFit>();
             _plate.raycastTarget = false;
@@ -271,16 +409,51 @@ namespace Starflare.Game
             _blackLine.rectTransform.offsetMax = new Vector2(-100, 0);
             _black.gameObject.SetActive(false);
 
+            _help = MakeButton(safe.transform, "Help", Repeat);
+            var help = (RectTransform)_help.transform;
+            help.anchorMin = help.anchorMax = help.pivot = Vector2.one;
+            help.sizeDelta = new Vector2(220, 110);
+            help.anchoredPosition = new Vector2(-36, -36);
+            _help.gameObject.SetActive(false);
+
+            _glow = MakeImage(canvas.transform, "Glow", Gold);
+            _glow.sprite = RoundedFrame;
+            _glow.type = Image.Type.Sliced;
+            _glow.raycastTarget = false;
+            _glow.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
+            _glow.gameObject.SetActive(false);
+
             OnTurn(canvas, Rearrange);
         }
 
         /// <summary>
         /// Portrait stacks the pose over the dialogue box, with the choices under the box. Landscape
         /// stands the pose (and any insert) on the left and puts the box and choices on the right,
-        /// under the top bar (Hud).
+        /// under the top bar (Hud). Over a game, the speaker stands waist-up in the bottom-left
+        /// corner with the box beside her, so the cards above stay in view.
         /// </summary>
         void Rearrange(bool landscape)
         {
+            if (_game != null)
+            {
+                var corner = Vector2.zero;
+                if (landscape)
+                {
+                    Pin(_pose.rectTransform, corner, corner, new Vector2(-40, -560), new Vector2(480, 1000));
+                    var middle = new Vector2(0.3f, 0.55f);
+                    Pin(_insert.rectTransform, middle, middle, new Vector2(-300, -300), new Vector2(300, 300));
+                    Pin(_bottom, Vector2.zero, new Vector2(0.6f, 0), new Vector2(420, 32), new Vector2(0, 640));
+                }
+                else
+                {
+                    Pin(_pose.rectTransform, corner, corner, new Vector2(-60, -720), new Vector2(520, 1100));
+                    var top = new Vector2(0.5f, 1);
+                    Pin(_insert.rectTransform, top, top, new Vector2(-330, -900), new Vector2(330, -240));
+                    Pin(_bottom, Vector2.zero, Vector2.right, new Vector2(440, 40), new Vector2(0, 1100));
+                }
+                FitBox();
+                return;
+            }
             if (landscape)
             {
                 var poseFoot = new Vector2(0.28f, 0);

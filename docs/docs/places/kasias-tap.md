@@ -76,6 +76,16 @@ The local's old meeting sign on the back-room door: city history without a parag
 Close-up insert panel. An old painted wooden sign with a chipped border, screwed to a worn wooden door, brass hinges, scuffs from decades of hands. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
+### The dropped wallet
+
+The fat wallet a regular drops under the rail on your bar-back shift (A1.3).
+
+`kasia_wallet` (insert, square 1:1)
+
+```
+Close-up insert panel. A fat, worn brown leather wallet lying half under a brass foot rail on a scuffed wooden floor, the edge of a barstool leg beside it. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
 ### The bar TV
 
 The bar TV high in the corner, screen blank so the news is laid in: Starflare Field announced (A2.8), the mayor's race (R6), the ground-breaking date (A3.5).

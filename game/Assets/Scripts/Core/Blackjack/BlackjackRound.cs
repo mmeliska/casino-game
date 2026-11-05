@@ -4,7 +4,8 @@ using Starflare.Cards;
 
 namespace Starflare.Blackjack
 {
-    public enum RoundPhase { PlayerTurn, Settled }
+    /// <summary>Insurance comes first, and only when the dealer shows an ace and the table offers it.</summary>
+    public enum RoundPhase { InsuranceOffered, PlayerTurn, Settled }
 
     /// <summary>
     /// One round of blackjack from the deal to settlement. Pure rules: it never touches
@@ -32,7 +33,49 @@ namespace Starflare.Blackjack
             hand.Add(_shoe.Draw());
             Dealer.Add(_shoe.Draw());
 
-            // The dealer peeks under an ace or ten, so a dealer blackjack ends the round at once.
+            if (_rules.OfferInsurance && Dealer.Cards[0].Rank == Rank.Ace
+                && InsuranceCost > 0 && bet + InsuranceCost <= bankroll)
+            {
+                Phase = RoundPhase.InsuranceOffered;
+                return;
+            }
+            Peek();
+        }
+
+        /// <summary>The side bet insurance takes: half the bet, in whole dollars.</summary>
+        public int InsuranceCost => _hands[0].Bet / 2;
+
+        /// <summary>What's on insurance: nothing unless you took it.</summary>
+        public int Insurance { get; private set; }
+
+        /// <summary>Insurance pays 2:1 when the dealer has blackjack, and is lost otherwise.</summary>
+        public int InsuranceNet { get; private set; }
+
+        public bool CanInsure => Phase == RoundPhase.InsuranceOffered;
+
+        /// <summary>
+        /// The dealer shows an ace but the bet is too small to halve in whole dollars ($1), so
+        /// there's no insurance, as at a real table with no half chips.
+        /// </summary>
+        public bool InsuranceTooSmall => _rules.OfferInsurance && Dealer.Cards[0].Rank == Rank.Ace && InsuranceCost == 0;
+
+        public void TakeInsurance()
+        {
+            Require(CanInsure, nameof(TakeInsurance));
+            Insurance = InsuranceCost;
+            Peek();
+        }
+
+        public void DeclineInsurance()
+        {
+            Require(CanInsure, nameof(DeclineInsurance));
+            Peek();
+        }
+
+        /// <summary>The dealer peeks under an ace or ten, so a dealer blackjack ends the round at once.</summary>
+        void Peek()
+        {
+            var hand = _hands[0];
             if (Dealer.IsBlackjack || hand.IsBlackjack)
             {
                 hand.Done = true;
@@ -53,7 +96,7 @@ namespace Starflare.Blackjack
         {
             get
             {
-                int stake = 0;
+                int stake = Insurance;
                 foreach (var hand in _hands) stake += hand.Bet;
                 return stake;
             }
@@ -63,7 +106,7 @@ namespace Starflare.Blackjack
         {
             get
             {
-                int net = 0;
+                int net = InsuranceNet;
                 foreach (var hand in _hands) net += hand.Net;
                 return net;
             }
@@ -161,6 +204,7 @@ namespace Starflare.Blackjack
 
         void Settle()
         {
+            InsuranceNet = Insurance == 0 ? 0 : Dealer.IsBlackjack ? 2 * Insurance : -Insurance;
             foreach (var hand in _hands)
             {
                 hand.Outcome = Resolve(hand);

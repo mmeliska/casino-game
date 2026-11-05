@@ -13,6 +13,12 @@ namespace Starflare.Game
         /// <summary>Plays one knot with the shared variables up to date, saves, then calls back.</summary>
         void PlayScene(string knot, Action then);
 
+        /// <summary>
+        /// Plays one knot over a game the player can still see, so a teacher can coach it
+        /// ("# point:" lines), then saves and calls back.
+        /// </summary>
+        void PlaySceneOver(string knot, ICoachable game, Action then);
+
         /// <summary>The place screen: the view's plate for the time of day, with these actions under the top bar.</summary>
         void ShowPlace(string view, params (string label, UnityAction action)[] actions);
 

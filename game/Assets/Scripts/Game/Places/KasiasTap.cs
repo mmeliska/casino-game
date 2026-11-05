@@ -2,6 +2,7 @@ using System;
 using Starflare.State;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using static Starflare.Game.UiKit;
 
@@ -9,10 +10,12 @@ namespace Starflare.Game
 {
     /// <summary>
     /// Kasia's Tap, the first playable venue. You arrive on the sidewalk across from the mill
-    /// gate; inside, night one's scene (A1.2), Juan's coupons (A1.3) or Kasia's hello plays as
-    /// you walk in, then you're at the bar, where you can sit down at the video poker machine.
-    /// Getting up is a break point, where Kasia's scene for the moment plays (her book when
-    /// you're broke, settling up when you're flush). The machine never sees the story.
+    /// gate; inside, night one's scene (A1.2), one of her two jobs (A1.3), her nod toward the
+    /// back door once both are done, or her hello plays as you walk in, then you're at the bar,
+    /// where you can sit down at the video poker machine or, once she's let you in, go through
+    /// to Rosa's table (<see cref="KasiasBackRoom"/>). Getting up from the machine is a break
+    /// point, where Kasia's scene for the moment plays (her book when you're broke, settling up
+    /// when you're flush). The machine never sees the story.
     /// </summary>
     public sealed class KasiasTap : MonoBehaviour, IPlace
     {
@@ -20,6 +23,7 @@ namespace Starflare.Game
 
         IPlaceHost _host;
         VideoPokerMachine _machine;
+        KasiasBackRoom _backRoom;
 
         GameObject _menu;
         TMP_Text _menuText;
@@ -29,6 +33,8 @@ namespace Starflare.Game
             _host = host;
             _machine = gameObject.AddComponent<VideoPokerMachine>();
             _machine.BreakPointReached += OnBreakPoint;
+            _backRoom = gameObject.AddComponent<KasiasBackRoom>();
+            _backRoom.Init(host, ShowBar);
             BuildMenu();
         }
 
@@ -54,18 +60,22 @@ namespace Starflare.Game
 
         void ShowBar()
         {
-            _host.ShowPlace("kasia_bar",
-                ("Sit down at the machine", () =>
-                {
-                    _host.LeavePlaceScreen();
-                    SitDown();
-                }),
-                ("Step back outside", ShowOutside));
+            (string, UnityAction) sitDown = ("Sit down at the machine", () =>
+            {
+                _host.LeavePlaceScreen();
+                SitDown();
+            });
+            if (_host.Story.Flag(StoryContract.BackRoomOpen))
+                _host.ShowPlace("kasia_bar", sitDown, ("Go through the back door", _backRoom.Enter), ("Step back outside", ShowOutside));
+            else
+                _host.ShowPlace("kasia_bar", sitDown, ("Step back outside", ShowOutside));
         }
 
         /// <summary>
         /// Walking in. Night one plays the first time. After that night, until you meet Juan,
-        /// Kasia has his coupons for you (A1.3); otherwise she says hello. Then you're at the bar.
+        /// Kasia has his coupons for you; once he has them, the bar-back shift; once both jobs
+        /// are done, she nods you toward the back door (A1.3). Otherwise she says hello. Then
+        /// you're at the bar.
         /// </summary>
         void Enter()
         {
@@ -73,6 +83,10 @@ namespace Starflare.Game
             if (!story.Flag(StoryContract.MetKasia)) PlayScene(StoryContract.Knots.NightOne, ShowBar);
             else if (_host.State.Clock.Day > 1 && !story.Flag(StoryContract.CarryingCoupons) && !story.Flag(StoryContract.MetJuan))
                 PlayScene(StoryContract.Knots.CouponJob, ShowBar);
+            else if (story.Flag(StoryContract.MetJuan) && !story.Flag(StoryContract.DidBarBack))
+                PlayScene(StoryContract.Knots.BarBackJob, ShowBar);
+            else if (story.Flag(StoryContract.DidBarBack) && !story.Flag(StoryContract.BackRoomOpen))
+                PlayScene(StoryContract.Knots.BackRoomInvite, ShowBar);
             else PlayScene(StoryContract.Knots.WalkIn, ShowBar);
         }
 

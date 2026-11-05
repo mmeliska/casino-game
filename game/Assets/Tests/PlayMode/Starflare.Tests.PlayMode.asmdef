@@ -4,6 +4,7 @@
     "references": [
         "Starflare.Core",
         "Starflare.Game",
+        "UnityEngine.UI",
         "UnityEngine.TestRunner",
         "Ink-Libraries"
     ],

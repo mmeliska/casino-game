@@ -6,8 +6,8 @@ namespace Starflare.State
     public enum RegisterBox { Unticked, Mr, Ms, PreferNotToAnswer }
 
     /// <summary>
-    /// The slice of the GDD's player state model the prototype needs. Heat, scales, NPC
-    /// state, flags and Pockets join it as their systems are built.
+    /// The slice of the GDD's player state model the prototype needs. Heat, NPC state, flags
+    /// and Pockets join it as their systems are built.
     ///
     /// Every change goes through a method here and raises <see cref="Changed"/>, so the owner
     /// can save and the screens can redraw without polling. The fields stay public for the
@@ -17,7 +17,7 @@ namespace Starflare.State
     public sealed class PlayerState
     {
         /// <summary>The save schema this code writes. Bump it with a migration step in the save store.</summary>
-        public const int CurrentVersion = 1;
+        public const int CurrentVersion = 2;
 
         /// <summary>You drive in with about $200 and a car (A1.1).</summary>
         public const int StartingBankroll = 200;
@@ -43,6 +43,9 @@ namespace Starflare.State
 
         /// <summary>You arrive at night (A1.1).</summary>
         public GameClock Clock = new GameClock { Part = PartOfDay.Night };
+
+        /// <summary>The four hidden scales, nudged by choices in scenes and jobs.</summary>
+        public Scales Scales = new Scales();
 
         /// <summary>Raised after every settled change, once per change. Never mid-round.</summary>
         [field: NonSerialized]
@@ -86,6 +89,23 @@ namespace Starflare.State
         {
             BankrollNow += amount;
             RaiseBestBankroll();
+            Changed?.Invoke();
+        }
+
+        /// <summary>A job's shift: its pay in cash, and it takes the rest of this part of the day.</summary>
+        public void WorkShift(int pay)
+        {
+            if (pay < 0) throw new ArgumentOutOfRangeException(nameof(pay));
+            BankrollNow += pay;
+            Clock.AdvanceForPlay(GameClock.MinutesPerPart);
+            RaiseBestBankroll();
+            Changed?.Invoke();
+        }
+
+        /// <summary>A choice nudges a hidden scale one step toward a pole, such as "crooked".</summary>
+        public void Lean(string pole)
+        {
+            Scales.Lean(pole);
             Changed?.Invoke();
         }
 

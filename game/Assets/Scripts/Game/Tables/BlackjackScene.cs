@@ -1,3 +1,4 @@
+using Starflare.Blackjack;
 using Starflare.State;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ namespace Starflare.Game
     /// </summary>
     public sealed class BlackjackScene : MonoBehaviour
     {
+        /// <summary>The Flare's chips, for its $5 to $100 table.</summary>
+        static readonly int[] FlareChips = { 5, 25, 100 };
+
         SaveStore _saves;
         PlayerState _state;
         BlackjackTable _table;
@@ -17,6 +21,7 @@ namespace Starflare.Game
         {
             _saves = new SaveStore(Application.persistentDataPath);
             _table = gameObject.AddComponent<BlackjackTable>();
+            _table.Init(new BlackjackRules(), FlareChips, standalone: true);
             _table.StartOverRequested += StartOver;
             Take(_saves.Load());
         }
