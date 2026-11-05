@@ -1,5 +1,9 @@
 ## 5 Nov 2026
 
+### Millstone Lanes by day, night, rain and snow
+
+The lot outside Millstone Lanes now has a day plate as well as night, and a winter version of each, so the Lanes follow the clock and the season like Kasia's Tap (Mike). The night plate is redrawn in clear weather; rain versions are drawn too, for when the game has weather.
+
 ### Teaching happens over the game
 
 Scenes during play no longer cover the table. A teacher's scene plays over the game, with her waist-up in the corner and the cards in view, and when she tells you to do something, she steps aside and the real button glows: you press it yourself, and only that one works, with a Help button to hear her again (Mike). Rosa's first hand is now a practice hand on the house that doesn't count: she has you deal, explains insurance and has you take it, then stand. Her six under the ace means the side bet loses, and she tells you insurance is your call every time; she teaches the rule, not the answer (Mike). Her first lesson ("Watch his hands, not his face") is out of this scene: it's about reading a dealer, and here she is the dealer, so it waits for a story moment that fits (Mike). It replaces yesterday's version, where she warned you off insurance as a dialogue choice. Every game can be taught this way once it names its controls; the [writing guide](#writing) has the `# point:` tag.
