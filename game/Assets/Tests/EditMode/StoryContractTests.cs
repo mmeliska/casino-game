@@ -77,14 +77,14 @@ namespace Starflare.Tests
         public void WorkEarnAndLean_ChangeThePlayerState()
         {
             string json = Compile(
-                "EXTERNAL earn(amount)\nEXTERNAL work(pay)\nEXTERNAL lean(pole)\n" +
-                "~ earn(40)\n~ work(60)\n~ lean(\"crooked\")\nDone.\n-> END\n", inline: true);
+                "EXTERNAL earn(amount)\nEXTERNAL work(pay, hours)\nEXTERNAL lean(pole)\n" +
+                "~ earn(40)\n~ work(60, 4)\n~ lean(\"crooked\")\nDone.\n-> END\n", inline: true);
             var state = new PlayerState();
             var bridge = new StoryBridge(json, null, state);
 
             while (bridge.Ink.canContinue) bridge.Ink.Continue();
             Assert.That(state.BankrollNow, Is.EqualTo(300));
-            Assert.That(state.Clock.PartIsOver, Is.True);
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("22:00"));
             Assert.That(state.Scales.Straight, Is.EqualTo(-1));
         }
 

@@ -17,7 +17,7 @@ namespace Starflare.State
     public sealed class PlayerState
     {
         /// <summary>The save schema this code writes. Bump it with a migration step in the save store.</summary>
-        public const int CurrentVersion = 2;
+        public const int CurrentVersion = 3;
 
         /// <summary>You drive in with about $200 and a car (A1.1).</summary>
         public const int StartingBankroll = 200;
@@ -42,7 +42,7 @@ namespace Starflare.State
         public string Place = "slack-water";
 
         /// <summary>You arrive at night (A1.1).</summary>
-        public GameClock Clock = new GameClock { Part = PartOfDay.Night };
+        public GameClock Clock = new GameClock { MinuteOfDay = GameClock.NightStart };
 
         /// <summary>The four hidden scales, nudged by choices in scenes and jobs.</summary>
         public Scales Scales = new Scales();
@@ -67,12 +67,12 @@ namespace Starflare.State
             Changed?.Invoke();
         }
 
-        /// <summary>Called by a game module when a round settles.</summary>
+        /// <summary>Called by a game module when a round settles, with the story minutes played (<see cref="Sitting"/>).</summary>
         public void ApplyRoundResult(int net, int minutes)
         {
             BankrollNow += net;
             RoundsPlayed++;
-            Clock.AdvanceForPlay(minutes);
+            Clock.Advance(minutes);
             RaiseBestBankroll();
             Changed?.Invoke();
         }
@@ -92,12 +92,13 @@ namespace Starflare.State
             Changed?.Invoke();
         }
 
-        /// <summary>A job's shift: its pay in cash, and it takes the rest of this part of the day.</summary>
-        public void WorkShift(int pay)
+        /// <summary>A job's shift: its pay in cash, and its hours off the clock (the bar-back shift is about 4).</summary>
+        public void WorkShift(int pay, int hours)
         {
             if (pay < 0) throw new ArgumentOutOfRangeException(nameof(pay));
+            if (hours < 0) throw new ArgumentOutOfRangeException(nameof(hours));
             BankrollNow += pay;
-            Clock.AdvanceForPlay(GameClock.MinutesPerPart);
+            Clock.Advance(hours * 60);
             RaiseBestBankroll();
             Changed?.Invoke();
         }
@@ -127,19 +128,33 @@ namespace Starflare.State
             Changed?.Invoke();
         }
 
-        /// <summary>Your room, or a night anywhere: the clock moves to the next morning.</summary>
+        /// <summary>
+        /// Time passing with nothing else changing: waiting at a place, or the last of a sitting's
+        /// play when you get up. No time, no change.
+        /// </summary>
+        public void PassTime(int minutes)
+        {
+            if (minutes < 0) throw new ArgumentOutOfRangeException(nameof(minutes));
+            if (minutes == 0) return;
+            Clock.Advance(minutes);
+            Changed?.Invoke();
+        }
+
+        /// <summary>Your room, or a night anywhere: the clock moves to the next 6:00 a.m.</summary>
         public void Sleep()
         {
             Clock.Sleep();
             Changed?.Invoke();
         }
 
-        /// <summary>Arriving somewhere on the map.</summary>
-        public void MoveTo(string place)
+        /// <summary>Arriving somewhere on the map, after the trip's minutes. Staying put takes none.</summary>
+        public void MoveTo(string place, int travelMinutes = 0)
         {
             if (string.IsNullOrEmpty(place)) throw new ArgumentException("A place is required.", nameof(place));
+            if (travelMinutes < 0) throw new ArgumentOutOfRangeException(nameof(travelMinutes));
             if (place == Place) return;
             Place = place;
+            Clock.Advance(travelMinutes);
             Changed?.Invoke();
         }
 

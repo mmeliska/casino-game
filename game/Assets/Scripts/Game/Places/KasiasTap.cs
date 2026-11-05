@@ -66,10 +66,15 @@ namespace Starflare.Game
                 SitDown();
             });
             if (_host.Story.Flag(StoryContract.BackRoomOpen))
-                _host.ShowPlace("kasia_bar", sitDown, ("Go through the back door", _backRoom.Enter), ("Step back outside", ShowOutside));
+                _host.ShowPlace("kasia_bar", sitDown, ("Go through the back door", _backRoom.Enter), NurseABeer, ("Step back outside", ShowOutside));
             else
-                _host.ShowPlace("kasia_bar", sitDown, ("Step back outside", ShowOutside));
+                _host.ShowPlace("kasia_bar", sitDown, NurseABeer, ("Step back outside", ShowOutside));
         }
+
+        /// <summary>Kasia's way to pass the time: three dollars a beer.</summary>
+        (string, UnityAction) NurseABeer => ("Nurse a beer", () => _host.ShowWait("kasia_bar", "Nurse a beer", BeerPrice, ShowBar));
+
+        const int BeerPrice = 3;
 
         /// <summary>
         /// Walking in. Night one plays the first time. After that night, until you meet Juan,
@@ -101,7 +106,7 @@ namespace Starflare.Game
         void SitDown()
         {
             _menu.SetActive(false);
-            _machine.SitDown(_host.State);
+            _machine.SitDown(_host.State, _host.Pace);
         }
 
         void OnBreakPoint(BreakPoint point) => PlayScene(StoryContract.Knots.GetUp, ShowMenu);

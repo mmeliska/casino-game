@@ -58,7 +58,7 @@ Background plate, no people. A tavern back room: a round card table with green f
 
 ### The wedding reception
 
-The Saturday wedding you work as server or busser (A1.4), and the dance offers. The reception is in the hall upstairs: plank floor, string lights and white drapes across the beams, round tables, the cake table by the far door (Mike, 2026-11-04).
+The Saturday wedding you work as server or busser (A1.4), and the dance offers. The reception is in the hall upstairs: plank floor, string lights and white drapes across the beams, round tables, the cake table by the far door (Mike, 2026-11-04). Kasia books you for it when you finish her second job; on that Saturday night the Tap shows the way upstairs (Mike, 2026-11-05).
 
 `kasia_wedding_night` (plate, portrait 9:16)
 

@@ -2,14 +2,17 @@ using System;
 
 namespace Starflare.State
 {
-    public enum PartOfDay { Morning, Afternoon, Night }
+    /// <summary>Morning, afternoon and night keep their old numbers in saves; before dawn came later.</summary>
+    public enum PartOfDay { Morning, Afternoon, Night, BeforeDawn }
 
     public enum Season { Spring, Summer, Fall, Winter }
 
     /// <summary>
-    /// The in-game clock. Time runs on what you do, not the real clock: a round takes a few
-    /// minutes but only up to the end of the current part of the day, after which play is
-    /// unlimited. Days pass only when you move, sleep, travel or take a job.
+    /// The in-game clock. It runs straight through the hours, and the part of the day is read
+    /// from the hour: before dawn from midnight, morning from 6:00, afternoon from noon, night
+    /// from 6:00 p.m. The date changes at midnight, so playing past midnight on Saturday makes
+    /// it Sunday (Mike, 2026-11-05). Time moves only on what you do: play (see <see cref="Sitting"/>),
+    /// travel, jobs, waiting and sleep.
     ///
     /// Days fall on a calendar: day 1 is May 4 of year 1, the night you arrive, and year 2
     /// starts the next Jan 1. Years have 365 days, no leap years. Seasons follow the months:
@@ -19,9 +22,13 @@ namespace Starflare.State
     [Serializable]
     public sealed class GameClock
     {
-        public const int MinutesPerPart = 360;
+        public const int MinutesPerDay = 24 * 60;
+        public const int MinutesPerPart = 6 * 60;
         public const int DaysPerYear = 365;
-        const int MorningStartHour = 6;
+
+        public const int MorningStart = 6 * 60;
+        public const int AfternoonStart = 12 * 60;
+        public const int NightStart = 18 * 60;
 
         static readonly int[] DaysInMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         static readonly string[] MonthNames = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
@@ -30,8 +37,36 @@ namespace Starflare.State
         const int ArrivalDayOfYear = 31 + 28 + 31 + 30 + 3;
 
         public int Day = 1;
-        public PartOfDay Part = PartOfDay.Morning;
-        public int MinutesIntoPart;
+
+        /// <summary>Minutes since midnight.</summary>
+        public int MinuteOfDay = MorningStart;
+
+        public PartOfDay Part =>
+            MinuteOfDay < MorningStart ? PartOfDay.BeforeDawn
+            : MinuteOfDay < AfternoonStart ? PartOfDay.Morning
+            : MinuteOfDay < NightStart ? PartOfDay.Afternoon
+            : PartOfDay.Night;
+
+        /// <summary>Where each part of the day starts, minutes after midnight.</summary>
+        public static int StartOf(PartOfDay part) => part switch
+        {
+            PartOfDay.BeforeDawn => 0,
+            PartOfDay.Morning => MorningStart,
+            PartOfDay.Afternoon => AfternoonStart,
+            _ => NightStart,
+        };
+
+        /// <summary>The part that comes after this one: night runs into before dawn.</summary>
+        public PartOfDay NextPart => Part switch
+        {
+            PartOfDay.BeforeDawn => PartOfDay.Morning,
+            PartOfDay.Morning => PartOfDay.Afternoon,
+            PartOfDay.Afternoon => PartOfDay.Night,
+            _ => PartOfDay.BeforeDawn,
+        };
+
+        /// <summary>How long until the next part of the day starts, for "until night".</summary>
+        public int MinutesToNextPart => ((StartOf(NextPart) - MinuteOfDay) % MinutesPerDay + MinutesPerDay) % MinutesPerDay;
 
         /// <summary>Days since Jan 1 of year 1.</summary>
         int DaysSinceYearOne => ArrivalDayOfYear + Day - 1;
@@ -55,34 +90,27 @@ namespace Starflare.State
                 return (month + 1, day + 1);
             }
         }
-        public bool PartIsOver => MinutesIntoPart >= MinutesPerPart;
 
-        /// <summary>Clock time as h:mm, from 6:00 in the morning.</summary>
-        public string TimeLabel
-        {
-            get
-            {
-                int minutes = MorningStartHour * 60 + (int)Part * MinutesPerPart + MinutesIntoPart;
-                int hour = minutes / 60 % 24;
-                return $"{hour}:{minutes % 60:00}";
-            }
-        }
+        /// <summary>Clock time as h:mm, on a 24-hour clock.</summary>
+        public string TimeLabel => $"{MinuteOfDay / 60}:{MinuteOfDay % 60:00}";
 
         /// <summary>The date, e.g. "May 4, Year 1".</summary>
         public string DateLabel => $"{MonthNames[Month - 1]} {DayOfMonth}, Year {Year}";
 
-        /// <summary>Playing at a table: fills the current part of the day and stops there.</summary>
-        public void AdvanceForPlay(int minutes)
+        /// <summary>Moves the clock on, past midnight into the next day if it gets there.</summary>
+        public void Advance(int minutes)
         {
             if (minutes < 0) throw new ArgumentOutOfRangeException(nameof(minutes));
-            MinutesIntoPart = Math.Min(MinutesPerPart, MinutesIntoPart + minutes);
+            int total = MinuteOfDay + minutes;
+            Day += total / MinutesPerDay;
+            MinuteOfDay = total % MinutesPerDay;
         }
 
+        /// <summary>To the next 6:00 a.m.: the same date if you turn in before dawn.</summary>
         public void Sleep()
         {
-            Day++;
-            Part = PartOfDay.Morning;
-            MinutesIntoPart = 0;
+            if (MinuteOfDay >= MorningStart) Day++;
+            MinuteOfDay = MorningStart;
         }
     }
 }

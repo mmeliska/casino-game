@@ -1,5 +1,19 @@
 ## 5 Nov 2026
 
+### Your room at the motel
+
+After night one, going to your room at the Slack Water opens the room: sleep for 1, 2, 4 or 8 hours, or watch TV or browse the internet for 1, 2 or 3 hours, and you're back in the room at the new time (Mike). Night one you still can't sleep.
+
+### The clock follows play
+
+At a table or a mini-game the clock now follows real time: 1 real minute is 30 minutes in the story (a setting, easy to retune), and one sitting moves it at most 8 hours, after which you play on and the clock waits until you get up (Mike). The clock runs straight through the hours, so playing through the afternoon brings on the night; the date changes at midnight. Scenes, the map and menus are frozen; travel, jobs and sleep cost set amounts, and each place has its own way to wait (a nap at the motel, a beer at Kasia's, league night at the Lanes): an hour, or until the next part of the day. This replaces 5 minutes a round, capped at the end of the part, which could never reach night.
+
+### How you get to the wedding
+
+Kasia asks you to work the wedding (A1.4) when you finish her second job, in the same talk where she nods you toward the back room. Say yes and it's booked for the next Saturday night; that night the Tap has a way upstairs to the hall. The back room stays open while you wait, so you can play Rosa's table first (Mike).
+
+The reception is a night shift; the new clock above is what lets the game reach Saturday night.
+
 ### Millstone Lanes by day, night, rain and snow
 
 The lot outside Millstone Lanes now has a day plate as well as night, and a winter version of each, so the Lanes follow the clock and the season like Kasia's Tap (Mike). The night plate is redrawn in clear weather; rain versions are drawn too, for when the game has weather.

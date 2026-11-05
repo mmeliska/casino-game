@@ -5,6 +5,7 @@
         "Starflare.Core",
         "Starflare.Game",
         "Ink-Libraries",
+        "Unity.TextMeshPro",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],

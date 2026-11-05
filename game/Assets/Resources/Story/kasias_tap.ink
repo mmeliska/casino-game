@@ -150,7 +150,7 @@ KASIA: Juan's box is still behind the bar.
 
 
 // The bar-back shift (A1.3), her other job: offered when you walk in once Juan has his box.
-// Sixty cash for the shift, which takes the rest of this part of the day.
+// Sixty cash for the shift, which takes about four hours.
 === bar_back_job ===
 # plate: kasia_bar_night
 {offered_bar_back: -> again}
@@ -201,7 +201,7 @@ A fat wallet, half under the rail. He's already at the door.
     -> paid
 
 = paid
-~ work(60)
+~ work(60, 4)
 ~ did_bar_back = true
 KASIA: Sixty. You showed up and didn't break anything.
 -> END

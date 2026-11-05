@@ -61,10 +61,10 @@ namespace Starflare.Game
             _host.LeavePlaceScreen();
             if (_host.Story.Flag(StoryContract.SatWithRosa))
             {
-                _table.SitDown(_host.State);
+                _table.SitDown(_host.State, _host.Pace);
                 return;
             }
-            _table.SitDown(_host.State, RosasFirstHand());
+            _table.SitDown(_host.State, _host.Pace, RosasFirstHand());
             _host.PlaySceneOver(StoryContract.Knots.RosaFirstHand, _table, () => { });
         }
 

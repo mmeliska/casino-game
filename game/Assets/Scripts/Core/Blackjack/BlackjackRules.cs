@@ -22,12 +22,6 @@ namespace Starflare.Blackjack
         /// <summary>Insurance against a dealer ace, at half the bet, paying 2:1.</summary>
         public bool OfferInsurance = true;
 
-        /// <summary>
-        /// In-game minutes a round takes off the clock, close to a real table's pace (Mike,
-        /// 26 Oct 2026). 72 rounds fill a six-hour part of the day.
-        /// </summary>
-        public int MinutesPerRound = 5;
-
         /// <summary>Whole dollars; an odd bet's half dollar rounds down, as at a table with no half chips.</summary>
         public int BlackjackWin(int bet) => bet * BlackjackPayNumerator / BlackjackPayDenominator;
     }

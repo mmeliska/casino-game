@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using Starflare.State;
 using UnityEngine;
 
@@ -139,7 +140,41 @@ namespace Starflare.Game
             json => json,
             // 1 -> 2: the hidden scales arrive. A save without them reads them as level, all zero.
             json => json,
+            // 2 -> 3: the clock runs through the hours (Mike, 2026-11-05).
+            ClockRunsThroughTheHours,
         };
+
+        static readonly Regex ClockObject = new Regex("\"Clock\"\\s*:\\s*\\{[^}]*\\}");
+
+        /// <summary>
+        /// The old clock kept a part of the day and minutes into it, from 6:00; the new one keeps
+        /// minutes since midnight. A part played to its end ("late" at night) is midnight, the next day.
+        /// </summary>
+        static string ClockRunsThroughTheHours(string json)
+        {
+            var match = ClockObject.Match(json);
+            if (!match.Success) return json;
+            var old = JsonUtility.FromJson<PartsClock>("{" + match.Value + "}").Clock;
+            int minutes = GameClock.MorningStart + old.Part * GameClock.MinutesPerPart + old.MinutesIntoPart;
+            int day = old.Day + minutes / GameClock.MinutesPerDay;
+            string clock = $"\"Clock\": {{ \"Day\": {day}, \"MinuteOfDay\": {minutes % GameClock.MinutesPerDay} }}";
+            return json.Substring(0, match.Index) + clock + json.Substring(match.Index + match.Length);
+        }
+
+        /// <summary>The clock as versions 0 to 2 saved it.</summary>
+        [Serializable]
+        sealed class PartsClock
+        {
+            public OldClock Clock;
+
+            [Serializable]
+            public sealed class OldClock
+            {
+                public int Day = 1;
+                public int Part;
+                public int MinutesIntoPart;
+            }
+        }
 
         [Serializable]
         sealed class VersionProbe

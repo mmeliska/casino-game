@@ -10,7 +10,7 @@ EXTERNAL spend(amount)
 EXTERNAL earn(amount)
 EXTERNAL borrow(amount)
 EXTERNAL repay(amount)
-EXTERNAL work(pay)
+EXTERNAL work(pay, hours)
 EXTERNAL lean(pole)
 
 // Set by the game before each scene.

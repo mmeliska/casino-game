@@ -11,9 +11,6 @@ namespace Starflare.VideoPoker
         public int CreditValue { get; set; } = 1;
         public int MaxCredits { get; set; } = 5;
 
-        /// <summary>Clock minutes per hand. Starting value; tune once the prototype runs.</summary>
-        public int MinutesPerRound { get; set; } = 2;
-
         /// <summary>The royal's bonus for betting max: 800 per credit instead of 250.</summary>
         public int RoyalAtMaxPerCredit { get; set; } = 800;
 

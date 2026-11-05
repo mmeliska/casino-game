@@ -7,7 +7,7 @@ namespace Starflare.Tests
 {
     public class ArtTests
     {
-        static GameClock At(PartOfDay part, int day = 1) => new GameClock { Day = day, Part = part };
+        static GameClock At(PartOfDay part, int day = 1) => new GameClock { Day = day, MinuteOfDay = GameClock.StartOf(part) };
 
         // Day 1 is May 4 (spring); day 212 is Dec 1 (winter).
         const int WinterDay = 212;
@@ -25,6 +25,7 @@ namespace Starflare.Tests
             Assert.That(Art.PlateAt("kasia_bar", At(PartOfDay.Morning), have), Is.EqualTo("kasia_bar_day"));
             Assert.That(Art.PlateAt("kasia_bar", At(PartOfDay.Afternoon), have), Is.EqualTo("kasia_bar_day"));
             Assert.That(Art.PlateAt("kasia_bar", At(PartOfDay.Night), have), Is.EqualTo("kasia_bar_night"));
+            Assert.That(Art.PlateAt("kasia_bar", At(PartOfDay.BeforeDawn), have), Is.EqualTo("kasia_bar_night"));
         }
 
         [Test]

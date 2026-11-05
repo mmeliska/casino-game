@@ -40,6 +40,7 @@ namespace Starflare.Game
         public int SittingRounds { get; private set; }
 
         PlayerState _state;
+        Sitting _sitting;
         Shoe _deck;
         VideoPokerRound _round;
         int _credits = 1;
@@ -65,9 +66,11 @@ namespace Starflare.Game
             _root.SetActive(false);
         }
 
-        public void SitDown(PlayerState state)
+        /// <summary>Sits you down with this state, the clock moving at this pace while you play.</summary>
+        public void SitDown(PlayerState state, ClockPace pace)
         {
             _state = state;
+            _sitting = new Sitting(pace);
             _round = null;
             _sittingStartBankroll = state.BankrollNow;
             SittingRounds = 0;
@@ -75,6 +78,13 @@ namespace Starflare.Game
             _message = "";
             _root.SetActive(true);
             Refresh();
+        }
+
+        /// <summary>Counts real time played, while the machine is up and the app is in front.</summary>
+        void Update()
+        {
+            if (_sitting == null || !_root.activeSelf) return;
+            _sitting.Play(Math.Min(Time.unscaledDeltaTime, Sitting.MaxFrameSeconds));
         }
 
         bool Betting => _round == null || _round.Phase == VideoPokerPhase.Settled;
@@ -114,7 +124,7 @@ namespace Starflare.Game
         void Draw()
         {
             _round.Draw();
-            _state.ApplyRoundResult(_round.Net, Rules.MinutesPerRound);
+            _state.ApplyRoundResult(_round.Net, _sitting.TakeMinutes());
             SittingRounds++;
 
             _message = _round.Rank == PokerHandRank.Nothing
@@ -134,6 +144,7 @@ namespace Starflare.Game
         void GetUp()
         {
             if (!Betting) return;
+            _state.PassTime(_sitting.TakeMinutes());
             _root.SetActive(false);
             BreakPointReached?.Invoke(BreakPoint.GotUpFromTable);
         }
@@ -145,7 +156,7 @@ namespace Starflare.Game
             var clock = _state.Clock;
             _bankrollText.text = $"Cash {Money(_state.BankrollNow)}" + (_state.Debts > 0 ? $"    Owed {Money(_state.Debts)}" : "");
             _clockText.text = $"{clock.DateLabel} · {clock.Part} {clock.TimeLabel}"
-                + (clock.PartIsOver ? " (late)" : "");
+                + (_sitting.ClockStopped ? " (late)" : "");
 
             bool betting = Betting;
             int column = (_round?.Credits ?? _credits) - 1;
@@ -410,9 +421,9 @@ namespace Starflare.Game
             Stretch(trim.rectTransform);
             trim.rectTransform.offsetMin = new Vector2(10, 10);
             trim.rectTransform.offsetMax = new Vector2(-10, -10);
-            var star = MakeText(back.transform, "★", 64, TextAnchor.MiddleCenter, 0);
-            star.color = new Color(Gold.r, Gold.g, Gold.b, 0.7f);
-            Stretch(star.rectTransform);
+            var pip = MakeText(back.transform, "♦", 64, TextAnchor.MiddleCenter, 0);
+            pip.color = new Color(Gold.r, Gold.g, Gold.b, 0.7f);
+            Stretch(pip.rectTransform);
 
             _cardFaces[index] = face;
             _cardRanks[index] = rank;

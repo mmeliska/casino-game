@@ -53,7 +53,7 @@ namespace Starflare.Tests
             Assert.That(taken, Is.EqualTo(new[] { BlackjackControls.Deal, BlackjackControls.NoInsurance, BlackjackControls.Stand }));
             Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll), "a practice hand pays nothing");
             Assert.That(state.RoundsPlayed, Is.EqualTo(0));
-            Assert.That(state.Clock.MinutesIntoPart, Is.EqualTo(0));
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("18:00"), "no time passes while she coaches");
         }
 
         [Test]
@@ -85,7 +85,7 @@ namespace Starflare.Tests
         {
             var table = Make("Table").AddComponent<BlackjackTable>();
             table.Init(new BlackjackRules { MinBet = 1, MaxBet = 50 }, new[] { 1, 5, 25 }, standalone: false);
-            table.SitDown(state, new PracticeHand(10,
+            table.SitDown(state, new ClockPace(), new PracticeHand(10,
                 new Card(Rank.Ten, Suit.Spades), new Card(Rank.Ace, Suit.Hearts),
                 new Card(Rank.Eight, Suit.Diamonds), new Card(Rank.Six, Suit.Clubs)));
             return table;

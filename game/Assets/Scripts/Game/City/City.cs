@@ -21,8 +21,15 @@ namespace Starflare.Game
         /// <summary>Where the save files go; null means the device's persistent data path. Tests set it.</summary>
         public static string SaveFolder;
 
+        /// <summary>
+        /// A trip on the map. Every place built so far is in Backwater, a trip across one district
+        /// (starting value, Mike 2026-11-05); the districts get their own once the Levee is built.
+        /// </summary>
+        const int TravelMinutes = 30;
+
         public PlayerState State { get; private set; }
         public StoryBridge Story { get; private set; }
+        public ClockPace Pace { get; } = new ClockPace();
 
         SaveStore _saves;
 
@@ -140,7 +147,7 @@ namespace Starflare.Game
         {
             _current?.Leave();
             Art.ForgetLooks();
-            State.MoveTo(id);
+            State.MoveTo(id, TravelMinutes);
             _current = Find(id);
             _current.Arrive();
         }
@@ -155,6 +162,35 @@ namespace Starflare.Game
             foreach (var (label, action) in actions) MakeChoiceButton(_actions, label, action);
             _hud.Show(_current.Name, buttons: true);
             _placeScreen.SetActive(true);
+        }
+
+        public void ShowWait(string view, string how, int price, Action then)
+        {
+            var clock = State.Clock;
+            string next = clock.NextPart switch
+            {
+                PartOfDay.Morning => "morning",
+                PartOfDay.Afternoon => "the afternoon",
+                PartOfDay.Night => "night",
+                _ => "after midnight",
+            };
+            string cost = price > 0 ? $" ({Money(price)})" : "";
+            if (State.BankrollNow < price)
+            {
+                ShowPlace(view, ($"{how}{cost}: not enough cash", () => then()));
+                return;
+            }
+            ShowPlace(view,
+                ($"{how}{cost}, an hour", () => Wait(price, 60, then)),
+                ($"{how}{cost}, until {next}", () => Wait(price, clock.MinutesToNextPart, then)),
+                ("Never mind", () => then()));
+        }
+
+        void Wait(int price, int minutes, Action then)
+        {
+            if (price > 0) State.Spend(price);
+            State.PassTime(minutes);
+            then();
         }
 
         public void LeavePlaceScreen()

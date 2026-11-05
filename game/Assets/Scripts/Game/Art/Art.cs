@@ -79,7 +79,7 @@ namespace Starflare.Game
 
         /// <summary>
         /// The plate tag for a view at this time: <c>view_day</c> (morning and afternoon) or
-        /// <c>view_night</c>. In winter it's the snow plate when the view has one: first
+        /// <c>view_night</c> (night and before dawn). In winter it's the snow plate when the view has one: first
         /// <c>view_day_winter</c> or <c>view_night_winter</c>, else <c>view_winter</c>, one snow
         /// plate for any time of day. A view drawn only at night shows its night plate all day.
         /// Rain plates follow the same rule (<c>view_night_rain</c>, else <c>view_rain</c>) once
@@ -90,7 +90,8 @@ namespace Starflare.Game
         /// <summary><see cref="PlateAt(string, GameClock)"/> with the plates that exist given, for tests.</summary>
         public static string PlateAt(string view, GameClock clock, System.Func<string, bool> hasPlate)
         {
-            string tag = clock.Part == PartOfDay.Night ? $"{view}_night" : $"{view}_day";
+            bool dark = clock.Part == PartOfDay.Night || clock.Part == PartOfDay.BeforeDawn;
+            string tag = dark ? $"{view}_night" : $"{view}_day";
             if (clock.Season == Season.Winter)
             {
                 if (hasPlate($"{tag}_winter")) return $"{tag}_winter";

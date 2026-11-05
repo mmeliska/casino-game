@@ -13,6 +13,9 @@ namespace Starflare.Game
         PlayerState State { get; }
         StoryBridge Story { get; }
 
+        /// <summary>How fast play moves the clock; the panel's pace buttons change it live.</summary>
+        ClockPace Pace { get; }
+
         /// <summary>Every place built so far, open on the map or not.</summary>
         IReadOnlyList<IPlace> Places { get; }
 

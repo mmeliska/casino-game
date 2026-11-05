@@ -37,7 +37,7 @@ namespace Starflare.Game
             Ink.BindExternalFunction(StoryContract.Externals.Borrow, (int amount) => state.Borrow(amount), false);
             Ink.BindExternalFunction(StoryContract.Externals.Repay, (int amount) => state.Repay(amount), false);
             Ink.BindExternalFunction(StoryContract.Externals.Sleep, () => state.Sleep(), false);
-            Ink.BindExternalFunction(StoryContract.Externals.Work, (int pay) => state.WorkShift(pay), false);
+            Ink.BindExternalFunction(StoryContract.Externals.Work, (int pay, int hours) => state.WorkShift(pay, hours), false);
             Ink.BindExternalFunction(StoryContract.Externals.Lean, (string pole) => state.Lean(pole), false);
             // Fails now, not in the middle of a scene, if the story declares an EXTERNAL we don't bind.
             Ink.ValidateExternalBindings();

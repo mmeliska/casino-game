@@ -13,7 +13,9 @@ namespace Starflare.Game
 {
     /// <summary>
     /// The blackjack table: UI built in code, portrait or landscape, one round at a time. It reports each
-    /// settled round to the player state and raises a break point when you get up. It never
+    /// settled round to the player state, with the story minutes the sitting has played (real
+    /// time at the city's <see cref="ClockPace"/>; not while a teacher talks), and raises a break
+    /// point when you get up. It never
     /// reads story state or saves; whoever owns the state (see <see cref="BlackjackScene"/>)
     /// hands it in through <see cref="SitDown"/> and saves on its Changed event. A venue can
     /// hand it one <see cref="PracticeHand"/> to deal first, which doesn't count, and a teacher
@@ -45,6 +47,8 @@ namespace Starflare.Game
         readonly Dictionary<string, Button> _controls = new Dictionary<string, Button>();
         string _lock;
         PlayerState _state;
+        ClockPace _pace;
+        Sitting _sitting;
         Shoe _shoe;
         BlackjackRound _round;
         int _bet;
@@ -76,12 +80,13 @@ namespace Starflare.Game
         }
 
         /// <summary>
-        /// Sits you down with this state; the same shoe carries on between sittings. A practice
-        /// hand, if given, is the next hand dealt.
+        /// Sits you down with this state, the clock moving at this pace; the same shoe carries on
+        /// between sittings. A practice hand, if given, is the next hand dealt.
         /// </summary>
-        public void SitDown(PlayerState state, PracticeHand practice = null)
+        public void SitDown(PlayerState state, ClockPace pace, PracticeHand practice = null)
         {
             _state = state;
+            _pace = pace ?? throw new ArgumentNullException(nameof(pace));
             _practice = practice;
             SitDown();
         }
@@ -100,10 +105,18 @@ namespace Starflare.Game
             _round = null;
             _sittingStartBankroll = _state.BankrollNow;
             _sittingRounds = 0;
+            _sitting = new Sitting(_pace);
             _bet = Mathf.Min(_rules.MinBet, _state.BankrollNow);
             _message = "Place your bet.";
             if (_breakPanel != null) _breakPanel.SetActive(false);
             Refresh();
+        }
+
+        /// <summary>Counts real time played. Not while a teacher talks over the table (it's locked) or the app is away.</summary>
+        void Update()
+        {
+            if (_sitting == null || !_root.activeSelf || _lock != null) return;
+            _sitting.Play(Math.Min(Time.unscaledDeltaTime, Sitting.MaxFrameSeconds));
         }
 
         bool Betting => _round == null || _round.Phase == RoundPhase.Settled;
@@ -166,7 +179,7 @@ namespace Starflare.Game
             }
             else if (_round.Phase == RoundPhase.Settled)
             {
-                _state.ApplyRoundResult(_round.Net, _rules.MinutesPerRound);
+                _state.ApplyRoundResult(_round.Net, _sitting.TakeMinutes());
                 _sittingRounds++;
                 _message = DescribeResult(_round);
                 _bet = Mathf.Min(_bet, MaxAffordableBet);
@@ -189,6 +202,7 @@ namespace Starflare.Game
         void GetUp()
         {
             if (!Betting) return;
+            _state.PassTime(_sitting.TakeMinutes());
             if (!_standalone)
             {
                 _root.SetActive(false);
@@ -222,7 +236,7 @@ namespace Starflare.Game
             var clock = _state.Clock;
             _bankrollText.text = $"Bankroll {Money(_state.BankrollNow)}     Best {Money(_state.BestBankroll)}";
             _clockText.text = $"{clock.DateLabel} · {clock.Part} {clock.TimeLabel}"
-                + (clock.PartIsOver ? " (late)" : "");
+                + (_sitting.ClockStopped ? " (late)" : "");
 
             ClearChildren(_dealerCards);
             ClearChildren(_playerHands);
