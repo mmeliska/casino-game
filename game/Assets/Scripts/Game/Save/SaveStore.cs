@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Starflare.State;
 using UnityEngine;
@@ -18,12 +19,14 @@ namespace Starflare.Game
     {
         readonly string _savePath;
         readonly string _storyPath;
+        readonly string _snapshotsFolder;
 
         /// <summary>Saves under <paramref name="folder"/>, normally <c>Application.persistentDataPath</c>.</summary>
         public SaveStore(string folder)
         {
             _savePath = Path.Combine(folder, "save.json");
             _storyPath = Path.Combine(folder, "story.json");
+            _snapshotsFolder = Path.Combine(folder, "snapshots");
         }
 
         public PlayerState Load()
@@ -51,6 +54,57 @@ namespace Starflare.Game
         {
             if (File.Exists(_savePath)) File.Delete(_savePath);
             if (File.Exists(_storyPath)) File.Delete(_storyPath);
+        }
+
+        /// <summary>
+        /// Copies both files, as they are now, into a named snapshot for the debug panel. Snapshots
+        /// sit apart from the save, so Start over (<see cref="Wipe"/>) leaves them.
+        /// </summary>
+        public void TakeSnapshot(string name)
+        {
+            string folder = SnapshotFolder(name);
+            Directory.CreateDirectory(folder);
+            CopyIfThere(_savePath, Path.Combine(folder, "save.json"));
+            CopyIfThere(_storyPath, Path.Combine(folder, "story.json"));
+        }
+
+        /// <summary>Puts a snapshot's files back as the save. The next <see cref="Load"/> reads them, migrating as usual.</summary>
+        public void RestoreSnapshot(string name)
+        {
+            string folder = SnapshotFolder(name);
+            if (!Directory.Exists(folder)) throw new DirectoryNotFoundException($"No snapshot '{name}'.");
+            Wipe();
+            CopyIfThere(Path.Combine(folder, "save.json"), _savePath);
+            CopyIfThere(Path.Combine(folder, "story.json"), _storyPath);
+        }
+
+        public void DeleteSnapshot(string name)
+        {
+            string folder = SnapshotFolder(name);
+            if (Directory.Exists(folder)) Directory.Delete(folder, recursive: true);
+        }
+
+        /// <summary>Snapshot names, last first when they start with the time, as the debug panel's do.</summary>
+        public List<string> Snapshots()
+        {
+            var names = new List<string>();
+            if (!Directory.Exists(_snapshotsFolder)) return names;
+            foreach (string folder in Directory.GetDirectories(_snapshotsFolder)) names.Add(Path.GetFileName(folder));
+            names.Sort(StringComparer.Ordinal);
+            names.Reverse();
+            return names;
+        }
+
+        string SnapshotFolder(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name) || name.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0 || name.StartsWith("."))
+                throw new ArgumentException($"'{name}' can't be a snapshot name.", nameof(name));
+            return Path.Combine(_snapshotsFolder, name);
+        }
+
+        static void CopyIfThere(string from, string to)
+        {
+            if (File.Exists(from)) Write(to, File.ReadAllText(from));
         }
 
         /// <summary>Reads a player save of any version this code has known. Throws if it can't.</summary>

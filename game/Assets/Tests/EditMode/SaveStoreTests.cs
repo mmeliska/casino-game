@@ -141,5 +141,53 @@ namespace Starflare.Tests
             state.Earn(5);
             Assert.That(changes, Is.EqualTo(1));
         }
+
+        [Test]
+        public void ASnapshot_ComesBackAfterTheGameMovesOn()
+        {
+            var state = new PlayerState();
+            state.SignRegister("Lou", RegisterBox.Ms);
+            _store.Save(state);
+            _store.SaveStory("{\"flags\":1}");
+            _store.TakeSnapshot("before");
+
+            state.Earn(500);
+            _store.Save(state);
+            _store.SaveStory("{\"flags\":2}");
+            _store.RestoreSnapshot("before");
+
+            Assert.That(_store.Load().BankrollNow, Is.EqualTo(PlayerState.StartingBankroll));
+            Assert.That(_store.LoadStory(), Is.EqualTo("{\"flags\":1}"));
+        }
+
+        [Test]
+        public void Snapshots_OutliveStartingOver_AndListLastFirst()
+        {
+            _store.Save(new PlayerState());
+            _store.TakeSnapshot("2026-11-05 09.00.00 first");
+            _store.TakeSnapshot("2026-11-05 10.00.00 second");
+            _store.Wipe();
+
+            Assert.That(_store.Snapshots(), Is.EqualTo(new[] { "2026-11-05 10.00.00 second", "2026-11-05 09.00.00 first" }));
+            _store.DeleteSnapshot("2026-11-05 10.00.00 second");
+            Assert.That(_store.Snapshots(), Is.EqualTo(new[] { "2026-11-05 09.00.00 first" }));
+        }
+
+        [Test]
+        public void ASnapshotTakenBeforeTheStory_RestoresWithoutOne()
+        {
+            _store.Save(new PlayerState());
+            _store.TakeSnapshot("no story");
+            _store.SaveStory("{}");
+            _store.RestoreSnapshot("no story");
+            Assert.That(_store.LoadStory(), Is.Null);
+        }
+
+        [Test]
+        public void ASnapshotName_CantLeaveTheSnapshotsFolder()
+        {
+            Assert.Throws<ArgumentException>(() => _store.TakeSnapshot("../save"));
+            Assert.Throws<ArgumentException>(() => _store.TakeSnapshot(""));
+        }
     }
 }

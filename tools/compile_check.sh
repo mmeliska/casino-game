@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Compiles the four Starflare assemblies with Roslyn against the Unity install's own DLLs,
+# Compiles the Starflare assemblies with Roslyn against the Unity install's own DLLs,
 # without opening Unity. It can't run the tests (that needs the editor, closed, headless; see
 # CLAUDE.md), but it catches every compile error while the editor has the project open.
 # Needs the dotnet SDK (for csc) and a Library/ folder from having opened the project once.

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Ink.Runtime;
 using Ink.UnityIntegration;
 using Starflare.State;
@@ -55,6 +56,13 @@ namespace Starflare.Game
         public bool Flag(string name) => (bool)Ink.variablesState[name];
 
         public void Set(string name, object value) => Ink.variablesState[name] = value;
+
+        /// <summary>Every true/false variable the story declares, for the debug panel's switches.</summary>
+        public IEnumerable<string> FlagNames()
+        {
+            foreach (string name in Ink.variablesState)
+                if (Ink.variablesState[name] is bool) yield return name;
+        }
 
         /// <summary>Brings the story's copy of the shared numbers up to date before a scene.</summary>
         public void Sync(PlayerState state)
