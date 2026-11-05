@@ -18,9 +18,9 @@ For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an ins
 
 ### Outside, the sign
 
-Arriving at the Lanes; the coupons delivery (A1.3).
+Arriving at the Lanes; the coupons delivery (A1.3). Day and night, each in clear weather, rain and snow (`_rain`, `_winter`). Make the others from the night front.
 
-`lanes_front_night` (plate, portrait 9:16)
+`lanes_front_night` (plate, landscape 16:9)
 
 ```
 Background plate, no people. A low old bowling alley building on a Backwater street, a tall vintage sign shaped like a bowling pin glowing above it, a small parking lot with puddles, a mill chimney in the distance. Timeless retro details. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
