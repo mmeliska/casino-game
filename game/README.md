@@ -18,7 +18,7 @@ The scene and player settings are built from code: **Starflare > Rebuild Project
 | Folder | Assembly | What's in it |
 | --- | --- | --- |
 | `Assets/Scripts/Core` | `Starflare.Core` | Pure C# with no engine references: cards and shoe, blackjack and video poker rules, player state and clock |
-| `Assets/Scripts/Game` | `Starflare.Game` | By feature: `City/` (state and story owner, the phone's map, Dot's register), `Places/` (one class per place behind `IPlace`), `Story/` (the Ink contract, bridge and player), `Tables/` (video poker, blackjack), `Ui/` (`UiKit`, top bar, safe area, orientation), `Save/`, `Art/`, `Debug/` (the debug panel and its checkpoints; shown in Editor and Development builds only) |
+| `Assets/Scripts/Game` | `Starflare.Game` | By feature: `City/` (state and story owner, the phone's map, Dot's register), `Places/` (one class per place behind `IPlace`), `Story/` (the Ink contract, bridge and player), `Tables/` (video poker, blackjack), `Ui/` (`UiKit`, top bar, safe area, orientation, the dip to black between screens), `Save/`, `Art/`, `Debug/` (the debug panel and its checkpoints; shown in Editor and Development builds only) |
 | `Assets/Scripts/Editor` | `Starflare.Editor` | Project setup menu, art import settings |
 | `Assets/Tests/EditMode` | `Starflare.Tests.EditMode` | NUnit tests for the rules and state |
 

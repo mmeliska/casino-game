@@ -56,9 +56,10 @@ namespace Starflare.Game
         }
 
         /// <summary>Sitting down. The first time, Rosa deals you a practice hand and coaches it.</summary>
-        void SitDown()
+        void SitDown() => _host.LeavePlaceScreen(SitDownNow);
+
+        void SitDownNow()
         {
-            _host.LeavePlaceScreen();
             if (_host.Story.Flag(StoryContract.SatWithRosa))
             {
                 _table.SitDown(_host.State, _host.Pace);

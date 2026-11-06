@@ -24,11 +24,17 @@ namespace Starflare.Game
     /// "# point: stand" is an instruction: once it's read, the speaker and text step aside, that
     /// control glows and is the only one that works, and a Help button repeats what was said
     /// since the last instruction. Using the control carries the scene on.
+    ///
+    /// A new plate crossfades from the last and a line on black fades in. A scene played on its
+    /// own leaves its last panel up when it ends, so the city can dip to black over it
+    /// (<see cref="Clear"/>); over a game it steps straight out of the way.
     /// </summary>
     public sealed class StoryPlayer : MonoBehaviour
     {
         const float CharsPerSecond = 70f;
         const float PoseFadeSeconds = 0.18f;
+        const float PlateFadeSeconds = 0.3f;
+        const float BlackFadeSeconds = 0.25f;
         static readonly Color OverShade = new Color(0f, 0f, 0f, 0.3f);
 
         static readonly Regex SpeakerLine = new Regex(@"^([A-Z][A-Z .'\-]*):\s*(.*)$");
@@ -37,17 +43,19 @@ namespace Starflare.Game
         Action _onDone;
 
         GameObject _root;
-        Image _backdrop, _plate, _pose, _insert, _black, _rule, _glow;
+        Image _backdrop, _plate, _lastPlate, _pose, _insert, _black, _rule, _glow;
         Button _help;
         CoverFit _plateFit;
         TMP_Text _speaker, _line, _blackLine, _more;
         RectTransform _bottom, _choices, _box;
         LayoutElement _boxLayout;
+        Reveal _blackReveal;
 
         string _fullLine = "";
         float _shown;
         float _poseFade = 1f;
-        bool _waitingOnChoice;
+        float _plateFade = 1f;
+        bool _playing, _waitingOnChoice;
 
         // Playing over a game: what's coached, the control the line just read points at, the
         // control being waited on, and the lines since the last instruction, for Help.
@@ -56,7 +64,7 @@ namespace Starflare.Game
         readonly List<(string text, bool black, Sprite pose)> _step = new List<(string, bool, Sprite)>();
         int _replay = -1;
 
-        public bool IsPlaying => _root != null && _root.activeSelf;
+        public bool IsPlaying => _playing;
 
         public void Init(Story story)
         {
@@ -71,6 +79,12 @@ namespace Starflare.Game
         /// <summary>Plays one knot over a game, which stays in view and is coached by "# point:" lines.</summary>
         public void PlayOver(string knot, ICoachable game, Action onDone) =>
             Begin(knot, game ?? throw new ArgumentNullException(nameof(game)), onDone);
+
+        /// <summary>Takes down the last panel of a scene that's ended, once the screen is dark.</summary>
+        public void Clear()
+        {
+            if (!_playing) _root.SetActive(false);
+        }
 
         void Begin(string knot, ICoachable game, Action onDone)
         {
@@ -89,7 +103,10 @@ namespace Starflare.Game
             _onDone = onDone;
             _story.ChoosePathString(knot);
             _root.SetActive(true);
+            _playing = true;
             _plate.enabled = false;
+            _lastPlate.enabled = false;
+            _plateFade = 1f;
             _pose.enabled = false;
             _speaker.text = _fullLine = _line.text = "";
             _box.gameObject.SetActive(false);
@@ -99,7 +116,13 @@ namespace Starflare.Game
 
         void Update()
         {
-            if (!IsPlaying) return;
+            if (_plateFade < 1f)
+            {
+                _plateFade = Mathf.Min(1f, _plateFade + Time.deltaTime / PlateFadeSeconds);
+                _lastPlate.color = new Color(1, 1, 1, 1 - Mathf.SmoothStep(0, 1, _plateFade));
+                if (_plateFade >= 1f) _lastPlate.enabled = false;
+            }
+            if (!_playing) return;
 
             if (_shown < _fullLine.Length)
             {
@@ -119,7 +142,7 @@ namespace Starflare.Game
 
         void OnTap()
         {
-            if (_waitingOnChoice || _waitingFor != null && _replay < 0) return;
+            if (!_playing || _waitingOnChoice || _waitingFor != null && _replay < 0) return;
             if (_shown < _fullLine.Length)
             {
                 _shown = _fullLine.Length;
@@ -165,13 +188,15 @@ namespace Starflare.Game
                 return;
             }
 
+            _playing = false;
+            _more.enabled = false;
             if (_game != null)
             {
                 _game.ActionTaken -= OnAction;
                 _game.Lock(null);
                 _game = null;
+                _root.SetActive(false);
             }
-            _root.SetActive(false);
             var done = _onDone;
             _onDone = null;
             done?.Invoke();
@@ -191,7 +216,9 @@ namespace Starflare.Game
                 {
                     case "plate":
                         if (_game != null) break; // over a game, the game is the background
-                        _plateFit.Show(_plate, Art.Plate(value), Art.Focus(value));
+                        var plate = Art.Plate(value);
+                        if (_plate.enabled && plate != _plate.sprite) HoldLastPlate();
+                        _plateFit.Show(_plate, plate, Art.Focus(value));
                         _pose.enabled = false;
                         break;
                     case "pose":
@@ -217,6 +244,21 @@ namespace Starflare.Game
             return black;
         }
 
+        /// <summary>Lays the plate that's showing over the new one, to fade out.</summary>
+        void HoldLastPlate()
+        {
+            RectTransform from = _plate.rectTransform, to = _lastPlate.rectTransform;
+            to.anchorMin = from.anchorMin;
+            to.anchorMax = from.anchorMax;
+            to.pivot = from.pivot;
+            to.sizeDelta = from.sizeDelta;
+            to.anchoredPosition = from.anchoredPosition;
+            _lastPlate.sprite = _plate.sprite;
+            _lastPlate.color = Color.white;
+            _lastPlate.enabled = true;
+            _plateFade = 0f;
+        }
+
         void ShowLine(string text, bool black)
         {
             _waitingOnChoice = false;
@@ -231,6 +273,7 @@ namespace Starflare.Game
                 text = match.Groups[2].Value;
             }
 
+            if (black && !_black.gameObject.activeSelf) _blackReveal.Play(BlackFadeSeconds);
             _black.gameObject.SetActive(black);
             _speaker.text = speaker;
             _line.fontStyle = speaker.Length == 0 ? FontStyles.Italic : FontStyles.Normal;
@@ -372,6 +415,9 @@ namespace Starflare.Game
             _plate = MakeImage(backdrop.transform, "Plate", Color.white);
             _plateFit = _plate.gameObject.AddComponent<CoverFit>();
             _plate.raycastTarget = false;
+            _lastPlate = MakeImage(backdrop.transform, "Last Plate", Color.white);
+            _lastPlate.raycastTarget = false;
+            _lastPlate.enabled = false;
 
             // Tapping anywhere that isn't a choice advances.
             var tap = backdrop.gameObject.AddComponent<Button>();
@@ -407,6 +453,7 @@ namespace Starflare.Game
             Stretch(_blackLine.rectTransform);
             _blackLine.rectTransform.offsetMin = new Vector2(100, 0);
             _blackLine.rectTransform.offsetMax = new Vector2(-100, 0);
+            _blackReveal = _black.gameObject.AddComponent<Reveal>();
             _black.gameObject.SetActive(false);
 
             _help = MakeButton(safe.transform, "Help", Repeat);

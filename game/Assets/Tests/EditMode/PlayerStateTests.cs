@@ -66,6 +66,15 @@ namespace Starflare.Tests
             Assert.That(clock.Part, Is.EqualTo(PartOfDay.BeforeDawn));
         }
 
+        /// <summary>The phone counts through a trip that runs past midnight without a clock of its own.</summary>
+        [TestCase(19 * 60 + 5, "19:05")]
+        [TestCase(23 * 60 + 50 + 30, "0:20")]
+        [TestCase(-10, "23:50")]
+        public void Clock_LabelsAnyMinute(int minuteOfDay, string label)
+        {
+            Assert.That(GameClock.TimeLabelAt(minuteOfDay), Is.EqualTo(label));
+        }
+
         [TestCase(7 * 60, 5 * 60, PartOfDay.Afternoon)]
         [TestCase(15 * 60, 3 * 60, PartOfDay.Night)]
         [TestCase(20 * 60, 4 * 60, PartOfDay.BeforeDawn)]

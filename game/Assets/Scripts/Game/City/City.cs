@@ -14,6 +14,7 @@ namespace Starflare.Game
     /// <see cref="StoryBridge"/>), saves both on every settled change, plays the arrival at the
     /// Slack Water (A1.1), then moves you between the places. Each place owns its own screens
     /// and scene triggers (<see cref="IPlace"/>) and sees the city as an <see cref="IPlaceHost"/>.
+    /// Every change of screen goes through the <see cref="ScreenFader"/>, so nothing cuts.
     /// Editor and Development builds also get the debug panel (<c>City.Debug.cs</c>).
     /// </summary>
     public sealed partial class City : MonoBehaviour, IPlaceHost
@@ -27,6 +28,10 @@ namespace Starflare.Game
         /// </summary>
         const int TravelMinutes = 30;
 
+        /// <summary>After a trip, the place's plate shows on its own this long before its actions fade in.</summary>
+        const float ArrivalHoldSeconds = 0.6f;
+        const float ActionsFadeSeconds = 0.2f;
+
         public PlayerState State { get; private set; }
         public StoryBridge Story { get; private set; }
         public ClockPace Pace { get; } = new ClockPace();
@@ -37,6 +42,7 @@ namespace Starflare.Game
         IPlace[] _places;
         IPlace _current;
 
+        ScreenFader _fader;
         StoryPlayer _player;
         RegisterCard _register;
         PhoneMap _map;
@@ -47,7 +53,9 @@ namespace Starflare.Game
         CoverFit _plateFit;
         LookAround _look;
         RectTransform _actions;
-        string _view;
+        Reveal _actionsReveal;
+        string _view, _shownPlate;
+        bool _arriving;
 
         void Awake()
         {
@@ -57,6 +65,7 @@ namespace Starflare.Game
             State.Changed += SaveAll;
             Story = StoryBridge.Load(_saves.LoadStory(), State);
 
+            _fader = gameObject.AddComponent<ScreenFader>();
             _player = gameObject.AddComponent<StoryPlayer>();
             _player.Init(Story.Ink);
             _register = gameObject.AddComponent<RegisterCard>();
@@ -89,18 +98,23 @@ namespace Starflare.Game
 
         void OnDestroy() => State.Changed -= SaveAll;
 
-        public void PlayScene(string knot, Action then)
+        /// <summary>A quick dip into the scene; at its end, the last panel stays up for the dip back out.</summary>
+        public void PlayScene(string knot, Action then) => _fader.Cover(() =>
         {
             _placeScreen.SetActive(false);
             _hud.Show(Find(State.Place).Name, buttons: false);
             Story.Sync(State);
             _player.Play(knot, () =>
             {
-                _hud.Hide();
                 SaveAll();
-                then();
+                _fader.Cover(() =>
+                {
+                    _player.Clear();
+                    _hud.Hide();
+                    then();
+                });
             });
-        }
+        });
 
         public void PlaySceneOver(string knot, ICoachable game, Action then)
         {
@@ -130,7 +144,7 @@ namespace Starflare.Game
             var open = new List<PhoneMap.Place>();
             foreach (var place in _places)
                 if (place.IsOpen) open.Add(place.Pin);
-            _map.Show(open, State.Place, id =>
+            _map.Show(open, State.Place, State.Clock, TravelMinutes, id =>
             {
                 if (id != State.Place) GoTo(id);
             });
@@ -143,23 +157,39 @@ namespace Starflare.Game
             return place;
         }
 
-        void GoTo(string id)
+        /// <summary>The slow dip: the phone goes away in the dark and you arrive at the new time.</summary>
+        void GoTo(string id) => _fader.Cover(() =>
         {
+            _map.Hide();
             _current?.Leave();
             Art.ForgetLooks();
             State.MoveTo(id, TravelMinutes);
             _current = Find(id);
-            _current.Arrive();
+            _arriving = true;
+            try { _current.Arrive(); }
+            finally { _arriving = false; }
+        }, away: true);
+
+        /// <summary>
+        /// Same plate, the actions just change; a new plate (another view, or the same one at a
+        /// new time of day) dips to black first.
+        /// </summary>
+        public void ShowPlace(string view, params (string label, UnityAction action)[] actions)
+        {
+            string plate = Art.PlateAt(view, State.Clock);
+            if (_placeScreen.activeSelf && plate == _shownPlate) ShowPlace(view, plate, actions);
+            else _fader.Cover(() => ShowPlace(view, plate, actions));
         }
 
-        public void ShowPlace(string view, params (string label, UnityAction action)[] actions)
+        void ShowPlace(string view, string plate, (string label, UnityAction action)[] actions)
         {
             Look(false);
             _view = view;
-            string plate = Art.PlateAt(view, State.Clock);
+            _shownPlate = plate;
             _plateFit.Show(_plate, Art.Plate(plate), Art.Focus(plate));
             ClearChildren(_actions);
             foreach (var (label, action) in actions) MakeChoiceButton(_actions, label, action);
+            _actionsReveal.Play(ActionsFadeSeconds, _arriving ? ArrivalHoldSeconds : 0f);
             _hud.Show(_current.Name, buttons: true);
             _placeScreen.SetActive(true);
         }
@@ -193,11 +223,12 @@ namespace Starflare.Game
             then();
         }
 
-        public void LeavePlaceScreen()
+        public void LeavePlaceScreen(Action then) => _fader.Cover(() =>
         {
             _placeScreen.SetActive(false);
             _hud.Hide();
-        }
+            then();
+        });
 
         /// <summary>
         /// Looking around: the top bar and actions step aside so you can pan the plate. When you
@@ -246,6 +277,7 @@ namespace Starflare.Game
             var actionsGo = new GameObject("Actions", typeof(RectTransform));
             actionsGo.transform.SetParent(safe.transform, false);
             _actions = AddVertical(actionsGo, 20, new RectOffset(60, 60, 0, 0));
+            _actionsReveal = actionsGo.AddComponent<Reveal>();
             _actions.GetComponent<VerticalLayoutGroup>().childAlignment = TextAnchor.LowerCenter;
 
             // The top bar (Hud) is shared with the scenes. Under it, portrait puts the actions
