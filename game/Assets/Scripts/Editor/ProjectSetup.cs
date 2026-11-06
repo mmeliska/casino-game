@@ -17,7 +17,6 @@ namespace Starflare.EditorTools
     public static class ProjectSetup
     {
         const string CityScenePath = "Assets/Scenes/City.unity";
-        const string BlackjackScenePath = "Assets/Scenes/Blackjack.unity";
         const string ArtRoot = "Assets/Resources";
 
         const string TmpSettingsPath = "Assets/TextMesh Pro/Resources/TMP Settings.asset";
@@ -41,14 +40,7 @@ namespace Starflare.EditorTools
             SetUpTextMeshPro();
             ReimportArt();
             BuildScene(CityScenePath, "City", typeof(City));
-            BuildScene(BlackjackScenePath, "Blackjack Table", typeof(BlackjackScene));
-
-            // The city is the build's first scene; the blackjack table stays for testing.
-            EditorBuildSettings.scenes = new[]
-            {
-                new EditorBuildSettingsScene(CityScenePath, true),
-                new EditorBuildSettingsScene(BlackjackScenePath, true),
-            };
+            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(CityScenePath, true) };
             AssetDatabase.SaveAssets();
         }
 

@@ -41,7 +41,7 @@ namespace Starflare.Game
             _host = host;
             _backToBar = backToBar;
             _table = gameObject.AddComponent<BlackjackTable>();
-            _table.Init(RosasRules, RosasChips, standalone: false);
+            _table.Init(RosasRules, RosasChips);
             _table.BreakPointReached += OnBreakPoint;
         }
 

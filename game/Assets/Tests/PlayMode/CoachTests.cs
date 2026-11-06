@@ -84,7 +84,7 @@ namespace Starflare.Tests
         BlackjackTable MakeTable(PlayerState state)
         {
             var table = Make("Table").AddComponent<BlackjackTable>();
-            table.Init(new BlackjackRules { MinBet = 1, MaxBet = 50 }, new[] { 1, 5, 25 }, standalone: false);
+            table.Init(new BlackjackRules { MinBet = 1, MaxBet = 50 }, new[] { 1, 5, 25 });
             table.SitDown(state, new ClockPace(), new PracticeHand(10,
                 new Card(Rank.Ten, Suit.Spades), new Card(Rank.Ace, Suit.Hearts),
                 new Card(Rank.Eight, Suit.Diamonds), new Card(Rank.Six, Suit.Clubs)));

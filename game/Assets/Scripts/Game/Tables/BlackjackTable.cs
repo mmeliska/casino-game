@@ -16,8 +16,7 @@ namespace Starflare.Game
     /// settled round to the player state, with the story minutes the sitting has played (real
     /// time at the city's <see cref="ClockPace"/>; not while a teacher talks), and raises a break
     /// point when you get up. It never
-    /// reads story state or saves; whoever owns the state (see <see cref="BlackjackScene"/>)
-    /// hands it in through <see cref="SitDown"/> and saves on its Changed event. A venue can
+    /// reads story state or saves; whoever owns the state (the city) hands it in through <see cref="SitDown"/> and saves on its Changed event. A venue can
     /// hand it one <see cref="PracticeHand"/> to deal first, which doesn't count, and a teacher
     /// can coach over it (<see cref="ICoachable"/>, by the ids in <see cref="BlackjackControls"/>).
     /// </summary>
@@ -29,9 +28,6 @@ namespace Starflare.Game
         /// <summary>Raised at a break point, where story beats and seed reveals may fire.</summary>
         public event Action<BreakPoint> BreakPointReached;
 
-        /// <summary>The break panel's "start over": the owner wipes the save and sits you back down.</summary>
-        public event Action StartOverRequested;
-
         public event Action<string> ActionTaken;
 
         public BlackjackRules Rules => _rules;
@@ -41,7 +37,6 @@ namespace Starflare.Game
 
         BlackjackRules _rules;
         int[] _chipValues;
-        bool _standalone;
         PracticeHand _practice;
         bool _practicing;
         readonly Dictionary<string, Button> _controls = new Dictionary<string, Button>();
@@ -53,30 +48,28 @@ namespace Starflare.Game
         BlackjackRound _round;
         int _bet;
         int _sittingStartBankroll;
-        int _sittingRounds;
         string _message = "";
 
         GameObject _root;
-        TMP_Text _bankrollText, _clockText, _dealerLabel, _messageText, _betText, _breakText;
+        TMP_Text _bankrollText, _clockText, _dealerLabel, _messageText, _betText;
         RectTransform _dealerCards, _playerHands;
         RectTransform _portraitColumn, _landscapeRow, _tableSide, _controlSide, _controlSpacer;
-        GameObject _bettingControls, _actionRow, _insuranceRow, _breakPanel;
+        GameObject _bettingControls, _actionRow, _insuranceRow;
         Button _dealButton, _hitButton, _standButton, _doubleButton, _splitButton, _getUpButton;
         TMP_Text _insureLabel;
         Button[] _chipButtons;
 
         /// <summary>
-        /// Sets the table up: its rules and chips, and whether it stands alone (the test scene,
-        /// with its own break panel) or sits in a venue that shows its own screens around it.
+        /// Sets the table up with its rules and chips. It stays hidden until you sit down; the
+        /// venue shows its own screens around it.
         /// </summary>
-        public void Init(BlackjackRules rules, int[] chips, bool standalone)
+        public void Init(BlackjackRules rules, int[] chips)
         {
             _rules = rules ?? throw new ArgumentNullException(nameof(rules));
             _chipValues = chips;
-            _standalone = standalone;
             _shoe = new Shoe(_rules.Decks, _rules.Penetration, new System.Random());
             BuildUi();
-            _root.SetActive(standalone);
+            _root.SetActive(false);
         }
 
         /// <summary>
@@ -104,11 +97,9 @@ namespace Starflare.Game
             _root.SetActive(true);
             _round = null;
             _sittingStartBankroll = _state.BankrollNow;
-            _sittingRounds = 0;
             _sitting = new Sitting(_pace);
             _bet = Mathf.Min(_rules.MinBet, _state.BankrollNow);
             _message = "Place your bet.";
-            if (_breakPanel != null) _breakPanel.SetActive(false);
             Refresh();
         }
 
@@ -180,7 +171,6 @@ namespace Starflare.Game
             else if (_round.Phase == RoundPhase.Settled)
             {
                 _state.ApplyRoundResult(_round.Net, _sitting.TakeMinutes());
-                _sittingRounds++;
                 _message = DescribeResult(_round);
                 _bet = Mathf.Min(_bet, MaxAffordableBet);
             }
@@ -203,31 +193,9 @@ namespace Starflare.Game
         {
             if (!Betting) return;
             _state.PassTime(_sitting.TakeMinutes());
-            if (!_standalone)
-            {
-                _root.SetActive(false);
-                BreakPointReached?.Invoke(BreakPoint.GotUpFromTable);
-                return;
-            }
-            int net = _state.BankrollNow - _sittingStartBankroll;
-            var clock = _state.Clock;
-            _breakText.text =
-                "You get up from the table.\n\n" +
-                $"This sitting: {_sittingRounds} rounds, {Money(net, true)}\n" +
-                $"Bankroll {Money(_state.BankrollNow)}   Best {Money(_state.BestBankroll)}\n" +
-                $"Day {clock.Day}, {clock.Part} {clock.TimeLabel}\n\n" +
-                "(Break point: story beats and reveals will check in here.)";
-            _breakPanel.SetActive(true);
+            _root.SetActive(false);
             BreakPointReached?.Invoke(BreakPoint.GotUpFromTable);
         }
-
-        void SleepUntilMorning()
-        {
-            _state.Sleep();
-            SitDown();
-        }
-
-        void StartOver() => StartOverRequested?.Invoke();
 
         // ---- Display ----
 
@@ -394,7 +362,6 @@ namespace Starflare.Game
 
             _getUpButton = Control(column, BlackjackControls.GetUp, "Get up", GetUp);
 
-            if (_standalone) BuildBreakPanel(canvasGo.transform);
             OnTurn(canvasGo.GetComponent<Canvas>(), Rearrange);
         }
 
@@ -418,10 +385,6 @@ namespace Starflare.Game
                     _playerHands, _betText, _bettingControls.transform, _actionRow.transform,
                     _insuranceRow.transform, _getUpButton);
             }
-            if (_breakPanel == null) return;
-            _breakPanel.GetComponent<VerticalLayoutGroup>().padding =
-                landscape ? new RectOffset(560, 560, 60, 60) : new RectOffset(80, 80, 300, 300);
-            _breakText.GetComponent<LayoutElement>().preferredHeight = landscape ? 360 : 600;
         }
 
         /// <summary>A button a coach can point at by <paramref name="id"/>.</summary>
@@ -438,20 +401,6 @@ namespace Starflare.Game
             go.transform.SetParent(parent, false);
             Stretch((RectTransform)go.transform);
             return AddVertical(go, 24, new RectOffset(padding, padding, padding, padding));
-        }
-
-        void BuildBreakPanel(Transform canvas)
-        {
-            var shade = MakeImage(canvas, "Break Panel", new Color(0f, 0f, 0f, 0.85f));
-            Stretch(shade.rectTransform);
-            _breakPanel = shade.gameObject;
-            var column = AddVertical(_breakPanel, 24, new RectOffset(80, 80, 300, 300));
-            column.GetComponent<VerticalLayoutGroup>().childAlignment = TextAnchor.MiddleCenter;
-
-            _breakText = MakeText(column, "", 44, TextAnchor.MiddleCenter, 600);
-            MakeButton(column, "Sit back down", SitDown);
-            MakeButton(column, "Sleep until morning", SleepUntilMorning);
-            MakeButton(column, "Start over (wipe save)", StartOver);
         }
 
         void MakeHandView(PlayerHand hand, int index, bool isActive)

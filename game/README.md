@@ -9,7 +9,7 @@ The game itself. The build spec is the GDD at `docs/docs/pages/gdd.md`.
 ## Open and play
 
 1. Unity Hub > Add > select this `game/` folder.
-2. Open `Assets/Scenes/City.unity` and press Play. Set the Game view to a portrait size, such as 1080x1920, or a landscape one, such as 1920x1080: every screen has both layouts and rearranges when the window turns. `Assets/Scenes/Blackjack.unity` is the older blackjack table.
+2. Open `Assets/Scenes/City.unity` and press Play. Set the Game view to a portrait size, such as 1080x1920, or a landscape one, such as 1920x1080: every screen has both layouts and rearranges when the window turns. To jump to a beat, such as Rosa's table, use a checkpoint in the debug panel.
 
 The scene and player settings are built from code: **Starflare > Rebuild Project Setup** regenerates them. Run it once after cloning: it also imports TextMesh Pro's essential resources into `Assets/TextMesh Pro/` (every label is TMP) and makes the default font dynamic so the card suits render.
 
@@ -22,7 +22,7 @@ The scene and player settings are built from code: **Starflare > Rebuild Project
 | `Assets/Scripts/Editor` | `Starflare.Editor` | Project setup menu, art import settings |
 | `Assets/Tests/EditMode` | `Starflare.Tests.EditMode` | NUnit tests for the rules and state |
 
-Game modules never read story state or save. A table reports each settled round through `PlayerState.ApplyRoundResult`, which raises the state's `Changed` event (the city saves on it), and raises `BreakPointReached` when you get up. `Assets/Scenes/Blackjack.unity` is the table on its own, with `BlackjackScene` standing in for the city as the state's owner.
+Game modules never read story state or save. A table reports each settled round through `PlayerState.ApplyRoundResult`, which raises the state's `Changed` event (the city saves on it), and raises `BreakPointReached` when you get up.
 
 ## Story and art
 
