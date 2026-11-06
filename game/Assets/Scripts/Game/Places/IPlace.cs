@@ -1,9 +1,12 @@
+using Starflare.Phone;
+
 namespace Starflare.Game
 {
     /// <summary>
     /// A place on Northlight's map: its pin, whether it's open to you yet, and what happens when
     /// you arrive. Each place owns its own screens and scene triggers, through the
-    /// <see cref="IPlaceHost"/> it was built with; the city only moves you between them.
+    /// <see cref="IPlaceHost"/> it was built with (in <see cref="PlaceList"/>); the city only
+    /// moves you between them.
     /// </summary>
     public interface IPlace
     {

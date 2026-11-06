@@ -1,10 +1,11 @@
 using System;
 using Starflare.State;
+using Starflare.Ui;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using static Starflare.Game.UiKit;
+using static Starflare.Ui.UiKit;
 
 namespace Starflare.Game
 {
@@ -133,7 +134,7 @@ namespace Starflare.Game
                 Small(row, up, () => state.Lean(up));
             }
 
-            Heading("Go to (boots the city there)");
+            Heading("Go to (boots the game there)");
             foreach (var place in _host.Places)
             {
                 Wide(place.Id == state.Place ? $"{place.Name}  (here)" : place.Name, () =>
@@ -143,7 +144,7 @@ namespace Starflare.Game
                 });
             }
 
-            Heading("Story flags (the city boots again when you close)");
+            Heading("Story flags (the game boots again when you close)");
             var story = _host.Story;
             foreach (string flag in story.FlagNames())
             {

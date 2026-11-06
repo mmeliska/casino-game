@@ -1,10 +1,13 @@
 using System;
+using Starflare.Phone;
 using Starflare.State;
+using Starflare.Ui;
+using Starflare.VideoPoker;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using static Starflare.Game.UiKit;
+using static Starflare.Ui.UiKit;
 
 namespace Starflare.Game
 {
@@ -32,6 +35,7 @@ namespace Starflare.Game
         {
             _host = host;
             _machine = gameObject.AddComponent<VideoPokerMachine>();
+            _machine.Init(Art.Plate("kasia_bar_night"), Art.Focus("kasia_bar_night"));
             _machine.BreakPointReached += OnBreakPoint;
             _backRoom = gameObject.AddComponent<KasiasBackRoom>();
             _backRoom.Init(host, ShowBar);

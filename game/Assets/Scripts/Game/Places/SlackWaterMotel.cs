@@ -1,10 +1,13 @@
+using Starflare.Phone;
+using Starflare.State;
 using UnityEngine.Events;
 
 namespace Starflare.Game
 {
     /// <summary>
     /// The Slack Water Motel, where you live: the lot, with Dot's office and your room off it.
-    /// The arrival and check-in (A1.1) are the city's, since they happen before you have a place.
+    /// A new game opens here on the arrival and check-in (A1.1): the arrival scene, Dot's
+    /// register, then her question; a save from after the register picks up at the question.
     /// Your room is where you pass time: sleep, the TV, the internet, each for the hours you pick
     /// (Mike, 2026-11-05). Night one you can't sleep, which is how you end up at Kasia's (A1.2).
     /// </summary>
@@ -17,17 +20,39 @@ namespace Starflare.Game
         static readonly int[] ScreenHours = { 1, 2, 3 };
 
         readonly IPlaceHost _host;
+        readonly RegisterCard _register;
 
-        public SlackWaterMotel(IPlaceHost host) => _host = host;
+        public SlackWaterMotel(IPlaceHost host, RegisterCard register)
+        {
+            _host = host;
+            _register = register;
+        }
 
         public string Id => PlaceId;
         public string Name => "Slack Water Motel";
         public PhoneMap.Place Pin => new PhoneMap.Place(PlaceId, Name, 0.45f, 0.32f);
         public bool IsOpen => true;
 
-        public void Arrive() => ShowLot();
+        public void Arrive()
+        {
+            if (_host.Story.Flag(StoryContract.CheckedIn)) ShowLot();
+            else CheckIn();
+        }
 
         public void Leave() { }
+
+        /// <summary>Arrival, the register, then Dot's question. Picks up after the register if you'd signed it.</summary>
+        void CheckIn()
+        {
+            if (_host.State.HasSigned) _host.PlayScene(StoryContract.Knots.CheckingIn, ShowLot);
+            else _host.PlayScene(StoryContract.Knots.Arrival, () => _register.Show(SignRegister));
+        }
+
+        void SignRegister(string name, RegisterBox box)
+        {
+            _host.State.SignRegister(name, box);
+            _host.PlayScene(StoryContract.Knots.CheckingIn, ShowLot);
+        }
 
         void ShowLot()
         {

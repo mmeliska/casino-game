@@ -1,27 +1,26 @@
 using System;
 using System.Collections.Generic;
+using Starflare.Phone;
 using Starflare.State;
+using Starflare.Ui;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static Starflare.Game.UiKit;
+using static Starflare.Ui.UiKit;
 
 namespace Starflare.Game
 {
     /// <summary>
-    /// The city layer of the core loop: it owns the player state and the one Ink story (through
-    /// <see cref="StoryBridge"/>), saves both on every settled change, plays the arrival at the
-    /// Slack Water (A1.1), then moves you between the places. Each place owns its own screens
-    /// and scene triggers (<see cref="IPlace"/>) and sees the city as an <see cref="IPlaceHost"/>.
-    /// Every change of screen goes through the <see cref="ScreenFader"/>, so nothing cuts.
-    /// Editor and Development builds also get the debug panel (<c>City.Debug.cs</c>).
+    /// The city layer of the core loop: Northlight's places, the phone's map between them and
+    /// the trip there, and the place screen and scenes they share. Each place owns its own
+    /// screens and scene triggers (<see cref="IPlace"/>, listed in <see cref="PlaceList"/>) and
+    /// sees the city as an <see cref="IPlaceHost"/>. Every change of screen goes through the
+    /// <see cref="ScreenFader"/>, so nothing cuts. The city never saves: the
+    /// <see cref="Playthrough"/> hands it the state and story and saves them, on the state's
+    /// Changed event and on <see cref="SceneEnded"/>.
     /// </summary>
-    public sealed partial class City : MonoBehaviour, IPlaceHost
+    public sealed class City : MonoBehaviour, IPlaceHost
     {
-        /// <summary>Where the save files go; null means the device's persistent data path. Tests set it.</summary>
-        public static string SaveFolder;
-
         /// <summary>
         /// A trip on the map. Every place built so far is in Backwater, a trip across one district
         /// (starting value, Mike 2026-11-05); the districts get their own once the Levee is built.
@@ -32,19 +31,24 @@ namespace Starflare.Game
         const float ArrivalHoldSeconds = 0.6f;
         const float ActionsFadeSeconds = 0.2f;
 
+        /// <summary>A scene has ended: the story may have moved on, so its owner saves.</summary>
+        public event Action SceneEnded;
+
+        /// <summary>A place's "start over": the owner wipes the save and boots a new playthrough.</summary>
+        public event Action StartOverRequested;
+
         public PlayerState State { get; private set; }
         public StoryBridge Story { get; private set; }
-        public ClockPace Pace { get; } = new ClockPace();
+        public ClockPace Pace { get; private set; }
 
-        SaveStore _saves;
+        /// <summary>Every place built so far, open on the map or not; the open ones' pins are the map's.</summary>
+        public IReadOnlyList<IPlace> Places => _places;
 
-        /// <summary>Every place built so far; its pins are the phone map's.</summary>
         IPlace[] _places;
         IPlace _current;
 
         ScreenFader _fader;
         StoryPlayer _player;
-        RegisterCard _register;
         PhoneMap _map;
         Hud _hud;
 
@@ -57,46 +61,34 @@ namespace Starflare.Game
         string _view, _shownPlate;
         bool _arriving;
 
-        void Awake()
+        public void Init(PlayerState state, StoryBridge story, ClockPace pace)
         {
-            _saves = new SaveStore(SaveFolder ?? Application.persistentDataPath);
-            State = _saves.Load();
-            // The city is the one owner of the save: every settled change writes it.
-            State.Changed += SaveAll;
-            Story = StoryBridge.Load(_saves.LoadStory(), State);
+            State = state ?? throw new ArgumentNullException(nameof(state));
+            Story = story ?? throw new ArgumentNullException(nameof(story));
+            Pace = pace ?? throw new ArgumentNullException(nameof(pace));
 
             _fader = gameObject.AddComponent<ScreenFader>();
             _player = gameObject.AddComponent<StoryPlayer>();
             _player.Init(Story.Ink);
-            _register = gameObject.AddComponent<RegisterCard>();
             _map = gameObject.AddComponent<PhoneMap>();
             _hud = gameObject.AddComponent<Hud>();
             _hud.Init(State, OpenMap, () => Look(true), () => Look(false));
             BuildPlaceScreen();
-
-            var tap = gameObject.AddComponent<KasiasTap>();
-            tap.Init(this);
-            _places = new IPlace[] { new SlackWaterMotel(this), tap, new MillstoneLanes(this) };
-            AddDebugPanel();
+            _places = PlaceList.Build(this, gameObject);
         }
 
-        /// <summary>The debug panel, in Editor and Development builds only (<c>City.Debug.cs</c>).</summary>
-        partial void AddDebugPanel();
+        /// <summary>
+        /// Opens on the saved place. A new game's is the Slack Water, which starts with the
+        /// arrival (A1.1).
+        /// </summary>
+        public void Begin() => GoTo(State.Place);
 
-        void Start()
+        public IPlace Find(string id)
         {
-            if (!Story.Flag(StoryContract.CheckedIn)) CheckIn();
-            else GoTo(State.Place);
+            var place = Array.Find(_places, p => p.Id == id);
+            if (place == null) throw new InvalidOperationException($"No place is built for '{id}'.");
+            return place;
         }
-
-        void OnApplicationPause(bool paused)
-        {
-            if (paused) SaveAll();
-        }
-
-        void OnApplicationQuit() => SaveAll();
-
-        void OnDestroy() => State.Changed -= SaveAll;
 
         /// <summary>A quick dip into the scene; at its end, the last panel stays up for the dip back out.</summary>
         public void PlayScene(string knot, Action then) => _fader.Cover(() =>
@@ -106,7 +98,7 @@ namespace Starflare.Game
             Story.Sync(State);
             _player.Play(knot, () =>
             {
-                SaveAll();
+                SceneEnded?.Invoke();
                 _fader.Cover(() =>
                 {
                     _player.Clear();
@@ -121,22 +113,9 @@ namespace Starflare.Game
             Story.Sync(State);
             _player.PlayOver(knot, game, () =>
             {
-                SaveAll();
+                SceneEnded?.Invoke();
                 then();
             });
-        }
-
-        /// <summary>Arrival, the register, then Dot's question. Picks up after the register if you'd signed it.</summary>
-        void CheckIn()
-        {
-            if (State.HasSigned) PlayScene(StoryContract.Knots.CheckingIn, () => GoTo(SlackWaterMotel.PlaceId));
-            else PlayScene(StoryContract.Knots.Arrival, () => _register.Show(SignRegister));
-        }
-
-        void SignRegister(string name, RegisterBox box)
-        {
-            State.SignRegister(name, box);
-            PlayScene(StoryContract.Knots.CheckingIn, () => GoTo(SlackWaterMotel.PlaceId));
         }
 
         public void OpenMap()
@@ -148,13 +127,6 @@ namespace Starflare.Game
             {
                 if (id != State.Place) GoTo(id);
             });
-        }
-
-        IPlace Find(string id)
-        {
-            var place = Array.Find(_places, p => p.Id == id);
-            if (place == null) throw new InvalidOperationException($"No place is built for '{id}'.");
-            return place;
         }
 
         /// <summary>The slow dip: the phone goes away in the dark and you arrive at the new time.</summary>
@@ -230,6 +202,8 @@ namespace Starflare.Game
             then();
         });
 
+        public void StartOver() => StartOverRequested?.Invoke();
+
         /// <summary>
         /// Looking around: the top bar and actions step aside so you can pan the plate. When you
         /// close it, the view keeps where you panned to, in scenes too (Art.KeepLook).
@@ -240,21 +214,6 @@ namespace Starflare.Game
             _look.On = on;
             _actions.gameObject.SetActive(!on);
             _hud.Looking(on);
-        }
-
-        public void StartOver()
-        {
-            State.Changed -= SaveAll;
-            _saves.Wipe();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
-        /// <summary>Both files together, so the story's flags and the cash they refer to agree.</summary>
-        void SaveAll()
-        {
-            if (Story == null) return;
-            _saves.Save(State);
-            _saves.SaveStory(Story.SaveJson());
         }
 
         void BuildPlaceScreen()

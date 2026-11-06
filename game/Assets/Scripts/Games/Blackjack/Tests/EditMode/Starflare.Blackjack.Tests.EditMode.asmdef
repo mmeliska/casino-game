@@ -1,0 +1,25 @@
+{
+    "name": "Starflare.Blackjack.Tests.EditMode",
+    "rootNamespace": "Starflare.Tests",
+    "references": [
+        "Starflare.Cards",
+        "Starflare.Blackjack.Rules",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
