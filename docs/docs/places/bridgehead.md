@@ -20,9 +20,9 @@ For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an ins
 
 ### The forecourt at night
 
-Stopping on the way over the bridge (A1.6); the trucker short on diesel (S3).
+Stopping on the way over the bridge (A1.6); the trucker short on diesel (S3). Day and night, each in clear weather, rain and snow (`_rain`, `_winter`). Make the others from the night forecourt.
 
-`bridgehead_forecourt_night` (plate, portrait 9:16)
+`bridgehead_forecourt_night` (plate, landscape 16:9)
 
 ```
 Background plate, no people. A small gas station forecourt under a flat white fluorescent canopy, two old pumps, oil stains on the concrete, a convenience store window glowing behind, the lights of a long steel bridge rising into the dark behind it. Night: flat white gas-station fluorescents against black. Palette: flat white, oil-slick purple. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -30,9 +30,9 @@ Background plate, no people. A small gas station forecourt under a flat white fl
 
 ### The store at night
 
-Mitch's counter, the cheap slots and the gossip.
+Mitch's counter, the cheap slots and the gossip. Like the forecourt, in clear weather, rain and snow (`_rain`, `_winter`), the weather showing through the front windows.
 
-`bridgehead_store_night` (plate, portrait 9:16)
+`bridgehead_store_night` (plate, landscape 16:9)
 
 ```
 Background plate, no people. Inside a small gas-station convenience store: a counter with a lottery scratcher rack across the back, a short row of cheap three-reel slot machines along the left wall, snack aisles, a coffee station, fluorescent tubes overhead. Night: flat white gas-station fluorescents against black. Palette: flat white, oil-slick purple. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -42,7 +42,7 @@ Background plate, no people. Inside a small gas-station convenience store: a cou
 
 Daytime visits. Make it from the night store.
 
-`bridgehead_store_day` (plate, portrait 9:16)
+`bridgehead_store_day` (plate, landscape 16:9)
 
 ```
 Background plate, no people. Inside a small gas-station convenience store in daytime: a counter with a lottery scratcher rack across the back, a short row of cheap slot machines along the left wall, snack aisles, grey daylight through the front windows. Flat, overcast daylight. Palette: flat white, oil-slick purple, grey. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -58,9 +58,9 @@ Mitch's Haybale Downs race book (R5); Mitch recognizing the lawyer (A3.7).
 Background plate, no people. A cramped stockroom behind a gas station: a metal desk with a cash box and an old radio, a chalkboard of horse-race odds on the wall with only blank chalk marks, cases of motor oil, a single hanging bulb. Night: flat white gas-station fluorescents against black. Palette: flat white, oil-slick purple. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
-### Pump four
+### Pump two
 
-"Pump four's broken. Has been since I started." Its old service sticker has a Backwater main-street address on it, for the one player who looks (see [Mitch](#mitch)). The address is added in layout.
+"Pump two's broken. Has been since I started." Its old service sticker has a Backwater main-street address on it, for the one player who looks (see [Mitch](#mitch)). The address is added in layout.
 
 `bridgehead_pump_sticker` (insert, square 1:1)
 

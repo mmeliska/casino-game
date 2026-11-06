@@ -1,5 +1,9 @@
 ## 6 Nov 2026
 
+### Bridgehead Fuel & Food by day, night, rain and snow
+
+Bridgehead's forecourt and store are drawn, each by day and night in clear weather, rain and snow, like Kasia's Tap and Millstone Lanes (Mike). The plates are wide (16:9), with the Long Bridge behind the pumps and through the store's front windows. They're in the game's art, ready for when Bridgehead is a place you can go. The forecourt shows pumps 1 and 2, so Mitch's broken pump is now pump two ("Pump two's broken. Has been since I started.") (Mike, 2026-11-06).
+
 ### Backwater licenses bar machines
 
 Backwater voted no on casinos, not on all gambling: bars there can run licensed video gaming terminals, and every table game and bet is still illegal (Mike). Kasia's slots and video poker are licensed and pay real money, so the "for amusement only" machines are gone from the docs and the game; her back room, her under-the-counter pull tabs, Millstone dice and Mitch's race book stay illegal. The terminals came years after the vote, after Mitch had lost his corner building. At Bridgehead, in the Bridges, the machines and scratchers are licensed and the race book isn't.
