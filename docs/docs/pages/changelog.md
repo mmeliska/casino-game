@@ -1,3 +1,9 @@
+## 6 Nov 2026
+
+### Backwater licenses bar machines
+
+Backwater voted no on casinos, not on all gambling: bars there can run licensed video gaming terminals, and every table game and bet is still illegal (Mike). Kasia's slots and video poker are licensed and pay real money, so the "for amusement only" machines are gone from the docs and the game; her back room, her under-the-counter pull tabs, Millstone dice and Mitch's race book stay illegal. The terminals came years after the vote, after Mitch had lost his corner building. At Bridgehead, in the Bridges, the machines and scratchers are licensed and the race book isn't.
+
 ## 5 Nov 2026
 
 ### Getting from place to place

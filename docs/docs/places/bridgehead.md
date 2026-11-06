@@ -1,6 +1,6 @@
 ## About
 
-A gas station at the main bridge: worst odds in town, best gossip. Mitch is at the counter, and his race book is out back.
+A gas station at the main bridge: worst odds in town, best gossip. Mitch is at the counter, and his race book is out back. The machines and scratchers are licensed; the race book isn't (Mike, 2026-11-06).
 
 **Mitch's back room.** His Haybale Downs race book (events, not a game). It opens up as your straight/crooked scale allows. The bad tip that ruined him came from Bennett (R5).
 

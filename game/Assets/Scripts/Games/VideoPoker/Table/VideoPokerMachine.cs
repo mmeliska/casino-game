@@ -282,7 +282,7 @@ namespace Starflare.VideoPoker
             cabinet.type = Image.Type.Sliced;
             var body = AddVertical(cabinet.gameObject, 18, new RectOffset(28, 28, 24, 28));
 
-            var glass = MakeText(body, "FOR AMUSEMENT ONLY", 30, TextAnchor.MiddleCenter, 40);
+            var glass = MakeText(body, "JACKS OR BETTER", 30, TextAnchor.MiddleCenter, 40);
             glass.color = new Color(Amber.r, Amber.g, Amber.b, 0.6f);
 
             var screen = MakeImage(body, "Screen", ScreenBlue);

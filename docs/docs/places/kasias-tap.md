@@ -1,10 +1,10 @@
 ## About
 
-Kasia's dad's old tavern at the mill gate (he was a businessman, not a mill man). "For amusement only" machines at the bar that Kasia quietly pays out from the till, pull tabs from under the counter, and cards in the back room. It refuses Revaris cameras (her back room). Your first credit is her ledger.
+Kasia's dad's old tavern at the mill gate (he was a businessman, not a mill man). Licensed video machines at the bar (Backwater allows those and no other gambling), pull tabs from under the counter, and cards in the back room. It refuses Revaris cameras (her back room). Your first credit is her ledger.
 
 | District | Games | Bets | Getting in | Who you'll find |
 | --- | --- | --- | --- | --- |
-| Backwater | Poker, blackjack, old "for amusement only" reel slots and video poker, pull tabs | $1–$50 | Bar open to all (illegal but too small for Ed to care); back room by Kasia's invitation, once you've done her two jobs (the bar-back shift and the coupons to Juan; A1.3) | Kasia, Rosa dealing the back room, Raffy on night one |
+| Backwater | Poker, blackjack, licensed reel slots and video poker, pull tabs | $1–$50 | Bar open to all (the machines are licensed; the pull tabs are illegal but too small for Ed to care); back room by Kasia's invitation, once you've done her two jobs (the bar-back shift and the coupons to Juan; A1.3) | Kasia, Rosa dealing the back room, Raffy on night one |
 
 ## Look and mood
 

@@ -6,7 +6,7 @@ Northlight has five districts, poorest to richest, and the climb from one to the
 
 | District | What it is | Key light | Palette | Recurring image | Weather layer |
 | --- | --- | --- | --- | --- | --- |
-| Backwater | The dry district across the river; voted no on gaming, so every game here is illegal. Mill families, back rooms, street dice | Sodium streetlamp, bar neon, bowling-alley sign | Amber, brick red, tired green | The rocket sign across the river from the motel lot | Rain on asphalt, steam from mill grates |
+| Backwater | The district across the river that voted no on casinos: bars can run licensed video gaming terminals, but every table game and bet is illegal (Mike, 2026-11-06). Mill families, back rooms, street dice | Sodium streetlamp, bar neon, bowling-alley sign | Amber, brick red, tired green | The rocket sign across the river from the motel lot | Rain on asphalt, steam from mill grates |
 | The Bridges | The main crossing; gas-station slots | Gas-station canopy fluorescents | Flat white, oil-slick purple | The Long Bridge's lights over black water | Fog before dawn |
 | The Levee | Old downtown on the river; the Starflare, the riverboats, the Stacks | The rocket sign, flickering | Teal, coral, chrome, rust | The Stacks against the sky; the bucket under the Flare's roof leak | River mist, the Prairie Queen's paddle lights |
 | The Marquee Mile | Neon lakefront strip; hotel casinos and new money | Hotel marquees, LED walls | Magenta, gold, lake blue | The North Light sweeping the strip | Wind off the lake, winter snow |

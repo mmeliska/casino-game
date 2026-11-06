@@ -31,9 +31,9 @@ KASIA: New face. Kitchen's closed, but there's pierogi if you're not fussy.
     KASIA: Lake wind's turning. Grey till May now.
 * [Nod at the machines along the bar.]
     # pose: kasia_joke
-    KASIA: For amusement only. Says so right on the glass.
+    KASIA: Licensed. State sticker's right there on the side.
     # pose: kasia_neutral
-    KASIA: A dollar a hand. How amused you get is up to you.
+    KASIA: A dollar a hand. The rest is up to you.
 * {bankroll >= 5} [Leave a five on the bar for a beer. (-$5)]
     ~ spend(5)
     ~ tipped_kasia = true
