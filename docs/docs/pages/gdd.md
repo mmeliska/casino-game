@@ -16,7 +16,7 @@ This page is the build spec: the systems, their data and the rules they enforce.
 
 ## Setting in one paragraph
 
-Northlight is a nice city on a lake, split by a river. Five districts run poorest to richest: Backwater (dry; it voted no on gaming, so every game there is illegal), the Bridges (the crossing), the Levee (old downtown: the Starflare, the riverboats, the RailYard), the Marquee Mile (hotel casinos) and Silvershore (old money, private clubs, yachts). The era is never named: a timeless retro look with full smartphones. Districts, venues, story places, housing and excursions are on [Northlight](#city).
+Northlight is a nice city on a lake, split by a river. Five districts run poorest to richest: Backwater (it voted no on casinos: bars can run licensed video gaming terminals, but every table game and bet is illegal; Mike, 2026-11-06), the Bridges (the crossing), the Levee (old downtown: the Starflare, the riverboats, the RailYard), the Marquee Mile (hotel casinos) and Silvershore (old money, private clubs, yachts). The era is never named: a timeless retro look with full smartphones. Districts, venues, story places, housing and excursions are on [Northlight](#city).
 
 ## Core loop
 
@@ -104,7 +104,7 @@ Eleven places to gamble, ladder-ordered and mapped to districts. Bets and entry 
 | Venue | District | Games | Bets | Getting in |
 | --- | --- | --- | --- | --- |
 | Millstone Lanes (back lot) | Backwater | Craps out back; free-play slots and video poker inside (practice, no money) | $1–$20 | Anyone; sweeps likelier at high heat |
-| Kasia's Tap | Backwater | Poker, blackjack, "for amusement only" slots and video poker, pull tabs | $1–$50 | Bar open to all; back room after Kasia's two jobs (A1.3) |
+| Kasia's Tap | Backwater | Poker, blackjack, licensed slots and video poker, pull tabs | $1–$50 | Bar open to all; back room after Kasia's two jobs (A1.3) |
 | Bridgehead Fuel & Food | The Bridges | Three-reel slots, video poker, pull tabs, scratchers | $1–$5 | Anyone |
 | Starflare Club (the Flare) | The Levee | Rocket slots, video poker, blackjack, craps, roulette, poker, keno, the Rocket Wheel | $5–$100 | Anyone, until the fall |
 | Prairie Queen | The Levee | Blackjack, craps, roulette, paddlewheel slots, video poker | $5–$200 | A ticket for a set sailing |
@@ -150,7 +150,7 @@ Ordinary play is always fair: a losing player is never being cheated by the game
 
 Heat has four steps: none, low (they know you), medium (warnings and sweeps) and high (a raid: you lose the table money, pay a fine or spend a night in Lock Street lockup, and the venue goes quiet for a while). Ed, the honest vice cop, is its face.
 
-- **Raises heat:** illegal games (Millstone dice, Kasia's back room, every Cinder Room visit, Mitch's book), crooked jobs and the dirty versions of the act 4 routes. Kasia's bar machines are too small for Ed to care about.
+- **Raises heat:** illegal games (Millstone dice, Kasia's back room, every Cinder Room visit, Mitch's book), crooked jobs and the dirty versions of the act 4 routes. Kasia's bar machines are licensed, and her under-the-counter pull tabs are too small for Ed to care about.
 - **Lowers heat:** one step per week of licensed-only play; Vivian's lawyer clears a raid for a fee; a tip to Ed drops it at once but starts the informant path (R4).
 - **Gates:** high heat closes the Mile and Silvershore doors and opens the Cinder Room's.
 

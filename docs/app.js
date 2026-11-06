@@ -260,14 +260,14 @@ P.romance=()=>`<div class="page"><p class="eyebrow">People · romance</p><h1>Rom
 ${part("pages/romance","rom","romance")}</div>`.replace(/\{([A-Z0-9.]+)\}/g,(m,c)=>`<a class="code" href="#${c}">${c}</a>`);
 
 const DIST=[
-["Backwater","The dry district across the river; voted no on gaming, so every game here is illegal. Mill families, back rooms, street dice.","Sodium streetlamp, bar neon, bowling-alley sign",["#d99a2b","#9c3b2c","#6f7d4f"],"Amber, brick red, tired green","The rocket sign across the river from the motel lot","Rain on asphalt, steam from mill grates"],
+["Backwater","The district across the river that voted no on casinos: bars can run licensed video gaming terminals, but every table game and bet is illegal. Mill families, back rooms, street dice.","Sodium streetlamp, bar neon, bowling-alley sign",["#d99a2b","#9c3b2c","#6f7d4f"],"Amber, brick red, tired green","The rocket sign across the river from the motel lot","Rain on asphalt, steam from mill grates"],
 ["The Bridges","The main crossing; gas-station slots.","Gas-station canopy fluorescents",["#eef0ee","#5b4a7a"],"Flat white, oil-slick purple","The Long Bridge's lights over black water","Fog before dawn"],
 ["The Levee","Old downtown on the river: the Starflare, the riverboats, the Stacks.","The rocket sign, flickering",["#1f8a86","#ef6f55","#b9c2c6","#8a4b23"],"Teal, coral, chrome, rust","The Stacks against the sky; the bucket under the Flare's roof leak","River mist, the Prairie Queen's paddle lights"],
 ["The Marquee Mile","Neon lakefront strip; hotel casinos and new money.","Hotel marquees, LED walls",["#d1307f","#d9a520","#2f6fae"],"Magenta, gold, lake blue","The North Light sweeping the strip","Wind off the lake, winter snow"],
 ["Silvershore","Old money: private clubs, resorts, yachts.","Warm lamps, candlelight",["#f3eddc","#1e4d3a","#b08a3e"],"Ivory, deep green, brass","Yachts on a dark lake, the city glowing far off","Clear and still; no neon is the luxury"]];
 const VEN=[
 ["Millstone Lanes (back lot)","Backwater","Craps in the back lot; free-play slots and video poker inside for practice","$1–$20","Anyone; sweeps likelier when your heat is high",["juan","raffy"],true],
-["Kasia's Tap","Backwater","Poker, blackjack, \"for amusement only\" slots and video poker, pull tabs","$1–$50","Bar open to all; back room by Kasia's invite after two jobs",["kasia","rosa","raffy"],true],
+["Kasia's Tap","Backwater","Poker, blackjack, licensed slots and video poker, pull tabs","$1–$50","Bar open to all; back room by Kasia's invite after two jobs",["kasia","rosa","raffy"],true],
 ["Bridgehead Fuel & Food","The Bridges","Cheap three-reel slots, video poker, pull tabs, scratchers","$1–$5","Anyone",["mitch"],false],
 ["Starflare Club (the Flare)","The Levee","Rocket slots, video poker, blackjack, craps, roulette, poker, keno, the Rocket Wheel","$5–$100","Anyone",["gus","pete","jalen","stella","miles","ray"],false],
 ["Prairie Queen","The Levee","Blackjack, craps, roulette, paddlewheel slots, video poker","$5–$200","A ticket for a set sailing; aboard until it docks",["kiran","rosa"],false],
