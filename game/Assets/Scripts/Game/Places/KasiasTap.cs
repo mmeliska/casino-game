@@ -51,20 +51,12 @@ namespace Starflare.Game
         void ShowOutside()
         {
             _host.ShowPlace("kasia_front",
-                ("Go inside", () =>
-                {
-                    _host.LeavePlaceScreen();
-                    Enter();
-                }));
+                ("Go inside", () => _host.LeavePlaceScreen(Enter)));
         }
 
         void ShowBar()
         {
-            (string, UnityAction) sitDown = ("Sit down at the machine", () =>
-            {
-                _host.LeavePlaceScreen();
-                SitDown();
-            });
+            (string, UnityAction) sitDown = ("Sit down at the machine", () => _host.LeavePlaceScreen(SitDown));
             if (_host.Story.Flag(StoryContract.BackRoomOpen))
                 _host.ShowPlace("kasia_bar", sitDown, ("Go through the back door", _backRoom.Enter), NurseABeer, ("Step back outside", ShowOutside));
             else
@@ -95,12 +87,16 @@ namespace Starflare.Game
             else PlayScene(StoryContract.Knots.WalkIn, ShowBar);
         }
 
+        /// <summary>The break menu stays up until the dip to black covers it.</summary>
         void PlayScene(string knot, Action then)
         {
-            _menu.SetActive(false);
             _host.Story.Set(StoryContract.Broke, _host.State.BankrollNow < _machine.Rules.CreditValue);
             _host.Story.Set(StoryContract.SittingNet, _machine.SittingNet);
-            _host.PlayScene(knot, then);
+            _host.PlayScene(knot, () =>
+            {
+                _menu.SetActive(false);
+                then();
+            });
         }
 
         void SitDown()

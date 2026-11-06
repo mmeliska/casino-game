@@ -92,7 +92,17 @@ namespace Starflare.State
         }
 
         /// <summary>Clock time as h:mm, on a 24-hour clock.</summary>
-        public string TimeLabel => $"{MinuteOfDay / 60}:{MinuteOfDay % 60:00}";
+        public string TimeLabel => TimeLabelAt(MinuteOfDay);
+
+        /// <summary>
+        /// Any time as h:mm, wrapping past midnight; the phone counts through a trip with it
+        /// before the trip is taken.
+        /// </summary>
+        public static string TimeLabelAt(int minuteOfDay)
+        {
+            int minute = (minuteOfDay % MinutesPerDay + MinutesPerDay) % MinutesPerDay;
+            return $"{minute / 60}:{minute % 60:00}";
+        }
 
         /// <summary>The date, e.g. "May 4, Year 1".</summary>
         public string DateLabel => $"{MonthNames[Month - 1]} {DayOfMonth}, Year {Year}";

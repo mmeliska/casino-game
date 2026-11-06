@@ -1,5 +1,9 @@
 ## 5 Nov 2026
 
+### Getting from place to place
+
+Screens no longer cut. A scene starting or ending, another view of the same place, and sitting down at a table all dip quickly through black; within a scene a new plate crossfades from the last and a line on black fades in. Going somewhere is slower and is now a trip you watch: on the phone's map a marker runs from your pin to the one you tapped while the clock counts through the 30 minutes (a tap skips it), then you arrive on the place's outside plate, which shows on its own a moment before its actions (Mike). Things that happen on the way, and trips that cost more than one district, wait for a later pass.
+
 ### Your room at the motel
 
 After night one, going to your room at the Slack Water opens the room: sleep for 1, 2, 4 or 8 hours, or watch TV or browse the internet for 1, 2 or 3 hours, and you're back in the room at the new time (Mike). Night one you still can't sleep.

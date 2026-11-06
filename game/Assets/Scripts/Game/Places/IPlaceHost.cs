@@ -25,8 +25,11 @@ namespace Starflare.Game
         /// <summary>The place screen: the view's plate for the time of day, with these actions under the top bar.</summary>
         void ShowPlace(string view, params (string label, UnityAction action)[] actions);
 
-        /// <summary>Hides the place screen and top bar, for a module that fills the screen.</summary>
-        void LeavePlaceScreen();
+        /// <summary>
+        /// Dips to black, hides the place screen and top bar, and opens the module that fills the
+        /// screen (<paramref name="then"/>) while it's dark.
+        /// </summary>
+        void LeavePlaceScreen(Action then);
 
         /// <summary>
         /// Passing time without playing, the place's own way (a nap, a beer): an hour, or until the

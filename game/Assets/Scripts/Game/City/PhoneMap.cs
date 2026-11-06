@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Starflare.State;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,6 +15,10 @@ namespace Starflare.Game
     /// The map on your phone: Northlight's base map with a pin for every place open to you. Drag
     /// to pan, pinch (or scroll) to zoom, tap a pin to go there. Until the place icons exist, a
     /// pin is a circle with the place's name beside it.
+    ///
+    /// Going somewhere is a trip you watch: a marker runs from your pin to the one you tapped
+    /// while the top bar counts through the minutes it takes (a tap skips it). The phone stays
+    /// up when it gets there; the city puts it away under the dip to black (<see cref="Hide"/>).
     /// </summary>
     public sealed class PhoneMap : MonoBehaviour
     {
@@ -37,48 +42,122 @@ namespace Starflare.Game
         const float MaxZoom = 4f;
         const float MaxStartZoom = 2.5f;
 
-        GameObject _phone;
+        /// <summary>How long a trip takes to watch, whatever it costs on the clock (starting value).</summary>
+        const float TripSeconds = 1.2f;
+
+        GameObject _phone, _close, _skip;
+        TMP_Text _tripClock;
+        RectTransform _marker, _trail;
         RectTransform _viewport, _content;
         ScrollRect _scroll;
         Action<string> _go;
         Vector2 _focusMin, _focusMax;
         bool _framed;
 
+        // A trip under way: from your pin to the tapped one, how far along (below 0 for none),
+        // the clock it left at and what it costs.
+        Vector2? _hereAt;
+        Vector2 _tripFrom, _tripTo;
+        string _tripId;
+        float _trip = -1f;
+        int _leftAt, _tripMinutes;
+
         void Awake() => Build();
 
-        /// <summary>Opens the map with these places on it; <paramref name="go"/> gets the one you tap.</summary>
-        public void Show(IEnumerable<Place> places, string here, Action<string> go)
+        /// <summary>
+        /// Opens the map with these places on it. <paramref name="go"/> gets the one you tap, once
+        /// you've watched the trip there, which counts on from <paramref name="now"/> by
+        /// <paramref name="tripMinutes"/>.
+        /// </summary>
+        public void Show(IEnumerable<Place> places, string here, GameClock now, int tripMinutes, Action<string> go)
         {
             _go = go;
+            _leftAt = now.MinuteOfDay;
+            _tripMinutes = tripMinutes;
             ClearChildren(_content);
             _focusMin = Vector2.one;
             _focusMax = Vector2.zero;
+            _hereAt = null;
             foreach (var place in places)
             {
                 MakePin(place, place.Id == here);
+                if (place.Id == here) _hereAt = place.At;
                 _focusMin = Vector2.Min(_focusMin, place.At);
                 _focusMax = Vector2.Max(_focusMax, place.At);
             }
+            MakeTrip();
             _phone.SetActive(true);
             _framed = false;
         }
 
-        void Close() => _phone.SetActive(false);
+        /// <summary>Puts the phone away, mid-trip or not.</summary>
+        public void Hide()
+        {
+            _trip = -1f;
+            _skip.SetActive(false);
+            _tripClock.gameObject.SetActive(false);
+            _close.SetActive(true);
+            _phone.SetActive(false);
+        }
+
+        void Close() => Hide();
 
         // Pinch zoom reads two active touches through EnhancedTouch, which is off until asked.
         void OnEnable() => EnhancedTouchSupport.Enable();
 
         void OnDisable() => EnhancedTouchSupport.Disable();
 
-        void Pick(string id)
+        void Pick(Place place)
         {
-            Close();
-            _go(id);
+            if (_trip >= 0) return;
+            if (_hereAt == null)
+            {
+                _go(place.Id);
+                return;
+            }
+            _tripId = place.Id;
+            _tripFrom = _hereAt.Value;
+            _tripTo = place.At;
+            _trip = 0f;
+            _close.SetActive(false);
+            _tripClock.gameObject.SetActive(true);
+            _skip.SetActive(true);
+            _marker.gameObject.SetActive(true);
+            _trail.gameObject.SetActive(true);
+            _scroll.enabled = false;
+            StepTrip(0f);
+        }
+
+        /// <summary>Moves the marker on and the clock with it; at the far pin, hands the place over.</summary>
+        void StepTrip(float seconds)
+        {
+            _trip = Mathf.Min(1f, _trip + seconds / TripSeconds);
+            float along = Mathf.SmoothStep(0, 1, _trip);
+            var at = Vector2.Lerp(_tripFrom, _tripTo, along);
+            _marker.anchorMin = _marker.anchorMax = new Vector2(at.x, 1 - at.y);
+
+            // The trail runs from your pin to the marker, in the map's own units.
+            float size = _content.sizeDelta.x;
+            var run = new Vector2((at.x - _tripFrom.x) * size, (_tripFrom.y - at.y) * size);
+            _trail.anchorMin = _trail.anchorMax = new Vector2(_tripFrom.x, 1 - _tripFrom.y);
+            _trail.sizeDelta = new Vector2(run.magnitude, 10);
+            _trail.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(run.y, run.x) * Mathf.Rad2Deg);
+
+            _tripClock.text = GameClock.TimeLabelAt(_leftAt + Mathf.RoundToInt(_tripMinutes * along));
+            if (_trip < 1f) return;
+            _trip = -1f;
+            _skip.SetActive(false);
+            _go(_tripId);
         }
 
         void LateUpdate()
         {
             if (!_phone.activeSelf) return;
+            if (_trip >= 0)
+            {
+                StepTrip(Mathf.Min(Time.unscaledDeltaTime, 1f / 30f));
+                return;
+            }
             var view = _viewport.rect.size;
             if (view.x <= 0 || view.y <= 0) return;
 
@@ -150,7 +229,7 @@ namespace Starflare.Game
             ring.gameObject.AddComponent<Button>().onClick.AddListener(() =>
             {
                 if (here) Close();
-                else Pick(place.Id);
+                else Pick(place);
             });
 
             var dot = MakeImage(ring.transform, "Dot", here ? Color.white : Gold);
@@ -171,6 +250,30 @@ namespace Starflare.Game
             label.rectTransform.anchorMin = label.rectTransform.anchorMax = new Vector2(side, 0.5f);
             label.rectTransform.pivot = new Vector2(1 - side, 0.5f);
             label.rectTransform.anchoredPosition = new Vector2(place.LabelLeft ? -14 : 14, 0);
+        }
+
+        /// <summary>The trail and marker for a trip, under the pins and over them; hidden until you pick one.</summary>
+        void MakeTrip()
+        {
+            var trail = MakeImage(_content, "Trail", new Color(Teal.r, Teal.g, Teal.b, 0.85f));
+            trail.raycastTarget = false;
+            _trail = trail.rectTransform;
+            _trail.pivot = new Vector2(0, 0.5f);
+            _trail.anchoredPosition = Vector2.zero;
+            _trail.SetAsFirstSibling();
+            _trail.gameObject.SetActive(false);
+
+            var marker = MakeImage(_content, "Marker", Teal);
+            marker.sprite = Circle;
+            marker.raycastTarget = false;
+            _marker = marker.rectTransform;
+            _marker.sizeDelta = new Vector2(48, 48);
+            _marker.anchoredPosition = Vector2.zero;
+            var middle = MakeImage(marker.transform, "Middle", Paper);
+            middle.sprite = Circle;
+            middle.raycastTarget = false;
+            middle.rectTransform.sizeDelta = new Vector2(24, 24);
+            _marker.gameObject.SetActive(false);
         }
 
         void Build()
@@ -225,6 +328,25 @@ namespace Starflare.Game
             title.rectTransform.offsetMin = new Vector2(40, 0);
             var close = MakeButton(bar.transform, "Close", Close);
             Pin((RectTransform)close.transform, new Vector2(1, 0), Vector2.one, new Vector2(-220, 16), new Vector2(-20, -16));
+            _close = close.gameObject;
+
+            // On a trip, the clock takes the close button's place.
+            _tripClock = MakeText(bar.transform, "", 48, TextAnchor.MiddleRight, 0);
+            _tripClock.color = Paper;
+            NoWrap(_tripClock);
+            Stretch(_tripClock.rectTransform);
+            _tripClock.rectTransform.offsetMax = new Vector2(-40, 0);
+            _tripClock.gameObject.SetActive(false);
+
+            // On a trip, a tap anywhere gets you there.
+            var skip = MakeImage(canvas.transform, "Skip", Color.clear);
+            Stretch(skip.rectTransform);
+            skip.gameObject.AddComponent<Button>().onClick.AddListener(() =>
+            {
+                if (_trip >= 0) StepTrip(TripSeconds);
+            });
+            _skip = skip.gameObject;
+            _skip.SetActive(false);
 
             // Portrait: the phone upright, nearly filling the screen. Landscape: turned on its side.
             OnTurn(canvas, landscape =>
