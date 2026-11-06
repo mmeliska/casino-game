@@ -1,0 +1,21 @@
+{
+    "name": "Starflare.Blackjack",
+    "rootNamespace": "Starflare.Blackjack",
+    "references": [
+        "Starflare.Core",
+        "Starflare.Cards",
+        "Starflare.Blackjack.Rules",
+        "Starflare.Ui",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -4,9 +4,10 @@ using Starflare.State;
 namespace Starflare.Game
 {
     /// <summary>
-    /// What the debug panel sees of the city. The panel edits the live state and story through
-    /// their own methods; anything that writes the save files whole (a checkpoint, a snapshot, a
-    /// reload) goes through the city, which owns the save, and boots the game again from it.
+    /// What the debug panel sees of the playthrough. The panel edits the live state and story
+    /// through their own methods; anything that writes the save files whole (a checkpoint, a
+    /// snapshot, a reload) goes through the playthrough, which owns the save, and boots the game
+    /// again from it.
     /// </summary>
     public interface IDebugHost
     {

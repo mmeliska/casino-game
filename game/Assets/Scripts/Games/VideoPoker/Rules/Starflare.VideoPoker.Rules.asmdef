@@ -1,0 +1,16 @@
+{
+    "name": "Starflare.VideoPoker.Rules",
+    "rootNamespace": "Starflare.VideoPoker",
+    "references": [
+        "Starflare.Cards"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

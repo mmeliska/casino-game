@@ -1,0 +1,21 @@
+{
+    "name": "Starflare.VideoPoker",
+    "rootNamespace": "Starflare.VideoPoker",
+    "references": [
+        "Starflare.Core",
+        "Starflare.Cards",
+        "Starflare.VideoPoker.Rules",
+        "Starflare.Ui",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

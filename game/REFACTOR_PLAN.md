@@ -1,5 +1,7 @@
 # Architecture refactor plan
 
+> The layout and rules this plan worked toward now live in [`ARCHITECTURE.md`](ARCHITECTURE.md) (2026-11-06), which replaces its two-layer `Core`/`Game` split with per-game slices. The phases below are kept as the record of how the code got there.
+
 Written 2026-11-04 from a survey of `game/Assets/Scripts` (about 4,200 lines, 30 files) against
 current Unity 6 guidance. The standards themselves are in the repo's `CLAUDE.md`
 ("Code standards"); this file is the gap list and the order of work. Nothing here has been

@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Ink.Runtime;
+using Starflare.Ui;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static Starflare.Game.UiKit;
+using static Starflare.Ui.UiKit;
 
 namespace Starflare.Game
 {

@@ -1,8 +1,15 @@
 {
     "name": "Starflare.Game",
-    "rootNamespace": "Starflare",
+    "rootNamespace": "Starflare.Game",
     "references": [
         "Starflare.Core",
+        "Starflare.Cards",
+        "Starflare.Ui",
+        "Starflare.Phone",
+        "Starflare.Blackjack.Rules",
+        "Starflare.Blackjack",
+        "Starflare.VideoPoker.Rules",
+        "Starflare.VideoPoker",
         "UnityEngine.UI",
         "Unity.TextMeshPro",
         "Unity.InputSystem",

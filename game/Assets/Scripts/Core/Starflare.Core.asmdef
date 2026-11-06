@@ -1,6 +1,6 @@
 {
     "name": "Starflare.Core",
-    "rootNamespace": "Starflare",
+    "rootNamespace": "Starflare.State",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

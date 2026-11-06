@@ -16,7 +16,7 @@ namespace Starflare.EditorTools
     /// </summary>
     public static class ProjectSetup
     {
-        const string CityScenePath = "Assets/Scenes/City.unity";
+        const string MainScenePath = "Assets/Scenes/Main.unity";
         const string ArtRoot = "Assets/Resources";
 
         const string TmpSettingsPath = "Assets/TextMesh Pro/Resources/TMP Settings.asset";
@@ -39,8 +39,8 @@ namespace Starflare.EditorTools
             ConfigureRenderPipeline();
             SetUpTextMeshPro();
             ReimportArt();
-            BuildScene(CityScenePath, "City", typeof(City));
-            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(CityScenePath, true) };
+            BuildScene(MainScenePath, "Playthrough", typeof(Playthrough));
+            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(MainScenePath, true) };
             AssetDatabase.SaveAssets();
         }
 
