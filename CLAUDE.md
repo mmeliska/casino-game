@@ -23,6 +23,18 @@ Run the EditMode tests headless from the repo root:
 
 Run the PlayMode tests the same way with `-testPlatform PlayMode`. Add `-testFilter <FullTestName or regex>` to run a single test or fixture. Unity can't run headless while the editor has the project open.
 
+While the editor has the project open, run the tests through it instead, using the `com.unity.pipeline` package and the `unity` CLI (from `game/`):
+
+```sh
+unity status --until-ready                              # editor's Pipeline server is up
+unity command editor set_auto_tick --enabled true       # keep it working while unfocused
+unity command test run --mode editor --result-only      # EditMode, synchronous
+unity command test run --mode playmode --async-tests true   # PlayMode must run async...
+unity command test status --result-only                 # ...poll until status isn't "running"
+```
+
+Add `--filter <FullTestName>` to narrow a run. After changing code, `unity command script recompile`, then poll `script recompile_status`.
+
 The scene and player settings are generated from code, not hand-edited. After changing `game/Assets/Scripts/Editor/ProjectSetup.cs`, regenerate with the **Starflare > Rebuild Project Setup** menu, or headless:
 
 ```sh
@@ -57,7 +69,7 @@ Set 2026-11-04 from Unity 6 guidance (sources in `game/REFACTOR_PLAN.md`). New c
 **Tests and CI**
 
 - Every rule or state change lands with an EditMode test in the module that owns it; MonoBehaviour flows get PlayMode smoke tests (where each goes: `game/ARCHITECTURE.md`, "Tests"). Prefer `[Test]`; use `[UnityTest]` only when a test must yield.
-- There is no CI yet (decided 2026-11-04). Run the tests headless before asking for review. While the editor has the project open (so headless can't run), `tools/compile_check.sh` compiles every assembly with Roslyn against the Unity install's DLLs, reading the `.asmdef` files (so a new module needs no change to it) and giving each only the references its `.asmdef` names; it catches compile errors and missing references but doesn't run the tests.
+- There is no CI yet (decided 2026-11-04). **After any change to game code, run both test suites yourself without asking** (standing permission, Mike, 2026-11-07), and report the counts and any failures. If the editor is open, run them through it with the `unity` commands above (recompile first, then EditMode, then PlayMode async). If it isn't, run them headless. If the editor is open but `unity status --until-ready` can't reach it (e.g. right after a package change; a restart fixes it), fall back to `tools/compile_check.sh`, which compiles every assembly with Roslyn against the Unity install's DLLs, reading the `.asmdef` files (so a new module needs no change to it) and giving each only the references its `.asmdef` names; it catches compile errors and missing references but doesn't run the tests. Say the tests weren't run.
 
 **Style**
 
