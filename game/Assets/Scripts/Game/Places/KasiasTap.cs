@@ -1,13 +1,10 @@
 using System;
+using System.Collections.Generic;
 using Starflare.Phone;
 using Starflare.State;
-using Starflare.Ui;
 using Starflare.VideoPoker;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
-using static Starflare.Ui.UiKit;
 
 namespace Starflare.Game
 {
@@ -16,9 +13,10 @@ namespace Starflare.Game
     /// gate; inside, night one's scene (A1.2), one of her two jobs (A1.3), her nod toward the
     /// back door once both are done, or her hello plays as you walk in, then you're at the bar,
     /// where you can sit down at the video poker machine or, once she's let you in, go through
-    /// to Rosa's table (<see cref="KasiasBackRoom"/>). Getting up from the machine is a break
+    /// to Rosa's table (<see cref="KasiasBackRoom"/>). On the Saturday night she's booked you for,
+    /// the bar has a way up to the wedding in the hall (A1.4). Getting up from the machine is a break
     /// point, where Kasia's scene for the moment plays (her book when you're broke, settling up
-    /// when you're flush). The machine never sees the story.
+    /// when you're flush), and then you're back at the bar. The machine never sees the story.
     /// </summary>
     public sealed class KasiasTap : MonoBehaviour, IPlace
     {
@@ -28,9 +26,6 @@ namespace Starflare.Game
         VideoPokerMachine _machine;
         KasiasBackRoom _backRoom;
 
-        GameObject _menu;
-        TMP_Text _menuText;
-
         public void Init(IPlaceHost host)
         {
             _host = host;
@@ -39,7 +34,6 @@ namespace Starflare.Game
             _machine.BreakPointReached += OnBreakPoint;
             _backRoom = gameObject.AddComponent<KasiasBackRoom>();
             _backRoom.Init(host, ShowBar);
-            BuildMenu();
         }
 
         public string Id => PlaceId;
@@ -49,8 +43,7 @@ namespace Starflare.Game
 
         public void Arrive() => ShowOutside();
 
-        /// <summary>Puts the break menu away as you head somewhere else.</summary>
-        public void Leave() => _menu.SetActive(false);
+        public void Leave() { }
 
         void ShowOutside()
         {
@@ -60,12 +53,36 @@ namespace Starflare.Game
 
         void ShowBar()
         {
-            (string, UnityAction) sitDown = ("Sit down at the machine", () => _host.LeavePlaceScreen(SitDown));
-            if (_host.Story.Flag(StoryContract.BackRoomOpen))
-                _host.ShowPlace("kasia_bar", sitDown, ("Go through the back door", _backRoom.Enter), NurseABeer, ("Step back outside", ShowOutside));
-            else
-                _host.ShowPlace("kasia_bar", sitDown, NurseABeer, ("Step back outside", ShowOutside));
+            var actions = new List<(string, UnityAction)> { ("Sit down at the machine", () => _host.LeavePlaceScreen(SitDown)) };
+            if (WeddingTonight) actions.Add(("Go up to the hall", () => PlayScene(StoryContract.Knots.Wedding, ShowOutside)));
+            if (_host.Story.Flag(StoryContract.BackRoomOpen)) actions.Add(("Go through the back door", _backRoom.Enter));
+            actions.Add(NurseABeer);
+            actions.Add(("Step back outside", ShowOutside));
+            _host.ShowPlace("kasia_bar", actions.ToArray());
         }
+
+        /// <summary>The Saturday night she booked you for: the hall upstairs is open (A1.4).</summary>
+        bool WeddingTonight =>
+            !_host.Story.Flag(StoryContract.WeddingOver)
+            && _host.Story.Int(StoryContract.WeddingDay) == _host.State.Clock.Day
+            && _host.State.Clock.Part == PartOfDay.Night;
+
+        /// <summary>The Saturday she booked you for has come and gone without you.</summary>
+        bool WeddingMissed
+        {
+            get
+            {
+                int booked = _host.Story.Int(StoryContract.WeddingDay);
+                return !_host.Story.Flag(StoryContract.WeddingOver) && booked > 0 && _host.State.Clock.Day > booked;
+            }
+        }
+
+        /// <summary>You said no once; on a later day she asks once more.</summary>
+        bool AsksAboutTheWeddingAgain =>
+            !_host.Story.Flag(StoryContract.WeddingOver)
+            && _host.Story.Int(StoryContract.WeddingDay) == 0
+            && _host.Story.Int(StoryContract.WeddingMisses) == 1
+            && _host.State.Clock.Day > _host.Story.Int(StoryContract.WeddingAskedDay);
 
         /// <summary>Kasia's way to pass the time: three dollars a beer.</summary>
         (string, UnityAction) NurseABeer => ("Nurse a beer", () => _host.ShowWait("kasia_bar", "Nurse a beer", BeerPrice, ShowBar));
@@ -75,8 +92,9 @@ namespace Starflare.Game
         /// <summary>
         /// Walking in. Night one plays the first time. After that night, until you meet Juan,
         /// Kasia has his coupons for you; once he has them, the bar-back shift; once both jobs
-        /// are done, she nods you toward the back door (A1.3). Otherwise she says hello. Then
-        /// you're at the bar.
+        /// are done, she nods you toward the back door (A1.3) and asks you to work the wedding
+        /// (A1.4). If you missed the Saturday, or said no, she has a word about it once.
+        /// Otherwise she says hello. Then you're at the bar.
         /// </summary>
         void Enter()
         {
@@ -88,62 +106,21 @@ namespace Starflare.Game
                 PlayScene(StoryContract.Knots.BarBackJob, ShowBar);
             else if (story.Flag(StoryContract.DidBarBack) && !story.Flag(StoryContract.BackRoomOpen))
                 PlayScene(StoryContract.Knots.BackRoomInvite, ShowBar);
+            else if (WeddingMissed) PlayScene(StoryContract.Knots.WeddingMissed, ShowBar);
+            else if (AsksAboutTheWeddingAgain) PlayScene(StoryContract.Knots.WeddingAsk, ShowBar);
             else PlayScene(StoryContract.Knots.WalkIn, ShowBar);
         }
 
-        /// <summary>The break menu stays up until the dip to black covers it.</summary>
         void PlayScene(string knot, Action then)
         {
             _host.Story.Set(StoryContract.Broke, _host.State.BankrollNow < _machine.Rules.CreditValue);
             _host.Story.Set(StoryContract.SittingNet, _machine.SittingNet);
-            _host.PlayScene(knot, () =>
-            {
-                _menu.SetActive(false);
-                then();
-            });
+            _host.PlayScene(knot, then);
         }
 
-        void SitDown()
-        {
-            _menu.SetActive(false);
-            _machine.SitDown(_host.State, _host.Pace);
-        }
+        void SitDown() => _machine.SitDown(_host.State, _host.Pace);
 
-        void OnBreakPoint(BreakPoint point) => PlayScene(StoryContract.Knots.GetUp, ShowMenu);
-
-        void ShowMenu()
-        {
-            var state = _host.State;
-            var clock = state.Clock;
-            _menuText.text =
-                $"Tonight: {_machine.SittingRounds} hands, {Money(_machine.SittingNet, true)}\n" +
-                $"Cash {Money(state.BankrollNow)}" + (state.Debts > 0 ? $"   Kasia's book {Money(state.Debts)}" : "") + "\n" +
-                $"Day {clock.Day}, {clock.Part} {clock.TimeLabel}";
-            _menu.SetActive(true);
-        }
-
-        void BuildMenu()
-        {
-            var canvas = MakeCanvas(transform, "Break Canvas", 5);
-            _menu = canvas.gameObject;
-
-            var shade = MakeImage(canvas.transform, "Shade", new Color(0f, 0f, 0f, 0.85f));
-            Stretch(shade.rectTransform);
-            var column = AddVertical(shade.gameObject, 24, new RectOffset(80, 80, 300, 300));
-            column.GetComponent<VerticalLayoutGroup>().childAlignment = TextAnchor.MiddleCenter;
-
-            _menuText = MakeText(column, "", 44, TextAnchor.MiddleCenter, 400);
-            MakeButton(column, "Back to the machine", SitDown);
-
-            var safe = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
-            safe.transform.SetParent(canvas.transform, false);
-            Stretch((RectTransform)safe.transform);
-            var phoneButton = (RectTransform)MakePhoneButton(safe.transform, _host.OpenMap).transform;
-            phoneButton.anchorMin = phoneButton.anchorMax = phoneButton.pivot = Vector2.one;
-            phoneButton.anchoredPosition = new Vector2(-36, -36);
-            OnTurn(canvas, landscape => column.GetComponent<VerticalLayoutGroup>().padding =
-                landscape ? new RectOffset(560, 560, 80, 80) : new RectOffset(80, 80, 300, 300));
-            _menu.SetActive(false);
-        }
+        /// <summary>Getting up: Kasia's line for the moment, then the bar and what to do next.</summary>
+        void OnBreakPoint(BreakPoint point) => PlayScene(StoryContract.Knots.GetUp, ShowBar);
     }
 }

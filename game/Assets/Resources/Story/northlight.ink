@@ -19,5 +19,12 @@ VAR bankroll = 200
 VAR book = 0
 VAR broke = false
 VAR sitting_net = 0
+// The calendar: today's day number, the day number of the next Saturday after today (day 1 is
+// a Monday), and the hour, 0 to 23.
+VAR day = 1
+VAR next_saturday = 6
+VAR hour = 18
+// The box on Dot's register (A1.1): "mr", "ms" or "none".
+VAR register_box = "none"
 
 -> END

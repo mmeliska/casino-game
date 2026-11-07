@@ -186,24 +186,36 @@ namespace Starflare.Tests
         public void Clock_StartsOnMayFourthInSpring()
         {
             var clock = new GameClock();
-            Assert.That(clock.DateLabel, Is.EqualTo("May 4, Year 1"));
+            Assert.That(clock.DateLabel, Is.EqualTo("Mon, May 4, Year 1"));
             Assert.That(clock.Season, Is.EqualTo(Season.Spring));
         }
 
-        [TestCase(28, "May 31, Year 1", Season.Spring)]
-        [TestCase(29, "Jun 1, Year 1", Season.Summer)]
-        [TestCase(121, "Sep 1, Year 1", Season.Fall)]
-        [TestCase(212, "Dec 1, Year 1", Season.Winter)]
-        [TestCase(242, "Dec 31, Year 1", Season.Winter)]
-        [TestCase(243, "Jan 1, Year 2", Season.Winter)]
-        [TestCase(301, "Feb 28, Year 2", Season.Winter)]
-        [TestCase(302, "Mar 1, Year 2", Season.Spring)]
-        [TestCase(608, "Jan 1, Year 3", Season.Winter)]
+        [TestCase(28, "Sun, May 31, Year 1", Season.Spring)]
+        [TestCase(29, "Mon, Jun 1, Year 1", Season.Summer)]
+        [TestCase(121, "Tue, Sep 1, Year 1", Season.Fall)]
+        [TestCase(212, "Tue, Dec 1, Year 1", Season.Winter)]
+        [TestCase(242, "Thu, Dec 31, Year 1", Season.Winter)]
+        [TestCase(243, "Fri, Jan 1, Year 2", Season.Winter)]
+        [TestCase(301, "Sun, Feb 28, Year 2", Season.Winter)]
+        [TestCase(302, "Mon, Mar 1, Year 2", Season.Spring)]
+        [TestCase(608, "Sat, Jan 1, Year 3", Season.Winter)]
         public void Clock_DatesFollowTheCalendar(int day, string date, Season season)
         {
             var clock = new GameClock { Day = day };
             Assert.That(clock.DateLabel, Is.EqualTo(date));
             Assert.That(clock.Season, Is.EqualTo(season));
+        }
+
+        [TestCase(1, DayOfWeek.Monday, 6)]
+        [TestCase(5, DayOfWeek.Friday, 6)]
+        [TestCase(6, DayOfWeek.Saturday, 13)]
+        [TestCase(7, DayOfWeek.Sunday, 13)]
+        [TestCase(243, DayOfWeek.Friday, 244)]
+        public void Clock_KnowsTheWeekdayAndTheNextSaturday(int day, DayOfWeek weekday, int nextSaturday)
+        {
+            var clock = new GameClock { Day = day };
+            Assert.That(clock.Weekday, Is.EqualTo(weekday));
+            Assert.That(clock.NextSaturday, Is.EqualTo(nextSaturday));
         }
 
         [Test]
@@ -291,6 +303,22 @@ namespace Starflare.Tests
             state.SignRegister("Sam", RegisterBox.Ms);
             Assert.Throws<InvalidOperationException>(() => state.SignRegister("Alex", RegisterBox.Mr));
             Assert.That(state.Name, Is.EqualTo("Sam"));
+        }
+
+        [Test]
+        public void RetickingTheBox_NeedsASignedRegister_AndKeepsTheName()
+        {
+            var state = new PlayerState();
+            Assert.Throws<InvalidOperationException>(() => state.RetickBox(RegisterBox.Mr));
+
+            state.SignRegister("Sam", RegisterBox.Ms);
+            int changes = 0;
+            state.Changed += () => changes++;
+            state.RetickBox(RegisterBox.Mr);
+            Assert.That(state.Box, Is.EqualTo(RegisterBox.Mr));
+            Assert.That(state.Name, Is.EqualTo("Sam"));
+            Assert.That(changes, Is.EqualTo(1));
+            Assert.Throws<ArgumentException>(() => state.RetickBox(RegisterBox.Unticked));
         }
 
         [Test]

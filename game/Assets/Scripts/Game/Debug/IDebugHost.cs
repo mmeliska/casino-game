@@ -23,8 +23,8 @@ namespace Starflare.Game
         /// <summary>Saves, then boots the game again from the save, so every screen reads the edited state.</summary>
         void Reload();
 
-        /// <summary>Starts a new game brought to <paramref name="checkpoint"/>.</summary>
-        void Restart(Checkpoint checkpoint);
+        /// <summary>Starts a new game brought to <paramref name="checkpoint"/>, with <paramref name="box"/> ticked on the register.</summary>
+        void Restart(Checkpoint checkpoint, RegisterBox box);
 
         IReadOnlyList<string> Snapshots { get; }
         void TakeSnapshot();

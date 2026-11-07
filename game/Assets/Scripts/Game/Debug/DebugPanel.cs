@@ -13,9 +13,9 @@ namespace Starflare.Game
     /// The debug panel, for setting the game to the moment you want to test. A small DEV button
     /// on the left edge opens it over any screen. It loads a checkpoint (a beat's recipe) or a
     /// snapshot (a copy of a real save), and edits the live state through the same methods play
-    /// uses: cash, Kasia's book, the clock, the hidden scales, every story flag, and where you
-    /// stand. It also sets the clock's pace (story minutes per real minute, hours a sitting),
-    /// which this device remembers, so a pace being tried survives reloads and relaunches. Flags and places change what a screen offers, so closing after either boots the
+    /// uses: cash, Kasia's book, the clock, the register box, the hidden scales, every story flag,
+    /// and where you stand. It also sets the clock's pace (story minutes per real minute, hours a sitting) and the
+    /// register box the checkpoints sign with, which this device remembers, so a pace being tried survives reloads and relaunches. Flags and places change what a screen offers, so closing after either boots the
     /// city again from the save. The city adds it in Editor and Development builds only.
     /// </summary>
     public sealed class DebugPanel : MonoBehaviour
@@ -24,6 +24,7 @@ namespace Starflare.Game
 
         const string RateKey = "debug.pace.rate";
         const string CapKey = "debug.pace.cap";
+        const string BoxKey = "debug.register.box";
         static readonly int[] Rates = { 15, 30, 60, 120 };
         static readonly int[] Caps = { 4, 8, 12 };
 
@@ -71,9 +72,13 @@ namespace Starflare.Game
             Label($"{(state.HasSigned ? state.Name : "(unsigned)")}  •  {state.Place}  •  {clock.DateLabel}, {clock.Part} {clock.TimeLabel}\n" +
                   $"Cash {Money(state.BankrollNow)}   Owed {Money(state.Debts)}   Best {Money(state.BestBankroll)}   Rounds {state.RoundsPlayed}");
 
+            // Who asks first at the wedding (A1.4) follows the box; Other is "Prefer not to answer".
+            Heading("Register box (checkpoints sign with it; changes this game too)");
+            Buttons(BoxButton("Mr.", RegisterBox.Mr), BoxButton("Ms.", RegisterBox.Ms), BoxButton("Other", RegisterBox.PreferNotToAnswer));
+
             Heading("Checkpoints (a new game, brought to the beat)");
             foreach (var checkpoint in Checkpoints.All)
-                Wide(checkpoint.Name, () => _host.Restart(checkpoint));
+                Wide(checkpoint.Name, () => _host.Restart(checkpoint, CheckpointBox));
 
             Heading("Snapshots (copies of your save)");
             Wide("Take a snapshot now", () =>
@@ -161,6 +166,18 @@ namespace Starflare.Game
             Heading("Start again");
             Wide("Start over (wipe save)", _host.StartOver);
         }
+
+        /// <summary>The box checkpoints sign with; this device remembers it, like the pace.</summary>
+        static RegisterBox CheckpointBox => (RegisterBox)PlayerPrefs.GetInt(BoxKey, (int)RegisterBox.Ms);
+
+        (string, UnityAction) BoxButton(string label, RegisterBox box) =>
+            (CheckpointBox == box ? $"<color=#5cc9d1>{label}</color>" : label, () =>
+            {
+                PlayerPrefs.SetInt(BoxKey, (int)box);
+                PlayerPrefs.Save();
+                if (_host.State.HasSigned) _host.State.RetickBox(box);
+                Redraw();
+            });
 
         /// <summary>A pace setting: takes effect at once, even mid-sitting, and this device keeps it.</summary>
         (string, UnityAction) PaceButton(string label, bool on, Action set, string key, int value) =>

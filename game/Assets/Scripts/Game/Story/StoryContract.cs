@@ -12,6 +12,10 @@ namespace Starflare.Game
         public const string PlayerName = "player_name";
         public const string Bankroll = "bankroll";
         public const string Book = "book";
+        public const string Day = "day";
+        public const string NextSaturday = "next_saturday";
+        public const string Hour = "hour";
+        public const string RegisterBox = "register_box";
 
         // Set by the venue before a scene at its machine.
         public const string Broke = "broke";
@@ -26,6 +30,18 @@ namespace Starflare.Game
         public const string BackRoomOpen = "back_room_open";
         public const string SatWithRosa = "sat_with_rosa";
 
+        // Kasia's wedding (A1.4): the day it's booked for (0 until it is), how many times you've
+        // said no or not shown up, the day she last asked, whether it's behind you, and (for the
+        // romance characters later) the job you took and who you danced with.
+        public const string WeddingDay = "wedding_day";
+        public const string WeddingMisses = "wedding_misses";
+        public const string WeddingAskedDay = "wedding_asked_day";
+        public const string WorkedWedding = "worked_wedding";
+        public const string WeddingOver = "wedding_over";
+        public const string WeddingRole = "wedding_role";
+        public const string DancedWith = "danced_with";
+        public const string DanceKeen = "dance_keen";
+
         // Set only by the debug panel's checkpoints, so a beat's "again" lines play as they would.
         public const string OfferedCoupons = "offered_coupons";
         public const string OfferedBarBack = "offered_bar_back";
@@ -33,8 +49,9 @@ namespace Starflare.Game
 
         public static readonly string[] Variables =
         {
-            PlayerName, Bankroll, Book, Broke, SittingNet, CheckedIn, MetKasia, MetJuan,
-            CarryingCoupons, DidBarBack, BackRoomOpen, SatWithRosa, OfferedCoupons, OfferedBarBack, MetRosa,
+            PlayerName, Bankroll, Book, Day, NextSaturday, Hour, RegisterBox, Broke, SittingNet, CheckedIn,
+            MetKasia, MetJuan, CarryingCoupons, DidBarBack, BackRoomOpen, SatWithRosa, WeddingDay, WeddingMisses,
+            WeddingAskedDay, WorkedWedding, WeddingOver, WeddingRole, DancedWith, DanceKeen, OfferedCoupons, OfferedBarBack, MetRosa,
         };
 
         /// <summary>EXTERNAL functions the story calls; the bridge binds each to the player state.</summary>
@@ -73,6 +90,11 @@ namespace Starflare.Game
             public const string RosaFirstHand = "rosa_first_hand";
             public const string RosaGetUp = "rosa_get_up";
 
+            // The wedding upstairs (A1.4)
+            public const string WeddingAsk = "wedding_ask";
+            public const string WeddingMissed = "wedding_missed";
+            public const string Wedding = "wedding";
+
             // Millstone Lanes (A1.3)
             public const string Coupons = "coupons";
             public const string Juan = "juan";
@@ -80,7 +102,7 @@ namespace Starflare.Game
             public static readonly string[] All =
             {
                 Arrival, CheckingIn, Office, TurnIn, NightOne, WalkIn, GetUp, CouponJob, BarBackJob,
-                BackRoomInvite, BackRoom, RosaFirstHand, RosaGetUp, Coupons, Juan,
+                BackRoomInvite, BackRoom, RosaFirstHand, RosaGetUp, WeddingAsk, WeddingMissed, Wedding, Coupons, Juan,
             };
         }
     }

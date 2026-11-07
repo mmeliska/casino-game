@@ -1,5 +1,5 @@
 // KASIA'S TAP: Backwater, night. Night one (A1.2), Kasia at each break point, her two jobs
-// and the back room (A1.3). Included by northlight.ink, which holds the externals and the
+// and the back room (A1.3), and the wedding upstairs (A1.4). Included by northlight.ink, which holds the externals and the
 // variables the game sets.
 // Tags: #plate (background), #pose (portrait swap), #insert (close-up), #black (text on black)
 // Raffy's envelope (the first seed) isn't in night one yet.
@@ -17,6 +17,18 @@ VAR kept_wallet = false
 VAR back_room_open = false
 VAR met_rosa = false
 VAR sat_with_rosa = false
+// The wedding (A1.4). wedding_day is the day number it's booked for, 0 until it is.
+VAR wedding_day = 0
+VAR wedding_misses = 0
+VAR wedding_asked_day = 0
+VAR worked_wedding = false
+VAR wedding_over = false
+// "server" or "busser"; who you danced with ("maid_of_honor", "brides_brother" or nobody)
+// sets which versions of the romance characters you meet, and dance_keen is whether you had
+// your apron off before Kasia finished asking.
+VAR wedding_role = ""
+VAR danced_with = ""
+VAR dance_keen = false
 
 
 // Night one: you can't sleep, so you walk to the Tap. A regular moment, not a beat yet.
@@ -47,7 +59,12 @@ KASIA: Go on. I'll be at the taps.
 === walk_in ===
 # plate: kasia_bar_night
 # pose: kasia_neutral
-{book > 0:
+{
+- day == wedding_day && hour >= 18:
+    KASIA: Family's upstairs already. Apron's on the hook by the stairs.
+- day == wedding_day:
+    KASIA: Wedding's tonight. Upstairs, six o'clock. Eat something first.
+- book > 0:
     KASIA: Evening. Book's still open. No rush.
 - else:
     KASIA: {~Evening. Machines are warm, beer's cold.|Back again. Your stool's where you left it.|Wind brought you in? Sit anywhere.}
@@ -215,6 +232,216 @@ KASIA: Sixty. You showed up and didn't break anything.
 KASIA: Box to Juan. A shift on the ice. You keep showing up.
 # pose: kasia_asks
 KASIA: Back door. There's a game. Rosa deals. Mind her.
+-> wedding_ask.first
+
+
+// Kasia's wedding (A1.4): she asks in the same talk as the back door. A no, or a booked
+// Saturday you don't show up for, leaves one more chance: she asks again on a later day, or
+// rebooks (Mike, 2026-11-06). The second no or no-show and the wedding's over without you.
+=== wedding_ask ===
+# plate: kasia_bar_night
+# pose: kasia_asks
+KASIA: Another mill wedding's booked the hall. I'm still short a pair of hands.
+-> ask
+
+= first
+# pose: kasia_neutral
+KASIA: Saturday there's a mill wedding upstairs. I'm short a pair of hands.
+-> ask
+
+= ask
+~ wedding_asked_day = day
+KASIA: Eighty, cash, plus tips. Saturday night, six o'clock.
++ [Say you'll be there.]
+    ~ wedding_day = next_saturday
+    # pose: kasia_joke
+    KASIA: Wear shoes you can stand in. The polka goes till one.
+    -> END
++ [Tell her weddings aren't your thing.]
+    ~ wedding_misses += 1
+    {wedding_misses >= 2:
+        ~ wedding_over = true
+        # pose: kasia_joke
+        KASIA: My cousin's kid, then. He breaks glasses, but he says yes.
+    - else:
+        # pose: kasia_neutral
+        KASIA: Suit yourself. Mill families get married a lot.
+    }
+    -> END
+
+
+// Walking in after a booked Saturday came and went without you.
+=== wedding_missed ===
+~ wedding_day = 0
+~ wedding_misses += 1
+~ lean("flaky")
+# plate: kasia_bar_night
+# pose: kasia_stern
+KASIA: Saturday came. The wedding came. You didn't.
+{wedding_misses >= 2:
+    ~ wedding_over = true
+    # pose: kasia_neutral
+    KASIA: Hired my cousin's kid. He broke four glasses. I'm keeping him.
+    -> END
+}
+# pose: kasia_neutral
+KASIA: Another mill family's booked the hall. One more try.
+-> wedding_ask.ask
+
+
+// THE WEDDING (A1.4): the hall upstairs, Saturday night, a Backwater mill family's reception.
+// You work it as server (more tips) or busser (you overhear more). Mid-shift Kasia brings a
+// dance offer from the opposite sex to the register box. Take it keenly or plainly, say you're
+// on the clock, or look past them at the other one: only that brings the same-sex offer, which
+// Kasia carries quietly (Mike, 2026-11-06). With no answer on the register, both at once.
+// Saying no costs nothing. The shift runs till about one.
+=== wedding ===
+# plate: kasia_wedding_night
+String lights over the beams. A polka band tuning up by the cake.
+# pose: kasia_neutral
+KASIA: Two jobs tonight. Plates or bins.
+KASIA: Plates tip better. Bins hear more.
+* [Take the tray.]
+    ~ wedding_role = "server"
+    # pose: none
+    Pierogi, kielbasa, a tray of beers. Again. Again.
+    An aunt tucks a five in your apron. Then another.
+* [Take the bus tub.]
+    ~ wedding_role = "busser"
+    # pose: none
+    Plates, bones, napkins. The tub fills faster than the floor clears.
+    At table six, two mill uncles, louder than they think.
+    UNCLE: Took Marge to the Starflare for our twenty-fifth. The owner poured the coffee himself.
+    OTHER UNCLE: Half empty on a Saturday now. He still pours it.
+    By the window, somebody's grandpa squints toward the Bridges.
+    GRANDPA: Bridgehead's got the worst machines in town.
+    GRANDPA: Fella behind that counter bought a building the year of the vote.
+    GRANDPA: Backwater voted no. He rings up gas these days.
+- Toasts. A first dance. The band finds its second wind. # pose: none
+{
+- register_box == "mr": -> offer("maid_of_honor")
+- register_box == "ms": -> offer("brides_brother")
+- else: -> both
+}
+
+= offer(who)
+# pose: kasia_asks
+{who == "maid_of_honor":
+    KASIA: The maid of honor asked if you'd dance. I'll cover your tables.
+    Over by the cake table. # pose: maid_of_honor_neutral
+- else:
+    KASIA: The bride's brother asked if you'd dance. I'll cover your tables.
+    Over by the cake table. # pose: brides_brother_neutral
+}
++ [Have your apron off before Kasia finishes.]
+    ~ dance_keen = true
+    -> dance(who, false)
++ [Untie your apron.]
+    -> dance(who, false)
++ [Look past {who == "maid_of_honor":her at the bride's brother|him at the maid of honor}.]
+    # pose: kasia_neutral
+    KASIA: I'll tell {who == "maid_of_honor":her|him} you're on the clock.
+    {who == "maid_of_honor":
+        -> quiet_offer("brides_brother")
+    - else:
+        -> quiet_offer("maid_of_honor")
+    }
++ [Tell Kasia you're on the clock.]
+    # pose: kasia_neutral
+    KASIA: I'll tell {who == "maid_of_honor":her|him} you're on the clock.
+    -> finish
+
+// The same-sex offer, only if you looked past the first one at them. The asker went through
+// Kasia so nobody else would hear, and she keeps it that way, whatever you say.
+= quiet_offer(who)
+# pose: none
+Another tray, another round of toasts. Kasia finds you by the coffee urn.
+# pose: kasia_neutral
+{who == "maid_of_honor":
+    KASIA: The maid of honor asked me to ask. Quietly.
+- else:
+    KASIA: The bride's brother asked me to ask. Quietly.
+}
+KASIA: If you'd dance. Yes or no, it stays with me.
+{who == "maid_of_honor":
+    Over by the cake table. # pose: maid_of_honor_neutral
+- else:
+    Over by the cake table. # pose: brides_brother_neutral
+}
++ [Have your apron off before Kasia finishes.]
+    ~ dance_keen = true
+    -> dance(who, true)
++ [Untie your apron.]
+    -> dance(who, true)
++ [Tell Kasia you're on the clock.]
+    -> quiet_no(who)
++ [Tell Kasia you're not that kind of {register_box == "ms":gal|guy}.]
+    -> quiet_no(who)
+
+= quiet_no(who)
+# pose: kasia_neutral
+KASIA: Fair enough. I'll tell {who == "maid_of_honor":her|him} you're on the clock.
+-> finish
+
+= both
+# pose: kasia_asks
+KASIA: The maid of honor and the bride's brother. Both asked if you'd dance.
+KASIA: I'll cover your tables.
++ [Dance with the maid of honor.]
+    -> dance("maid_of_honor", false)
++ [Dance with the bride's brother.]
+    -> dance("brides_brother", false)
++ [Tell Kasia you're on the clock.]
+    -> finish
+
+= dance(who, quiet)
+~ danced_with = who
+{
+- quiet && who == "maid_of_honor":
+    MAID OF HONOR: Asked Kasia to ask. Easier that way. # pose: maid_of_honor_hand_out
+- quiet:
+    BRIDE'S BROTHER: Asked Kasia to ask. Easier that way. # pose: brides_brother_hand_out
+- who == "maid_of_honor":
+    MAID OF HONOR: I don't really dance. Nobody up here does. # pose: maid_of_honor_hand_out
+- else:
+    BRIDE'S BROTHER: I don't really dance. Nobody up here does. # pose: brides_brother_hand_out
+}
+# pose: none
+{quiet:
+    One slow song, near the edge of the floor. Nobody looks twice.
+- else:
+    One slow song. The string lights sway when the floor does.
+}
+The song ends.
+{
+- quiet && who == "maid_of_honor":
+    MAID OF HONOR: Thanks. I wasn't sure anybody would say yes. # pose: maid_of_honor_neutral
+- quiet:
+    BRIDE'S BROTHER: Thanks. I wasn't sure anybody would say yes. # pose: brides_brother_neutral
+- who == "maid_of_honor":
+    MAID OF HONOR: Thanks. You didn't step on me once. # pose: maid_of_honor_neutral
+- else:
+    BRIDE'S BROTHER: Thanks. You didn't step on me once. # pose: brides_brother_neutral
+}
+# pose: none
+The band kicks back into a polka.
+-> finish
+
+= finish
+~ worked_wedding = true
+~ wedding_over = true
+# pose: none
+One o'clock. Chairs up. The bride's asleep with her shoes in her lap.
+# pose: kasia_neutral
+{wedding_role == "server":
+    ~ work(120, 25 - hour)
+    KASIA: Eighty from me. Forty in tips. The family says thank you.
+- else:
+    ~ work(95, 25 - hour)
+    KASIA: Eighty from me. Fifteen in tips. The family says thank you.
+}
+# pose: kasia_joke
+KASIA: Go sleep. Sunday's for sleeping.
 -> END
 
 

@@ -31,11 +31,12 @@ namespace Starflare.Game
             Boot();
         }
 
-        void IDebugHost.Restart(Checkpoint checkpoint)
+        void IDebugHost.Restart(Checkpoint checkpoint, RegisterBox box)
         {
             var state = new PlayerState();
             var story = StoryBridge.Load(null, state);
             checkpoint.Apply(state, story);
+            state.RetickBox(box);
             _saves.Save(state);
             _saves.SaveStory(story.SaveJson());
             Boot();

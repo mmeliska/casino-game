@@ -126,7 +126,7 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
 - **Player interaction:**
   - Pull tabs and "for amusement only" video poker at about a dollar a go; she opens your line of credit in her ledger (A1.2).
   - Two jobs: a bar-back shift (a drunk regular drops a fat wallet; $60 cash) and taking Juan a box of free-drink coupons. Then you are invited into the back room (A1.3).
-  - A separate third job, the wedding (A1.4): server or busser, $80 cash plus tips (proposed). Mid-shift she relays dance offers.
+  - A separate third job, the wedding (A1.4): server or busser, $80 cash plus tips (about $40 for a server, $15 for a busser, who overhears more); a no or a no-show gets one more chance (Mike, 2026-11-06). Mid-shift she relays dance offers.
   - Keg run (table event, proposal).
   - Seed S2: cover an old mill pensioner's tab ($30).
 - **Sources:** `people/kasia.md`, `plan/t05.md`, `plan/t06.md`, `plan/t13.md`.
@@ -806,7 +806,7 @@ From `pages/walkons.md` ("No portraits planned unless noted. Unnamed characters 
 | Mr. Hamilton, the founder (Gus's father) | Built the Starflare in the rocket age. Gave Pete his first job and 25-year pin. Insisted on "Mr. Hamilton" from everyone all his life; no first name. Died about fifteen years before the game. "Offstage; dead before the game starts; no plot role." Gus and Stella have no surname in the game (updated 2026-10-30; see 4.1.8). (`pages/walkons.md`, `people/gus.md`) | Gus, Pete, Richard, Bennett | M4, R10 | None. |
 | Alice, Gus's late wife | Dot's younger sister; died about thirteen years before the game. Picked the piano and repainted the lounge's star ceiling; framed photo of the two sisters in Gus's office. Offstage. | Gus, Dot, Stella | R1 | Find the photo (R1). |
 | Tae's dad | Played drums in the Flare's rocket-age house band for eleven years; face in the faded band photo by the lounge. His kit is still in the Flare's basement. Offstage. | Tae, Gus | S4, A3.3, O5, O1 | Ask Gus who the drummer was (S4); get the kit to Tae (A3.3). |
-| The bride's brother and the maid of honor | From the mill family wedding at Kasia's Tap. Each asks via Kasia to dance. Opposite sex first; the other only after a no. For Prefer not to answer, both ask at once and you pick one or neither (see 4.1.8). | Kasia, romance characters | A1.4 | Dance or decline. |
+| The bride's brother and the maid of honor | From the mill family wedding at Kasia's Tap. Each asks via Kasia to dance. Opposite sex first; the other only if you look past the first one at them, and Kasia asks quietly on their behalf (Mike, 2026-11-06). For Prefer not to answer, both ask at once and you pick one or neither (see 4.1.8). | Kasia, romance characters | A1.4 | Dance or decline. |
 | Richard's weekly driver | Drops Bennett's envelope at Dot's desk every week. | Bennett, Richard, Dot | M4 | Clue. |
 | The filing lawyer | Revaris's lawyer, on the Flare's sale paperwork; one of Wren's people and her go-between at A4.3. Mitch recognizes him from the Backwater storefront sales. Glimpsed meeting Bennett at the Aurelian the week the purchase goes through; the Aurelian's archive footage of that meeting is the A4.3 proof. Meets Ray on the Long Bridge (S11). Trust account carries Bennett's cut (updated 2026-10-30; see 4.1.8). | Bennett, Mitch, Wren | A2.2, M2, A4.3, A4.11 | Clue. |
 | Vivian's lawyer | Pulls Rosa's gaming commission file; clears a raid for a fee. | Vivian, Rosa, Ed | M1, R4, A5.7 | Fee. |
@@ -988,7 +988,7 @@ Table source: `pages/storymap-beats.md` (one row per code, audit 1.3). Extra one
 - **A1.4 The wedding** (Kasia's Tap; after Kasia's jobs; "a separate third job").
   - Server or busser; dance with whoever asks, or say you're on the clock.
   - Leads to: sets which romance versions you meet.
-  - Extra: $80 cash plus tips; the first offer is from the opposite sex to the box ticked (maid of honor for Mr., bride's brother for Ms.); the other only after a no. For Prefer not to answer, both ask at once and you pick one or neither (see 4.1.8). "Nobody comments on any choice."
+  - Extra: $80 cash plus tips; the first offer is from the opposite sex to the box ticked (maid of honor for Mr., bride's brother for Ms.); the other only if you look past the first one at them, carried quietly by Kasia (Mike, 2026-11-06). For Prefer not to answer, both ask at once and you pick one or neither (see 4.1.8). "Nobody comments on any choice."
 - **A1.5 Ray asks around** (Kasia's Tap, Slack Water Motel, Millstone Lanes; weeks after night one, if you still hold Raffy's envelope).
   - Ray, on screen for the first time, asks about "the envelope"; Dot warns you. Ray is $500 short whatever you do.
   - Return the $2,000 to Ray (his interest drops), keep the cash, help Raffy pay Ray back by covering the missing $500, or keep the $2,000 and tell Raffy it's settled (Ray finds him and adds the $2,000 plus interest to your debt). The drive stays with you; its fate (Ed, back to Ray, Wren, keep) comes from act 2 on (updated 2026-10-30; see 4.1.8).

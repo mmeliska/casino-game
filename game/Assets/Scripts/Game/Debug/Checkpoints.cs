@@ -56,9 +56,14 @@ namespace Starflare.Game
                 story.Set(StoryContract.DidBarBack, true);
             });
 
-        /// <summary>A1.3: the back door's open; Rosa's first hand is next.</summary>
+        /// <summary>A1.3: the back door's open, and you said yes to the wedding next Saturday; Rosa's first hand is next.</summary>
         public static readonly Checkpoint BackRoomOpen = new Checkpoint("A1.3 Back room open", BarBackDone, KasiasTap.PlaceId,
-            (state, story) => story.Set(StoryContract.BackRoomOpen, true));
+            (state, story) =>
+            {
+                story.Set(StoryContract.BackRoomOpen, true);
+                story.Set(StoryContract.WeddingAskedDay, state.Clock.Day);
+                story.Set(StoryContract.WeddingDay, state.Clock.NextSaturday);
+            });
 
         /// <summary>A1.3: met Rosa and played her practice hand; her table is the shoe's from here.</summary>
         public static readonly Checkpoint SatWithRosa = new Checkpoint("A1.3 Sat with Rosa", BackRoomOpen, KasiasTap.PlaceId,
@@ -68,9 +73,30 @@ namespace Starflare.Game
                 story.Set(StoryContract.SatWithRosa, true);
             });
 
+        /// <summary>A1.4: the Saturday she booked, 6:00 p.m., at the bar; "Go up to the hall" plays the wedding.</summary>
+        public static readonly Checkpoint WeddingNight = new Checkpoint("A1.4 Wedding night", SatWithRosa, KasiasTap.PlaceId,
+            (state, story) =>
+            {
+                var clock = state.Clock;
+                int booked = story.Int(StoryContract.WeddingDay);
+                state.PassTime((booked - clock.Day) * GameClock.MinutesPerDay + GameClock.NightStart - clock.MinuteOfDay);
+            });
+
+        /// <summary>A1.4: worked the wedding as a server and said you were on the clock both times; slept, Sunday morning.</summary>
+        public static readonly Checkpoint WorkedTheWedding = new Checkpoint("A1.4 Worked the wedding", WeddingNight, KasiasTap.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.WeddingRole, "server");
+                state.WorkShift(120, 7);
+                story.Set(StoryContract.WorkedWedding, true);
+                story.Set(StoryContract.WeddingOver, true);
+                state.Sleep();
+            });
+
         public static readonly Checkpoint[] All =
         {
             CheckedIn, NightOneDone, Broke, CarryingCoupons, JuanHasTheBox, BarBackDone, BackRoomOpen, SatWithRosa,
+            WeddingNight, WorkedTheWedding,
         };
     }
 }

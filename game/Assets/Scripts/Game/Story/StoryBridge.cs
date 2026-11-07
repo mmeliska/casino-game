@@ -55,6 +55,9 @@ namespace Starflare.Game
         /// <summary>A story flag, by its <see cref="StoryContract"/> name.</summary>
         public bool Flag(string name) => (bool)Ink.variablesState[name];
 
+        /// <summary>A story number, by its <see cref="StoryContract"/> name.</summary>
+        public int Int(string name) => (int)Ink.variablesState[name];
+
         public void Set(string name, object value) => Ink.variablesState[name] = value;
 
         /// <summary>Every true/false variable the story declares, for the debug panel's switches.</summary>
@@ -70,7 +73,19 @@ namespace Starflare.Game
             Set(StoryContract.PlayerName, state.Name);
             Set(StoryContract.Bankroll, state.BankrollNow);
             Set(StoryContract.Book, state.Debts);
+            Set(StoryContract.Day, state.Clock.Day);
+            Set(StoryContract.NextSaturday, state.Clock.NextSaturday);
+            Set(StoryContract.Hour, state.Clock.MinuteOfDay / 60);
+            Set(StoryContract.RegisterBox, BoxName(state.Box));
         }
+
+        /// <summary>The register box as the story spells it; an unticked box reads as no answer.</summary>
+        static string BoxName(RegisterBox box) => box switch
+        {
+            RegisterBox.Mr => "mr",
+            RegisterBox.Ms => "ms",
+            _ => "none",
+        };
 
         /// <summary>The story's state (flags, visit counts, where it is) for the save file.</summary>
         public string SaveJson() => Ink.state.ToJson();

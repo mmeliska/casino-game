@@ -53,7 +53,7 @@ Each character's sheet prompt and pose table is on their own page, under **Portr
 
 - Core: [Gus](#gus), [Kasia](#kasia), [Rosa](#rosa), [Jalen](#jalen), [Chase / Brooke](#chase), [Ray](#ray), [Bennett](#bennett), [Vivian](#vivian), [Tae](#tae)
 - Supporting: [Dot](#dot), [Stella](#stella), [Pete](#pete), [Mitch](#mitch), [Juan](#juan), [Raffy](#raffy), [Kiran](#kiran), [Wren](#wren), [Ed](#ed), [Mayor Dabareski](#mayor)
-- Minor, with portrait: [Richard](#richard), [Troy](#troy), and Walt, Lorraine and Augie below (they have no pages)
+- Minor, with portrait: [Richard](#richard), [Troy](#troy), Walt, Lorraine and Augie below, and the maid of honor and the bride's brother below (they have no pages)
 - Romance: [Miles / Audrey](#miles), [Felix / Nora](#felix), [Graham / Claire](#graham)
 
 The player has no portrait: they're a blank slate.
@@ -131,6 +131,56 @@ Augie: a Black man in his late 70s, thin, short white hair, a neat white moustac
 | `augie_neutral` | hands folded in front of him, content | "I come for the band." (his coffee is an insert) |
 | `augie_wistful` | looking off toward the viewer's left, wistful | The covered piano |
 | `augie_leaving` | turned toward the viewer's left to leave, one hand raised in a small wave | The last night (A3.3) |
+
+### The maid of honor and the bride's brother
+
+The two wedding-party walk-ons at Kasia's wedding (A1.4). Each asks, through Kasia, to dance with you (A1.4 has who asks when). They have no pages. Both sheets are drawn (Mike, 2026-11-06), and the looks below describe them.
+
+#### The maid of honor
+
+**Drawn** (Mike, 2026-11-06): `Images/Characters/maid_of_honor.png`.
+
+**Sheet prompt** (16:9, wedding outfit):
+
+```
+Full-body expression sheet: 2 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+The maid of honor: a woman in her late 20s, olive skin, curly brown hair pinned up with loose curls, small drop earrings, a shy smile. A knee-length dusty-rose satin bridesmaid dress with wide straps, a white rose wrist corsage, nude heels.
+Panels: 1) hands loosely clasped in front, glancing off toward the viewer's left, a little shy; 2) holding out one empty hand, palm up, a small shy smile.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+The maid of honor: a woman in her late 20s, olive skin, curly brown hair pinned up with loose curls, small drop earrings, a shy smile. A knee-length dusty-rose satin bridesmaid dress with wide straps, a white rose wrist corsage, nude heels.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `maid_of_honor_neutral` | hands loosely clasped in front, glancing off toward the viewer's left, a little shy | Over by the cake table; thanking you after the dance |
+| `maid_of_honor_hand_out` | holding out one empty hand, palm up, a small shy smile | "I don't really dance. Nobody up here does." or, after the quiet offer, "Asked Kasia to ask. Easier that way." |
+
+#### The bride's brother
+
+**Drawn** (Mike, 2026-11-06): `Images/Characters/brides_brother.png`. His first pose came out as a wave, not the shy glance in the prompt; the table follows the art.
+
+**Sheet prompt** (16:9, wedding outfit):
+
+```
+Full-body expression sheet: 2 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+The bride's brother: a man around 30, brown skin, curly black hair, a short goatee, an easy grin. A dark grey suit, white shirt open at the collar, a loosened dusty-rose tie, a pink rose boutonniere, black dress shoes.
+Panels: 1) one hand raised in a wave, the other in his pocket, a wide grin; 2) holding out one empty hand, palm up, a small shy smile.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+The bride's brother: a man around 30, brown skin, curly black hair, a short goatee, an easy grin. A dark grey suit, white shirt open at the collar, a loosened dusty-rose tie, a pink rose boutonniere, black dress shoes.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `brides_brother_neutral` | one hand raised in a wave, the other in his pocket, a wide grin | Over by the cake table; thanking you after the dance |
+| `brides_brother_hand_out` | holding out one empty hand, palm up, a small shy smile | "I don't really dance. Nobody up here does." or, after the quiet offer, "Asked Kasia to ask. Easier that way." |
 
 ## Not settled yet
 

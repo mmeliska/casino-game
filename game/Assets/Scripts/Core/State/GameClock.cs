@@ -14,7 +14,7 @@ namespace Starflare.State
     /// it Sunday (Mike, 2026-11-05). Time moves only on what you do: play (see <see cref="Sitting"/>),
     /// travel, jobs, waiting and sleep.
     ///
-    /// Days fall on a calendar: day 1 is May 4 of year 1, the night you arrive, and year 2
+    /// Days fall on a calendar: day 1 is Monday, May 4 of year 1, the night you arrive, and year 2
     /// starts the next Jan 1. Years have 365 days, no leap years. Seasons follow the months:
     /// spring is March to May, summer June to August, fall September to November, winter
     /// December to February.
@@ -104,8 +104,17 @@ namespace Starflare.State
             return $"{minute / 60}:{minute % 60:00}";
         }
 
-        /// <summary>The date, e.g. "May 4, Year 1".</summary>
-        public string DateLabel => $"{MonthNames[Month - 1]} {DayOfMonth}, Year {Year}";
+        /// <summary>
+        /// Day 1 is a Monday (Mike, 2026-11-06), and the week runs on through the years, so
+        /// Kasia's wedding falls on a Saturday night the player can plan for (A1.4).
+        /// </summary>
+        public DayOfWeek Weekday => (DayOfWeek)(Day % 7);
+
+        /// <summary>The day number of the next Saturday after today: a week on if today is Saturday.</summary>
+        public int NextSaturday => Day + (12 - (int)Weekday) % 7 + 1;
+
+        /// <summary>The date, e.g. "Mon, May 4, Year 1".</summary>
+        public string DateLabel => $"{Weekday.ToString().Substring(0, 3)}, {MonthNames[Month - 1]} {DayOfMonth}, Year {Year}";
 
         /// <summary>Moves the clock on, past midnight into the next day if it gets there.</summary>
         public void Advance(int minutes)

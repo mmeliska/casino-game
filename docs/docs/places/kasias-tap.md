@@ -58,7 +58,7 @@ Background plate, no people. A tavern back room: a round card table with green f
 
 ### The wedding reception
 
-The Saturday wedding you work as server or busser (A1.4), and the dance offers. The reception is in the hall upstairs: plank floor, string lights and white drapes across the beams, round tables, the cake table by the far door (Mike, 2026-11-04). Kasia books you for it when you finish her second job; on that Saturday night the Tap shows the way upstairs (Mike, 2026-11-05).
+The Saturday wedding you work as server or busser (A1.4), and the dance offers. The reception is in the hall upstairs: plank floor, string lights and white drapes across the beams, round tables, the cake table by the far door (Mike, 2026-11-04). Kasia books you for it when you finish her second job; on that Saturday night the Tap shows the way upstairs (Mike, 2026-11-05). Say no, or miss the night, and she asks once more (or rebooks for the next Saturday); a second no or no-show and her cousin's kid works it instead. The shift runs until about 1:00 a.m. and pays $80 from Kasia plus tips, about $40 as a server and $15 as a busser; the busser overhears mill uncles on the Starflare and a grandpa on the man behind Bridgehead's counter (Mike, 2026-11-06). The maid of honor and the bride's brother have portraits; their prompts are on [Portrait prompts](#portraits).
 
 `kasia_wedding_night` (plate, portrait 9:16)
 

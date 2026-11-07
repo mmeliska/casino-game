@@ -61,6 +61,26 @@ namespace Starflare.Tests
             Assert.That(state.Clock.Day, Is.GreaterThan(1));
         }
 
+        /// <summary>The bar offers the hall only on the booked day, at night (KasiasTap.WeddingTonight).</summary>
+        [Test]
+        public void WeddingNight_IsTheBookedSaturdayAtNight()
+        {
+            var (state, story) = Apply(Checkpoints.WeddingNight);
+            Assert.That(state.Clock.Weekday, Is.EqualTo(System.DayOfWeek.Saturday));
+            Assert.That(state.Clock.Part, Is.EqualTo(PartOfDay.Night));
+            Assert.That(story.Int(StoryContract.WeddingDay), Is.EqualTo(state.Clock.Day));
+            Assert.That(story.Flag(StoryContract.WeddingOver), Is.False);
+        }
+
+        [Test]
+        public void WorkedTheWedding_IsOverAndPaid()
+        {
+            var (state, story) = Apply(Checkpoints.WorkedTheWedding);
+            Assert.That(story.Flag(StoryContract.WeddingOver), Is.True);
+            Assert.That(state.Clock.Weekday, Is.EqualTo(System.DayOfWeek.Sunday));
+            Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + 60 + 120));
+        }
+
         [Test]
         public void Broke_HasNothingAndOwesNothing()
         {

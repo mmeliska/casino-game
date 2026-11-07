@@ -67,6 +67,18 @@ namespace Starflare.State
             Changed?.Invoke();
         }
 
+        /// <summary>
+        /// The debug panel's switch, for testing who asks first at the wedding (A1.4). Play never
+        /// calls it: the box is ticked once, at Dot's register.
+        /// </summary>
+        public void RetickBox(RegisterBox box)
+        {
+            if (!HasSigned) throw new InvalidOperationException("Not signed yet.");
+            if (box == RegisterBox.Unticked) throw new ArgumentException("A box must be ticked.", nameof(box));
+            Box = box;
+            Changed?.Invoke();
+        }
+
         /// <summary>Called by a game module when a round settles, with the story minutes played (<see cref="Sitting"/>).</summary>
         public void ApplyRoundResult(int net, int minutes)
         {

@@ -1,5 +1,17 @@
 ## 6 Nov 2026
 
+### Getting up from Kasia's machine
+
+Getting up from the video poker machine now puts you back at the bar after Kasia's line, with everything the bar offers (the machine, the back door, a beer, the street), instead of a dark summary screen whose only way on was back to the machine (Mike). Rosa's table already returned you to the back room.
+
+### The wedding is in the game
+
+Kasia's wedding (A1.4) is playable. In the same talk where she nods you toward the back door, she asks you to work a mill family's wedding upstairs; say yes and it's the next Saturday night, when the bar has a way up to the hall. You pick server or busser: a server makes about $40 in tips, a busser about $15 but overhears more (two mill uncles on the Starflare going half empty, and a grandpa on the man behind Bridgehead's counter, who bought a building the year of the vote). Mid-shift Kasia brings a dance offer from the opposite sex to your register box. You can take it keenly or plainly, say you're on the clock, or look past them at the other one, and only that look brings the second offer. Kasia carries that one more carefully: the asker went through her so nobody else would hear, and yes or no stays with her. You can dance, say you're on the clock, or say you're not that kind of guy (or gal), which she takes like any no. This replaces the second offer coming after any no, in the same words (Mike). The shift runs until about 1:00 a.m. and pays $80 plus tips (Mike).
+
+If you say no, or don't show up, Kasia asks once more on a later day, or rebooks for the next Saturday; a second no or no-show and her cousin's kid works it instead, and romance shows up only if you lean in later (Mike). The way over the bridge (A1.6) waits for the wedding to be over, worked or not.
+
+Day 1 is now a Monday, and the top bar shows the weekday ("Sat, May 9, Year 1"), so Saturday night is something you can plan for (Mike). The maid of honor and the bride's brother are drawn, and the scene uses their poses; their prompts and looks are on [Portrait prompts](#portraits) (Mike).
+
 ### Bridgehead Fuel & Food by day, night, rain and snow
 
 Bridgehead's forecourt and store are drawn, each by day and night in clear weather, rain and snow, like Kasia's Tap and Millstone Lanes (Mike). The plates are wide (16:9), with the Long Bridge behind the pumps and through the store's front windows. They're in the game's art, ready for when Bridgehead is a place you can go. The forecourt shows pumps 1 and 2, so Mitch's broken pump is now pump two ("Pump two's broken. Has been since I started.") (Mike, 2026-11-06).
