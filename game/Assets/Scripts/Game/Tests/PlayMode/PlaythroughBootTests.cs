@@ -91,6 +91,39 @@ namespace Starflare.Tests
             Assert.That(panel.IsOpen, Is.True);
         }
 
+        [UnityTest]
+        public IEnumerator PullingIntoBridgeheadTheFirstTime_PlaysTheStopOnTheWayOver()
+        {
+            SaveAt(Checkpoints.OverTheBridge);
+            var game = Boot();
+            yield return null;
+
+            Assert.That(game.State.Place, Is.EqualTo(Bridgehead.PlaceId));
+            Assert.That(game.GetComponent<StoryPlayer>().IsPlaying, Is.True, "Mitch's first scene should be playing");
+            Assert.That(game.GetComponent<Bridgehead>().IsOpen, Is.True);
+        }
+
+        [UnityTest]
+        public IEnumerator ANightAfterMeetingMitch_PlaysTheTruckerOnce()
+        {
+            SaveAt(Checkpoints.TruckerAtThePumps);
+            var game = Boot();
+            yield return null;
+
+            Assert.That(game.GetComponent<StoryPlayer>().IsPlaying, Is.True, "the trucker should be at the pumps");
+        }
+
+        /// <summary>A save at this checkpoint, the way the debug panel leaves one.</summary>
+        void SaveAt(Checkpoint checkpoint)
+        {
+            var saves = new SaveStore(_folder);
+            var state = new PlayerState();
+            var story = StoryBridge.Load(null, state);
+            checkpoint.Apply(state, story);
+            saves.Save(state);
+            saves.SaveStory(story.SaveJson());
+        }
+
         Playthrough Boot()
         {
             _root = new GameObject("Playthrough", typeof(Playthrough));

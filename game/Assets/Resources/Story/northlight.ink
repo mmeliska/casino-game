@@ -5,6 +5,7 @@
 INCLUDE slack_water.ink
 INCLUDE kasias_tap.ink
 INCLUDE millstone_lanes.ink
+INCLUDE bridgehead.ink
 
 EXTERNAL spend(amount)
 EXTERNAL earn(amount)

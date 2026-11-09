@@ -5,7 +5,7 @@ Every place in the game has its own page (listed on [Northlight](#city)) with a 
 Two kinds of panel from the [panel kit](#writing):
 
 - **Plates** are backgrounds with no people: portrait 9:16, the full phone screen. Portraits are laid over them for two-shots and pose swaps.
-- **Inserts** are close-ups of a prop: square 1:1. Clues arrive this way, uncaptioned. A place's props are on its page; what a character carries or hands over is on the character's page, under **Insert prompts**, because portraits keep their hands empty.
+- **Inserts** are close-ups of a prop: square 1:1. Clues arrive this way, uncaptioned. A place's props are on its page; what a character carries or hands over is on the character's page, under **Insert prompts**, because portraits keep their hands empty. [Insert prompts](#inserts) gathers every one of them on one page.
 
 **These plates ship.** Like the portraits, AI-generated plates and inserts are final art, because there's no budget for commissions now (Mike, 2026-10-31). If plates are ever commissioned, each prompt and its note is the brief.
 

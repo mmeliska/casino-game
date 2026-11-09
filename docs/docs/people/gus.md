@@ -8,14 +8,16 @@ Very heavyset (Teddy from Bob's Burgers without the beanie, as an artist referen
 
 For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
-**Proposed, not settled:** white; clean-shaven; the shirt, trousers and shoes; the whole new-jacket outfit (the docs say only "a jacket that fits").
+**Drawn** (Mike, 2026-11-09): `Images/Characters/gus.png`, sliced into the five dinner-jacket poses from the sheet. `gus_hunched` and `gus_new_jacket` aren't drawn yet.
+
+**Proposed, not settled:** the whole new-jacket outfit (the docs say only "a jacket that fits").
 
 **Sheet prompt** (16:9, dinner jacket outfit):
 
 ```
-Full-body expression sheet: 4 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+Full-body expression sheet: 5 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
 Gus: a very heavyset white man in his late 50s, a broad, round, kind face, clean-shaven, silver hair combed back. An old supper-club dinner jacket, all dark red, lapels too, straining at the buttons, a white shirt with an open collar and no tie, black trousers, worn black shoes.
-Panels: 1) chin up, proud, a warm tired smile, one hand open in welcome; 2) smile gone, eyes down, hands clasped over his belly; 3) mid-story, one hand raised, gazing toward the viewer's left, nostalgic; 4) shoulders slumped, head bowed, hands hanging at his sides, ashamed.
+Panels: 1) chin up, proud, a warm tired smile, one hand open in welcome; 2) smile gone, eyes down, hands clasped over his belly; 3) mid-story, one hand raised, gazing toward the viewer's left, nostalgic; 4) shoulders slumped, head bowed, hands hanging at his sides, ashamed; 5) standing easy, hands in his trouser pockets, a small warm smile.
 ```
 
 **Outfits** (paste one as `[CHARACTER]` in the single-pose prompt):
@@ -34,7 +36,8 @@ Gus: a very heavyset white man in his late 50s, a broad, round, kind face, clean
 
 | Pose tag | Outfit | Pose line | Used for |
 | --- | --- | --- | --- |
-| `gus_neutral` | Dinner jacket | chin up, proud, a warm tired smile, one hand open in welcome | Default: "Anyway. Coffee?" |
+| `gus_neutral` | Dinner jacket | standing easy, hands in his trouser pockets, a small warm smile | Default: any ordinary line, neutral to warm (Mike, 2026-11-09) |
+| `gus_welcome` | Dinner jacket | chin up, proud, a warm tired smile, one hand open in welcome | "Anyway. Coffee?"; greeting you at the Flare |
 | `gus_eyes_down` | Dinner jacket | smile gone, eyes down, hands clasped over his belly | His tell, hiding the debt (the chipped mug is now an insert) |
 | `gus_old_days` | Dinner jacket | mid-story, one hand raised, gazing toward the viewer's left, nostalgic | Changing the subject to the old days |
 | `gus_confession` | Dinner jacket | shoulders slumped, head bowed, hands hanging at his sides, ashamed | A4.1, the confession |

@@ -13,11 +13,14 @@ namespace Starflare.Game
         {
             var tap = root.AddComponent<KasiasTap>();
             tap.Init(host);
+            var bridgehead = root.AddComponent<Bridgehead>();
+            bridgehead.Init(host);
             return new IPlace[]
             {
                 new SlackWaterMotel(host, root.AddComponent<RegisterCard>()),
                 tap,
                 new MillstoneLanes(host),
+                bridgehead,
             };
         }
     }

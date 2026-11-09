@@ -42,6 +42,14 @@ namespace Starflare.Game
         public const string DancedWith = "danced_with";
         public const string DanceKeen = "dance_keen";
 
+        // Bridgehead (A1.6, S3): met Mitch and the day you did; the trucker's been at the pumps,
+        // and whether you spotted him the twenty, with the day (the seed's reveal waits on it).
+        public const string MetMitch = "met_mitch";
+        public const string MetMitchDay = "met_mitch_day";
+        public const string TruckerPassed = "trucker_passed";
+        public const string HelpedTrucker = "helped_trucker";
+        public const string HelpedTruckerDay = "helped_trucker_day";
+
         // Set only by the debug panel's checkpoints, so a beat's "again" lines play as they would.
         public const string OfferedCoupons = "offered_coupons";
         public const string OfferedBarBack = "offered_bar_back";
@@ -51,7 +59,8 @@ namespace Starflare.Game
         {
             PlayerName, Bankroll, Book, Day, NextSaturday, Hour, RegisterBox, Broke, SittingNet, CheckedIn,
             MetKasia, MetJuan, CarryingCoupons, DidBarBack, BackRoomOpen, SatWithRosa, WeddingDay, WeddingMisses,
-            WeddingAskedDay, WorkedWedding, WeddingOver, WeddingRole, DancedWith, DanceKeen, OfferedCoupons, OfferedBarBack, MetRosa,
+            WeddingAskedDay, WorkedWedding, WeddingOver, WeddingRole, DancedWith, DanceKeen, MetMitch, MetMitchDay, TruckerPassed, HelpedTrucker, HelpedTruckerDay,
+            OfferedCoupons, OfferedBarBack, MetRosa,
         };
 
         /// <summary>EXTERNAL functions the story calls; the bridge binds each to the player state.</summary>
@@ -99,10 +108,17 @@ namespace Starflare.Game
             public const string Coupons = "coupons";
             public const string Juan = "juan";
 
+            // Bridgehead (A1.6, S3)
+            public const string BridgeheadFirst = "bridgehead_first";
+            public const string Mitch = "mitch";
+            public const string Trucker = "trucker";
+            public const string BridgeheadGetUp = "bridgehead_get_up";
+
             public static readonly string[] All =
             {
                 Arrival, CheckingIn, Office, TurnIn, NightOne, WalkIn, GetUp, CouponJob, BarBackJob,
                 BackRoomInvite, BackRoom, RosaFirstHand, RosaGetUp, WeddingAsk, WeddingMissed, Wedding, Coupons, Juan,
+                BridgeheadFirst, Mitch, Trucker, BridgeheadGetUp,
             };
         }
     }

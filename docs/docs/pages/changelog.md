@@ -1,3 +1,45 @@
+## 9 Nov 2026
+
+### Every insert prompt on one page
+
+A new page, [Insert prompts](#inserts), under World and systems in the menu, next to Plate prompts (Mike). It gathers every insert prompt from the character pages, the place pages and the walk-ons, grouped by page, each with its tag, its note and a copy button. The prompts are still written on their own pages; the new page reads them from there, so it never falls out of step.
+
+### Gus gets an everyday pose
+
+Gus's sheet has a fifth pose, his new default (Mike): standing easy, hands in his trouser pockets, a small warm smile, for any ordinary line from neutral to warm. It takes the `gus_neutral` tag; the old default, chin up with one hand open in welcome, becomes `gus_welcome` and is kept for greetings ("Anyway. Coffee?"). The sheet prompt now asks for five poses.
+
+### Ray shrinks, not clowns
+
+Ray's `ray_shrink` pose (Blackspruce, in front of the real Umbra) was generating as comic, so the pose line changes (Mike). Hands rubbing together and a forced smile are gone. A cowering version made him look too weak, so the drawn pose keeps his pride: he stands straight but stiff, one hand in his coat pocket, with a tight closed-mouth half-smile and wary eyes, intimidated and scared underneath.
+
+### The Flare, Gus and Ray are drawn
+
+The Starflare Club is drawn (Mike) and in the game as wide plates, ready for its slice: the front by day and night in clear weather, rain and snow, and its dawn, condemned and burned versions; the floor, the bar and the lounge, each with a declining version (the piano covered in the lounge); and Gus's office by day and night in all three weathers, its window looking across the water to the Slack Water Motel. The bar gets plate prompts of its own. The [Flare's page](#the-flare) maps each image to its tag and describes the building as drawn: red brick with mill chimneys, a coral-and-teal boomerang canopy, the rocket sign on its pylon and the spaceman by the doors.
+
+Gus's five dinner-jacket poses and Ray's four are drawn and sliced.
+
+## 8 Nov 2026
+
+### Full dialogue, still one line per panel
+
+Scenes were reading too clipped to follow, so the writing rules change (Mike). The 15-word limit is per panel, not per speech: a character can talk for several panels in a row. A new rule, "Clear first, then understated", says a first-time player should always know who is talking, where they are, what that person wants and what each choice does. Understatement is a matter of tone, and the secrets stay withheld, not the situation. The scene checklist gains a matching line: the scene has to make sense with the inserts hidden.
+
+Night one at Kasia's Tap is the first scene rewritten this way. Kasia introduces herself and the Tap, says why Backwater has only bar machines (it voted no on the casinos), explains video poker in one line even if you don't ask, and tells you the machines run honest. Her old "Grey till May now" is gone, since night one is May 4.
+
+### Pump two is just temperamental
+
+The pump-two clue is dropped: no service sticker with a Backwater main-street address, no insert, and no way to look at the pump on Bridgehead's forecourt (Mike). Mitch's line is now "Pump two's temperamental. Has been since I started." The pump works if you squeeze it twice; it isn't broken (Mike). Dot, Kasia and the wedding's grandpa remain the ways to hear about the building he lost.
+
+## 7 Nov 2026
+
+### Bridgehead is in the game
+
+Bridgehead Fuel & Food is playable (Mike). It goes on the map once Juan has told you about the Starflare and the wedding is behind you, and its pin now sits right by the northwest end of the Long Bridge (Mike). Your car has no pin for now (Mike). The first time you pull in is the start of going over the bridge (A1.6): the last lights before the Long Bridge, then Mitch at the counter. Lay a ten down for pump two and he tells you it's temperamental, has been since he started. The Flare on the far side comes next, in its own slice.
+
+After that you arrive on the forecourt, and inside you can play the store's poker machine, talk to Mitch, or nurse a $1 coffee. The machine is Jacks or Better on a 6/5 table, the worst pay in town and honest about it (Mike). Ask Mitch about the door behind him and it's a stockroom; his race book waits for his trust (R5). On a night after your first stop, the trucker short on diesel is at the pumps, once (S3): spot him $20 or don't.
+
+Mitch is drawn and sliced into his four poses. The trucker is drawn too, and his scene uses his three poses; his prompt and look are on [Portrait prompts](#portraits) (Mike).
+
 ## 6 Nov 2026
 
 ### Getting up from Kasia's machine

@@ -8,7 +8,7 @@ Early 50s, white, straight brown hair, jeans and a clerk-style collared shirt, a
 
 For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
-**Proposed, not settled:** lean build; stubble; the shirt's colour and sleeves; the sneakers.
+**Drawn** (Mike, 2026-11-07): `Images/Characters/mitch.png`, sliced into the four poses below.
 
 **Sheet prompt** (16:9, counter outfit):
 
@@ -26,7 +26,7 @@ Mitch: a white man in his early 50s, lean, straight brown hair a little too long
 
 | Pose tag | Pose line | Used for |
 | --- | --- | --- |
-| `mitch_neutral` | arms folded, unimpressed | Default: "Pump two's broken." |
+| `mitch_neutral` | arms folded, unimpressed | Default: "Pump two's temperamental." |
 | `mitch_shrug` | a small shrug, palms half up, looking off toward the viewer's left | Pretending not to know |
 | `mitch_still` | very still, staring, jaw tight | You say Bennett's name |
 | `mitch_haybale` | hands in his pockets, a rare small smile | His epilogue panel at Haybale Downs |
@@ -44,19 +44,19 @@ The side-action guy. Cynical and not inviting, but talks if you hit the right su
 The filing lawyer on the Flare's sale is the same lawyer who handled those storefront sales, which is why Mitch recognizes him (a clue in M2). Once he trusts you he can name that lawyer's trust account: his own money went through it once, and it now carries Bennett's hidden stadium cut. That's the proof for the by-the-book route (A4.11; audit 4.3), Mitch's revenge served as a subpoena (Mike, 2026-10-29).
 
 **How it shows** (Mike, 2026-10-29):
-- "Pump two's broken. Has been since I started." The pump's old service sticker has a Backwater main-street address on it. An insert, for the one player who looks.
+- "Pump two's temperamental. Has been since I started." Just a temperamental pump; the service-sticker clue is dropped (Mike, 2026-11-08).
 - Earning his trust gets a scene: you say Bennett's name, he says nothing, and the next day the back room is open.
 - If Bennett loses the mayor's race (he loses only if he's publicly exposed in act 4, Mike 2026-10-30), Mitch's epilogue panel is him at Haybale Downs with a program, betting a horse himself for the first time since the storefront.
 
 ## Voice
 
-Clipped, cynical, mumbled; horses and prices; never says Bennett's name until he trusts you. Lies by pretending not to know. *"Pump two's broken. Has been since I started."*
+Clipped, cynical, mumbled; horses and prices; never says Bennett's name until he trusts you. Lies by pretending not to know. *"Pump two's temperamental. Has been since I started."*
 
 ### Voice sheet (settled 2026-10-18; write every line of dialogue to this)
 
 | Rhythm | Says / never says | Lies by | Sample line |
 | --- | --- | --- | --- |
-| Clipped, cynical, mumbled | Horses and prices; never says Bennett's name until he trusts you | Pretending not to know | "Pump two's broken. Has been since I started." |
+| Clipped, cynical, mumbled | Horses and prices; never says Bennett's name until he trusts you | Pretending not to know | "Pump two's temperamental. Has been since I started." (temperamental, not broken: Mike, 2026-11-08) |
 
 ## Jobs (proposal)
 

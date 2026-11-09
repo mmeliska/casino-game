@@ -18,6 +18,8 @@ namespace Starflare.Game
         /// </summary>
         static readonly Dictionary<string, float> PlateFocus = new Dictionary<string, float>
         {
+            ["bridgehead_forecourt"] = 0.3f,
+            ["bridgehead_store"] = 0.48f,
             ["kasia_backroom"] = 0.58f,
             ["kasia_bar"] = 0.74f,
             ["kasia_front"] = 0.58f,
@@ -99,6 +101,17 @@ namespace Starflare.Game
             }
             return hasPlate(tag) ? tag : $"{view}_night";
         }
+
+        /// <summary>
+        /// A scene's "# plate:" tag: a whole plate (<c>kasia_bar_night</c>) shows as it is; a bare
+        /// view (<c>bridgehead_store</c>) shows its plate for this time and season, as the place
+        /// screen does, for scenes that play by day and by night.
+        /// </summary>
+        public static string ScenePlate(string tag, GameClock clock) => ScenePlate(tag, clock, HasPlate);
+
+        /// <summary><see cref="ScenePlate(string, GameClock)"/> with the plates that exist given, for tests.</summary>
+        public static string ScenePlate(string tag, GameClock clock, System.Func<string, bool> hasPlate) =>
+            ViewOf(tag) == tag ? PlateAt(tag, clock, hasPlate) : tag;
 
         static bool HasPlate(string tag) => Resources.Load<Sprite>($"Plates/{FileFor(tag)}") != null;
 

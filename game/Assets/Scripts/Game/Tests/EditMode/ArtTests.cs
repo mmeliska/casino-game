@@ -29,6 +29,22 @@ namespace Starflare.Tests
         }
 
         [Test]
+        public void ASceneNamingAView_GetsThePlateForTheTime()
+        {
+            var have = Have("bridgehead_store_day", "bridgehead_store_night", "bridgehead_store_night_winter");
+            Assert.That(Art.ScenePlate("bridgehead_store", At(PartOfDay.Afternoon), have), Is.EqualTo("bridgehead_store_day"));
+            Assert.That(Art.ScenePlate("bridgehead_store", At(PartOfDay.Night), have), Is.EqualTo("bridgehead_store_night"));
+            Assert.That(Art.ScenePlate("bridgehead_store", At(PartOfDay.Night, WinterDay), have), Is.EqualTo("bridgehead_store_night_winter"));
+        }
+
+        [Test]
+        public void ASceneNamingAWholePlate_GetsThatPlate()
+        {
+            var have = Have("kasia_bar_day", "kasia_bar_night");
+            Assert.That(Art.ScenePlate("kasia_bar_night", At(PartOfDay.Morning), have), Is.EqualTo("kasia_bar_night"));
+        }
+
+        [Test]
         public void AViewWithOnlyANightPlate_ShowsItAllDay()
         {
             var have = Have("lanes_front_night");

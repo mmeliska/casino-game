@@ -69,7 +69,7 @@ namespace Starflare.Game
 
             _fader = gameObject.AddComponent<ScreenFader>();
             _player = gameObject.AddComponent<StoryPlayer>();
-            _player.Init(Story.Ink);
+            _player.Init(Story.Ink, tag => Art.ScenePlate(tag, State.Clock));
             _map = gameObject.AddComponent<PhoneMap>();
             _hud = gameObject.AddComponent<Hud>();
             _hud.Init(State, OpenMap, () => Look(true), () => Look(false));

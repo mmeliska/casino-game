@@ -47,6 +47,7 @@ const PARTS=[
 {"path": "pages/walkons", "title": "Walk-ons and offstage figures", "page": "cast"},
 {"path": "pages/portraits", "title": "Portrait prompts", "page": "portraits"},
 {"path": "pages/plates", "title": "Plate prompts", "page": "plates"},
+{"path": "pages/inserts", "title": "Insert prompts", "page": "inserts"},
 {"path": "places/slack-water", "title": "Slack Water Motel", "page": "slack-water"},
 {"path": "places/kasias-tap", "title": "Kasia's Tap", "page": "kasias-tap"},
 {"path": "places/millstone-lanes", "title": "Millstone Lanes", "page": "millstone-lanes"},

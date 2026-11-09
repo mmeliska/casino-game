@@ -42,6 +42,18 @@ namespace Starflare.Tests
         }
 
         [Test]
+        public void SixFive_PaysLessForAFullHouseAndAFlush_AndTheSameForTheRest()
+        {
+            var full = new VideoPokerRules();
+            var short_ = VideoPokerRules.SixFive();
+            Assert.That(short_.PayoutCredits(PokerHandRank.FullHouse, 1), Is.EqualTo(6));
+            Assert.That(short_.PayoutCredits(PokerHandRank.Flush, 5), Is.EqualTo(25));
+            foreach (PokerHandRank rank in Enum.GetValues(typeof(PokerHandRank)))
+                if (rank != PokerHandRank.FullHouse && rank != PokerHandRank.Flush)
+                    Assert.That(short_.PayoutCredits(rank, 5), Is.EqualTo(full.PayoutCredits(rank, 5)), rank.ToString());
+        }
+
+        [Test]
         public void Round_HeldCardsStay_OthersComeFromTheSameDeck()
         {
             var round = new VideoPokerRound(new VideoPokerRules(), Stack("JC JD 4H 8S 2C 9D JS 3H"), 5, 200);

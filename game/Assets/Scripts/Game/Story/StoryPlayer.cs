@@ -41,6 +41,7 @@ namespace Starflare.Game
         static readonly Regex SpeakerLine = new Regex(@"^([A-Z][A-Z .'\-]*):\s*(.*)$");
 
         Story _story;
+        Func<string, string> _plateFor;
         Action _onDone;
 
         GameObject _root;
@@ -67,9 +68,14 @@ namespace Starflare.Game
 
         public bool IsPlaying => _playing;
 
-        public void Init(Story story)
+        /// <summary>
+        /// <paramref name="plateFor"/> turns a "# plate:" tag into the plate to show (a bare view
+        /// becomes its plate for the time of day); without it, tags are plates as written.
+        /// </summary>
+        public void Init(Story story, Func<string, string> plateFor = null)
         {
             _story = story;
+            _plateFor = plateFor ?? (tag => tag);
             Build();
             _root.SetActive(false);
         }
@@ -217,6 +223,7 @@ namespace Starflare.Game
                 {
                     case "plate":
                         if (_game != null) break; // over a game, the game is the background
+                        value = _plateFor(value);
                         var plate = Art.Plate(value);
                         if (_plate.enabled && plate != _plate.sprite) HoldLastPlate();
                         _plateFit.Show(_plate, plate, Art.Focus(value));

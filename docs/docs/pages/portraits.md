@@ -53,7 +53,7 @@ Each character's sheet prompt and pose table is on their own page, under **Portr
 
 - Core: [Gus](#gus), [Kasia](#kasia), [Rosa](#rosa), [Jalen](#jalen), [Chase / Brooke](#chase), [Ray](#ray), [Bennett](#bennett), [Vivian](#vivian), [Tae](#tae)
 - Supporting: [Dot](#dot), [Stella](#stella), [Pete](#pete), [Mitch](#mitch), [Juan](#juan), [Raffy](#raffy), [Kiran](#kiran), [Wren](#wren), [Ed](#ed), [Mayor Dabareski](#mayor)
-- Minor, with portrait: [Richard](#richard), [Troy](#troy), Walt, Lorraine and Augie below, and the maid of honor and the bride's brother below (they have no pages)
+- Minor, with portrait: [Richard](#richard), [Troy](#troy), Walt, Lorraine and Augie below, the maid of honor and the bride's brother, and the trucker below (they have no pages)
 - Romance: [Miles / Audrey](#miles), [Felix / Nora](#felix), [Graham / Claire](#graham)
 
 The player has no portrait: they're a blank slate.
@@ -181,6 +181,32 @@ The bride's brother: a man around 30, brown skin, curly black hair, a short goat
 | --- | --- | --- |
 | `brides_brother_neutral` | one hand raised in a wave, the other in his pocket, a wide grin | Over by the cake table; thanking you after the dance |
 | `brides_brother_hand_out` | holding out one empty hand, palm up, a small shy smile | "I don't really dance. Nobody up here does." or, after the quiet offer, "Asked Kasia to ask. Easier that way." |
+
+### The trucker
+
+The walk-on at Bridgehead's pumps who's $20 short on diesel (S3), and who brings his flatbed to save the spaceman on the Flare's last night (A3.3). He has no page.
+
+**Drawn** (Mike, 2026-11-07): `Images/Characters/trucker.png`. His third pose came out as an open hand, palm up, with a grin, not the nod in the prompt; the table follows the art.
+
+**Sheet prompt** (16:9, work clothes):
+
+```
+Full-body expression sheet: 3 poses of one person, each in its own evenly spaced panel with clear gaps, no overlap. Standing, facing the viewer or turned toward the viewer's left, whole body in frame head to shoes, empty hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face and hands. Flat light-grey background. No text, no speech bubbles.
+The trucker: a Black man in his late 40s, big and broad-shouldered, short greying beard, tired eyes. A faded navy work jacket with a sheepskin collar over a grey hooded sweatshirt, a worn feed-store cap, work jeans, scuffed brown work boots.
+Panels: 1) hands in his jacket pockets, shoulders hunched against the cold, looking off toward the viewer's left; 2) rubbing the back of his neck, embarrassed, eyes down; 3) one hand half raised, a short grateful nod.
+```
+
+**Look** (paste as `[CHARACTER]` in the single-pose prompt):
+
+```
+The trucker: a Black man in his late 40s, big and broad-shouldered, short greying beard, tired eyes. A faded navy work jacket with a sheepskin collar over a grey hooded sweatshirt, a worn feed-store cap, work jeans, scuffed brown work boots.
+```
+
+| Pose tag | Pose line | Used for |
+| --- | --- | --- |
+| `trucker_neutral` | hands in his jacket pockets, shoulders hunched against the cold, looking off toward the viewer's left | Counting bills on the hood at pump one |
+| `trucker_short` | rubbing the back of his neck, embarrassed, eyes down | "Card won't go through. I'm twenty short on diesel." |
+| `trucker_thanks` | one open hand raised, palm up, a grateful grin | "Anything heavy needs moving, you find me." |
 
 ## Not settled yet
 

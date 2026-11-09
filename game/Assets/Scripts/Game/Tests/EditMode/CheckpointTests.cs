@@ -13,7 +13,7 @@ namespace Starflare.Tests
     {
         static string _json;
 
-        static readonly string[] BuiltPlaces = { SlackWaterMotel.PlaceId, KasiasTap.PlaceId, MillstoneLanes.PlaceId };
+        static readonly string[] BuiltPlaces = { SlackWaterMotel.PlaceId, KasiasTap.PlaceId, MillstoneLanes.PlaceId, Bridgehead.PlaceId };
 
         [OneTimeSetUp]
         public void CompileTheStory() => _json = StoryContractTests.CompileTheGamesStory();
@@ -51,6 +51,27 @@ namespace Starflare.Tests
             Assert.That(state.Clock.Day, Is.EqualTo(2));
             Assert.That(state.Scales.Straight, Is.EqualTo(1));
             Assert.That(state.Place, Is.EqualTo(KasiasTap.PlaceId));
+        }
+
+        /// <summary>Bridgehead opens after Juan's word and the wedding (Bridgehead.IsOpen); the first stop is still to come.</summary>
+        [Test]
+        public void OverTheBridge_OpensBridgehead_BeforeMeetingMitch()
+        {
+            var (state, story) = Apply(Checkpoints.OverTheBridge);
+            Assert.That(story.Flag(StoryContract.MetJuan) && story.Flag(StoryContract.WeddingOver), Is.True);
+            Assert.That(story.Flag(StoryContract.MetMitch), Is.False);
+            Assert.That(state.Place, Is.EqualTo(Bridgehead.PlaceId));
+        }
+
+        /// <summary>The trucker is at the pumps at night, on a later day than the first stop (Bridgehead.TruckerTonight).</summary>
+        [Test]
+        public void TruckerAtThePumps_IsANightAfterMeetingMitch()
+        {
+            var (state, story) = Apply(Checkpoints.TruckerAtThePumps);
+            Assert.That(story.Flag(StoryContract.MetMitch), Is.True);
+            Assert.That(state.Clock.Day, Is.GreaterThan(story.Int(StoryContract.MetMitchDay)));
+            Assert.That(state.Clock.Part, Is.EqualTo(PartOfDay.Night));
+            Assert.That(story.Flag(StoryContract.TruckerPassed), Is.False);
         }
 
         /// <summary>Kasia's coupon job plays on walking in only after day 1 (KasiasTap.Enter).</summary>

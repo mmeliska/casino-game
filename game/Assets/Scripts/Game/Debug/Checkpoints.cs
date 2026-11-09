@@ -93,10 +93,25 @@ namespace Starflare.Game
                 state.Sleep();
             });
 
+        /// <summary>A1.6: the wedding's behind you; at Bridgehead, where pulling in plays the stop on the way over.</summary>
+        public static readonly Checkpoint OverTheBridge = new Checkpoint("A1.6 Over the bridge", WorkedTheWedding, Bridgehead.PlaceId,
+            (state, story) => { });
+
+        /// <summary>S3: met Mitch the day before; 10:00 p.m., pulling into Bridgehead plays the trucker at the pumps.</summary>
+        public static readonly Checkpoint TruckerAtThePumps = new Checkpoint("S3 Trucker at the pumps", OverTheBridge, Bridgehead.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.MetMitch, true);
+                story.Set(StoryContract.MetMitchDay, state.Clock.Day);
+                state.Sleep();
+                var clock = state.Clock;
+                state.PassTime(GameClock.NightStart + 4 * 60 - clock.MinuteOfDay);
+            });
+
         public static readonly Checkpoint[] All =
         {
             CheckedIn, NightOneDone, Broke, CarryingCoupons, JuanHasTheBox, BarBackDone, BackRoomOpen, SatWithRosa,
-            WeddingNight, WorkedTheWedding,
+            WeddingNight, WorkedTheWedding, OverTheBridge, TruckerAtThePumps,
         };
     }
 }

@@ -177,7 +177,7 @@ Compiled 2026-10-27 from the author's design docs. This is an archive of existin
 - **Tier/group:** Supporting; the Bridges. Where: Bridgehead Fuel & Food counter.
 - **Role:** "The side-action guy." Cynical clerk. Quietly books Haybale Downs bets out the back (an event source, not a game). (`people/mitch.md`)
 - **Look:** Early 50s, white, straight brown hair, jeans and a clerk-style collared shirt, a cynical look.
-- **Personality (voice):** Clipped, cynical, mumbled; horses and prices; "never says Bennett's name until he trusts you." Lies by pretending not to know. Sample: "Pump two's broken. Has been since I started."
+- **Personality (voice):** Clipped, cynical, mumbled; horses and prices; "never says Bennett's name until he trusts you." Lies by pretending not to know. Sample: "Pump two's temperamental. Has been since I started."
 - **Want/goal:** Not stated.
 - **Wound/backstory:** About thirty years ago Bennett, barely twenty, told people Backwater would vote yes on gaming. Mitch, newly married, bought a Backwater main-street storefront with his savings and most of his father-in-law's; Backwater voted no, and he lost the building, the marriage and the savings. The filing lawyer handled those sales, and Mitch's money went through his trust account. It left him distrustful of everyone. Finding out about Bennett is how you earn his trust. (`people/mitch.md`; updated 2026-10-30, see 4.1.8)
 - **Secrets:** The book itself (illegal; raises heat).

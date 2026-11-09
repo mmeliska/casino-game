@@ -202,6 +202,45 @@ P.plates=()=>`<div class="page wide"><p class="eyebrow">World · art</p><h1>Plat
 <p class="lede">A prompt for an AI image generator for every panel a place needs: its backgrounds (plates) and its props (inserts). The prompts are on each place's page; this page has the how-to.</p>
 ${part("pages/plates","pl","plates")}</div>`;
 
+/* Every insert prompt in one place, read from the character, place and walk-on pages when the page opens,
+   so each prompt is still written once, on its own page. */
+const INSERT_GROUPS=[["People",/^people\//],["Places",/^places\//],["Walk-ons",/^pages\/walkons$/]];
+function insertsIn(src){
+  const L=src.replace(/\r/g,"").split("\n"),out=[];let from=0;
+  L.forEach((l,i)=>{
+    const m=l.match(/^`([a-z0-9_]+)` \((insert[^)]*)\)/);if(!m||i<from)return;
+    let h=i-1;while(h>=from&&!/^#{2,4}\s/.test(L[h]))h--;
+    const titled=h>=from&&/^###\s/.test(L[h]);
+    let j=i+1;while(j<L.length&&!/^```/.test(L[j]))j++;let k=j+1;while(k<L.length&&!/^```/.test(L[k]))k++;
+    out.push({tag:m[1],kind:m[2],title:titled?L[h].replace(/^#+\s*/,""):m[1],note:titled?L.slice(h+1,i).join("\n").trim():"",prompt:L.slice(j+1,k).join("\n")});
+    from=k+1;
+  });
+  return out;
+}
+function insertsDoc(){
+  let md="",n=0;
+  for(const [group,rx] of INSERT_GROUPS){
+    const srcs=PARTS.filter(d=>rx.test(d.path)).map(d=>[d,insertsIn(MD[d.path])]).filter(x=>x[1].length);
+    if(!srcs.length)continue;
+    md+=`## ${group}\n\n`;
+    for(const [d,ins] of srcs){
+      md+=`### [${d.title}](#${d.page})\n\n`;
+      for(const x of ins){n++;md+=`#### ${x.title}\n\n\`${x.tag}\` (${x.kind})\n\n${x.note?x.note+"\n\n":""}\`\`\`\n${x.prompt}\n\`\`\`\n\n`}
+    }
+  }
+  return `<p class="small muted">${n} inserts.</p>`+linkNames(mdDoc(md,"ins-all").html,"inserts");
+}
+let INSERTSHTML=null;
+function insertsPart(){
+  if(INSERTSHTML)return `<div class="docbody">${INSERTSHTML}</div>`;
+  loadAll().then(()=>{INSERTSHTML=insertsDoc();rerender("inserts")},()=>{const el=document.getElementById("insertsall");if(el)el.innerHTML=LOADFAIL});
+  return `<div class="docbody" id="insertsall"><p class="muted">Loading…</p></div>`;
+}
+P.inserts=()=>`<div class="page wide"><p class="eyebrow">World · art</p><h1>Insert prompts</h1>
+<p class="lede">Every insert prompt in the docs on one page: the close-up panels of props, clues and things characters hand over, gathered from each character's and place's page.</p>
+${part("pages/inserts","ins","inserts")}
+${insertsPart()}</div>`;
+
 function charPage(c){
   const ties=E.filter(e=>e[0]===c.id||e[1]===c.id).map(e=>{const o=e[0]===c.id?e[1]:e[0];return `<li><span class="chip" style="pointer-events:none"><span class="sw" style="background:${ETYPE[e[2]].col}"></span>${ETYPE[e[2]].label}</span> <a href="#${o}">${BY[o].name}</a>: ${esc(e[3])}</li>`}).join("");
   return `<div class="page"><p class="eyebrow" style="color:${GCOL[c.group]}">${c.tier} · ${GROUPS[c.group]}</p>

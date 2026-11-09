@@ -33,7 +33,7 @@ namespace Starflare.VideoPoker
         /// <summary>Raised at a break point, where story beats and seed reveals may fire.</summary>
         public event Action<BreakPoint> BreakPointReached;
 
-        public VideoPokerRules Rules { get; } = new VideoPokerRules();
+        public VideoPokerRules Rules { get; private set; } = new VideoPokerRules();
 
         /// <summary>This sitting so far; still readable at the break point after you get up.</summary>
         public int SittingNet => _state == null ? 0 : _state.BankrollNow - _sittingStartBankroll;
@@ -61,18 +61,33 @@ namespace Starflare.VideoPoker
 
         Sprite _plate;
         float _plateFocus;
+        Image _plateImage;
+        CoverFit _plateFit;
 
         /// <summary>
         /// Sets the machine up over the venue's plate, framed at this focus on a portrait screen.
-        /// It stays hidden until you sit down.
+        /// It stays hidden until you sit down. The venue's paytable comes with it (Kasia's 9/6 if
+        /// none is given).
         /// </summary>
-        public void Init(Sprite plate, float plateFocus)
+        public void Init(Sprite plate, float plateFocus, VideoPokerRules rules = null)
         {
             _plate = plate;
             _plateFocus = plateFocus;
+            if (rules != null) Rules = rules;
             _deck = new Shoe(1, 1.0, new System.Random());
             BuildUi();
             _root.SetActive(false);
+        }
+
+        /// <summary>
+        /// Puts the machine over another plate, for a venue whose machine you play by day and by
+        /// night (Bridgehead's store).
+        /// </summary>
+        public void SetBackdrop(Sprite plate, float plateFocus)
+        {
+            _plate = plate;
+            _plateFocus = plateFocus;
+            _plateFit.Show(_plateImage, plate, plateFocus);
         }
 
         /// <summary>Sits you down with this state, the clock moving at this pace while you play.</summary>
@@ -226,9 +241,10 @@ namespace Starflare.VideoPoker
 
             var backdrop = MakeImage(canvas.transform, "Backdrop", Color.black);
             Stretch(backdrop.rectTransform);
-            var plate = MakeImage(backdrop.transform, "Plate", Color.white);
-            plate.raycastTarget = false;
-            plate.gameObject.AddComponent<CoverFit>().Show(plate, _plate, _plateFocus);
+            _plateImage = MakeImage(backdrop.transform, "Plate", Color.white);
+            _plateImage.raycastTarget = false;
+            _plateFit = _plateImage.gameObject.AddComponent<CoverFit>();
+            _plateFit.Show(_plateImage, _plate, _plateFocus);
             var shade = MakeImage(backdrop.transform, "Shade", new Color(0, 0, 0, 0.35f));
             Stretch(shade.rectTransform);
 

@@ -1,12 +1,14 @@
 ## About
 
-A gas station at the main bridge: worst odds in town, best gossip. Mitch is at the counter, and his race book is out back. The machines and scratchers are licensed; the race book isn't (Mike, 2026-11-06).
+A gas station at the main bridge: worst odds in town, best gossip. Mitch is at the counter, and his race book is out back. The machines and scratchers are licensed; the race book isn't (Mike, 2026-11-06). Its video poker is Jacks or Better on a 6/5 table (a full house pays 6, a flush 5), the worst pay in town, printed on the glass (Mike, 2026-11-07).
 
 **Mitch's back room.** His Haybale Downs race book (events, not a game). It opens up as your straight/crooked scale allows. The bad tip that ruined him came from Bennett (R5).
 
 | District | Games | Bets | Getting in | Who you'll find |
 | --- | --- | --- | --- | --- |
 | The Bridges | Cheap three-reel slots, video poker, pull tabs, scratchers | $1–$5 | Anyone | Mitch at the counter (and his race book out back) |
+
+**In the game** (Mike, 2026-11-07). It opens on the map once Juan has told you about the Starflare and the wedding is behind you. The first stop is the start of A1.6; the trucker (S3) is at the pumps on a night after it. Its pin sits right by the northwest end of the Long Bridge, on the Backwater bank.
 
 ## Look and mood
 
@@ -56,14 +58,4 @@ Mitch's Haybale Downs race book (R5); Mitch recognizing the lawyer (A3.7).
 
 ```
 Background plate, no people. A cramped stockroom behind a gas station: a metal desk with a cash box and an old radio, a chalkboard of horse-race odds on the wall with only blank chalk marks, cases of motor oil, a single hanging bulb. Night: flat white gas-station fluorescents against black. Palette: flat white, oil-slick purple. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
-```
-
-### Pump two
-
-"Pump two's broken. Has been since I started." Its old service sticker has a Backwater main-street address on it, for the one player who looks (see [Mitch](#mitch)). The address is added in layout.
-
-`bridgehead_pump_sticker` (insert, square 1:1)
-
-```
-Close-up insert panel. The side of an old gas pump, a faded, peeling service sticker with blank lines on it, a plastic bag taped over the nozzle. Night: flat white gas-station fluorescents against black. Palette: flat white, oil-slick purple. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```

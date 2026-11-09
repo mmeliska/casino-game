@@ -13,6 +13,7 @@ There is no character animation, so the screen is the panel. Build every scene f
 | Black panel | One line of text on black | A hard cut, a threat, the moment before a reveal |
 
 - **One line per panel, 15 words at most.** On a portrait phone, anything longer splits into two panels or becomes an insert.
+- **The cap is per panel, not per speech** (Mike, 2026-11-08). A character can speak for three, four or more panels in a row. If a thought needs 40 words, it gets three panels; don't cut it to 15.
 - **Motion is a short caption.** "Quick hands" goes under an insert of the chip tray, not in a sentence of action.
 - **Silence is a panel too.** An empty speech bubble or a plate with no text often says more than a line.
 
@@ -30,6 +31,7 @@ Each district's light, palette, recurring image and weather now live in [Northli
 
 ## Dialogue and choices
 
+- **Clear first, then understated** (Mike, 2026-11-08). A first-time player should always know who is talking, where they are, what this person wants and what each choice will do. Understatement is about tone, not missing information: a character can be dry and brief in manner and still say what the player needs. Introduce people when they first appear, react to what the player just did, and connect one line to the next. Withhold the secrets, not the situation.
 - **Write to the voice sheets.** Every line should sound like its speaker on the settled voice table in Planning Tasks, task 6. If you can swap two characters' lines without noticing, rewrite one.
 - **Great Lakes, not movie-gangster.** Understatement, dry humour, work-and-weather talk, people who say less than they feel. Noir comes from what's withheld, not from tough-guy slang.
 - **Slang is rare.** Riding the light, gone dark, going over the water: a few uses per act. Say "took a bribe" plainly.
@@ -87,6 +89,7 @@ ROSA: Take it this time. See how it works. # point: insurance
 
 - [ ] Every beat has a plate, pose, insert or black tag
 - [ ] No panel runs over 15 words
+- [ ] A first-time player can follow it with the inserts hidden: who, where, what they want, what each choice does (clues are extra)
 - [ ] Every line matches its speaker's voice sheet
 - [ ] Clues are shown as inserts, not explained
 - [ ] Options are actions, with no labels or scale effects

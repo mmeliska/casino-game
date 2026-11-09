@@ -24,13 +24,30 @@ The Levee's key light is this sign, flickering. Teal, coral, chrome and rust; th
 
 For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the negative prompts and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
 
-**Proposed, not settled:** the building (a low supper-club casino with a boomerang canopy and a tall pylon for the rocket sign); the carpet (deep teal with coral starbursts); starburst light fixtures; the office, count room and basement.
+**Drawn** (Mike, 2026-11-09): the source images are in `Images/Locations/StarFlare1`; each is in the game under the tag below, as a wide 16:9 plate. The Flare is a long red-brick building with mill chimneys on its roof, a boomerang canopy in coral and teal on V-shaped chrome struts with rows of bulbs, a teal pylon with gold starbursts carrying the coral rocket sign on the left, the chrome spaceman waving to the left of the glass doors. Inside, a deep navy carpet with coral starbursts, starburst chandeliers, neon cove lighting and rocket-themed slots. Gus's office is wood-panelled, with a chrome-trimmed desk, and its window looks across the water to the Slack Water Motel's sign and the city.
+
+| Source | Tag |
+| --- | --- |
+| `outside_day`, `_day_rain`, `_day_snow` | `flare_front_day`, `_day_rain`, `_day_winter` |
+| `outside_night`, `_night_rain`, `_night_snow` | `flare_front_night`, `_night_rain`, `_night_winter` |
+| `outside_predawn-closed` | `flare_front_dawn_covered` |
+| `outside_predawn_truck` | `flare_front_dawn_flatbed` |
+| `outside_condemned` | `flare_front_condemned` |
+| `outside_day_burned` | `flare_burned_day` |
+| `floor`, `floor_closed` | `flare_floor_night`, `flare_floor_night_decline` |
+| `bar`, `bar_closed` | `flare_bar_night`, `flare_bar_night_decline` |
+| `lounge`, `lounge_closed` | `flare_lounge_night`, `flare_lounge_night_covered` |
+| `inside_gus_office_day`, `_night`, each with `_rain` and `_snow` | `flare_office_day`, `flare_office_night`, each with `_rain` and `_winter` |
+
+The `_closed` sources are the decline stage (Mike, 2026-11-09). `outside_day_snow` came out a different size; it's scaled and cropped to match the other fronts. Not drawn yet: the banner, the floor's last season and last night, the dark pit, the boxed-up office, the count room, the basement and every insert.
+
+**Proposed, not settled:** the count room and basement.
 
 ### Out front at night
 
-Arriving at the Flare (A1.6): coffee with Gus under the rocket sign, rubbing the spaceman's boot. Generate first; every front variant comes from it.
+Arriving at the Flare (A1.6): coffee with Gus under the rocket sign, rubbing the spaceman's boot. Generate first; every front variant comes from it. Day and night, each in clear weather, rain and snow (`_rain`, `_winter`).
 
-`flare_front_night` (plate, portrait 9:16)
+`flare_front_night` (plate, landscape 16:9)
 
 ```
 Background plate, no people. The front of a low rocket-age supper-club casino: a boomerang-shaped entrance canopy with rows of bulbs, glass doors, a tall pylon carrying a big coral-and-teal neon rocket sign in the upper left, a life-size chrome astronaut statue waving beside the doors, old mill chimneys behind. Timeless retro details. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -40,7 +57,7 @@ Background plate, no people. The front of a low rocket-age supper-club casino: a
 
 Daytime visits. Make it from the night front.
 
-`flare_front_day` (plate, portrait 9:16)
+`flare_front_day` (plate, landscape 16:9)
 
 ```
 Background plate, no people. The front of a low rocket-age supper-club casino in daylight: a boomerang-shaped entrance canopy, glass doors, a tall pylon with an unlit rocket sign in the upper left, a chrome astronaut statue waving beside the doors, paint faded, old mill chimneys behind. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -70,7 +87,7 @@ Background plate, no people. The front of a low rocket-age supper-club casino at
 
 The last night without the trucker (A3.3): the District's crew has bolted a cover over the spaceman. Make it from the night front.
 
-`flare_front_dawn_covered` (plate, portrait 9:16)
+`flare_front_dawn_covered` (plate, landscape 16:9)
 
 ```
 Background plate, no people. The front of a rocket-age casino before dawn on its last night: a boomerang canopy with its bulbs still lit, glass doors open and lit inside, the coral rocket sign glowing on its pylon in the upper left, and beside the doors a statue-shaped bulk under a bolted grey tarp. Before dawn: grey-blue light, the neon still on and fading. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -80,7 +97,7 @@ Background plate, no people. The front of a rocket-age casino before dawn on its
 
 The last night with the trucker (S3): his flatbed is backed up to the doors to save the spaceman. Make it from the night front.
 
-`flare_front_dawn_flatbed` (plate, portrait 9:16)
+`flare_front_dawn_flatbed` (plate, landscape 16:9)
 
 ```
 Background plate, no people. The front of a rocket-age casino before dawn on its last night: a boomerang canopy with its bulbs still lit, the coral rocket sign glowing on its pylon in the upper left, a flatbed truck backed up to the doors with straps ready beside a chrome astronaut statue. Before dawn: grey-blue light, the neon still on and fading. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -90,7 +107,7 @@ Background plate, no people. The front of a rocket-age casino before dawn on its
 
 After the last night (A3.5): the empty Flare waiting for demolition, sign still on.
 
-`flare_front_condemned` (plate, portrait 9:16)
+`flare_front_condemned` (plate, landscape 16:9)
 
 ```
 Background plate, no people. The front of an empty, condemned rocket-age casino at night: chained glass doors, a blank notice taped to them, a construction fence, the coral rocket sign still glowing on its pylon in the upper left, old mill chimneys behind. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -100,7 +117,7 @@ Background plate, no people. The front of an empty, condemned rocket-age casino 
 
 Outcome O9: the empty Flare torched by Umbra. The sign is gone with it.
 
-`flare_burned_day` (plate, portrait 9:16)
+`flare_burned_day` (plate, landscape 16:9)
 
 ```
 Background plate, no people. The burned-out shell of a low rocket-age casino in grey daylight: blackened walls, a collapsed boomerang canopy, a charred, empty sign pylon, a construction fence, old mill chimneys behind. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -110,7 +127,7 @@ Background plate, no people. The burned-out shell of a low rocket-age casino in 
 
 The Flare in act 1: half-empty but lit (A1.6, A1.7). The base for every floor stage.
 
-`flare_floor_night` (plate, portrait 9:16)
+`flare_floor_night` (plate, landscape 16:9)
 
 ```
 Background plate, no people. Inside a rocket-age casino floor: a deep teal carpet with coral starbursts, blackjack and roulette tables, rows of rocket-themed slot machines on the left, starburst chandeliers, a bar along the far wall, half the stools empty. Timeless retro details. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -120,7 +137,7 @@ Background plate, no people. Inside a rocket-age casino floor: a deep teal carpe
 
 The decline shows (A1.7 on, act 2): dark floor lights, a bucket under the roof leak, a roped-off table. Make it from the floor plate.
 
-`flare_floor_night_decline` (plate, portrait 9:16)
+`flare_floor_night_decline` (plate, landscape 16:9)
 
 ```
 Background plate, no people. Inside a fading rocket-age casino floor: a deep teal carpet with coral starbursts, half the starburst lights dark, one table roped off with a velvet rope, a plastic bucket on the carpet under a ceiling stain, slot machines on the left with some screens dark. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -146,11 +163,31 @@ Pete alone at the dark pit after closing (A3.4). Make it from the floor plate.
 Background plate, no people. A casino pit after closing: blackjack tables with their covers on in a ring, the floor lights off, one work light left on over the pit stand, the rest of the room in deep shadow, far windows showing old mill chimneys and a coral glow from the sign. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
+### The bar
+
+Ray at the bar (from A1.5 on). Make it from the floor plate.
+
+`flare_bar_night` (plate, landscape 16:9)
+
+```
+Background plate, no people. A rocket-age casino bar: a long curved bar with chrome stools and a mirrored back bar of bottles under a round neon-ringed ceiling, rocket-themed slot machines down the left, a roulette table and a blackjack table in the foreground, a deep navy carpet with coral starbursts, starburst chandeliers. Timeless retro details. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+```
+
+### The bar, declining
+
+The bar as the Flare declines: the slot screens dark, the back bar dimmer. Make it from the bar plate.
+
+`flare_bar_night_decline` (plate, landscape 16:9)
+
+```
+Background plate, no people. A fading rocket-age casino bar: a long curved bar with chrome stools and a dim back bar of bottles under a round neon-ringed ceiling, rocket-themed slot machines down the left with their screens dark, a roulette table and a blackjack table in the foreground, a deep navy carpet with coral starbursts. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+```
+
 ### The lounge
 
 The half-empty piano lounge where Miles or Audrey plays (R7); the band photo by the lounge (S4).
 
-`flare_lounge_night` (plate, portrait 9:16)
+`flare_lounge_night` (plate, landscape 16:9)
 
 ```
 Background plate, no people. A small rocket-age piano lounge: a baby grand piano on a low stage, a painted midnight-blue ceiling of stars and constellations, curved booths, small round tables with candle lamps, mostly empty. Timeless retro details. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -160,7 +197,7 @@ Background plate, no people. A small rocket-age piano lounge: a baby grand piano
 
 The lounge as the Flare declines: the piano under a cloth. Make it from the lounge plate.
 
-`flare_lounge_night_covered` (plate, portrait 9:16)
+`flare_lounge_night_covered` (plate, landscape 16:9)
 
 ```
 Background plate, no people. A small rocket-age piano lounge gone quiet: a baby grand piano under a dust cloth on a low stage, a painted midnight-blue star ceiling, empty curved booths, chairs up on some tables. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
@@ -168,9 +205,9 @@ Background plate, no people. A small rocket-age piano lounge gone quiet: a baby 
 
 ### Gus's office
 
-Ray's first visit (A1.10), Ray collecting (A2.1), the photo of the two sisters (R1).
+Ray's first visit (A1.10), Ray collecting (A2.1), the photo of the two sisters (R1). Day and night, each in clear weather, rain and snow (`_rain`, `_winter`), the weather showing through the window.
 
-`flare_office_night` (plate, portrait 9:16)
+`flare_office_night` (plate, landscape 16:9)
 
 ```
 Background plate, no people. A casino owner's office: a heavy old desk, a leather chair, framed old photographs on wood-panelled walls, a shelf of old videotapes, a window with old mill chimneys outside, a lamp. Timeless retro details. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.

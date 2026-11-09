@@ -35,23 +35,34 @@ VAR dance_keen = false
 === night_one ===
 ~ met_kasia = true
 # plate: kasia_bar_night
-You can't sleep. Down the block from the motel, one bar's still lit.
+The motel bed sags, and the radiator knocks like it wants in.
+You can't sleep. Down the block, one bar still has its lights on.
 # pose: kasia_neutral
-KASIA: New face. Kitchen's closed, but there's pierogi if you're not fussy.
+KASIA: In or out, but shut the door. That wind's coming off the lake.
+KASIA: I'm Kasia. This is the Tap. My dad's place, before it was mine.
+KASIA: Kitchen closed at ten, but there's pierogi left if you're not fussy.
 * [Take a stool at the bar.]
-    KASIA: Saw your plates through the window. You're from away.
-    KASIA: Lake wind's turning. Grey till May now.
-* [Nod at the machines along the bar.]
+    KASIA: Saw your plates when you pulled into the motel. You're from away.
+    KASIA: Most people only see Backwater through a windshield on the way to somewhere else.
+    KASIA: First night in a new town, nobody sleeps. Eat something. It helps.
+    KASIA: May's supposed to be spring. Up here, spring takes its time.
+* (machines) [Nod at the machines along the bar.]
     # pose: kasia_joke
-    KASIA: Licensed. State sticker's right there on the side.
+    KASIA: Video poker. Licensed by the state. The sticker's right there on the side.
     # pose: kasia_neutral
-    KASIA: A dollar a hand. The rest is up to you.
+    KASIA: Backwater voted no on the casinos. A few bar machines is all we allow.
+    KASIA: A dollar a hand. Five cards, keep the ones you like, draw the rest.
 * {bankroll >= 5} [Leave a five on the bar for a beer. (-$5)]
     ~ spend(5)
     ~ tipped_kasia = true
     KASIA: Beer's three. I'll remember the other two.
-- KASIA: Machines run honest. I check them myself.
-KASIA: Go on. I'll be at the taps.
+    KASIA: I remember every dollar that crosses this bar. Ask anybody in here.
+- {not machines:
+    KASIA: Those machines along the bar are video poker. A dollar a hand, if you're curious.
+  }
+KASIA: They run honest. I check them myself every morning before I open.
+KASIA: Anybody tells you different, you send them to me.
+KASIA: Go on and try one if you like. I'll be down at the taps.
 -> END
 
 

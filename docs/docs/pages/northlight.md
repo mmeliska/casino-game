@@ -252,8 +252,8 @@ Positions are percent of the final map's width and height from the top left, mea
 | 2 | [Kasia's Tap](#kasias-tap) | 41, 30 | At the mill gate, down the block from the motel |
 | 3 | [Millstone Lanes](#millstone-lanes) | 22, 44 | Inland Backwater |
 | 4 | [Backwater streets](#backwater-streets) | 22, 65 | Brick walk-ups in south Backwater |
-| 5 | [Your car under the Bridges](#your-car) | 35, 32 | Under the Long Bridge, Backwater side |
-| 6 | [Bridgehead Fuel & Food](#bridgehead) | 30, 30 | Backwater foot of the Long Bridge, by the motel |
+| 5 | [Your car under the Bridges](#your-car) | none for now | No pin until the car is built (Mike, 2026-11-07) |
+| 6 | [Bridgehead Fuel & Food](#bridgehead) | 35.5, 33.5 | Right by the northwest end of the Long Bridge, on the Backwater bank (Mike, 2026-11-07) |
 | 7 | [Bridgehead Loan & Pawn](#pawn-shop) | 26, 35 | Next to Bridgehead |
 | 8 | [The Long Bridge](#long-bridge) | 38, 36 | Across the bend, from the motel's bank to the Levee |
 | 9 | [The Flare](#the-flare) / [Starflare Field](#starflare-field) | 55, 37 | The Levee's waterfront where the river meets the canal, across the water from the motel; the icon changes with the site (sheet 5) |
