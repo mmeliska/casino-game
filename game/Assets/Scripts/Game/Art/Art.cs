@@ -6,8 +6,9 @@ namespace Starflare.Game
 {
     /// <summary>
     /// Finds art by its scene tag: a plate, pose or insert tag is also the image's file name
-    /// under Resources/Plates, Poses or Inserts. Missing art is logged once and skipped, so a
-    /// scene can be written before its art exists.
+    /// under Resources/Plates, Poses or Inserts, or the chosen art style's copy of them
+    /// (<see cref="ArtStyles"/>). Missing art is logged once and skipped, so a scene can be
+    /// written before its art exists.
     /// </summary>
     public static class Art
     {
@@ -22,7 +23,7 @@ namespace Starflare.Game
             ["bridgehead_store"] = 0.48f,
             ["kasia_backroom"] = 0.58f,
             ["kasia_bar"] = 0.74f,
-            ["kasia_front"] = 0.58f,
+            ["kasia_front"] = 0.64f,
             ["lanes_front"] = 0.66f,
             ["motel_lot"] = 0.5f,
             ["motel_office"] = 0.4f,
@@ -113,7 +114,7 @@ namespace Starflare.Game
         public static string ScenePlate(string tag, GameClock clock, System.Func<string, bool> hasPlate) =>
             ViewOf(tag) == tag ? PlateAt(tag, clock, hasPlate) : tag;
 
-        static bool HasPlate(string tag) => Resources.Load<Sprite>($"Plates/{FileFor(tag)}") != null;
+        static bool HasPlate(string tag) => Find($"Plates/{FileFor(tag)}") != null;
 
         static string FileFor(string plateTag)
         {
@@ -124,10 +125,21 @@ namespace Starflare.Game
 
         static Sprite Load(string folder, string tag)
         {
-            var sprite = Resources.Load<Sprite>($"{folder}/{tag}");
+            var sprite = Find($"{folder}/{tag}");
             if (sprite == null && Reported.Add($"{folder}/{tag}"))
                 Debug.LogWarning($"No art yet for {folder}/{tag}; skipping it.");
             return sprite;
+        }
+
+        /// <summary>The picture in the chosen art style, else the base art (<see cref="ArtStyles"/>).</summary>
+        static Sprite Find(string path)
+        {
+            foreach (string candidate in ArtStyles.PathsFor(ArtStyles.Current, path))
+            {
+                var sprite = Resources.Load<Sprite>(candidate);
+                if (sprite != null) return sprite;
+            }
+            return null;
         }
     }
 }
