@@ -14,7 +14,6 @@ namespace Starflare.Game
     /// </summary>
     public sealed class RegisterCard : MonoBehaviour
     {
-        const string Plate = "motel_office_night";
         const int NameLimit = 24;
         static readonly Color Paper = new Color(0.93f, 0.9f, 0.82f);
 
@@ -38,12 +37,13 @@ namespace Starflare.Game
 
         void Awake() => Build();
 
-        public void Show(Action<string, RegisterBox> onSigned)
+        /// <param name="plate">Dot's office for the hour and season you pulled in.</param>
+        public void Show(string plate, Action<string, RegisterBox> onSigned)
         {
             _onSigned = onSigned;
             _box = RegisterBox.Unticked;
             _name.text = "";
-            _plateFit.Show(_plate, Art.Plate(Plate), Art.Focus(Plate));
+            _plateFit.Show(_plate, Art.Plate(plate), Art.Focus(plate));
             _root.SetActive(true);
             Refresh();
         }

@@ -23,7 +23,7 @@ Poker in the club car; meeting Graham or Claire (X1, R9).
 `ledger_clubcar_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A vintage train club car at night: wood panelling, a card table under a brass lamp, leather armchairs, a small bar, dark windows with rain streaks and passing lights. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A vintage train club car at night: wood panelling, a card table under a brass lamp, leather armchairs, a small bar, dark windows with rain streaks and passing lights. Soft lamplight and candlelight in small pools, cool blue shadows, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The platform

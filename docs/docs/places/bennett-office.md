@@ -19,7 +19,7 @@ Meetings with Bennett.
 `bennett_office_day` (plate, portrait 9:16)
 
 ```
-Background plate, no people. An alderman's office: a broad polished desk, a flag on a stand, framed blank campaign posters, a window onto old mill chimneys, a leather chair. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. An alderman's office: a broad polished desk, a flag on a stand, framed blank campaign posters, a window onto old mill chimneys, a leather chair. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The desk photo
@@ -29,5 +29,5 @@ The photo on his desk: a clue to Richard (M4). Use Richard's and Bennett's appro
 `bennett_desk_photo` (insert, square 1:1)
 
 ```
-Close-up insert panel. A framed old photograph on a polished desk: a man with a strong square jaw and a boy of about ten playing cards at a kitchen table. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no text, no lettering.
+Close-up insert panel. A framed old photograph on a polished desk: a man with a strong square jaw and a boy of about ten playing cards at a kitchen table. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no text, no lettering.
 ```

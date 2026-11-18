@@ -29,7 +29,7 @@ Daytime in the Levee. Make it from the night street.
 `levee_street_day` (plate, portrait 9:16)
 
 ```
-Background plate, no people. An old downtown street by a river in the afternoon: brick and terracotta buildings, awnings, parked cars, the dead mill chimneys rising behind. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. An old downtown street by a river in the afternoon: brick and terracotta buildings, awnings, parked cars, the dead mill chimneys rising behind. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The rally
@@ -39,5 +39,5 @@ The union rally (A3.2).
 `levee_rally_day` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A street rally set-up in an old downtown: a flatbed truck as a stage with a microphone stand, blank banners and handmade signs leaning on crowd barriers, the dead mill chimneys behind. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A street rally set-up in an old downtown: a flatbed truck as a stage with a microphone stand, blank banners and handmade signs leaning on crowd barriers, the dead mill chimneys behind. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```

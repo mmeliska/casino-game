@@ -23,7 +23,7 @@ Arriving at the lodge.
 `lodge_front_night_snow` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A remote dark log lodge in deep snow at night, warm windows glowing, black spruce trees all around, a few parked cars under snow, falling snow. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A remote dark log lodge in deep snow at night, warm windows glowing, black spruce trees all around, a few parked cars under snow, falling snow. Soft lamplight and candlelight in small pools, cool blue shadows, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The table
@@ -33,5 +33,5 @@ The poker weekend.
 `lodge_table_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A single poker table in a dark log lodge: a big stone fireplace burning, bare log walls, heavy leather chairs, snow against the windows. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A single poker table in a dark log lodge: a big stone fireplace burning, bare log walls, heavy leather chairs, snow against the windows. Soft lamplight and candlelight in small pools, cool blue shadows, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```

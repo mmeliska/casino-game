@@ -60,7 +60,7 @@ Daytime visits. Make it from the night front.
 `flare_front_day` (plate, landscape 16:9)
 
 ```
-Background plate, no people. The front of a low rocket-age supper-club casino in daylight: a boomerang-shaped entrance canopy, glass doors, a tall pylon with an unlit rocket sign in the upper left, a chrome astronaut statue waving beside the doors, paint faded, old mill chimneys behind. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. The front of a low rocket-age supper-club casino in daylight: a boomerang-shaped entrance canopy, glass doors, a tall pylon with an unlit rocket sign in the upper left, a chrome astronaut statue waving beside the doors, paint faded, old mill chimneys behind. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The floor, the last season
@@ -120,7 +120,7 @@ Outcome O9: the empty Flare torched by Umbra. The sign is gone with it.
 `flare_burned_day` (plate, landscape 16:9)
 
 ```
-Background plate, no people. The burned-out shell of a low rocket-age casino in grey daylight: blackened walls, a collapsed boomerang canopy, a charred, empty sign pylon, a construction fence, old mill chimneys behind. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. The burned-out shell of a low rocket-age casino in grey daylight: blackened walls, a collapsed boomerang canopy, a charred, empty sign pylon, a construction fence, old mill chimneys behind. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The floor

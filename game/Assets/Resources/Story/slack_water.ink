@@ -15,7 +15,7 @@ VAR told_dot = ""
 Backwater, after dark. Two hundred dollars and a car that made it.
 Across the river, a little neon rocket glows on the far bank.
 The motel office still has a light on.
-# plate: motel_office_night
+# plate: motel_office
 # pose: dot_neutral
 DOT: Saw your headlights. Come in out of that wind.
 DOT: Weekly's cheaper than nightly, and you look like weekly.
@@ -27,7 +27,7 @@ Dot turns the register around. The pen's on a chain.
 
 // After the register card: she reads your name and asks what brings you to Northlight.
 === checking_in ===
-# plate: motel_office_night
+# plate: motel_office
 # pose: dot_neutral
 DOT: {player_name}. I'm Dot. I own it, I run it, I fix the ice machine.
 DOT: So. What brings you to Northlight?
@@ -56,7 +56,7 @@ DOT: So. What brings you to Northlight?
 
 // Back in the office: a regular moment. Her stories, and the warnings that matter, come later.
 === office ===
-# plate: motel_office_night
+# plate: motel_office
 # pose: dot_neutral
 DOT: {~There you are.|Back again, hon.|Door sticks. Lift and push.}
 -> desk

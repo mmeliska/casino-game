@@ -23,7 +23,7 @@ Arriving at the Lanes; the coupons delivery (A1.3). Day and night, each in clear
 `lanes_front_night` (plate, landscape 16:9)
 
 ```
-Background plate, no people. A low old bowling alley building on a Backwater street, a tall vintage sign shaped like a bowling pin glowing above it, a small parking lot with puddles, a mill chimney in the distance. Timeless retro details. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A low old bowling alley building on a Backwater street, a tall vintage sign shaped like a bowling pin glowing above it, a small parking lot with puddles, a mill chimney in the distance. Timeless retro details. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The lanes
@@ -33,7 +33,7 @@ League night, Juan at work, Raffy hiding out (A1.5, R3). Generate this first as 
 `lanes_lanes_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. Inside an old bowling alley: worn wooden lanes running away from the viewer, pins lit at the far end, retro scoring consoles and moulded seats in the foreground, a low ceiling with long light boxes. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. Inside an old bowling alley: worn wooden lanes running away from the viewer, pins lit at the far end, retro scoring consoles and moulded seats in the foreground, a low ceiling with long light boxes. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The lanes, lane six dark
@@ -43,7 +43,7 @@ After Umbra wins at the Lanes (R3): one lane's lights out. Make it from the lane
 `lanes_lanes_night_lane6` (plate, portrait 9:16)
 
 ```
-Background plate, no people. Inside an old bowling alley: worn wooden lanes running away from the viewer, pins lit at the far end except one lane that is completely dark, retro scoring consoles and moulded seats in the foreground. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. Inside an old bowling alley: worn wooden lanes running away from the viewer, pins lit at the far end except one lane that is completely dark, retro scoring consoles and moulded seats in the foreground. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The shoe counter and the free-play machines
@@ -53,7 +53,7 @@ Practising on free play; talking with Juan at the counter; Ed talking straight.
 `lanes_counter_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. An old bowling alley's front counter with cubbyholes of rental shoes behind it, a short row of glowing slot and video poker machines along the left wall, a worn carpet with a geometric pattern. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. An old bowling alley's front counter with cubbyholes of rental shoes behind it, a short row of glowing slot and video poker machines along the left wall, a worn carpet with a geometric pattern. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### Behind the pinsetters
@@ -63,7 +63,7 @@ Juan's machine room behind the pins: where he fixes the pinsetters and where Raf
 `lanes_pinsetters_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A cramped machine room behind bowling pins: big old mechanical pinsetters with chains and gears, a workbench with tools and spare parts, a single caged work light. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A cramped machine room behind bowling pins: big old mechanical pinsetters with chains and gears, a workbench with tools and spare parts, a single caged work light. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The back lot
@@ -73,7 +73,7 @@ The real-money dice after the last frame (A1.3, S1, R3).
 `lanes_backlot_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A back lot behind a bowling alley: wet asphalt, a chalk circle on the ground, a steel back door with a bare bulb above it, a dumpster, steam rising from a grate, a mill chimney beyond the fence. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A back lot behind a bowling alley: wet asphalt, a chalk circle on the ground, a steel back door with a bare bulb above it, a dumpster, steam rising from a grate, a mill chimney beyond the fence. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The loaded die
@@ -83,5 +83,5 @@ Juan shows you how to spot a weighted die (R3).
 `lanes_dice` (insert, square 1:1)
 
 ```
-Close-up insert panel. Two dice resting on wet asphalt by a chalk line, one slightly worn on a corner, lit by a bare bulb. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. Two dice resting on wet asphalt by a chalk line, one slightly worn on a corner, lit by a bare bulb. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```

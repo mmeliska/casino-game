@@ -83,7 +83,7 @@ Opening night at the new Starflare: the notebook open on the host stand.
 `jalen_notebook_open` (insert, square 1:1)
 
 ```
-Close-up insert panel. A small black notebook lying open on a polished hotel host stand, pages of blank ruled lines, a pen across it. Night: hotel marquees and LED walls. Palette: magenta, gold, lake blue. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. A small black notebook lying open on a polished hotel host stand, pages of blank ruled lines, a pen across it. Night: crisp white LED light from hotel marquees and LED walls, cool blue shadows. Palette: magenta, gold, lake blue. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
 ## Backstory

@@ -45,7 +45,8 @@ namespace Starflare.Game
         void CheckIn()
         {
             if (_host.State.HasSigned) _host.PlayScene(StoryContract.Knots.CheckingIn, ShowLot);
-            else _host.PlayScene(StoryContract.Knots.Arrival, () => _register.Show(SignRegister));
+            else _host.PlayScene(StoryContract.Knots.Arrival, () =>
+                _register.Show(Art.PlateAt("motel_office", _host.State.Clock), SignRegister));
         }
 
         void SignRegister(string name, RegisterBox box)

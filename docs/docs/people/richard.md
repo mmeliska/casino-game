@@ -44,7 +44,7 @@ The key he never takes off (M4). Dot mentions it; the player sees it at the picn
 `richard_key` (insert, square 1:1)
 
 ```
-Close-up insert panel. A small brass key on a worn cloth lanyard hanging against the front of a brown thrift-store cardigan with one button missing, a faded plaid flannel shirt beneath. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no face, no text, no lettering; labels blank.
+Close-up insert panel. A small brass key on a worn cloth lanyard hanging against the front of a brown thrift-store cardigan with one button missing, a faded plaid flannel shirt beneath. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no face, no text, no lettering; labels blank.
 ```
 
 ### The cards
@@ -54,7 +54,7 @@ War at the picnic table in the motel lot, or the moment you ask him how to shuff
 `richard_cards` (insert, square 1:1)
 
 ```
-Close-up insert panel. An old white man's weathered hand cutting a worn deck of cards one-handed above a weathered wooden picnic table, the cuff of a brown cardigan at the wrist, two face-down cards on the table. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+Close-up insert panel. An old white man's weathered hand cutting a worn deck of cards one-handed above a weathered wooden picnic table, the cuff of a brown cardigan at the wrist, two face-down cards on the table. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
 ```
 
 ## Backstory

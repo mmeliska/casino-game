@@ -46,7 +46,7 @@ Dealing Kasia's back room. Her hand is in frame; use the hand negative prompt.
 `rosa_cards` (insert, square 1:1)
 
 ```
-Close-up insert panel. A small woman's hand with warm medium-brown skin, a white shirt cuff and the edge of a black vest, dealing a playing card face down across green felt with a quick flick. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+Close-up insert panel. A small woman's hand with warm medium-brown skin, a white shirt cuff and the edge of a black vest, dealing a playing card face down across green felt with a quick flick. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
 ```
 
 ### The torn patch
@@ -56,7 +56,7 @@ The frayed spot on her vest where the Starflare patch was (M1): for the moment s
 `rosa_vest_patch` (insert, square 1:1)
 
 ```
-Close-up insert panel. The chest of an old black dealer's vest over a white shirt, close on a frayed rectangle of loose threads and darker cloth where a sewn-on patch was torn away. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no face, no text, no lettering; labels blank.
+Close-up insert panel. The chest of an old black dealer's vest over a white shirt, close on a frayed rectangle of loose threads and darker cloth where a sewn-on patch was torn away. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no face, no text, no lettering; labels blank.
 ```
 
 ## Backstory

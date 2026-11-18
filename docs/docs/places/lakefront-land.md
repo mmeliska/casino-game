@@ -29,5 +29,5 @@ Building the new Starflare; relighting the rocket (A5.4).
 `lakefront_site_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A casino construction site on a lakeshore at night: steel frame and scaffolding, a crane, a tall empty sign pylon in the upper left, the neon strip glowing in the distance, the dark lake. Night: hotel marquees and LED walls. Palette: magenta, gold, lake blue. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A casino construction site on a lakeshore at night: steel frame and scaffolding, a crane, a tall empty sign pylon in the upper left, the neon strip glowing in the distance, the dark lake. Night: crisp white LED light from hotel marquees and LED walls, cool blue shadows. Palette: magenta, gold, lake blue. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```

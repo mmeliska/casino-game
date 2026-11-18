@@ -53,7 +53,7 @@ Night one at Kasia's Tap (A1.2): "Hold this till Friday, don't open it." His han
 `raffy_envelope` (insert, square 1:1)
 
 ```
-Close-up insert panel. A skinny young Filipino-American man's hand, the sleeve of an oversized grey hoodie pushed back, sliding a fat sealed manila envelope across a worn wooden bar top. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+Close-up insert panel. A skinny young Filipino-American man's hand, the sleeve of an oversized grey hoodie pushed back, sliding a fat sealed manila envelope across a worn wooden bar top. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
 ```
 
 ### Inside the envelope
@@ -63,7 +63,7 @@ What's inside, if you open it: $2,000 and a thumb drive (A1.5 at the latest).
 `raffy_envelope_open` (insert, square 1:1)
 
 ```
-Close-up insert panel. A manila envelope torn open on a faded motel bedspread, a thick fold of plain banknotes and a small black metal thumb drive spilling out of it. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. A manila envelope torn open on a faded motel bedspread, a thick fold of plain banknotes and a small black metal thumb drive spilling out of it. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
 ### The locked drive
@@ -73,7 +73,7 @@ Plugged in, it shows a locked volume with Revaris's name and a serial number (A1
 `raffy_drive_locked` (insert, square 1:1)
 
 ```
-Close-up insert panel. A small black metal thumb drive plugged into the side of an old laptop on a faded motel bedspread, the screen showing a blank grey dialog box with a padlock icon. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. A small black metal thumb drive plugged into the side of an old laptop on a faded motel bedspread, the screen showing a blank grey dialog box with a padlock icon. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
 ## Backstory

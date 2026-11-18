@@ -72,7 +72,7 @@ The club car of the Northern Ledger: the bills he's marking up.
 `graham_briefcase` (insert, square 1:1)
 
 ```
-Close-up insert panel. A battered brown leather briefcase open on a small train table, stuffed with thick stacks of printed legislative documents marked up in pen, coloured sticky tabs along their edges, a rain-streaked window behind. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. A battered brown leather briefcase open on a small train table, stuffed with thick stacks of printed legislative documents marked up in pen, coloured sticky tabs along their edges, a rain-streaked window behind. Soft lamplight and candlelight in small pools, cool blue shadows, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
 ### Claire's laptop and tea
@@ -82,7 +82,7 @@ The club car of the Northern Ledger: her laptop and thermos of tea.
 `claire_laptop` (insert, square 1:1)
 
 ```
-Close-up insert panel. A slim laptop open on a small train table, its screen glowing blank, a steel thermos beside it with steam rising from its cup lid, a rain-streaked window behind. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. A slim laptop open on a small train table, its screen glowing blank, a steel thermos beside it with steam rising from its cup lid, a rain-streaked window behind. Soft lamplight and candlelight in small pools, cool blue shadows, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
 ## Plot role

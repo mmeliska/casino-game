@@ -43,7 +43,7 @@ The heat check-ins: his coffee and sandwich. His plate lookup is a Lock Street i
 `ed_coffee` (insert, square 1:1)
 
 ```
-Close-up insert panel. A paper coffee cup and a half-eaten deli sandwich in wax paper on the dashboard of an old unmarked sedan, a rain-streaked windshield beyond. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. A paper coffee cup and a half-eaten deli sandwich in wax paper on the dashboard of an old unmarked sedan, a rain-streaked windshield beyond. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
 ## Backstory

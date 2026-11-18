@@ -33,5 +33,5 @@ The resort's quiet high tables.
 `pine_tables_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A grand old resort's card room: tables under brass lamps, a big stone fireplace, timber beams, tall windows onto dark pines. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A grand old resort's card room: tables under brass lamps, a big stone fireplace, timber beams, tall windows onto dark pines. Soft lamplight and candlelight in small pools, cool blue shadows, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```

@@ -19,7 +19,7 @@ The ground-breaking (A3.5): the Flare's block fenced off.
 `field_site_day` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A fenced city block being cleared for a stadium: a construction fence with blank posters, an excavator, a ceremonial stage with shovels, old mill chimneys behind. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A fenced city block being cleared for a stadium: a construction fence with blank posters, an excavator, a ceremonial stage with shovels, old mill chimneys behind. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The gate
@@ -29,7 +29,7 @@ The Field open with the old rocket sign over its gate (A4.9, O7).
 `field_gate_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. The main gate of a new domed baseball stadium at night: a glass and concrete entrance, and over the gate an old restored coral-and-teal neon rocket sign, old mill chimneys behind. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. The main gate of a new domed baseball stadium at night: a glass and concrete entrance, and over the gate an old restored coral-and-teal neon rocket sign, old mill chimneys behind. Night: clean white LED light, teal and coral accents, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The rendering
@@ -39,5 +39,5 @@ The renderings show the Flare's rocket sign over the stadium gate (A3.1).
 `field_rendering` (insert, square 1:1)
 
 ```
-Close-up insert panel. An architect's rendering on a presentation easel: a domed stadium with a small coral rocket sign over its gate, drawn in soft colours. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. An architect's rendering on a presentation easel: a domed stadium with a small coral rocket sign over its gate, drawn in soft colours. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```

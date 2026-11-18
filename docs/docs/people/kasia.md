@@ -46,7 +46,7 @@ Credit at the Tap ("put it on the book"), and the page at the end when you paid 
 `kasia_ledger` (insert, square 1:1)
 
 ```
-Close-up insert panel. A thick old clothbound ledger open on a worn wooden bar top, ruled columns of blank lines, a woman's strong hand holding a pencil at the foot of the page, the sleeve of a red-and-black flannel shirt rolled up to the forearm. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+Close-up insert panel. A thick old clothbound ledger open on a worn wooden bar top, ruled columns of blank lines, a woman's strong hand holding a pencil at the foot of the page, the sleeve of a red-and-black flannel shirt rolled up to the forearm. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
 ```
 
 ### A fresh page
@@ -56,7 +56,7 @@ Paid, but late and often: she turns to a fresh page with your name at the top.
 `kasia_ledger_fresh` (insert, square 1:1)
 
 ```
-Close-up insert panel. A thick old clothbound ledger open on a worn wooden bar top, a woman's strong hand turning to a fresh page of blank ruled lines, the sleeve of a red-and-black flannel shirt rolled up to the forearm. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+Close-up insert panel. A thick old clothbound ledger open on a worn wooden bar top, a woman's strong hand turning to a fresh page of blank ruled lines, the sleeve of a red-and-black flannel shirt rolled up to the forearm. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
 ```
 
 ### The page torn out
@@ -66,7 +66,7 @@ Skipped out, ever: she tears your page out and puts it in the till.
 `kasia_ledger_torn` (insert, square 1:1)
 
 ```
-Close-up insert panel. A thick old clothbound ledger open on a worn wooden bar top, a woman's strong hand tearing a page out at the spine, the sleeve of a red-and-black flannel shirt rolled up to the forearm. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
+Close-up insert panel. A thick old clothbound ledger open on a worn wooden bar top, a woman's strong hand tearing a page out at the spine, the sleeve of a red-and-black flannel shirt rolled up to the forearm. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, one hand only, no face, no text, no lettering; labels blank.
 ```
 
 ## Backstory

@@ -19,7 +19,7 @@ Arriving on the Mile; walking the strip.
 `mile_strip_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A neon lakefront casino strip at night: hotel towers with glowing blank marquees and LED walls, a wide promenade by the lake, and a lighthouse on the harbour in the upper left sweeping its beam over the scene. Night: hotel marquees and LED walls. Palette: magenta, gold, lake blue. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A neon lakefront casino strip at night: hotel towers with glowing blank marquees and LED walls, a wide promenade by the lake, and a lighthouse on the harbour in the upper left sweeping its beam over the scene. Night: crisp white LED light from hotel marquees and LED walls, cool blue shadows. Palette: magenta, gold, lake blue. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The lakefront by day

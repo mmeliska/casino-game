@@ -1,5 +1,9 @@
 ## 9 Nov 2026
 
+### No more orange cast
+
+Prompts were generating images with an orange cast, so the light and palette sentences change to match the art already drawn (Mike). Backwater keeps its old yellow streetlamps and lit windows, but as small warm pools under a navy sky with cool shadows, and its palette is now brick red, tired green and navy, with no amber. Daylight is clear and neutral, not warm. Across the river it gets cooler and more modern: crisp white LED on the Marquee Mile, clean white LED in the Levee's newer buildings (the RailYard, Starflare Field, Bennett's office), and soft lamplight against cool shadows in Silvershore. The Flare and the Levee's other old buildings keep their bulbs and teal-and-coral neon, and the Bridges keep their white fluorescents. The rule is on [Northlight](#city) under "Old lights and new", with the districts table and the map-icon prompts updated to match.
+
 ### Every insert prompt on one page
 
 A new page, [Insert prompts](#inserts), under World and systems in the menu, next to Plate prompts (Mike). It gathers every insert prompt from the character pages, the place pages and the walk-ons, grouped by page, each with its tag, its note and a copy button. The prompts are still written on their own pages; the new page reads them from there, so it never falls out of step.

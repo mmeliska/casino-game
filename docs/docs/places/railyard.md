@@ -25,7 +25,7 @@ The rival a step ahead (A1.8); the pensioner's slot tournament (S2); the regular
 `railyard_floor_day` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A casino floor inside an old rail depot hall: a high arched ceiling with iron trusses and skylights, a big station clock with no numerals, rows of rail-themed slot machines, clean tables, bright even light. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A casino floor inside an old rail depot hall: a high arched ceiling with iron trusses and skylights, a big station clock with no numerals, rows of rail-themed slot machines, clean tables, bright even light. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The floor at night
@@ -35,7 +35,7 @@ Evening play. Make it from the day floor.
 `railyard_floor_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A casino floor inside an old rail depot hall at night: a high arched ceiling with iron trusses, a big lit station clock with no numerals, rows of glowing rail-themed slot machines, clean tables. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A casino floor inside an old rail depot hall at night: a high arched ceiling with iron trusses, a big lit station clock with no numerals, rows of glowing rail-themed slot machines, clean tables. Night: clean white LED light, teal and coral accents, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The buffet
@@ -45,7 +45,7 @@ The buffet the pensioners love.
 `railyard_buffet_day` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A casino buffet in an old rail depot: steam trays under a sneeze guard, a carving station, tables with checked cloths, big arched windows onto old rail tracks and old mill chimneys. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A casino buffet in an old rail depot: steam trays under a sneeze guard, a carving station, tables with checked cloths, big arched windows onto old rail tracks and old mill chimneys. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### Out front
@@ -55,7 +55,7 @@ Arriving at the RailYard.
 `railyard_front_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. The front of an old brick rail depot turned casino at night: arched windows glowing, a clock tower, a clean plaza, old rail tracks set in the pavement, a blank lit marquee. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. The front of an old brick rail depot turned casino at night: arched windows glowing, a clock tower, a clean plaza, old rail tracks set in the pavement, a blank lit marquee. Night: clean white LED light, teal and coral accents, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The face-scan kiosk
@@ -65,5 +65,5 @@ The players' card sign-up with a face scan, or pay cash and keep your head down 
 `railyard_kiosk` (insert, square 1:1)
 
 ```
-Close-up insert panel. A sleek players'-card kiosk with a small camera lens above a blank glowing screen and a card slot. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. A sleek players'-card kiosk with a small camera lens above a blank glowing screen and a card slot. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```

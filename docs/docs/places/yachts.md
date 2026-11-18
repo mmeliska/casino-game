@@ -23,7 +23,7 @@ On deck between hands. Use the motel lot plate as the composition reference so t
 `yacht_deck_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. On the teak deck of a private yacht at night on a dark, still lake, a polished rail, and far across the water in the upper left the city's lakefront skyline glowing, hotel towers and a lighthouse on the harbour. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. On the teak deck of a private yacht at night on a dark, still lake, a polished rail, and far across the water in the upper left the city's lakefront skyline glowing, hotel towers and a lighthouse on the harbour. Soft lamplight and candlelight in small pools, cool blue shadows, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The salon
@@ -33,7 +33,7 @@ The games aboard.
 `yacht_salon_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A private yacht's salon: a card table under a low brass lamp, leather banquettes, polished wood, round windows onto the dark lake. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A private yacht's salon: a card table under a low brass lamp, leather banquettes, polished wood, round windows onto the dark lake. Soft lamplight and candlelight in small pools, cool blue shadows, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### What Vivian looks at
@@ -43,5 +43,5 @@ From the deck she doesn't look at the Mile's towers. She looks at her family's e
 `yacht_view_land` (insert, square 1:1)
 
 ```
-Close-up insert panel. Over a polished yacht rail at night, far across dark water, a dark, empty stretch of lakeshore with old trees and a low stone wall, neon hotel towers glowing to its left and dark old mansions to its right. Warm lamplight and candlelight, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. Over a polished yacht rail at night, far across dark water, a dark, empty stretch of lakeshore with old trees and a low stone wall, neon hotel towers glowing to its left and dark old mansions to its right. Soft lamplight and candlelight in small pools, cool blue shadows, no neon. Palette: ivory, deep green, brass. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```

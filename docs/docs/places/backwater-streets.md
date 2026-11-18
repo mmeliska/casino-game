@@ -19,7 +19,7 @@ Walking Backwater at night; encounters on the way.
 `backwater_street_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A Backwater street of brick two-storey storefronts and walk-ups, wet asphalt, steam rising from a grate, a sodium streetlamp, a dark mill gate and chimney at the end of the street. Timeless retro details. Night: amber sodium streetlight and warm bar neon. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A Backwater street of brick two-storey storefronts and walk-ups, wet asphalt, steam rising from a grate, a sodium streetlamp, a dark mill gate and chimney at the end of the street. Timeless retro details. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### A street by day
@@ -29,5 +29,5 @@ Daytime errands and walks. Make it from the night street.
 `backwater_street_day` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A Backwater street of brick two-storey storefronts and walk-ups, awnings, parked cars, a mill gate and chimney at the end of the street, people's laundry on a line above. Timeless retro details. Warm, busy daylight. Palette: amber, brick red, tired green. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A Backwater street of brick two-storey storefronts and walk-ups, awnings, parked cars, a mill gate and chimney at the end of the street, people's laundry on a line above. Timeless retro details. Clear, busy daylight. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```

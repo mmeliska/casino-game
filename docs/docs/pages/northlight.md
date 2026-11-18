@@ -6,13 +6,14 @@ Northlight has five districts, poorest to richest, and the climb from one to the
 
 | District | What it is | Key light | Palette | Recurring image | Weather layer |
 | --- | --- | --- | --- | --- | --- |
-| Backwater | The district across the river that voted no on casinos: bars can run licensed video gaming terminals, but every table game and bet is illegal (Mike, 2026-11-06). Mill families, back rooms, street dice | Sodium streetlamp, bar neon, bowling-alley sign | Amber, brick red, tired green | The rocket sign across the river from the motel lot | Rain on asphalt, steam from mill grates |
+| Backwater | The district across the river that voted no on casinos: bars can run licensed video gaming terminals, but every table game and bet is illegal (Mike, 2026-11-06). Mill families, back rooms, street dice | Old yellow streetlamps and lit windows as small warm pools under a navy night, bar neon, bowling-alley sign | Brick red, tired green, navy | The rocket sign across the river from the motel lot | Rain on asphalt, steam from mill grates |
 | The Bridges | The main crossing; gas-station slots | Gas-station canopy fluorescents | Flat white, oil-slick purple | The Long Bridge's lights over black water | Fog before dawn |
 | The Levee | Old downtown on the river; the Starflare, the riverboats, the Stacks | The rocket sign, flickering | Teal, coral, chrome, rust | The Stacks against the sky; the bucket under the Flare's roof leak | River mist, the Prairie Queen's paddle lights |
-| The Marquee Mile | Neon lakefront strip; hotel casinos and new money | Hotel marquees, LED walls | Magenta, gold, lake blue | The North Light sweeping the strip | Wind off the lake, winter snow |
-| Silvershore | Old money; private clubs, resorts, yachts | Warm lamps, candlelight | Ivory, deep green, brass | Yachts on a dark lake, the city glowing far off | Clear and still; no neon is the luxury |
+| The Marquee Mile | Neon lakefront strip; hotel casinos and new money | Crisp white LED: hotel marquees, LED walls | Magenta, gold, lake blue | The North Light sweeping the strip | Wind off the lake, winter snow |
+| Silvershore | Old money; private clubs, resorts, yachts | Soft lamplight and candlelight in small pools, cool shadows | Ivory, deep green, brass | Yachts on a dark lake, the city glowing far off | Clear and still; no neon is the luxury |
 
 - **Noir by night, warm by day.** Northlight is a city people like. Daylight is warm and busy (pierogi at Kasia's, league night at Millstone Lanes, the lakefront in summer); the grit belongs to the hours after the tables close.
+- **Old lights and new; never an orange cast.** Night skies are navy and shadows cool everywhere. Old buildings (Backwater, the Flare and the Levee's other old buildings) have warm yellow bulbs, streetlamps and lit windows, but only as small pools of light. Across the river it gets cooler and more modern: white fluorescents on the Bridges, clean white LED in the Levee's newer buildings (the RailYard, Starflare Field, Bennett's office), crisp white LED on the Marquee Mile, and soft lamplight against cool shadows in Silvershore. Daylight is clear and neutral. No prompt names amber as a light or a palette colour, which tinted whole images orange (Mike, 2026-11-09).
 - **Weather and seasons are free mood layers.** A static rain, fog or snow overlay changes a reused background more than a new pose would.
 - **Props carry history.** The city's past is never a paragraph: it's the old meeting sign on Kasia's back-room door, Pete's 25-year rocket pin, the Stacks outside every Levee window.
 - **Match the big compositions.** The rocket sign seen from Dot's motel lot on night one, and the lakefront towers seen from Vivian's yacht later, framed the same way, show how far the player has climbed. The Flare is inland on the river, so the yacht can't see the rocket sign (Mike, 2026-10-31).
@@ -141,13 +142,13 @@ I'm attaching a background from my game, a motel parking lot at night. Match its
 
 View: each icon is one building or landmark seen the way the attached image sees the motel, from street level at standing eye height, from across the street and a little to one side, so its front and one side show with gentle perspective. Each one stands on a small slab of its own ground (a bit of sidewalk, lot or dock) cut off cleanly at the edges, with no sky behind it, so it sits on the grey like a cut-out. All four are the same size, seen from the same height and angle.
 
-Light: night, like the attached image: a dark-blue night tone on the walls, warm amber sodium-lamp glow, lit yellow windows, signs glowing, light pooling on wet ground.
+Light: night, like the attached image: a dark-blue night tone on the walls, old yellow streetlamps as small warm pools, lit yellow windows, signs glowing, light pooling on wet ground.
 
 Style: the attached image's gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours with the light sources glowing. Keep detail moderate so each icon still reads clearly when shown small on a phone.
 
 No text, letters or numbers anywhere: the attached image has words on its signs, but every sign, marquee and window here must be blank. No people. No drop shadows on the background, no frames, no borders.
 
-From left to right, in amber, brick red and tired green:
+From left to right, in brick red, tired green and navy:
 1. A small one-storey L-shaped brick motel with a row of faded green doors, a cracked parking lot with a picnic table, and one tall blank motel sign on a pole.
 2. A small two-storey brick corner tavern with warm lit windows and a blank neon beer sign in the window, beside an iron mill gate in a high brick wall.
 3. A long, low bowling alley with a tall vintage sign shaped like a bowling pin and a small parking lot.
@@ -163,7 +164,7 @@ Another sheet in exactly the same style, street-level view, night lighting, size
 1. A small gas station: a flat white canopy over two old pumps and a little convenience store with a glowing window.
 2. A narrow pawn shop storefront with barred windows, a buzzer door and a guitar hanging in the window.
 3. One end of a long old steel truss bridge with a row of lamps along it, over a sliver of dark water.
-4. An old sedan parked under a concrete bridge pier, with a chain-link fence and one amber sodium lamp.
+4. An old sedan parked under a concrete bridge pier, with a chain-link fence and one old streetlamp.
 ```
 
 Sheet 3, the Levee: `map_prairie_queen`, `map_cinder_room`, `map_railyard`, `map_levee_streets`

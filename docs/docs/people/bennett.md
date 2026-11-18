@@ -50,7 +50,7 @@ Richard's room bill, dropped at Dot's desk every week by a driver (M4). It arriv
 `bennett_envelope` (insert, square 1:1)
 
 ```
-Close-up insert panel. A plain sealed white envelope lying on a worn wooden motel front desk beside a desk bell. Warm, busy daylight. Palette: amber, brick red, tired green. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. A plain sealed white envelope lying on a worn wooden motel front desk beside a desk bell. Clear, busy daylight. Palette: brick red, tired green, navy. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
 ## Backstory

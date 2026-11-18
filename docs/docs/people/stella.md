@@ -54,7 +54,7 @@ Her meetings with Tae at the Aurelian, the Flare's numbers run nine ways. In O6 
 `stella_laptop` (insert, square 1:1)
 
 ```
-Close-up insert panel. A laptop open on a white restaurant tablecloth, its screen glowing blank, a neat stack of printed spreadsheets and a glass of water beside it. Night: hotel marquees and LED walls. Palette: magenta, gold, lake blue. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+Close-up insert panel. A laptop open on a white restaurant tablecloth, its screen glowing blank, a neat stack of printed spreadsheets and a glass of water beside it. Night: crisp white LED light from hotel marquees and LED walls, cool blue shadows. Palette: magenta, gold, lake blue. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
 ## Backstory

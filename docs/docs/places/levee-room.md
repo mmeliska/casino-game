@@ -29,5 +29,5 @@ Waking up. Make it from the night room.
 `levee_room_morning` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A small rented room over a bar in the morning: an iron bed, a dresser, a radiator, warm light through the window, old mill chimneys outside. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A small rented room over a bar in the morning: an iron bed, a dresser, a radiator, warm light through the window, old mill chimneys outside. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```

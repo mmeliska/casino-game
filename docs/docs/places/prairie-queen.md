@@ -77,5 +77,5 @@ The old pilot's sister boat rusting at a south pier (S5, A5.5).
 `pq_sisterboat_day` (plate, portrait 9:16)
 
 ```
-Background plate, no people. An old paddlewheel riverboat moored and rusting at a weedy south pier: peeling white paint, a sagging paddlewheel, boarded windows, a gangway chained off. Warm afternoon light. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. An old paddlewheel riverboat moored and rusting at a weedy south pier: peeling white paint, a sagging paddlewheel, boarded windows, a gangway chained off. Clear, neutral afternoon daylight. Palette: teal, coral, chrome, rust. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
