@@ -88,5 +88,18 @@ namespace Starflare.Tests
         [TestCase("motel_river_night", "motel_river")]
         public void ViewOf_DropsWeatherSeasonAndTimeOfDay(string plate, string view) =>
             Assert.That(Art.ViewOf(plate), Is.EqualTo(view));
+
+        [Test]
+        public void TheBaseStyle_LooksOnlyInTheBaseFolders() =>
+            Assert.That(ArtStyles.PathsFor(ArtStyles.Base, "Plates/kasia_bar_night"), Is.EqualTo(new[] { "Plates/kasia_bar_night" }));
+
+        [Test]
+        public void AnotherStyle_LooksInItsOwnFolderFirst_ThenFallsBackToTheBaseArt() =>
+            Assert.That(ArtStyles.PathsFor("alt", "Poses/dot_neutral"),
+                Is.EqualTo(new[] { "Styles/alt/Poses/dot_neutral", "Poses/dot_neutral" }));
+
+        [Test]
+        public void TheBaseStyle_IsOneOfTheChoices() =>
+            Assert.That(ArtStyles.All, Does.Contain(ArtStyles.Base));
     }
 }

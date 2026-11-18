@@ -14,6 +14,7 @@ A sheet with loose dark hair against the grey (Kasia's) leaves a pale haze betwe
 strands; add --wisp 20 for it. Leave it off for pale grey hair (Dot's), which it thins.
 A sheet whose grey is uneven, with narrow gaps between panels (Raffy's), leaves grey
 between the legs and a sliver of the next pose; add --tolerance 54 --pad 4 for it.
+Frame lines drawn round each pose (the alt style's sheets) are found and dropped.
 Needs Pillow, NumPy and SciPy.
 """
 
@@ -29,6 +30,25 @@ def background_colour(rgb):
     h, w, _ = rgb.shape
     corners = [rgb[4:40, 4:40], rgb[4:40, w - 40:w - 4], rgb[h - 40:h - 4, 4:40], rgb[h - 40:h - 4, w - 40:w - 4]]
     return np.median(np.concatenate([c.reshape(-1, 3) for c in corners]), axis=0)
+
+
+def frame_lines(ink):
+    """Panel frames some sheets draw round each pose: thin lines that box a pose in. Each is
+    an ink shape at least half the sheet tall or wide but almost hollow (a figure fills a
+    good part of its own box; a rectangle of lines fills almost none of it)."""
+    h, w = ink.shape
+    labels, count = ndimage.label(ink)
+    lines = np.zeros_like(ink)
+    for i, box in enumerate(ndimage.find_objects(labels), start=1):
+        rows, cols = box
+        bh, bw = rows.stop - rows.start, cols.stop - cols.start
+        if bh < h / 2 and bw < w / 2:
+            continue
+        shape = labels[box] == i
+        if shape.sum() / (bh * bw) < 0.08:
+            lines[box] |= shape
+    # The pixels either side of a line are line blended with the background.
+    return ndimage.binary_dilation(lines, iterations=2)
 
 
 def pose_columns(ink, min_width):
@@ -118,6 +138,13 @@ def main():
     background = background_colour(rgb)
     distance = np.abs(rgb - background).sum(axis=2)
     ink = distance > args.tolerance
+
+    # Panel frames become background, so they neither count as poses nor stay in the cut-outs.
+    frames = frame_lines(ink)
+    if frames.any():
+        rgb[frames] = background
+        distance[frames] = 0
+        ink &= ~frames
 
     columns = pose_columns(ink, min_width=rgb.shape[1] // 40)
     if len(columns) != len(args.tags):

@@ -277,7 +277,7 @@ Copy an existing test `.asmdef` rather than writing one from scratch.
 - **Generated, not hand-edited:** the scene and player settings come from `ProjectSetup`. If
   you have to touch the scene file (as when renaming its root), make it match what
   `ProjectSetup` generates and run **Rebuild Project Setup** to confirm.
-- **Loading:** art loads through `Art`, the story through `StoryBridge`, the map through
+- **Loading:** art loads through `Art` (which looks in the chosen art style's folder first, `ArtStyles`), the story through `StoryBridge`, the map through
   `PhoneMap`; no other `Resources.Load`. Addressables replace `Resources` before the first store
   build (`REFACTOR_PLAN.md`, "Later").
 - **Packages:** keep `Packages/manifest.json` to what the game uses; each addition gets a line in

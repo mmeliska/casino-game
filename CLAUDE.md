@@ -48,7 +48,7 @@ Unity -batchmode -quit -projectPath game -executeMethod Starflare.EditorTools.Pr
 - `Playthrough` (the root of `Assets/Scenes/Main.unity`) is the only owner of the save. The city, places, games and screens raise events (`PlayerState.Changed`, `SceneEnded`, `BreakPointReached`) and never touch `SaveStore`. No static mutable state.
 - Adding a place is a line in `Places/PlaceList.cs`, never a change to `City.cs`.
 
-Scenes are Ink files in `Assets/Resources/Story/` (inkle's ink-unity-integration package). Their `# plate:`/`# pose:`/`# insert:` tags are file names under `Assets/Resources/Plates`, `Poses`, `Inserts`. Slice a portrait sheet into poses with `tools/slice_sheet.py`.
+Scenes are Ink files in `Assets/Resources/Story/` (inkle's ink-unity-integration package). Their `# plate:`/`# pose:`/`# insert:` tags are file names under `Assets/Resources/Plates`, `Poses`, `Inserts`. Slice a portrait sheet into poses with `tools/slice_sheet.py`. Art is dropped in `Images/` (base style) or `ImagesAlt/` (the `alt` style, same layout) and brought in from there: `tools/import_plates.py [--style alt]` copies location art to the plates under their tags (add a `SOURCES` line for a new picture); alt art lands in `Assets/Resources/Styles/alt/` (see `ArtStyles`).
 
 Game modules never read story state. A table reports each settled round through `PlayerState.ApplyRoundResult` and raises `BreakPointReached` when the player gets up; story beats fire only at break points, never mid-game. The game autosaves after every settled round (`SaveStore`).
 

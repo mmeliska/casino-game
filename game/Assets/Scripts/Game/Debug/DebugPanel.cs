@@ -15,7 +15,7 @@ namespace Starflare.Game
     /// snapshot (a copy of a real save), and edits the live state through the same methods play
     /// uses: cash, Kasia's book, the clock, the register box, the hidden scales, every story flag,
     /// and where you stand. It also sets the clock's pace (story minutes per real minute, hours a sitting) and the
-    /// register box the checkpoints sign with, which this device remembers, so a pace being tried survives reloads and relaunches. Flags and places change what a screen offers, so closing after either boots the
+    /// register box the checkpoints sign with, and the art style, which this device remembers, so a pace being tried survives reloads and relaunches. Flags and places change what a screen offers, so closing after either boots the
     /// city again from the save. The city adds it in Editor and Development builds only.
     /// </summary>
     public sealed class DebugPanel : MonoBehaviour
@@ -125,6 +125,17 @@ namespace Starflare.Game
                 () => pace.StoryMinutesPerRealMinute = rate, RateKey, rate)));
             Buttons(Array.ConvertAll(Caps, cap => PaceButton($"{cap} h", cap == pace.MaxHoursPerSitting,
                 () => pace.MaxHoursPerSitting = cap, CapKey, cap)));
+
+            // Missing pictures in a style show the base art, so a style can be compared before it's finished.
+            Heading("Art style (boots the game again; this device keeps it)");
+            string current = ArtStyles.Current;
+            Buttons(Array.ConvertAll(ArtStyles.All, style => (style == current ? $"<color=#5cc9d1>{style}</color>" : style,
+                (UnityAction)(() =>
+                {
+                    if (style == current) return;
+                    ArtStyles.Choose(style);
+                    _host.Reload();
+                }))));
 
             Heading("Hidden scales");
             var scales = state.Scales;
