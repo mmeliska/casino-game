@@ -53,7 +53,7 @@ You meet him when Kasia sends you over with the Tuesday league's free-drink coup
 
 ## Voice
 
-Friendly and easy with league bowlers, flat and indifferent with everyone else; talks while he works. Respects serious bowlers and grumbles about casuals who don't know the rules and leave a mess on the lanes (Mike's real-world detail). Never says "dice" inside the alley; it's "the late game". Lies with a shrug and "Couldn't tell you." Bowling in the Tuesday league is how you warm him up. "Lane six is running dry tonight. Move left two boards." (Settled 2026-10-23.)
+Friendly and easy with league bowlers, flat and indifferent with everyone else; talks while he works. Respects serious bowlers and grumbles about casuals who don't know the rules and leave a mess on the lanes (Mike's real-world detail). Never says "dice" inside the alley; it's "the late game". Lies with a shrug and "Couldn't tell you." While the lanes are running, that's all you get about the steel door; after the last frame (midnight to dawn) the door's open to anyone, and he runs the game from the edge of the circle without betting (Mike, 2026-11-20). Bowling in the Tuesday league is how you warm him up. "Lane six is running dry tonight. Move left two boards." (Settled 2026-10-23.)
 
 ### Voice sheet (settled 2026-10-18; write every line of dialogue to this)
 

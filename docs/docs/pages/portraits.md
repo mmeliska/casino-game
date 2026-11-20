@@ -53,7 +53,7 @@ Each character's sheet prompt and pose table is on their own page, under **Portr
 
 - Core: [Gus](#gus), [Kasia](#kasia), [Rosa](#rosa), [Jalen](#jalen), [Chase / Brooke](#chase), [Ray](#ray), [Bennett](#bennett), [Vivian](#vivian), [Tae](#tae)
 - Supporting: [Dot](#dot), [Stella](#stella), [Pete](#pete), [Mitch](#mitch), [Juan](#juan), [Raffy](#raffy), [Kiran](#kiran), [Wren](#wren), [Ed](#ed), [Mayor Dabareski](#mayor)
-- Minor, with portrait: [Richard](#richard), [Troy](#troy), Walt, Lorraine and Augie below, the maid of honor and the bride's brother, and the trucker below (they have no pages)
+- Minor, with portrait: [Richard](#richard), [Troy](#troy), Walt, Lorraine and Augie below, the maid of honor and the bride's brother, the trucker, and the back-lot regulars' faces below (they have no pages)
 - Romance: [Miles / Audrey](#miles), [Felix / Nora](#felix), [Graham / Claire](#graham)
 
 The player has no portrait: they're a blank slate.
@@ -208,6 +208,45 @@ The trucker: a Black man in his late 40s, big and broad-shouldered, short greyin
 | `trucker_short` | rubbing the back of his neck, embarrassed, eyes down | "Card won't go through. I'm twenty short on diesel." |
 | `trucker_thanks` | one open hand raised, palm up, a grateful grin | "Anything heavy needs moving, you find me." |
 
+### The back-lot regulars (faces only)
+
+Three players in Juan's late game at Millstone Lanes (Mike, 2026-11-20). They have no poses, only a face each, shown small around the chalk circle to mark who's in the game and whose throw it is. Every detail of their looks is a proposal.
+
+**Face rules** (they differ from the full-body rules above): head and shoulders, square 1:1, facing the viewer or turned slightly toward the viewer's left, on the same flat light grey. They read at thumbnail size, so each has one strong colour and a clear silhouette. Save each under its tag in `Images/Characters/`.
+
+#### The league bowler
+
+Bets right, every time, and says so.
+
+`backlot_league` (face, square 1:1)
+
+```
+Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles.
+The league bowler: a heavy-set white man in his late 50s, bald on top with a grey horseshoe of hair, a red face, a big grin. A short-sleeved two-tone bowling shirt, cream with a maroon yoke, collar open, a pen in the chest pocket.
+```
+
+#### The cab driver
+
+Small bets, steady; off her shift and on her way home.
+
+`backlot_cabbie` (face, square 1:1)
+
+```
+Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles.
+The cab driver: a Black woman in her early 60s, lean, short grey natural hair, reading glasses pushed up on her head, a dry half-smile, tired eyes. A dark green quilted jacket zipped to the collar over a grey turtleneck.
+```
+
+#### The line cook
+
+Bets wrong, quietly, and doesn't apologise.
+
+`backlot_cook` (face, square 1:1)
+
+```
+Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles.
+The line cook: a Vietnamese-American man in his mid 20s, slim, black hair pushed back under a dark knit beanie, a thin moustache, a guarded look. A faded black hooded sweatshirt over a white cook's tee, the neckline grease-spotted.
+```
+
 ## Not settled yet
 
 Every detail the docs don't settle is proposed in the prompts and listed on each page under **Proposed, not settled**. A few need a decision across characters:
@@ -218,4 +257,5 @@ Every detail the docs don't settle is proposed in the prompts and listed on each
 | Bennett, Richard | Proposed as white, sharing a strong square jaw so the desk photo clicks. |
 | Alice | No look at all, but she appears in Dot's old-photo panels (two women on a beach, one in each shirt). Not prompted yet. |
 | Walt, Lorraine, Augie | Everything but their role; the looks above are proposals. |
+| The back-lot regulars | Everything; the three faces above are proposals. |
 | The house uniform | Jalen's host jacket is proposed as midnight blue with a gold rocket pin; the new Starflare's staff should match. |

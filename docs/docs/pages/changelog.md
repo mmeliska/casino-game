@@ -1,5 +1,17 @@
 ## 20 Nov 2026
 
+### Street craps in the back lot
+
+Juan's late game has its rules (Mike), written up in the GDD under [Street craps](#gdd). The back door opens to anyone after the last frame, from midnight to dawn; before that Juan still shrugs. You and three regulars stand around the chalk circle and the dice go around: a shooter keeps them until they seven out. Bets are $1 to $20: right or wrong at even money, and once a point is set, a bet for or against it at true odds. The regulars always fade your bets, and Juan's cut, $1 from every winning bet of $5 or more, is the only edge and the parts money. The dice are always fair.
+
+The regulars are walk-ons shown only as faces around the circle: a league bowler, a cab driver and a line cook. Their face prompts are on [Portrait prompts](#portraits), with face rules of their own (head and shoulders, square).
+
+Heat is now counted in points under its four steps (0 none, 1 to 3 low, 4 to 7 medium, 8 and up high). Each night you play an illegal game adds that place's points once: 1 for the back lot, 1 for Kasia's back room.
+
+### The late game is on the asphalt
+
+The dice in Millstone Lanes' back lot are street craps in a chalk circle, never on a felt table (Mike); the felt table starts at the Flare. The back lot is drawn (Mike) and in the game as six plates, `lanes_backlot_day` and `lanes_backlot_night`, each in clear weather, rain and snow: the chalk circle under a lean-to by the steel back door, the dice thrown off the alley's brick wall. The plate prompt now asks for a wall behind the circle. See [Millstone Lanes](#millstone-lanes).
+
 ### The Prairie Queen is drawn
 
 The Prairie Queen is drawn (Mike) and in the game as wide plates, ready for its slice. The landing has six: day and night, each in clear weather, rain and snow. The salon has five: day and night, rain by day and night, and snow at night. The deck at night in the mist, the bar corner and table four have one each. The plate tags now follow the game's `view_time` pattern (`pq_landing`, `pq_salon`, `pq_deck_night`, `pq_bar_night`, `pq_table4_night`) in place of the proposed `_mist`, `_felt` and `_corner` tags. The deck is drawn without the rocket sign, so one plate serves every sailing. Table four's felt is navy, not green. The [Prairie Queen's page](#prairie-queen) maps each image to its tag and describes the boat as drawn.

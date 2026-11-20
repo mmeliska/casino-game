@@ -103,7 +103,7 @@ Eleven places to gamble, ladder-ordered and mapped to districts. Bets and entry 
 
 | Venue | District | Games | Bets | Getting in |
 | --- | --- | --- | --- | --- |
-| Millstone Lanes (back lot) | Backwater | Craps out back; free-play slots and video poker inside (practice, no money) | $1–$20 | Anyone; sweeps likelier at high heat |
+| Millstone Lanes (back lot) | Backwater | Street craps out back; free-play slots and video poker inside (practice, no money) | $1–$20 | Anyone, after the last frame (midnight to dawn); sweeps likelier at high heat |
 | Kasia's Tap | Backwater | Poker, blackjack, licensed slots and video poker, pull tabs | $1–$50 | Bar open to all; back room after Kasia's two jobs (A1.3) |
 | Bridgehead Fuel & Food | The Bridges | Three-reel slots, video poker, pull tabs, scratchers | $1–$5 | Anyone |
 | Starflare Club (the Flare) | The Levee | Rocket slots, video poker, blackjack, craps, roulette, poker, keno, the Rocket Wheel | $5–$100 | Anyone, until the fall |
@@ -126,7 +126,7 @@ Each game is a self-contained module that plays continuously, round after round,
 | Slots | ~5 s | Every venue but the yachts, themed per venue | Simplest; one engine with per-venue reel sets |
 | Video poker | ~10 s | Most venues (not the Cinder Room or the yachts) | Jacks or Better is enough to start |
 | Blackjack | ~20 s | Kasia's back room and up | Strongest fit for one-handed portrait play; the planned first prototype |
-| Craps | ~20 s | Millstone back lot (street rules) and every casino | Street version uses simplified rules |
+| Craps | ~20 s | Millstone back lot (street rules) and every casino | One set of rules with two screens: the street game in the chalk circle, the felt table from the Flare up. See Street craps below |
 | Roulette | ~20 s | The Flare and up | The bet board needs careful touch layout |
 | Poker | 1–2 min | Kasia's back room and up; private games | Needs opponent AI; the vehicle for named characters (the rival, Vivian); Jalen deals only the last night's no-money game |
 | Extras | Varies | Per venue | Keno, pull tabs, scratchers, the Rocket Wheel, baccarat, casino war |
@@ -135,6 +135,21 @@ Each game is a self-contained module that plays continuously, round after round,
 - **Story-event games** can be played a set number of rounds inside a scene, like the one-pass game of War with Richard (10 cards each, most cards wins). Venue games stay endlessly replayable.
 - **One-off cons are events, not games:** three-card monte, a bookie, Mitch's race book and Haybale Downs bets are scenes with a payout, not modules.
 - **Millstone Lanes' machines** are free play, the one exception to playing for money.
+
+### Street craps (the late game)
+
+Juan's dice in Millstone Lanes' back lot (Mike, 2026-11-20). Starting values to tune in playtesting.
+
+- **No table.** A chalk circle on the asphalt under the lean-to by the back door, the dice thrown off the alley's brick wall. Cash, not chips. The felt table starts at the Flare.
+- **When.** After the last frame: the back door is open from midnight to dawn. Earlier, Juan shrugs at it ("Couldn't tell you").
+- **The circle.** You and three regulars, each shown as a face around the circle (walk-ons, faces only). Juan runs the game from the edge and doesn't bet.
+- **The dice go around.** A shooter keeps the dice until they seven out (a 7 after a point is set), then they pass to the next in the circle. You tap to throw on your turn; the regulars' throws play themselves. You can bet on anyone's roll or sit it out.
+- **Bets, $1–$20 each.** *Right* (the shooter wins: 7 or 11 on the come-out, or makes the point before a 7) and *wrong* (the reverse; 2 or 3 on the come-out wins, 12 is a push), both even money. Once a point is set, a *point bet* for it (pays 2 to 1 on 4 and 10, 3 to 2 on 5 and 9, 6 to 5 on 6 and 8) or against it (the reverse: 1 to 2, 2 to 3, 5 to 6). These are true odds; the bet buttons offer only amounts that pay whole dollars.
+- **The regulars fade you.** Someone in the circle always takes the other side of any bet; nobody runs dry.
+- **Juan's cut** is the only edge: $1 from every winning bet of $5 or more, none from smaller ones. That's the parts money.
+- **Rounds and getting up.** Every roll that settles any of your bets is a settled round (reported, autosaved). You get up between rolls when nothing of yours is riding; that's the break point.
+- **Fair.** The dice are always fair. Loaded dice exist only inside R3, after a story moment flags them.
+- **Heat.** Each night you play here adds a heat point (below).
 
 ## Fair play and the cheating rule
 
@@ -149,6 +164,8 @@ Ordinary play is always fair: a losing player is never being cheated by the game
 ## Heat and the camera network
 
 Heat has four steps: none, low (they know you), medium (warnings and sweeps) and high (a raid: you lose the table money, pay a fine or spend a night in Lock Street lockup, and the venue goes quiet for a while). Ed, the honest vice cop, is its face.
+
+**Heat is counted in points** (Mike, 2026-11-20; starting values to tune). The steps are thresholds: 0 is none, 1–3 low, 4–7 medium, 8 and up high. Each night you play an illegal game adds that place's points once, however many rounds you play: 1 for the Millstone back lot and 1 for Kasia's back room. Dropping a step puts you at the top of the step below. The points are hidden; the player sees the step.
 
 - **Raises heat:** illegal games (Millstone dice, Kasia's back room, every Cinder Room visit, Mitch's book), crooked jobs and the dirty versions of the act 4 routes. Kasia's bar machines are licensed, and her under-the-counter pull tabs are too small for Ed to care about.
 - **Lowers heat:** one step per week of licensed-only play; Vivian's lawyer clears a raid for a fee; a tip to Ed drops it at once but starts the informant path (R4).
