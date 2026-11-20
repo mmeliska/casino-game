@@ -1,10 +1,10 @@
 ## About
 
-Juan's struggling bowling alley. He bought it from the old owner on a handshake payment plan (Mike, 2026-10-30), keeps the ancient pinsetters running with spare parts and stubbornness, and runs dice out back after the last frame; the dice money pays for the parts. Inside, the machines are free play, just for fun: the place to practise. It refuses Revaris cameras (Juan's dice and his regulars). Ed talks straight here.
+Juan's struggling bowling alley. He bought it from the old owner on a handshake payment plan (Mike, 2026-10-30), keeps the ancient pinsetters running with spare parts and stubbornness, and runs dice out back after the last frame; the dice money pays for the parts. Inside, by the bar, a few licensed slots and video poker machines pay real money, like Kasia's (Mike, 2026-11-20; Backwater bars can run licensed terminals). It refuses Revaris cameras (Juan's dice and his regulars). Ed talks straight here.
 
 | District | Games | Bets | Getting in | Who you'll find |
 | --- | --- | --- | --- | --- |
-| Backwater | Street craps in the back lot (real money); inside, bowling-themed slots and video poker on free play, just for fun | $1–$20 | Anyone, after the last frame (midnight to dawn; Mike, 2026-11-20); sweeps likelier when your heat is high | Juan, league regulars; Raffy hiding out later |
+| Backwater | Street craps in the back lot; inside, licensed bowling-themed slots and video poker | $1–$20 | Anyone; the late game runs 10 p.m. to 3 a.m., and the back lot is open any time (Mike, 2026-11-20); sweeps likelier when your heat is high | Juan, league regulars; Raffy hiding out later |
 
 ## Look and mood
 
@@ -14,7 +14,7 @@ The bowling-alley sign is one of Backwater's key lights. Inside: league night, w
 
 For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the negative prompts and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
 
-**Proposed, not settled:** eight lanes; the alley's sign as a big blank bowling-pin shape; the shoe counter beside the free-play machines; the back lot's chalk circle under a bulb. The late game is street craps on the asphalt, never a felt table (Mike, 2026-11-20).
+**Proposed, not settled:** eight lanes; the alley's sign as a big blank bowling-pin shape; the shoe counter beside the machines; the back lot's chalk circle under a bulb. The late game is street craps on the asphalt, never a felt table (Mike, 2026-11-20).
 
 **The back lot as drawn** (Mike, 2026-11-20): the chalk circle sits on a concrete pad under a lean-to roof on steel posts, by the steel back door and its bulb; the dice go off the alley's own brick wall. A dumpster, a drain grate, a chain-link fence and the lit mill beyond. Six plates: `lanes_backlot_day`, `_night`, each with `_rain` and `_winter`.
 
@@ -48,9 +48,9 @@ After Umbra wins at the Lanes (R3): one lane's lights out. Make it from the lane
 Background plate, no people. Inside an old bowling alley: worn wooden lanes running away from the viewer, pins lit at the far end except one lane that is completely dark, retro scoring consoles and moulded seats in the foreground. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
-### The shoe counter and the free-play machines
+### The shoe counter and the machines
 
-Practising on free play; talking with Juan at the counter; Ed talking straight.
+Playing the machines; talking with Juan at the counter; Ed talking straight.
 
 `lanes_counter_night` (plate, portrait 9:16)
 

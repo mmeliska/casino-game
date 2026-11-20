@@ -20,7 +20,7 @@ Northlight has five districts, poorest to richest, and the climb from one to the
 
 ## Venues
 
-Eleven places to gamble, from the settled venue table (the RailYard was added 2026-10-19) in Planning Tasks task 3. Bets and entry rules are starting values. Regular play everywhere is fair; any doubt about a table is a story moment. Every venue except the yacht games has a few versions of slots themed to the place (themes are proposals), and video poker is everywhere except the Cinder Room and the yachts. Millstone Lanes' machines are free play, just for fun: the place to practise. Games, who you'll find and the full entry rules are on each venue's page.
+Eleven places to gamble, from the settled venue table (the RailYard was added 2026-10-19) in Planning Tasks task 3. Bets and entry rules are starting values. Regular play everywhere is fair; any doubt about a table is a story moment. Every venue except the yacht games has a few versions of slots themed to the place (themes are proposals), and video poker is everywhere except the Cinder Room and the yachts. Millstone Lanes' machines are licensed and pay real money, like Kasia's (Mike, 2026-11-20). Games, who you'll find and the full entry rules are on each venue's page.
 
 | Venue | District | Bets | Getting in |
 | --- | --- | --- | --- |

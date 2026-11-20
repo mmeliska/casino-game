@@ -2,11 +2,15 @@
 
 ### Street craps in the back lot
 
-Juan's late game has its rules (Mike), written up in the GDD under [Street craps](#gdd). The back door opens to anyone after the last frame, from midnight to dawn; before that Juan still shrugs. You and three regulars stand around the chalk circle and the dice go around: a shooter keeps them until they seven out. Bets are $1 to $20: right or wrong at even money, and once a point is set, a bet for or against it at true odds. The regulars always fade your bets, and Juan's cut, $1 from every winning bet of $5 or more, is the only edge and the parts money. The dice are always fair.
+Juan's late game has its rules (Mike), written up in the GDD under [Street craps](#gdd). The game runs after the last frame, 10 p.m. to 3 a.m.; you can step out back any time, and outside those hours it's the empty lot. You and three regulars stand around the chalk circle and the dice go around: a shooter keeps them until they seven out. To shoot you bet right, and you tap to call each regular's throw. Your first time, Juan coaches a practice turn where no money changes hands. Bets are $1 to $20: right or wrong at even money, and once a point is set, a bet for or against it at true odds. The regulars always fade your bets, and Juan's cut, $1 from every winning bet of $5 or more, is the only edge and the parts money. The dice are always fair.
 
 The regulars are walk-ons shown only as faces around the circle: a league bowler, a cab driver and a line cook. Their face prompts are on [Portrait prompts](#portraits), with face rules of their own (head and shoulders, square).
 
-Heat is now counted in points under its four steps (0 none, 1 to 3 low, 4 to 7 medium, 8 and up high). Each night you play an illegal game adds that place's points once: 1 for the back lot, 1 for Kasia's back room.
+Heat is now counted in points under its four steps (0 none, 1 to 3 low, 4 to 7 medium, 8 and up high). Each night you play an illegal game adds that place's points once: 1 for the back lot, 1 for Kasia's back room. The step shows as an icon in the status bar.
+
+### The Lanes' machines are licensed
+
+Millstone Lanes' slots and video poker were free play, the one exception to playing for money. Under the 6 Nov rule (Backwater bars can run licensed terminals) they're licensed and pay real money, like Kasia's, and raise no heat (Mike). The exception is gone from the GDD.
 
 ### The late game is on the asphalt
 

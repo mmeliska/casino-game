@@ -103,7 +103,7 @@ Eleven places to gamble, ladder-ordered and mapped to districts. Bets and entry 
 
 | Venue | District | Games | Bets | Getting in |
 | --- | --- | --- | --- | --- |
-| Millstone Lanes (back lot) | Backwater | Street craps out back; free-play slots and video poker inside (practice, no money) | $1–$20 | Anyone, after the last frame (midnight to dawn); sweeps likelier at high heat |
+| Millstone Lanes (back lot) | Backwater | Street craps out back; licensed slots and video poker inside | $1–$20 | Anyone; the late game runs 10 p.m. to 3 a.m.; sweeps likelier at high heat |
 | Kasia's Tap | Backwater | Poker, blackjack, licensed slots and video poker, pull tabs | $1–$50 | Bar open to all; back room after Kasia's two jobs (A1.3) |
 | Bridgehead Fuel & Food | The Bridges | Three-reel slots, video poker, pull tabs, scratchers | $1–$5 | Anyone |
 | Starflare Club (the Flare) | The Levee | Rocket slots, video poker, blackjack, craps, roulette, poker, keno, the Rocket Wheel | $5–$100 | Anyone, until the fall |
@@ -134,20 +134,20 @@ Each game is a self-contained module that plays continuously, round after round,
 - **Core five:** slots, blackjack, craps, roulette, poker.
 - **Story-event games** can be played a set number of rounds inside a scene, like the one-pass game of War with Richard (10 cards each, most cards wins). Venue games stay endlessly replayable.
 - **One-off cons are events, not games:** three-card monte, a bookie, Mitch's race book and Haybale Downs bets are scenes with a payout, not modules.
-- **Millstone Lanes' machines** are free play, the one exception to playing for money.
 
 ### Street craps (the late game)
 
 Juan's dice in Millstone Lanes' back lot (Mike, 2026-11-20). Starting values to tune in playtesting.
 
 - **No table.** A chalk circle on the asphalt under the lean-to by the back door, the dice thrown off the alley's brick wall. Cash, not chips. The felt table starts at the Flare.
-- **When.** After the last frame: the back door is open from midnight to dawn. Earlier, Juan shrugs at it ("Couldn't tell you").
+- **When.** After the last frame: the game runs from 10 p.m. to 3 a.m. You can step out back any time; outside those hours it's the empty lot and the chalk circle (Mike, 2026-11-20).
 - **The circle.** You and three regulars, each shown as a face around the circle (walk-ons, faces only). Juan runs the game from the edge and doesn't bet.
-- **The dice go around.** A shooter keeps the dice until they seven out (a 7 after a point is set), then they pass to the next in the circle. You tap to throw on your turn; the regulars' throws play themselves. You can bet on anyone's roll or sit it out.
+- **The dice go around.** A shooter keeps the dice until they seven out (a 7 after a point is set), then they pass to the next in the circle. You tap to throw on your turn, and tap to call each regular's throw once your bets are down, so nothing happens while you think. You can bet on anyone's roll or sit it out. To shoot a come-out you bet right, at least $1; if you won't, the dice pass (Mike, 2026-11-20).
 - **Bets, $1–$20 each.** *Right* (the shooter wins: 7 or 11 on the come-out, or makes the point before a 7) and *wrong* (the reverse; 2 or 3 on the come-out wins, 12 is a push), both even money. Once a point is set, a *point bet* for it (pays 2 to 1 on 4 and 10, 3 to 2 on 5 and 9, 6 to 5 on 6 and 8) or against it (the reverse: 1 to 2, 2 to 3, 5 to 6). These are true odds; the bet buttons offer only amounts that pay whole dollars.
 - **The regulars fade you.** Someone in the circle always takes the other side of any bet; nobody runs dry.
 - **Juan's cut** is the only edge: $1 from every winning bet of $5 or more, none from smaller ones. That's the parts money.
 - **Rounds and getting up.** Every roll that settles any of your bets is a settled round (reported, autosaved). You get up between rolls when nothing of yours is riding; that's the break point.
+- **Juan's practice roll.** Your first time in the circle, Juan coaches a practice turn, pointing at each button as you press it. No money changes hands and nothing counts. Set dice: a come-out 6 sets the point, a 6 makes it, a come-out 10 sets a new point, and a 7 ends the turn and the dice pass. From then on it's real money and fair dice (Mike, 2026-11-20).
 - **Fair.** The dice are always fair. Loaded dice exist only inside R3, after a story moment flags them.
 - **Heat.** Each night you play here adds a heat point (below).
 
@@ -165,7 +165,7 @@ Ordinary play is always fair: a losing player is never being cheated by the game
 
 Heat has four steps: none, low (they know you), medium (warnings and sweeps) and high (a raid: you lose the table money, pay a fine or spend a night in Lock Street lockup, and the venue goes quiet for a while). Ed, the honest vice cop, is its face.
 
-**Heat is counted in points** (Mike, 2026-11-20; starting values to tune). The steps are thresholds: 0 is none, 1–3 low, 4–7 medium, 8 and up high. Each night you play an illegal game adds that place's points once, however many rounds you play: 1 for the Millstone back lot and 1 for Kasia's back room. Dropping a step puts you at the top of the step below. The points are hidden; the player sees the step.
+**Heat is counted in points** (Mike, 2026-11-20; starting values to tune). The steps are thresholds: 0 is none, 1–3 low, 4–7 medium, 8 and up high. Each night you play an illegal game adds that place's points once, however many rounds you play: 1 for the Millstone back lot and 1 for Kasia's back room. Dropping a step puts you at the top of the step below. The points are hidden; the player sees the step, as an icon in the status bar (Mike, 2026-11-20).
 
 - **Raises heat:** illegal games (Millstone dice, Kasia's back room, every Cinder Room visit, Mitch's book), crooked jobs and the dirty versions of the act 4 routes. Kasia's bar machines are licensed, and her under-the-counter pull tabs are too small for Ed to care about.
 - **Lowers heat:** one step per week of licensed-only play; Vivian's lawyer clears a raid for a fee; a tip to Ed drops it at once but starts the informant path (R4).
