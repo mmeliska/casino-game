@@ -1,8 +1,8 @@
 """Writes the city map layout sketch (a composition reference for the generator, no text)
-and a pin check: the numbered pins drawn over a small copy of the final map, Images/Map/city_map.png.
+and a pin check: the numbered pins drawn over a small copy of the final map, Images/Map/city_map_2.png.
 The pins are measured on the final map and match the table under "The city map" on the Northlight page.
 
-    sips -Z 1000 Images/Map/city_map.png --out /tmp/city_map_small.png
+    sips -Z 1000 Images/Map/city_map_2.png --out /tmp/city_map_small.png
     python3 tools/map_layout.py Images/Map /tmp/city_map_small.png
     cd Images/Map && qlmanage -t -s 1000 -o . city_map_layout.svg city_map_pins.svg
 """
@@ -29,7 +29,7 @@ ZONES = [  # name, fill, polygon
     ("Silvershore", "#3f6b4a", "660,345 776,345 778,440 788,620 778,820 790,1000 660,1000"),
 ]
 
-PINS = [  # n, x, y, label: measured on the final map, Images/Map/city_map.png
+PINS = [  # n, x, y, label: measured on the final map, Images/Map/city_map_2.png
     (1, 450, 318, "Slack Water Motel"), (2, 405, 298, "Kasia's Tap"), (3, 220, 440, "Millstone Lanes"),
     (4, 215, 650, "Backwater streets"), (5, 345, 322, "Your car"), (6, 300, 300, "Bridgehead"),
     (7, 255, 345, "Loan &amp; Pawn"), (8, 375, 357, "Long Bridge"), (9, 545, 372, "The Flare / Field"),

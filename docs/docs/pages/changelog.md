@@ -1,3 +1,13 @@
+## 20 Nov 2026
+
+### The Prairie Queen is drawn
+
+The Prairie Queen is drawn (Mike) and in the game as wide plates, ready for its slice. The landing has six: day and night, each in clear weather, rain and snow. The salon has five: day and night, rain by day and night, and snow at night. The deck at night in the mist, the bar corner and table four have one each. The plate tags now follow the game's `view_time` pattern (`pq_landing`, `pq_salon`, `pq_deck_night`, `pq_bar_night`, `pq_table4_night`) in place of the proposed `_mist`, `_felt` and `_corner` tags. The deck is drawn without the rocket sign, so one plate serves every sailing. Table four's felt is navy, not green. The [Prairie Queen's page](#prairie-queen) maps each image to its tag and describes the boat as drawn.
+
+### A new city map
+
+The city map is redrawn (Mike) as `Images/Map/city_map_2.png`, in an engraved style with street blocks, the Mile's lit grid, Silvershore's gardens and the farm fields. The layout is unchanged, so every pin still sits where it did; the pin check is redrawn over it. The game's phone map now uses it.
+
 ## 9 Nov 2026
 
 ### No more orange cast
