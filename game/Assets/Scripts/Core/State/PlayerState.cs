@@ -6,8 +6,8 @@ namespace Starflare.State
     public enum RegisterBox { Unticked, Mr, Ms, PreferNotToAnswer }
 
     /// <summary>
-    /// The slice of the GDD's player state model the prototype needs. Heat, NPC state, flags
-    /// and Pockets join it as their systems are built.
+    /// The slice of the GDD's player state model the prototype needs. NPC state, flags and
+    /// Pockets join it as their systems are built.
     ///
     /// Every change goes through a method here and raises <see cref="Changed"/>, so the owner
     /// can save and the screens can redraw without polling. The fields stay public for the
@@ -17,7 +17,7 @@ namespace Starflare.State
     public sealed class PlayerState
     {
         /// <summary>The save schema this code writes. Bump it with a migration step in the save store.</summary>
-        public const int CurrentVersion = 3;
+        public const int CurrentVersion = 4;
 
         /// <summary>You drive in with about $200 and a car (A1.1).</summary>
         public const int StartingBankroll = 200;
@@ -47,6 +47,9 @@ namespace Starflare.State
         /// <summary>The four hidden scales, nudged by choices in scenes and jobs.</summary>
         public Scales Scales = new Scales();
 
+        /// <summary>What the police know about your illegal play (GDD, "Heat").</summary>
+        public Heat Heat = new Heat();
+
         /// <summary>Raised after every settled change, once per change. Never mid-round.</summary>
         [field: NonSerialized]
         public event Action Changed;
@@ -54,6 +57,8 @@ namespace Starflare.State
         public int OwnMoney => BankrollNow - Debts;
 
         public bool HasSigned => !string.IsNullOrEmpty(Name);
+
+        public HeatStep HeatStep => Heat.Step;
 
         /// <summary>Signing the register: set once, used from then on.</summary>
         public void SignRegister(string name, RegisterBox box)
@@ -85,6 +90,7 @@ namespace Starflare.State
             BankrollNow += net;
             RoundsPlayed++;
             Clock.Advance(minutes);
+            ClockMoved();
             RaiseBestBankroll();
             Changed?.Invoke();
         }
@@ -111,6 +117,7 @@ namespace Starflare.State
             if (hours < 0) throw new ArgumentOutOfRangeException(nameof(hours));
             BankrollNow += pay;
             Clock.Advance(hours * 60);
+            ClockMoved();
             RaiseBestBankroll();
             Changed?.Invoke();
         }
@@ -149,6 +156,7 @@ namespace Starflare.State
             if (minutes < 0) throw new ArgumentOutOfRangeException(nameof(minutes));
             if (minutes == 0) return;
             Clock.Advance(minutes);
+            ClockMoved();
             Changed?.Invoke();
         }
 
@@ -156,6 +164,7 @@ namespace Starflare.State
         public void Sleep()
         {
             Clock.Sleep();
+            ClockMoved();
             Changed?.Invoke();
         }
 
@@ -167,8 +176,31 @@ namespace Starflare.State
             if (place == Place) return;
             Place = place;
             Clock.Advance(travelMinutes);
+            ClockMoved();
             Changed?.Invoke();
         }
+
+        /// <summary>
+        /// Sitting down at an illegal game: <paramref name="place"/>'s heat points count once a
+        /// night, however many sittings or rounds. A venue calls it, never a game, since the
+        /// same table can be legal in one place and not in another.
+        /// </summary>
+        public void PlayIllegalGame(string place, int points)
+        {
+            if (Heat.Raise(place, points, Clock.Night)) Changed?.Invoke();
+        }
+
+        /// <summary>The debug panel's switch for testing heat. Play never calls it.</summary>
+        public void SetHeatPoints(int points)
+        {
+            if (points < 0) throw new ArgumentOutOfRangeException(nameof(points));
+            Heat.Points = points;
+            Heat.CoolingFrom = Clock.Night;
+            Changed?.Invoke();
+        }
+
+        /// <summary>Every move of the clock lets heat cool, a step per week with no illegal play.</summary>
+        void ClockMoved() => Heat.Cool(Clock.Night);
 
         void RaiseBestBankroll()
         {

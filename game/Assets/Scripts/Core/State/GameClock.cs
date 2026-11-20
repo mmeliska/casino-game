@@ -47,6 +47,13 @@ namespace Starflare.State
             : MinuteOfDay < NightStart ? PartOfDay.Afternoon
             : PartOfDay.Night;
 
+        /// <summary>
+        /// Which night it is, for things counted once a night (heat): the day's number, but the
+        /// hours before dawn still belong to the night before, so midnight at the late game
+        /// doesn't start a new night.
+        /// </summary>
+        public int Night => MinuteOfDay < MorningStart ? Day - 1 : Day;
+
         /// <summary>Where each part of the day starts, minutes after midnight.</summary>
         public static int StartOf(PartOfDay part) => part switch
         {

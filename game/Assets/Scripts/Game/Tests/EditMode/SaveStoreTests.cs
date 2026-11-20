@@ -151,6 +151,52 @@ namespace Starflare.Tests
             Assert.That(state.Scales.Reliable, Is.EqualTo(-1));
         }
 
+        /// <summary>A version 3 save had no heat; it reads as none, with nothing played tonight.</summary>
+        [Test]
+        public void VersionThree_MigratesForward_WithNoHeat()
+        {
+            const string versionThree = @"{
+                ""Version"": 3,
+                ""BankrollNow"": 180,
+                ""BestBankroll"": 260,
+                ""Debts"": 0,
+                ""RoundsPlayed"": 52,
+                ""Name"": ""Pat"",
+                ""Box"": 1,
+                ""Place"": ""millstone-lanes"",
+                ""Clock"": { ""Day"": 9, ""MinuteOfDay"": 30 },
+                ""Scales"": { ""Generous"": 0, ""Reliable"": 1, ""Ruthless"": 0, ""Straight"": -1 }
+            }";
+            var state = SaveStore.Parse(versionThree);
+            Assert.That(state.Version, Is.EqualTo(PlayerState.CurrentVersion));
+            Assert.That(state.BankrollNow, Is.EqualTo(180));
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("0:30"));
+            Assert.That(state.Heat, Is.Not.Null);
+            Assert.That(state.HeatStep, Is.EqualTo(HeatStep.None));
+            Assert.That(state.Heat.PlayedTonight, Is.Not.Null);
+
+            state.PlayIllegalGame("millstone-lanes", 1);
+            Assert.That(state.HeatStep, Is.EqualTo(HeatStep.Low));
+        }
+
+        /// <summary>Heat, with tonight's places, survives a save and a load.</summary>
+        [Test]
+        public void Heat_RoundTrips()
+        {
+            var state = new PlayerState();
+            state.PlayIllegalGame("kasias-tap", 1);
+            state.SetHeatPoints(5);
+            _store.Save(state);
+
+            var loaded = _store.Load();
+            Assert.That(loaded.Heat.Points, Is.EqualTo(5));
+            Assert.That(loaded.HeatStep, Is.EqualTo(HeatStep.Medium));
+            Assert.That(loaded.Heat.PlayedTonight, Is.EquivalentTo(new[] { "kasias-tap" }));
+
+            loaded.PlayIllegalGame("kasias-tap", 1);
+            Assert.That(loaded.Heat.Points, Is.EqualTo(5), "The same place, the same night, counts once.");
+        }
+
         [Test]
         public void ANewerSave_IsRefused()
         {

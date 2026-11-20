@@ -150,6 +150,13 @@ namespace Starflare.Game
                 Small(row, up, () => state.Lean(up));
             }
 
+            Heading("Heat (illegal play; a step cools each week without it)");
+            var heatRow = MakeRow(_content, "Heat");
+            var heatLabel = MakeText(heatRow, $"{state.HeatStep}  ({state.Heat.Points} points)", 34, TextAnchor.MiddleLeft, Row);
+            heatLabel.GetComponent<LayoutElement>().flexibleWidth = 1;
+            Small(heatRow, "-1", () => state.SetHeatPoints(Math.Max(0, state.Heat.Points - 1)));
+            Small(heatRow, "+1", () => state.SetHeatPoints(state.Heat.Points + 1));
+
             Heading("Go to (boots the game there)");
             foreach (var place in _host.Places)
             {

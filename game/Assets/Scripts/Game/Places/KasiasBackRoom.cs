@@ -21,6 +21,9 @@ namespace Starflare.Game
 
         static readonly int[] RosasChips = { 1, 5, 25 };
 
+        /// <summary>The back room is an illegal game: a heat point the nights you sit down (Mike, 2026-11-20).</summary>
+        const int HeatPerNight = 1;
+
         /// <summary>Your 10 and 8 against her ace with a 6 under it, at $10 on the house; then cards for any hits.</summary>
         static PracticeHand RosasFirstHand() => new PracticeHand(10,
             new Card(Rank.Ten, Suit.Spades), new Card(Rank.Ace, Suit.Hearts),
@@ -60,6 +63,7 @@ namespace Starflare.Game
 
         void SitDownNow()
         {
+            _host.State.PlayIllegalGame(KasiasTap.PlaceId, HeatPerNight);
             if (_host.Story.Flag(StoryContract.SatWithRosa))
             {
                 _table.SitDown(_host.State, _host.Pace);
