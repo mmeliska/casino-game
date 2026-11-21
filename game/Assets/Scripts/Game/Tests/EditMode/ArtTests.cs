@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.IO;
+using System.Text.RegularExpressions;
 using NUnit.Framework;
 using Starflare.Game;
 using Starflare.State;
@@ -101,5 +103,18 @@ namespace Starflare.Tests
         [Test]
         public void TheBaseStyle_IsOneOfTheChoices() =>
             Assert.That(ArtStyles.All, Does.Contain(ArtStyles.Base));
+
+        /// <summary>Every face in the crowd roster was imported and loads as a sprite, and each is a patron or a worker.</summary>
+        [Test]
+        public void EveryFaceInTheRoster_Loads()
+        {
+            string roster = File.ReadAllText(Path.Combine(UnityEngine.Application.dataPath, "Resources", "Faces", "faces.json"));
+            var ids = Regex.Matches(roster, "\"id\": \"([^\"]+)\"");
+            Assert.That(ids.Count, Is.GreaterThan(0));
+            foreach (Match id in ids)
+                Assert.That(Art.Face(id.Groups[1].Value), Is.Not.Null, id.Groups[1].Value);
+            foreach (Match type in Regex.Matches(roster, "\"type\": \"([^\"]+)\""))
+                Assert.That(type.Groups[1].Value, Is.EqualTo("patron").Or.EqualTo("worker"));
+        }
     }
 }

@@ -4,14 +4,14 @@ namespace Starflare.EditorTools
 {
     /// <summary>
     /// Imports scene art (Resources/Plates, Poses and Inserts, and each art style's copy of them
-    /// under Resources/Styles) and the city map (Resources/Map)
+    /// under Resources/Styles), the crowd faces (Resources/Faces) and the city map (Resources/Map)
     /// as UI sprites, so new images dropped in under their tag names work without touching the
     /// import settings.
     /// </summary>
     public sealed class ArtImporter : AssetPostprocessor
     {
         // Styles/ holds each other art style's Plates, Poses and Inserts (ArtStyles).
-        static readonly string[] Folders = { "Assets/Resources/Plates/", "Assets/Resources/Poses/", "Assets/Resources/Inserts/", "Assets/Resources/Styles/", MapFolder };
+        static readonly string[] Folders = { "Assets/Resources/Plates/", "Assets/Resources/Poses/", "Assets/Resources/Inserts/", "Assets/Resources/Faces/", "Assets/Resources/Styles/", MapFolder };
         const string MapFolder = "Assets/Resources/Map/";
 
         void OnPreprocessTexture()

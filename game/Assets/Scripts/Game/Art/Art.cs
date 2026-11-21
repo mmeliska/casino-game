@@ -52,6 +52,9 @@ namespace Starflare.Game
         public static Sprite Pose(string tag) => Load("Poses", tag);
         public static Sprite Insert(string tag) => Load("Inserts", tag);
 
+        /// <summary>A crowd face by its id in the roster, Resources/Faces/faces.json (tools/import_faces.py).</summary>
+        public static Sprite Face(string id) => Load("Faces", id);
+
         public static float Focus(string plateTag)
         {
             if (Looked.TryGetValue(ViewOf(plateTag), out float looked)) return looked;

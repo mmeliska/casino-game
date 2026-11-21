@@ -1,0 +1,221 @@
+{
+  "about": "Crowd faces: walk-ons shown as faces only, other players at the games and, later, venue staff. Each id is the face's sheet and place on it: avatars-<n>.png, row r and column c of its 2x2 grid. type is patron or worker. tools/import_faces.py slices the sheets into the game (Resources/Faces/<id>.png) and copies this roster there as faces.json.",
+  "avatars": [
+    {
+      "id": "avatars-1_r1c1",
+      "name": "Liam Doherty",
+      "type": "patron",
+      "source": "avatars-1.png",
+      "row": 1,
+      "col": 1,
+      "look": "young white man, curly red hair, wide-eyed grin, rust corduroy jacket"
+    },
+    {
+      "id": "avatars-1_r1c2",
+      "name": "Tasha Greene",
+      "type": "patron",
+      "source": "avatars-1.png",
+      "row": 1,
+      "col": 2,
+      "look": "Black woman, braids with gold cuffs, big smile, magenta satin top"
+    },
+    {
+      "id": "avatars-1_r2c1",
+      "name": "Marisol Vega",
+      "type": "patron",
+      "source": "avatars-1.png",
+      "row": 2,
+      "col": 1,
+      "look": "Latina woman in her 40s, dark hair in a loose ponytail, maroon scrubs under a jacket"
+    },
+    {
+      "id": "avatars-1_r2c2",
+      "name": "Walt Szymanski",
+      "type": "patron",
+      "source": "avatars-1.png",
+      "row": 2,
+      "col": 2,
+      "look": "old white man, wild white hair, squinting, brown work jacket over flannel"
+    },
+    {
+      "id": "avatars-2_r1c1",
+      "name": "Grace Huang",
+      "type": "patron",
+      "source": "avatars-2.png",
+      "row": 1,
+      "col": 1,
+      "look": "East Asian woman in her 60s, silver bob, stern, red turtleneck"
+    },
+    {
+      "id": "avatars-2_r1c2",
+      "name": "Marcus Bell",
+      "type": "patron",
+      "source": "avatars-2.png",
+      "row": 1,
+      "col": 2,
+      "look": "Black man in his 50s, grey goatee, easy smile, teal polo"
+    },
+    {
+      "id": "avatars-2_r2c1",
+      "name": "Priya Desai",
+      "type": "patron",
+      "source": "avatars-2.png",
+      "row": 2,
+      "col": 1,
+      "look": "South Asian woman in her 30s, long curly hair, gold earrings, blue velvet blazer"
+    },
+    {
+      "id": "avatars-2_r2c2",
+      "name": "Eddie Lim",
+      "type": "patron",
+      "source": "avatars-2.png",
+      "row": 2,
+      "col": 2,
+      "look": "heavy-set East Asian man in his 40s, sheepish smile, olive tweed jacket"
+    },
+    {
+      "id": "avatars-3_r1c1",
+      "name": "Lourdes Ortiz",
+      "type": "patron",
+      "source": "avatars-3.png",
+      "row": 1,
+      "col": 1,
+      "look": "older Latina woman, grey curls, sly smile, coral cable cardigan"
+    },
+    {
+      "id": "avatars-3_r1c2",
+      "name": "Duane Sorensen",
+      "type": "patron",
+      "source": "avatars-3.png",
+      "row": 1,
+      "col": 2,
+      "look": "heavy white man in his 40s, thinning blond hair, sceptical, red buffalo plaid"
+    },
+    {
+      "id": "avatars-3_r2c1",
+      "name": "Bernadette Wells",
+      "type": "patron",
+      "source": "avatars-3.png",
+      "row": 2,
+      "col": 1,
+      "look": "older Black woman, short grey curls, gold earrings, purple velvet blazer"
+    },
+    {
+      "id": "avatars-3_r2c2",
+      "name": "Nico Costa",
+      "type": "patron",
+      "source": "avatars-3.png",
+      "row": 2,
+      "col": 2,
+      "look": "Mediterranean man in his 40s, slicked-back hair, smug, green satin jacket"
+    },
+    {
+      "id": "avatars-4_r1c1",
+      "name": "Leilani Kahale",
+      "type": "patron",
+      "source": "avatars-4.png",
+      "row": 1,
+      "col": 1,
+      "look": "Polynesian woman in her 30s, long wavy hair, hibiscus, orange halter top"
+    },
+    {
+      "id": "avatars-4_r1c2",
+      "name": "Russ Pollard",
+      "type": "patron",
+      "source": "avatars-4.png",
+      "row": 1,
+      "col": 2,
+      "look": "lean weathered white man in his 50s, messy hair, tired, denim jacket"
+    },
+    {
+      "id": "avatars-4_r2c1",
+      "name": "Joyce Tanaka",
+      "type": "patron",
+      "source": "avatars-4.png",
+      "row": 2,
+      "col": 1,
+      "look": "East Asian woman in her 50s, grey-streaked bob, mustard corduroy blazer"
+    },
+    {
+      "id": "avatars-4_r2c2",
+      "name": "Leon Cadotte",
+      "type": "patron",
+      "source": "avatars-4.png",
+      "row": 2,
+      "col": 2,
+      "look": "Native man in his 40s, long dark hair, calm smile, red jacket with brown collar"
+    },
+    {
+      "id": "avatars-5_r1c1",
+      "name": "Remy Santos",
+      "type": "patron",
+      "source": "avatars-5.png",
+      "row": 1,
+      "col": 1,
+      "look": "Filipina woman in her 60s, wavy grey hair, warm, green draped top"
+    },
+    {
+      "id": "avatars-5_r1c2",
+      "name": "Omar Haddad",
+      "type": "patron",
+      "source": "avatars-5.png",
+      "row": 1,
+      "col": 2,
+      "look": "young man, curly dark hair, worried look, purple quarter-zip"
+    },
+    {
+      "id": "avatars-5_r2c1",
+      "name": "Carmen Ibarra",
+      "type": "patron",
+      "source": "avatars-5.png",
+      "row": 2,
+      "col": 1,
+      "look": "Latina woman in her 40s, dark bob, gold hoops, cobalt wrap top"
+    },
+    {
+      "id": "avatars-5_r2c2",
+      "name": "Sol Rubin",
+      "type": "patron",
+      "source": "avatars-5.png",
+      "row": 2,
+      "col": 2,
+      "look": "old bald man, white fringe, beaming, mustard shawl cardigan"
+    },
+    {
+      "id": "avatars-6_r1c1",
+      "name": "Dre Washington",
+      "type": "patron",
+      "source": "avatars-6.png",
+      "row": 1,
+      "col": 1,
+      "look": "young Black man, short twists, laughing, red track jacket"
+    },
+    {
+      "id": "avatars-6_r1c2",
+      "name": "Mei Chen",
+      "type": "patron",
+      "source": "avatars-6.png",
+      "row": 1,
+      "col": 2,
+      "look": "older East Asian woman, silver hair, quiet smile, plum velvet blazer"
+    },
+    {
+      "id": "avatars-6_r2c1",
+      "name": "Manny Reyes",
+      "type": "patron",
+      "source": "avatars-6.png",
+      "row": 2,
+      "col": 1,
+      "look": "bald heavy-set man in his 30s, wincing, royal blue quarter-zip"
+    },
+    {
+      "id": "avatars-6_r2c2",
+      "name": "Gabi Rojas",
+      "type": "patron",
+      "source": "avatars-6.png",
+      "row": 2,
+      "col": 2,
+      "look": "Latina woman in her 30s, long curly hair, laughing, magenta one-shoulder top"
+    }
+  ]
+}

@@ -212,7 +212,7 @@ The trucker: a Black man in his late 40s, big and broad-shouldered, short greyin
 
 Three players in Juan's late game at Millstone Lanes (Mike, 2026-11-20). They have no poses, only a face each, shown small around the chalk circle to mark who's in the game and whose throw it is. Every detail of their looks is a proposal.
 
-**Face rules** (they differ from the full-body rules above): head and shoulders, square 1:1, facing the viewer or turned slightly toward the viewer's left, on the same flat light grey. They read at thumbnail size, so each has one strong colour and a clear silhouette. Save each under its tag in `Images/Characters/`.
+**Face rules** (they differ from the full-body rules above): head and shoulders, square 1:1, facing the viewer or turned slightly toward the viewer's left, on the same flat light grey. They read at thumbnail size, so each has one strong colour and a clear silhouette. At least 512 by 512 pixels, since the circle shows each face at about 160 to 300 pixels across; larger is fine. The circle crops each face to a disc, so the head is centred with a little space around it and the corners don't matter. Save each under its tag in `Images/Characters/`.
 
 #### The league bowler
 
@@ -221,7 +221,7 @@ Bets right, every time, and says so.
 `backlot_league` (face, square 1:1)
 
 ```
-Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles.
+Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles. A square image, at least 512 by 512 pixels, the head centred with a little space around it, since it is cropped to a circle.
 The league bowler: a heavy-set white man in his late 50s, bald on top with a grey horseshoe of hair, a red face, a big grin. A short-sleeved two-tone bowling shirt, cream with a maroon yoke, collar open, a pen in the chest pocket.
 ```
 
@@ -232,7 +232,7 @@ Small bets, steady; off her shift and on her way home.
 `backlot_cabbie` (face, square 1:1)
 
 ```
-Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles.
+Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles. A square image, at least 512 by 512 pixels, the head centred with a little space around it, since it is cropped to a circle.
 The cab driver: a Black woman in her early 60s, lean, short grey natural hair, reading glasses pushed up on her head, a dry half-smile, tired eyes. A dark green quilted jacket zipped to the collar over a grey turtleneck.
 ```
 
@@ -243,7 +243,7 @@ Bets wrong, quietly, and doesn't apologise.
 `backlot_cook` (face, square 1:1)
 
 ```
-Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles.
+Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles. A square image, at least 512 by 512 pixels, the head centred with a little space around it, since it is cropped to a circle.
 The line cook: a Vietnamese-American man in his mid 20s, slim, black hair pushed back under a dark knit beanie, a thin moustache, a guarded look. A faded black hooded sweatshirt over a white cook's tee, the neckline grease-spotted.
 ```
 
