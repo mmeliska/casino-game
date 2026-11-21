@@ -1,0 +1,26 @@
+{
+    "name": "Starflare.Craps.Tests.PlayMode",
+    "rootNamespace": "Starflare.Tests",
+    "references": [
+        "Starflare.Core",
+        "Starflare.Ui",
+        "Starflare.Craps.Rules",
+        "Starflare.Craps",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro",
+        "UnityEngine.TestRunner"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
