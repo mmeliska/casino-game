@@ -1,3 +1,9 @@
+## 21 Nov 2026
+
+### Juan's cut follows the win
+
+Juan now takes $1 for every full $10 a bet wins, in his words "a dollar out of every ten you win" (Mike). The old cut, $1 from every winning bet of $5 or more, took about 11% of a $5 bet's value and nothing from a $4 one, so the smart play was never to pay him. Now no bet size dodges the cut or pays more than a tenth of a win: small bets cost about what a casino's would, and bets of $10 and up give Juan about 5 to 6%. Each win shows his dollar on its own line. See [Street craps](#gdd).
+
 ## 20 Nov 2026
 
 ### Street craps in the back lot
