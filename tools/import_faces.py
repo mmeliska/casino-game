@@ -7,7 +7,8 @@ Each face's id is its sheet and place on it, avatars-<n>_r<row>c<col>, so its pi
 can be redrawn or its name changed without touching the other.
 
 Images/Avatars/avatars.json is the roster: each face's id, name, type (patron or
-worker), sheet, row, column and a short note of its look. This slices every sheet into
+worker), sheet, row, column, a short note of its look, and venues: the place ids
+(docs/data/story.js) where the face may turn up, which a venue's crowd picks from. This slices every sheet into
 game/Assets/Resources/Faces/<id>.png and copies the roster there as faces.json, for the
 game to read (Art.Face). A face on a sheet that's not in the roster yet gets an entry
 with no name, as a patron; give it a name before it goes in a scene.
@@ -63,6 +64,9 @@ def main():
     for face in entries.values():
         if face.get("type") not in TYPES:
             raise SystemExit(f"{face['id']} has type {face.get('type')!r}; it must be one of {sorted(TYPES)}.")
+        venues = face.get("venues", [])
+        if not isinstance(venues, list) or not all(isinstance(v, str) and v for v in venues):
+            raise SystemExit(f"{face['id']} has venues {venues!r}; it must be a list of place ids.")
 
     sheets = sorted((p for p in DROP.iterdir() if SHEET.match(p.name)), key=lambda p: int(SHEET.match(p.name)[1]))
     written, added = [], []
@@ -74,7 +78,7 @@ def main():
             face_id = f"avatars-{n}_r{row}c{col}"
             if face_id not in entries:
                 entries[face_id] = {"id": face_id, "name": None, "type": "patron", "source": sheet.name,
-                                    "row": row, "col": col, "look": ""}
+                                    "row": row, "col": col, "look": "", "venues": []}
                 added.append(face_id)
             target = OUT / f"{face_id}.png"
             data = png(image)

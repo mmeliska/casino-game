@@ -10,6 +10,8 @@
         "Starflare.Blackjack",
         "Starflare.VideoPoker.Rules",
         "Starflare.VideoPoker",
+        "Starflare.Craps.Rules",
+        "Starflare.Craps",
         "Starflare.Game",
         "Ink-Libraries",
         "UnityEngine.UI",

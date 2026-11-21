@@ -19,7 +19,7 @@ namespace Starflare.Game
             {
                 new SlackWaterMotel(host, root.AddComponent<RegisterCard>()),
                 tap,
-                new MillstoneLanes(host),
+                new MillstoneLanes(host, root.AddComponent<MillstoneBackLot>()),
                 bridgehead,
             };
         }

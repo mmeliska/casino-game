@@ -1,5 +1,5 @@
 {
-  "about": "Crowd faces: walk-ons shown as faces only, other players at the games and, later, venue staff. Each id is the face's sheet and place on it: avatars-<n>.png, row r and column c of its 2x2 grid. type is patron or worker. tools/import_faces.py slices the sheets into the game (Resources/Faces/<id>.png) and copies this roster there as faces.json.",
+  "about": "Crowd faces: walk-ons shown as faces only, other players at the games and, later, venue staff. Each id is the face's sheet and place on it: avatars-<n>.png, row r and column c of its 2x2 grid. type is patron or worker; venues lists the place ids (story.js) where the face may turn up. Chuy, Nick and Teddy (avatars-7) are the back-lot regulars at Millstone Lanes. tools/import_faces.py slices the sheets into the game (Resources/Faces/<id>.png) and copies this roster there as faces.json.",
   "avatars": [
     {
       "id": "avatars-1_r1c1",
@@ -8,7 +8,13 @@
       "source": "avatars-1.png",
       "row": 1,
       "col": 1,
-      "look": "young white man, curly red hair, wide-eyed grin, rust corduroy jacket"
+      "look": "young white man, curly red hair, wide-eyed grin, rust corduroy jacket",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-1_r1c2",
@@ -17,7 +23,13 @@
       "source": "avatars-1.png",
       "row": 1,
       "col": 2,
-      "look": "Black woman, braids with gold cuffs, big smile, magenta satin top"
+      "look": "Black woman, braids with gold cuffs, big smile, magenta satin top",
+      "venues": [
+        "the-flare",
+        "prairie-queen",
+        "harborlight",
+        "aurelian"
+      ]
     },
     {
       "id": "avatars-1_r2c1",
@@ -26,7 +38,13 @@
       "source": "avatars-1.png",
       "row": 2,
       "col": 1,
-      "look": "Latina woman in her 40s, dark hair in a loose ponytail, maroon scrubs under a jacket"
+      "look": "Latina woman in her 40s, dark hair in a loose ponytail, maroon scrubs under a jacket",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-1_r2c2",
@@ -35,7 +53,13 @@
       "source": "avatars-1.png",
       "row": 2,
       "col": 2,
-      "look": "old white man, wild white hair, squinting, brown work jacket over flannel"
+      "look": "old white man, wild white hair, squinting, brown work jacket over flannel",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-2_r1c1",
@@ -44,7 +68,13 @@
       "source": "avatars-2.png",
       "row": 1,
       "col": 1,
-      "look": "East Asian woman in her 60s, silver bob, stern, red turtleneck"
+      "look": "East Asian woman in her 60s, silver bob, stern, red turtleneck",
+      "venues": [
+        "the-flare",
+        "prairie-queen",
+        "harborlight",
+        "aurelian"
+      ]
     },
     {
       "id": "avatars-2_r1c2",
@@ -53,7 +83,13 @@
       "source": "avatars-2.png",
       "row": 1,
       "col": 2,
-      "look": "Black man in his 50s, grey goatee, easy smile, teal polo"
+      "look": "Black man in his 50s, grey goatee, easy smile, teal polo",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-2_r2c1",
@@ -62,7 +98,13 @@
       "source": "avatars-2.png",
       "row": 2,
       "col": 1,
-      "look": "South Asian woman in her 30s, long curly hair, gold earrings, blue velvet blazer"
+      "look": "South Asian woman in her 30s, long curly hair, gold earrings, blue velvet blazer",
+      "venues": [
+        "the-flare",
+        "prairie-queen",
+        "harborlight",
+        "aurelian"
+      ]
     },
     {
       "id": "avatars-2_r2c2",
@@ -71,7 +113,13 @@
       "source": "avatars-2.png",
       "row": 2,
       "col": 2,
-      "look": "heavy-set East Asian man in his 40s, sheepish smile, olive tweed jacket"
+      "look": "heavy-set East Asian man in his 40s, sheepish smile, olive tweed jacket",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-3_r1c1",
@@ -80,7 +128,13 @@
       "source": "avatars-3.png",
       "row": 1,
       "col": 1,
-      "look": "older Latina woman, grey curls, sly smile, coral cable cardigan"
+      "look": "older Latina woman, grey curls, sly smile, coral cable cardigan",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-3_r1c2",
@@ -89,7 +143,13 @@
       "source": "avatars-3.png",
       "row": 1,
       "col": 2,
-      "look": "heavy white man in his 40s, thinning blond hair, sceptical, red buffalo plaid"
+      "look": "heavy white man in his 40s, thinning blond hair, sceptical, red buffalo plaid",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-3_r2c1",
@@ -98,7 +158,13 @@
       "source": "avatars-3.png",
       "row": 2,
       "col": 1,
-      "look": "older Black woman, short grey curls, gold earrings, purple velvet blazer"
+      "look": "older Black woman, short grey curls, gold earrings, purple velvet blazer",
+      "venues": [
+        "the-flare",
+        "prairie-queen",
+        "harborlight",
+        "aurelian"
+      ]
     },
     {
       "id": "avatars-3_r2c2",
@@ -107,7 +173,14 @@
       "source": "avatars-3.png",
       "row": 2,
       "col": 2,
-      "look": "Mediterranean man in his 40s, slicked-back hair, smug, green satin jacket"
+      "look": "Mediterranean man in his 40s, slicked-back hair, smug, green satin jacket",
+      "venues": [
+        "the-flare",
+        "prairie-queen",
+        "harborlight",
+        "aurelian",
+        "cinder-room"
+      ]
     },
     {
       "id": "avatars-4_r1c1",
@@ -116,7 +189,13 @@
       "source": "avatars-4.png",
       "row": 1,
       "col": 1,
-      "look": "Polynesian woman in her 30s, long wavy hair, hibiscus, orange halter top"
+      "look": "Polynesian woman in her 30s, long wavy hair, hibiscus, orange halter top",
+      "venues": [
+        "the-flare",
+        "prairie-queen",
+        "harborlight",
+        "aurelian"
+      ]
     },
     {
       "id": "avatars-4_r1c2",
@@ -125,7 +204,13 @@
       "source": "avatars-4.png",
       "row": 1,
       "col": 2,
-      "look": "lean weathered white man in his 50s, messy hair, tired, denim jacket"
+      "look": "lean weathered white man in his 50s, messy hair, tired, denim jacket",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-4_r2c1",
@@ -134,7 +219,13 @@
       "source": "avatars-4.png",
       "row": 2,
       "col": 1,
-      "look": "East Asian woman in her 50s, grey-streaked bob, mustard corduroy blazer"
+      "look": "East Asian woman in her 50s, grey-streaked bob, mustard corduroy blazer",
+      "venues": [
+        "the-flare",
+        "prairie-queen",
+        "harborlight",
+        "aurelian"
+      ]
     },
     {
       "id": "avatars-4_r2c2",
@@ -143,7 +234,13 @@
       "source": "avatars-4.png",
       "row": 2,
       "col": 2,
-      "look": "Native man in his 40s, long dark hair, calm smile, red jacket with brown collar"
+      "look": "Native man in his 40s, long dark hair, calm smile, red jacket with brown collar",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-5_r1c1",
@@ -152,7 +249,13 @@
       "source": "avatars-5.png",
       "row": 1,
       "col": 1,
-      "look": "Filipina woman in her 60s, wavy grey hair, warm, green draped top"
+      "look": "Filipina woman in her 60s, wavy grey hair, warm, green draped top",
+      "venues": [
+        "the-flare",
+        "prairie-queen",
+        "harborlight",
+        "aurelian"
+      ]
     },
     {
       "id": "avatars-5_r1c2",
@@ -161,7 +264,13 @@
       "source": "avatars-5.png",
       "row": 1,
       "col": 2,
-      "look": "young man, curly dark hair, worried look, purple quarter-zip"
+      "look": "young man, curly dark hair, worried look, purple quarter-zip",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-5_r2c1",
@@ -170,7 +279,13 @@
       "source": "avatars-5.png",
       "row": 2,
       "col": 1,
-      "look": "Latina woman in her 40s, dark bob, gold hoops, cobalt wrap top"
+      "look": "Latina woman in her 40s, dark bob, gold hoops, cobalt wrap top",
+      "venues": [
+        "the-flare",
+        "prairie-queen",
+        "harborlight",
+        "aurelian"
+      ]
     },
     {
       "id": "avatars-5_r2c2",
@@ -179,7 +294,13 @@
       "source": "avatars-5.png",
       "row": 2,
       "col": 2,
-      "look": "old bald man, white fringe, beaming, mustard shawl cardigan"
+      "look": "old bald man, white fringe, beaming, mustard shawl cardigan",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-6_r1c1",
@@ -188,7 +309,13 @@
       "source": "avatars-6.png",
       "row": 1,
       "col": 1,
-      "look": "young Black man, short twists, laughing, red track jacket"
+      "look": "young Black man, short twists, laughing, red track jacket",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-6_r1c2",
@@ -197,7 +324,13 @@
       "source": "avatars-6.png",
       "row": 1,
       "col": 2,
-      "look": "older East Asian woman, silver hair, quiet smile, plum velvet blazer"
+      "look": "older East Asian woman, silver hair, quiet smile, plum velvet blazer",
+      "venues": [
+        "the-flare",
+        "prairie-queen",
+        "harborlight",
+        "aurelian"
+      ]
     },
     {
       "id": "avatars-6_r2c1",
@@ -206,7 +339,13 @@
       "source": "avatars-6.png",
       "row": 2,
       "col": 1,
-      "look": "bald heavy-set man in his 30s, wincing, royal blue quarter-zip"
+      "look": "bald heavy-set man in his 30s, wincing, royal blue quarter-zip",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     },
     {
       "id": "avatars-6_r2c2",
@@ -215,7 +354,67 @@
       "source": "avatars-6.png",
       "row": 2,
       "col": 2,
-      "look": "Latina woman in her 30s, long curly hair, laughing, magenta one-shoulder top"
+      "look": "Latina woman in her 30s, long curly hair, laughing, magenta one-shoulder top",
+      "venues": [
+        "the-flare",
+        "prairie-queen",
+        "harborlight",
+        "aurelian"
+      ]
+    },
+    {
+      "id": "avatars-7_r1c1",
+      "name": "Chuy",
+      "type": "patron",
+      "source": "avatars-7.png",
+      "row": 1,
+      "col": 1,
+      "look": "the league bowler: heavy-set older Mexican-American man, bald on top, white hair and big white moustache, gold bowling shirt with brown stripes",
+      "venues": [
+        "millstone-lanes"
+      ]
+    },
+    {
+      "id": "avatars-7_r1c2",
+      "name": "Nick",
+      "type": "patron",
+      "source": "avatars-7.png",
+      "row": 1,
+      "col": 2,
+      "look": "the cab driver: lean man in his 30s, dark wavy hair, big grin, maroon zip jacket",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
+    },
+    {
+      "id": "avatars-7_r2c1",
+      "name": "Teddy",
+      "type": "patron",
+      "source": "avatars-7.png",
+      "row": 2,
+      "col": 1,
+      "look": "the line cook: lean Black man in his 30s, short curly hair, beard, sly look, olive chef's jacket",
+      "venues": [
+        "millstone-lanes"
+      ]
+    },
+    {
+      "id": "avatars-7_r2c2",
+      "name": "Alma Ruiz",
+      "type": "patron",
+      "source": "avatars-7.png",
+      "row": 2,
+      "col": 2,
+      "look": "Latina woman in her 50s, short grey-streaked hair, calm half-smile, coral scrubs; a nurse off the night shift",
+      "venues": [
+        "millstone-lanes",
+        "kasias-tap",
+        "bridgehead",
+        "railyard"
+      ]
     }
   ]
 }

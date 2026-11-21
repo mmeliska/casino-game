@@ -110,6 +110,29 @@ namespace Starflare.Tests
             Assert.That(CrapsTable.PayoutLine(new SettledBet(BetKind.Wrong, 3, BetOutcome.Push, 0, 0), 0), Is.EqualTo("Wrong pushes · $3 back"));
         }
 
+        /// <summary>A new night brings a new crowd, but only while you're out of the circle.</summary>
+        [Test]
+        public void TheRegulars_ChangeOnlyWhileYoureOutOfTheCircle()
+        {
+            var state = new PlayerState();
+            var table = MakeTable(state);
+            Assert.That(() => table.SetRegulars(new Regular("Chuy"), new Regular("Nick"), new Regular("Teddy")),
+                Throws.InvalidOperationException, "not while you're sitting");
+
+            Click(table, "Get up Button");
+            Assert.That(() => table.SetRegulars(new Regular("Chuy"), new Regular("Nick")), Throws.ArgumentException);
+            table.SetRegulars(new Regular("Chuy"), new Regular("Nick"), new Regular("Teddy"));
+
+            Assert.That(SeatTexts(table, 1), Does.Contain("Chuy").And.Contain("C"), "a regular with no face shows their initial");
+            Assert.That(SeatTexts(table, 3), Does.Contain("Teddy").And.No.Contain("Cook"));
+            table.SitDown(state, new ClockPace());
+            Assert.That(SeatTexts(table, 2), Does.Contain("Nick"), "the new crowd is there when you step back in");
+        }
+
+        static string[] SeatTexts(CrapsTable table, int seat) =>
+            table.GetComponentsInChildren<Transform>(true).First(t => t.name == "Seat " + seat)
+                .GetComponentsInChildren<TMP_Text>(true).Select(t => t.text).ToArray();
+
         CrapsTable MakeTable(PlayerState state, PracticeTurn practice = null)
         {
             var go = new GameObject("Craps");

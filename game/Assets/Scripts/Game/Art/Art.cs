@@ -24,6 +24,7 @@ namespace Starflare.Game
             ["kasia_backroom"] = 0.58f,
             ["kasia_bar"] = 0.74f,
             ["kasia_front"] = 0.64f,
+            ["lanes_backlot"] = 0.38f,
             ["lanes_front"] = 0.66f,
             ["motel_lot"] = 0.5f,
             ["motel_office"] = 0.4f,
@@ -54,6 +55,15 @@ namespace Starflare.Game
 
         /// <summary>A crowd face by its id in the roster, Resources/Faces/faces.json (tools/import_faces.py).</summary>
         public static Sprite Face(string id) => Load("Faces", id);
+
+        /// <summary>The crowd roster, Resources/Faces/faces.json; empty (and logged once) if it's missing.</summary>
+        public static CrowdFace[] Faces()
+        {
+            var roster = Resources.Load<TextAsset>("Faces/faces");
+            if (roster == null && Reported.Add("Faces/faces"))
+                Debug.LogWarning("No crowd roster at Faces/faces; the crowds stand empty.");
+            return roster == null ? new CrowdFace[0] : FaceRoster.Parse(roster.text);
+        }
 
         public static float Focus(string plateTag)
         {

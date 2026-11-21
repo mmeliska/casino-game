@@ -45,6 +45,18 @@ namespace Starflare.Game
                 story.Set(StoryContract.MetJuan, true);
             });
 
+        /// <summary>
+        /// A1.3: Juan has his box; 10:30 that night at Millstone Lanes, the late game on out back.
+        /// "Step out back", then "Step into the circle", plays Juan's practice roll.
+        /// </summary>
+        public static readonly Checkpoint LateGame = new Checkpoint("A1.3 Late game out back", JuanHasTheBox, MillstoneLanes.PlaceId,
+            (state, story) =>
+            {
+                var clock = state.Clock;
+                int target = MillstoneBackLot.OpensAt + 30;
+                state.PassTime(((target - clock.MinuteOfDay) % GameClock.MinutesPerDay + GameClock.MinutesPerDay) % GameClock.MinutesPerDay);
+            });
+
         /// <summary>A1.3: worked the shift and ran the wallet out (straight, flaky); walking in plays Kasia's nod.</summary>
         public static readonly Checkpoint BarBackDone = new Checkpoint("A1.3 Bar-back done", JuanHasTheBox, KasiasTap.PlaceId,
             (state, story) =>
@@ -110,7 +122,7 @@ namespace Starflare.Game
 
         public static readonly Checkpoint[] All =
         {
-            CheckedIn, NightOneDone, Broke, CarryingCoupons, JuanHasTheBox, BarBackDone, BackRoomOpen, SatWithRosa,
+            CheckedIn, NightOneDone, Broke, CarryingCoupons, JuanHasTheBox, LateGame, BarBackDone, BackRoomOpen, SatWithRosa,
             WeddingNight, WorkedTheWedding, OverTheBridge, TruckerAtThePumps,
         };
     }

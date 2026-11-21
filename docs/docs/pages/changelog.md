@@ -1,5 +1,11 @@
 ## 21 Nov 2026
 
+### The back lot is in the game
+
+Millstone Lanes has a back lot now: "Step out back" through the steel door from the lanes, or "Go around back" from the lot out front once you've met Juan (Mike), and you leave the way you came. From 10 p.m. to 3 a.m. Juan's out with the chalk and you can step into the circle; any other time it's the empty lot, where you can hang out 5, 15 or 30 minutes at a time, so turning up at 9:55 doesn't cost you an hour (Mike). Your first time in the circle, Juan coaches his practice roll over the table, pointing at each button: bet right, throw (a 6, the point), back the point, throw (the 6, made, and how his dollar works), bet right, throw (a 10), throw (a 7, seven out). His money, pretend, and the clock stands still. From then on it's your money and fair dice. Stepping into the circle adds the night's heat point. Juan's lines are proposals.
+
+The regulars have faces and names (Mike): Chuy the league bowler, Nick the cab driver and Teddy the line cook, drawn as crowd faces. At least one of them is in the circle every night, and the other two seats go to the rest of them and the crowd faces who turn up at the Lanes, the same crowd all night. The crowd roster now says where each face turns up: work clothes and casual wear at the Backwater and Bridges places, the dressier faces at the Flare and up (Mike). Alma Ruiz, a nurse off the night shift, joins the roster. See [Portrait prompts](#portraits).
+
 ### Face sizes for the back lot
 
 The regulars' face prompts now ask for a square image at least 512 by 512 pixels, with the head centred and some space around it, since the craps circle crops each face to a disc. See [Portrait prompts](#portraits).

@@ -210,42 +210,21 @@ The trucker: a Black man in his late 40s, big and broad-shouldered, short greyin
 
 ### The back-lot regulars (faces only)
 
-Three players in Juan's late game at Millstone Lanes (Mike, 2026-11-20). They have no poses, only a face each, shown small around the chalk circle to mark who's in the game and whose throw it is. Every detail of their looks is a proposal.
+Three players in Juan's late game at Millstone Lanes (Mike, 2026-11-20). They have no poses, only a face each, shown small around the chalk circle to mark who's in the game and whose throw it is. They're drawn (Mike, 2026-11-21) as crowd faces on `Images/Avatars/avatars-7.png` and named in the crowd roster: **Chuy** the league bowler, **Nick** the cab driver and **Teddy** the line cook. At least one of them is in the circle every night; the other two seats go to the rest of them and the roster faces tagged for the Lanes, picked by the night (Mike, 2026-11-21). The fourth face on the sheet, Alma Ruiz in scrubs, is a roster patron.
 
-**Face rules** (they differ from the full-body rules above): head and shoulders, square 1:1, facing the viewer or turned slightly toward the viewer's left, on the same flat light grey. They read at thumbnail size, so each has one strong colour and a clear silhouette. At least 512 by 512 pixels, since the circle shows each face at about 160 to 300 pixels across; larger is fine. The circle crops each face to a disc, so the head is centred with a little space around it and the corners don't matter. Save each under its tag in `Images/Characters/`.
+**Face rules** (they differ from the full-body rules above): head and shoulders, square 1:1, facing the viewer or turned slightly toward the viewer's left, on the same flat light grey. They read at thumbnail size, so each has one strong colour and a clear silhouette. At least 512 by 512 pixels, since the circle shows each face at about 160 to 300 pixels across; larger is fine. The circle crops each face to a disc, so the head is centred with a little space around it and the corners don't matter. New crowd faces go four to a sheet (a 2x2 grid) in `Images/Avatars/`, brought in with `tools/import_faces.py`.
 
-#### The league bowler
-
-Bets right, every time, and says so.
-
-`backlot_league` (face, square 1:1)
+The prompt for redrawing one: the frame below, then the face's look as drawn.
 
 ```
 Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles. A square image, at least 512 by 512 pixels, the head centred with a little space around it, since it is cropped to a circle.
-The league bowler: a heavy-set white man in his late 50s, bald on top with a grey horseshoe of hair, a red face, a big grin. A short-sleeved two-tone bowling shirt, cream with a maroon yoke, collar open, a pen in the chest pocket.
 ```
 
-#### The cab driver
-
-Small bets, steady; off her shift and on her way home.
-
-`backlot_cabbie` (face, square 1:1)
-
-```
-Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles. A square image, at least 512 by 512 pixels, the head centred with a little space around it, since it is cropped to a circle.
-The cab driver: a Black woman in her early 60s, lean, short grey natural hair, reading glasses pushed up on her head, a dry half-smile, tired eyes. A dark green quilted jacket zipped to the collar over a grey turtleneck.
-```
-
-#### The line cook
-
-Bets wrong, quietly, and doesn't apologise.
-
-`backlot_cook` (face, square 1:1)
-
-```
-Head-and-shoulders portrait of one person, facing the viewer or turned slightly toward the viewer's left, head and shoulders filling the frame, no hands. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted colours, realistic proportions, expressive face. Flat light-grey background. No text, no speech bubbles. A square image, at least 512 by 512 pixels, the head centred with a little space around it, since it is cropped to a circle.
-The line cook: a Vietnamese-American man in his mid 20s, slim, black hair pushed back under a dark knit beanie, a thin moustache, a guarded look. A faded black hooded sweatshirt over a white cook's tee, the neckline grease-spotted.
-```
+| Face | Who | Bets | Look as drawn |
+| --- | --- | --- | --- |
+| `avatars-7_r1c1` | Chuy, the league bowler | Right, every time, and says so | A heavy-set older Mexican-American man, bald on top with white hair at the sides and a big white moustache, a gold bowling shirt with brown and cream stripes |
+| `avatars-7_r1c2` | Nick, the cab driver | Small bets, steady; off his shift and on his way home | A lean man in his 30s, dark wavy hair, a big grin, a maroon zip jacket |
+| `avatars-7_r2c1` | Teddy, the line cook | Wrong, quietly, and doesn't apologise | A lean Black man in his 30s, short curly hair and a beard, a sly look, an olive chef's jacket |
 
 ## Not settled yet
 

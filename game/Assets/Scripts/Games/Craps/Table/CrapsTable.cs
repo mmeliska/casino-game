@@ -91,7 +91,8 @@ namespace Starflare.Craps
         Button _throwButton, _callButton, _passButton, _getUpButton;
         readonly Image[][] _pips = new Image[2][];
         Image[] _shooterRings;
-        TMP_Text[] _seatNames;
+        TMP_Text[] _seatNames, _seatInitials;
+        Image[] _seatPortraits;
         readonly TMP_Text[] _betLabels = new TMP_Text[4];
         readonly Button[] _upButtons = new Button[4], _downButtons = new Button[4];
 
@@ -106,8 +107,7 @@ namespace Starflare.Craps
         public void Init(CrapsRules rules, Sprite plate, float plateFocus, params Regular[] regulars)
         {
             _rules = rules ?? throw new ArgumentNullException(nameof(rules));
-            if (regulars == null || regulars.Length != rules.Seats - 1)
-                throw new ArgumentException($"The circle needs {rules.Seats - 1} regulars.", nameof(regulars));
+            CheckRegulars(regulars);
             _regulars = regulars;
             _plate = plate;
             _plateFocus = plateFocus;
@@ -115,6 +115,24 @@ namespace Starflare.Craps
             _game = new CrapsGame(_rules, _fairDice);
             BuildUi();
             _root.SetActive(false);
+        }
+
+        /// <summary>
+        /// Stands other regulars in the circle, as a new night brings a different crowd. Only
+        /// while you're out of the circle; the dice stay with whichever seat had them.
+        /// </summary>
+        public void SetRegulars(params Regular[] regulars)
+        {
+            CheckRegulars(regulars);
+            if (_root.activeSelf) throw new InvalidOperationException("The crowd changes only while you're out of the circle.");
+            _regulars = regulars;
+            for (int seat = 1; seat < _rules.Seats; seat++) ShowRegular(seat);
+        }
+
+        void CheckRegulars(Regular[] regulars)
+        {
+            if (regulars == null || regulars.Length != _rules.Seats - 1 || Array.IndexOf(regulars, null) >= 0)
+                throw new ArgumentException($"The circle needs {_rules.Seats - 1} regulars.", nameof(regulars));
         }
 
         /// <summary>Puts the circle over another plate, as the night moves on.</summary>
@@ -506,6 +524,8 @@ namespace Starflare.Craps
 
             _shooterRings = new Image[_rules.Seats];
             _seatNames = new TMP_Text[_rules.Seats];
+            _seatInitials = new TMP_Text[_rules.Seats];
+            _seatPortraits = new Image[_rules.Seats];
             for (int seat = 0; seat < _rules.Seats; seat++) MakeSeat(square.transform, seat);
         }
 
@@ -532,30 +552,36 @@ namespace Starflare.Craps
             disc.rectTransform.anchoredPosition = new Vector2(0, 24);
             disc.gameObject.AddComponent<Mask>().showMaskGraphic = true;
 
-            string name = seat == CrapsGame.You ? "You" : _regulars[seat - 1].Name;
-            var face = seat == CrapsGame.You ? null : _regulars[seat - 1].Face;
-            if (face != null)
-            {
-                var portrait = MakeImage(disc.transform, "Portrait", Color.white);
-                portrait.sprite = face;
-                portrait.preserveAspect = true;
-                portrait.raycastTarget = false;
-                Stretch(portrait.rectTransform);
-            }
-            else
-            {
-                var initial = MakeText(disc.transform, name.Substring(0, 1).ToUpperInvariant(), 72, TextAnchor.MiddleCenter, 0);
-                initial.fontStyle = FontStyles.Bold;
-                Stretch(initial.rectTransform);
-            }
+            var portrait = MakeImage(disc.transform, "Portrait", Color.white);
+            portrait.preserveAspect = true;
+            portrait.raycastTarget = false;
+            Stretch(portrait.rectTransform);
+            _seatPortraits[seat] = portrait;
 
-            var label = MakeText(rect, name, 32, TextAnchor.MiddleCenter, 0);
+            var initial = MakeText(disc.transform, "", 72, TextAnchor.MiddleCenter, 0);
+            initial.fontStyle = FontStyles.Bold;
+            Stretch(initial.rectTransform);
+            _seatInitials[seat] = initial;
+
+            var label = MakeText(rect, "", 32, TextAnchor.MiddleCenter, 0);
             NoWrap(label);
             Shadowed(label);
             label.rectTransform.anchorMin = label.rectTransform.anchorMax = new Vector2(0.5f, 0);
             label.rectTransform.sizeDelta = new Vector2(260, 44);
             label.rectTransform.anchoredPosition = new Vector2(0, 8);
             _seatNames[seat] = label;
+            ShowRegular(seat);
+        }
+
+        /// <summary>A seat's face and name, or for a regular with no face yet, the disc with their initial.</summary>
+        void ShowRegular(int seat)
+        {
+            string name = seat == CrapsGame.You ? "You" : _regulars[seat - 1].Name;
+            var face = seat == CrapsGame.You ? null : _regulars[seat - 1].Face;
+            _seatPortraits[seat].sprite = face;
+            _seatPortraits[seat].enabled = face != null;
+            _seatInitials[seat].text = face != null ? "" : name.Substring(0, 1).ToUpperInvariant();
+            _seatNames[seat].text = name;
         }
 
         /// <summary>A die drawn in code: an off-white rounded square and its seven possible pips, lit by face.</summary>

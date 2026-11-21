@@ -29,6 +29,7 @@ namespace Starflare.Game
         public const string DidBarBack = "did_bar_back";
         public const string BackRoomOpen = "back_room_open";
         public const string SatWithRosa = "sat_with_rosa";
+        public const string RolledWithJuan = "rolled_with_juan";
 
         // Kasia's wedding (A1.4): the day it's booked for (0 until it is), how many times you've
         // said no or not shown up, the day she last asked, whether it's behind you, and (for the
@@ -54,13 +55,14 @@ namespace Starflare.Game
         public const string OfferedCoupons = "offered_coupons";
         public const string OfferedBarBack = "offered_bar_back";
         public const string MetRosa = "met_rosa";
+        public const string SawLateGame = "saw_late_game";
 
         public static readonly string[] Variables =
         {
             PlayerName, Bankroll, Book, Day, NextSaturday, Hour, RegisterBox, Broke, SittingNet, CheckedIn,
             MetKasia, MetJuan, CarryingCoupons, DidBarBack, BackRoomOpen, SatWithRosa, WeddingDay, WeddingMisses,
             WeddingAskedDay, WorkedWedding, WeddingOver, WeddingRole, DancedWith, DanceKeen, MetMitch, MetMitchDay, TruckerPassed, HelpedTrucker, HelpedTruckerDay,
-            OfferedCoupons, OfferedBarBack, MetRosa,
+            OfferedCoupons, OfferedBarBack, MetRosa, RolledWithJuan, SawLateGame,
         };
 
         /// <summary>EXTERNAL functions the story calls; the bridge binds each to the player state.</summary>
@@ -108,6 +110,12 @@ namespace Starflare.Game
             public const string Coupons = "coupons";
             public const string Juan = "juan";
 
+            // Millstone Lanes' back lot: the late game (street craps)
+            public const string BackLot = "back_lot";
+            public const string BackLotEmpty = "back_lot_empty";
+            public const string BackLotPractice = "back_lot_practice";
+            public const string BackLotGetUp = "back_lot_get_up";
+
             // Bridgehead (A1.6, S3)
             public const string BridgeheadFirst = "bridgehead_first";
             public const string Mitch = "mitch";
@@ -118,6 +126,7 @@ namespace Starflare.Game
             {
                 Arrival, CheckingIn, Office, TurnIn, NightOne, WalkIn, GetUp, CouponJob, BarBackJob,
                 BackRoomInvite, BackRoom, RosaFirstHand, RosaGetUp, WeddingAsk, WeddingMissed, Wedding, Coupons, Juan,
+                BackLot, BackLotEmpty, BackLotPractice, BackLotGetUp,
                 BridgeheadFirst, Mitch, Trucker, BridgeheadGetUp,
             };
         }

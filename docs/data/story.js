@@ -47,7 +47,7 @@ const BY=Object.fromEntries(C.map(c=>[c.id,c]));
 const PL=[
 {id:"slack-water",name:"Slack Water Motel",district:"Backwater",kind:"Story place",line:"Your first home; Dot's desk, room 9 and the picnic table.",appears:["A1.1","A1.5","A3.7","A4.1","A4.2","A4.4","M4","R1","R10","O6"]},
 {id:"kasias-tap",name:"Kasia's Tap",district:"Backwater",kind:"Venue",line:"Kasia's tavern at the mill gate, and its back-room card game.",appears:["A1.2","A1.3","A1.4","A1.5","A2.8","A3.5","A5.3","R3","R6","S2"]},
-{id:"millstone-lanes",name:"Millstone Lanes",district:"Backwater",kind:"Venue",line:"Juan's bowling alley: free-play machines inside, dice in the back lot.",appears:["A1.3","A1.5","R3","S1"]},
+{id:"millstone-lanes",name:"Millstone Lanes",district:"Backwater",kind:"Venue",line:"Juan's bowling alley: licensed machines inside, dice in the back lot.",appears:["A1.3","A1.5","R3","S1"]},
 {id:"backwater-streets",name:"Backwater streets",district:"Backwater",kind:"Street",line:"Brick walk-ups, mill gates and sodium light.",appears:[]},
 {id:"your-car",name:"Your car under the Bridges",district:"Backwater",kind:"Home",line:"Where you sleep when you go broke.",appears:[]},
 {id:"bridgehead",name:"Bridgehead Fuel & Food",district:"The Bridges",kind:"Venue",line:"Worst odds, best gossip; Mitch's race book out back.",appears:["A1.6","A3.7","R5","S3","X3"]},
