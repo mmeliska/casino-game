@@ -245,10 +245,11 @@ namespace Starflare.Game
             safe.transform.SetParent(canvas.transform, false);
             Stretch((RectTransform)safe.transform);
 
-            // The DEV button, on the left edge, where no screen puts anything; gold, so it shows on a night plate.
+            // The DEV button, in the bottom-right corner (Mike, 2026-11-21); gold, so it shows on a night plate.
             var open = MakePanel(safe.transform, "Dev Button", InkBlack);
             open.gameObject.AddComponent<Button>().onClick.AddListener(Open);
-            Pin(open.rectTransform, new Vector2(0, 0.42f), new Vector2(0, 0.42f), new Vector2(16, -56), new Vector2(136, 56));
+            var corner = new Vector2(1, 0);
+            Pin(open.rectTransform, corner, corner, new Vector2(-136, 16), new Vector2(-16, 128));
             var devText = MakeText(open.transform, "DEV", 36, TextAnchor.MiddleCenter, 0);
             devText.color = Gold;
             devText.fontStyle = FontStyles.Bold;

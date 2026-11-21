@@ -21,7 +21,9 @@ namespace Starflare.Game
     /// dialogue, plain for narration.
     ///
     /// A scene can also play over a game (<see cref="PlayOver"/>), so a teacher talks while you
-    /// see the table: no backdrop or plate, the speaker waist-up in the corner. A line tagged
+    /// see the table: no backdrop or plate, and along the bottom, the full width of the screen,
+    /// a square with the speaker's face cropped from their pose and the line beside it (Mike,
+    /// 2026-11-21). A line tagged
     /// "# point: stand" is an instruction: once it's read, the speaker and text step aside, that
     /// control glows and is the only one that works, and a Help button repeats what was said
     /// since the last instruction. Using the control carries the scene on.
@@ -38,6 +40,14 @@ namespace Starflare.Game
         const float BlackFadeSeconds = 0.25f;
         static readonly Color OverShade = new Color(0f, 0f, 0f, 0.3f);
 
+        // Over a game: the speaker's face square, and how it's cut from a full-body pose. Every
+        // pose stands head at the top, centred, so the top fifth of the picture is head and shoulders.
+        const float FaceSide = 300f;
+        const float FaceInset = 10f;
+        const float FaceGap = 16f;
+        const float FaceCropHeight = 0.2f;
+        const float FaceCropTop = 0.01f;
+
         static readonly Regex SpeakerLine = new Regex(@"^([A-Z][A-Z .'\-]*):\s*(.*)$");
 
         Story _story;
@@ -45,7 +55,7 @@ namespace Starflare.Game
         Action _onDone;
 
         GameObject _root;
-        Image _backdrop, _plate, _lastPlate, _pose, _insert, _black, _rule, _glow;
+        Image _backdrop, _plate, _lastPlate, _pose, _insert, _black, _rule, _glow, _faceFrame, _face;
         Button _help;
         CoverFit _plateFit;
         TMP_Text _speaker, _line, _blackLine, _more;
@@ -117,6 +127,7 @@ namespace Starflare.Game
             _pose.enabled = false;
             _speaker.text = _fullLine = _line.text = "";
             _box.gameObject.SetActive(false);
+            _faceFrame.gameObject.SetActive(false);
             _choices.gameObject.SetActive(false);
             Advance();
         }
@@ -297,16 +308,39 @@ namespace Starflare.Game
         /// </summary>
         void FitBox()
         {
+            bool showing = _fullLine.Length > 0;
             bool speaking = _speaker.text.Length > 0;
+            ShowFace(showing && speaking);
+            bool face = _faceFrame.gameObject.activeSelf;
             _speaker.enabled = _rule.enabled = speaking;
             float top = speaking ? 112 : 40;
             _line.rectTransform.offsetMax = new Vector2(-48, -top);
 
             var padding = _bottom.GetComponent<VerticalLayoutGroup>().padding;
-            float width = _bottom.rect.width - padding.horizontal - 96;
+            float width = _bottom.rect.width - padding.horizontal - 96 - (face ? FaceSide + FaceGap : 0);
             float height = _line.GetPreferredValues(_fullLine, width, 0).y;
-            _boxLayout.preferredHeight = top + height + 44;
-            _box.gameObject.SetActive(_fullLine.Length > 0);
+            _boxLayout.preferredHeight = Mathf.Max(top + height + 44, face ? FaceSide : 0);
+            _box.gameObject.SetActive(showing);
+        }
+
+        /// <summary>
+        /// Over a game, the speaker's face beside the line: the top of their pose, scaled so its
+        /// head and shoulders fill the square. Narration, or a line with no pose, has none, even
+        /// while the last pose is still up.
+        /// </summary>
+        void ShowFace(bool showing)
+        {
+            var sprite = _pose.enabled ? _pose.sprite : null;
+            bool show = showing && _game != null && sprite != null;
+            _faceFrame.gameObject.SetActive(show);
+            if (!show) return;
+            _face.sprite = sprite;
+            float window = FaceSide - 2 * FaceInset;
+            float height = window / FaceCropHeight;
+            var rect = _face.rectTransform;
+            rect.anchorMin = rect.anchorMax = rect.pivot = new Vector2(0.5f, 1);
+            rect.sizeDelta = new Vector2(height * sprite.rect.width / sprite.rect.height, height);
+            rect.anchoredPosition = new Vector2(0, FaceCropTop * height);
         }
 
         void SetVisibleText(string text)
@@ -384,7 +418,7 @@ namespace Starflare.Game
         void SetTalking(bool on)
         {
             _backdrop.enabled = on;
-            _pose.gameObject.SetActive(on);
+            _pose.gameObject.SetActive(on && _game == null);
             _bottom.gameObject.SetActive(on);
             if (!on) _insert.gameObject.SetActive(false);
         }
@@ -446,7 +480,7 @@ namespace Starflare.Game
             // choices sit a little narrower than the box.
             var bottomGo = new GameObject("Dialogue", typeof(RectTransform));
             bottomGo.transform.SetParent(safe.transform, false);
-            _bottom = AddVertical(bottomGo, 24, new RectOffset(32, 32, 0, 0));
+            _bottom = AddVertical(bottomGo, 24, new RectOffset(0, 0, 0, 0));
             _bottom.GetComponent<VerticalLayoutGroup>().childAlignment = TextAnchor.LowerCenter;
             BuildDialogueBox(_bottom);
 
@@ -484,27 +518,24 @@ namespace Starflare.Game
         /// <summary>
         /// Portrait stacks the pose over the dialogue box, with the choices under the box. Landscape
         /// stands the pose (and any insert) on the left and puts the box and choices on the right,
-        /// under the top bar (Hud). Over a game, the speaker stands waist-up in the bottom-left
-        /// corner with the box beside her, so the cards above stay in view.
+        /// under the top bar (Hud). Over a game, the face square and the box run the full width
+        /// along the bottom, so the table above stays in view.
         /// </summary>
         void Rearrange(bool landscape)
         {
             if (_game != null)
             {
-                var corner = Vector2.zero;
                 if (landscape)
                 {
-                    Pin(_pose.rectTransform, corner, corner, new Vector2(-40, -560), new Vector2(480, 1000));
                     var middle = new Vector2(0.3f, 0.55f);
                     Pin(_insert.rectTransform, middle, middle, new Vector2(-300, -300), new Vector2(300, 300));
-                    Pin(_bottom, Vector2.zero, new Vector2(0.6f, 0), new Vector2(420, 32), new Vector2(0, 640));
+                    Pin(_bottom, Vector2.zero, Vector2.right, new Vector2(0, 32), new Vector2(0, 640));
                 }
                 else
                 {
-                    Pin(_pose.rectTransform, corner, corner, new Vector2(-60, -720), new Vector2(520, 1100));
                     var top = new Vector2(0.5f, 1);
                     Pin(_insert.rectTransform, top, top, new Vector2(-330, -900), new Vector2(330, -240));
-                    Pin(_bottom, Vector2.zero, Vector2.right, new Vector2(440, 40), new Vector2(0, 1100));
+                    Pin(_bottom, Vector2.zero, Vector2.right, new Vector2(0, 40), new Vector2(0, 1100));
                 }
                 FitBox();
                 return;
@@ -544,12 +575,41 @@ namespace Starflare.Game
             _insert.gameObject.SetActive(false);
         }
 
+        /// <summary>
+        /// A row: the speaker's face square (over a game only) and the dialogue box, which takes
+        /// the rest of the width.
+        /// </summary>
         void BuildDialogueBox(Transform parent)
         {
-            var box = MakePanel(parent, "Dialogue Box", Panel);
+            var rowGo = new GameObject("Talk Row", typeof(RectTransform));
+            rowGo.transform.SetParent(parent, false);
+            var row = rowGo.AddComponent<HorizontalLayoutGroup>();
+            row.spacing = FaceGap;
+            row.childControlWidth = row.childControlHeight = true;
+            row.childForceExpandWidth = row.childForceExpandHeight = false;
+            row.childAlignment = TextAnchor.UpperLeft;
+
+            _faceFrame = MakePanel(rowGo.transform, "Face Frame", Panel);
+            _faceFrame.raycastTarget = false;
+            var frameLayout = _faceFrame.gameObject.AddComponent<LayoutElement>();
+            frameLayout.minWidth = frameLayout.preferredWidth = FaceSide;
+            frameLayout.minHeight = frameLayout.preferredHeight = FaceSide;
+            frameLayout.flexibleWidth = 0;
+            var window = new GameObject("Face Window", typeof(RectTransform), typeof(RectMask2D));
+            window.transform.SetParent(_faceFrame.transform, false);
+            var windowRect = (RectTransform)window.transform;
+            Stretch(windowRect);
+            windowRect.offsetMin = new Vector2(FaceInset, FaceInset);
+            windowRect.offsetMax = new Vector2(-FaceInset, -FaceInset);
+            _face = MakeImage(window.transform, "Face", Color.white);
+            _face.raycastTarget = false;
+            _faceFrame.gameObject.SetActive(false);
+
+            var box = MakePanel(rowGo.transform, "Dialogue Box", Panel);
             box.raycastTarget = false;
             _box = box.rectTransform;
             _boxLayout = box.gameObject.AddComponent<LayoutElement>();
+            _boxLayout.flexibleWidth = 1;
 
             _rule = MakeImage(box.transform, "Rule", new Color(Teal.r, Teal.g, Teal.b, 0.6f));
             _rule.raycastTarget = false;

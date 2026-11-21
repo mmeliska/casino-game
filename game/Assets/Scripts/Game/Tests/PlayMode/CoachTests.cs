@@ -81,6 +81,39 @@ namespace Starflare.Tests
             Assert.That(done, Is.True);
         }
 
+        /// <summary>
+        /// Over a table the teacher is a face in a square beside the line, not a full figure;
+        /// narration has no face. A scene on its own keeps the full pose and no square.
+        /// </summary>
+        [Test]
+        public void OverATable_TheSpeakerIsAFaceBesideTheLine()
+        {
+            var table = MakeTable(new PlayerState());
+            var go = Make("Story");
+            var player = go.AddComponent<StoryPlayer>();
+            player.Init(Compile("=== lesson ===\n# pose: rosa_neutral\nROSA: First hand's practice.\nThe lamp hums.\n-> END\n"));
+            player.PlayOver("lesson", table, () => { });
+
+            Assert.That(Shown(go, "Face Frame"), Is.True, "her face sits beside the line");
+            Assert.That(Shown(go, "Pose"), Is.False, "no full figure over the table");
+            var face = go.GetComponentsInChildren<Image>(true).First(i => i.name == "Face");
+            Assert.That(face.sprite, Is.Not.Null.And.EqualTo(Art.Pose("rosa_neutral")));
+            Tap(go); // finish typing
+            Tap(go); // on to the narration
+            Assert.That(Shown(go, "Dialogue Box"), Is.True);
+            Assert.That(Shown(go, "Face Frame"), Is.False, "narration has no face");
+
+            var alone = Make("Scene");
+            var scene = alone.AddComponent<StoryPlayer>();
+            scene.Init(Compile("=== talk ===\n# pose: rosa_neutral\nROSA: Sit.\n-> END\n"));
+            scene.Play("talk", () => { });
+            Assert.That(Shown(alone, "Face Frame"), Is.False);
+            Assert.That(Shown(alone, "Pose"), Is.True);
+        }
+
+        static bool Shown(GameObject root, string name) =>
+            root.GetComponentsInChildren<Transform>(true).First(t => t.name == name).gameObject.activeInHierarchy;
+
         BlackjackTable MakeTable(PlayerState state)
         {
             var table = Make("Table").AddComponent<BlackjackTable>();
