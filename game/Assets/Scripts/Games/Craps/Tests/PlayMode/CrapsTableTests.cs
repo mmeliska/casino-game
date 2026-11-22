@@ -40,7 +40,9 @@ namespace Starflare.Tests
             Coach(table, CrapsControls.Throw); // 6: the point
             Assert.That(Message(table), Does.Contain("The point is 6"));
             Coach(table, CrapsControls.Throw); // 6: made
-            Assert.That(Message(table), Does.Contain("Point made").And.Contain("Right +$1"));
+            Assert.That(Message(table), Does.Contain("Point made"));
+            Assert.That(Text(table, "Payout"), Does.Contain("Right +$1"), "what your bets did is the popup's");
+            Assert.That(Text(table, "Payout Title"), Is.EqualTo("You won $1"));
             Coach(table, rightUp);
             Coach(table, CrapsControls.Throw); // 10: a new point
             Coach(table, CrapsControls.Throw); // 7: seven out
@@ -79,7 +81,8 @@ namespace Starflare.Tests
 
             Assert.That(state.RoundsPlayed, Is.EqualTo(1), "your right bet settled within the hand");
             Assert.That(table.SittingNet, Is.EqualTo(1).Or.EqualTo(-1), "a $1 right bet wins or loses a dollar, too small for Juan's cut");
-            Assert.That(Message(table), Does.Contain(table.SittingNet > 0 ? "Right +$1" : "Right -$1"));
+            Assert.That(Text(table, "Payout"), Does.Contain(table.SittingNet > 0 ? "Right +$1" : "Right -$1"));
+            Assert.That(Text(table, "Payout Title"), Is.EqualTo(table.SittingNet > 0 ? "You won $1" : "You lost $1"));
         }
 
         [Test]
@@ -154,8 +157,10 @@ namespace Starflare.Tests
             table.Lock("");
         }
 
-        static string Message(CrapsTable table) =>
-            table.GetComponentsInChildren<TMP_Text>(true).First(t => t.name == "Message").text;
+        static string Message(CrapsTable table) => Text(table, "Message");
+
+        static string Text(CrapsTable table, string name) =>
+            table.GetComponentsInChildren<TMP_Text>(true).First(t => t.name == name).text;
 
         static Button Find(Component on, string name) => on.GetComponentsInChildren<Button>(true).First(b => b.name == name);
 

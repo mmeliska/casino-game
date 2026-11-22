@@ -27,11 +27,7 @@ namespace Starflare.Craps
         static readonly Color Chalk = new Color(0.94f, 0.94f, 0.9f, 0.8f);
         static readonly Color DieFace = new Color(0.96f, 0.95f, 0.9f);
         static readonly Color Seat = new Color(0.32f, 0.32f, 0.34f);
-        static readonly Color Spots = new Color(0.05f, 0.05f, 0.06f, 0.78f);
         static readonly BetKind[] Kinds = { BetKind.Right, BetKind.Wrong, BetKind.PointFor, BetKind.PointAgainst };
-
-        /// <summary>Where each seat stands on the circle, in the order the dice go: you at the bottom, then clockwise.</summary>
-        static readonly Vector2[] SeatSpots = { new Vector2(0.5f, 0.1f), new Vector2(0.11f, 0.5f), new Vector2(0.5f, 0.9f), new Vector2(0.89f, 0.5f) };
 
         /// <summary>Pips on a die face, as cells of a 3x3 grid (x, y from -1 to 1), by face value.</summary>
         static readonly Vector2Int[][] PipCells =
@@ -80,20 +76,34 @@ namespace Starflare.Craps
         Sitting _sitting;
         int _sittingStartBankroll;
         Roll? _lastRoll;
+        int _lastShooter;
         string _message = "";
+
+        /// <summary>The dice in the air: how long they've been, and when they next show a new face.</summary>
+        bool _rolling;
+        float _rollTime, _nextTumble;
+
+        /// <summary>The payout popup, and whether it's waiting for the dice to land.</summary>
+        bool _payoutPending;
+        GameObject _payout;
+        TMP_Text _payoutTitle, _payoutLines;
+        Image _payoutEdge;
 
         GameObject _root;
         Image _plateImage;
         CoverFit _plateFit;
-        TMP_Text _bankrollText, _clockText, _messageText, _pointText;
-        Image _pointPuck;
-        RectTransform _portraitColumn, _landscapeRow, _circleSide, _controlSide, _header, _circle, _bets, _actions;
+        TMP_Text _bankrollText, _clockText, _messageText, _pointText, _rollText, _totalText;
+        Image _pointBadge, _pointEdge;
+        RectTransform _portraitColumn, _landscapeRow, _circleSide, _controlSide, _header, _seats, _circle, _resultBar, _bets, _actions;
         Button _throwButton, _callButton, _passButton, _getUpButton;
         readonly Image[][] _pips = new Image[2][];
-        Image[] _shooterRings;
+        readonly RectTransform[] _dice = new RectTransform[2];
+        CanvasGroup[] _reveal;
+        Image[] _seatFrames;
+        GameObject[] _shooterTags;
         TMP_Text[] _seatNames, _seatInitials;
-        Image[] _seatPortraits;
-        readonly TMP_Text[] _betLabels = new TMP_Text[4];
+        Image[] _seatPortraits, _seatDiscs;
+        readonly TMP_Text[] _betLabels = new TMP_Text[4], _betHints = new TMP_Text[4], _betAmounts = new TMP_Text[4];
         readonly Button[] _upButtons = new Button[4], _downButtons = new Button[4];
 
         CrapsGame Current => _practiceGame ?? _game;
@@ -155,6 +165,7 @@ namespace Starflare.Craps
             _sitting = new Sitting(_pace);
             _sittingStartBankroll = _state.BankrollNow;
             _lastRoll = null;
+            FinishRoll();
             if (practice != null)
             {
                 _practiceDice = Dice.Set(practice.Rolls);
@@ -181,7 +192,9 @@ namespace Starflare.Craps
         /// <summary>Counts real time played. Not through a practice turn, while a teacher talks (it's locked) or the app is away.</summary>
         void Update()
         {
-            if (_sitting == null || !_root.activeSelf || _lock != null || Practicing) return;
+            if (_root == null || !_root.activeSelf) return;
+            if (_rolling) Tumble(Time.unscaledDeltaTime);
+            if (_sitting == null || _lock != null || Practicing) return;
             _sitting.Play(Math.Min(Time.unscaledDeltaTime, Sitting.MaxFrameSeconds));
         }
 
@@ -222,10 +235,13 @@ namespace Starflare.Craps
             int point = game.Point;
             var result = game.Throw();
             _lastRoll = result.Roll;
+            _lastShooter = result.Shooter;
+            StartRoll();
+            SetPayout(result, point);
 
             if (Practicing)
             {
-                _message = "Practice turn, so it doesn't count.\n" + Describe(result, point);
+                _message = Describe(result, point);
                 if (!_practiceDice.HasMore) EndPractice();
             }
             else
@@ -242,7 +258,7 @@ namespace Starflare.Craps
             _game = new CrapsGame(_rules, _fairDice, _practiceGame.Shooter);
             _practiceGame = null;
             _practiceDice = null;
-            _message = "That's the practice. Real money from here.\n" + _message.Substring(_message.IndexOf('\n') + 1);
+            _message = "That's the practice. Real money from here.\n" + _message;
         }
 
         void PassDice()
@@ -258,6 +274,7 @@ namespace Starflare.Craps
         void Press(string id, Action action)
         {
             if (_lock != null && _lock != id) return;
+            HidePayout();
             action();
             ActionTaken?.Invoke(id);
         }
@@ -271,6 +288,7 @@ namespace Starflare.Craps
             foreach (var kind in Kinds)
                 if (_game.Bet(kind) > 0) _game.TakeBack(kind);
             _state.PassTime(_sitting.TakeMinutes());
+            FinishRoll();
             _root.SetActive(false);
             BreakPointReached?.Invoke(BreakPoint.GotUpFromTable);
         }
@@ -291,19 +309,44 @@ namespace Starflare.Craps
                 : $"{NameOf(game.Shooter)}'s point is {game.Point}. Call it.";
         }
 
-        /// <summary>The throw, what it did, and a line for each of your bets it settled.</summary>
+        /// <summary>
+        /// What the throw did, in one line. The dice are on the result bar above ("Nick rolled
+        /// 5 + 5 | 10"); what your bets did is the payout popup's.
+        /// </summary>
         string Describe(ThrowResult result, int pointBefore)
         {
-            var sb = new StringBuilder();
             var roll = result.Roll;
-            sb.Append(result.Shooter == CrapsGame.You ? "You roll" : NameOf(result.Shooter) + " rolls")
-                .Append($" {roll.Die1} and {roll.Die2}: {roll.Total}.");
-            if (result.PointSet > 0) sb.Append($" The point is {result.PointSet}.");
-            else if (result.PointMade) sb.Append(" Point made.");
-            else if (result.SevenOut) sb.Append($" Seven out. The dice go to {NameOf(Current.Shooter)}.");
-            else if (pointBefore == 0) sb.Append(roll.Total == 7 || roll.Total == 11 ? " A natural." : " Craps.");
-            foreach (var bet in result.Settled) sb.Append('\n').Append(PayoutLine(bet, pointBefore));
-            return sb.ToString();
+            if (result.PointSet > 0) return $"The point is {result.PointSet}.";
+            if (result.PointMade) return "Point made.";
+            if (result.SevenOut) return $"Seven out. The dice go to {NameOf(Current.Shooter)}.";
+            if (pointBefore == 0) return roll.Total == 7 || roll.Total == 11 ? "A natural." : "Craps.";
+            return $"No decision. The point's still {pointBefore}.";
+        }
+
+        /// <summary>
+        /// The popup's words for a throw that settled any of your bets: the total won or lost, big,
+        /// then a line for each bet with Juan's cut on its own (GDD, "Juan's cut").
+        /// </summary>
+        void SetPayout(ThrowResult result, int pointBefore)
+        {
+            _payoutPending = result.SettledAny;
+            if (!result.SettledAny) return;
+            int net = result.Net;
+            bool allPushed = result.Settled.TrueForAll(bet => bet.Outcome == BetOutcome.Push);
+            _payoutTitle.text = net > 0 ? $"You won {Money(net)}"
+                : net < 0 ? $"You lost {Money(-net)}"
+                : allPushed ? "Push. Money back." : "You broke even";
+            var mood = net > 0 ? Gold : net < 0 ? Loss : Color.white;
+            _payoutTitle.color = mood;
+            _payoutEdge.color = mood;
+            var sb = new StringBuilder();
+            foreach (var bet in result.Settled)
+            {
+                if (sb.Length > 0) sb.Append('\n');
+                sb.Append(PayoutLine(bet, pointBefore));
+            }
+            if (Practicing) sb.Append("\n<size=26><alpha=#99>Practice, so it doesn't count</size>");
+            _payoutLines.text = sb.ToString();
         }
 
         /// <summary>
@@ -334,7 +377,28 @@ namespace Starflare.Craps
             _ => point > 0 ? $"Against the {point}" : "Against the point",
         };
 
+        /// <summary>
+        /// The line under a bet spot's name: what it's a bet on and what it pays, or when it opens
+        /// if it can't take money now. Pays are said Juan's way, "6 for 5".
+        /// </summary>
+        static string BetHint(BetKind kind, int point, bool open)
+        {
+            bool line = kind == BetKind.Right || kind == BetKind.Wrong;
+            if (!open) return line ? "Opens on the next come-out" : "Opens once a point is set";
+            if (line) return kind == BetKind.Right ? "With the shooter · pays even" : "Against the shooter · pays even";
+            var (pays, per) = CrapsRules.Odds(kind, point);
+            return kind == BetKind.PointFor
+                ? $"A {point} before a 7 · pays {pays} for {per}"
+                : $"A 7 before the {point} · pays {pays} for {per}";
+        }
+
         // ---- Display ----
+
+        static readonly Color Faded = new Color(1, 1, 1, 0.35f);
+        static readonly Color Line = new Color(1, 1, 1, 0.22f);
+        static readonly Color SeatEdge = new Color(1, 1, 1, 0.3f);
+        static readonly Color Outlined = new Color(0.05f, 0.06f, 0.07f, 0.75f);
+        static readonly Color Loss = new Color(1f, 0.45f, 0.4f);
 
         void Refresh()
         {
@@ -349,19 +413,35 @@ namespace Starflare.Craps
             bool broke = !Practicing && game.Staked == 0 && _state.BankrollNow < _rules.MinBet;
             _messageText.text = broke ? "You're broke. Step out and find another way back in." : _message;
 
+            // The result bar: the last throw, who threw it, and its total, big.
+            if (_lastRoll is Roll roll)
+            {
+                string who = _lastShooter == CrapsGame.You ? "You" : NameOf(_lastShooter);
+                _rollText.text = $"{who} rolled {roll.Die1} + {roll.Die2}";
+                _totalText.text = roll.Total.ToString();
+            }
+            else
+            {
+                _rollText.text = "No dice thrown yet";
+                _totalText.text = "-";
+            }
+
             for (int seat = 0; seat < _rules.Seats; seat++)
             {
                 bool shooting = seat == game.Shooter;
-                _shooterRings[seat].enabled = shooting;
-                _seatNames[seat].color = shooting ? Gold : Color.white;
+                _seatFrames[seat].color = shooting ? Gold : SeatEdge;
+                _shooterTags[seat].SetActive(shooting);
             }
 
-            ShowDie(0, _lastRoll?.Die1 ?? 0);
-            ShowDie(1, _lastRoll?.Die2 ?? 0);
+            if (!_rolling)
+            {
+                ShowDie(0, _lastRoll?.Die1 ?? 0);
+                ShowDie(1, _lastRoll?.Die2 ?? 0);
+            }
             bool on = game.Phase == CrapsPhase.Point;
-            _pointPuck.color = on ? Gold : new Color(0.1f, 0.1f, 0.1f, 0.9f);
-            _pointText.text = on ? $"ON\n{game.Point}" : "OFF";
-            _pointText.color = on ? CardBlack : Color.white;
+            _pointText.text = on ? $"POINT  <size=64><b>{game.Point}</b></size>" : "POINT  <size=40><b>OFF</b></size>";
+            _pointText.color = on ? Color.white : Faded;
+            _pointEdge.color = on ? Gold : SeatEdge;
 
             // Every control starts each redraw usable, then the rules and any coach's lock narrow it.
             foreach (var control in _controls.Values) control.interactable = true;
@@ -369,16 +449,23 @@ namespace Starflare.Craps
             {
                 var kind = Kinds[i];
                 int amount = game.Bet(kind);
-                string state = game.IsRiding(kind) ? " · riding" : amount > 0 ? " · down" : "";
-                _betLabels[i].text = $"{BetName(kind, game.Point)}  {(amount > 0 ? Money(amount) : "-")}{state}";
+                bool riding = game.IsRiding(kind);
                 bool open = game.CanBet(kind);
-                _betLabels[i].color = open || amount > 0 ? Color.white : new Color(1, 1, 1, 0.4f);
+                bool live = open || amount > 0;
+                _betLabels[i].text = BetName(kind, game.Point);
+                _betLabels[i].color = live ? Color.white : Faded;
+                _betHints[i].text = BetHint(kind, game.Point, open || riding);
+                _betHints[i].color = live ? new Color(1, 1, 1, 0.7f) : Faded;
+                // The money on the spot, and once it's thrown on, that it can't come back.
+                _betAmounts[i].text = riding ? $"{Money(amount)}\n<size=24>RIDING</size>" : Money(amount);
+                _betAmounts[i].color = amount > 0 ? Gold : Faded;
                 _upButtons[i].interactable = open && NextAmount(game, kind, up: true) > 0;
                 _downButtons[i].interactable = open && amount > 0;
             }
 
             _throwButton.gameObject.SetActive(game.YouShoot);
             _callButton.gameObject.SetActive(!game.YouShoot);
+            if (!game.YouShoot) _callButton.GetComponentInChildren<TMP_Text>().text = $"Call {NameOf(game.Shooter)}'s throw";
             _passButton.gameObject.SetActive(game.CanPassDice);
             _throwButton.interactable = game.CanThrow;
             _callButton.interactable = game.CanThrow;
@@ -388,6 +475,10 @@ namespace Starflare.Craps
             if (_lock != null)
                 foreach (var control in _controls)
                     if (control.Key != _lock) control.Value.interactable = false;
+
+            // A control that can't be pressed fades whole, edge and label with it.
+            foreach (var control in _controls.Values)
+                control.GetComponent<CanvasGroup>().alpha = control.interactable ? 1 : 0.4f;
         }
 
         /// <summary>Lights a die's pips for this face; 0 is a blank die, before the first throw.</summary>
@@ -400,6 +491,140 @@ namespace Starflare.Craps
                 pips[i].enabled = i < cells.Length;
                 if (i < cells.Length) pips[i].rectTransform.anchoredPosition = (Vector2)cells[i] * 30;
             }
+        }
+
+        // ---- The throw, animated ----
+
+        /// <summary>How long the dice are in the air, off the brick and back to rest.</summary>
+        const float RollSeconds = 0.8f;
+
+        /// <summary>Where each die comes to rest, either side of the circle's middle.</summary>
+        static readonly Vector2[] DiceRest = { new Vector2(-70, 0), new Vector2(70, 0) };
+
+        /// <summary>
+        /// Sends the dice up off the wall and back. Only for show: the throw is already settled,
+        /// so the result bar and message stay hidden until the dice land, and any press carries
+        /// on as normal (a new throw just starts the dice again).
+        /// </summary>
+        void StartRoll()
+        {
+            _rolling = true;
+            _rollTime = 0;
+            _nextTumble = 0;
+            foreach (var group in _reveal) group.alpha = 0;
+            HidePayout();
+        }
+
+        /// <summary>
+        /// One frame of the dice in the air: thrown from your side of the circle up to the brick,
+        /// bouncing back down to rest, spinning and showing random faces until they settle.
+        /// </summary>
+        void Tumble(float seconds)
+        {
+            _rollTime += seconds;
+            float t = Mathf.Clamp01(_rollTime / RollSeconds);
+            float height = _circle.rect.height;
+            float bottom = -height * 0.37f + 70, wall = height * 0.63f - 90;
+            for (int die = 0; die < 2; die++)
+            {
+                var rest = DiceRest[die];
+                var start = new Vector2(rest.x * 0.3f, bottom);
+                var atWall = new Vector2(rest.x * 1.8f, wall);
+                Vector2 at;
+                if (t < 0.4f)
+                {
+                    at = Vector2.Lerp(start, atWall, EaseOut(t / 0.4f));
+                }
+                else
+                {
+                    float u = (t - 0.4f) / 0.6f;
+                    at = Vector2.Lerp(atWall, rest, EaseOut(u));
+                    at.y += Mathf.Abs(Mathf.Sin(u * Mathf.PI * 2)) * (1 - u) * 50;
+                }
+                _dice[die].anchoredPosition = at;
+                _dice[die].localRotation = Quaternion.Euler(0, 0, (1 - t) * (1 - t) * 720 * (die == 0 ? 1 : -1));
+            }
+
+            // Show-only faces while they tumble; the real ones as they settle.
+            if (t < 0.85f && _rollTime >= _nextTumble)
+            {
+                ShowDie(0, UnityEngine.Random.Range(1, 7));
+                ShowDie(1, UnityEngine.Random.Range(1, 7));
+                _nextTumble = _rollTime + 0.07f;
+            }
+            if (t >= 1) FinishRoll();
+        }
+
+        static float EaseOut(float x) => 1 - (1 - x) * (1 - x);
+
+        /// <summary>Lands the dice where they rest, shows what was thrown and brings the result back.</summary>
+        void FinishRoll()
+        {
+            _rolling = false;
+            if (_dice[0] == null) return;
+            for (int die = 0; die < 2; die++)
+            {
+                _dice[die].anchoredPosition = DiceRest[die];
+                _dice[die].localRotation = Quaternion.identity;
+            }
+            ShowDie(0, _lastRoll?.Die1 ?? 0);
+            ShowDie(1, _lastRoll?.Die2 ?? 0);
+            foreach (var group in _reveal) group.alpha = 1;
+            if (_payoutPending && _root.activeSelf) _payout.SetActive(true);
+            _payoutPending = false;
+        }
+
+        void HidePayout()
+        {
+            if (_payout != null) _payout.SetActive(false);
+        }
+
+        /// <summary>
+        /// What your bets did on the last throw, over the middle of the circle once the dice land:
+        /// "You won $11", big, and a line for each bet under it. It stays until you press
+        /// Continue, or any of the table's own buttons.
+        /// </summary>
+        void BuildPayout()
+        {
+            var card = MakePanel(_circle, "Payout", Panel);
+            _payoutEdge = EdgeOf(card);
+            var rect = card.rectTransform;
+            // Its top just under the point badge, so it sits high over the circle.
+            rect.anchorMin = rect.anchorMax = rect.pivot = new Vector2(0.5f, 1);
+            rect.anchoredPosition = new Vector2(0, -112);
+            rect.sizeDelta = new Vector2(760, 0);
+            var group = AddVertical(card.gameObject, 8, new RectOffset(40, 40, 28, 32)).GetComponent<VerticalLayoutGroup>();
+            group.childAlignment = TextAnchor.MiddleCenter;
+            var fitter = card.gameObject.AddComponent<ContentSizeFitter>();
+            fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+            _payoutTitle = MakeText(card.transform, "", 64, TextAnchor.MiddleCenter, 0);
+            _payoutTitle.name = "Payout Title";
+            _payoutTitle.fontStyle = FontStyles.Bold;
+            _payoutLines = MakeText(card.transform, "", 38, TextAnchor.MiddleCenter, 0);
+            _payoutLines.name = "Payout";
+            _payoutLines.lineSpacing = 10;
+
+            var gap = new GameObject("Gap", typeof(RectTransform), typeof(LayoutElement));
+            gap.transform.SetParent(card.transform, false);
+            gap.GetComponent<LayoutElement>().preferredHeight = 8;
+            var go = MakeButton(card.transform, "Continue", HidePayout);
+            go.GetComponent<Image>().color = Gold;
+            go.GetComponent<LayoutElement>().preferredHeight = 96;
+            var label = go.GetComponentInChildren<TMP_Text>();
+            label.color = CardBlack;
+            label.fontStyle = FontStyles.Bold;
+
+            _payout = card.gameObject;
+            _payout.SetActive(false);
+        }
+
+        /// <summary>A panel's thin edge, kept out of the panel's own layout so it frames the whole panel.</summary>
+        static Image EdgeOf(Image panel)
+        {
+            var edge = panel.transform.Find("Edge").GetComponent<Image>();
+            edge.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
+            return edge;
         }
 
         // ---- UI construction ----
@@ -415,7 +640,7 @@ namespace Starflare.Craps
             _plateImage.raycastTarget = false;
             _plateFit = _plateImage.gameObject.AddComponent<CoverFit>();
             _plateFit.Show(_plateImage, _plate, _plateFocus);
-            var shade = MakeImage(backdrop.transform, "Shade", new Color(0, 0, 0, 0.4f));
+            var shade = MakeImage(backdrop.transform, "Shade", new Color(0, 0, 0, 0.3f));
             Stretch(shade.rectTransform);
 
             var safe = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
@@ -435,157 +660,218 @@ namespace Starflare.Craps
             _controlSide.gameObject.AddComponent<LayoutElement>().flexibleWidth = 1;
 
             BuildHeader();
+            BuildSeats();
             BuildCircle();
-            _messageText = MakeText(_portraitColumn, "", 38, TextAnchor.MiddleCenter, 210);
+            BuildResultBar();
+            _messageText = MakeText(_portraitColumn, "", 36, TextAnchor.MiddleCenter, 110);
             _messageText.name = "Message";
+            _messageText.enableAutoSizing = true;
+            _messageText.fontSizeMin = 28;
+            _messageText.fontSizeMax = 36;
             _messageText.color = Gold;
             Shadowed(_messageText);
+            _reveal = new[] { _resultBar.gameObject.AddComponent<CanvasGroup>(), _messageText.gameObject.AddComponent<CanvasGroup>() };
             BuildBets();
             BuildActions();
+            BuildPayout();
 
             OnTurn(canvas, Rearrange);
         }
 
         /// <summary>
-        /// Portrait is one column: your cash and the way out, the circle, what the dice did, the
-        /// bet spots, the throw. Landscape puts the circle on the left and the rest on the right.
+        /// Portrait is one column: your cash and the way out, the faces round the circle, the
+        /// circle and the dice, what they rolled, the bet spots, the throw. Landscape puts the
+        /// faces and the circle on the left and the rest on the right.
         /// </summary>
         void Rearrange(bool landscape)
         {
             _portraitColumn.gameObject.SetActive(!landscape);
             _landscapeRow.gameObject.SetActive(landscape);
-            var circleLayout = _circle.GetComponent<LayoutElement>();
-            circleLayout.preferredHeight = landscape ? 0 : 720;
-            circleLayout.flexibleHeight = landscape ? 1 : 0;
             if (landscape)
             {
-                Arrange(_circleSide, _circle);
-                Arrange(_controlSide, _header, _messageText, _bets, _actions);
+                Arrange(_circleSide, _seats, _circle);
+                Arrange(_controlSide, _header, _resultBar, _messageText, _bets, _actions);
             }
             else
             {
-                Arrange(_portraitColumn, _header, _circle, _messageText, _bets, _actions);
+                Arrange(_portraitColumn, _header, _seats, _circle, _resultBar, _messageText, _bets, _actions);
             }
         }
 
         void BuildHeader()
         {
             _header = MakeRow(_portraitColumn, "Header");
-            _header.GetComponent<LayoutElement>().preferredHeight = 110;
+            _header.GetComponent<LayoutElement>().preferredHeight = 90;
             var info = new GameObject("Info", typeof(RectTransform), typeof(LayoutElement));
             info.transform.SetParent(_header, false);
             info.GetComponent<LayoutElement>().flexibleWidth = 3;
-            AddVertical(info, 4, new RectOffset());
-            _bankrollText = MakeText(info.transform, "", 40, TextAnchor.MiddleLeft, 56);
+            AddVertical(info, 2, new RectOffset());
+            _bankrollText = MakeText(info.transform, "", 38, TextAnchor.MiddleLeft, 50);
             _bankrollText.fontStyle = FontStyles.Bold;
             Shadowed(_bankrollText);
-            _clockText = MakeText(info.transform, "", 32, TextAnchor.MiddleLeft, 44);
+            _clockText = MakeText(info.transform, "", 30, TextAnchor.MiddleLeft, 38);
             _clockText.color = new Color(1, 1, 1, 0.8f);
             Shadowed(_clockText);
             _getUpButton = Control(_header, CrapsControls.GetUp, "Get up", GetUp);
-            _getUpButton.GetComponent<LayoutElement>().preferredHeight = 104;
+            Outline(_getUpButton);
+            _getUpButton.GetComponent<LayoutElement>().preferredHeight = 88;
         }
 
-        /// <summary>The chalk circle, a square that fits its space, with the seats round it and the dice and point puck inside.</summary>
-        void BuildCircle()
+        /// <summary>
+        /// The faces in the circle as a row of cards, in the order the dice go round and you
+        /// last: the gold card with the tag is the shooter.
+        /// </summary>
+        void BuildSeats()
         {
-            var holder = new GameObject("Circle", typeof(RectTransform), typeof(LayoutElement));
-            holder.transform.SetParent(_portraitColumn, false);
-            _circle = (RectTransform)holder.transform;
-
-            var square = new GameObject("Square", typeof(RectTransform), typeof(AspectRatioFitter));
-            square.transform.SetParent(_circle, false);
-            Stretch((RectTransform)square.transform);
-            var fitter = square.GetComponent<AspectRatioFitter>();
-            fitter.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
-            fitter.aspectRatio = 1;
-
-            var ring = MakeImage(square.transform, "Chalk", Chalk);
-            ring.sprite = MakeRing();
-            ring.raycastTarget = false;
-            Pin(ring.rectTransform, new Vector2(0.1f, 0.1f), new Vector2(0.9f, 0.9f), Vector2.zero, Vector2.zero);
-
-            var dice = new GameObject("Dice", typeof(RectTransform));
-            dice.transform.SetParent(square.transform, false);
-            var diceRect = (RectTransform)dice.transform;
-            diceRect.anchorMin = diceRect.anchorMax = new Vector2(0.5f, 0.45f);
-            for (int die = 0; die < 2; die++) _pips[die] = MakeDie(diceRect, new Vector2(die == 0 ? -70 : 70, 0));
-
-            _pointPuck = MakeImage(square.transform, "Point", Color.white);
-            _pointPuck.sprite = Circle;
-            _pointPuck.raycastTarget = false;
-            var puck = _pointPuck.rectTransform;
-            puck.anchorMin = puck.anchorMax = new Vector2(0.5f, 0.65f);
-            puck.sizeDelta = new Vector2(110, 110);
-            _pointText = MakeText(puck, "", 30, TextAnchor.MiddleCenter, 0);
-            _pointText.fontStyle = FontStyles.Bold;
-            _pointText.lineSpacing = -20;
-            Stretch(_pointText.rectTransform);
-
-            _shooterRings = new Image[_rules.Seats];
+            _seats = MakeRow(_portraitColumn, "Seats");
+            _seats.GetComponent<LayoutElement>().preferredHeight = 250;
+            _seats.GetComponent<HorizontalLayoutGroup>().spacing = 12;
+            _seatFrames = new Image[_rules.Seats];
+            _shooterTags = new GameObject[_rules.Seats];
             _seatNames = new TMP_Text[_rules.Seats];
             _seatInitials = new TMP_Text[_rules.Seats];
             _seatPortraits = new Image[_rules.Seats];
-            for (int seat = 0; seat < _rules.Seats; seat++) MakeSeat(square.transform, seat);
+            _seatDiscs = new Image[_rules.Seats];
+            for (int i = 1; i <= _rules.Seats; i++) MakeSeat(i % _rules.Seats);
         }
 
-        /// <summary>A face (or the placeholder disc) with a gold ring for the shooter and a name under it.</summary>
-        void MakeSeat(Transform square, int seat)
+        /// <summary>A square card with the face (or the initial on a disc), the shooter's tag along its foot, and the name under it.</summary>
+        void MakeSeat(int seat)
         {
-            var spot = new GameObject("Seat " + seat, typeof(RectTransform));
-            spot.transform.SetParent(square, false);
+            var spot = new GameObject("Seat " + seat, typeof(RectTransform), typeof(LayoutElement));
+            spot.transform.SetParent(_seats, false);
+            spot.GetComponent<LayoutElement>().flexibleWidth = 1;
             var rect = (RectTransform)spot.transform;
-            rect.anchorMin = rect.anchorMax = SeatSpots[seat % SeatSpots.Length];
-            rect.sizeDelta = new Vector2(220, 220);
 
-            var ring = MakeImage(rect, "Shooter", Gold);
-            ring.sprite = Circle;
-            ring.raycastTarget = false;
-            ring.rectTransform.sizeDelta = new Vector2(176, 176);
-            ring.rectTransform.anchoredPosition = new Vector2(0, 24);
-            _shooterRings[seat] = ring;
+            var frame = MakeImage(rect, "Frame", SeatEdge);
+            frame.sprite = Rounded;
+            frame.type = Image.Type.Sliced;
+            frame.raycastTarget = false;
+            var frameRect = frame.rectTransform;
+            frameRect.anchorMin = frameRect.anchorMax = frameRect.pivot = new Vector2(0.5f, 1);
+            frameRect.sizeDelta = new Vector2(196, 196);
+            _seatFrames[seat] = frame;
 
-            var disc = MakeImage(rect, "Face", Seat);
-            disc.sprite = Circle;
-            disc.raycastTarget = false;
-            disc.rectTransform.sizeDelta = new Vector2(160, 160);
-            disc.rectTransform.anchoredPosition = new Vector2(0, 24);
-            disc.gameObject.AddComponent<Mask>().showMaskGraphic = true;
+            var card = MakeImage(frameRect, "Card", Seat);
+            card.sprite = Rounded;
+            card.type = Image.Type.Sliced;
+            card.raycastTarget = false;
+            Pin(card.rectTransform, Vector2.zero, Vector2.one, new Vector2(5, 5), new Vector2(-5, -5));
+            card.gameObject.AddComponent<Mask>().showMaskGraphic = true;
 
-            var portrait = MakeImage(disc.transform, "Portrait", Color.white);
-            portrait.preserveAspect = true;
+            var portrait = MakeImage(card.transform, "Portrait", Color.white);
             portrait.raycastTarget = false;
             Stretch(portrait.rectTransform);
             _seatPortraits[seat] = portrait;
 
+            var disc = MakeImage(card.transform, "Disc", new Color(0.2f, 0.2f, 0.22f));
+            disc.sprite = Circle;
+            disc.raycastTarget = false;
+            disc.rectTransform.sizeDelta = new Vector2(120, 120);
+            _seatDiscs[seat] = disc;
             var initial = MakeText(disc.transform, "", 72, TextAnchor.MiddleCenter, 0);
             initial.fontStyle = FontStyles.Bold;
             Stretch(initial.rectTransform);
             _seatInitials[seat] = initial;
 
-            var label = MakeText(rect, "", 32, TextAnchor.MiddleCenter, 0);
+            var tag = MakeImage(frameRect, "Shooter", Gold);
+            tag.sprite = Rounded;
+            tag.type = Image.Type.Sliced;
+            tag.raycastTarget = false;
+            Pin(tag.rectTransform, new Vector2(0.06f, 0), new Vector2(0.94f, 0), new Vector2(0, 8), new Vector2(0, 48));
+            var tagText = MakeText(tag.transform, "SHOOTER", 24, TextAnchor.MiddleCenter, 0);
+            tagText.fontStyle = FontStyles.Bold;
+            tagText.color = CardBlack;
+            Stretch(tagText.rectTransform);
+            _shooterTags[seat] = tag.gameObject;
+
+            var label = MakeText(rect, "", 34, TextAnchor.MiddleCenter, 0);
             NoWrap(label);
             Shadowed(label);
-            label.rectTransform.anchorMin = label.rectTransform.anchorMax = new Vector2(0.5f, 0);
-            label.rectTransform.sizeDelta = new Vector2(260, 44);
-            label.rectTransform.anchoredPosition = new Vector2(0, 8);
+            Pin(label.rectTransform, Vector2.zero, new Vector2(1, 0), Vector2.zero, new Vector2(0, 48));
             _seatNames[seat] = label;
             ShowRegular(seat);
         }
 
-        /// <summary>A seat's face and name, or for a regular with no face yet, the disc with their initial.</summary>
+        /// <summary>A seat's face and name, or for you and a regular with no face yet, their initial on a disc.</summary>
         void ShowRegular(int seat)
         {
             string name = seat == CrapsGame.You ? "You" : _regulars[seat - 1].Name;
             var face = seat == CrapsGame.You ? null : _regulars[seat - 1].Face;
             _seatPortraits[seat].sprite = face;
             _seatPortraits[seat].enabled = face != null;
+            _seatDiscs[seat].enabled = face == null;
             _seatInitials[seat].text = face != null ? "" : name.Substring(0, 1).ToUpperInvariant();
             _seatNames[seat].text = name;
         }
 
+        /// <summary>
+        /// The chalk circle on the asphalt, seen at a slant, with the dice in it and the point
+        /// marker in the top corner. It takes whatever height the screen has left.
+        /// </summary>
+        void BuildCircle()
+        {
+            var holder = new GameObject("Circle", typeof(RectTransform), typeof(LayoutElement));
+            holder.transform.SetParent(_portraitColumn, false);
+            _circle = (RectTransform)holder.transform;
+            var layout = holder.GetComponent<LayoutElement>();
+            layout.flexibleHeight = 1;
+            layout.minHeight = 320;
+
+            var ring = MakeImage(_circle, "Chalk", Chalk);
+            ring.sprite = MakeRing();
+            ring.raycastTarget = false;
+            Pin(ring.rectTransform, new Vector2(0.04f, 0.12f), new Vector2(0.96f, 0.62f), Vector2.zero, Vector2.zero);
+
+            var dice = new GameObject("Dice", typeof(RectTransform));
+            dice.transform.SetParent(_circle, false);
+            var diceRect = (RectTransform)dice.transform;
+            diceRect.anchorMin = diceRect.anchorMax = new Vector2(0.5f, 0.37f);
+            for (int die = 0; die < 2; die++) _pips[die] = MakeDie(diceRect, DiceRest[die], out _dice[die]);
+
+            _pointBadge = MakeImage(_circle, "Point", Panel);
+            _pointBadge.sprite = Rounded;
+            _pointBadge.type = Image.Type.Sliced;
+            _pointBadge.raycastTarget = false;
+            var badge = _pointBadge.rectTransform;
+            badge.anchorMin = badge.anchorMax = badge.pivot = new Vector2(1, 1);
+            badge.sizeDelta = new Vector2(250, 96);
+            badge.anchoredPosition = new Vector2(-4, -8);
+            _pointEdge = MakeImage(badge, "Edge", Gold);
+            _pointEdge.sprite = RoundedFrame;
+            _pointEdge.type = Image.Type.Sliced;
+            _pointEdge.raycastTarget = false;
+            Stretch(_pointEdge.rectTransform);
+            _pointText = MakeText(badge, "", 32, TextAnchor.MiddleCenter, 0);
+            NoWrap(_pointText);
+            Stretch(_pointText.rectTransform);
+        }
+
+        /// <summary>The last throw on one bar: who rolled what on the left, the total big on the right.</summary>
+        void BuildResultBar()
+        {
+            var bar = MakePanel(_portraitColumn, "Result", Panel);
+            EdgeOf(bar).color = Line;
+            bar.gameObject.AddComponent<LayoutElement>().preferredHeight = 100;
+            _resultBar = bar.rectTransform;
+
+            _rollText = MakeText(_resultBar, "", 40, TextAnchor.MiddleLeft, 0);
+            _rollText.fontStyle = FontStyles.Bold;
+            NoWrap(_rollText);
+            _rollText.overflowMode = TextOverflowModes.Ellipsis;
+            Pin(_rollText.rectTransform, Vector2.zero, new Vector2(0.72f, 1), new Vector2(40, 0), new Vector2(-16, 0));
+
+            var divider = MakeImage(_resultBar, "Divider", Line);
+            divider.raycastTarget = false;
+            Pin(divider.rectTransform, new Vector2(0.72f, 0.2f), new Vector2(0.72f, 0.8f), new Vector2(-1, 0), new Vector2(2, 0));
+
+            _totalText = MakeText(_resultBar, "", 72, TextAnchor.MiddleCenter, 0);
+            _totalText.fontStyle = FontStyles.Bold;
+            Pin(_totalText.rectTransform, new Vector2(0.72f, 0), Vector2.one, Vector2.zero, Vector2.zero);
+        }
+
         /// <summary>A die drawn in code: an off-white rounded square and its seven possible pips, lit by face.</summary>
-        static Image[] MakeDie(RectTransform parent, Vector2 at)
+        static Image[] MakeDie(RectTransform parent, Vector2 at, out RectTransform die)
         {
             var body = MakeImage(parent, "Die", DieFace);
             body.sprite = Rounded;
@@ -593,6 +879,7 @@ namespace Starflare.Craps
             body.raycastTarget = false;
             body.rectTransform.sizeDelta = new Vector2(110, 110);
             body.rectTransform.anchoredPosition = at;
+            die = body.rectTransform;
             var pips = new Image[6];
             for (int i = 0; i < pips.Length; i++)
             {
@@ -627,34 +914,69 @@ namespace Starflare.Craps
             return Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), 100);
         }
 
-        /// <summary>The four bet spots, each its name, what's on it, and a step down and up through the amounts it takes.</summary>
+        /// <summary>
+        /// The four bet spots, ruled off from each other. Each is its name with a line under it
+        /// saying what the bet is and pays, then a stepper: down, the money on the spot, up. The
+        /// steppers line up in one column whatever the names, so the amounts read straight down.
+        /// </summary>
         void BuildBets()
         {
-            var panel = MakeImage(_portraitColumn, "Bets", Spots);
-            panel.sprite = Rounded;
-            panel.type = Image.Type.Sliced;
-            _bets = AddVertical(panel.gameObject, 8, new RectOffset(24, 16, 12, 12));
+            var panel = MakePanel(_portraitColumn, "Bets", Panel);
+            EdgeOf(panel).color = Line;
+            _bets = AddVertical(panel.gameObject, 0, new RectOffset(28, 16, 6, 6));
             for (int i = 0; i < Kinds.Length; i++)
             {
                 var kind = Kinds[i];
+                if (i > 0)
+                {
+                    var rule = MakeImage(_bets, "Rule", new Color(1, 1, 1, 0.12f));
+                    rule.raycastTarget = false;
+                    rule.gameObject.AddComponent<LayoutElement>().preferredHeight = 2;
+                }
                 var row = MakeRow(_bets, kind + " Spot");
-                row.GetComponent<LayoutElement>().preferredHeight = 88;
-                _betLabels[i] = MakeText(row, "", 38, TextAnchor.MiddleLeft, 0);
-                _betLabels[i].gameObject.AddComponent<LayoutElement>().flexibleWidth = 3;
+                row.GetComponent<LayoutElement>().preferredHeight = 96;
+                var rowLayout = row.GetComponent<HorizontalLayoutGroup>();
+                rowLayout.childForceExpandWidth = false;
+                rowLayout.childAlignment = TextAnchor.MiddleLeft;
+                rowLayout.spacing = 8;
+
+                var info = new GameObject("Info", typeof(RectTransform), typeof(LayoutElement));
+                info.transform.SetParent(row, false);
+                var infoLayout = info.GetComponent<LayoutElement>();
+                infoLayout.flexibleWidth = 1;
+                infoLayout.minWidth = 0;
+                infoLayout.preferredWidth = 0;
+                AddVertical(info, 0, new RectOffset()).GetComponent<VerticalLayoutGroup>().childAlignment = TextAnchor.MiddleLeft;
+                _betLabels[i] = MakeText(info.transform, "", 38, TextAnchor.MiddleLeft, 46);
+                _betLabels[i].fontStyle = FontStyles.Bold;
+                NoWrap(_betLabels[i]);
+                _betHints[i] = MakeText(info.transform, "", 26, TextAnchor.MiddleLeft, 32);
+                NoWrap(_betHints[i]);
+                _betHints[i].overflowMode = TextOverflowModes.Ellipsis;
+
                 _downButtons[i] = StepButton(row, CrapsControls.Down(kind), "-", () => Step(kind, up: false));
+                _betAmounts[i] = MakeText(row, "", 40, TextAnchor.MiddleCenter, 0);
+                _betAmounts[i].fontStyle = FontStyles.Bold;
+                _betAmounts[i].lineSpacing = -10;
+                var amountLayout = _betAmounts[i].gameObject.AddComponent<LayoutElement>();
+                amountLayout.preferredWidth = amountLayout.minWidth = 130;
                 _upButtons[i] = StepButton(row, CrapsControls.Up(kind), "+", () => Step(kind, up: true));
             }
         }
 
+        /// <summary>A square, outlined step button.</summary>
         Button StepButton(Transform row, string id, string label, Action onClick)
         {
             var button = Control(row, id, label, onClick);
             button.name = id + " Button";
+            Outline(button);
             var layout = button.GetComponent<LayoutElement>();
             layout.flexibleWidth = 0;
-            layout.preferredWidth = 120;
-            layout.preferredHeight = 88;
-            button.GetComponentInChildren<TMP_Text>().fontSize = 56;
+            layout.preferredWidth = layout.minWidth = 88;
+            layout.preferredHeight = 76;
+            var text = button.GetComponentInChildren<TMP_Text>();
+            text.fontSize = 52;
+            text.rectTransform.offsetMin = text.rectTransform.offsetMax = Vector2.zero;
             return button;
         }
 
@@ -662,24 +984,47 @@ namespace Starflare.Craps
         void BuildActions()
         {
             _actions = MakeRow(_portraitColumn, "Actions");
-            _actions.GetComponent<LayoutElement>().preferredHeight = 140;
+            _actions.GetComponent<LayoutElement>().preferredHeight = 136;
             _passButton = Control(_actions, CrapsControls.PassDice, "Pass the dice", PassDice);
+            Outline(_passButton);
             _throwButton = Control(_actions, CrapsControls.Throw, "Throw", Throw);
             _callButton = Control(_actions, CrapsControls.CallIt, "Call it", Throw);
             foreach (var main in new[] { _throwButton, _callButton })
             {
                 main.GetComponent<Image>().color = Gold;
-                main.GetComponentInChildren<TMP_Text>().color = CardBlack;
-                main.GetComponent<LayoutElement>().flexibleWidth = 1.4f;
+                var text = main.GetComponentInChildren<TMP_Text>();
+                text.color = CardBlack;
+                text.fontSize = 52;
+                text.fontStyle = FontStyles.Bold;
+                main.GetComponent<LayoutElement>().flexibleWidth = 1.6f;
             }
         }
 
-        /// <summary>A button a coach can point at by <paramref name="id"/>.</summary>
+        /// <summary>
+        /// A button a coach can point at by <paramref name="id"/>. It fades whole when it can't be
+        /// pressed (see <see cref="Refresh"/>), rather than by the button's own tint.
+        /// </summary>
         Button Control(Transform parent, string id, string label, Action onClick)
         {
             var button = MakeButton(parent, label, () => Press(id, onClick));
+            button.gameObject.AddComponent<CanvasGroup>();
+            var colors = button.colors;
+            colors.disabledColor = Color.white;
+            button.colors = colors;
             _controls[id] = button;
             return button;
+        }
+
+        /// <summary>A dark see-through button with a light edge, for everything but the throw.</summary>
+        static void Outline(Button button)
+        {
+            button.GetComponent<Image>().color = Outlined;
+            var edge = MakeImage(button.transform, "Edge", new Color(1, 1, 1, 0.6f));
+            edge.sprite = RoundedFrame;
+            edge.type = Image.Type.Sliced;
+            edge.raycastTarget = false;
+            Stretch(edge.rectTransform);
+            edge.transform.SetAsFirstSibling();
         }
 
         static RectTransform MakeColumn(Transform parent, string name, int padding)

@@ -80,23 +80,37 @@ JUAN: {~Circle's open.|Dollar to twenty. Same as always.|Bulb's on. Game's on.|M
 // Each "# point:" waits for you to press that control (CrapsControls).
 === back_lot_practice ===
 # pose: juan_back_lot
-JUAN: First roll's practice. My money. Nothing counts.
-JUAN: You want the dice, you bet the shooter. That's right. # point: right_up
-JUAN: Off the wall. Both dice hit brick. # point: throw
-JUAN: Six. That's your point. Roll it again before a seven.
-JUAN: Point's up, you can back it. Six pays six for five. # point: for_up
-JUAN: Go on. # point: throw
-JUAN: Six. Point made. Both bets pay.
-JUAN: Win ten, I take a dollar. Under ten, I take nothing.
-JUAN: A dollar out of every ten you win. That's the parts money.
-JUAN: Still your dice. Bet right again. # point: right_up
-JUAN: Throw. # point: throw
-JUAN: Ten. New point. Ten's a hard one to make.
-JUAN: Again. # point: throw
-JUAN: Seven. That's a seven out. The dice go around.
-JUAN: When it's their dice, you bet, then call the throw.
-JUAN: Get up when nothing of yours is riding.
-JUAN: That was practice. Next roll's your money.
+JUAN: First roll's practice. It's my money, so nothing you win or lose counts.
+JUAN: Whoever's holding the dice is the shooter.
+JUAN: Betting right means you're with the shooter. Betting wrong means you're against.
+JUAN: You want to shoot, you have to bet right. Put a dollar on right. # point: right_up
+JUAN: Your first throw is called the come-out.
+JUAN: Roll a seven or eleven on it, and your right bet wins straight off.
+JUAN: Roll two, three or twelve, that's craps. Your right bet loses.
+JUAN: Roll anything else, and that number's your point.
+JUAN: Then you have to roll your point again before you roll a seven.
+JUAN: Throw it off the wall. Both dice have to hit the brick. # point: throw
+JUAN: Six. So six is your point. Another six before a seven, and your bet wins.
+JUAN: Once there's a point, you can bet on the point itself.
+JUAN: It pays fair odds. Six comes up a lot, so it pays six for five.
+JUAN: Four and ten are hard to roll. Those pay two for one.
+JUAN: Put a bet for the six. Bets on the six go in fives. # point: for_up
+JUAN: You can bet against the point too. Then the odds run the other way.
+JUAN: Now you need that six again, before any seven. Go on. # point: throw
+JUAN: Six. You made your point, so your right bet and your point bet both pay.
+JUAN: Here's my end. For every ten dollars a bet wins, I take one.
+JUAN: Win less than ten, I take nothing.
+JUAN: That's the parts money. It keeps the pinsetters going.
+JUAN: You made your point, so the dice stay with you. Bet right again. # point: right_up
+JUAN: New come-out. Same as before. # point: throw
+JUAN: Ten. That's your new point. Ten's a hard one. Only three ways to roll it.
+JUAN: You need another ten before a seven. Throw. # point: throw
+JUAN: Seven. That's a seven out. Your right bet loses, and you give up the dice.
+JUAN: The dice go around the circle. Next one over shoots now.
+JUAN: You can still bet on their roll, right or wrong, or sit it out.
+JUAN: Put your bets down, then call the throw. Nobody throws till you call it.
+JUAN: You can get up any time nothing of yours is riding on the dice.
+JUAN: That was practice. Next roll, it's your own money.
 ~ rolled_with_juan = true
 -> END
 

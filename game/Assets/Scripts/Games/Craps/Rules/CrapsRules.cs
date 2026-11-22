@@ -64,7 +64,11 @@ namespace Starflare.Craps
 
         public static bool IsPointNumber(int total) => total == 4 || total == 5 || total == 6 || total == 8 || total == 9 || total == 10;
 
-        static (int pays, int per) Odds(BetKind kind, int point)
+        /// <summary>
+        /// What a bet pays, as "pays for per": 6 for 5 on the 6, as Juan says it in the practice
+        /// roll. Right and wrong are even money; a point bet needs a point.
+        /// </summary>
+        public static (int pays, int per) Odds(BetKind kind, int point)
         {
             if (kind == BetKind.Right || kind == BetKind.Wrong) return (1, 1);
             if (!IsPointNumber(point)) throw new ArgumentOutOfRangeException(nameof(point), "A point bet needs a point.");
