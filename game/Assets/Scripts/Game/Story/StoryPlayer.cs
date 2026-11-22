@@ -542,8 +542,11 @@ namespace Starflare.Game
             }
             if (landscape)
             {
+                // In the foreground, cut off at the knees by the bottom edge, so the figure
+                // doesn't float over the plate's floor; the head stays clear of the top bar
+                // (about 170 high).
                 var poseFoot = new Vector2(0.28f, 0);
-                Pin(_pose.rectTransform, poseFoot, poseFoot, new Vector2(-380, 0), new Vector2(380, 1040));
+                Pin(_pose.rectTransform, poseFoot, poseFoot, new Vector2(-450, -440), new Vector2(450, 880));
                 var middle = new Vector2(0.28f, 0.5f);
                 Pin(_insert.rectTransform, middle, middle, new Vector2(-360, -360), new Vector2(360, 360));
                 Pin(_bottom, new Vector2(0.5f, 0), Vector2.one, new Vector2(0, 32), new Vector2(-8, -170));
