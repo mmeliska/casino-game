@@ -10,7 +10,7 @@ using static Starflare.Ui.UiKit;
 namespace Starflare.VideoPoker
 {
     /// <summary>
-    /// A Jacks or Better machine: UI built in code, portrait or landscape, over the venue's plate, one hand
+    /// A Jacks or Better machine: UI built in code, portrait or landscape, filling the screen, one hand
     /// at a time. Like the blackjack table it reports each settled hand to the player state,
     /// raises a break point when you get up, and never reads story state or saves: the state's
     /// owner does that on its Changed event.
@@ -24,16 +24,12 @@ namespace Starflare.VideoPoker
             PokerHandRank.ThreeOfAKind, PokerHandRank.TwoPair, PokerHandRank.JacksOrBetter,
         };
 
-        static readonly Color Cabinet = new Color(0.13f, 0.09f, 0.07f, 0.97f);
-        static readonly Color ScreenBlue = new Color(0.04f, 0.07f, 0.3f);
-        static readonly Color ScreenLit = new Color(0.12f, 0.2f, 0.6f);
-        static readonly Color Amber = new Color(1f, 0.78f, 0.35f);
-        static readonly Color CardBack = new Color(0.45f, 0.08f, 0.1f);
 
         /// <summary>Raised at a break point, where story beats and seed reveals may fire.</summary>
         public event Action<BreakPoint> BreakPointReached;
 
         public VideoPokerRules Rules { get; private set; } = new VideoPokerRules();
+        public VideoPokerLook Look { get; private set; } = VideoPokerLook.Classic;
 
         /// <summary>This sitting so far; still readable at the break point after you get up.</summary>
         public int SittingNet => _state == null ? 0 : _state.BankrollNow - _sittingStartBankroll;
@@ -58,6 +54,8 @@ namespace Starflare.VideoPoker
         Button _betOneButton, _betMaxButton, _dealButton, _getUpButton;
         TMP_Text _dealLabel;
         RectTransform _paytable, _paytablePane, _playPane;
+        LayoutElement _cardRow;
+        GameObject _portraitGap;
 
         Sprite _plate;
         float _plateFocus;
@@ -69,8 +67,9 @@ namespace Starflare.VideoPoker
         /// It stays hidden until you sit down. The venue's paytable comes with it (Kasia's 9/6 if
         /// none is given).
         /// </summary>
-        public void Init(Sprite plate, float plateFocus, VideoPokerRules rules = null)
+        public void Init(Sprite plate, float plateFocus, VideoPokerRules rules = null, VideoPokerLook look = null)
         {
+            if (look != null) Look = look;
             _plate = plate;
             _plateFocus = plateFocus;
             if (rules != null) Rules = rules;
@@ -192,10 +191,10 @@ namespace Starflare.VideoPoker
                 bool lit = showing == PaytableRows[r];
                 _paytableRows[r].color = lit ? new Color(1, 1, 1, 0.16f) : Color.clear;
                 for (int c = 0; c <= Rules.MaxCredits; c++)
-                    _paytableCells[r, c].color = lit ? Color.white : Amber;
+                    _paytableCells[r, c].color = lit ? Color.white : Look.PaytableText;
             }
             for (int c = 0; c < Rules.MaxCredits; c++)
-                _paytableColumns[c].color = c == column ? ScreenLit : Color.clear;
+                _paytableColumns[c].color = c == column ? Look.LitColumn : Color.clear;
 
             for (int i = 0; i < 5; i++)
             {
@@ -222,7 +221,7 @@ namespace Starflare.VideoPoker
             else if (_round == null)
                 _message = "Pick a bet and deal";
             _statusText.text = _message;
-            _statusText.color = won ? Gold : Amber;
+            _statusText.color = won ? Gold : Look.PaytableText;
             _betText.text = $"Bet {Money(_credits * Rules.CreditValue)}";
 
             _dealLabel.text = betting ? "Deal" : "Draw";
@@ -248,34 +247,40 @@ namespace Starflare.VideoPoker
             var shade = MakeImage(backdrop.transform, "Shade", new Color(0, 0, 0, 0.35f));
             Stretch(shade.rectTransform);
 
+            // The machine's screen fills yours, the way the blackjack felt does: you're at the
+            // glass, not looking at the cabinet from across the bar.
+            var cabinet = MakeImage(canvas.transform, "Screen Fill", Look.Screen);
+            Stretch(cabinet.rectTransform);
+
             var safe = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
             safe.transform.SetParent(canvas.transform, false);
             Stretch((RectTransform)safe.transform);
-            var column = AddVertical(safe, 20, new RectOffset(36, 36, 36, 36));
+            var column = AddVertical(safe, 16, new RectOffset(36, 36, 28, 28));
 
             var header = MakeRow(column, "Header");
+            header.GetComponent<HorizontalLayoutGroup>().childForceExpandWidth = false;
             header.GetComponent<LayoutElement>().preferredHeight = 120;
             var info = new GameObject("Info", typeof(RectTransform), typeof(LayoutElement));
             info.transform.SetParent(header, false);
-            info.GetComponent<LayoutElement>().flexibleWidth = 3;
+            info.GetComponent<LayoutElement>().flexibleWidth = 1;
             AddVertical(info, 4, new RectOffset());
             _bankrollText = MakeText(info.transform, "", 46, TextAnchor.MiddleLeft, 60);
             _bankrollText.fontStyle = FontStyles.Bold;
             _clockText = MakeText(info.transform, "", 32, TextAnchor.MiddleLeft, 44);
             _clockText.color = new Color(1, 1, 1, 0.8f);
-            _getUpButton = MakeButton(header, "Get up", GetUp);
-            _getUpButton.GetComponent<LayoutElement>().preferredHeight = 110;
-
-            var spacer = new GameObject("Spacer", typeof(RectTransform), typeof(LayoutElement));
-            spacer.transform.SetParent(column, false);
-            spacer.GetComponent<LayoutElement>().flexibleHeight = 1;
+            _getUpButton = MachineButton(header, "Leave game", GetUp);
+            var getUp = _getUpButton.GetComponent<LayoutElement>();
+            getUp.preferredHeight = 100;
+            getUp.minWidth = getUp.preferredWidth = 340;
+            getUp.flexibleWidth = 0;
+            NoWrap(_getUpButton.GetComponentInChildren<TMP_Text>());
 
             BuildCabinet(column);
 
             OnTurn(canvas, landscape =>
             {
                 column.GetComponent<VerticalLayoutGroup>().padding =
-                    landscape ? new RectOffset(120, 120, 36, 36) : new RectOffset(36, 36, 36, 36);
+                    landscape ? new RectOffset(48, 48, 20, 20) : new RectOffset(36, 36, 28, 28);
                 Rearrange(landscape);
             });
         }
@@ -289,37 +294,45 @@ namespace Starflare.VideoPoker
             _paytablePane.gameObject.SetActive(landscape);
             _paytable.SetParent(landscape ? _paytablePane : _playPane, false);
             if (!landscape) _paytable.SetAsFirstSibling();
+            _cardRow.preferredHeight = landscape ? 280 : 270;
+            // Portrait has height to spare: the paytable reads bigger, at the top of the glass,
+            // and the cards sit low, over the buttons, as on a real machine.
+            _portraitGap.SetActive(!landscape);
+            foreach (var row in _paytableRows)
+                row.GetComponent<LayoutElement>().preferredHeight = landscape ? 50 : 80;
+            foreach (var cell in _paytableCells)
+                cell.fontSize = landscape ? 30 : 38;
         }
 
-        void BuildCabinet(Transform parent)
+        void BuildCabinet(Transform body)
         {
-            var cabinet = MakeImage(parent, "Cabinet", Cabinet);
-            cabinet.sprite = Rounded;
-            cabinet.type = Image.Type.Sliced;
-            var body = AddVertical(cabinet.gameObject, 18, new RectOffset(28, 28, 24, 28));
-
             var glass = MakeText(body, "JACKS OR BETTER", 30, TextAnchor.MiddleCenter, 40);
-            glass.color = new Color(Amber.r, Amber.g, Amber.b, 0.6f);
+            glass.color = Look.PaytableText;
 
-            var screen = MakeImage(body, "Screen", ScreenBlue);
+            var screen = MakeImage(body, "Screen", Look.Screen);
             screen.sprite = Rounded;
             screen.type = Image.Type.Sliced;
+            screen.gameObject.AddComponent<LayoutElement>().flexibleHeight = 1;
             var panes = screen.gameObject.AddComponent<HorizontalLayoutGroup>();
-            panes.spacing = 28;
+            panes.spacing = 80;
             panes.padding = new RectOffset(20, 20, 20, 24);
             panes.childControlWidth = panes.childControlHeight = true;
             panes.childForceExpandWidth = false;
             panes.childForceExpandHeight = true;
-            _paytablePane = MakePane(screen.transform, "Paytable Pane", 1.1f);
+            _paytablePane = MakePane(screen.transform, "Paytable Pane", 1.25f);
             _playPane = MakePane(screen.transform, "Play Pane", 1f);
             _paytable = BuildPaytable(_playPane);
+            _portraitGap = new GameObject("Gap", typeof(RectTransform), typeof(LayoutElement));
+            _portraitGap.transform.SetParent(_playPane, false);
+            _portraitGap.GetComponent<LayoutElement>().flexibleHeight = 1;
 
             var holds = MakeRow(_playPane, "Held");
             holds.GetComponent<LayoutElement>().preferredHeight = 44;
             var cards = MakeRow(_playPane, "Cards");
-            cards.GetComponent<LayoutElement>().preferredHeight = 250;
+            _cardRow = cards.GetComponent<LayoutElement>();
             foreach (var group in new[] { cards.GetComponent<HorizontalLayoutGroup>(), holds.GetComponent<HorizontalLayoutGroup>() })
             {
+                group.GetComponent<LayoutElement>().flexibleHeight = 0;
                 group.spacing = 12;
                 group.childForceExpandHeight = true;
             }
@@ -344,24 +357,41 @@ namespace Starflare.VideoPoker
 
             var buttons = MakeRow(body, "Buttons");
             buttons.GetComponent<LayoutElement>().preferredHeight = 140;
-            _betOneButton = MakeButton(buttons, "Bet one", BetOne);
-            _betMaxButton = MakeButton(buttons, "Bet max", BetMax);
-            _dealButton = MakeButton(buttons, "Deal", DealOrDraw);
-            _dealButton.GetComponent<Image>().color = Gold;
+            _betOneButton = MachineButton(buttons, "Bet one", BetOne);
+            _betMaxButton = MachineButton(buttons, "Bet max", BetMax);
+            _dealButton = MachineButton(buttons, "Deal", DealOrDraw);
             _dealLabel = _dealButton.GetComponentInChildren<TMP_Text>();
-            _dealLabel.color = CardBlack;
-            _dealLabel.fontStyle = FontStyles.Bold;
 
             _betText = MakeText(body, "", 34, TextAnchor.MiddleCenter, 44);
             _betText.color = new Color(1, 1, 1, 0.75f);
         }
 
+        /// <summary>A yellow machine button with dark lettering, in the look's colours.</summary>
+        Button MachineButton(Transform parent, string label, UnityEngine.Events.UnityAction onClick)
+        {
+            var button = MakeButton(parent, label, onClick);
+            button.GetComponent<Image>().color = Look.Button;
+            var text = button.GetComponentInChildren<TMP_Text>();
+            text.color = Look.ButtonText;
+            text.fontStyle = FontStyles.Bold;
+            return button;
+        }
+
+        /// <summary>
+        /// A pane sized by its share of the screen alone, never by its contents, so a long
+        /// win line under the cards can't squeeze or stretch them.
+        /// </summary>
         static RectTransform MakePane(Transform parent, string name, float width)
         {
             var pane = new GameObject(name, typeof(RectTransform), typeof(LayoutElement));
             pane.transform.SetParent(parent, false);
-            pane.GetComponent<LayoutElement>().flexibleWidth = width;
-            return AddVertical(pane, 14, new RectOffset());
+            var layout = pane.GetComponent<LayoutElement>();
+            layout.minWidth = 0;
+            layout.preferredWidth = 0;
+            layout.flexibleWidth = width;
+            var column = AddVertical(pane, 14, new RectOffset());
+            column.GetComponent<VerticalLayoutGroup>().childAlignment = TextAnchor.MiddleCenter;
+            return column;
         }
 
         RectTransform BuildPaytable(Transform parent)
@@ -377,12 +407,12 @@ namespace Starflare.VideoPoker
             stripes.GetComponent<HorizontalLayoutGroup>().spacing = 0;
             stripes.GetComponent<HorizontalLayoutGroup>().childForceExpandHeight = true;
             var labelGap = MakeImage(stripes, "Label Column", Color.clear);
-            labelGap.gameObject.AddComponent<LayoutElement>().flexibleWidth = 2.6f;
+            PaytableColumn(labelGap.gameObject, LabelColumnWidth);
             _paytableColumns = new Image[Rules.MaxCredits];
             for (int c = 0; c < Rules.MaxCredits; c++)
             {
                 _paytableColumns[c] = MakeImage(stripes, $"Column {c + 1}", Color.clear);
-                _paytableColumns[c].gameObject.AddComponent<LayoutElement>().flexibleWidth = 1;
+                PaytableColumn(_paytableColumns[c].gameObject, 1);
                 _paytableColumns[c].raycastTarget = false;
             }
 
@@ -393,23 +423,45 @@ namespace Starflare.VideoPoker
                 var rank = PaytableRows[r];
                 _paytableRows[r] = MakeImage(table.transform, PokerHand.Label(rank), Color.clear);
                 _paytableRows[r].raycastTarget = false;
-                _paytableRows[r].gameObject.AddComponent<LayoutElement>().preferredHeight = 42;
+                // Not flexible: the row group would otherwise stretch to fill a tall screen.
+                var rowLayout = _paytableRows[r].gameObject.AddComponent<LayoutElement>();
+                rowLayout.preferredHeight = 46;
+                rowLayout.flexibleHeight = 0;
                 var row = _paytableRows[r].gameObject.AddComponent<HorizontalLayoutGroup>();
+                row.spacing = 0;
                 row.childControlWidth = row.childControlHeight = true;
                 row.childForceExpandWidth = false;
                 row.childForceExpandHeight = true;
 
                 var label = MakeText(row.transform, PokerHand.Label(rank).ToUpperInvariant(), 28, TextAnchor.MiddleLeft, 0);
-                label.gameObject.AddComponent<LayoutElement>().flexibleWidth = 2.6f;
+                NoWrap(label);
+                label.margin = new Vector4(12, 0, 0, 0);
+                PaytableColumn(label.gameObject, LabelColumnWidth);
                 _paytableCells[r, 0] = label;
                 for (int c = 1; c <= Rules.MaxCredits; c++)
                 {
                     var cell = MakeText(row.transform, Rules.PayoutCredits(rank, c).ToString(), 28, TextAnchor.MiddleRight, 0);
-                    cell.gameObject.AddComponent<LayoutElement>().flexibleWidth = 1;
+                    NoWrap(cell);
+                    cell.margin = new Vector4(0, 0, 14, 0);
+                    PaytableColumn(cell.gameObject, 1);
                     _paytableCells[r, c] = cell;
                 }
             }
             return (RectTransform)table.transform;
+        }
+
+        const float LabelColumnWidth = 3.4f;
+
+        /// <summary>
+        /// Sizes a paytable cell by its share of the row alone, never by its text, so every
+        /// row's numbers sit in the same columns as the lit bet stripe behind them.
+        /// </summary>
+        static void PaytableColumn(GameObject cell, float share)
+        {
+            var layout = cell.AddComponent<LayoutElement>();
+            layout.minWidth = 0;
+            layout.preferredWidth = 0;
+            layout.flexibleWidth = share;
         }
 
         void BuildCard(Transform row, int index)
@@ -433,7 +485,7 @@ namespace Starflare.VideoPoker
             suit.rectTransform.offsetMin = new Vector2(0, 0);
             suit.rectTransform.offsetMax = new Vector2(0, -36);
 
-            var back = MakeImage(face.transform, "Back", CardBack);
+            var back = MakeImage(face.transform, "Back", Look.CardBack);
             back.sprite = Rounded;
             back.type = Image.Type.Sliced;
             back.raycastTarget = false;
