@@ -109,7 +109,7 @@ JUAN: Seven. That's a seven out. Your right bet loses, and you give up the dice.
 JUAN: The dice go around the circle. Next one over shoots now.
 JUAN: You can still bet on their roll, right or wrong, or sit it out.
 JUAN: Put your bets down, then call the throw. Nobody throws till you call it.
-JUAN: You can get up any time nothing of yours is riding on the dice.
+JUAN: You can leave the game any time nothing of yours is riding.
 JUAN: That was practice. Next roll, it's your own money.
 ~ rolled_with_juan = true
 -> END

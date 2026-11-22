@@ -360,7 +360,7 @@ namespace Starflare.Blackjack
                 .GetComponentInChildren<TMP_Text>();
             Control(insurance, BlackjackControls.NoInsurance, "No insurance", () => Act(_round.DeclineInsurance));
 
-            _getUpButton = Control(column, BlackjackControls.GetUp, "Get up", GetUp);
+            _getUpButton = Control(column, BlackjackControls.GetUp, "Leave game", GetUp);
 
             OnTurn(canvasGo.GetComponent<Canvas>(), Rearrange);
         }

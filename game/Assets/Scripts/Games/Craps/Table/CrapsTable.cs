@@ -92,6 +92,16 @@ namespace Starflare.Craps
         GameObject _root;
         Image _plateImage;
         CoverFit _plateFit;
+
+        /// <summary>The painted circles for each way up, if the venue has them, and the one showing.</summary>
+        CircleArt _portraitArt, _landscapeArt, _art;
+        bool _landscape;
+
+        /// <summary>Lies exactly over the plate as it's fitted, so the dice can sit on its painted circle.</summary>
+        RectTransform _ground;
+        CoverFit _groundFit;
+        Image _ring;
+        RectTransform _diceRect;
         TMP_Text _bankrollText, _clockText, _messageText, _pointText, _rollText, _totalText;
         Image _pointBadge, _pointEdge;
         RectTransform _portraitColumn, _landscapeRow, _circleSide, _controlSide, _header, _seats, _circle, _resultBar, _bets, _actions;
@@ -150,7 +160,42 @@ namespace Starflare.Craps
         {
             _plate = plate;
             _plateFocus = plateFocus;
-            _plateFit.Show(_plateImage, plate, plateFocus);
+            ShowBackdrop();
+        }
+
+        /// <summary>
+        /// Plays the circle on painted grounds instead, one for each way up the screen turns (either
+        /// may be null, and the other stands in). They take the place of the venue's plate and the
+        /// drawn ring; the dice land in the painted circle and go off the painted wall.
+        /// </summary>
+        public void SetCircleArt(CircleArt portrait, CircleArt landscape)
+        {
+            _portraitArt = portrait;
+            _landscapeArt = landscape;
+            ShowBackdrop();
+        }
+
+        /// <summary>The painted ground for this way up if there is one, else the venue's plate with the ring drawn over it.</summary>
+        void ShowBackdrop()
+        {
+            _art = _landscape ? _landscapeArt ?? _portraitArt : _portraitArt ?? _landscapeArt;
+            _ring.enabled = _art == null;
+            if (_art == null)
+            {
+                _plateFit.Show(_plateImage, _plate, _plateFocus);
+                _diceRect.SetParent(_circle, false);
+                _diceRect.anchorMin = _diceRect.anchorMax = new Vector2(0.5f, 0.37f);
+            }
+            else
+            {
+                float focus = _art.Circle.center.x;
+                _plateFit.Show(_plateImage, _art.Plate, focus);
+                _groundFit.Aspect = _art.Plate.rect.width / _art.Plate.rect.height;
+                _groundFit.Focus = focus;
+                _diceRect.SetParent(_ground, false);
+                _diceRect.anchorMin = _diceRect.anchorMax = _art.Circle.center;
+            }
+            _diceRect.anchoredPosition = Vector2.zero;
         }
 
         /// <summary>
@@ -190,6 +235,55 @@ namespace Starflare.Craps
         }
 
         /// <summary>Counts real time played. Not through a practice turn, while a teacher talks (it's locked) or the app is away.</summary>
+        /// <summary>
+        /// On painted art, the dice rest at the painted circle's height but in line with the
+        /// middle of the circle's column, under the faces and the popup (the art is drawn to suit).
+        /// </summary>
+        void CentreDice()
+        {
+            if (_art == null) return;
+            var at = _diceRect.position;
+            at.x = _circle.TransformPoint(_circle.rect.center).x;
+            _diceRect.position = at;
+        }
+
+        /// <summary>In landscape, the popup's top lines up with the top of the bet spots beside it.</summary>
+        void AlignPayout()
+        {
+            if (!_landscape || !_payout.activeSelf) return;
+            var corners = new Vector3[4];
+            _bets.GetWorldCorners(corners);
+            var at = _payout.transform.position;
+            at.y = corners[1].y;
+            _payout.transform.position = at;
+        }
+
+        /// <summary>The width the seat cards were last sized for.</summary>
+        float _seatSlot;
+
+        /// <summary>
+        /// Sizes the seat cards to the width each slot has: full size in portrait, smaller where
+        /// the landscape circle side is narrow, so the four never overlap. The row is as tall as a
+        /// card and its name.
+        /// </summary>
+        void LateUpdate()
+        {
+            if (_root == null || !_root.activeSelf) return;
+            CentreDice();
+            AlignPayout();
+            float slot = ((RectTransform)_seatFrames[0].transform.parent).rect.width;
+            if (slot <= 0 || Mathf.Approximately(slot, _seatSlot)) return;
+            _seatSlot = slot;
+            float card = Mathf.Clamp(slot - 8, 80, 196);
+            float height = card + 54;
+            foreach (var frame in _seatFrames)
+            {
+                frame.rectTransform.sizeDelta = new Vector2(card, card);
+                frame.transform.parent.GetComponent<LayoutElement>().preferredHeight = height;
+            }
+            _seats.GetComponent<LayoutElement>().preferredHeight = height;
+        }
+
         void Update()
         {
             if (_root == null || !_root.activeSelf) return;
@@ -523,8 +617,20 @@ namespace Starflare.Craps
         {
             _rollTime += seconds;
             float t = Mathf.Clamp01(_rollTime / RollSeconds);
-            float height = _circle.rect.height;
-            float bottom = -height * 0.37f + 70, wall = height * 0.63f - 90;
+            // From your side of the circle up to the foot of the wall, measured from where they rest.
+            float bottom, wall;
+            if (_art != null)
+            {
+                float height = _ground.rect.height, middle = _art.Circle.center.y;
+                bottom = (_art.Circle.yMin - middle) * height - 60;
+                wall = (_art.WallFoot - middle) * height + 30;
+            }
+            else
+            {
+                float height = _circle.rect.height;
+                bottom = -height * 0.37f + 70;
+                wall = height * 0.63f - 90;
+            }
             for (int die = 0; die < 2; die++)
             {
                 var rest = DiceRest[die];
@@ -574,6 +680,27 @@ namespace Starflare.Craps
             _payoutPending = false;
         }
 
+        /// <summary>
+        /// Portrait: a set width in the middle of the circle. Landscape: the width of the circle's
+        /// side, less a margin, so it sits centred between the screen's edge and the controls.
+        /// </summary>
+        void FitPayout()
+        {
+            if (_payout == null) return;
+            var rect = (RectTransform)_payout.transform;
+            if (_landscape)
+            {
+                rect.anchorMin = new Vector2(0, 1);
+                rect.anchorMax = new Vector2(1, 1);
+                rect.sizeDelta = new Vector2(-48, rect.sizeDelta.y);
+            }
+            else
+            {
+                rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 1);
+                rect.sizeDelta = new Vector2(760, rect.sizeDelta.y);
+            }
+        }
+
         void HidePayout()
         {
             if (_payout != null) _payout.SetActive(false);
@@ -587,12 +714,13 @@ namespace Starflare.Craps
         void BuildPayout()
         {
             var card = MakePanel(_circle, "Payout", Panel);
+            _payout = card.gameObject;
             _payoutEdge = EdgeOf(card);
             var rect = card.rectTransform;
             // Its top just under the point badge, so it sits high over the circle.
-            rect.anchorMin = rect.anchorMax = rect.pivot = new Vector2(0.5f, 1);
-            rect.anchoredPosition = new Vector2(0, -112);
-            rect.sizeDelta = new Vector2(760, 0);
+            rect.pivot = new Vector2(0.5f, 1);
+            rect.anchoredPosition = new Vector2(0, -160);
+            FitPayout();
             var group = AddVertical(card.gameObject, 8, new RectOffset(40, 40, 28, 32)).GetComponent<VerticalLayoutGroup>();
             group.childAlignment = TextAnchor.MiddleCenter;
             var fitter = card.gameObject.AddComponent<ContentSizeFitter>();
@@ -601,6 +729,9 @@ namespace Starflare.Craps
             _payoutTitle = MakeText(card.transform, "", 64, TextAnchor.MiddleCenter, 0);
             _payoutTitle.name = "Payout Title";
             _payoutTitle.fontStyle = FontStyles.Bold;
+            _payoutTitle.enableAutoSizing = true;
+            _payoutTitle.fontSizeMin = 44;
+            _payoutTitle.fontSizeMax = 64;
             _payoutLines = MakeText(card.transform, "", 38, TextAnchor.MiddleCenter, 0);
             _payoutLines.name = "Payout";
             _payoutLines.lineSpacing = 10;
@@ -615,7 +746,6 @@ namespace Starflare.Craps
             label.color = CardBlack;
             label.fontStyle = FontStyles.Bold;
 
-            _payout = card.gameObject;
             _payout.SetActive(false);
         }
 
@@ -642,6 +772,10 @@ namespace Starflare.Craps
             _plateFit.Show(_plateImage, _plate, _plateFocus);
             var shade = MakeImage(backdrop.transform, "Shade", new Color(0, 0, 0, 0.3f));
             Stretch(shade.rectTransform);
+            var ground = new GameObject("Ground", typeof(RectTransform));
+            ground.transform.SetParent(backdrop.transform, false);
+            _ground = (RectTransform)ground.transform;
+            _groundFit = ground.AddComponent<CoverFit>();
 
             var safe = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
             safe.transform.SetParent(canvas.transform, false);
@@ -685,6 +819,9 @@ namespace Starflare.Craps
         /// </summary>
         void Rearrange(bool landscape)
         {
+            _landscape = landscape;
+            ShowBackdrop();
+            FitPayout();
             _portraitColumn.gameObject.SetActive(!landscape);
             _landscapeRow.gameObject.SetActive(landscape);
             if (landscape)
@@ -712,9 +849,12 @@ namespace Starflare.Craps
             _clockText = MakeText(info.transform, "", 30, TextAnchor.MiddleLeft, 38);
             _clockText.color = new Color(1, 1, 1, 0.8f);
             Shadowed(_clockText);
-            _getUpButton = Control(_header, CrapsControls.GetUp, "Get up", GetUp);
+            _getUpButton = Control(_header, CrapsControls.GetUp, "Leave game", GetUp);
             Outline(_getUpButton);
-            _getUpButton.GetComponent<LayoutElement>().preferredHeight = 88;
+            var getUp = _getUpButton.GetComponent<LayoutElement>();
+            getUp.preferredHeight = 88;
+            getUp.flexibleWidth = 0;
+            getUp.preferredWidth = getUp.minWidth = 220;
         }
 
         /// <summary>
@@ -740,7 +880,10 @@ namespace Starflare.Craps
         {
             var spot = new GameObject("Seat " + seat, typeof(RectTransform), typeof(LayoutElement));
             spot.transform.SetParent(_seats, false);
-            spot.GetComponent<LayoutElement>().flexibleWidth = 1;
+            // Each slot is the row's full height: the card hangs from its top, the name sits on its foot.
+            var slot = spot.GetComponent<LayoutElement>();
+            slot.flexibleWidth = 1;
+            slot.preferredHeight = 250;
             var rect = (RectTransform)spot.transform;
 
             var frame = MakeImage(rect, "Frame", SeatEdge);
@@ -780,15 +923,21 @@ namespace Starflare.Craps
             tag.raycastTarget = false;
             Pin(tag.rectTransform, new Vector2(0.06f, 0), new Vector2(0.94f, 0), new Vector2(0, 8), new Vector2(0, 48));
             var tagText = MakeText(tag.transform, "SHOOTER", 24, TextAnchor.MiddleCenter, 0);
+            tagText.enableAutoSizing = true;
+            tagText.fontSizeMin = 14;
+            tagText.fontSizeMax = 24;
             tagText.fontStyle = FontStyles.Bold;
             tagText.color = CardBlack;
             Stretch(tagText.rectTransform);
             _shooterTags[seat] = tag.gameObject;
 
-            var label = MakeText(rect, "", 34, TextAnchor.MiddleCenter, 0);
+            var label = MakeText(frameRect, "", 34, TextAnchor.MiddleCenter, 0);
             NoWrap(label);
             Shadowed(label);
-            Pin(label.rectTransform, Vector2.zero, new Vector2(1, 0), Vector2.zero, new Vector2(0, 48));
+            // Just under the card, whatever size the card ends up.
+            label.rectTransform.anchorMin = label.rectTransform.anchorMax = label.rectTransform.pivot = new Vector2(0.5f, 0);
+            label.rectTransform.sizeDelta = new Vector2(260, 48);
+            label.rectTransform.anchoredPosition = new Vector2(0, -52);
             _seatNames[seat] = label;
             ShowRegular(seat);
         }
@@ -818,14 +967,14 @@ namespace Starflare.Craps
             layout.flexibleHeight = 1;
             layout.minHeight = 320;
 
-            var ring = MakeImage(_circle, "Chalk", Chalk);
+            var ring = _ring = MakeImage(_circle, "Chalk", Chalk);
             ring.sprite = MakeRing();
             ring.raycastTarget = false;
             Pin(ring.rectTransform, new Vector2(0.04f, 0.12f), new Vector2(0.96f, 0.62f), Vector2.zero, Vector2.zero);
 
             var dice = new GameObject("Dice", typeof(RectTransform));
             dice.transform.SetParent(_circle, false);
-            var diceRect = (RectTransform)dice.transform;
+            var diceRect = _diceRect = (RectTransform)dice.transform;
             diceRect.anchorMin = diceRect.anchorMax = new Vector2(0.5f, 0.37f);
             for (int die = 0; die < 2; die++) _pips[die] = MakeDie(diceRect, DiceRest[die], out _dice[die]);
 

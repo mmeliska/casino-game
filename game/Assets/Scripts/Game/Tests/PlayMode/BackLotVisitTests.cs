@@ -63,7 +63,7 @@ namespace Starflare.Tests
             Assert.That(host.State.RoundsPlayed, Is.EqualTo(0));
             Assert.That(host.State.Clock.TimeLabel, Is.EqualTo("22:30"), "no time passes through the practice");
 
-            Click(table, "Get up Button");
+            Click(table, "Leave game Button");
             Assert.That(host.Scenes.Last(), Is.EqualTo(StoryContract.Knots.BackLotGetUp));
             Assert.That(host.View, Is.EqualTo("lanes_backlot"));
 

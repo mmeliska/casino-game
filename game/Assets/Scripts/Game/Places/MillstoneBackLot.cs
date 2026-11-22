@@ -74,7 +74,21 @@ namespace Starflare.Game
             var waiting = new Regular[rules.Seats - 1];
             for (int i = 0; i < waiting.Length; i++) waiting[i] = new Regular("Regular");
             _table.Init(rules, null, Art.Focus("lanes_backlot"), waiting);
+            _table.SetCircleArt(
+                Circle("lanes_circle_night", new Rect(0.064f, 0.526f, 0.869f, 0.124f), wallFoot: 0.719f),
+                Circle("lanes_circle_night_wide", new Rect(0.001f, 0.071f, 0.434f, 0.369f), wallFoot: 0.655f));
             _table.BreakPointReached += OnBreakPoint;
+        }
+
+        /// <summary>
+        /// The chalk circle under the bulb, painted close up for the table, one picture for each way
+        /// up the screen. The circle and the foot of the brick wall are measured off the pictures,
+        /// so the dice land in the chalk and go off the bricks; null if a picture isn't in yet.
+        /// </summary>
+        static CircleArt Circle(string plate, Rect circle, float wallFoot)
+        {
+            var sprite = Art.Plate(plate);
+            return sprite == null ? null : new CircleArt(sprite, circle, wallFoot);
         }
 
         /// <summary>Out the steel door from the lanes: Juan and the circle if the late game's on, else the empty lot.</summary>

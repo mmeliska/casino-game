@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parent.parent
 # Drop-folder path under Locations/ -> plate tag.
 SOURCES = {
     "MillstoneLanes/inside.png": "lanes_lanes_night",
+    "MillstoneLanes/dice_background_landscape.png": "lanes_circle_night_wide",
+    "MillstoneLanes/dice_background_portrait.png": "lanes_circle_night",
     "MillstoneLanes/outside_day.png": "lanes_front_day",
     "MillstoneLanes/outside_day_rain.png": "lanes_front_day_rain",
     "MillstoneLanes/outside_day_snow.png": "lanes_front_day_winter",
