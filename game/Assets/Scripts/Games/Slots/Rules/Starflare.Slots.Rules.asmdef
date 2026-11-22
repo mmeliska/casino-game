@@ -1,0 +1,14 @@
+{
+    "name": "Starflare.Slots.Rules",
+    "rootNamespace": "Starflare.Slots",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

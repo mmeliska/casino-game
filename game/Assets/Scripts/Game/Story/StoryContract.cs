@@ -121,13 +121,14 @@ namespace Starflare.Game
             public const string Mitch = "mitch";
             public const string Trucker = "trucker";
             public const string BridgeheadGetUp = "bridgehead_get_up";
+            public const string BridgeheadSlotsGetUp = "bridgehead_slots_get_up";
 
             public static readonly string[] All =
             {
                 Arrival, CheckingIn, Office, TurnIn, NightOne, WalkIn, GetUp, CouponJob, BarBackJob,
                 BackRoomInvite, BackRoom, RosaFirstHand, RosaGetUp, WeddingAsk, WeddingMissed, Wedding, Coupons, Juan,
                 BackLot, BackLotEmpty, BackLotPractice, BackLotGetUp,
-                BridgeheadFirst, Mitch, Trucker, BridgeheadGetUp,
+                BridgeheadFirst, Mitch, Trucker, BridgeheadGetUp, BridgeheadSlotsGetUp,
             };
         }
     }

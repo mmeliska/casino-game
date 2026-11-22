@@ -111,3 +111,20 @@ TRUCKER: Got a load due up north by morning.
     MITCH: Even. Here, that's a win.
 }
 -> END
+
+
+// Getting up from the three-reel by the scratcher rack: Mitch, still not looking up.
+=== bridgehead_slots_get_up ===
+# plate: bridgehead_store
+# pose: mitch_neutral
+{
+- broke:
+    MITCH: Tapped? Coffee's still a dollar.
+- sitting_net > 0:
+    MITCH: {~Those pay? Don't tell the others.|Cherries. Lucky you.}
+- sitting_net < 0:
+    MITCH: {~That wall eats dollars.|Keeps the lights on in here.}
+- else:
+    MITCH: Even. Here, that's a win.
+}
+-> END

@@ -8,6 +8,21 @@ A gas station at the main bridge: worst odds in town, best gossip. Mitch is at t
 | --- | --- | --- | --- | --- |
 | The Bridges | Cheap three-reel slots, video poker, pull tabs, scratchers | $1–$5 | Anyone | Mitch at the counter (and his race book out back) |
 
+**The slots** (Mike, 2026-11-22): a cheap three-reel called Triple Bar, plain and old, no theme: cherries, single, double and triple BAR, and a red 7, with a blank between every symbol. Three rows show in the window and the one payline runs across the middle. $1 a credit, 1 to 3 credits. It pays back 86% at one credit and 88% at three, the worst machine in town (the 6/5 poker beside it is about 95%); it pays something about one pull in four and a half, and three 7s come up once in 10,648 pulls. The glass, per credit:
+
+| Line | 1 credit | 2 | 3 |
+| --- | --- | --- | --- |
+| 7 7 7 | 200 | 400 | 1,200 |
+| Triple bar x3 | 80 | 160 | 240 |
+| Double bar x3 | 40 | 80 | 120 |
+| Single bar x3 | 20 | 40 | 60 |
+| Cherry x3 | 20 | 40 | 60 |
+| Cherry x2 | 10 | 20 | 30 |
+| Any bar x3 | 5 | 10 | 15 |
+| Cherry | 2 | 4 | 6 |
+
+Cherries count from the left reel. Every stop on a reel is equally likely and the strip you see is the strip that spins, so the odds are what the reels say. Bulbs run round the reel window: a slow chase while it waits, a fast one while the reels turn, all of them flashing on a win, and the halves against each other for three 7s.
+
 **In the game** (Mike, 2026-11-07). It opens on the map once Juan has told you about the Starflare and the wedding is behind you. The first stop is the start of A1.6; the trucker (S3) is at the pumps on a night after it. Its pin sits right by the northwest end of the Long Bridge, on the Backwater bank.
 
 ## Look and mood
@@ -48,6 +63,16 @@ Daytime visits. Make it from the night store.
 
 ```
 Background plate, no people. Inside a small gas-station convenience store in daytime: a counter with a lottery scratcher rack across the back, a short row of cheap slot machines along the left wall, snack aisles, grey daylight through the front windows. Flat, overcast daylight. Palette: flat white, oil-slick purple, grey. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+```
+
+### The slot machine's cherries
+
+The Triple Bar's cherry symbol. The 7 and the BARs are lettering, so the game draws them itself; only the cherries want a picture. Without it the game draws its own. Drop the finished picture in as `game/Assets/Resources/Symbols/triplebar_cherry.png`, on a transparent background.
+
+`triplebar_cherry` (symbol, square 1:1)
+
+```
+Slot machine reel symbol, isolated. A pair of glossy red cherries on two green stems joined at the top with one small leaf, centred, filling most of the square. Bold black ink outlines, cel shading, one white highlight on each cherry, flat colours, a little worn like an old printed reel strip. Plain white background, nothing else in frame. No text, no lettering.
 ```
 
 ### Mitch's back room

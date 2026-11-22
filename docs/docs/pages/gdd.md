@@ -123,7 +123,7 @@ Each game is a self-contained module that plays continuously, round after round,
 
 | Game | Round | Where | Build notes |
 | --- | --- | --- | --- |
-| Slots | ~5 s | Every venue but the yachts, themed per venue | Simplest; one engine with per-venue reel sets |
+| Slots | ~5 s | Every venue but the yachts, themed per venue | Simplest; one engine with per-venue reel sets. A machine is its reels, rows, paylines and paytable, plus a look; any number of reels and rows. First built: Bridgehead's Triple Bar (Mike, 2026-11-22) |
 | Video poker | ~10 s | Most venues (not the Cinder Room or the yachts) | Jacks or Better is enough to start |
 | Blackjack | ~20 s | Kasia's back room and up | Strongest fit for one-handed portrait play; the planned first prototype |
 | Craps | ~20 s | Millstone back lot (street rules) and every casino | One set of rules with two screens: the street game in the chalk circle, the felt table from the Flare up. See Street craps below |

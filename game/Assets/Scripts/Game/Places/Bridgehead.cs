@@ -1,5 +1,6 @@
 using System;
 using Starflare.Phone;
+using Starflare.Slots;
 using Starflare.State;
 using Starflare.VideoPoker;
 using UnityEngine;
@@ -11,8 +12,9 @@ namespace Starflare.Game
     /// gossip. It opens once Juan has told you about the Starflare and the wedding is behind you,
     /// and your first stop is the start of going over the bridge (A1.6), where you meet Mitch.
     /// On a night after that, the trucker short on diesel is at the pumps (S3). Inside, the 6/5
-    /// poker machine; getting up is a break point, where Mitch has a word. The slots, pull tabs,
-    /// scratchers and Mitch's race book out back (R5) aren't built yet.
+    /// poker machine and the cheap three-reel (Triple Bar); getting up from either is a break
+    /// point, where Mitch has a word. The pull tabs, scratchers and Mitch's race book out back
+    /// (R5) aren't built yet.
     /// </summary>
     public sealed class Bridgehead : MonoBehaviour, IPlace
     {
@@ -24,6 +26,7 @@ namespace Starflare.Game
 
         IPlaceHost _host;
         VideoPokerMachine _machine;
+        SlotMachine _slots;
 
         public void Init(IPlaceHost host)
         {
@@ -32,6 +35,22 @@ namespace Starflare.Game
             string plate = Art.PlateAt(Store, host.State.Clock);
             _machine.Init(Art.Plate(plate), Art.Focus(plate), VideoPokerRules.SixFive());
             _machine.BreakPointReached += OnBreakPoint;
+
+            _slots = gameObject.AddComponent<SlotMachine>();
+            var reels = SlotRules.TripleBar();
+            _slots.Init(reels, Art.Plate(plate), Art.Focus(plate), WithArt(reels, SlotLook.TripleBar()));
+            _slots.BreakPointReached += _ => PlayScene(StoryContract.Knots.BridgeheadSlotsGetUp, ShowStore);
+        }
+
+        /// <summary>Each symbol's picture, where one's been drawn (<c>triplebar_seven</c>); the machine draws the rest.</summary>
+        static SlotLook WithArt(SlotRules rules, SlotLook look)
+        {
+            foreach (string symbol in rules.Symbols)
+            {
+                var art = Art.Symbol($"{rules.Id}_{symbol}");
+                if (art != null) look.For(symbol).Art = art;
+            }
+            return look;
         }
 
         public string Id => PlaceId;
@@ -77,6 +96,7 @@ namespace Starflare.Game
         {
             _host.ShowPlace(Store,
                 ("Play the poker machine", () => _host.LeavePlaceScreen(SitDown)),
+                ("Play the slots", () => _host.LeavePlaceScreen(SitAtSlots)),
                 ("Talk to Mitch", () => PlayScene(StoryContract.Knots.Mitch, ShowStore)),
                 ("Nurse a coffee", () => _host.ShowWait(Store, "Nurse a coffee", CoffeePrice, ShowStore)),
                 ("Step back outside", ShowForecourt));
@@ -84,8 +104,8 @@ namespace Starflare.Game
 
         void PlayScene(string knot, Action then)
         {
-            _host.Story.Set(StoryContract.Broke, _host.State.BankrollNow < _machine.Rules.CreditValue);
-            _host.Story.Set(StoryContract.SittingNet, _machine.SittingNet);
+            _host.Story.Set(StoryContract.Broke, _host.State.BankrollNow < Math.Min(_machine.Rules.CreditValue, _slots.Rules.BetFor(1)));
+            _host.Story.Set(StoryContract.SittingNet, _lastSat == _slots ? _slots.SittingNet : _machine.SittingNet);
             _host.PlayScene(knot, then);
         }
 
@@ -95,7 +115,19 @@ namespace Starflare.Game
             string plate = Art.PlateAt(Store, _host.State.Clock);
             _machine.SetBackdrop(Art.Plate(plate), Art.Focus(plate));
             _machine.SitDown(_host.State, _host.Pace);
+            _lastSat = _machine;
         }
+
+        void SitAtSlots()
+        {
+            string plate = Art.PlateAt(Store, _host.State.Clock);
+            _slots.SetBackdrop(Art.Plate(plate), Art.Focus(plate));
+            _slots.SitDown(_host.State, _host.Pace);
+            _lastSat = _slots;
+        }
+
+        /// <summary>The machine you last sat at, whose sitting Mitch's word is about.</summary>
+        MonoBehaviour _lastSat;
 
         /// <summary>Getting up: Mitch's word, then back in the store.</summary>
         void OnBreakPoint(BreakPoint point) => PlayScene(StoryContract.Knots.BridgeheadGetUp, ShowStore);

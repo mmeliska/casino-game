@@ -53,6 +53,12 @@ namespace Starflare.Game
         public static Sprite Pose(string tag) => Load("Poses", tag);
         public static Sprite Insert(string tag) => Load("Inserts", tag);
 
+        /// <summary>
+        /// A slot symbol's picture, <c>{machine}_{symbol}</c> under Resources/Symbols, or null.
+        /// Quiet when it's missing: a machine draws its own symbols until the art exists.
+        /// </summary>
+        public static Sprite Symbol(string tag) => Find($"Symbols/{tag}");
+
         /// <summary>A crowd face by its id in the roster, Resources/Faces/faces.json (tools/import_faces.py).</summary>
         public static Sprite Face(string id) => Load("Faces", id);
 

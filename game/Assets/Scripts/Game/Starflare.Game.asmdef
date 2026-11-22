@@ -12,6 +12,8 @@
         "Starflare.VideoPoker",
         "Starflare.Craps.Rules",
         "Starflare.Craps",
+        "Starflare.Slots.Rules",
+        "Starflare.Slots",
         "UnityEngine.UI",
         "Unity.TextMeshPro",
         "Unity.InputSystem",

@@ -1,3 +1,11 @@
+## 22 Nov 2026
+
+### Slots at Bridgehead
+
+Bridgehead's store has its slot machine: "Play the slots" sits beside the poker machine (Mike). It's a plain old three-reel called Triple Bar: cherries, single, double and triple BAR and a red 7, one payline across the middle, $1 a credit, 1 to 3 credits. It pays back 86% at one credit and 88% at three, the worst machine in town, and three 7s pay 1,200 at three credits. The reels kick, spin and land one after another, and a tap on Stop lands them early. Bulbs chase round the window and flash on a win, and the win counts in on the meter. The full paytable is on [Bridgehead](#bridgehead). Mitch has a word when you get up, like at the poker machine; his lines are proposals.
+
+The game has one slot engine for every venue: a machine is its reels, how many rows show, its paylines and its paytable, plus a look, so a rocket machine at the Flare or a five-reel video slot at the Aurelian is new data, not new code. The 7 and the BARs are drawn by the game; the cherries can take a picture (prompt on the Bridgehead page).
+
 ## 21 Nov 2026
 
 ### The back lot is in the game
