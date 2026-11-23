@@ -30,7 +30,7 @@ Every throw is the same short series, one thumb in portrait. The first step is a
 | --- | --- | --- | --- |
 | 1. **Stand** | Nothing sweeps: drag the ball left or right along the foul line and let go; it snaps to a board and the board number shows while you hold it (Mike, 2026-11-23). Two small arrows beside it nudge a board a tap, for "move left two boards". No bowler is drawn: the ball itself sits on the approach and is what you line up (Mike, 2026-11-23) | The board the ball starts on | Boards 1 to 39 (the 20 board is the middle dot) |
 | 2. **Aim** | A marker sweeps across the seven lane arrows, out and back | The arrow (or the board between arrows) your ball rolls over at 15 ft | Boards 5 to 35 |
-| 3. **Hook** | A meter climbs from empty and falls back | How much the ball turns: revs and axis together, one dial | 0 (no revs, the ball rolls end over end and never turns) to 100 (about 400 rpm with the axis turned 60°, a cranker's ball) |
+| 3. **Hook** | A meter climbs from empty and falls back | How much the ball turns: revs and axis together, one dial | 0 (the ball rolls end over end and never turns) to 100 (its axis turned 45° toward the lane's length, a cranker's ball) |
 | 4. **Speed** | A meter fills and drains | The ball's speed off your hand | 12 to 20 mph |
 
 Then the ball rolls, and you watch. Two taps anywhere skip to the pins.
@@ -73,13 +73,13 @@ Past 40 ft: no oil.
 
 That's a 40 ft house shot at roughly 8 to 1 middle to outside, which is what a Backwater alley oils for its league: easy to the pocket from the right line, forgiving of a miss inside, punishing of one outside.
 
-**Friction** comes from the oil: `μ(cell) = μ_dry − (μ_dry − μ_oil) × min(1, units / 30)`, with `μ_dry` 0.20 and `μ_oil` 0.03 for a urethane ball; a plastic ball scales both by 0.8 and a reactive one by 1.2 (proposed cover factors). So the body of the pattern is slick, the outside boards are grabby, and past 40 ft everything grabs. (This is design text; the word "dry" stays out of the game's own strings, as the writing rules say. The one exception is Juan's line.)
+**Friction** comes from the oil: `μ(cell) = μ_oil + (μ_bare − μ_oil) × e^(−units / 4)`, with `μ_bare` 0.20 and `μ_oil` 0.015, each scaled by the ball's grip on bare lane and on oil. A thin film takes most of the grip away and more oil takes a little more, so the body of the pattern is slick, the 6-unit outside boards are slick too but less so, and past 40 ft everything grabs. Built and tuned (Claude, 2026-11-23): the spec first had friction falling linearly to a full coat at 30 units, but that left the outside boards nearly as grippy as bare lane, every ball turned before the break point and no line reached the pocket at more than about 3°. (This is design text; the word "dry" stays out of the game's own strings, as the writing rules say. The one exception is Juan's line.)
 
 **The lane changes.** Each ball that passes over a cell picks up a fraction of its oil (0.3% a pass, proposed) and lays a tenth of what it picked up down on the cells it crosses past the end of the pattern, fading with distance (carrydown). Over a night the track the league bowls, boards 8 to 12 from the right, wears thin and the ball breaks earlier and more; past 40 ft a faint stripe of carried oil makes it skid a touch longer on the usual line. Both are what real bowlers deal with, and both make Juan's advice true.
 
 - **Within a sitting** the grid is live: your throws and your opponent's wear it.
 - **At sit-down** the grid isn't saved; it's computed. Juan oils the lanes every afternoon at 5 (proposed), and the number of balls since then follows from the clock: nothing until opening, a league's worth from 7 on Tuesdays (five bowlers a lane, about 60 balls a game), a few open bowlers an hour otherwise. That many statistical passes, weighted to a right-hander's track, are applied to the fresh pattern. Same clock, same lane; nothing to save, and no module touches the save.
-- **Lane six** has its own pattern: shorter and lighter (proposed: the body ends at 34 ft, the loads two thirds), so it breaks early. That's "running dry tonight", and the fix is his: "Move left two boards."
+- **Lane six** has its own pattern: shorter and lighter (built: the oil ends at 34 ft, the body at 31 and the middle at 26, and every load is two thirds), so it breaks early: the same throw's turn is half done about 5 ft sooner and it goes in high. That's "running dry tonight", and the fix is his: "Move left two boards."
 
 ### The ball
 
@@ -90,7 +90,8 @@ A rigid sphere on the lane: radius 0.108 m (8.5 in), mass 6.8 kg (15 lb). State:
 - Start at the stand board on the foul line, 0 ft.
 - Direction: through the aim board at 15 ft.
 - Speed: the meter's mph, converted.
-- Spin: the hook meter `h` in 0..1 gives rev rate `400 × h` rpm and axis rotation `60° × h`. A ball at `h = 0` spins end over end (its axis across the lane, matching its forward roll, so there's no side slip). At `h = 1` the axis is turned 60° toward the lane's length, so the contact point slides sideways and friction pulls the ball left.
+- Spin: the ball leaves the hand spinning as fast as its speed would roll it, and the hook meter `h` in 0..1 turns that spin's axis `45° × h` toward the lane's length. A ball at `h = 0` rolls end over end from the hand (its axis across the lane, matching its forward roll, so it never slides and keeps its speed). At `h = 1` the axis is turned 45°, so the contact point slides sideways and friction pulls the ball left. Built (Claude, 2026-11-23): the first idea, a rev rate of `400 × h` rpm with the axis at `60° × h`, left a hook-0 ball with no spin at all, so it skidded and reached the pins at 11 mph from 16.
+- **The balls' grip.** Each ball scales the lane's friction separately on oil and on bare lane: the house ball (plastic) 0.8 and 0.15, so it barely grips anywhere and hooks a little at full meter; the urethane 1.2 and 1.0, gripping early for a smooth arc; the reactive pearl 0.7 and 1.4, skidding through the oil and grabbing hard where it ends, which is where the angle into the pocket comes from (Claude, 2026-11-23, replacing one cover factor of 0.8, 1 and 1.2, with which the house ball hooked late and hardest).
 
 **Each step** (the standard rigid-sphere model):
 
@@ -149,12 +150,14 @@ The module follows the architecture's recipe for a game, the same shape as `Crap
 
 Your first game, Juan coaches a frame over the meters, the way he coaches the practice roll out back (all lines proposed):
 
-> JUAN: Middle dot. Second arrow. Don't put anything on it.
-> *(He locks the meters to stand 20, aim 10, hook 0, speed 16. You tap through. The ball goes straight up the second arrow and takes the head pin flush: a split.)*
+> JUAN: Seventh board. Second arrow. Don't put anything on it.
+> *(He locks the meters to stand 7, aim 10, hook 0, speed 16. You tap through. The ball goes straight up the second arrow and takes the head pin flush: a split.)*
 > JUAN: See that? Straight ball finds the head pin and leaves you two corners.
-> JUAN: Now put something on it. Same spot.
-> *(Hook 70. The ball runs up the second arrow, holds, and breaks at the arrows' end into the pocket.)*
+> JUAN: Now put something on it. Six boards left.
+> *(Stand 13, aim 10, hook 70, speed 16. The ball runs up the second arrow, holds through the oil, and breaks into the pocket.)*
 > JUAN: That's the lane doing the work. You just have to find where it starts.
+
+(Built, Claude, 2026-11-23: Juan's first lines had the ball on the middle dot, board 20, but a straight ball from there over the second arrow is in the gutter by 28 ft; from board 7 it reaches the head pin.)
 
 Then it's your game. He's gone back to the machines.
 
@@ -220,10 +223,12 @@ EditMode, in `Starflare.Bowling.Tests.EditMode`, written as the rules are:
 - **Geometry:** board 20 is the lane's centre; arrow 2 is board 10 at 15 ft; metres round-trip.
 - **Oil:** the house grid has more oil at board 20 than board 5 at 20 ft; none past 40 ft; a pass lowers the cells it crossed and raises cells past 40 ft on its line; `Worn` with 1,000 balls has a thin track on boards 8 to 12 and nothing changed on board 35.
 - **Ball, the three shapes** (the ones Mike asked for, each on the fresh house pattern unless said):
-  - Hook 0 from board 20 over arrow 2 (board 10) at 16 mph: the ball's `x` at every sample follows the straight line within half a board.
-  - Hook 90, speed 18, stand 20, aim 10: the path's largest curvature lies between 38 and 46 ft (the break point sits at the end of the oil), the ball enters the pins left of where it crossed 40 ft by at least 4 boards, and it's rolling (slip zero) before 55 ft.
-  - Hook 50, speed 13, stand 15, aim 7: the ball turns left at every foot from 20 ft on (monotone curve: no straight-then-snap), and no 5 ft stretch holds more than 40% of the total turn.
-  - The same throw on lane six's pattern breaks at least 5 ft earlier than on the house pattern.
+  - Hook 0 from board 7 over arrow 2 (board 10) at 16 mph, the house ball: the ball's `x` at every sample follows the straight line within half a board, and it reaches the head pin.
+  - Hook 90, speed 18, stand 32, aim 19, the reactive ball: under 15% of its turn is done by 30 ft and under 25% by 36 ft, half of it by 38 to 48 ft (the break point sits at the end of the oil), it enters the pocket at least 4 boards left of where it crossed 40 ft, at 4° to 8°, and it's rolling (slip zero) before 55 ft.
+  - Hook 50, speed 13, stand 15, aim 7, the urethane ball: it turns left at every foot from 5 ft until it rolls (monotone curve: no straight-then-snap), over 40% of the turn is done by 30 ft, no 5 ft stretch holds more than 40% of it, and it's rolled out before 45 ft. (Past 40 ft the lane is bare, so a ball still sliding there snaps; an arc is a ball that bends from early on and is spent before the pins.)
+  - The snap throw on lane six's pattern is half turned and rolling at least 4 ft earlier than on the house pattern, and goes in high.
+  - The house ball turns less than half as much as the urethane on the snap throw; the reactive skids further through the oil than the urethane.
+  (Test lines rebuilt from the tuned sim, Claude, 2026-11-23: the spec's first lines started the hook ball on board 20 over the second arrow, which is a Brooklyn on this lane.)
   - The same `Throw` on the same grid gives a bit-identical `BallPath`.
 - **Pins:** a pocket entry at 5° and 16 mph strikes at least 45% of 500 seeded racks; flush on the head pin leaves two or more pins on at least 60%; a 10-pin ball (board 3 entry) takes exactly the 10 on most tries; the fall threshold turns a 1.0 kg·m/s tap into a standing pin.
 - **Scoring:** twelve strikes make 300; all spares with 5s make 150; the tenth frame's extra balls; gutters are 0; a mid-game sheet reports `IsComplete` false.
