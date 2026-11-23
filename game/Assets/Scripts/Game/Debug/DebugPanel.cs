@@ -126,6 +126,15 @@ namespace Starflare.Game
             Buttons(Array.ConvertAll(Caps, cap => PaceButton($"{cap} h", cap == pace.MaxHoursPerSitting,
                 () => pace.MaxHoursPerSitting = cap, CapKey, cap)));
 
+            Heading("Bowling hand (this device keeps it)");
+            var hand = BowlingHand.Current;
+            Buttons(Array.ConvertAll(new[] { Bowling.Hand.Right, Bowling.Hand.Left }, h =>
+                (h == hand ? $"<color=#5cc9d1>{h}</color>" : h.ToString(), (UnityAction)(() =>
+                {
+                    BowlingHand.Current = h;
+                    Redraw();
+                }))));
+
             // Missing pictures in a style show the base art, so a style can be compared before it's finished.
             Heading("Art style (boots the game again; this device keeps it)");
             string current = ArtStyles.Current;

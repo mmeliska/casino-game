@@ -1,3 +1,4 @@
+using System;
 using Starflare.State;
 
 namespace Starflare.Game
@@ -59,6 +60,46 @@ namespace Starflare.Game
                 int target = MillstoneBackLot.OpensAt + 30;
                 state.PassTime(((target - clock.MinuteOfDay) % GameClock.MinutesPerDay + GameClock.MinutesPerDay) % GameClock.MinutesPerDay);
             });
+
+        /// <summary>
+        /// A1.3: Juan has his box; Wednesday 8 p.m. at Millstone Lanes, never bowled. "Bowl" plays
+        /// Juan's coached frame over the lane, then your first open game.
+        /// </summary>
+        public static readonly Checkpoint OnTheLanes = new Checkpoint("A1.3 On the lanes", JuanHasTheBox, MillstoneLanes.PlaceId,
+            (state, story) => GoTo(state, DayOfWeek.Wednesday, 20 * 60));
+
+        /// <summary>
+        /// A1.3: you've bowled here before; 6:45 p.m. on a Tuesday a team's short, so going
+        /// inside plays the sub ask, and saying yes seats you for Chuy's team.
+        /// </summary>
+        public static readonly Checkpoint ShortABowler = new Checkpoint("A1.3 Short a bowler", OnTheLanes, MillstoneLanes.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.BowledAtLanes, true);
+                GoTo(state, DayOfWeek.Tuesday, 18 * 60 + 45, MillstoneLanes.ShortTuesday);
+            });
+
+        /// <summary>
+        /// A1.3: three sub nights for his league (standing 6), shirts chipped in; Wednesday 8 p.m.,
+        /// Juan's easy with you at the counter.
+        /// </summary>
+        public static readonly Checkpoint LeagueToJuan = new Checkpoint("A1.3 League to Juan", ShortABowler, MillstoneLanes.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.SubNights, 3);
+                story.Set(StoryContract.ShirtsAsked, true);
+                story.Set(StoryContract.ChippedInShirts, true);
+                GoTo(state, DayOfWeek.Wednesday, 20 * 60);
+            });
+
+        /// <summary>Moves the clock on to the next such weekday (today counts if it's still ahead) at a minute of the day.</summary>
+        static void GoTo(PlayerState state, DayOfWeek weekday, int minute, Func<int, bool> dayOk = null)
+        {
+            var clock = state.Clock;
+            int day = clock.Day;
+            while ((DayOfWeek)(day % 7) != weekday || (day == clock.Day && clock.MinuteOfDay >= minute) || (dayOk != null && !dayOk(day))) day++;
+            state.PassTime((day - clock.Day) * GameClock.MinutesPerDay + minute - clock.MinuteOfDay);
+        }
 
         /// <summary>A1.3: worked the shift and ran the wallet out (straight, flaky); walking in plays Kasia's nod.</summary>
         public static readonly Checkpoint BarBackDone = new Checkpoint("A1.3 Bar-back done", JuanHasTheBox, KasiasTap.PlaceId,
@@ -128,7 +169,8 @@ namespace Starflare.Game
 
         public static readonly Checkpoint[] All =
         {
-            CheckedIn, NightOneDone, Broke, CarryingCoupons, JuanHasTheBox, LateGame, BarBackDone, BackRoomOpen, SatWithRosa,
+            CheckedIn, NightOneDone, Broke, CarryingCoupons, JuanHasTheBox, LateGame, OnTheLanes, ShortABowler, LeagueToJuan,
+            BarBackDone, BackRoomOpen, SatWithRosa,
             WeddingNight, WorkedTheWedding, OverTheBridge, TruckerAtThePumps,
         };
     }

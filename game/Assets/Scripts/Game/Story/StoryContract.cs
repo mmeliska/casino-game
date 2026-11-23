@@ -59,6 +59,25 @@ namespace Starflare.Game
         public const string HelpedTrucker = "helped_trucker";
         public const string HelpedTruckerDay = "helped_trucker_day";
 
+        // Millstone Lanes' bowling (bowling spec). Until Pockets is built, what you buy at Juan's
+        // counter is here: owns_ball is the ball's id ("urethane", "reactive"), empty for none.
+        public const string BowledAtLanes = "bowled_at_lanes";
+        public const string SubNights = "sub_nights";
+        public const string ChallengesWon = "challenges_won";
+        public const string OwnsBall = "owns_ball";
+        public const string OwnsShoes = "owns_shoes";
+        public const string SubAskedDay = "sub_asked_day";
+        public const string SubTonightDay = "sub_tonight_day";
+        public const string ShirtsAsked = "shirts_asked";
+        public const string ChippedInShirts = "chipped_in_shirts";
+
+        // Set by the lanes at the break point, for the lines after.
+        public const string GamesBowled = "games_bowled";
+        public const string BestGame = "best_game";
+        public const string ChallengesWonTonight = "challenges_won_tonight";
+        public const string SubGamesWon = "sub_games_won";
+        public const string SubFinished = "sub_finished";
+
         // Set only by the debug panel's checkpoints, so a beat's "again" lines play as they would.
         public const string OfferedCoupons = "offered_coupons";
         public const string OfferedBarBack = "offered_bar_back";
@@ -71,6 +90,8 @@ namespace Starflare.Game
             MetKasia, MetJuan, CarryingCoupons, DidBarBack, BackRoomOpen, SatWithRosa, WeddingDay, WeddingMisses,
             WeddingAskedDay, WorkedWedding, WeddingOver, WeddingRole, DancedWith, DanceKeen, MetRaffy, HasEnvelope, OpenedEnvelope, MetMitch, MetMitchDay, TruckerPassed, HelpedTrucker, HelpedTruckerDay,
             OfferedCoupons, OfferedBarBack, MetRosa, RolledWithJuan, SawLateGame,
+            BowledAtLanes, SubNights, ChallengesWon, OwnsBall, OwnsShoes, SubAskedDay, SubTonightDay, ShirtsAsked, ChippedInShirts,
+            GamesBowled, BestGame, ChallengesWonTonight, SubGamesWon, SubFinished,
         };
 
         /// <summary>EXTERNAL functions the story calls; the bridge binds each to the player state.</summary>
@@ -126,6 +147,13 @@ namespace Starflare.Game
             public const string BackLotPractice = "back_lot_practice";
             public const string BackLotGetUp = "back_lot_get_up";
 
+            // Millstone Lanes' bowling
+            public const string BowlFirst = "bowl_first";
+            public const string BowlGetUp = "bowl_get_up";
+            public const string LeagueSubAsk = "league_sub_ask";
+            public const string LeagueSubDone = "league_sub_done";
+            public const string BowlShirts = "bowl_shirts";
+
             // Bridgehead (A1.6, S3)
             public const string BridgeheadFirst = "bridgehead_first";
             public const string Mitch = "mitch";
@@ -139,6 +167,7 @@ namespace Starflare.Game
                 Arrival, CheckingIn, Office, TurnIn, OpenEnvelope, NightOne, WalkIn, GetUp, CouponJob, BarBackJob,
                 BackRoomInvite, Raffy, BackRoom, RosaFirstHand, RosaGetUp, WeddingAsk, WeddingMissed, Wedding, Coupons, Juan,
                 BackLot, BackLotEmpty, BackLotPractice, BackLotGetUp,
+                BowlFirst, BowlGetUp, LeagueSubAsk, LeagueSubDone, BowlShirts,
                 BridgeheadFirst, Mitch, Trucker, BridgeheadGetUp, BridgeheadSlotsGetUp, BridgeheadScratchersGetUp,
             };
         }

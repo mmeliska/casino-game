@@ -12,6 +12,8 @@
         "Starflare.VideoPoker",
         "Starflare.Craps.Rules",
         "Starflare.Craps",
+        "Starflare.Bowling.Rules",
+        "Starflare.Bowling",
         "Starflare.Game",
         "Ink-Libraries",
         "UnityEngine.UI",

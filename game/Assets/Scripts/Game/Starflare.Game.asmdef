@@ -16,6 +16,8 @@
         "Starflare.Slots",
         "Starflare.Scratchers.Rules",
         "Starflare.Scratchers",
+        "Starflare.Bowling.Rules",
+        "Starflare.Bowling",
         "UnityEngine.UI",
         "Unity.TextMeshPro",
         "Unity.InputSystem",

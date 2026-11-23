@@ -10,6 +10,8 @@
         "Starflare.Blackjack",
         "Starflare.VideoPoker.Rules",
         "Starflare.VideoPoker",
+        "Starflare.Bowling.Rules",
+        "Starflare.Bowling",
         "Starflare.Game",
         "Ink-Libraries",
         "Unity.TextMeshPro",

@@ -58,6 +58,9 @@ namespace Starflare.Game
         /// <summary>A story number, by its <see cref="StoryContract"/> name.</summary>
         public int Int(string name) => (int)Ink.variablesState[name];
 
+        /// <summary>A string variable; empty if it's never been set.</summary>
+        public string Text(string name) => Ink.variablesState[name] as string ?? "";
+
         public void Set(string name, object value) => Ink.variablesState[name] = value;
 
         /// <summary>Every true/false variable the story declares, for the debug panel's switches.</summary>

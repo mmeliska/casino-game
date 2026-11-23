@@ -22,7 +22,9 @@ namespace Starflare.Bowling
         public static ScoreSheetView Make(Transform parent, string name)
         {
             var row = MakeRow(parent, name);
-            row.GetComponent<LayoutElement>().preferredHeight = 76;
+            var element = row.GetComponent<LayoutElement>();
+            element.preferredHeight = 76;
+            element.flexibleHeight = 0;
             var group = row.GetComponent<HorizontalLayoutGroup>();
             group.spacing = 4;
             group.childForceExpandHeight = true;

@@ -1,3 +1,4 @@
+using Starflare.Bowling;
 using UnityEngine;
 
 namespace Starflare.Game
@@ -13,13 +14,15 @@ namespace Starflare.Game
         {
             var tap = root.AddComponent<KasiasTap>();
             tap.Init(host);
+            var lanes = root.AddComponent<MillstoneLanes>();
+            lanes.Init(host, root.AddComponent<MillstoneBackLot>(), root.AddComponent<BowlingLane>());
             var bridgehead = root.AddComponent<Bridgehead>();
             bridgehead.Init(host);
             return new IPlace[]
             {
                 new SlackWaterMotel(host, root.AddComponent<RegisterCard>()),
                 tap,
-                new MillstoneLanes(host, root.AddComponent<MillstoneBackLot>()),
+                lanes,
                 bridgehead,
             };
         }

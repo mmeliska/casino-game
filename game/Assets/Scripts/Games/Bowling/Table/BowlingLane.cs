@@ -35,6 +35,9 @@ namespace Starflare.Bowling
         /// <summary>How long the struck pins stay on screen after they settle, seconds.</summary>
         const float PinsLinger = 0.6f;
 
+        /// <summary>The meters' block and the between-turns block are the same height, so the lane holds still.</summary>
+        const float ThrowAreaHeight = 400;
+
         static readonly Color Outlined = new Color(0.06f, 0.08f, 0.1f, 0.55f);
 
         public event Action<BreakPoint> BreakPointReached;
@@ -75,6 +78,9 @@ namespace Starflare.Bowling
 
         /// <summary>The board the ball sits on, your own count.</summary>
         public int StandBoard => _ball.Board;
+
+        /// <summary>The ball you're bowling with this sitting: the house ball in a coached frame.</summary>
+        public BowlingBall Ball => _practice != null || _setup == null ? BowlingBall.House : _setup.Ball;
 
         /// <summary>The last ball rolled, by anyone.</summary>
         public Delivery LastDelivery => _delivery;
@@ -554,13 +560,16 @@ namespace Starflare.Bowling
             _ball.Layout();
             _standText.text = $"Board {_ball.Board}";
             _laneView.AimBoard = _step == Step.Aim ? AimFrom(_aimMeter.Value) : (double?)null;
-            if (!throwing && _step != Step.Rolling && _step != Step.Pins) _laneView.Deck = _lane?.Deck;
+            if (_step != Step.Rolling && _step != Step.Pins) _laneView.Deck = _lane?.Deck;
             _laneView.Redraw();
 
             ShowSheets();
 
-            _controlsArea.gameObject.SetActive(throwing);
-            _actions.gameObject.SetActive(!throwing);
+            // The meters stay up while your ball is out, so the lane doesn't jump; the actions take
+            // their place between turns, at the same height.
+            bool yours = throwing || ((_step == Step.Rolling || _step == Step.Pins) && (Practicing || _game == null || _game.YourTurn));
+            _controlsArea.gameObject.SetActive(yours);
+            _actions.gameObject.SetActive(!yours);
             _offerRow.gameObject.SetActive(_step == Step.Between && _offer != null);
             if (_offer != null) _offerText.text = $"{_offer.Bowler.Name}: \"Game for {_offer.Stake}?\"";
             _buttons[BowlingControls.Bowl].gameObject.SetActive(_step == Step.Between && _offer == null && (_match != null || !Practicing));
@@ -691,6 +700,16 @@ namespace Starflare.Bowling
             BuildMeters();
             BuildActions();
 
+            foreach (var section in new Component[] { _header, _messageText, _sheets, _trace, _controlsArea, _actions })
+            {
+                var element = section.GetComponent<LayoutElement>() ?? section.gameObject.AddComponent<LayoutElement>();
+                element.flexibleHeight = 0;
+            }
+            foreach (var area in new[] { _controlsArea, _actions })
+            {
+                var element = area.GetComponent<LayoutElement>();
+                element.minHeight = element.preferredHeight = ThrowAreaHeight;
+            }
             OnTurn(canvas, Layout);
         }
 
