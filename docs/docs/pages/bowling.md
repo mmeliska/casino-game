@@ -33,7 +33,9 @@ Every throw is the same short series, one thumb in portrait. The first step is a
 | 3. **Hook** | A meter climbs from empty and falls back | How much the ball turns: revs and axis together, one dial | 0 to 10 (the ball rolls end over end and never turns) to 100 (its axis turned 45° toward the lane's length, a cranker's ball). The bottom tenth is "nothing on it" so a straight ball is easy to stop: a sliver of axis near nothing moves a ball boards by the pins (Claude, 2026-11-23) |
 | 4. **Speed** | A meter fills and drains | The ball's speed off your hand | 12 to 20 mph |
 
-Then the ball rolls, and you watch. Two taps anywhere skip to the pins.
+Then the ball rolls, and you watch. Two taps on the lane skip to the pins, and two more past them.
+
+Built (Claude, 2026-11-23): the aim meter takes two taps, one to start its sweep and one to stop it, so you can line the ball up first. The hook and speed sweeps start on their own as the one before stops. In a coached frame you drag and tap through as usual, and the ball and meters snap to the teacher's numbers.
 
 - **The drag is placement, not a throw.** Dragging the ball to a board is the one touch gesture, and it's a still one: nothing about the throw comes from how you moved your finger, only from where you let go. The throw itself stays on the meters.
 - **Sweep speed is the difficulty.** The aim marker and the hook and speed meters sweep at a set rate; a sharp player can stop them within a board and a few per cent, and a tired thumb can't. There's no hidden random error on top: what you stop is what you throw. (If playtesting finds that too exact, a jitter of up to ±1 board and ±2 per cent goes in as a rules setting, off by default.)
@@ -140,14 +142,13 @@ An opponent is a `Bowler`: a name, a face, an average, and a line (stand, aim, h
 
 The module follows the architecture's recipe for a game, the same shape as `CrapsTable`:
 
-- `BowlingLane.Init(BowlingRules rules, LanePattern pattern, LaneWear wear, BowlingBall ball, bool ownShoes, Sprite plate, params Bowler[] regulars)`: the venue hands in the lane, the ball you own, whether you're renting, the backdrop and who's around tonight.
-- `SitDown(PlayerState state, ClockPace pace, PracticeFrame practice = null)`.
-- You bowl open games. Open bowling takes the fee at the first ball (−$2, or −$4 the first game of a visit if you're renting shoes). A challenge or a sub game takes no fee.
+- `BowlingLane.Init(BowlingRules rules, Sprite plate)` once, and `SitDown(PlayerState state, ClockPace pace, LaneSetup setup)` each visit. `LaneSetup` is what changes from one sitting to the next: tonight's `LaneOil` (the venue wears it from the clock with `LaneWear` and `LaneOil.Worn`), the ball you own, whether you've got shoes, the regulars on the lanes, a sub night's `LeagueMatch`, a `PracticeFrame`, and the night's seed (built; the spec first had all of it in `Init`).
+- You bowl open games. Open bowling takes the fee at the first ball (−$2, or −$4 the first game of a visit if you're renting shoes). A challenge or a sub game takes no fee. Built: from the first ball you're committed (no getting up), and the money moves once, when the game settles at its last ball, as every other table settles a round. A game you can't cover isn't started, and a game cut off by a quit settles nothing, like a blackjack hand.
 - **A sub night** is a `LeagueMatch` the venue hands in at `SitDown`: your team's three other bowlers and the four across the lane, as `Bowler`s. The eight bowl in turn, a frame at a time, a bowler from each side alternately and you leading off, you tapping through yours and each regular's throw playing on a tap (as the back lot's regulars shoot), and the side pot settles at each game's tenth frame. After the third game the table reports the night (`GamesWon`, `TeamWonNight`) and you get up.
 - **Challenges** come from the table, between games: with the seeded odds in `BowlingRules` (one game in four, never twice running), a regular present tonight steps over and names a stake from `BowlingRules.Stakes` (5, 10, 20) by his average and the night's record against you. Two buttons: take the game or wave him off. A regular who's lost three in a row tonight doesn't ask again. The stake is taken at the first ball and paid at the tenth frame.
 - Every finished game is a settled round: `PlayerState.ApplyRoundResult(net, minutes)` with the sitting's story minutes: the fee for an open game, ±stake or 0 for a challenge.
 - **Getting up** is between games, never mid-game; that's the break point (`BreakPoint.GotUpFromTable`). `SittingNet`, `GamesBowled`, `BestGame`, `ChallengesWon`, `ChallengesLost` and, on a sub night, `GamesWon` and `FinishedNight` stay readable at the break point for the venue to turn into story.
-- `ICoachable` with `BowlingControls` ids: `stand` (the ball on the approach, dragged), `stand_left`, `stand_right`, `aim`, `hook`, `speed`, `take_game`, `wave_off`, `get_up`. The venue can hand in a `PracticeFrame` (fixed inputs the meters snap to, nothing counting), the way the back lot hands craps a `PracticeTurn`.
+- `ICoachable` with `BowlingControls` ids: `stand` (the ball on the approach, dragged), `stand_left`, `stand_right`, `aim`, `hook`, `speed`, `take_game`, `wave_off`, `get_up`, and (built) `bowl` for another game and `next` for the regulars' balls, which play one after another until you're up again. The venue can hand in a `PracticeFrame` (fixed inputs the meters snap to, nothing counting), the way the back lot hands craps a `PracticeTurn`.
 - The table never reads story state, counts heat or saves. The lane's wear is computed by the venue from the clock and handed in, and so are tonight's regulars and whether the league has the lanes (then the venue doesn't seat you at all).
 
 ### Juan's first frame
@@ -208,6 +209,8 @@ Following `ARCHITECTURE.md`, "Adding a game": namespace `Starflare.Bowling`.
 | `LaneView.cs` | Projects sim coordinates onto the perspective lane; draws the ball, the pins, the sweep |
 | `Meter.cs` | A sweep you stop with a tap: shared by aim, hook and speed |
 | `PathTrace.cs` | The overhead strip after each throw |
+| `DeckView.cs` | The close-up of the deck for the hit, from above (built: the sim is flat, so the close-up shows it as it is) |
+| `LaneSetup.cs` | What the venue hands over at each sit-down (built) |
 | `ScoreSheetView.cs` | The ten boxes, portrait strip and landscape column |
 | `PracticeFrame.cs` | Juan's locked inputs |
 

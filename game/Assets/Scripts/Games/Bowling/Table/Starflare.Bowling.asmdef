@@ -1,0 +1,20 @@
+{
+    "name": "Starflare.Bowling",
+    "rootNamespace": "Starflare.Bowling",
+    "references": [
+        "Starflare.Core",
+        "Starflare.Bowling.Rules",
+        "Starflare.Ui",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
