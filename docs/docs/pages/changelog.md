@@ -1,3 +1,9 @@
+## 23 Nov 2026
+
+### Mitch's back room is drawn
+
+The plate for Mitch's back room at Bridgehead is in the game (Mike), ready for his race book (R5). Its door opens into the store behind the counter, so you get in past Mitch. The chalkboard shows Race 4 with four horses and their odds: Night Shift, Copper Mile, River Ghost and Last Call. See [Bridgehead](#bridgehead).
+
 ## 22 Nov 2026
 
 ### Slots at Bridgehead

@@ -33,7 +33,7 @@ Gas-station canopy fluorescents: flat white and oil-slick purple against the bla
 
 For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the negative prompts and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
 
-**Proposed, not settled:** the store's layout; the back room's chalkboard and radio.
+**Proposed, not settled:** the store's layout.
 
 ### The forecourt at night
 
@@ -78,6 +78,8 @@ Slot machine reel symbol, isolated. A pair of glossy red cherries on two green s
 ### Mitch's back room
 
 Mitch's Haybale Downs race book (R5); Mitch recognizing the lawyer (A3.7).
+
+**Drawn** (Mike, 2026-11-23): `Images/Locations/bridge_head_fuel/backroom.png`, landscape 16:9 rather than the portrait the prompt asks for; a portrait screen centres on the chalkboard and desk. The doorway on the right opens straight into the store behind the counter, with the register beyond it, so the way in is past Mitch. The chalkboard came out lettered, not blank: "Race 4", 1 Night Shift 2-1, 2 Copper Mile 5-2, 3 River Ghost 4-1, 4 Last Call 8-1. The radio sits on the desk beside a green cash box. One plate for any time of day: the room has no window.
 
 `bridgehead_backroom_night` (plate, portrait 9:16)
 

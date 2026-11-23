@@ -61,6 +61,7 @@ SOURCES = {
     "StarFlare1/outside_night_snow.png": "flare_front_night_winter",
     "StarFlare1/outside_predawn-closed.png": "flare_front_dawn_covered",
     "StarFlare1/outside_predawn_truck.png": "flare_front_dawn_flatbed",
+    "bridge_head_fuel/backroom.png": "bridgehead_backroom_night",
     "bridge_head_fuel/inside_day.png": "bridgehead_store_day",
     "bridge_head_fuel/inside_day_rain.png": "bridgehead_store_day_rain",
     "bridge_head_fuel/inside_day_snow.png": "bridgehead_store_day_winter",
