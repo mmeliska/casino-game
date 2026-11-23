@@ -17,11 +17,14 @@ namespace Starflare.Game
                 story.Set(StoryContract.CheckedIn, true);
             });
 
-        /// <summary>A1.2: met Kasia on night one and slept; the next morning, outside the Tap.</summary>
+        /// <summary>A1.2: met Kasia on night one, Raffy left you his envelope (unopened) and fifty, and you slept; the next morning, outside the Tap.</summary>
         public static readonly Checkpoint NightOneDone = new Checkpoint("A1.2 Night one done", CheckedIn, KasiasTap.PlaceId,
             (state, story) =>
             {
                 story.Set(StoryContract.MetKasia, true);
+                story.Set(StoryContract.MetRaffy, true);
+                story.Set(StoryContract.HasEnvelope, true);
+                state.Earn(RaffysFifty);
                 state.Sleep();
             });
 
@@ -119,6 +122,9 @@ namespace Starflare.Game
                 var clock = state.Clock;
                 state.PassTime(GameClock.NightStart + 4 * 60 - clock.MinuteOfDay);
             });
+
+        /// <summary>Raffy's tip on night one, out of the envelope's cash (raffy.md).</summary>
+        const int RaffysFifty = 50;
 
         public static readonly Checkpoint[] All =
         {

@@ -2,6 +2,7 @@
     "name": "Starflare.Ui.Tests.PlayMode",
     "rootNamespace": "Starflare.Tests",
     "references": [
+        "Starflare.Core",
         "Starflare.Ui",
         "UnityEngine.UI",
         "Unity.TextMeshPro",

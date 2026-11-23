@@ -1,5 +1,17 @@
 ## 23 Nov 2026
 
+### Night one: Dot sends you to the Tap
+
+Night one now walks you to Kasia's Tap (Mike). In your room you can't sleep: the radiator knocks, and you remember a bar you passed on the drive in ("Maybe you should go ask Dot about the bar."). In the office Dot tells you it's Kasia's Tap and to check your phone for the map. The phone button then pulses gold on the lot and in your room until you open it. Kasia's Tap isn't on the map until Dot has told you about it (Mike). The sleepless lines used to open Kasia's scene; now it starts at the Tap ("Kasia's Tap. Warm inside, and nearly empty."). Dot's lines are proposals.
+
+### Kasia: "voted no on table games"
+
+On night one Kasia now says "Backwater voted no on table games", not "on the casinos" (Mike, 2026-11-23). That fits the bar machines beside her, which are legal. Her voice sheet and backstory on [Kasia](#kasia) say the same.
+
+### Raffy's envelope is in the game
+
+Night one now has its first seed (A1.2). The first time you get up from the poker machine at Kasia's Tap, Raffy comes in, slides you a sealed envelope ("Hold this till Friday? Don't open it. Don't lose it."), tips you $50 and is out the door. He doesn't wait for an answer, so there's no choice in the scene. If you leave the bar without playing, he catches you on the way out. From then on your room at the Slack Water has "Open Raffy's envelope": $2,000 in twenties and fifties and a small black thumb drive with no label. Opening it moves no money, because the cash is settled when Ray comes asking (A1.5), and the game remembers that you looked. After Friday, opening it ends on "It's past Friday. Nobody's come for it." Proposals (Claude, not yet settled): Raffy turns up at your first get-up rather than as you leave, and you open the envelope in your room until Pockets exists. See [Raffy](#raffy).
+
 ### Pictures under the latex
 
 Scratching now uncovers pictures, as on a real ticket (Mike). Gold Rush's finds are pictures (gold coins, a tin can, a clump of clay and so on), each captioned with its word, and Lucky 7s now hides slot symbols (cherries, bells, BARs, horseshoes, clovers, lemons) instead of other numbers, with a 7 to find; its odds don't change. Ice Fishing's catches each get their own fish and Photo Finish's horses their own jockey's colours, and the other tickets get a faint picture behind each amount or number. The ChatGPT prompts for the five symbol sheets are on [Bridgehead](#bridgehead); until the sheets are made, each spot prints its word or number as before.

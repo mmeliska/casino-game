@@ -2,7 +2,6 @@
 // and the back room (A1.3), and the wedding upstairs (A1.4). Included by northlight.ink, which holds the externals and the
 // variables the game sets.
 // Tags: #plate (background), #pose (portrait swap), #insert (close-up), #black (text on black)
-// Raffy's envelope (the first seed) isn't in night one yet.
 
 // Her credit starts around $50 (kasia.md); it grows or shrinks with the reliable scale later.
 VAR book_limit = 50
@@ -29,14 +28,19 @@ VAR wedding_over = false
 VAR wedding_role = ""
 VAR danced_with = ""
 VAR dance_keen = false
+// Raffy's envelope (A1.2, the first seed): he leaves it with you on night one, and you hold it
+// until Ray comes asking (A1.5). opened_envelope is whether you've looked inside (your room at
+// the Slack Water); Raffy made you promise not to.
+VAR met_raffy = false
+VAR has_envelope = false
+VAR opened_envelope = false
 
 
 // Night one: you can't sleep, so you walk to the Tap. A regular moment, not a beat yet.
 === night_one ===
 ~ met_kasia = true
 # plate: kasia_bar_night
-The motel bed sags, and the radiator knocks like it wants in.
-You can't sleep. Down the block, one bar still has its lights on.
+Kasia's Tap. Warm inside, and nearly empty.
 # pose: kasia_neutral
 KASIA: In or out, but shut the door. That wind's coming off the lake.
 KASIA: I'm Kasia. This is the Tap. My dad's place, before it was mine.
@@ -50,7 +54,7 @@ KASIA: Kitchen closed at ten, but there's pierogi left if you're not fussy.
     # pose: kasia_joke
     KASIA: Video poker. Licensed by the state. The sticker's right there on the side.
     # pose: kasia_neutral
-    KASIA: Backwater voted no on the casinos. A few bar machines is all we allow.
+    KASIA: Backwater voted no on table games. A few bar machines is all we allow.
     KASIA: A dollar a hand. Five cards, keep the ones you like, draw the rest.
 * {bankroll >= 5} [Leave a five on the bar for a beer. (-$5)]
     ~ spend(5)
@@ -86,6 +90,12 @@ KASIA: Go on and try one if you like. I'll be down at the taps.
 // Getting up from the machine: a break point.
 === get_up ===
 # plate: kasia_bar_night
+// The first time you get up (night one, for nearly everyone), Raffy comes in first. His fifty
+// means you're not broke any more, whatever the machine left you.
+{not met_raffy:
+    -> raffy.raffy_drop ->
+    ~ broke = false
+}
 {
 - broke && book == 0: -> credit
 - broke: -> tapped_out
@@ -146,6 +156,35 @@ KASIA: Look at you. Don't tell the regulars, they'll want your stool.
 # pose: kasia_neutral
 KASIA: {~Lake wind's coming up. Walk back quick.|Snow by the weekend, the regulars say. They're always wrong.|Same stool tomorrow. It's not going anywhere.}
 -> END
+
+
+// Raffy's envelope (A1.2): a courier kid leaves you a sealed envelope to hold till Friday,
+// tips you fifty and never comes back. Plays when you first get up from the machine, or, if
+// you leave the bar without playing, on your way out or the next time you walk in.
+=== raffy ===
+# plate: kasia_bar_night
+-> raffy_drop ->
+-> END
+
+= raffy_drop
+~ met_raffy = true
+~ has_envelope = true
+# pose: none
+The door bangs open. A skinny kid in a grey hoodie, one earbud in.
+He looks the bar over once and comes straight to you.
+# pose: raffy_nervous_laugh
+RAFFY: Hey. You're new, right? Not from here? Perfect. That's perfect.
+RAFFY: Raffy. I do deliveries. Bike, mostly. My mom works doubles, so.
+# pose: raffy_neutral
+RAFFY: Hold this till Friday? Don't open it. Don't lose it.
+# insert: raffy_envelope
+A fat manila envelope slides along the bar. Sealed.
+~ earn(50)
+RAFFY: Fifty bucks. Cool? Cool.
+# pose: none
+He tucks a fifty under the flap, and he's out the door.
+The stool beside you is still turning.
+->->
 
 
 // The coupons (A1.3), one of her two jobs: offered when you walk in after night one.

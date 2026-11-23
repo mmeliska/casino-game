@@ -118,8 +118,11 @@ namespace Starflare.Game
             });
         }
 
+        public void PointAtPhone(bool on) => _hud.PointAtPhone(on);
+
         public void OpenMap()
         {
+            _hud.PointAtPhone(false);
             var open = new List<PhoneMap.Place>();
             foreach (var place in _places)
                 if (place.IsOpen) open.Add(place.Pin);

@@ -21,7 +21,7 @@ namespace Starflare.Ui
 
         PlayerState _state;
         GameObject _root, _info, _corner, _phone, _eye, _close;
-        Image _shade, _backing;
+        Image _shade, _backing, _phoneGlow;
         TMP_Text _title, _date, _cash, _owed;
         RectTransform _pill;
         bool _buttons, _looking, _fitDirty;
@@ -62,9 +62,20 @@ namespace Starflare.Ui
             _close.SetActive(on);
         }
 
+        /// <summary>
+        /// A gold pulse round the phone button, for when someone has just told you to use it (Dot
+        /// on night one). It shows whenever the phone does, until it's turned off; the city turns
+        /// it off when you open the phone.
+        /// </summary>
+        public void PointAtPhone(bool on) => _phoneGlow.gameObject.SetActive(on);
+
+        public bool PointingAtPhone => _phoneGlow.gameObject.activeSelf;
+
         // The pill's width is only known after layout, so a refresh fits the backing a frame later.
         void LateUpdate()
         {
+            if (_phoneGlow.gameObject.activeInHierarchy)
+                _phoneGlow.color = new Color(Gold.r, Gold.g, Gold.b, 0.55f + 0.45f * Mathf.Sin(Time.time * 5f));
             if (!_fitDirty || !_root.activeSelf) return;
             _fitDirty = false;
             FitBacking();
@@ -199,6 +210,15 @@ namespace Starflare.Ui
             phoneLayout.ignoreLayout = false;
             phoneLayout.preferredWidth = phoneLayout.preferredHeight = IconButtonSize;
             _phone = phone.gameObject;
+
+            _phoneGlow = MakeImage(phone.transform, "Phone Glow", Gold);
+            _phoneGlow.sprite = RoundedFrame;
+            _phoneGlow.type = Image.Type.Sliced;
+            _phoneGlow.raycastTarget = false;
+            Stretch(_phoneGlow.rectTransform);
+            _phoneGlow.rectTransform.offsetMin = new Vector2(-14, -14);
+            _phoneGlow.rectTransform.offsetMax = new Vector2(14, 14);
+            _phoneGlow.gameObject.SetActive(false);
 
             var eye = MakeIconButton(safe.transform, "Look Button", EyeGlyph, look);
             _eye = eye.gameObject;

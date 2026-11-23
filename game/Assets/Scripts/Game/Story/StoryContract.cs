@@ -23,6 +23,8 @@ namespace Starflare.Game
 
         // Story flags the city and venues read to pick a scene or open a place.
         public const string CheckedIn = "checked_in";
+        public const string CantSleep = "cant_sleep";
+        public const string AskedDotAboutTheBar = "asked_dot_about_bar";
         public const string MetKasia = "met_kasia";
         public const string MetJuan = "met_juan";
         public const string CarryingCoupons = "carrying_coupons";
@@ -43,6 +45,12 @@ namespace Starflare.Game
         public const string DancedWith = "danced_with";
         public const string DanceKeen = "dance_keen";
 
+        // Raffy's envelope (A1.2): met him, holding the envelope (until A1.5 settles it), and
+        // whether you've looked inside.
+        public const string MetRaffy = "met_raffy";
+        public const string HasEnvelope = "has_envelope";
+        public const string OpenedEnvelope = "opened_envelope";
+
         // Bridgehead (A1.6, S3): met Mitch and the day you did; the trucker's been at the pumps,
         // and whether you spotted him the twenty, with the day (the seed's reveal waits on it).
         public const string MetMitch = "met_mitch";
@@ -59,9 +67,9 @@ namespace Starflare.Game
 
         public static readonly string[] Variables =
         {
-            PlayerName, Bankroll, Book, Day, NextSaturday, Hour, RegisterBox, Broke, SittingNet, CheckedIn,
+            PlayerName, Bankroll, Book, Day, NextSaturday, Hour, RegisterBox, Broke, SittingNet, CheckedIn, CantSleep, AskedDotAboutTheBar,
             MetKasia, MetJuan, CarryingCoupons, DidBarBack, BackRoomOpen, SatWithRosa, WeddingDay, WeddingMisses,
-            WeddingAskedDay, WorkedWedding, WeddingOver, WeddingRole, DancedWith, DanceKeen, MetMitch, MetMitchDay, TruckerPassed, HelpedTrucker, HelpedTruckerDay,
+            WeddingAskedDay, WorkedWedding, WeddingOver, WeddingRole, DancedWith, DanceKeen, MetRaffy, HasEnvelope, OpenedEnvelope, MetMitch, MetMitchDay, TruckerPassed, HelpedTrucker, HelpedTruckerDay,
             OfferedCoupons, OfferedBarBack, MetRosa, RolledWithJuan, SawLateGame,
         };
 
@@ -87,6 +95,7 @@ namespace Starflare.Game
             public const string CheckingIn = "checking_in";
             public const string Office = "office";
             public const string TurnIn = "turn_in";
+            public const string OpenEnvelope = "open_envelope";
 
             // Kasia's Tap (A1.2, A1.3)
             public const string NightOne = "night_one";
@@ -95,6 +104,7 @@ namespace Starflare.Game
             public const string CouponJob = "coupon_job";
             public const string BarBackJob = "bar_back_job";
             public const string BackRoomInvite = "back_room_invite";
+            public const string Raffy = "raffy";
 
             // Kasia's back room (A1.3)
             public const string BackRoom = "back_room";
@@ -126,8 +136,8 @@ namespace Starflare.Game
 
             public static readonly string[] All =
             {
-                Arrival, CheckingIn, Office, TurnIn, NightOne, WalkIn, GetUp, CouponJob, BarBackJob,
-                BackRoomInvite, BackRoom, RosaFirstHand, RosaGetUp, WeddingAsk, WeddingMissed, Wedding, Coupons, Juan,
+                Arrival, CheckingIn, Office, TurnIn, OpenEnvelope, NightOne, WalkIn, GetUp, CouponJob, BarBackJob,
+                BackRoomInvite, Raffy, BackRoom, RosaFirstHand, RosaGetUp, WeddingAsk, WeddingMissed, Wedding, Coupons, Juan,
                 BackLot, BackLotEmpty, BackLotPractice, BackLotGetUp,
                 BridgeheadFirst, Mitch, Trucker, BridgeheadGetUp, BridgeheadSlotsGetUp, BridgeheadScratchersGetUp,
             };

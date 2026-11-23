@@ -55,7 +55,9 @@ namespace Starflare.Game
         Action _onDone;
 
         GameObject _root;
-        Image _backdrop, _plate, _lastPlate, _pose, _insert, _black, _rule, _glow, _faceFrame, _face;
+        RectTransform _insertArea;
+        AspectRatioFitter _insertFit;
+        Image _backdrop, _plate, _lastPlate, _pose, _insert, _insertPicture, _black, _rule, _glow, _faceFrame, _face;
         Button _help;
         CoverFit _plateFit;
         TMP_Text _speaker, _line, _blackLine, _more;
@@ -249,7 +251,8 @@ namespace Starflare.Game
                         break;
                     case "insert":
                         var insert = Art.Insert(value);
-                        _insert.transform.GetChild(0).GetComponent<Image>().sprite = insert;
+                        _insertPicture.sprite = insert;
+                        if (insert != null) _insertFit.aspectRatio = insert.rect.width / insert.rect.height;
                         _insert.gameObject.SetActive(insert != null);
                         break;
                     case "black":
@@ -528,13 +531,13 @@ namespace Starflare.Game
                 if (landscape)
                 {
                     var middle = new Vector2(0.3f, 0.55f);
-                    Pin(_insert.rectTransform, middle, middle, new Vector2(-300, -300), new Vector2(300, 300));
+                    Pin(_insertArea, middle, middle, new Vector2(-440, -300), new Vector2(440, 300));
                     Pin(_bottom, Vector2.zero, Vector2.right, new Vector2(0, 32), new Vector2(0, 640));
                 }
                 else
                 {
                     var top = new Vector2(0.5f, 1);
-                    Pin(_insert.rectTransform, top, top, new Vector2(-330, -900), new Vector2(330, -240));
+                    Pin(_insertArea, Vector2.zero, Vector2.one, new Vector2(48, 520), new Vector2(-48, -240));
                     Pin(_bottom, Vector2.zero, Vector2.right, new Vector2(0, 40), new Vector2(0, 1100));
                 }
                 FitBox();
@@ -547,36 +550,56 @@ namespace Starflare.Game
                 // (about 170 high).
                 var poseFoot = new Vector2(0.28f, 0);
                 Pin(_pose.rectTransform, poseFoot, poseFoot, new Vector2(-450, -440), new Vector2(450, 880));
-                var middle = new Vector2(0.28f, 0.5f);
-                Pin(_insert.rectTransform, middle, middle, new Vector2(-360, -360), new Vector2(360, 360));
+                Pin(_insertArea, Vector2.zero, new Vector2(0.5f, 1), new Vector2(48, 48), new Vector2(-24, -190));
                 Pin(_bottom, new Vector2(0.5f, 0), Vector2.one, new Vector2(0, 32), new Vector2(-8, -170));
             }
             else
             {
                 var foot = new Vector2(0.5f, 0);
                 Pin(_pose.rectTransform, foot, foot, new Vector2(-500, 150), new Vector2(500, 1650));
-                var top = new Vector2(0.5f, 1);
-                Pin(_insert.rectTransform, top, top, new Vector2(-390, -1040), new Vector2(390, -260));
+                Pin(_insertArea, Vector2.zero, Vector2.one, new Vector2(48, 520), new Vector2(-48, -240));
                 Pin(_bottom, Vector2.zero, Vector2.right, new Vector2(0, 40), new Vector2(0, 1400));
             }
             FitBox();
         }
 
+        /// <summary>
+        /// A close-up (an insert) as a comic panel laid over the scene: the scene dims behind a
+        /// scrim, still there for context, and the picture sits in the clear space above the
+        /// dialogue box at its own shape, in a thin ink border. The scrim doesn't take taps, so
+        /// tapping anywhere still advances.
+        /// </summary>
         void BuildInsert(Transform parent)
         {
-            _insert = MakeImage(parent, "Insert Frame", new Color(0.93f, 0.9f, 0.82f));
-            _insert.sprite = Rounded;
-            _insert.type = Image.Type.Sliced;
+            _insert = MakeImage(parent, "Insert Scrim", new Color(0, 0, 0, InsertDim));
+            Stretch(_insert.rectTransform);
+            // Past the safe area's edges, so the notch and the corners dim too.
+            _insert.rectTransform.offsetMin = new Vector2(-ScrimBleed, -ScrimBleed);
+            _insert.rectTransform.offsetMax = new Vector2(ScrimBleed, ScrimBleed);
             _insert.raycastTarget = false;
 
-            var picture = MakeImage(_insert.transform, "Insert", Color.white);
-            picture.preserveAspect = true;
-            picture.raycastTarget = false;
-            Stretch(picture.rectTransform);
-            picture.rectTransform.offsetMin = new Vector2(14, 14);
-            picture.rectTransform.offsetMax = new Vector2(-14, -14);
+            var area = new GameObject("Insert Area", typeof(RectTransform));
+            area.transform.SetParent(_insert.transform, false);
+            _insertArea = (RectTransform)area.transform;
+
+            var frame = MakeImage(_insertArea, "Insert Frame", InkBlack);
+            frame.raycastTarget = false;
+            _insertFit = frame.gameObject.AddComponent<AspectRatioFitter>();
+            _insertFit.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
+
+            _insertPicture = MakeImage(frame.transform, "Insert", Color.white);
+            _insertPicture.preserveAspect = true;
+            _insertPicture.raycastTarget = false;
+            Stretch(_insertPicture.rectTransform);
+            _insertPicture.rectTransform.offsetMin = new Vector2(InsertBorder, InsertBorder);
+            _insertPicture.rectTransform.offsetMax = new Vector2(-InsertBorder, -InsertBorder);
             _insert.gameObject.SetActive(false);
         }
+
+        /// <summary>How dark the scene goes behind a close-up, and the close-up's ink border.</summary>
+        const float InsertDim = 0.9f;
+        const float InsertBorder = 8f;
+        const float ScrimBleed = 400f;
 
         /// <summary>
         /// A row: the speaker's face square (over a game only) and the dialogue box, which takes

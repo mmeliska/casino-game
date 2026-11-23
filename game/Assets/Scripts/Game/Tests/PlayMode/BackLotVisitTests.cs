@@ -166,6 +166,8 @@ namespace Starflare.Tests
                 then();
             }
 
+            public void PointAtPhone(bool on) { }
+
             public void PlaySceneOver(string knot, ICoachable game, Action then)
             {
                 Scenes.Add(knot);

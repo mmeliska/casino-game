@@ -73,7 +73,7 @@ Close-up insert panel. A thick old clothbound ledger open on a worn wooden bar t
 
 Mid-40s. Born in Backwater to a Polish-American dad and a Mexican-American mom. Her dad was a businessman, not a mill man (Mike, 2026-10-28). He sold restaurant supply out of a van, saw three shifts a day walk out of the rolling mill gate past a block with no bar on it, bought the corner building on credit and called it the Tap. Her mother ran the kitchen and the books; the pierogi are her mother's recipe served in her father's bar, which Kasia thinks is the correct ratio for most things. Kasia grew up on the stool at the end of the bar, doing homework in the ledger's margins.
 
-Her dad rented the back room to the mill local for its meetings, because a hall full of thirsty men was good business. When the state opened the door to land casinos, Backwater's vote was counted in that back room, and Backwater voted no on the casinos. Kasia was fifteen. Her father backed the "no" vote because a casino on this side of the river would have emptied his bar in a year. Kasia remembers it as a town standing up for itself and has never once thought about the rent. The local's old meeting sign is still on the back-room door.
+Her dad rented the back room to the mill local for its meetings, because a hall full of thirsty men was good business. When the state opened the door to land casinos, Backwater's vote was counted in that back room, and Backwater voted no on table games. Kasia was fifteen. Her father backed the "no" vote because a casino on this side of the river would have emptied his bar in a year. Kasia remembers it as a town standing up for itself and has never once thought about the rent. The local's old meeting sign is still on the back-room door.
 
 By the time of the vote the mills had already closed, and the old shifts were crossing the Long Bridge to the riverboats instead. Her father kept the bar open on credit until the credit ran out. Years later the state let bars run a few licensed video terminals, Backwater allowed them, and she talked him into putting machines along the bar (Mike, 2026-11-06). He never played one. He died with the bar in her name and the ledger in her hand. She has run it twenty years. The back room is a card game because a card game is what the room was built for. She has never been across the river for pleasure. She extends credit because her father did, and keeps the ledger because her mother did. She has never once forgiven a skipped debt, because the one time her father did, the bar nearly went under.
 
@@ -104,7 +104,7 @@ Mirror: she and Gus each inherited a father's place. She kept hers small, alive 
 
 ## Voice
 
-Brisk, warm, bar talk; weather, the mill and the regulars; never discusses the back room in front of strangers. Lies with a joke. Says "voted no on the casinos," never "dry." *"Your tab's in the book. The book never forgets. Neither do I."*
+Brisk, warm, bar talk; weather, the mill and the regulars; never discusses the back room in front of strangers. Lies with a joke. Says "voted no on table games," never "dry." *"Your tab's in the book. The book never forgets. Neither do I."*
 
 ### Voice sheet (settled 2026-10-18; write every line of dialogue to this)
 

@@ -42,6 +42,12 @@ namespace Starflare.Game
         /// <summary>Opens the map on your phone.</summary>
         void OpenMap();
 
+        /// <summary>
+        /// Pulses the phone button on the top bar, for when a scene has just told you to use it.
+        /// It stays on across screens until a place turns it off or you open the phone.
+        /// </summary>
+        void PointAtPhone(bool on);
+
         /// <summary>Asks the playthrough to wipe the save and start the game again.</summary>
         void StartOver();
     }

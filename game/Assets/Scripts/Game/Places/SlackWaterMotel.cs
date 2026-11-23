@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Starflare.Phone;
 using Starflare.State;
 using UnityEngine.Events;
@@ -10,6 +11,9 @@ namespace Starflare.Game
     /// register, then her question; a save from after the register picks up at the question.
     /// Your room is where you pass time: sleep, the TV, the internet, each for the hours you pick
     /// (Mike, 2026-11-05). Night one you can't sleep, which is how you end up at Kasia's (A1.2).
+    /// On night one, once you've lain awake, Dot tells you about Kasia's Tap and sends you to
+    /// your phone, which glows on the lot and in your room until you open it or you've met Kasia.
+    /// While you hold Raffy's envelope and haven't looked, the room is where you can open it.
     /// </summary>
     public sealed class SlackWaterMotel : IPlace
     {
@@ -55,8 +59,13 @@ namespace Starflare.Game
             _host.PlayScene(StoryContract.Knots.CheckingIn, ShowLot);
         }
 
+        /// <summary>Dot has sent you to the phone's map, and you haven't found the Tap yet (A1.2).</summary>
+        bool SentToTheTap =>
+            _host.Story.Flag(StoryContract.AskedDotAboutTheBar) && !_host.Story.Flag(StoryContract.MetKasia);
+
         void ShowLot()
         {
+            _host.PointAtPhone(SentToTheTap);
             _host.ShowPlace("motel_lot",
                 ("Step into the office", () => _host.PlayScene(StoryContract.Knots.Office, ShowLot)),
                 ("Go to your room", GoToRoom),
@@ -71,11 +80,17 @@ namespace Starflare.Game
 
         void ShowRoom()
         {
-            _host.ShowPlace("motel_room",
+            _host.PointAtPhone(SentToTheTap);
+            var actions = new List<(string, UnityAction)>
+            {
                 ("Sleep", () => ChooseHours("Sleep", SleepHours)),
                 ("Watch TV", () => ChooseHours("Watch TV", ScreenHours)),
                 ("Browse the internet", () => ChooseHours("Browse the internet", ScreenHours)),
-                ("Step outside", ShowLot));
+            };
+            if (_host.Story.Flag(StoryContract.HasEnvelope) && !_host.Story.Flag(StoryContract.OpenedEnvelope))
+                actions.Add(("Open Raffy's envelope", () => _host.PlayScene(StoryContract.Knots.OpenEnvelope, ShowRoom)));
+            actions.Add(("Step outside", ShowLot));
+            _host.ShowPlace("motel_room", actions.ToArray());
         }
 
         /// <summary>How long: the clock moves on that many hours, and you're back in the room at the new time.</summary>

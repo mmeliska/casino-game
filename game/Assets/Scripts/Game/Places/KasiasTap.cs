@@ -39,7 +39,14 @@ namespace Starflare.Game
         public string Id => PlaceId;
         public string Name => "Kasia's Tap";
         public PhoneMap.Place Pin => new PhoneMap.Place(PlaceId, Name, 0.41f, 0.30f, labelLeft: true);
-        public bool IsOpen => true;
+        /// <summary>
+        /// On the map once Dot has told you about it on night one (A1.2), or once you've been
+        /// (saves from before Dot sent you there).
+        /// </summary>
+        public bool IsOpen => OpenTo(_host.Story);
+
+        public static bool OpenTo(StoryBridge story) =>
+            story.Flag(StoryContract.AskedDotAboutTheBar) || story.Flag(StoryContract.MetKasia);
 
         public void Arrive() => ShowOutside();
 
@@ -57,8 +64,15 @@ namespace Starflare.Game
             if (WeddingTonight) actions.Add(("Go up to the hall", () => PlayScene(StoryContract.Knots.Wedding, ShowOutside)));
             if (_host.Story.Flag(StoryContract.BackRoomOpen)) actions.Add(("Go through the back door", _backRoom.Enter));
             actions.Add(NurseABeer);
-            actions.Add(("Step back outside", ShowOutside));
+            actions.Add(("Step back outside", StepOutside));
             _host.ShowPlace("kasia_bar", actions.ToArray());
+        }
+
+        /// <summary>Leaving the bar before Raffy's found you: he catches you on the way out (A1.2).</summary>
+        void StepOutside()
+        {
+            if (_host.Story.Flag(StoryContract.MetRaffy)) ShowOutside();
+            else PlayScene(StoryContract.Knots.Raffy, ShowOutside);
         }
 
         /// <summary>The Saturday night she booked you for: the hall upstairs is open (A1.4).</summary>
@@ -90,7 +104,9 @@ namespace Starflare.Game
         const int BeerPrice = 3;
 
         /// <summary>
-        /// Walking in. Night one plays the first time. After that night, until you meet Juan,
+        /// Walking in. Night one plays the first time. Raffy usually finds you when you first get
+        /// up from the machine (the Ink's <c>get_up</c>); if you left without meeting him, he
+        /// comes in as you do, before Kasia's jobs. After that night, until you meet Juan,
         /// Kasia has his coupons for you; once he has them, the bar-back shift; once both jobs
         /// are done, she nods you toward the back door (A1.3) and asks you to work the wedding
         /// (A1.4). If you missed the Saturday, or said no, she has a word about it once.
@@ -100,6 +116,7 @@ namespace Starflare.Game
         {
             var story = _host.Story;
             if (!story.Flag(StoryContract.MetKasia)) PlayScene(StoryContract.Knots.NightOne, ShowBar);
+            else if (!story.Flag(StoryContract.MetRaffy)) PlayScene(StoryContract.Knots.Raffy, ShowBar);
             else if (_host.State.Clock.Day > 1 && !story.Flag(StoryContract.CarryingCoupons) && !story.Flag(StoryContract.MetJuan))
                 PlayScene(StoryContract.Knots.CouponJob, ShowBar);
             else if (story.Flag(StoryContract.MetJuan) && !story.Flag(StoryContract.DidBarBack))

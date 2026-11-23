@@ -113,6 +113,92 @@ namespace Starflare.Tests
             Assert.That(bridge.Flag(StoryContract.DidBarBack), Is.True);
         }
 
+        /// <summary>
+        /// Getting up broke the first time (A1.2): Raffy leaves the envelope and fifty, so Kasia
+        /// doesn't offer her book; the next time up, he's gone and she does.
+        /// </summary>
+        [Test]
+        public void GetUp_FirstTimeBroke_RaffysFiftyComesBeforeKasiasBook()
+        {
+            var (state, bridge) = WeddingStory(RegisterBox.Mr, day: 1, hour: 21);
+            state.Spend(state.BankrollNow);
+            bridge.Sync(state);
+            bridge.Set(StoryContract.Broke, true);
+            string text = Play(bridge, StoryContract.Knots.GetUp);
+
+            Assert.That(text, Does.Contain("Hold this till Friday?"));
+            Assert.That(text, Does.Not.Contain("on the book"));
+            Assert.That(bridge.Ink.currentChoices, Is.Empty);
+            Assert.That(bridge.Flag(StoryContract.MetRaffy), Is.True);
+            Assert.That(bridge.Flag(StoryContract.HasEnvelope), Is.True);
+            Assert.That(state.BankrollNow, Is.EqualTo(50));
+
+            state.Spend(state.BankrollNow);
+            bridge.Sync(state);
+            bridge.Set(StoryContract.Broke, true);
+            string again = Play(bridge, StoryContract.Knots.GetUp);
+            Assert.That(again, Does.Not.Contain("RAFFY"));
+            Assert.That(again, Does.Contain("I'll put you on the book."));
+        }
+
+        /// <summary>Leaving the bar without playing: the standalone scene leaves the envelope too.</summary>
+        [Test]
+        public void Raffy_OnTheWayOut_LeavesTheEnvelopeAndFifty()
+        {
+            var (state, bridge) = WeddingStory(RegisterBox.Ms, day: 1, hour: 21);
+            Assert.That(Play(bridge, StoryContract.Knots.Raffy), Does.Contain("Cool? Cool."));
+            Assert.That(bridge.Flag(StoryContract.HasEnvelope), Is.True);
+            Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + 50));
+        }
+
+        /// <summary>Opening the envelope shows what's in it and moves no money: that's for A1.5.</summary>
+        [TestCase(3, "Hold this till Friday, he said.")]
+        [TestCase(8, "It's past Friday. Nobody's come for it.")]
+        public void OpenEnvelope_ShowsTheCashAndTheDrive_AndKeepsTheCashInIt(int day, string last)
+        {
+            var (state, bridge) = WeddingStory(RegisterBox.Mr, day: day, hour: 23);
+            bridge.Set(StoryContract.HasEnvelope, true);
+            string text = Play(bridge, StoryContract.Knots.OpenEnvelope);
+
+            Assert.That(text, Does.Contain("Two thousand even."));
+            Assert.That(text, Does.Contain("thumb drive"));
+            Assert.That(text, Does.Contain(last));
+            Assert.That(bridge.Flag(StoryContract.OpenedEnvelope), Is.True);
+            Assert.That(bridge.Flag(StoryContract.HasEnvelope), Is.True);
+            Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll));
+        }
+
+        /// <summary>
+        /// Night one (A1.2): lying awake in your room sends you to Dot, and Dot sends you to the
+        /// phone's map; once you've met Kasia, the office is the usual desk again.
+        /// </summary>
+        [Test]
+        public void NightOne_TheRoomSendsYouToDot_AndDotToThePhone()
+        {
+            var (_, bridge) = WeddingStory(RegisterBox.Mr, day: 1, hour: 19);
+            string office = Play(bridge, StoryContract.Knots.Office);
+            Assert.That(office, Does.Not.Contain("Kasia's Tap"), "before you've lain awake, Dot's just at the desk");
+            Assert.That(bridge.Ink.currentChoices.Count, Is.EqualTo(2));
+
+            string room = Play(bridge, StoryContract.Knots.TurnIn);
+            Assert.That(room, Does.Contain("You can't sleep."));
+            Assert.That(room, Does.Contain("Maybe you should go ask Dot about the bar."));
+            Assert.That(bridge.Flag(StoryContract.CantSleep), Is.True);
+
+            string dot = Play(bridge, StoryContract.Knots.Office);
+            Assert.That(dot, Does.Contain("Kasia's Tap"));
+            Assert.That(dot, Does.Contain("Check your phone, hon."));
+            Assert.That(bridge.Ink.currentChoices, Is.Empty);
+            Assert.That(bridge.Flag(StoryContract.AskedDotAboutTheBar), Is.True);
+
+            Assert.That(Play(bridge, StoryContract.Knots.TurnIn), Does.Contain("on your phone's map"));
+            Assert.That(Play(bridge, StoryContract.Knots.Office), Does.Contain("on your phone's map"));
+
+            bridge.Set(StoryContract.MetKasia, true);
+            Assert.That(Play(bridge, StoryContract.Knots.Office), Does.Not.Contain("Kasia's Tap"));
+            Assert.That(bridge.Ink.currentChoices.Count, Is.EqualTo(2));
+        }
+
         /// <summary>Kasia's nod toward the back door asks about the wedding: yes books the next Saturday (A1.4).</summary>
         [Test]
         public void BackRoomInvite_SayingYes_BooksTheNextSaturday()

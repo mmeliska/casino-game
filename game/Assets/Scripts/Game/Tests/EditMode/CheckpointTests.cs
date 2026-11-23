@@ -47,7 +47,7 @@ namespace Starflare.Tests
             Assert.That(story.Flag(StoryContract.DidBarBack), Is.True);
             Assert.That(story.Flag(StoryContract.BackRoomOpen), Is.True);
             Assert.That(story.Flag(StoryContract.SatWithRosa), Is.True);
-            Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + 60));
+            Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + 50 + 60));
             Assert.That(state.Clock.Day, Is.EqualTo(2));
             Assert.That(state.Scales.Straight, Is.EqualTo(1));
             Assert.That(state.Place, Is.EqualTo(KasiasTap.PlaceId));
@@ -99,7 +99,33 @@ namespace Starflare.Tests
             var (state, story) = Apply(Checkpoints.WorkedTheWedding);
             Assert.That(story.Flag(StoryContract.WeddingOver), Is.True);
             Assert.That(state.Clock.Weekday, Is.EqualTo(System.DayOfWeek.Sunday));
-            Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + 60 + 120));
+            Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + 50 + 60 + 120));
+        }
+
+        /// <summary>Raffy finds you on night one (A1.2): from the next day you hold his envelope, unopened.</summary>
+        [Test]
+        public void NightOneDone_HoldsRaffysEnvelope()
+        {
+            var (state, story) = Apply(Checkpoints.NightOneDone);
+            Assert.That(story.Flag(StoryContract.MetRaffy), Is.True);
+            Assert.That(story.Flag(StoryContract.HasEnvelope), Is.True);
+            Assert.That(story.Flag(StoryContract.OpenedEnvelope), Is.False);
+            Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + 50));
+        }
+
+        /// <summary>Kasia's Tap isn't on the map until Dot sends you there, or you've been (KasiasTap.IsOpen).</summary>
+        [Test]
+        public void TheTap_OpensWhenDotSendsYou()
+        {
+            var (_, story) = Apply(Checkpoints.CheckedIn);
+            Assert.That(KasiasTap.OpenTo(story), Is.False, "just checked in");
+            story.Set(StoryContract.CantSleep, true);
+            Assert.That(KasiasTap.OpenTo(story), Is.False, "lain awake, not asked Dot yet");
+            story.Set(StoryContract.AskedDotAboutTheBar, true);
+            Assert.That(KasiasTap.OpenTo(story), Is.True);
+
+            var (_, nightOne) = Apply(Checkpoints.NightOneDone);
+            Assert.That(KasiasTap.OpenTo(nightOne), Is.True, "been there (saves from before Dot sent you)");
         }
 
         [Test]
