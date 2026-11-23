@@ -19,8 +19,8 @@ namespace Starflare.Tests
             var lines = new[]
             {
                 ("Straight, house ball", new Throw(7, 10, 0, 16), BowlingBall.House, LanePattern.House),
-                ("Snap, reactive", new Throw(32, 19.5, 70, 17), BowlingBall.Reactive, LanePattern.House),
-                ("Snap on lane six", new Throw(32, 19.5, 70, 17), BowlingBall.Reactive, LanePattern.LaneSix),
+                ("Snap, reactive", new Throw(32, 19, 75, 17), BowlingBall.Reactive, LanePattern.House),
+                ("Snap on lane six", new Throw(32, 19, 75, 17), BowlingBall.Reactive, LanePattern.LaneSix),
                 ("Arc, urethane", new Throw(15, 7, 50, 13), BowlingBall.Urethane, LanePattern.House),
                 ("A league line, urethane", new Throw(29, 16.5, 70, 17), BowlingBall.Urethane, LanePattern.House),
             };
@@ -55,7 +55,7 @@ namespace Starflare.Tests
             TestContext.Out.WriteLine("Real throws, 200 racks each (strike, then the commonest leaves):");
             var throws = new[]
             {
-                (new Throw(32, 19.5, 70, 17), BowlingBall.Reactive),
+                (new Throw(32, 19, 75, 17), BowlingBall.Reactive),
                 (new Throw(29, 16.5, 70, 17), BowlingBall.Urethane),
                 (new Throw(13, 10, 70, 16), BowlingBall.House),
                 (new Throw(7, 10, 0, 16), BowlingBall.House),

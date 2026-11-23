@@ -19,6 +19,12 @@ namespace Starflare.Bowling
         /// <summary>The hook dial at 100: the rolling axis turned this far toward the lane's length.</summary>
         public const double MaxAxisDegrees = 45;
 
+        /// <summary>
+        /// The bottom of the hook dial throws a straight ball: a sliver of axis near nothing moves a
+        /// ball boards by the pins, so the first tenth of the meter is "nothing on it".
+        /// </summary>
+        public const double StraightBelow = 0.1;
+
         /// <summary>What slows a rolling ball, m/s².</summary>
         public const double RollingResistance = 0.25;
 
@@ -119,14 +125,15 @@ namespace Starflare.Bowling
         /// <summary>
         /// The spin off the hand for a hook dial h in 0..1. At 0 the ball leaves the hand rolling
         /// end over end, its spin matching its speed, so it never slides sideways and never turns.
-        /// Turning the dial turns that axis toward the lane's length, up to <see cref="MaxAxisDegrees"/>,
+        /// Past the first tenth, turning the dial turns that axis toward the lane's length, up to <see cref="MaxAxisDegrees"/>,
         /// so the contact point slides toward the bowler's gutter side and friction pulls the ball
         /// back across: the revs and the axis are one dial.
         /// </summary>
         public static Vec3 Spin(Vec2 dir, double speed, double radius, double h)
         {
             double revs = speed / radius;
-            double axis = MaxAxisDegrees * h * Math.PI / 180;
+            double turned = Math.Max(0, (h - StraightBelow) / (1 - StraightBelow));
+            double axis = MaxAxisDegrees * turned * Math.PI / 180;
             double c = Math.Cos(axis), s = Math.Sin(axis);
             // End over end is (-dir.Y, dir.X); turned toward the bowler, -dir.
             return new Vec3(-dir.Y * c - dir.X * s, dir.X * c - dir.Y * s, 0) * revs;

@@ -79,9 +79,12 @@ namespace Starflare.Bowling
         }
 
         /// <summary>Only these pins (1 to 10) standing, on their spots: a leave to shoot at.</summary>
-        public static PinDeck Leave(params int[] pins)
+        public static PinDeck Leave(params int[] pins) => Leave(0, pins);
+
+        /// <summary>A leave on its spots with its own pin action.</summary>
+        public static PinDeck Leave(int actionSeed, int[] pins)
         {
-            var deck = Exact();
+            var deck = Exact(actionSeed);
             for (int i = 0; i < Pins; i++) deck._standing[i] = false;
             foreach (int pin in pins) deck._standing[pin - 1] = true;
             return deck;
