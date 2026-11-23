@@ -8,7 +8,7 @@ A politician's office: campaign posters, flags, polish.
 
 ## Plate prompts
 
-For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the negative prompts and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
+For ChatGPT. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the avoid lists and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
 
 **Proposed, not settled:** everything.
 
@@ -24,7 +24,7 @@ Background plate, no people. An alderman's office: a broad polished desk, a flag
 
 ### The desk photo
 
-The photo on his desk: a clue to Richard (M4). Use Richard's and Bennett's approved sheets as references; they share a strong square jaw. Uses the photo negative prompt.
+The photo on his desk: a clue to Richard (M4). Use Richard's and Bennett's approved sheets as references; they share a strong square jaw. Uses the photo avoid list.
 
 `bennett_desk_photo` (insert, square 1:1)
 

@@ -12,7 +12,7 @@ Under the Stacks: brick, iron and ember light. The Levee palette goes to rust he
 
 ## Plate prompts
 
-For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the negative prompts and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
+For ChatGPT. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the avoid lists and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
 
 **Proposed, not settled:** the steel door at the foot of a chimney; brick vaults and iron columns; the office's monitor wall and closet.
 

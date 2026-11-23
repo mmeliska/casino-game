@@ -50,7 +50,7 @@ MITCH: Going over? Everybody's going over.
 === mitch ===
 # plate: bridgehead_store
 # pose: mitch_neutral
-MITCH: {~Coffee's a dollar. Same as yesterday.|Gas went up four cents. Nobody asked me.|Scratchers are two. The good ones went this morning.|You again. Machines are where you left them.|Track's dark this week. Nothing to watch but the pumps.}
+MITCH: {~Coffee's a dollar. Same as yesterday.|Gas went up four cents. Nobody asked me.|Scratchers are a buck to five. The good ones went this morning.|You again. Machines are where you left them.|Track's dark this week. Nothing to watch but the pumps.}
 + [Pour a coffee. (-$1)]
     ~ spend(1)
     MITCH: {~Lid's on the left.|Burnt since six.|Cream's out.}
@@ -124,6 +124,23 @@ TRUCKER: Got a load due up north by morning.
     MITCH: {~Those pay? Don't tell the others.|Cherries. Lucky you.}
 - sitting_net < 0:
     MITCH: {~That wall eats dollars.|Keeps the lights on in here.}
+- else:
+    MITCH: Even. Here, that's a win.
+}
+-> END
+
+
+// Stepping away from the scratcher rack: Mitch sweeps the shavings off his counter.
+=== bridgehead_scratchers_get_up ===
+# plate: bridgehead_store
+# pose: mitch_neutral
+{
+- broke:
+    MITCH: Tapped? Coffee's still a dollar.
+- sitting_net > 0:
+    MITCH: {~A winner. I'll pay it out of the drawer.|Huh. That roll's been cold all week.}
+- sitting_net < 0:
+    MITCH: {~Shavings go in the can, not on my counter.|Told you. The good ones went this morning.}
 - else:
     MITCH: Even. Here, that's a win.
 }

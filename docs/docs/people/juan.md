@@ -6,7 +6,7 @@ Early 40s, Mexican-American, warm medium-brown skin (Mike, 2026-10-30), dark stu
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For ChatGPT (Mike, 2026-11-23). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert (Mike, 2026-10-30). The how-to, the single-pose template and the avoid list are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** build; his facial features and hair; the colours of the shirt and cap; the trousers and boots.
 

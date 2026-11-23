@@ -1,6 +1,6 @@
 ## How to use these
 
-The portraits are generated with Leonardo.ai or Adobe Firefly (Mike, 2026-10-30), in the inked style of the Dot proof of concept (a style reference, not final art). Each character's page has a **Portrait prompt** section with:
+The portraits are generated with ChatGPT's image generation (Mike, 2026-11-23; it replaced Leonardo.ai and Adobe Firefly, chosen 2026-10-30, because its results are better), in the inked style of the Dot proof of concept (a style reference, not final art). Each character's page has a **Portrait prompt** section with:
 
 - a sheet prompt, ready to paste, under 1,000 characters
 - their look, head to toe, with a second outfit where a scene calls for one
@@ -16,7 +16,7 @@ The portraits are generated with Leonardo.ai or Adobe Firefly (Mike, 2026-10-30)
 
 **Two passes per character:**
 
-1. **The sheet.** Paste the sheet prompt at landscape 16:9. Regenerate until the face and outfit match the look. That sheet becomes the character's model.
+1. **The sheet.** Paste the sheet prompt and ask for landscape. Regenerate until the face and outfit match the look. That sheet becomes the character's model.
 2. **Single poses, which are the game's assets.** Paste the single-pose prompt below. Replace `[CHARACTER]` with the character's look (or the outfit the pose table names) and `[POSE]` with the pose line. Generate at portrait 2:3, with the approved sheet as the reference image so the face holds. Save each image under its pose tag (`dot_doorway.png`).
 
 Single-pose prompt:
@@ -27,7 +27,7 @@ Full-body character portrait of one person standing, facing the viewer or turned
 Pose: [POSE].
 ```
 
-Negative prompt (Leonardo only):
+Avoid list. ChatGPT has no negative prompt field, and the facing, "nothing in the hands" and "No text" sentences in each prompt usually do the job. If something keeps creeping in, add this as a last line starting "Avoid:":
 
 ```
 text, letters, captions, speech bubbles, watermark, logo, signature, holding objects, props in hands, sitting, barefoot, overlapping figures, crowded panels, facing the viewer's right, turned toward the right side of the image, looking toward the viewer's right, cropped feet, cropped head, close-up, photorealistic, 3D render, anime, chibi, extra fingers, deformed hands, busy background, extra people
@@ -35,8 +35,7 @@ text, letters, captions, speech bubbles, watermark, logo, signature, holding obj
 
 **Tool settings:**
 
-- **Leonardo.ai.** Put the negative prompt in its own field. For single poses, add the approved sheet under Image Guidance as a Character Reference. Reuse the seed of a good result for the rest of that character's poses.
-- **Adobe Firefly.** There's no negative prompt field; the facing, "nothing in the hands" and "No text" sentences inside each prompt do that job. Set the content type to Art and upload the Dot proof of concept as the Style reference, so the whole cast shares one look. If a face drifts between poses, generate a few and keep the closest.
+- **ChatGPT.** Say the shape in the message: landscape for the sheet, portrait for a single pose. Attach the Dot proof of concept as the style reference, so the whole cast shares one look. For single poses, attach the approved sheet so the face holds, and make all of a character's poses in one chat. If a face drifts between poses, generate a few and keep the closest.
 
 **Checking a result:**
 

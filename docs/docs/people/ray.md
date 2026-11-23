@@ -6,7 +6,7 @@ Mid-40s and trying a bit too hard: a leather car coat over an open-collared shir
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For ChatGPT (Mike, 2026-11-23). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert (Mike, 2026-10-30). The how-to, the single-pose template and the avoid list are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Drawn** (Mike, 2026-11-09): `Images/Characters/ray.png`, sliced into the four poses from the sheet (its drawn panel borders painted out first). `ray_flat` isn't drawn yet.
 
@@ -34,13 +34,13 @@ Ray: a white man in his mid-40s, thick-set, slicked-back dark hair, a too-wide g
 
 ## Insert prompts
 
-For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+For ChatGPT. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the avoid lists (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
 
 **Proposed, not settled:** the napkin for the password.
 
 ### The cash roll
 
-The pitch and the loans. His hand is in frame; use the hand negative prompt.
+The pitch and the loans. His hand is in frame; use the hand avoid list.
 
 `ray_cash_roll` (insert, square 1:1)
 
@@ -50,7 +50,7 @@ Close-up insert panel. A thick white man's hand with a gold pinky ring, the cuff
 
 ### The password
 
-A1.9: he slips you the Cinder Room password. The password is a story key; any writing is added in layout. His hand is in frame; use the hand negative prompt.
+A1.9: he slips you the Cinder Room password. The password is a story key; any writing is added in layout. His hand is in frame; use the hand avoid list.
 
 `ray_password` (insert, square 1:1)
 

@@ -6,7 +6,7 @@ Early 30s (about 32), a hoodie, expensive sneakers, a plain watch that costs mor
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For ChatGPT (Mike, 2026-11-23). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert (Mike, 2026-10-30). The how-to, the single-pose template and the avoid list are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 Seen once, at A4.5, so three poses.
 
@@ -34,13 +34,13 @@ Wren: a slight white woman about 32, a menacing villain. A dark purple hoodie, h
 
 ## Insert prompts
 
-For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+For ChatGPT. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the avoid lists (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
 
 **Proposed, not settled:** how the dark cameras show (one corner camera, its light off).
 
 ### The tablet
 
-The meeting (A4.5): her hand on the tablet, face down, with the room's camera lights already dark. A still, no caption. Her hand is in frame; use the hand negative prompt.
+The meeting (A4.5): her hand on the tablet, face down, with the room's camera lights already dark. A still, no caption. Her hand is in frame; use the hand avoid list.
 
 `wren_tablet` (insert, square 1:1)
 

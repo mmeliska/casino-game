@@ -6,7 +6,7 @@ Very heavyset (Teddy from Bob's Burgers without the beanie, as an artist referen
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For ChatGPT (Mike, 2026-11-23). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert (Mike, 2026-10-30). The how-to, the single-pose template and the avoid list are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Drawn** (Mike, 2026-11-09): `Images/Characters/gus.png`, sliced into the five dinner-jacket poses from the sheet. `gus_hunched` and `gus_new_jacket` aren't drawn yet.
 
@@ -46,7 +46,7 @@ Gus: a very heavyset white man in his late 50s, a broad, round, kind face, clean
 
 ## Insert prompts
 
-For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+For ChatGPT. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the avoid lists (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
 
 **Proposed, not settled:** what the IOU is written on; the Flare's chip design (coral and teal clay, a rocket inlay).
 
@@ -82,7 +82,7 @@ Close-up insert panel. The same small notepad sheet torn in two, the halves lyin
 
 ### The lucky chip
 
-The Flare's last night (A3.3): he presses one of the Flare's own chips into your hand. His hand is in frame; use the hand negative prompt. Afterwards it's a Pockets item: Troy buys it for almost nothing, and it's first on the rival's list (A4.8).
+The Flare's last night (A3.3): he presses one of the Flare's own chips into your hand. His hand is in frame; use the hand avoid list. Afterwards it's a Pockets item: Troy buys it for almost nothing, and it's first on the rival's list (A4.8).
 
 `gus_lucky_chip` (insert, square 1:1)
 

@@ -6,7 +6,7 @@ Early 50s, very professional (Mike). A photo of his father on his office desk is
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For ChatGPT (Mike, 2026-11-23). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert (Mike, 2026-10-30). The how-to, the single-pose template and the avoid list are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** white; hair; the suit colour, tie and shoes; the private outfit.
 
@@ -41,7 +41,7 @@ Bennett: a white man in his early 50s, trim, greying dark hair neatly parted, a 
 
 ## Insert prompts
 
-For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+For ChatGPT. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the avoid lists (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
 
 ### The weekly envelope
 

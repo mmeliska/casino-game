@@ -22,7 +22,7 @@ The Levee's key light is this sign, flickering. Teal, coral, chrome and rust; th
 
 ## Plate prompts
 
-For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the negative prompts and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
+For ChatGPT. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the avoid lists and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
 
 **Drawn** (Mike, 2026-11-09): the source images are in `Images/Locations/StarFlare1`; each is in the game under the tag below, as a wide 16:9 plate. The Flare is a long red-brick building with mill chimneys on its roof, a boomerang canopy in coral and teal on V-shaped chrome struts with rows of bulbs, a teal pylon with gold starbursts carrying the coral rocket sign on the left, the chrome spaceman waving to the left of the glass doors. Inside, a deep navy carpet with coral starbursts, starburst chandeliers, neon cove lighting and rocket-themed slots. Gus's office is wood-panelled, with a chrome-trimmed desk, and its window looks across the water to the Slack Water Motel's sign and the city.
 
@@ -295,7 +295,7 @@ Close-up insert panel. The curve of a baby grand piano under a pale dust cloth, 
 
 ### The band photo
 
-The faded photo of the house band by the lounge (S4); the drummer is Tae's father. It comes off the wall on the last night. Uses the photo negative prompt (see the how-to).
+The faded photo of the house band by the lounge (S4); the drummer is Tae's father. It comes off the wall on the last night. Uses the photo avoid list (see the how-to).
 
 `flare_band_photo` (insert, square 1:1)
 
@@ -305,7 +305,7 @@ Close-up insert panel. A faded old framed photograph on a wall: a five-piece sup
 
 ### The sisters' photo
 
-The framed photo of Dot and her younger sister Alice on Gus's office shelf, with a tin recipe box under it (R1). Use Dot's approved sheet as a reference; Alice's look isn't settled. Uses the photo negative prompt.
+The framed photo of Dot and her younger sister Alice on Gus's office shelf, with a tin recipe box under it (R1). Use Dot's approved sheet as a reference; Alice's look isn't settled. Uses the photo avoid list.
 
 `flare_sisters_photo` (insert, square 1:1)
 

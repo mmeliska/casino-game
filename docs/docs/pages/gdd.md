@@ -129,7 +129,7 @@ Each game is a self-contained module that plays continuously, round after round,
 | Craps | ~20 s | Millstone back lot (street rules) and every casino | One set of rules with two screens: the street game in the chalk circle, the felt table from the Flare up. See Street craps below |
 | Roulette | ~20 s | The Flare and up | The bet board needs careful touch layout |
 | Poker | 1–2 min | Kasia's back room and up; private games | Needs opponent AI; the vehicle for named characters (the rival, Vivian); Jalen deals only the last night's no-money game |
-| Extras | Varies | Per venue | Keno, pull tabs, scratchers, the Rocket Wheel, baccarat, casino war |
+| Extras | Varies | Per venue | Keno, pull tabs, scratchers, the Rocket Wheel, baccarat, casino war. Scratchers are one engine for any ticket: a price, a prize pool and one of four plays (match three, lucky numbers, find the symbol, beat their number); each ticket is printed from its pool before it's sold. First built: Bridgehead's roll of ten (Mike, 2026-11-23) |
 
 - **Core five:** slots, blackjack, craps, roulette, poker.
 - **Story-event games** can be played a set number of rounds inside a scene, like the one-pass game of War with Richard (10 cards each, most cards wins). Venue games stay endlessly replayable.
@@ -375,7 +375,7 @@ A gritty, inked graphic-novel look: bold black outlines, heavy shadows, cel shad
 | Cards, chips, dice | Drawn in code, or Kenney.nl CC0 packs for prototyping |
 | UI elements | Kenney.nl CC0 packs, restyled |
 | Tables, slot symbols, backgrounds | Illustrated in the same inked style, with a fixed palette per district |
-| Character portraits | Generated with Leonardo.ai or Adobe Firefly from the [Portrait prompts](#portraits) (Mike, 2026-10-30): an expression sheet per character, then each pose as its own image. About 24 characters, (9 core, 10 supporting, and 5 minor with portrait: Richard, Troy and the Flare regulars Walt, Lorraine and Augie), plus the six romance versions if they get portraits |
+| Character portraits | Generated with ChatGPT from the [Portrait prompts](#portraits) (Mike, 2026-11-23; Leonardo.ai or Adobe Firefly before): an expression sheet per character, then each pose as its own image. About 24 characters, (9 core, 10 supporting, and 5 minor with portrait: Richard, Troy and the Flare regulars Walt, Lorraine and Augie), plus the six romance versions if they get portraits |
 | Story panels | Still poses over backgrounds; a seed's panel is reused as its callback inset |
 | Music and sound | Not yet decided |
 

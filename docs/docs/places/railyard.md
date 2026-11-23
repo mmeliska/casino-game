@@ -14,7 +14,7 @@ Bright and tidy compared with the Flare: the depot's arched hall, iron trusses a
 
 ## Plate prompts
 
-For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the negative prompts and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
+For ChatGPT. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the avoid lists and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
 
 **Proposed, not settled:** the depot hall, the station clock with no numerals, the buffet, the kiosk.
 

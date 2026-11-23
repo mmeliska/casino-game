@@ -1,0 +1,20 @@
+{
+    "name": "Starflare.Scratchers",
+    "rootNamespace": "Starflare.Scratchers",
+    "references": [
+        "Starflare.Core",
+        "Starflare.Scratchers.Rules",
+        "Starflare.Ui",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

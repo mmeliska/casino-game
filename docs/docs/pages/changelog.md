@@ -1,5 +1,21 @@
 ## 23 Nov 2026
 
+### Pictures under the latex
+
+Scratching now uncovers pictures, as on a real ticket (Mike). Gold Rush's finds are pictures (gold coins, a tin can, a clump of clay and so on), each captioned with its word, and Lucky 7s now hides slot symbols (cherries, bells, BARs, horseshoes, clovers, lemons) instead of other numbers, with a 7 to find; its odds don't change. Ice Fishing's catches each get their own fish and Photo Finish's horses their own jockey's colours, and the other tickets get a faint picture behind each amount or number. The ChatGPT prompts for the five symbol sheets are on [Bridgehead](#bridgehead); until the sheets are made, each spot prints its word or number as before.
+
+### The scratchers have their art
+
+All ten Bridgehead scratchers now show Mike's art, an upright card and a landscape one each (Mike). The game prints the name, how to play, the play area and the odds on the card's flat colour and leaves the picture clear. With the phone on its side you get the landscape card, with the name and odds to the left of the play area, and turning the phone mid-ticket keeps the spots you've read. The rack shows each ticket's picture. A new tool, `tools/import_tickets.py`, cuts both cards out of each drop-folder picture. See [Bridgehead](#bridgehead).
+
+### Art now comes from ChatGPT
+
+Portraits, plates, inserts and scratcher tickets are now made with ChatGPT's image generation, which gives better results than Leonardo.ai or Adobe Firefly (Mike). Every prompt section says so, and the how-to on [Plate prompts](#plates) and [Portrait prompts](#portraits) has ChatGPT's settings: say the shape in the message, attach the Dot proof of concept as the style reference, and attach a base plate or an approved sheet to keep a room or a face steady. The negative prompts are now avoid lists, added as an "Avoid:" line only when something keeps creeping in, since ChatGPT has no negative prompt field. The prompts themselves don't change.
+
+### Scratchers at Bridgehead
+
+Bridgehead sells scratchers (Mike): "Buy scratchers" in the store takes you to the roll behind the counter, ten tickets from $1 to $5, and you scratch each one with your finger. They play four ways: find the symbol (Lucky 7s, Gold Rush), match three amounts (Penny Jar, Northern Lights, Diamond Deluxe), match a winning number (Lake Effect Cash, Ore Boat Bucks, Cash Blizzard) and beat their number (Ice Fishing, Photo Finish). Like a real roll, each ticket is printed from its prize pool before it's sold, so scratching only shows what you bought. They're the worst odds in town: 57 to 69 cents back on the dollar, more on the dearer tickets, and a win about one ticket in four. The full table is on [Bridgehead](#bridgehead), with a background prompt for each ticket; until the art exists the game prints each ticket in its own colours. Names, pools and Mitch's lines are proposals.
+
 ### Mitch's back room is drawn
 
 The plate for Mitch's back room at Bridgehead is in the game (Mike), ready for his race book (R5). Its door opens into the store behind the counter, so you get in past Mitch. The chalkboard shows Race 4 with four horses and their odds: Night Shift, Copper Mile, River Ghost and Last Call. See [Bridgehead](#bridgehead).

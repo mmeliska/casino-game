@@ -12,7 +12,7 @@ The bowling-alley sign is one of Backwater's key lights. Inside: league night, w
 
 ## Plate prompts
 
-For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the negative prompts and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
+For ChatGPT. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the avoid lists and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
 
 **Proposed, not settled:** eight lanes; the alley's sign as a big blank bowling-pin shape; the shoe counter beside the machines; the back lot's chalk circle under a bulb. The late game is street craps on the asphalt, never a felt table (Mike, 2026-11-20).
 

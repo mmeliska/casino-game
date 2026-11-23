@@ -60,6 +60,13 @@ namespace Starflare.Game
         /// </summary>
         public static Sprite Symbol(string tag) => Find($"Symbols/{tag}");
 
+        /// <summary>
+        /// A scratcher's card, Resources/Scratchers/{ticket id} (or {ticket id}_wide, the landscape
+        /// card), or null. Quiet when it's missing: the counter prints the ticket in its own
+        /// colours until the art exists.
+        /// </summary>
+        public static Sprite Scratcher(string id) => Find($"Scratchers/{id}");
+
         /// <summary>A crowd face by its id in the roster, Resources/Faces/faces.json (tools/import_faces.py).</summary>
         public static Sprite Face(string id) => Load("Faces", id);
 

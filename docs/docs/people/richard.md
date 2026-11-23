@@ -6,7 +6,7 @@ Late 70s and a little worn down: thin white hair that isn't always combed, grey 
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For ChatGPT (Mike, 2026-11-23). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert (Mike, 2026-10-30). The how-to, the single-pose template and the avoid list are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** white; the cardigan's and trousers' colours.
 
@@ -33,13 +33,13 @@ Richard: a white man in his late 70s, thin and slightly stooped, thin uncombed w
 
 ## Insert prompts
 
-For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+For ChatGPT. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the avoid lists (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
 
 **Proposed, not settled:** the lanyard (worn cloth).
 
 ### The key
 
-The key he never takes off (M4). Dot mentions it; the player sees it at the picnic table. His chest is in frame, not his face; use the hand negative prompt.
+The key he never takes off (M4). Dot mentions it; the player sees it at the picnic table. His chest is in frame, not his face; use the hand avoid list.
 
 `richard_key` (insert, square 1:1)
 
@@ -49,7 +49,7 @@ Close-up insert panel. A small brass key on a worn cloth lanyard hanging against
 
 ### The cards
 
-War at the picnic table in the motel lot, or the moment you ask him how to shuffle one-handed. His hand is in frame; use the hand negative prompt.
+War at the picnic table in the motel lot, or the moment you ask him how to shuffle one-handed. His hand is in frame; use the hand avoid list.
 
 `richard_cards` (insert, square 1:1)
 

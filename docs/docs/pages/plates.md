@@ -1,6 +1,6 @@
 ## How to use these
 
-Every place in the game has its own page (listed on [Northlight](#city)) with a **Plate prompts** section: one prompt for each panel the scenes there need. Each prompt has a note above it saying what the panel shows and which scenes use it, then its tag and size. The prompts are written for Leonardo.ai or Adobe Firefly, in the same inked style as the [portraits](#portraits), so a character's pose laid over a plate looks like one picture.
+Every place in the game has its own page (listed on [Northlight](#city)) with a **Plate prompts** section: one prompt for each panel the scenes there need. Each prompt has a note above it saying what the panel shows and which scenes use it, then its tag and size. The prompts are written for ChatGPT's image generation (Mike, 2026-11-23; it replaced Leonardo.ai and Adobe Firefly, because its results are better), in the same inked style as the [portraits](#portraits), so a character's pose laid over a plate looks like one picture.
 
 Two kinds of panel from the [panel kit](#writing):
 
@@ -23,7 +23,7 @@ Two kinds of panel from the [panel kit](#writing):
 
 **Tags.** A plate's tag is `place_area_time`, plus a state or a baked-in weather where there is one (`flare_floor_night_decline`, `pq_deck_night_mist`), as in the [writing guide's](#writing) script layout. An insert's tag is `place_prop` (`flare_bucket`), or `character_prop` for something a character carries (`gus_mug`). The tag is also the image's file name.
 
-**Negative prompts** (Leonardo only):
+**Avoid lists.** ChatGPT has no negative prompt field, and the "No people, no text" sentence in each prompt usually does the job. If something keeps creeping in, add the list for that kind of panel as a last line starting "Avoid:".
 
 Plates:
 
@@ -51,9 +51,9 @@ text, letters, words, numbers, captions, logo, watermark, signature, photorealis
 
 **Tool settings:**
 
-- **Leonardo.ai.** Set 9:16 for plates and 1:1 for inserts, and put the negative prompt in its own field. Add the Dot proof of concept under Image Guidance as a Style Reference, so plates and portraits share one look. For a variant, add the place's base plate as a Content Reference (or use it for image-to-image at about half strength).
-- **Adobe Firefly.** There's no negative prompt field; the "No people, no text" sentence in each prompt does that job. Set the content type to Art, the aspect to 9:16 or 1:1, and upload the Dot proof of concept as the Style reference. For a variant, upload the base plate as the Composition reference.
-- **Photo inserts** need the characters' approved portrait sheets as a reference (Character Reference in Leonardo) so the faces match.
+- **ChatGPT.** Say the shape in the message: portrait, square or landscape, as the tag's size says. It makes 2:3, 1:1 and 3:2, so crop a 9:16 or 16:9 plate from the result. Attach the Dot proof of concept as the style reference, so plates and portraits share one look.
+- **Variants.** Attach the place's base plate and ask for the same room with only the light, weather or props changed. Making a place's plates in one chat keeps the room steady.
+- **Photo inserts** need the characters' approved portrait sheets attached as references so the faces match.
 
 **Checking a result:**
 

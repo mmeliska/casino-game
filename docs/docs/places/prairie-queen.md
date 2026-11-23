@@ -16,7 +16,7 @@ River mist and the paddle lights are the Levee's weather layer; the mist is bake
 
 ## Plate prompts
 
-For Leonardo.ai or Adobe Firefly. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the negative prompts and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
+For ChatGPT. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the avoid lists and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
 
 **Drawn** (Mike, 2026-11-20): the source images are in `Images/Locations/prairie-queen`; each is in the game under the tag below, as a wide 16:9 plate. The Queen is a white three-deck sternwheeler with a big red paddlewheel, moored at a plank landing with iron bollards, rope rails, lamp posts and a small white ticket booth; old mill chimneys and a water tower stand on the far shore. The deck at the stern is wet planking under a white rail, the paddlewheel churning beside it, river mist over the water and the shore lights beyond; there's no rocket sign in it, so it serves every sailing, before and after the Flare comes down. Inside, the salon is dark wood panelling with brass rails, crimson curtains and round brass portholes, brass chandeliers, a brown carpet, navy-felt tables (a round poker table and roulette) and ship's-wheel slot machines by the stairs. The bar corner has a curved wooden bar with a brass foot rail, a mirrored back bar, two stools and a porthole. Table four's felt is navy, like the salon's, not green.
 

@@ -6,7 +6,7 @@ Dark hair in a braid, a bar towel over her shoulder, a flannel shirt with the sl
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For ChatGPT (Mike, 2026-11-23). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert (Mike, 2026-10-30). The how-to, the single-pose template and the avoid list are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** sturdy build; dark eyes; the flannel's colours; the T-shirt, jeans and boots.
 
@@ -33,11 +33,11 @@ Kasia: a Polish-Mexican-American woman in her mid-40s, sturdy, dark hair in a lo
 
 ## Insert prompts
 
-For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+For ChatGPT. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the avoid lists (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
 
 **Proposed, not settled:** the ledger itself (an old clothbound book with ruled columns).
 
-The ledger is the same prop every time; only her hand and the line change (her arc, step 4). Make the first one, then the others from it as a reference image, so it stays the same book. Your name, the line under it and the date are added in layout. Never use these in the same act as Dot's torn register. Her hand is in each one; use the hand negative prompt.
+The ledger is the same prop every time; only her hand and the line change (her arc, step 4). Make the first one, then the others from it as a reference image, so it stays the same book. Your name, the line under it and the date are added in layout. Never use these in the same act as Dot's torn register. Her hand is in each one; use the hand avoid list.
 
 ### The ledger
 

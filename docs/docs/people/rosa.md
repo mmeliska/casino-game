@@ -6,7 +6,7 @@ Late 40s, short, with warm medium-brown skin, full, rounded cheeks and lines aro
 
 ## Portrait prompt
 
-For Leonardo.ai or Adobe Firefly (Mike, 2026-10-30). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert. The how-to, the single-pose template and the negative prompt are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
+For ChatGPT (Mike, 2026-11-23). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert (Mike, 2026-10-30). The how-to, the single-pose template and the avoid list are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
 **Proposed, not settled:** slim build; the exact height; the vest's colour; the shirt, trousers and shoes.
 
@@ -35,13 +35,13 @@ Rosa: a short, slim Puerto Rican woman in her late 40s, about 5'1", warm medium-
 
 ## Insert prompts
 
-For Leonardo.ai or Adobe Firefly. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the negative prompts (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
+For ChatGPT. An insert is a square close-up panel. Portraits keep their hands empty, so whatever this character holds or hands over gets one. The how-to, the avoid lists (including the one for inserts with a hand in frame) and the settings are on [Plate prompts](#plates). Each prompt carries the light of the place where its scene happens. Each tag is also the image's file name and the scene's `# insert:` tag.
 
 **Proposed, not settled:** how she deals (one hand, face down).
 
 ### The cards
 
-Dealing Kasia's back room. Her hand is in frame; use the hand negative prompt.
+Dealing Kasia's back room. Her hand is in frame; use the hand avoid list.
 
 `rosa_cards` (insert, square 1:1)
 
@@ -51,7 +51,7 @@ Close-up insert panel. A small woman's hand with warm medium-brown skin, a white
 
 ### The torn patch
 
-The frayed spot on her vest where the Starflare patch was (M1): for the moment someone looks at it. Her chest is in frame, not her face; use the hand negative prompt.
+The frayed spot on her vest where the Starflare patch was (M1): for the moment someone looks at it. Her chest is in frame, not her face; use the hand avoid list.
 
 `rosa_vest_patch` (insert, square 1:1)
 
