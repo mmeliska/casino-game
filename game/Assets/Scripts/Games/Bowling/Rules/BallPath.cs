@@ -56,8 +56,20 @@ namespace Starflare.Bowling
             return BoardOf(End.Position);
         }
 
-        /// <summary>The board it reached the pins on, the bowler's count.</summary>
-        public double EntryBoard => BoardOf(End.Position);
+        /// <summary>
+        /// The board its line crosses the head pin's row on, the bowler's count: 17.5 is a
+        /// right-hander's pocket, between the 1 and the 3.
+        /// </summary>
+        public double EntryBoard
+        {
+            get
+            {
+                var end = End;
+                double toHeadPin = LaneGeometry.Y(LaneGeometry.HeadPinFt) - end.Position.Y;
+                if (end.Velocity.Y <= 0) return BoardOf(end.Position);
+                return BoardOf(end.Position + end.Velocity * (toHeadPin / end.Velocity.Y));
+            }
+        }
 
         /// <summary>
         /// The angle into the pins in degrees, positive when it's moving toward the bowler's off

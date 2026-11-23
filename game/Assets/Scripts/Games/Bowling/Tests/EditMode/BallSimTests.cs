@@ -16,8 +16,8 @@ namespace Starflare.Tests
         /// <summary>Juan's first ball: seventh board, second arrow, nothing on it.</summary>
         static readonly Throw Straight = new Throw(7, 10, 0, 16);
 
-        /// <summary>A cranker's ball on the house shot: deep inside, swung out to the edge of the oil.</summary>
-        static readonly Throw Snap = new Throw(32, 19, 90, 18);
+        /// <summary>A reactive ball on the house shot: deep inside, swung out to the edge of the oil.</summary>
+        static readonly Throw Snap = new Throw(32, 19.5, 70, 17);
 
         /// <summary>Medium hook, slow, an outside line on the light boards.</summary>
         static readonly Throw Arc = new Throw(15, 7, 50, 13);
