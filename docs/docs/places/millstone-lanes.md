@@ -4,7 +4,7 @@ Juan's struggling bowling alley. He bought it from the old owner on a handshake 
 
 | District | Games | Bets | Getting in | Who you'll find |
 | --- | --- | --- | --- | --- |
-| Backwater | Street craps in the back lot; inside, licensed bowling-themed slots and video poker | $1–$20 | Anyone; the late game runs 10 p.m. to 3 a.m., and the back lot is open any time (Mike, 2026-11-20); sweeps likelier when your heat is high | Juan, league regulars; Raffy hiding out later |
+| Backwater | Street craps in the back lot; inside, licensed bowling-themed slots and video poker, and the lanes themselves: open bowling for a fee, a league regular may challenge you to a game for money between games, and some Tuesdays a short team asks you to sub; otherwise league night is watch only. The counter sells balls and shoes (spec on [Bowling](#bowling); Mike, 2026-11-23) | $1–$20 | Anyone; the late game runs 10 p.m. to 3 a.m., and the back lot is open any time (Mike, 2026-11-20); sweeps likelier when your heat is high | Juan, league regulars; Raffy hiding out later |
 
 ## Look and mood
 

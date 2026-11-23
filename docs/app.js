@@ -368,6 +368,9 @@ P.design=()=>`<div class="page wide"><p class="eyebrow">Systems</p><h1>Game desi
 <p class="lede">The game design document: the build spec for Starflare Casino. First written 15 Oct 2026 and brought up to date with every planning decision on 26 Oct 2026 (task 12). It covers the systems; the story pages hold the story and win on story detail.</p>
 ${part("pages/gdd","gdd","design")}
 ${planRec([12],"design")}</div>`;
+P.bowling=()=>`<div class="page wide"><p class="eyebrow">Systems</p><h1>Bowling</h1>
+<p class="lede">The spec for the bowling game at Millstone Lanes: meters, not swipes; a lane with real oil on it; a ball that skids, hooks and rolls. Proposed 23 Nov 2026 except where stamped.</p>
+${part("pages/bowling","bowling","bowling")}</div>`;
 P.writing=()=>`<div class="page wide"><p class="eyebrow">Writing</p><h1>Writing guide</h1>
 <p class="lede">Read before writing any scene. It comes from the story and character review and the rules settled in planning.</p>
 ${part("pages/writing","wr","writing")}

@@ -43,6 +43,7 @@ const PARTS=[
 {"path": "pages/storymap-open", "title": "Story timeline: open questions", "page": "timeline"},
 {"path": "pages/table-events", "title": "Event codes: table events", "page": "events"},
 {"path": "pages/table-time", "title": "Rules and systems: time at the table", "page": "rules"},
+{"path": "pages/bowling", "title": "Bowling at Millstone Lanes", "page": "bowling"},
 {"path": "pages/titles", "title": "About: working title", "page": "sources"},
 {"path": "pages/walkons", "title": "Walk-ons and offstage figures", "page": "cast"},
 {"path": "pages/portraits", "title": "Portrait prompts", "page": "portraits"},
