@@ -160,5 +160,30 @@ namespace Starflare.Bowling
             if (pins == standing && standing != Pins) return "/";
             return pins == 0 ? "-" : pins.ToString();
         }
+
+        /// <summary>
+        /// A frame's balls as the big call after it's bowled (Mike, 2026-11-24): the marks split by
+        /// bars, 7|/, 1|2, -|5, X alone, and up to three in the tenth (X|7|/).
+        /// </summary>
+        public string FrameMarks(int frameNumber)
+        {
+            var marks = new List<string>(3);
+            for (int b = 0; b < _frames[frameNumber - 1].Balls.Count; b++) marks.Add(Mark(frameNumber, b));
+            return string.Join("|", marks);
+        }
+
+        /// <summary>
+        /// A frame's marks laid out as the boxes on a paper sheet (Mike, 2026-11-24): two slots,
+        /// the second boxed; a strike just the X, on its own; three in the tenth, the second and
+        /// third boxed. A slot not bowled is empty.
+        /// </summary>
+        public string[] FrameBoxes(int frameNumber)
+        {
+            var frame = _frames[frameNumber - 1];
+            if (!frame.IsTenth && frame.IsStrike) return new[] { "X" };
+            var slots = new string[frame.IsTenth ? 3 : 2];
+            for (int i = 0; i < slots.Length; i++) slots[i] = Mark(frameNumber, i);
+            return slots;
+        }
     }
 }

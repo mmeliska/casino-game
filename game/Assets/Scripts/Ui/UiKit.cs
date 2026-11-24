@@ -23,7 +23,8 @@ namespace Starflare.Ui
         public static readonly Color Teal = new Color(0.36f, 0.79f, 0.82f);
         public static readonly Color Edge = new Color(0.36f, 0.79f, 0.82f, 0.45f);
         public static readonly Color Panel = new Color(0.04f, 0.07f, 0.08f, 0.88f);
-        public static readonly Color ChoiceFill = new Color(0.15f, 0.26f, 0.26f, 0.92f);
+        public static readonly Color ChoiceFill = new Color(0.03f, 0.06f, 0.07f, 0.95f);
+        public static readonly Color ChoiceGlow = new Color(0.25f, 0.62f, 0.62f, 0.55f);
         public static readonly Color Paper = new Color(0.93f, 0.95f, 0.95f);
 
         static Sprite _rounded, _roundedFrame, _circle, _fade, _phoneGlyph, _eyeGlyph, _closeGlyph, _cashGlyph;
@@ -62,8 +63,8 @@ namespace Starflare.Ui
             }
             texture.SetPixels32(pixels);
             texture.Apply();
-            return Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), 100,
-                0, SpriteMeshType.FullRect, new Vector4(radius, radius, radius, radius));
+            return Kept(texture, Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), 100,
+                0, SpriteMeshType.FullRect, new Vector4(radius, radius, radius, radius)));
         }
 
         /// <summary>A white disc, for map pins.</summary>
@@ -135,7 +136,18 @@ namespace Starflare.Ui
                 pixels[y * size + x] = new Color32(255, 255, 255, (byte)(alpha(x + 0.5f, y + 0.5f) * 255));
             texture.SetPixels32(pixels);
             texture.Apply();
-            return Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), 100);
+            return Kept(texture, Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), 100));
+        }
+
+        /// <summary>
+        /// The drawn sprites are cached for the whole run, so an unused-asset sweep (a scene
+        /// change, the test runner) mustn't destroy one that no screen happens to show just then.
+        /// </summary>
+        static Sprite Kept(Texture2D texture, Sprite sprite)
+        {
+            texture.hideFlags = HideFlags.DontUnloadUnusedAsset;
+            sprite.hideFlags = HideFlags.DontUnloadUnusedAsset;
+            return sprite;
         }
 
         /// <summary>The phone button every screen outside the games carries: it opens the phone's map.</summary>
@@ -173,15 +185,38 @@ namespace Starflare.Ui
             return image;
         }
 
-        /// <summary>A story choice or a place's action: a teal glass bar with its label on the left.</summary>
+        /// <summary>
+        /// A story choice or a place's action: a dark glass bar with a teal stripe down its left
+        /// edge that glows teal under your finger.
+        /// </summary>
         public static Button MakeChoiceButton(Transform parent, string label, UnityAction onClick)
         {
             var image = MakePanel(parent, label + " Button", ChoiceFill);
             var layout = image.gameObject.AddComponent<LayoutElement>();
             layout.preferredHeight = 112;
             layout.flexibleWidth = 1;
+
+            var glow = MakeImage(image.transform, "Glow", ChoiceGlow);
+            glow.sprite = Rounded;
+            glow.type = Image.Type.Sliced;
+            glow.raycastTarget = false;
+            Stretch(glow.rectTransform);
             var button = image.gameObject.AddComponent<Button>();
+            button.targetGraphic = glow;
+            button.navigation = new Navigation { mode = Navigation.Mode.None };
+            var colors = button.colors;
+            colors.normalColor = colors.selectedColor = colors.disabledColor = new Color(1, 1, 1, 0);
+            colors.highlightedColor = new Color(1, 1, 1, 0.6f);
+            colors.pressedColor = Color.white;
+            colors.colorMultiplier = 1;
+            colors.fadeDuration = 0.08f;
+            button.colors = colors;
             button.onClick.AddListener(onClick);
+
+            var stripe = MakeImage(image.transform, "Stripe", Teal);
+            stripe.raycastTarget = false;
+            Pin(stripe.rectTransform, new Vector2(0, 0), new Vector2(0, 1), new Vector2(3, 12), new Vector2(9, -12));
+
             var text = MakeText(image.transform, label, 44, TextAnchor.MiddleLeft, 0);
             Stretch(text.rectTransform);
             text.rectTransform.offsetMin = new Vector2(44, 0);

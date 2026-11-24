@@ -197,6 +197,7 @@ Following `ARCHITECTURE.md`, "Adding a game": namespace `Starflare.Bowling`.
 | `PinSim.cs` | `Hit(BallPath entry, PinDeck) → PinResult`: the circles, the fall rule, which pins fell and the pins' motion samples for the view |
 | `Frame.cs`, `ScoreSheet.cs` | Ten frames, the tenth's extra balls, running totals, `IsComplete` |
 | `Bowler.cs` | Name, average, line, spread; `Next(LaneOil, ScoreSheet, seed) → Throw` with the miss adjustment; the stake he names from his average and the record |
+| `ChallengeTalk.cs` | What a challenger says: the ask with the stake in words ("Game for ten?"), his answer, and his word on the result, "I'm out. Go bowl Chuy." on his third straight loss |
 | `Challenges.cs` | Who asks tonight and when: the one-in-four odds, never twice running, not after three straight losses; seeded |
 | `BowlingRules.cs` | Fee, shoe rental, stakes, the challenge odds, the sweep rates and the optional jitter, the balls and shoes for sale with their prices, the hand |
 | `BowlingGame.cs` | One game: whose ball, the sheet(s), the stake, `Settle()`; open or against a `Bowler` |
@@ -221,6 +222,8 @@ Following `ARCHITECTURE.md`, "Adding a game": namespace `Starflare.Bowling`.
 | `DeckView.cs` | The close-up of the deck for the hit, from above (built: the sim is flat, so the close-up shows it as it is) |
 | `LaneSetup.cs` | What the venue hands over at each sit-down (built) |
 | `ScoreSheetView.cs` | The ten boxes, portrait strip and landscape column |
+| `TalkPanel.cs` | A regular's face (or his initial on a disc until the art lands) with a line beside it, under the lane: the challenger's ask, his answer when you take it or wave him off, his word when it's settled, and "Leon's Turn" while he's up, in place of your meters. His ball goes on its own after a beat; there's no button for it, and a tap on the lane sends it at once (Mike, 2026-11-24) |
+| `Callout.cs` | The big call over the deck: each frame's marks as it's bowled (yours, and his in a challenge), and your score in big numbers at the end of a game. It fades on its own and never holds up a throw (Mike, 2026-11-24) |
 | `PracticeFrame.cs` | Juan's locked inputs |
 
 `Games/Bowling/Tests/EditMode/` and `/PlayMode/`.

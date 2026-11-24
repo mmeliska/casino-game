@@ -39,6 +39,9 @@ namespace Starflare.Bowling
         /// <summary>How long the struck pins stay on screen after they settle, seconds.</summary>
         const float PinsLinger = 0.6f;
 
+        /// <summary>A regular's up: his face and "Leon's Turn" this long before his ball goes, seconds (quicker on a sub night).</summary>
+        const float TurnBeat = 0.7f, LeagueTurnBeat = 0.3f;
+
         /// <summary>The meters' block and the between-turns block are the same height, so the lane holds still.</summary>
         const float ThrowAreaHeight = 430;
 
@@ -108,9 +111,14 @@ namespace Starflare.Bowling
         Offer _offer;
         PracticeFrame _practice;
         int _practiceBall;
-        bool _shoesPaid, _chaining;
+        bool _shoesPaid;
         Step _step = Step.Between;
         string _message = "", _lock;
+
+        /// <summary>Who's talking under the lane, and what he said: a challenger's ask, answer or last word.</summary>
+        Bowler _speaker;
+        string _said;
+        float _turnWait;
         double _aim, _hook, _speed;
 
         Delivery _delivery;
@@ -125,15 +133,17 @@ namespace Starflare.Bowling
         GameObject _root;
         Image _plateImage;
         CoverFit _plateFit;
-        RectTransform _portraitColumn, _landscapeRow, _laneSide, _infoSide, _header, _laneArea, _laneFrame, _messageBar, _sheets, _controlsArea, _actions, _offerRow, _standRow;
+        RectTransform _portraitColumn, _landscapeRow, _laneSide, _infoSide, _header, _laneArea, _laneFrame, _messageBar, _sheets, _controlsArea, _actions, _answers, _standRow;
         LaneView _laneView;
         DeckView _deckView;
         PathTrace _trace;
+        Callout _callout;
         ApproachBall _ball;
         Meter _aimMeter, _hookMeter, _speedMeter;
         ScoreSheetView _yourSheet, _theirSheet;
         GameHeader _gameHeader;
-        TMP_Text _messageText, _teamText, _offerText, _standText, _bowlText;
+        TalkPanel _talk;
+        TMP_Text _messageText, _teamText, _standText, _bowlText;
 
         // ---- Setting up ----
 
@@ -171,10 +181,13 @@ namespace Starflare.Bowling
             _practiceBall = 0;
             _shoesPaid = false;
             _offer = null;
+            _speaker = null;
+            _said = null;
             _game = null;
             _delivery = null;
             _trace.Path = null;
             _trace.Redraw();
+            _callout.Clear();
             _laneView.Hand = _ball.Hand = _rules.Hand;
             ShowBall(_practice != null ? BowlingBall.House : _setup.Ball);
             _root.SetActive(true);
@@ -210,6 +223,7 @@ namespace Starflare.Bowling
             if (_lock == null && !Practicing) _sitting.Play(dt);
             if (_step == Step.Rolling) Roll(dt * _playSpeed);
             else if (_step == Step.Pins) Hit(dt * _playSpeed);
+            else if (_step == Step.Others && (_turnWait -= dt) <= 0) BowlRegular();
             else if (_step == Step.Stand && _aimMeter.Running)
             {
                 // The arrow swings with the sweep, every frame.
@@ -231,6 +245,8 @@ namespace Starflare.Bowling
                 Refresh();
                 return;
             }
+            _callout.Clear();
+            Hush();
             _game = BowlingGame.Open(cost);
             _message = cost > _rules.LaneFee ? $"{Money(_rules.LaneFee)} a game, {Money(_rules.ShoeRental)} for the shoes." : $"{Money(cost)} a game.";
             _lane.Rack();
@@ -239,6 +255,7 @@ namespace Starflare.Bowling
 
         void StartChallenge(Offer offer)
         {
+            _callout.Clear();
             _game = BowlingGame.Challenge(offer.Bowler, offer.Stake);
             _message = $"{offer.Bowler.Name} for {Money(offer.Stake)}. You're up first.";
             _lane.Rack();
@@ -247,6 +264,8 @@ namespace Starflare.Bowling
 
         void NextLeagueGame()
         {
+            _callout.Clear();
+            Hush();
             _game = _match.Next();
             _message = $"Game {_match.Played.Count} of {_match.Games}. You lead off.";
             _lane.Rack();
@@ -262,16 +281,13 @@ namespace Starflare.Bowling
                 return;
             }
             if (_game.Up.Sheet.FreshRack && _lane.Deck.StandingCount < PinDeck.Pins) _lane.Rack();
-            if (_game.YourTurn)
-            {
-                _chaining = false;
-                BeginStand();
-            }
+            if (_game.YourTurn) BeginStand();
             else
             {
+                // No button for his ball: his face and "Leon's Turn" come up, and after a beat he bowls.
                 _step = Step.Others;
+                _turnWait = _match != null ? LeagueTurnBeat : TurnBeat;
                 Refresh();
-                if (_chaining) BowlRegular();
             }
         }
 
@@ -283,13 +299,14 @@ namespace Starflare.Bowling
             GamesBowled++;
             int score = _game.You.Score;
             BestGame = Math.Max(BestGame, score);
-            _chaining = false;
+            _callout.Score(score, ScoreUnder());
 
             switch (_game.Kind)
             {
                 case GameKind.Open:
                     _message = $"You bowled {score}.";
                     _offer = _challenges.AfterGame(_setup.Regulars, _state.BankrollNow);
+                    if (_offer != null) Say(_offer.Bowler, ChallengeTalk.Ask(_offer.Stake, GamesBowled));
                     _step = Step.Between;
                     break;
                 case GameKind.Challenge:
@@ -300,8 +317,11 @@ namespace Starflare.Bowling
                     else if (result == Outcome.Lost) ChallengesLost++;
                     _message = $"You {score}, {him.Name} {him.Sheet.Score}. " + (result == Outcome.Won ? $"He pays {Money(_game.Stake)}."
                         : result == Outcome.Lost ? $"You pay {Money(_game.Stake)}." : "A push.");
-                    if (_challenges.IsDone(him.Bowler)) _message += $" {him.Name}'s done for the night.";
+                    bool done = _challenges.IsDone(him.Bowler);
+                    if (done) _message += $" {him.Name}'s done for the night.";
+                    Say(him.Bowler, ChallengeTalk.Settled(result, done, SendTo(him.Bowler), GamesBowled));
                     _offer = _challenges.AfterGame(_setup.Regulars, _state.BankrollNow);
+                    if (_offer != null) Say(_offer.Bowler, ChallengeTalk.Ask(_offer.Stake, GamesBowled));
                     _step = Step.Between;
                     break;
                 default:
@@ -311,6 +331,15 @@ namespace Starflare.Bowling
                     break;
             }
             Refresh();
+        }
+
+        /// <summary>Under your score in the big call: his, in a challenge; both teams' pins, a league game.</summary>
+        string ScoreUnder()
+        {
+            if (_game.Kind == GameKind.Challenge) return $"{_game.Seats[1].Name} {_game.Seats[1].Sheet.Score}";
+            if (_game.Kind == GameKind.League)
+                return $"{_match.YourTeam} {_game.TeamPins(BowlingGame.Yours)}, {_match.TheirTeam} {_game.TeamPins(BowlingGame.Theirs)}";
+            return null;
         }
 
         // ---- Your throw ----
@@ -475,10 +504,19 @@ namespace Starflare.Bowling
             float now = Time.unscaledTime;
             bool second = now - _lastLaneTap <= DoubleTap;
             _lastLaneTap = second ? -10 : now;
+            // Between games, a tap clears the score.
+            if (_step == Step.Between || _step == Step.Over || _step == Step.Others) _callout.Skip();
             // Throwing, a tap anywhere is the next meter's tap.
             if (_step == Step.Stand) { Press(BowlingControls.Aim, AimTap); return; }
             if (_step == Step.Hook) { Press(BowlingControls.Hook, HookTap); return; }
             if (_step == Step.Speed) { Press(BowlingControls.Speed, SpeedTap); return; }
+            // His turn: a tap sends his ball now, and isn't half of a skip.
+            if (_step == Step.Others)
+            {
+                _lastLaneTap = -10;
+                BowlRegular();
+                return;
+            }
             if (!second) return;
             if (_step == Step.Rolling) ToPins();
             else if (_step == Step.Pins) AfterBall();
@@ -508,26 +546,44 @@ namespace Starflare.Bowling
             }
 
             var seat = _game.Up;
+            int frame = seat.Sheet.CurrentFrame;
             _message = Describe(_delivery, seat.IsYou ? null : seat.Name);
-            _game.Record(_delivery.Count);
+            if (!seat.IsYou && seat.Bowler == _speaker) _said = null;
+            // The frame's done when the turn passes: its marks go up big, yours, and his in a
+            // challenge (a league night's other seven would be a call every few seconds).
+            if (_game.Record(_delivery.Count) && (seat.IsYou || _game.Kind == GameKind.Challenge))
+                _callout.Frame(seat.IsYou ? null : seat.Name, seat.Sheet.FrameBoxes(frame), seat.Sheet.FrameMarks(frame));
             Continue();
         }
 
         // ---- The regulars ----
 
-        void NextTap()
-        {
-            if (_step != Step.Others) return;
-            _chaining = true;
-            BowlRegular();
-        }
-
         void BowlRegular()
         {
+            if (_step != Step.Others) return;
             var seat = _game.Up;
             if (seat.IsYou) return;
             StartRoll(seat.Bowler.BowlAt(_lane, _rng), _match != null ? 3 : 1.6f);
         }
+
+        /// <summary>He says this, under his face.</summary>
+        void Say(Bowler who, string line)
+        {
+            _speaker = who;
+            _said = line;
+        }
+
+        void Hush()
+        {
+            _speaker = null;
+            _said = null;
+        }
+
+        /// <summary>Who he sends you to when he's done: another regular on the lanes who isn't.</summary>
+        string SendTo(Bowler him) => _setup.Regulars.FirstOrDefault(b => b != him && !_challenges.IsDone(b))?.Name;
+
+        Sprite FaceOf(Bowler bowler) =>
+            bowler != null && !string.IsNullOrEmpty(bowler.Face) && _setup.Faces != null && _setup.Faces.TryGetValue(bowler.Face, out var face) ? face : null;
 
         // ---- Between games ----
 
@@ -537,12 +593,16 @@ namespace Starflare.Bowling
             var offer = _offer;
             _offer = null;
             StartChallenge(offer);
+            // He answers on his first turn, under "Chuy's Turn".
+            Say(offer.Bowler, ChallengeTalk.Taken(GamesBowled));
+            Refresh();
         }
 
         void WaveOff()
         {
             if (_step != Step.Between || _offer == null) return;
-            _message = $"{_offer.Bowler.Name} shrugs and goes back to his lane.";
+            _message = $"{_offer.Bowler.Name} goes back to his lane.";
+            Say(_offer.Bowler, ChallengeTalk.WavedOff(GamesBowled));
             _offer = null;
             Refresh();
         }
@@ -564,6 +624,7 @@ namespace Starflare.Bowling
         {
             if (!CanGetUp) return;
             _state.PassTime(_sitting.TakeMinutes());
+            _callout.Clear();
             _root.SetActive(false);
             BreakPointReached?.Invoke(BreakPoint.GotUpFromTable);
         }
@@ -626,11 +687,10 @@ namespace Starflare.Bowling
             bool yours = throwing || ((_step == Step.Rolling || _step == Step.Pins) && (Practicing || _game == null || _game.YourTurn));
             _controlsArea.gameObject.SetActive(yours);
             _actions.gameObject.SetActive(!yours);
-            _offerRow.gameObject.SetActive(_step == Step.Between && _offer != null);
-            if (_offer != null) _offerText.text = $"{_offer.Bowler.Name}: \"Game for {_offer.Stake}?\"";
+            _answers.gameObject.SetActive(_step == Step.Between && _offer != null);
+            ShowTalk();
             _buttons[BowlingControls.Bowl].gameObject.SetActive(_step == Step.Between && _offer == null && (_match != null || !Practicing));
             _bowlText.text = _match != null ? "Next game" : $"Bowl a game, {Money(_rules.OpenGameCost(!_setup.OwnShoes, _shoesPaid))}";
-            _buttons[BowlingControls.Next].gameObject.SetActive(_step == Step.Others);
 
             Enable(BowlingControls.StandLeft, _step == Step.Stand);
             Enable(BowlingControls.StandRight, _step == Step.Stand);
@@ -640,8 +700,25 @@ namespace Starflare.Bowling
             Enable(BowlingControls.TakeGame, _step == Step.Between && _offer != null);
             Enable(BowlingControls.WaveOff, _step == Step.Between && _offer != null);
             Enable(BowlingControls.Bowl, CanBowlAgain);
-            Enable(BowlingControls.Next, _step == Step.Others && !_chaining);
             Enable(BowlingControls.GetUp, CanGetUp);
+        }
+
+        /// <summary>
+        /// Under the lane when it isn't your throw: a regular's face with what he says between
+        /// games (the ask, his answer, his last word), and while he's up "Leon's Turn".
+        /// </summary>
+        void ShowTalk()
+        {
+            bool theirTurn = _game != null && !Practicing && !_game.IsComplete && !_game.YourTurn
+                && (_step == Step.Others || _step == Step.Rolling || _step == Step.Pins);
+            if (theirTurn)
+            {
+                var up = _game.Up;
+                _talk.Show(up.Name, FaceOf(up.Bowler), $"{up.Name}'s Turn", up.Bowler == _speaker ? _said : null);
+            }
+            else if (_step == Step.Between && _speaker != null && !string.IsNullOrEmpty(_said))
+                _talk.Show(_speaker.Name, FaceOf(_speaker), _speaker.Name, _said);
+            else _talk.Hide();
         }
 
         void Enable(string id, bool usable) => _buttons[id].interactable = usable && Allowed(id);
@@ -843,6 +920,9 @@ namespace Starflare.Bowling
             Pin(_deckView.rectTransform, new Vector2(0.06f, 0.45f), new Vector2(0.86f, 1), Vector2.zero, Vector2.zero);
             deckGo.SetActive(false);
 
+            // Last in the frame, so it's over the deck and the trace.
+            _callout = Callout.Make(_laneFrame);
+
             _laneView.AddLayers(_art.PinUp);
             _ball = ApproachBall.Make(_laneView, CanDrag, _ => Refresh(), Placed);
             _controls[BowlingControls.Stand] = (RectTransform)_ball.transform;
@@ -909,23 +989,18 @@ namespace Starflare.Bowling
             AddVertical(_actions.gameObject, 12, new RectOffset(16, 16, 12, 12));
             Panel(_actions);
 
-            _offerRow = (RectTransform)new GameObject("Offer", typeof(RectTransform), typeof(LayoutElement)).transform;
-            _offerRow.SetParent(_actions, false);
-            AddVertical(_offerRow.gameObject, 10, new RectOffset());
-            _offerText = MakeText(_offerRow, "", 36, TextAnchor.MiddleCenter, 56);
-            _offerText.name = "Offer Text";
-            Shadowed(_offerText);
-            var answers = MakeRow(_offerRow, "Answers");
-            answers.GetComponent<LayoutElement>().preferredHeight = 120;
-            Control(answers, BowlingControls.TakeGame, "Take the game", TakeGame);
-            Outline(Control(answers, BowlingControls.WaveOff, "Wave him off", WaveOff));
+            _talk = TalkPanel.Make(_actions);
+            _talk.Hide();
+
+            _answers = MakeRow(_actions, "Answers");
+            _answers.GetComponent<LayoutElement>().preferredHeight = 120;
+            Control(_answers, BowlingControls.TakeGame, "Take the game", TakeGame);
+            Outline(Control(_answers, BowlingControls.WaveOff, "Wave him off", WaveOff));
 
             var bowl = Control(_actions, BowlingControls.Bowl, "Bowl", BowlAgain);
             bowl.name = "Bowl Button";
             _bowlText = bowl.GetComponentInChildren<TMP_Text>();
             bowl.GetComponent<LayoutElement>().preferredHeight = 120;
-            var next = Control(_actions, BowlingControls.Next, "Next", NextTap);
-            next.GetComponent<LayoutElement>().preferredHeight = 120;
         }
 
         Button Control(Transform parent, string id, string label, Action onClick)

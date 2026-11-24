@@ -15,6 +15,39 @@ namespace Starflare.Tests
         }
 
         [Test]
+        public void FrameMarks_SplitTheBallsByBars()
+        {
+            var sheet = Bowl(7, 3, 1, 2, 10, 0, 5, 0, 10);
+            Assert.That(sheet.FrameMarks(1), Is.EqualTo("7|/"));
+            Assert.That(sheet.FrameMarks(2), Is.EqualTo("1|2"));
+            Assert.That(sheet.FrameMarks(3), Is.EqualTo("X"));
+            Assert.That(sheet.FrameMarks(4), Is.EqualTo("-|5"));
+            Assert.That(sheet.FrameMarks(5), Is.EqualTo("-|/"), "Ten on the second ball is a spare.");
+            Assert.That(sheet.FrameMarks(6), Is.EqualTo(""), "Not bowled yet.");
+        }
+
+        [Test]
+        public void FrameMarks_InTheTenth_ShowAllThree()
+        {
+            var sheet = Bowl(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 7, 3);
+            Assert.That(sheet.FrameMarks(10), Is.EqualTo("X|7|/"));
+        }
+
+        [Test]
+        public void FrameBoxes_ShowAStrikeAlone_AndGiveTheTenthThree()
+        {
+            var sheet = Bowl(7, 3, 10, 1, 2);
+            Assert.That(sheet.FrameBoxes(1), Is.EqualTo(new[] { "7", "/" }));
+            Assert.That(sheet.FrameBoxes(2), Is.EqualTo(new[] { "X" }), "A strike is just the X.");
+            Assert.That(sheet.FrameBoxes(3), Is.EqualTo(new[] { "1", "2" }));
+
+            var open = Bowl(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 2);
+            Assert.That(open.FrameBoxes(10), Is.EqualTo(new[] { "6", "2", "" }), "An open tenth leaves its third box empty.");
+            var marked = Bowl(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 7, 3);
+            Assert.That(marked.FrameBoxes(10), Is.EqualTo(new[] { "X", "7", "/" }));
+        }
+
+        [Test]
         public void TwelveStrikes_Make300()
         {
             var sheet = Bowl(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);

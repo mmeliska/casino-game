@@ -22,11 +22,8 @@ namespace Starflare.Bowling
         /// <summary>Between games: another game.</summary>
         public const string Bowl = "bowl";
 
-        /// <summary>The regulars' balls, on a tap, until you're up again.</summary>
-        public const string Next = "next";
-
         public const string GetUp = "get_up";
 
-        public static readonly string[] All = { Stand, StandLeft, StandRight, Aim, Hook, Speed, TakeGame, WaveOff, Bowl, Next, GetUp };
+        public static readonly string[] All = { Stand, StandLeft, StandRight, Aim, Hook, Speed, TakeGame, WaveOff, Bowl, GetUp };
     }
 }

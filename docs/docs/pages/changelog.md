@@ -1,5 +1,13 @@
 ## 24 Nov 2026
 
+### Bowling: the challenger's face, and whose turn it is
+
+When a regular comes over, his face is up under the lane with what he says: the ask ("Game for ten?"), his answer when you take the game or wave him off ("Rack 'em.", "Suit yourself."), and his word when it's settled ("Close. Not that close."; on a third straight loss, "I'm out. Go bowl Chuy."). While anyone else is up, that block, blank till now, shows his face and "Leon's Turn". The Next button is gone (Mike asked for it): his ball goes on its own after a short beat, and a tap on the lane sends it at once. The venue hands the lane tonight's faces; until a face is drawn, its card shows his initial.
+
+### Bowling: frames called big
+
+When a frame's bowled, its marks pop up big over the pins for a moment (Mike asked for it), drawn as the frame on a paper sheet: the first mark plain, the second in a box ruled at its left and foot, a strike just the X on its own, and in the tenth three slots with the second and third boxed. White marks on a dark card with a soft white edge. Not the score, just the marks. They show for your frames, and in a challenge for his too, under his name; a league night's other bowlers aren't called, or there'd be one every few seconds. When the game's over your score comes up in big numbers, with his under it in a challenge, or both teams' pins on a league night. A call fades by itself and never holds up the next throw; a tap on the lane clears the score.
+
 ### The Lanes' counter is drawn
 
 Mike drew the shoe counter at [Millstone Lanes](#millstone-lanes), and it's in the game behind "Go to the counter", where Juan sells balls and shoes: the counter with the rental shoes in their cubbies behind it, the machines along the left wall, the lanes glowing off to the right. Drawn landscape; a portrait screen centres on the counter.

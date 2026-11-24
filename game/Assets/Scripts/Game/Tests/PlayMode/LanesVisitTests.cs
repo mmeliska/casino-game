@@ -149,7 +149,7 @@ namespace Starflare.Tests
             while (lane.Now != BowlingLane.Step.Over && guard++ < 2000)
             {
                 if (lane.Now == BowlingLane.Step.Between) Click(lane, "Bowl Button");
-                else if (lane.Now == BowlingLane.Step.Others) Click(lane, "Next Button");
+                else if (lane.Now == BowlingLane.Step.Others) Click(lane, "Lane");
                 else if (lane.Now == BowlingLane.Step.Stand) BowlOne(lane);
                 Skip(lane);
             }

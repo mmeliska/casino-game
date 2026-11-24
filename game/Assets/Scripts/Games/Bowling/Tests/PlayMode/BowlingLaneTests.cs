@@ -12,7 +12,7 @@ namespace Starflare.Tests
     /// <summary>
     /// A lane at Millstone Lanes: built both ways up, a whole open game tapped through to one
     /// settled round, the ball dragged along the foul line, Juan's coached frame counting for
-    /// nothing, a regular's challenge taken and settled, and getting up between games.
+    /// nothing, a regular's challenge taken and settled, his face and line under the lane, and getting up between games.
     /// </summary>
     public class BowlingLaneTests
     {
@@ -77,6 +77,30 @@ namespace Starflare.Tests
             Assert.That(lane.Now, Is.EqualTo(BowlingLane.Step.Between));
             Assert.That(Find(lane, "Bowl Button").GetComponentInChildren<TMP_Text>().text, Does.Contain("$2"), "The shoes are paid for the visit.");
             Assert.That(lane.GetComponentsInChildren<PathTrace>(true).Single().Path, Is.Not.Null, "The trace shows the last ball.");
+        }
+
+        [Test]
+        public void EachFrame_IsCalledBig_ThenTheScoreAtTheEnd()
+        {
+            var state = new PlayerState();
+            var lane = MakeLane(state);
+            var callout = lane.GetComponentsInChildren<Callout>(true).Single();
+            Assert.That(callout.Showing, Is.False);
+            var sheet = lane.Game.You;
+            while (sheet.CurrentFrame == 1) BowlOne(lane);
+            Assert.That(callout.Showing, Is.True, "The first frame's marks go up.");
+            Assert.That(callout.Big, Is.EqualTo(sheet.FrameMarks(1)));
+            var rules = callout.GetComponentsInChildren<Transform>(true).Where(t => t.name == "Rules").ToList();
+            Assert.That(rules[0].gameObject.activeSelf, Is.False, "The first mark stands plain.");
+            Assert.That(rules[1].gameObject.activeSelf, Is.True, "The second is boxed.");
+            Assert.That(lane.Now, Is.EqualTo(BowlingLane.Step.Stand), "It doesn't hold up the next throw.");
+
+            while (state.RoundsPlayed == 0) BowlOne(lane);
+            Assert.That(callout.Big, Is.EqualTo(sheet.FrameMarks(10)), "The tenth's marks first.");
+            Click(lane, "Lane");
+            Assert.That(callout.Big, Is.EqualTo(sheet.Score.ToString()), "Then the score, big.");
+            Click(lane, "Lane");
+            Assert.That(callout.Showing, Is.False, "A tap clears it.");
         }
 
         [Test]
@@ -162,7 +186,7 @@ namespace Starflare.Tests
         }
 
         [Test]
-        public void ARegularsChallenge_IsTakenAndSettled_HimBowlingOnATap()
+        public void ARegularsChallenge_IsTakenAndSettled_HisFaceUpForHisTurn()
         {
             var state = new PlayerState();
             var chuy = Bowler.WithAverage("Chuy", "", 185);
@@ -172,15 +196,25 @@ namespace Starflare.Tests
             Assert.That(lane.Offer, Is.Not.Null);
             Assert.That(lane.Offer.Bowler, Is.SameAs(chuy));
             int stake = lane.Offer.Stake;
-            Assert.That(Text(lane, "Offer Text"), Does.Contain("Chuy"));
+            Assert.That(Text(lane, "Talk Title"), Is.EqualTo("Chuy"), "His face and name with the ask.");
+            Assert.That(Text(lane, "Talk Line"), Does.Contain(stake == 5 ? "five" : stake == 10 ? "ten" : "twenty").IgnoreCase);
             int before = state.BankrollNow;
 
             Click(lane, "Take the game Button");
             Assert.That(lane.Game.Kind, Is.EqualTo(GameKind.Challenge));
+            Assert.That(Find(lane, "Next Button"), Is.Null, "No button to start his ball.");
             int guard = 0;
+            bool sawHisTurn = false;
             while (state.RoundsPlayed == 1 && guard++ < 80)
             {
-                if (lane.Now == BowlingLane.Step.Others) Click(lane, "Next Button");
+                if (lane.Now == BowlingLane.Step.Others)
+                {
+                    Assert.That(Text(lane, "Talk Title"), Is.EqualTo("Chuy's Turn"));
+                    Assert.That(Find(lane, "Aim Button").gameObject.activeInHierarchy, Is.False, "His turn takes the meters' place.");
+                    if (!sawHisTurn) Assert.That(Text(lane, "Talk Line"), Is.Not.Empty, "He answers on his first turn.");
+                    sawHisTurn = true;
+                    Click(lane, "Lane");
+                }
                 while (lane.Now == BowlingLane.Step.Rolling || lane.Now == BowlingLane.Step.Pins) Skip(lane);
                 if (lane.Now == BowlingLane.Step.Stand) BowlOne(lane);
             }
@@ -190,6 +224,9 @@ namespace Starflare.Tests
             Assert.That(System.Math.Abs(state.BankrollNow - before), Is.EqualTo(stake).Or.EqualTo(0));
             Assert.That(lane.ChallengesWon + lane.ChallengesLost, Is.LessThanOrEqualTo(1));
             Assert.That(lane.Offer, Is.Null, "Never two in a row.");
+            Assert.That(sawHisTurn, Is.True);
+            Assert.That(Text(lane, "Talk Title"), Is.EqualTo("Chuy"), "His word on the game.");
+            Assert.That(Text(lane, "Talk Line"), Is.Not.Empty);
         }
 
         /// <summary>One ball: start and stop the aim, stop the hook and speed, then skip to what's left.</summary>
@@ -217,7 +254,7 @@ namespace Starflare.Tests
         static string Text(Component on, string name) =>
             on.GetComponentsInChildren<TMP_Text>(true).First(t => t.name == name).text;
 
-        static Button Find(Component on, string name) => on.GetComponentsInChildren<Button>(true).First(b => b.name == name);
+        static Button Find(Component on, string name) => on.GetComponentsInChildren<Button>(true).FirstOrDefault(b => b.name == name);
 
         /// <summary>A tap: it only lands on a button that's on screen and usable, as on a phone.</summary>
         static void Click(Component on, string name)

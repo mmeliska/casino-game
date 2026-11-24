@@ -220,6 +220,7 @@ namespace Starflare.Game
             setup.OwnShoes = _host.Story.Flag(StoryContract.OwnsShoes);
             bool first = !_subbing && !_host.Story.Flag(StoryContract.BowledAtLanes);
             if (first) setup.Practice = PracticeFrame.Juans();
+            setup.Faces = FacesOf(setup);
             _lane.SitDown(_host.State, _host.Pace, setup);
             if (first) _host.PlaySceneOver(StoryContract.Knots.BowlFirst, _lane, () => { });
         }
@@ -258,6 +259,21 @@ namespace Starflare.Game
                 new[] { bowlers[3], bowlers[4], bowlers[5], bowlers[6] },
                 rules.LeagueGames, rules.SidePot);
             return setup;
+        }
+
+        /// <summary>The faces of everyone on the lanes tonight, for the challenger's card and "Leon's Turn".</summary>
+        static Dictionary<string, Sprite> FacesOf(LaneSetup setup)
+        {
+            var bowlers = new List<Bowler>(setup.Regulars);
+            if (setup.Match != null)
+            {
+                bowlers.AddRange(setup.Match.Mates);
+                bowlers.AddRange(setup.Match.Opponents);
+            }
+            var faces = new Dictionary<string, Sprite>();
+            foreach (var bowler in bowlers)
+                if (!string.IsNullOrEmpty(bowler.Face) && !faces.ContainsKey(bowler.Face)) faces[bowler.Face] = Art.Face(bowler.Face);
+            return faces;
         }
 
         /// <summary>Chuy first, then faces from the Lanes' crowd, by the night: (name, face id).</summary>
