@@ -168,7 +168,9 @@ namespace Starflare.Bowling
                     {
                         var hole = Direction(hLat, hLon);
                         double apart = Math.Acos(Math.Max(-1, Math.Min(1, at.X * hole.X + at.Y * hole.Y + at.Z * hole.Z)));
-                        if (apart < BallSpin.HoleRadius) c = apart < BallSpin.HoleRadius * 0.75 ? new Color(0.03f, 0.02f, 0.02f) : Color.Lerp(c, Color.black, 0.6f);
+                        // A dark ball's holes get a light worn rim, or they wouldn't show.
+                        var rim = body.grayscale < 0.25f ? Color.Lerp(c, new Color(0.59f, 0.58f, 0.56f), 0.7f) : Color.Lerp(c, Color.black, 0.6f);
+                        if (apart < BallSpin.HoleRadius) c = apart < BallSpin.HoleRadius * 0.75 ? new Color(0.03f, 0.02f, 0.02f) : rim;
                     }
                     c.a = 1;
                     pixels[y * width + x] = c;

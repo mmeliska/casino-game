@@ -93,8 +93,12 @@ def blend(pixels, axis):
 
 
 def stamp_holes(image):
-    """The three finger holes on an unwrapped ball surface: dark, with a darker rim round each."""
+    """
+    The three finger holes on an unwrapped ball surface: dark, with a darker rim round each; on
+    a dark ball (the black urethane) a light worn rim instead, or the holes wouldn't show.
+    """
     pixels = np.asarray(image, dtype=np.float64).copy()
+    dark_ball = pixels.mean() < 60
     h, w, _ = pixels.shape
     lon = ((np.arange(w) + 0.5) / w - 0.5) * 2 * np.pi
     lat = ((np.arange(h) + 0.5) / h - 0.5) * np.pi
@@ -107,7 +111,10 @@ def stamp_holes(image):
         apart = np.arccos(np.clip(at @ hole, -1, 1))
         rim = (apart < HOLE_RADIUS) & (apart >= HOLE_RADIUS * 0.75)
         core = apart < HOLE_RADIUS * 0.75
-        pixels[rim] *= 0.4
+        if dark_ball:
+            pixels[rim] = pixels[rim] * 0.3 + np.array([150, 148, 142]) * 0.7
+        else:
+            pixels[rim] *= 0.4
         pixels[core] = (8, 5, 5)
     return Image.fromarray(np.clip(pixels, 0, 255).astype(np.uint8))
 

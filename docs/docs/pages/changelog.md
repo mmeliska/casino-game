@@ -2,7 +2,7 @@
 
 ### Bowling: the ball spins
 
-The rolling ball now spins the way the sim says it does (Mike): it's drawn as a sphere with its surface wrapped round it like a globe, turned by the spin worked out for every moment of the roll. A skidding ball turns slower than it travels, a rolling one with its speed, a hook sweeps the finger holes round on a tilted axis, and it carries on spinning through the pins on the close-up. Lit in flat bands with an ink ring, to sit with the rest of the art. Each ball needs its surface drawn unrolled: three prompts on [Bowling](#bowling), and the import tool stamps the finger holes on; until then the game makes plain swirled stand-ins. The ball sitting on the approach stays the sprite.
+The rolling ball now spins the way the sim says it does (Mike): it's drawn as a sphere with its surface wrapped round it like a globe, turned by the spin worked out for every moment of the roll. A skidding ball turns slower than it travels, a rolling one with its speed, a hook sweeps the finger holes round on a tilted axis, and it carries on spinning through the pins on the close-up. Lit in flat bands with an ink ring, to sit with the rest of the art. Each ball's surface is drawn unrolled (Mike; prompts on [Bowling](#bowling)), and the import tool stamps the finger holes on, with a light worn rim on the black urethane so they show. The ball sitting on the approach stays the sprite.
 
 ### Bowling: a shorter aim arrow, quicker meters
 
