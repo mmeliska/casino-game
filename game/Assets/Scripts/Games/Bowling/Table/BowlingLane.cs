@@ -844,7 +844,7 @@ namespace Starflare.Bowling
             traceGo.transform.SetParent(_laneFrame, false);
             _trace = traceGo.GetComponent<PathTrace>();
             _trace.raycastTarget = false;
-            Pin(_trace.rectTransform, new Vector2(1, 0.06f), new Vector2(1, 0.94f), new Vector2(-58, 0), new Vector2(-8, 0));
+            Pin(_trace.rectTransform, new Vector2(1, 0.06f), new Vector2(1, 0.94f), new Vector2(-104, 0), new Vector2(-8, 0));
 
             var deckGo = new GameObject("Deck", typeof(RectTransform), typeof(CanvasRenderer), typeof(DeckView));
             deckGo.transform.SetParent(_laneFrame, false);

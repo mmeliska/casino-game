@@ -1,5 +1,9 @@
 ## 24 Nov 2026
 
+### Bowling: a wider ball path
+
+The strip down the right side that shows the ball's path is about twice as wide (Mike), so the skid and the hook read more easily.
+
 ### Bowling: aim and hook quicker again
 
 The aim's arrow and the hook's needle sweep about 30% quicker (Mike): the aim at 34 boards a second (was 26), the hook at 208 units a second (was 160). The speed bar is unchanged at 110 per cent a second.
