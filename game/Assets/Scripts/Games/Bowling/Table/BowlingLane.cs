@@ -125,7 +125,7 @@ namespace Starflare.Bowling
         GameObject _root;
         Image _plateImage;
         CoverFit _plateFit;
-        RectTransform _portraitColumn, _landscapeRow, _laneSide, _infoSide, _header, _laneArea, _laneFrame, _sheets, _controlsArea, _actions, _offerRow, _standRow;
+        RectTransform _portraitColumn, _landscapeRow, _laneSide, _infoSide, _header, _laneArea, _laneFrame, _messageBar, _sheets, _controlsArea, _actions, _offerRow, _standRow;
         LaneView _laneView;
         DeckView _deckView;
         PathTrace _trace;
@@ -696,11 +696,11 @@ namespace Starflare.Bowling
             if (landscape)
             {
                 Arrange(_laneSide, _laneFrame);
-                Arrange(_infoSide, _header, _sheets, _messageText, _controlsArea, _actions);
+                Arrange(_infoSide, _header, _sheets, _messageBar, _controlsArea, _actions);
             }
             else
             {
-                Arrange(_portraitColumn, _header, _sheets, _messageText, _laneFrame, _controlsArea, _actions);
+                Arrange(_portraitColumn, _header, _sheets, _messageBar, _laneFrame, _controlsArea, _actions);
             }
             Canvas.ForceUpdateCanvases();
             _ball.Layout();
@@ -753,7 +753,13 @@ namespace Starflare.Bowling
 
             BuildHeader();
             BuildSheets();
-            _messageText = MakeText(_portraitColumn, "", 34, TextAnchor.MiddleCenter, 60);
+            // The message on its own dark bar, so it reads over the masking panel.
+            _messageBar = (RectTransform)new GameObject("Message Bar", typeof(RectTransform), typeof(LayoutElement)).transform;
+            _messageBar.SetParent(_portraitColumn, false);
+            _messageBar.GetComponent<LayoutElement>().preferredHeight = 60;
+            Panel(_messageBar);
+            _messageText = MakeText(_messageBar, "", 34, TextAnchor.MiddleCenter, 0);
+            Stretch(_messageText.rectTransform);
             _messageText.name = "Message";
             _messageText.color = Gold;
             _messageText.enableAutoSizing = true;
@@ -764,7 +770,7 @@ namespace Starflare.Bowling
             BuildMeters();
             BuildActions();
 
-            foreach (var section in new Component[] { _header, _messageText, _sheets, _controlsArea, _actions })
+            foreach (var section in new Component[] { _header, _messageBar, _sheets, _controlsArea, _actions })
             {
                 var element = section.GetComponent<LayoutElement>() ?? section.gameObject.AddComponent<LayoutElement>();
                 element.flexibleHeight = 0;
@@ -859,11 +865,11 @@ namespace Starflare.Bowling
             _controls[BowlingControls.Stand] = (RectTransform)_ball.transform;
         }
 
-        /// <summary>A dark glass behind a block of controls, so it reads over the lane.</summary>
+        /// <summary>A near-solid dark panel behind a block of the screen, so it reads over the lane (Mike, 2026-11-24).</summary>
         static void Panel(RectTransform block)
         {
             var glass = block.gameObject.AddComponent<Image>();
-            glass.color = new Color(0.03f, 0.03f, 0.05f, 0.72f);
+            glass.color = new Color(0.04f, 0.035f, 0.05f, 0.94f);
             glass.raycastTarget = false;
         }
 

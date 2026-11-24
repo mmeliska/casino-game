@@ -1,5 +1,9 @@
 ## 24 Nov 2026
 
+### Bowling: a readable scoresheet
+
+The scores at the top were hard to read over the masking panel (Mike). The scoresheet is now a paper sheet, solid cream boxes with dark ink and the frame being bowled in gold, and the cash, the scores, the message and the meters each sit on a near-solid dark panel.
+
 ### Bowling: a wider ball path
 
 The strip down the right side that shows the ball's path is about twice as wide (Mike), so the skid and the hook read more easily.
