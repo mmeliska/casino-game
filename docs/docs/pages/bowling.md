@@ -253,12 +253,41 @@ PlayMode smoke tests in `Starflare.Bowling.Tests.PlayMode`: the lane builds in p
 
 ### Art
 
-In the ChatGPT style of the other plates (how-to on [Plate prompts](#plates)). All proposed.
+For ChatGPT, in the style of the Lanes' other plates (the how-to, the avoid lists and the settings are on [Plate prompts](#plates)); attach `lanes_lanes_night` as the style reference for each. Written out in full (Claude, 2026-11-23); proposed. Until they land the game draws everything in flat shapes, which is enough to tune by.
 
-- `lanes_lane_pov` (plate, portrait 9:16): "Background plate, no people. Looking straight down one lane of an old bowling alley from behind the foul line, slightly above: the approach dots at the bottom edge, the seven arrows a third of the way up, the lane narrowing to a lit pin deck with ten pins at the top, gutters either side, the neighbouring lanes dim at the edges. Night ... No people, no text, no lettering; signs blank." The sim draws the ball and pins over it; the pins in the plate are painted out at import.
-- `lanes_deck_close` (insert): the pin deck from the front for the hit close-up, pins drawn by the sim.
-- Sprites: a red-swirl house ball, a urethane black one, a reactive pearl one; a pin, upright and on its side; the meters and the trace are drawn in code with `UiKit`. Pockets icons for the two bought balls and the shoes (a worn two-tone pair).
-- Until the art lands, the lane is flat shapes: a tan trapezoid, white arrows, grey gutters, circles for pins. That's enough to tune the sim.
+The game draws the ball, the pins, the aim marker and the trace itself, so the pictures leave them out: an empty lit deck, no ball. When the lane plate lands, its foul line, arrows and head-pin row get measured off the picture so the drawn ball rolls on the painted lane, the way the back lot's circle is measured for the dice (`CircleArt`).
+
+#### The lane
+
+The view you bowl from: behind the foul line, the lane running away up the screen, like a 90s console game. Portrait; the landscape layout shows the same picture in the left half.
+
+`lanes_lane_pov` (plate, portrait 9:16)
+
+```
+Background plate, no people. Looking straight down one lane of an old bowling alley from just behind the foul line, at the height of a bowler's eyes: the worn wooden approach with its dots across the bottom edge, the foul line, then the lane running straight away from the viewer and narrowing to the far end, the seven aiming arrows a third of the way up, gutters either side, the pin deck at the top lit bright under a hood, the deck empty with no pins on it, the dark pit and curtain behind. The lane is dead centre and symmetrical, the neighbouring lanes dim at the left and right edges. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. No people, no pins, no ball, no text, no lettering; signs and scoring screens blank.
+```
+
+#### The deck, from above
+
+The close-up for the hit. The pin sim is flat, so the close-up looks straight down on the deck and shows it as it is. (This replaces `lanes_deck_close`, the deck from the front, in the first draft of this page.)
+
+`lanes_deck_top` (insert, square 1:1)
+
+```
+Close-up insert panel, looking straight down from above onto the empty pin deck at the end of a bowling lane: polished pale wood with the ten pin spots marked as small dark dots in a triangle, point toward the bottom of the frame, the gutters down both sides, the dark steel kickback walls beyond them, and the black pit across the top edge. Flat top-down view, no perspective, the deck filling the square. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, No people, no pins, no ball, no text, no lettering.
+```
+
+#### The balls, the pins and the shoes
+
+One sheet. The three balls are the house ball and the two on Juan's counter; the pin is drawn upright and on its side for the lane, and from above for the deck close-up; the balls and the shoes double as their Pockets icons. Make it in one ChatGPT chat with `lanes_lanes_night` attached, and save it as `Images/Bowling/bowling_sprites.png`. The magenta ground is there so the black urethane ball and the grey of a fallen pin come out clean. Nothing imports it yet: when it exists, `tools/import_tickets.py`'s magenta cutter gets a bowling entry that writes `game/Assets/Resources/Bowling/<name>.png` (in sheet order: `ball_house`, `ball_urethane`, `ball_reactive`, `pin_up`, `pin_down`, `pin_top`, `shoes`).
+
+`bowling_sprites` (sprite sheet, landscape 3:2)
+
+```
+A sheet of bowling game sprites, each a separate small illustration, laid out in a grid with wide empty space between them, none touching. Solid flat magenta background (#FF00FF), the same everywhere: no shadows, no gradient, no floor, no frames. Each sprite centred in its own cell, all at the same scale, filling most of the cell. Gritty graphic-novel art to match the attached plate: bold black ink outlines, cel shading, muted desaturated colours, clear at a small size. Nothing magenta or pink in the sprites. No text, no letters, no numbers.
+
+Seven sprites, four on the top row and three on the bottom, in this order: an old house bowling ball, glossy red with a darker red swirl, three finger holes, seen from slightly above and behind; a used urethane bowling ball, matte black with scuffs, three finger holes, the same view; a reactive bowling ball, pearly pale lavender with a soft shimmer, three finger holes, the same view; a white bowling pin standing upright with two red neck stripes, seen from slightly above and behind; the same pin lying on its side; the same pin seen from directly above, a white circle with the red stripes as rings; a worn pair of two-tone bowling shoes, red and cream, side by side.
+```
 
 ### Build order
 

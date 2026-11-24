@@ -58,6 +58,26 @@ Playing the machines; talking with Juan at the counter; Ed talking straight.
 Background plate, no people. An old bowling alley's front counter with cubbyholes of rental shoes behind it, a short row of glowing slot and video poker machines along the left wall, a worn carpet with a geometric pattern. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
+### Bowling: the lane
+
+The view you bowl from (spec on [Bowling](#bowling), where the deck close-up and the sprite sheet are too). The game draws the ball and pins over it, so the deck is empty.
+
+`lanes_lane_pov` (plate, portrait 9:16)
+
+```
+Background plate, no people. Looking straight down one lane of an old bowling alley from just behind the foul line, at the height of a bowler's eyes: the worn wooden approach with its dots across the bottom edge, the foul line, then the lane running straight away from the viewer and narrowing to the far end, the seven aiming arrows a third of the way up, gutters either side, the pin deck at the top lit bright under a hood, the deck empty with no pins on it, the dark pit and curtain behind. The lane is dead centre and symmetrical, the neighbouring lanes dim at the left and right edges. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. No people, no pins, no ball, no text, no lettering; signs and scoring screens blank.
+```
+
+### Bowling: the deck from above
+
+The close-up for the hit, looking straight down.
+
+`lanes_deck_top` (insert, square 1:1)
+
+```
+Close-up insert panel, looking straight down from above onto the empty pin deck at the end of a bowling lane: polished pale wood with the ten pin spots marked as small dark dots in a triangle, point toward the bottom of the frame, the gutters down both sides, the dark steel kickback walls beyond them, and the black pit across the top edge. Flat top-down view, no perspective, the deck filling the square. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, No people, no pins, no ball, no text, no lettering.
+```
+
 ### Behind the pinsetters
 
 Juan's machine room behind the pins: where he fixes the pinsetters and where Raffy hides (R3), and where he shows you a weighted die.

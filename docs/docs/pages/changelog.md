@@ -1,5 +1,9 @@
 ## 23 Nov 2026
 
+### Bowling's art prompts
+
+The bowling art now has full ChatGPT prompts, on [Bowling](#bowling) with the two pictures also on [Millstone Lanes](#millstone-lanes). The lane from behind the foul line has an empty lit deck, because the game draws the pins. The hit close-up is now the deck from straight above, `lanes_deck_top`, replacing the deck from the front. One magenta sprite sheet has the three balls, a pin upright, on its side and from above, and a pair of shoes. Proposed (Claude).
+
 ### Bowling: the lane and the ball are built
 
 The first piece of [Bowling](#bowling) is in the game's code: the lane, its oil and the ball (Claude). The three shot shapes come out of the one friction rule as the spec asked: a straight ball holds its line, a reactive ball thrown hard skids through the oil and snaps into the pocket past 40 ft, and a slow urethane ball on the outside boards arcs from early on. Building it changed some of the spec's proposed numbers, each noted on the page. Friction now falls off quickly with the first few units of oil rather than evenly up to 30. The ball leaves the hand rolling and the hook dial turns its axis up to 45°, so a straight ball keeps its speed. Each ball grips separately on oil and on bare lane: the house ball barely grips anywhere, urethane grips early and the reactive grips late. Lane six's oil ends at 34 ft. Juan's first lesson now starts on the seventh board, because a straight ball from the middle dot over the second arrow finds the gutter.
