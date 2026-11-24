@@ -1,5 +1,9 @@
 ## 24 Nov 2026
 
+### Bowling: straight lanes, real markings
+
+The lane no longer curves (Mike asked why it did): the view spread the lane's length up the screen as if from 100 ft back but narrowed it as if from 15, and two distances bend every line. It's now one distance, 60 ft, a true perspective with a long lens, so the lines are straight and the far end keeps room for the hook. The markings follow USBC's lane specifications: the arrows sit in a V pointing at the pins (16 ft in the middle, 13 ft at the outside, each 6 in by 1¼ in), the guide dots are ten at 7 ft with none in the middle, seven approach dots sit just behind the foul line, and range finders run on boards 10 and 30 from 40 to 43 ft. Within USBC's limits the exact spots are proposed (Claude). An aim is now the board your ball rolls over at its own arrow, so the regulars' aims moved to keep their lines (12.5 to 12.8, 10 to 10.5).
+
 ### Bowling: the art is in
 
 All the bowling art Mike drew is in the game: the four lane textures, the deck from above and the sprite sheet. The ball you're bowling with is its picture on the approach, rolling and on the deck; the pins stand on the lane and on the deck close-up as their pictures, and knocked pins lie on their sides pointing the way they went. The deck's painted spots were measured so the pins stand on them: they're 12 in apart across, as on a real deck, but the rows are painted closer than real, so the close-up maps the sim down the lane at its own scale. One tool, `tools/import_bowling.py`, now brings all of it in (it was the lane textures' tool), cutting the sheet off its magenta and printing the deck's measurements. The shoes are cut and wait for Pockets.

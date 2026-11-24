@@ -27,7 +27,7 @@ namespace Starflare.Tests
         {
             var path = Roll(Straight, BowlingBall.House);
             var start = LaneGeometry.Point(Straight.Stand, 0);
-            var aim = LaneGeometry.Point(Straight.Aim, LaneGeometry.ArrowsFt);
+            var aim = LaneGeometry.Point(Straight.Aim, LaneGeometry.ArrowFt(Straight.Aim));
             foreach (var s in path.Samples)
             {
                 double lineX = start.X + (aim.X - start.X) * (s.Position.Y - start.Y) / (aim.Y - start.Y);

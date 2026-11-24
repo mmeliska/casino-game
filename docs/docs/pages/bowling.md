@@ -29,7 +29,7 @@ Every throw is the same short series, one thumb in portrait. The first step is a
 | Step | What sweeps | What it sets | Range |
 | --- | --- | --- | --- |
 | 1. **Stand** | Nothing sweeps: drag the ball left or right along the foul line and let go; it snaps to a board and the board number shows while you hold it (Mike, 2026-11-23). Two small arrows beside it nudge a board a tap, for "move left two boards". No bowler is drawn: the ball itself sits on the approach and is what you line up (Mike, 2026-11-23) | The board the ball starts on | Boards 1 to 39 (the 20 board is the middle dot) |
-| 2. **Aim** | A marker sweeps across the seven lane arrows, out and back | The arrow (or the board between arrows) your ball rolls over at 15 ft | Boards 5 to 35 |
+| 2. **Aim** | A marker sweeps across the seven lane arrows, out and back | The arrow (or the board between arrows) your ball rolls over, at that arrow's distance in the V | Boards 5 to 35 |
 | 3. **Hook** | A meter climbs from empty and falls back | How much the ball turns: revs and axis together, one dial | 0 to 10 (the ball rolls end over end and never turns) to 100 (its axis turned 45° toward the lane's length, a cranker's ball). The bottom tenth is "nothing on it" so a straight ball is easy to stop: a sliver of axis near nothing moves a ball boards by the pins (Claude, 2026-11-23) |
 | 4. **Speed** | A meter fills and drains | The ball's speed off your hand | 12 to 20 mph |
 
@@ -59,8 +59,10 @@ Real dimensions, in the rules' own units: boards across (39 of them, 1.064 in ea
 | Thing | Where |
 | --- | --- |
 | Width | 41.5 in, 39 boards; gutters beyond board 1 and board 39 |
-| Dots | 7 ft; the middle dot is board 20 |
-| Arrows | 15 ft, on boards 5, 10, 15, 20, 25, 30, 35 |
+| Guide dots | 7 ft; ten, on boards 3, 5, 8, 11 and 14 and their mirrors, none in the middle (USBC: up to ten, 6 to 8 ft) |
+| Approach dots | 4 in behind the foul line, seven, under the arrows' boards (USBC: up to seven a row, 2 to 6 in back; the rows farther back are off the screen) |
+| Arrows | Boards 5, 10, 15, 20, 25, 30, 35, in a V pointing at the pins: the middle one at 16 ft, a foot nearer each one out, the outside two at 13 ft. Each 6 in long and 1¼ in wide (USBC: 12 to 16 ft, at most 6 in by 1¼ in, evenly spaced in a uniform pattern) |
+| Range finders | Boards 10 and 30, 40 to 43 ft, a board wide (USBC: up to four, 33 to 44 ft, at most a board wide and 36 in long) |
 | Head pin | 60 ft, board 20 |
 | Pin deck | Pins on 12 in centres in four rows 10.39 in apart; kickbacks at the deck's sides; the pit 2.9 ft past the head pin |
 
@@ -90,7 +92,7 @@ A rigid sphere on the lane: radius 0.108 m (8.5 in), mass 6.8 kg (15 lb). State:
 **From the four inputs:**
 
 - Start at the stand board on the foul line, 0 ft.
-- Direction: through the aim board at 15 ft.
+- Direction: through the aim board at its arrow's distance (`LaneGeometry.ArrowFt`: 16 ft on board 20, a foot less every five boards out). It was 15 ft on every board until the arrows were put in their V (2026-11-24).
 - Speed: the meter's mph, converted.
 - Spin: the ball leaves the hand spinning as fast as its speed would roll it, and the hook meter `h` in 0..1 turns that spin's axis `45° × h` toward the lane's length. A ball at `h = 0` rolls end over end from the hand (its axis across the lane, matching its forward roll, so it never slides and keeps its speed). At `h = 1` the axis is turned 45°, so the contact point slides sideways and friction pulls the ball left. Built (Claude, 2026-11-23): the first idea, a rev rate of `400 × h` rpm with the axis at `60° × h`, left a hook-0 ball with no spin at all, so it skidded and reached the pins at 11 mph from 16.
 - **The balls' grip.** Each ball scales the lane's friction separately on oil and on bare lane: the house ball (plastic) 0.8 and 0.15, so it barely grips anywhere and hooks a little at full meter; the urethane 1.2 and 1.0, gripping early for a smooth arc; the reactive pearl 0.7 and 1.4, skidding through the oil and grabbing hard where it ends, which is where the angle into the pocket comes from (Claude, 2026-11-23, replacing one cover factor of 0.8, 1 and 1.2, with which the house ball hooked late and hardest).
@@ -130,7 +132,7 @@ Standard tenpins: a strike counts the next two balls, a spare the next one, a st
 
 An opponent is a `Bowler`: a name, a face, an average, and a line (stand, aim, hook, speed) they bowl. From the average comes a timing spread, a standard deviation on each meter: tuned in the harness so simulated bowlers score their averages, a 185 bowler stops the aim within 0.3 of a board and the hook and speed within 1% of the meter, a 135 bowler 0.6 of a board and 3% (Claude, 2026-11-23). The first guess, a board and 4% for a 180 bowler, made him a 120 bowler: a board at the arrows is two to four at the pins, and the pocket is about two wide. For scale, a sharp player stopping each sweep within about 25 ms is near 0.4 of a board and 2%, around a 170 average.
 
-- **Lines by average** (built): 175 and up throw a urethane ball from the 23 board at 12.5, hook 60, 16.5 mph; 150 and up the urethane from the 19 up the second arrow, hook 50, 16 mph; below that the house ball from the 34 board at 25, hook 55, 15 mph.
+- **Lines by average** (built): 175 and up throw a urethane ball from the 23 board at 12.8, hook 60, 16.5 mph; 150 and up the urethane from the 19 just inside the second arrow (10.5), hook 50, 16 mph; below that the house ball from the 34 board at 25, hook 55, 15 mph.
 - **Spares** are a straight ball from across the lane (the further the pins are to one side, the further he stands to the other) at the board where the ball takes the most pins itself, the front row counting double. When no one line takes every pin, he tries a few lines on that leave in his head the first time he sees it tonight and remembers the best. Splits stay splits. They bowl through the same lane with the same ball sim, so they feel the lane change too, and a simple rule adjusts them: a first ball that reaches the head pin's row two boards or more off the pocket (17.5) moves their stand a board toward the miss. That's all the AI there is, and it's enough for a game to feel like someone is bowling against you.
 
 - **Chuy** (the league bowler from the back-lot circle, `avatars-7_r1c1`) is the main opponent: average 185, a stroker's line, second arrow, medium hook. He talks about averages and nothing else.
@@ -233,7 +235,7 @@ Built (Claude, 2026-11-23), as below with these differences: Juan's counter is i
 
 EditMode, in `Starflare.Bowling.Tests.EditMode`, written as the rules are:
 
-- **Geometry:** board 20 is the lane's centre; arrow 2 is board 10 at 15 ft; metres round-trip.
+- **Geometry:** board 20 is the lane's centre; arrow 2 is board 10 at 14 ft, the arrows in a V within USBC's 12 to 16 ft; metres round-trip.
 - **Oil:** the house grid has more oil at board 20 than board 5 at 20 ft; none past 40 ft; a pass lowers the cells it crossed and raises cells past 40 ft on its line; `Worn` with 1,000 balls has a thin track on boards 8 to 12 and nothing changed on board 35.
 - **Ball, the three shapes** (the ones Mike asked for, each on the fresh house pattern unless said):
   - Hook 0 from board 7 over arrow 2 (board 10) at 16 mph, the house ball: the ball's `x` at every sample follows the straight line within half a board, and it reaches the head pin.
@@ -267,6 +269,7 @@ The lane isn't a picture. It's built as geometry through the same projection the
 
 What's built (`LaneProjection`, `LaneSurface`, `LaneView`, `LaneArt`):
 
+- **A true perspective**, the eye 60 ft behind the foul line for both how the lane narrows and how its length spreads up the screen, so its lines are straight; a long lens, like TV bowling, so the far end where the hook happens keeps its room. (First built with two distances, which bent every line.)
 - **Your lane and three either side**, a lane every 63 in (41.5 in of boards, two 9.25 in gutters and 4 in of capping), each dimmer the further out: nobody's bowling on them. Their racks stand full and dim.
 - **Light by vertex colour**: the approach under the house lights, the middle of the lane dimmer, the deck bright under its hood.
 - **Ink drawn by the code**, to match the bold outlines of the other art: every lane's edges and its gutters', the foul line, the dots and arrows outlined, the ball and pins outlined, and your lane's 38 board joints, fading out down the lane so they don't shimmer where they crowd together.

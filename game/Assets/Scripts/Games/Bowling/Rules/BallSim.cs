@@ -47,7 +47,7 @@ namespace Starflare.Bowling
 
             // The bowler's frame: x positive toward their own gutter side, board 1.
             var p = LaneGeometry.Point(t.Stand, 0);
-            var aim = LaneGeometry.Point(t.Aim, LaneGeometry.ArrowsFt);
+            var aim = LaneGeometry.Point(t.Aim, LaneGeometry.ArrowFt(t.Aim));
             var dir = (aim - p).Normalized;
             var v = dir * (t.Speed * MetresPerSecondPerMph);
             var w = Spin(dir, t.Speed * MetresPerSecondPerMph, ball.Radius, t.Hook / 100);

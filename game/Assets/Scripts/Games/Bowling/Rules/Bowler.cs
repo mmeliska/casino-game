@@ -124,7 +124,7 @@ namespace Starflare.Bowling
 
         /// <summary>The same straight spare ball, moved so it reaches the pins this many boards over.</summary>
         static Throw Shifted(Throw line, double boards) =>
-            new Throw(line.Stand, line.Aim + boards * LaneGeometry.ArrowsFt / LaneGeometry.HeadPinFt, 0, line.Speed).Clamp();
+            new Throw(line.Stand, line.Aim + boards * LaneGeometry.ArrowFt(line.Aim) / LaneGeometry.HeadPinFt, 0, line.Speed).Clamp();
 
         readonly Dictionary<int, Throw> _spares = new Dictionary<int, Throw>();
 
@@ -173,7 +173,9 @@ namespace Starflare.Bowling
             }
             coversAll = bestTaken == boards.Count;
             int stand = (int)Math.Round(Math.Max(Throw.MinStand + 4, Math.Min(Throw.MaxStand - 4, LaneGeometry.MiddleBoard + 0.6 * (LaneGeometry.MiddleBoard - target))));
-            double aim = stand + (target - stand) * LaneGeometry.ArrowsFt / LaneGeometry.HeadPinFt;
+            // The aim is read at its arrow's distance, which depends on the aim: a few rounds settle it.
+            double aim = stand;
+            for (int i = 0; i < 4; i++) aim = stand + (target - stand) * LaneGeometry.ArrowFt(aim) / LaneGeometry.HeadPinFt;
             return new Throw(stand, aim, 0, 16).Clamp();
         }
 
@@ -220,13 +222,13 @@ namespace Starflare.Bowling
 
         /// <summary>
         /// A Lanes face with an average: the ball and the line a bowler of that average throws on
-        /// the house shot (a 175-plus bowler a urethane ball from the 23 board at 12.5, medium hook;
+        /// the house shot (a 175-plus bowler a urethane ball from the 23 board at 12.8, medium hook;
         /// a 150 the urethane up the second arrow; below that the house ball from deep inside).
         /// </summary>
         public static Bowler WithAverage(string name, string face, int average)
         {
-            if (average >= 175) return new Bowler(name, face, average, BowlingBall.Urethane, new Throw(23, 12.5, 60, 16.5));
-            if (average >= 150) return new Bowler(name, face, average, BowlingBall.Urethane, new Throw(19, 10, 50, 16));
+            if (average >= 175) return new Bowler(name, face, average, BowlingBall.Urethane, new Throw(23, 12.8, 60, 16.5));
+            if (average >= 150) return new Bowler(name, face, average, BowlingBall.Urethane, new Throw(19, 10.5, 50, 16));
             return new Bowler(name, face, average, BowlingBall.House, new Throw(34, 25, 55, 15));
         }
 

@@ -25,7 +25,7 @@ namespace Starflare.Bowling
             float inset = r.height * 0.12f;
             Shapes.Box(vh, Rect.MinMaxRect(r.xMin, r.yMin + inset, r.xMax, r.yMax - inset), BallLook.Wood);
             foreach (int board in LaneGeometry.Arrows)
-                Shapes.Circle(vh, Map(LaneGeometry.Point(board, LaneGeometry.ArrowsFt)), 3, BallLook.Mark, 1, 8);
+                Shapes.Circle(vh, Map(LaneGeometry.Point(board, LaneGeometry.ArrowFt(board))), 3, BallLook.Mark, 1, 8);
             Shapes.Circle(vh, Map(LaneGeometry.Point(LaneGeometry.MiddleBoard, LaneGeometry.HeadPinFt)), 4, BallLook.Pin, 1, 8);
             if (Path == null) return;
             var samples = Path.Samples;

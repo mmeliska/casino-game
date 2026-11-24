@@ -15,10 +15,14 @@ namespace Starflare.Tests
         }
 
         [Test]
-        public void TheSecondArrow_IsBoard10_At15Feet()
+        public void TheArrows_SitInAV_TheSecondOnBoard10At14Feet()
         {
             Assert.That(LaneGeometry.Arrows[1], Is.EqualTo(10));
-            Assert.That(LaneGeometry.ArrowsFt, Is.EqualTo(15));
+            Assert.That(LaneGeometry.ArrowFt(10), Is.EqualTo(14));
+            Assert.That(LaneGeometry.ArrowFt(20), Is.EqualTo(16));
+            Assert.That(LaneGeometry.ArrowFt(5), Is.EqualTo(LaneGeometry.ArrowFt(35)));
+            foreach (int board in LaneGeometry.Arrows)
+                Assert.That(LaneGeometry.ArrowFt(board), Is.InRange(12.0, 16.0), "USBC: 12 to 16 ft");
         }
 
         [TestCase(1.0)]

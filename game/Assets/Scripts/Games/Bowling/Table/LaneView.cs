@@ -13,8 +13,6 @@ namespace Starflare.Bowling
     /// </summary>
     public sealed class LaneView : MaskableGraphic
     {
-        static readonly int[] DotBoards = { 3, 5, 8, 11, 14, 20, 26, 29, 32, 35, 37 };
-
         static readonly Color Ink = new Color(0.04f, 0.03f, 0.03f, 0.92f);
         static readonly Color UiGold = new Color(0.95f, 0.76f, 0.25f);
 
@@ -70,24 +68,23 @@ namespace Starflare.Bowling
             // The foul line across every lane and approach.
             Strip(vh, view, -0.1, 0.1, -room, room, Ink, 1, false);
 
-            foreach (int board in DotBoards)
-            {
-                var at = view.Project(Lane(board, LaneGeometry.DotsFt));
-                float radius = view.Px(0.014, LaneGeometry.DotsFt);
-                Shapes.Circle(vh, at, radius + 1.5f, Ink, 0.5f, 10);
-                Shapes.Circle(vh, at, radius, BallLook.Mark, 0.5f, 10);
-            }
+            foreach (int board in LaneGeometry.DotBoards) Dot(vh, view, board, LaneGeometry.DotsFt);
+            foreach (int board in LaneGeometry.ApproachDotBoards) Dot(vh, view, board, LaneGeometry.ApproachDotsFt);
             foreach (int board in LaneGeometry.Arrows)
             {
-                Arrow(vh, view, board, 0.55, 1.1, Ink);
-                Arrow(vh, view, board, 0.4, 0.85, BallLook.Mark);
+                Arrow(vh, view, board, LaneGeometry.ArrowWidthBoards / 2 + 0.35, LaneGeometry.ArrowLengthFt + 0.25, Ink);
+                Arrow(vh, view, board, LaneGeometry.ArrowWidthBoards / 2, LaneGeometry.ArrowLengthFt, BallLook.Mark);
             }
+            foreach (int board in LaneGeometry.RangeFinderBoards)
+                Strip(vh, view, LaneGeometry.RangeFindersFromFt, LaneGeometry.RangeFindersToFt,
+                    Lane(board + 0.3, 0).X, Lane(board - 0.3, 0).X, BallLook.Mark, 1, false);
 
             if (AimBoard.HasValue)
             {
-                double aim = AimBoard.Value;
-                var tip = view.Project(Lane(aim, LaneGeometry.ArrowsFt) + new Vec2(0, LaneGeometry.Y(1.6)));
-                Shapes.Triangle(vh, view.Project(Lane(aim + 0.9, LaneGeometry.ArrowsFt - 1.4)), tip, view.Project(Lane(aim - 0.9, LaneGeometry.ArrowsFt - 1.4)), UiGold);
+                // A gold arrow over the board you're aiming at, where its arrow row crosses it.
+                double aim = AimBoard.Value, ft = LaneGeometry.ArrowFt(aim);
+                var tip = view.Project(Lane(aim, ft + 1.2));
+                Shapes.Triangle(vh, view.Project(Lane(aim + 1.1, ft - 1.2)), tip, view.Project(Lane(aim - 1.1, ft - 1.2)), UiGold);
             }
         }
 
@@ -168,13 +165,23 @@ namespace Starflare.Bowling
             Shapes.Circle(vh, foot + new Vector2(0, h * 0.85f), w * 0.55f, body, 1.1f, 10);
         }
 
-        /// <summary>An arrow on a board at 15 ft, pointing down the lane, this many boards either side of its tip.</summary>
+        /// <summary>An arrow on its board in the V, pointing down the lane: this long, this many boards either side of its middle at the base.</summary>
         void Arrow(VertexHelper vh, LaneProjection view, int board, double halfBoards, double lengthFt, Color colour)
         {
-            var tip = view.Project(Lane(board, LaneGeometry.ArrowsFt + lengthFt));
-            var left = view.Project(Lane(board + halfBoards, LaneGeometry.ArrowsFt - lengthFt * 0.6));
-            var right = view.Project(Lane(board - halfBoards, LaneGeometry.ArrowsFt - lengthFt * 0.6));
+            double ft = LaneGeometry.ArrowFt(board);
+            var tip = view.Project(Lane(board, ft + lengthFt / 2));
+            var left = view.Project(Lane(board + halfBoards, ft - lengthFt / 2));
+            var right = view.Project(Lane(board - halfBoards, ft - lengthFt / 2));
             Shapes.Triangle(vh, left, tip, right, colour);
+        }
+
+        /// <summary>A guide dot, ¾ in across, outlined in ink.</summary>
+        void Dot(VertexHelper vh, LaneProjection view, int board, double ft)
+        {
+            var at = view.Project(Lane(board, ft));
+            float radius = Mathf.Max(1.5f, view.Px(0.75 / 2 * LaneGeometry.MetresPerInch, ft) * 1.4f);
+            Shapes.Circle(vh, at, radius + 1.5f, Ink, 0.5f, 10);
+            Shapes.Circle(vh, at, radius, BallLook.Mark, 0.5f, 10);
         }
 
         /// <summary>

@@ -11,11 +11,14 @@ namespace Starflare.Bowling
     /// </summary>
     readonly struct LaneProjection
     {
-        /// <summary>How far down the screen sits from the foul line, for height: larger is flatter.</summary>
-        const double DepthEye = 100;
-
-        /// <summary>How fast the lane narrows toward the pins: smaller narrows more.</summary>
-        const double WidthEye = 15;
+        /// <summary>
+        /// How far behind the foul line the eye is, in feet, for both how the lane narrows and
+        /// how its length is spread up the screen. One distance for both is a true perspective,
+        /// so the lane's lines are straight (two, as this first had, bent every line). Far back
+        /// is a long lens, like TV bowling: the lane narrows gently and the far end, where the
+        /// hook happens, keeps room on the screen.
+        /// </summary>
+        const double Eye = 60;
 
         public const double NearFt = -2.5, FarFt = LaneGeometry.PitFt + 0.6;
 
@@ -45,8 +48,7 @@ namespace Starflare.Bowling
         /// <summary>The far end of the lanes, where the masking panel's band starts.</summary>
         public float FarY => _r.yMin + (1 - Headroom) * _r.height;
 
-        static double DepthScale(double ft) => DepthEye / (DepthEye + ft);
-        static double WidthScale(double ft) => WidthEye / (WidthEye + Math.Max(ft, -WidthEye * 0.5));
+        static double Scale(double ft) => Eye / (Eye + ft);
 
         /// <summary>Where a lane point (metres, the lane's frame) falls in the rect.</summary>
         public Vector2 Project(Vec2 at) => Project(at.X, LaneGeometry.Feet(at.Y));
@@ -54,7 +56,7 @@ namespace Starflare.Bowling
         /// <summary>Where a point this many metres across and feet down falls in the rect.</summary>
         public Vector2 Project(double x, double ft)
         {
-            double v = (DepthScale(NearFt) - DepthScale(ft)) / (DepthScale(NearFt) - DepthScale(FarFt));
+            double v = (Scale(NearFt) - Scale(ft)) / (Scale(NearFt) - Scale(FarFt));
             return new Vector2(_r.center.x + (float)(x * PxPerMetre(ft)), _r.yMin + (float)v * (1 - Headroom) * _r.height);
         }
 
@@ -62,7 +64,7 @@ namespace Starflare.Bowling
         public double PxPerMetre(double ft)
         {
             double foulHalfPx = Math.Min(_r.width * FoulHalf, _r.height * 0.22);
-            return WidthScale(ft) / WidthScale(0) * foulHalfPx / LaneGeometry.HalfWidth;
+            return Scale(ft) / Scale(0) * foulHalfPx / LaneGeometry.HalfWidth;
         }
 
         public float Px(double metres, double ft) => (float)(metres * PxPerMetre(ft));
