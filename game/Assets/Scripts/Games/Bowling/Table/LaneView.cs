@@ -33,7 +33,7 @@ namespace Starflare.Bowling
         /// <summary>A full rack, for the lanes either side.</summary>
         PinDeck _rack;
 
-        SpriteQuads _pins, _ball;
+        SpriteQuads _pins, _ball, _aim;
 
         /// <summary>The board your ball's on, the bowler's count: where the aim arrow swings from.</summary>
         public int StandBoard = LaneGeometry.MiddleBoard;
@@ -135,7 +135,6 @@ namespace Starflare.Bowling
                 Strip(vh, view, LaneGeometry.RangeFindersFromFt, LaneGeometry.RangeFindersToFt,
                     Lane(board + 0.3, 0).X, Lane(board - 0.3, 0).X, BallLook.Mark, 1, false);
 
-            if (AimBoard.HasValue) AimArrow(vh, view, AimBoard.Value);
         }
 
         /// <summary>
@@ -147,6 +146,16 @@ namespace Starflare.Bowling
             _pins = SpriteQuads.Make(transform, "Pins", DrawPins);
             _pins.Sprite = pinUp;
             _ball = SpriteQuads.Make(transform, "Rolling Ball", DrawBall);
+            _aim = SpriteQuads.Make(transform, "Aim Arrow", (vh, r, layer) =>
+            {
+                if (AimBoard.HasValue) AimArrow(vh, ProjectionOver(r), AimBoard.Value);
+            });
+        }
+
+        /// <summary>Redraws only the aim's arrow: it moves every frame while the aim runs.</summary>
+        public void RedrawAim()
+        {
+            if (_aim != null) _aim.Redraw();
         }
 
         /// <summary>The ball's picture for this delivery; null draws it in its colour.</summary>
@@ -311,6 +320,7 @@ namespace Starflare.Bowling
             foreach (var surface in _under) surface.SetVerticesDirty();
             if (_pins != null) _pins.Redraw();
             if (_ball != null) _ball.Redraw();
+            if (_aim != null) _aim.Redraw();
         }
 
         protected override void OnRectTransformDimensionsChange()

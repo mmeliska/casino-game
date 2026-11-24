@@ -179,12 +179,12 @@ JUAN: That was practice. Next roll, it's your own money.
 # pose: juan_flat
 JUAN: First frame's on me. House ball. Nothing counts.
 JUAN: Ball's on the seventh board. Second arrow's your mark.
-JUAN: Tap to start the sweep, tap again to stop it. # point: aim
-JUAN: Nothing on it. Stop the hook down low. # point: hook
+JUAN: Arrow's swinging. Tap anywhere to stop it. # point: aim
+JUAN: Nothing on it. Stop the needle straight up. # point: hook
 JUAN: Sixteen miles an hour. Let it go. # point: speed
 JUAN: See that? Straight ball finds the head pin and leaves you two corners.
 JUAN: Now put something on it. Six boards left. Same arrow. # point: aim
-JUAN: Seventy on the hook. # point: hook
+JUAN: Seventy on the hook, curling back to the pocket. # point: hook
 JUAN: Same speed. # point: speed
 JUAN: That's the lane doing the work.
 JUAN: You just have to find where it starts.

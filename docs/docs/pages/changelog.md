@@ -1,5 +1,9 @@
 ## 24 Nov 2026
 
+### Bowling: three taps anywhere, a hook both ways
+
+A throw is now three taps anywhere on the screen (Mike): the aim's gold arrow starts swinging as you step up, and you can still drag the ball while it does; a tap stops it, a tap stops the hook, a tap stops the speed. The arrow now swings with the sweep (it stood still until the aim stopped). The hook dial runs from a big hook left, through straight in the middle, to a big hook right (Mike): the usual hook is one side, a backup ball the other, as far either way. Juan's first frame has three new lines for it ("Arrow's swinging. Tap anywhere to stop it."; "Nothing on it. Stop the needle straight up."; "Seventy on the hook, curling back to the pocket."), proposed (Claude).
+
 ### Bowling: the whole screen, new meters
 
 The bowling game now takes the whole screen, the way the craps circle does (Mike): the lanes run edge to edge under everything, the scores and the message sit at the top, and the meters at the foot on a dark glass panel. Behind the pins is the dark pit, with the masking panel hanging above it, instead of the panel sitting right on the pins' heads. The ball's path is an upright strip down the lane's right side. The meters take the idea of a 90s console bowling game's (Mike asked for Championship Bowling on the NES; built on the same ideas in our own art): the aim is a gold arrow from your ball that swings across the lane, the hook a dial whose needle swings from straight to a big curve, the speed a power bar that fills cool to hot. The arrow stays on the lane while you set the hook and speed.

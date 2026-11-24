@@ -4,9 +4,10 @@ using UnityEngine.UI;
 namespace Starflare.Bowling
 {
     /// <summary>
-    /// The hook as a dial: a half circle from straight at the left to a big curve at the right,
-    /// its first stretch grey (a hook that low rolls straight: <see cref="BallSim.StraightBelow"/>),
-    /// and a needle that swings across it while the hook runs.
+    /// The hook as a dial: a half circle from a big hook to the left at its left end, through
+    /// straight at the top, to a big hook to the right at its right end (Mike, 2026-11-24). The
+    /// middle is grey: a hook that small rolls straight (<see cref="BallSim.StraightBelow"/>).
+    /// A needle swings across it while the hook runs.
     /// </summary>
     public sealed class HookGauge : MaskableGraphic
     {
@@ -16,7 +17,7 @@ namespace Starflare.Bowling
         static readonly Color Big = new Color(0.95f, 0.76f, 0.25f);
         static readonly Color Needle = new Color(0.97f, 0.96f, 0.92f);
 
-        /// <summary>Where the needle points, 0 (straight) to 1 (the biggest hook); null hides it.</summary>
+        /// <summary>Where the needle points: 0 the biggest hook left, a half straight, 1 the biggest hook right; null hides it.</summary>
         public double? Value;
 
         protected override void OnPopulateMesh(VertexHelper vh)
@@ -29,8 +30,10 @@ namespace Starflare.Bowling
             float thick = radius * 0.28f;
 
             Arc(vh, centre, radius + 3, radius - thick - 3, 0, 1, Ink, Ink);
-            Arc(vh, centre, radius, radius - thick, 0, (float)BallSim.StraightBelow, Straight, Straight);
-            Arc(vh, centre, radius, radius - thick, (float)BallSim.StraightBelow, 1, Mild, Big);
+            float half = (float)BallSim.StraightBelow / 2;
+            Arc(vh, centre, radius, radius - thick, 0, 0.5f - half, Big, Mild);
+            Arc(vh, centre, radius, radius - thick, 0.5f - half, 0.5f + half, Straight, Straight);
+            Arc(vh, centre, radius, radius - thick, 0.5f + half, 1, Mild, Big);
             Shapes.Circle(vh, centre, thick * 0.45f, Ink, 1, 12);
 
             if (!Value.HasValue) return;

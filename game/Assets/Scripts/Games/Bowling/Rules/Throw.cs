@@ -11,16 +11,20 @@ namespace Starflare.Bowling
     {
         public const int MinStand = 1, MaxStand = 39;
         public const double MinAim = 5, MaxAim = 35;
-        public const double MinHook = 0, MaxHook = 100;
+        public const double MinHook = -100, MaxHook = 100;
         public const double MinSpeed = 12, MaxSpeed = 20;
 
         /// <summary>The board the ball starts on at the foul line.</summary>
         public readonly int Stand;
 
-        /// <summary>The board it rolls over at the arrows, 15 ft (between arrows allowed).</summary>
+        /// <summary>The board it rolls over at its arrow's distance (between arrows allowed).</summary>
         public readonly double Aim;
 
-        /// <summary>0 rolls end over end and never turns; 100 is a cranker's ball.</summary>
+        /// <summary>
+        /// 0 rolls end over end and never turns; 100 is a cranker's ball, hooking the usual way
+        /// (left for a right-hander); -100 hooks as hard the other way (Mike, 2026-11-24). Within
+        /// a tenth of 0 either side it rolls straight.
+        /// </summary>
         public readonly double Hook;
 
         /// <summary>Miles an hour off the hand.</summary>

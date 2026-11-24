@@ -132,7 +132,8 @@ namespace Starflare.Bowling
         public static Vec3 Spin(Vec2 dir, double speed, double radius, double h)
         {
             double revs = speed / radius;
-            double turned = Math.Max(0, (h - StraightBelow) / (1 - StraightBelow));
+            // The axis turns toward the bowler for the usual hook, away from them for the other way.
+            double turned = Math.Sign(h) * Math.Max(0, (Math.Abs(h) - StraightBelow) / (1 - StraightBelow));
             double axis = MaxAxisDegrees * turned * Math.PI / 180;
             double c = Math.Cos(axis), s = Math.Sin(axis);
             // End over end is (-dir.Y, dir.X); turned toward the bowler, -dir.

@@ -27,7 +27,11 @@ namespace Starflare.Bowling
     public sealed class BowlingLane : MonoBehaviour, ICoachable
     {
         /// <summary>Where the throw is: lining up, a sweep running, the ball out, or between balls and games.</summary>
-        public enum Step { Between, Stand, Aim, Hook, Speed, Rolling, Pins, Others, Over }
+        /// <summary>
+        /// Where the lane is. Standing, the aim's arrow is already swinging: the throw is three taps
+        /// anywhere, aim, hook, speed (Mike, 2026-11-24), and you can drag the ball before the first.
+        /// </summary>
+        public enum Step { Between, Stand, Hook, Speed, Rolling, Pins, Others, Over }
 
         /// <summary>Two taps on the lane this close together skip ahead.</summary>
         const float DoubleTap = 0.45f;
@@ -202,6 +206,12 @@ namespace Starflare.Bowling
             if (_lock == null && !Practicing) _sitting.Play(dt);
             if (_step == Step.Rolling) Roll(dt * _playSpeed);
             else if (_step == Step.Pins) Hit(dt * _playSpeed);
+            else if (_step == Step.Stand && _aimMeter.Running)
+            {
+                // The arrow swings with the sweep, every frame.
+                _laneView.AimBoard = AimFrom(_aimMeter.Value);
+                _laneView.RedrawAim();
+            }
         }
 
         // ---- Games ----
@@ -308,6 +318,7 @@ namespace Starflare.Bowling
             _hookMeter.Clear();
             _speedMeter.Clear();
             if (Practicing) _ball.Place(_practice.Balls[_practiceBall].Stand);
+            _aimMeter.Begin(_rules.AimSweep / (Throw.MaxAim - Throw.MinAim));
             Refresh();
         }
 
@@ -318,22 +329,15 @@ namespace Starflare.Bowling
             Refresh();
         }
 
-        /// <summary>The aim meter: the first tap starts the sweep, the second stops it and starts the hook.</summary>
+        /// <summary>The first tap: stops the aim's arrow where it is and starts the hook.</summary>
         void AimTap()
         {
-            if (_step == Step.Stand)
-            {
-                _step = Step.Aim;
-                _aimMeter.Begin(_rules.AimSweep / (Throw.MaxAim - Throw.MinAim));
-                Refresh();
-                return;
-            }
-            if (_step != Step.Aim) return;
+            if (_step != Step.Stand) return;
             double v = _aimMeter.Stop();
             _aim = Practicing ? _practice.Balls[_practiceBall].Aim : AimFrom(v);
             if (Practicing) _aimMeter.Set(MeterFromAim(_aim));
             _step = Step.Hook;
-            _hookMeter.Begin(_rules.HookSweep / 100);
+            _hookMeter.Begin(_rules.HookSweep / (Throw.MaxHook - Throw.MinHook));
             Refresh();
             ActionTaken?.Invoke(BowlingControls.Aim);
         }
@@ -342,8 +346,8 @@ namespace Starflare.Bowling
         {
             if (_step != Step.Hook) return;
             double v = _hookMeter.Stop();
-            _hook = Practicing ? _practice.Balls[_practiceBall].Hook : v * Throw.MaxHook;
-            if (Practicing) _hookMeter.Set(_hook / Throw.MaxHook);
+            _hook = Practicing ? _practice.Balls[_practiceBall].Hook : HookFrom(v);
+            if (Practicing) _hookMeter.Set(MeterFromHook(_hook));
             _step = Step.Speed;
             _speedMeter.Begin(_rules.SpeedSweep / 100);
             Refresh();
@@ -365,6 +369,28 @@ namespace Starflare.Bowling
         double AimFrom(double v) => Throw.MaxAim - v * (Throw.MaxAim - Throw.MinAim);
 
         double MeterFromAim(double board) => (Throw.MaxAim - board) / (Throw.MaxAim - Throw.MinAim);
+
+        /// <summary>
+        /// Where the hook's needle is, from the screen's side: left of the middle hooks left, right
+        /// of it hooks right, the middle rolls straight (Mike, 2026-11-24). For a right-hander the
+        /// left is the usual hook (a positive <see cref="Throw.Hook"/>); for a left-hander, the right.
+        /// </summary>
+        double ScreenSide(double v) => (v - 0.5) * 2;
+
+        double HookFrom(double v) => (_rules.Hand == Hand.Right ? -ScreenSide(v) : ScreenSide(v)) * Throw.MaxHook;
+
+        double MeterFromHook(double hook)
+        {
+            double side = hook / Throw.MaxHook * (_rules.Hand == Hand.Right ? -1 : 1);
+            return side / 2 + 0.5;
+        }
+
+        string HookReading(double v)
+        {
+            double side = ScreenSide(v);
+            if (Math.Abs(side) < BallSim.StraightBelow) return "Straight";
+            return $"{(side < 0 ? "Left" : "Right")} {Math.Abs(side) * 100:0}";
+        }
 
         // ---- The ball out ----
 
@@ -442,6 +468,10 @@ namespace Starflare.Bowling
             float now = Time.unscaledTime;
             bool second = now - _lastLaneTap <= DoubleTap;
             _lastLaneTap = second ? -10 : now;
+            // Throwing, a tap anywhere is the next meter's tap.
+            if (_step == Step.Stand) { Press(BowlingControls.Aim, AimTap); return; }
+            if (_step == Step.Hook) { Press(BowlingControls.Hook, HookTap); return; }
+            if (_step == Step.Speed) { Press(BowlingControls.Speed, SpeedTap); return; }
             if (!second) return;
             if (_step == Step.Rolling) ToPins();
             else if (_step == Step.Pins) AfterBall();
@@ -574,12 +604,12 @@ namespace Starflare.Bowling
             _clockText.text = _state.Clock.TimeLabel;
             _messageText.text = _message;
 
-            bool throwing = _step == Step.Stand || _step == Step.Aim || _step == Step.Hook || _step == Step.Speed;
+            bool throwing = _step == Step.Stand || _step == Step.Hook || _step == Step.Speed;
             _ball.Showing = throwing;
             _ball.Layout();
             _standText.text = $"Board {_ball.Board}";
             _laneView.StandBoard = _ball.Board;
-            _laneView.AimBoard = _step == Step.Aim ? AimFrom(_aimMeter.Value) : _step == Step.Hook || _step == Step.Speed ? _aim : (double?)null;
+            _laneView.AimBoard = _step == Step.Stand ? AimFrom(_aimMeter.Value) : _step == Step.Hook || _step == Step.Speed ? _aim : (double?)null;
             if (_step != Step.Rolling && _step != Step.Pins) _laneView.Deck = _lane?.Deck;
             _laneView.Redraw();
 
@@ -598,7 +628,7 @@ namespace Starflare.Bowling
 
             Enable(BowlingControls.StandLeft, _step == Step.Stand);
             Enable(BowlingControls.StandRight, _step == Step.Stand);
-            Enable(BowlingControls.Aim, _step == Step.Stand || _step == Step.Aim);
+            Enable(BowlingControls.Aim, _step == Step.Stand);
             Enable(BowlingControls.Hook, _step == Step.Hook);
             Enable(BowlingControls.Speed, _step == Step.Speed);
             Enable(BowlingControls.TakeGame, _step == Step.Between && _offer != null);
@@ -871,7 +901,7 @@ namespace Starflare.Bowling
 
             _aimMeter = Meter.Make(_controlsArea, "Aim", MeterStyle.OnTheLane, v => $"Board {AimFrom(v):0.#}", 72);
             Register(BowlingControls.Aim, _aimMeter.Button, AimTap);
-            _hookMeter = Meter.Make(_controlsArea, "Hook", MeterStyle.Dial, v => v < BallSim.StraightBelow ? "Straight" : $"{v * 100:0}", 112);
+            _hookMeter = Meter.Make(_controlsArea, "Hook", MeterStyle.Dial, HookReading, 112);
             Register(BowlingControls.Hook, _hookMeter.Button, HookTap);
             _speedMeter = Meter.Make(_controlsArea, "Speed", MeterStyle.Power, v => $"{Throw.MinSpeed + v * (Throw.MaxSpeed - Throw.MinSpeed):0.0} mph");
             Register(BowlingControls.Speed, _speedMeter.Button, SpeedTap);

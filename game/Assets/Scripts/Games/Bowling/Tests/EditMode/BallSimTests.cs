@@ -23,6 +23,20 @@ namespace Starflare.Tests
         static readonly Throw Arc = new Throw(15, 7, 50, 13);
 
         [Test]
+        public void ANegativeHook_TurnsTheOtherWay_AndNearZeroRollsStraight()
+        {
+            var oil = new LaneOil(LanePattern.House);
+            var straight = BallSim.Roll(new Throw(20, 20, 0, 15), oil, BowlingBall.Urethane);
+            var usual = BallSim.Roll(new Throw(20, 20, 60, 15), oil, BowlingBall.Urethane);
+            var other = BallSim.Roll(new Throw(20, 20, -60, 15), oil, BowlingBall.Urethane);
+            Assert.That(usual.EntryBoard, Is.GreaterThan(straight.EntryBoard + 3), "The usual hook: toward the bowler's left, up the board count.");
+            Assert.That(other.EntryBoard, Is.LessThan(straight.EntryBoard - 3), "The other way.");
+            Assert.That(usual.EntryBoard - straight.EntryBoard, Is.EqualTo(straight.EntryBoard - other.EntryBoard).Within(0.5), "As far either way.");
+            var nearlyLeft = BallSim.Roll(new Throw(20, 20, -8, 15), oil, BowlingBall.Urethane);
+            Assert.That(nearlyLeft.EntryBoard, Is.EqualTo(straight.EntryBoard).Within(0.01), "Inside a tenth of 0 either way it's straight.");
+        }
+
+        [Test]
         public void HookZero_HoldsItsLine_ToTheHeadPin()
         {
             var path = Roll(Straight, BowlingBall.House);
