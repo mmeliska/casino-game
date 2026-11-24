@@ -225,15 +225,17 @@ namespace Starflare.Bowling
         }
 
         /// <summary>
-        /// The aim: a gold arrow from your ball over the board you're aiming at, where its lane
-        /// arrow is, and on a little; it swings across the lane while the aim runs.
+        /// The aim: a short gold arrow from your ball toward the board you're aiming at, and a gold
+        /// dot where it crosses the lane's arrows; it swings across the lane while the aim runs.
         /// </summary>
         void AimArrow(VertexHelper vh, LaneProjection view, double aim)
         {
             var from = Lane(StandBoard, 0);
             var over = Lane(aim, LaneGeometry.ArrowFt(aim));
-            var tip = from + (over - from) * 1.35;
-            var back = from + (over - from) * 1.15;
+            // A short arrow, a third of the way to the lane's arrows (Mike, 2026-11-24); the gold
+            // dot marks where it crosses them.
+            var tip = from + (over - from) * 0.45;
+            var back = from + (over - from) * 0.38;
             var a = view.Project(from);
             var b = view.Project(back);
             float width = Mathf.Max(4f, view.Px(0.035, LaneGeometry.ArrowFt(aim)));

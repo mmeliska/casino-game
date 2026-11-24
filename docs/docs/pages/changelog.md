@@ -1,5 +1,9 @@
 ## 24 Nov 2026
 
+### Bowling: a shorter aim arrow, quicker meters
+
+The aim's arrow is a third as long (Mike), with a gold dot still marking where it crosses the lane's arrows, and all three sweeps run quicker: the aim at 26 boards a second (was 16), the hook dial at 160 units a second across its -100 to 100 (was 70, when the dial ran only one way), the speed bar at 110 per cent a second (was 70).
+
 ### Bowling: three taps anywhere, a hook both ways
 
 A throw is now three taps anywhere on the screen (Mike): the aim's gold arrow starts swinging as you step up, and you can still drag the ball while it does; a tap stops it, a tap stops the hook, a tap stops the speed. The arrow now swings with the sweep (it stood still until the aim stopped). The hook dial runs from a big hook left, through straight in the middle, to a big hook right (Mike): the usual hook is one side, a backup ball the other, as far either way. Juan's first frame has three new lines for it ("Arrow's swinging. Tap anywhere to stop it."; "Nothing on it. Stop the needle straight up."; "Seventy on the hook, curling back to the pocket."), proposed (Claude).
