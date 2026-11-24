@@ -327,7 +327,7 @@ Seven sprites, four on the top row and three on the bottom, in this order: an ol
 3. **Bowlers, challenges, rules and the game** (open and for money); settlement and odds tests.
 4. **The table** in placeholder shapes, portrait and landscape; the PlayMode smoke tests.
 5. **The place**: `MillstoneLanes` as a MonoBehaviour, the ink, the contract, the checkpoints, the docs' Lanes page and GDD rows.
-6. **Art** and the trace.
+6. **Art** and the trace. The lane is built and textured (2026-11-24), with stand-in textures until the pictures are drawn; the deck close-up and the sprite sheet still to come.
 7. **Tune** on a phone: sweep rates, the regulars' spreads, the fee and stakes.
 
 Steps 1 to 3 are a day or two each of rules code and tests and can be checked headless. Step 4 is the biggest single piece, about the size of `SlotMachine`.
