@@ -67,6 +67,13 @@ namespace Starflare.Game
         /// </summary>
         public static Sprite Scratcher(string id) => Find($"Scratchers/{id}");
 
+        /// <summary>
+        /// A texture the bowling lane is drawn with, Resources/Bowling/{tag} (<c>lane_boards</c>
+        /// and so on; tools/import_lane_textures.py), or null. Quiet when it's missing: the lane
+        /// makes a plain one until the picture exists.
+        /// </summary>
+        public static Texture2D Texture(string tag) => Find<Texture2D>($"Bowling/{tag}");
+
         /// <summary>A crowd face by its id in the roster, Resources/Faces/faces.json (tools/import_faces.py).</summary>
         public static Sprite Face(string id) => Load("Faces", id);
 
@@ -159,12 +166,14 @@ namespace Starflare.Game
         }
 
         /// <summary>The picture in the chosen art style, else the base art (<see cref="ArtStyles"/>).</summary>
-        static Sprite Find(string path)
+        static Sprite Find(string path) => Find<Sprite>(path);
+
+        static T Find<T>(string path) where T : Object
         {
             foreach (string candidate in ArtStyles.PathsFor(ArtStyles.Current, path))
             {
-                var sprite = Resources.Load<Sprite>(candidate);
-                if (sprite != null) return sprite;
+                var found = Resources.Load<T>(candidate);
+                if (found != null) return found;
             }
             return null;
         }

@@ -87,6 +87,10 @@ namespace Starflare.Bowling
 
         BowlingRules _rules;
         Sprite _plate;
+        LaneArt _art;
+
+        /// <summary>Stand-in textures made for art that isn't in yet; destroyed with the lane.</summary>
+        Texture2D[] _madeTextures = new Texture2D[0];
 
         PlayerState _state;
         Sitting _sitting;
@@ -125,11 +129,15 @@ namespace Starflare.Bowling
 
         // ---- Setting up ----
 
-        /// <summary>Sets the lane up with its rules over the venue's plate. It stays hidden until you sit down.</summary>
-        public void Init(BowlingRules rules, Sprite plate)
+        /// <summary>
+        /// Sets the lane up with its rules over the venue's plate, drawn with the venue's lane
+        /// textures (any not in yet are stood in for). It stays hidden until you sit down.
+        /// </summary>
+        public void Init(BowlingRules rules, Sprite plate, LaneArt art = null)
         {
             _rules = rules ?? throw new ArgumentNullException(nameof(rules));
             _plate = plate;
+            _art = LaneArt.Complete(art, out _madeTextures);
             BuildUi();
             _root.SetActive(false);
         }
@@ -177,6 +185,12 @@ namespace Starflare.Bowling
         }
 
         bool Allowed(string id) => _lock == null || _lock == id;
+
+        void OnDestroy()
+        {
+            foreach (var texture in _madeTextures)
+                if (texture != null) Destroy(texture);
+        }
 
         void Update()
         {
@@ -744,6 +758,22 @@ namespace Starflare.Bowling
             var layout = area.GetComponent<LayoutElement>();
             layout.flexibleHeight = 1;
             layout.minHeight = 420;
+            // The lanes either side run past the area's sides; the ball on the approach may hang below it.
+            area.AddComponent<RectMask2D>().padding = new Vector4(0, -400, 0, 0);
+
+            foreach (var (kind, texture) in new (LaneSurfaceKind, Texture)[]
+            {
+                (LaneSurfaceKind.Masking, _art.Masking), (LaneSurfaceKind.Approach, _art.Approach),
+                (LaneSurfaceKind.Gutters, _art.Gutter), (LaneSurfaceKind.Boards, _art.Boards),
+            })
+            {
+                var surfaceGo = new GameObject(kind.ToString(), typeof(RectTransform), typeof(CanvasRenderer), typeof(LaneSurface));
+                surfaceGo.transform.SetParent(_laneArea, false);
+                var surface = surfaceGo.GetComponent<LaneSurface>();
+                surface.raycastTarget = false;
+                Stretch(surface.rectTransform);
+                surface.Show(kind, texture);
+            }
 
             var laneGo = new GameObject("Lane", typeof(RectTransform), typeof(CanvasRenderer), typeof(LaneView));
             laneGo.transform.SetParent(_laneArea, false);

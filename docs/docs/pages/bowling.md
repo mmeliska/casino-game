@@ -142,7 +142,7 @@ An opponent is a `Bowler`: a name, a face, an average, and a line (stand, aim, h
 
 The module follows the architecture's recipe for a game, the same shape as `CrapsTable`:
 
-- `BowlingLane.Init(BowlingRules rules, Sprite plate)` once, and `SitDown(PlayerState state, ClockPace pace, LaneSetup setup)` each visit. `LaneSetup` is what changes from one sitting to the next: tonight's `LaneOil` (the venue wears it from the clock with `LaneWear` and `LaneOil.Worn`), the ball you own, whether you've got shoes, the regulars on the lanes, a sub night's `LeagueMatch`, a `PracticeFrame`, and the night's seed (built; the spec first had all of it in `Init`).
+- `BowlingLane.Init(BowlingRules rules, Sprite plate, LaneArt art)` once (the venue loads the lane's textures and hands them over; any missing, the lane makes its own), and `SitDown(PlayerState state, ClockPace pace, LaneSetup setup)` each visit. `LaneSetup` is what changes from one sitting to the next: tonight's `LaneOil` (the venue wears it from the clock with `LaneWear` and `LaneOil.Worn`), the ball you own, whether you've got shoes, the regulars on the lanes, a sub night's `LeagueMatch`, a `PracticeFrame`, and the night's seed (built; the spec first had all of it in `Init`).
 - You bowl open games. Open bowling takes the fee at the first ball (−$2, or −$4 the first game of a visit if you're renting shoes). A challenge or a sub game takes no fee. Built: from the first ball you're committed (no getting up), and the money moves once, when the game settles at its last ball, as every other table settles a round. A game you can't cover isn't started, and a game cut off by a quit settles nothing, like a blackjack hand.
 - **A sub night** is a `LeagueMatch` the venue hands in at `SitDown`: your team's three other bowlers and the four across the lane, as `Bowler`s. The eight bowl in turn, a frame at a time, a bowler from each side alternately and you leading off, you tapping through yours and each regular's throw playing on a tap (as the back lot's regulars shoot), and the side pot settles at each game's tenth frame. After the third game the table reports the night (`GamesWon`, `TeamWonNight`) and you get up.
 - **Challenges** come from the table, between games: with the seeded odds in `BowlingRules` (one game in four, never twice running), a regular present tonight steps over and names a stake from `BowlingRules.Stakes` (5, 10, 20) by his average and the night's record against you. Two buttons: take the game or wave him off. A regular who's lost three in a row tonight doesn't ask again. The stake is taken at the first ball and paid at the tenth frame.
@@ -206,7 +206,10 @@ Following `ARCHITECTURE.md`, "Adding a game": namespace `Starflare.Bowling`.
 | `BowlingLane.cs` | The MonoBehaviour: `Init`, `SitDown`, the game loop, rounds and the break point, `ICoachable` |
 | `ApproachBall.cs` | The ball on the foul line: a uGUI drag handler (`IBeginDragHandler`/`IDragHandler`/`IEndDragHandler`) that snaps to boards and shows the board number while held |
 | `BowlingControls.cs` | The control ids |
-| `LaneView.cs` | Projects sim coordinates onto the perspective lane; draws the ball, the pins, the sweep |
+| `LaneProjection.cs` | The perspective: sim coordinates to the screen, the lanes' spacing, the light down the lane |
+| `LaneSurface.cs` | One textured surface (boards, gutters, approach, masking panel) built as geometry through the projection |
+| `LaneArt.cs` | The textures the venue hands over, and plain stand-ins for any not drawn yet |
+| `LaneView.cs` | Over the surfaces: the ink (edges, board joints, foul line, dots, arrows), the capping and pit, the racks either side, the ball, the pins, the sweep |
 | `Meter.cs` | A sweep you stop with a tap: shared by aim, hook and speed |
 | `PathTrace.cs` | The overhead strip after each throw |
 | `DeckView.cs` | The close-up of the deck for the hit, from above (built: the sim is flat, so the close-up shows it as it is) |
@@ -253,18 +256,46 @@ PlayMode smoke tests in `Starflare.Bowling.Tests.PlayMode`: the lane builds in p
 
 ### Art
 
-For ChatGPT, in the style of the Lanes' other plates (the how-to, the avoid lists and the settings are on [Plate prompts](#plates)); attach `lanes_lanes_night` as the style reference for each. Written out in full (Claude, 2026-11-23); proposed. Until they land the game draws everything in flat shapes, which is enough to tune by.
+For ChatGPT, in the style of the Lanes' other plates (the how-to, the avoid lists and the settings are on [Plate prompts](#plates)); attach `lanes_lanes_night` as the style reference for each. Written out in full (Claude, 2026-11-23); proposed.
 
-The game draws the ball, the pins, the aim marker and the trace itself, so the pictures leave them out: an empty lit deck, no ball. When the lane plate lands, its foul line, arrows and head-pin row get measured off the picture so the drawn ball rolls on the painted lane, the way the back lot's circle is measured for the dice (`CircleArt`).
+The game draws the ball, the pins, the aim marker and the trace itself, so the pictures leave them out.
 
-#### The lane
+#### The lane: geometry and textures
 
-The view you bowl from: behind the foul line, the lane running away up the screen, like a 90s console game. Portrait; the landscape layout shows the same picture in the left half.
+The lane isn't a picture. It's built as geometry through the same projection the sim's ball and pins are drawn through, and covered in textures that repeat down it (Mike, 2026-11-24; the details below are proposed, Claude). A painted lane could never have 39 even boards with the arrows and dots on exactly the boards the sim uses, and stand, aim and Juan's "move left two boards" are all counted in boards; built from `LaneGeometry`, the lane is right by construction. It also lays out for portrait and landscape alike, and leaves room for showing the oil later. This replaces `lanes_lane_pov`, the lane as one portrait plate, in the first draft of this section.
 
-`lanes_lane_pov` (plate, portrait 9:16)
+What's built (`LaneProjection`, `LaneSurface`, `LaneView`, `LaneArt`):
+
+- **Your lane and three either side**, a lane every 63 in (41.5 in of boards, two 9.25 in gutters and 4 in of capping), each dimmer the further out: nobody's bowling on them. Their racks stand full and dim.
+- **Light by vertex colour**: the approach under the house lights, the middle of the lane dimmer, the deck bright under its hood.
+- **Ink drawn by the code**, to match the bold outlines of the other art: every lane's edges and its gutters', the foul line, the dots and arrows outlined, the ball and pins outlined, and your lane's 38 board joints, fading out down the lane so they don't shimmer where they crowd together.
+- **Above the pit**, the top eighth of the view, the masking panel that hangs over the far end of the lanes.
+- **Until the pictures are in**, the lane makes plain textures of its own (wood grain, a grey channel, a navy and brick-red panel), so the textured path is what's tuned on.
+
+The textures repeat, and ChatGPT's never quite meet at their edges, so each is saved in `Images/Bowling/` under its tag and brought in with `python3 tools/import_lane_textures.py`: it blends each picture into itself across the edges it repeats over, scales it down and writes `game/Assets/Resources/Bowling/<tag>.png`, which the game imports as a repeating texture. They're textures, not scenes, so each prompt asks for something flat, seen straight on, edge to edge.
+
+`lane_boards` (texture, square 1:1)
 
 ```
-Background plate, no people. Looking straight down one lane of an old bowling alley from just behind the foul line, at the height of a bowler's eyes: the worn wooden approach with its dots across the bottom edge, the foul line, then the lane running straight away from the viewer and narrowing to the far end, the seven aiming arrows a third of the way up, gutters either side, the pin deck at the top lit bright under a hood, the deck empty with no pins on it, the dark pit and curtain behind. The lane is dead centre and symmetrical, the neighbouring lanes dim at the left and right edges. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. No people, no pins, no ball, no text, no lettering; signs and scoring screens blank.
+A seamless tileable texture, seen flat from directly above and filling the whole square edge to edge: the polished maple surface of a bowling lane, pale honey wood with long straight grain running from top to bottom, a soft varnish sheen, faint scuffs. No board joints, no lines across, no gaps, no edges: just continuous grain. Even lighting, no shadows, no vignette, no perspective. Gritty graphic-novel texture art to match the attached plate: cel shading, muted desaturated colours, a few fine dark ink strokes in the grain. No text, no markings, no arrows, no dots.
+```
+
+`lane_approach` (texture, square 1:1)
+
+```
+A seamless tileable texture, seen flat from directly above and filling the whole square edge to edge: the worn wooden approach in front of a bowling lane, darker amber maple scuffed dull by years of shoes, grain running from top to bottom, a few scrapes and old wax smears. No board joints, no lines across, no gaps, no edges. Even lighting, no shadows, no vignette, no perspective. Gritty graphic-novel texture art to match the attached plate: cel shading, muted desaturated colours, a few fine dark ink strokes in the grain. No text, no markings, no dots, no foul line.
+```
+
+`lane_gutter` (texture, square 1:1)
+
+```
+A seamless texture that repeats from top to bottom, seen flat from directly above: the inside of a bowling lane's gutter running straight from the top edge to the bottom edge and filling the square from side to side, a shallow curved channel of dull dark grey composite, darker along the bottom of the curve, a soft highlight along the far wall on the right, scuffs and ball marks. Even lighting, no perspective, nothing at the top or bottom edge that wouldn't continue. Gritty graphic-novel texture art to match the attached plate: cel shading, muted desaturated colours, fine dark ink strokes. No text, no markings.
+```
+
+`lane_masking` (texture, landscape 3:2)
+
+```
+A seamless texture that repeats from left to right, seen flat and straight on, filling the frame: the long painted masking panel that hangs over the far end of the lanes in an old bowling alley, a simple repeating pattern of stylised bowling pins and starbursts on deep navy, a band of brick red across the middle and a thin gold pinstripe above it, lit warmly from below by the deck lights and darker toward the top. Flat, no perspective, no frame, nothing at the left or right edge that wouldn't continue. Gritty graphic-novel art to match the attached plate: bold black ink outlines, cel shading, muted desaturated colours. No text, no lettering, no numbers, no logos.
 ```
 
 #### The deck, from above

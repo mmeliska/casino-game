@@ -71,7 +71,7 @@ namespace Starflare.Game
             _backLot = backLot;
             _backLot.Init(host, ShowInside, ShowOutside);
             _lane = lane;
-            _lane.Init(_rules, Art.Plate(Art.PlateAt(Lanes, host.State.Clock)));
+            _lane.Init(_rules, Art.Plate(Art.PlateAt(Lanes, host.State.Clock)), LaneTextures());
             _lane.BreakPointReached += OnGetUp;
         }
 
@@ -121,6 +121,18 @@ namespace Starflare.Game
         /// Inside, at the lanes. On a short Tuesday between 6:30 and 7:30 the ask comes first,
         /// once. Then bowling, unless the league has the lanes and you're not subbing.
         /// </summary>
+        /// <summary>
+        /// The textures Juan's lanes are drawn with (Bowling, "Art"): the maple, the approach,
+        /// the gutter and the masking panel. Any not in yet, the lane stands in for itself.
+        /// </summary>
+        static LaneArt LaneTextures() => new LaneArt
+        {
+            Boards = Art.Texture("lane_boards"),
+            Approach = Art.Texture("lane_approach"),
+            Gutter = Art.Texture("lane_gutter"),
+            Masking = Art.Texture("lane_masking"),
+        };
+
         void ShowInside()
         {
             var clock = _host.State.Clock;

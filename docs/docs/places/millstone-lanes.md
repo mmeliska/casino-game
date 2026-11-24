@@ -60,13 +60,7 @@ Background plate, no people. An old bowling alley's front counter with cubbyhole
 
 ### Bowling: the lane
 
-The view you bowl from (spec on [Bowling](#bowling), where the deck close-up and the sprite sheet are too). The game draws the ball and pins over it, so the deck is empty.
-
-`lanes_lane_pov` (plate, portrait 9:16)
-
-```
-Background plate, no people. Looking straight down one lane of an old bowling alley from just behind the foul line, at the height of a bowler's eyes: the worn wooden approach with its dots across the bottom edge, the foul line, then the lane running straight away from the viewer and narrowing to the far end, the seven aiming arrows a third of the way up, gutters either side, the pin deck at the top lit bright under a hood, the deck empty with no pins on it, the dark pit and curtain behind. The lane is dead centre and symmetrical, the neighbouring lanes dim at the left and right edges. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. No people, no pins, no ball, no text, no lettering; signs and scoring screens blank.
-```
+Not a plate: the lane is built as geometry and drawn with four repeating textures, `lane_boards`, `lane_approach`, `lane_gutter` and `lane_masking`, whose prompts are on [Bowling](#bowling) (Mike, 2026-11-24). This replaces `lanes_lane_pov`.
 
 ### Bowling: the deck from above
 
