@@ -80,20 +80,33 @@ namespace Starflare.Bowling
             return Made("Gutter", width, height, pixels);
         }
 
-        /// <summary>The masking panel: navy, a brick-red band and a gold pinstripe.</summary>
+        /// <summary>
+        /// The masking front as it is in the Lanes' picture: two plain cream panels, outlined, a
+        /// dark gap between and half a gap at each edge; a navy line; tired green below.
+        /// </summary>
         static Texture2D Panel()
         {
-            const int width = 96, height = 64;
-            var navy = new Color(0.1f, 0.13f, 0.24f);
-            var brick = new Color(0.55f, 0.2f, 0.15f);
-            var gold = new Color(0.85f, 0.66f, 0.27f);
+            const int width = 128, height = 32;
+            var cream = new Color(0.86f, 0.8f, 0.64f);
+            var ink = new Color(0.06f, 0.05f, 0.04f);
+            var navy = new Color(0.12f, 0.16f, 0.3f);
+            var green = new Color(0.36f, 0.42f, 0.3f);
             var pixels = new Color[width * height];
             for (int y = 0; y < height; y++)
                 for (int x = 0; x < width; x++)
                 {
-                    float up = y / (float)(height - 1);
-                    var c = up > 0.3f && up < 0.55f ? brick : navy;
-                    if (Mathf.Abs(up - 0.6f) < 0.02f) c = gold;
+                    // Rows count up from the bottom: green, then the navy line, then the panels.
+                    Color c;
+                    if (y < 12) c = green * (0.85f + 0.15f * ((x * 7) % 5) / 4f);
+                    else if (y < 14) c = navy;
+                    else
+                    {
+                        int along = x % (width / 2);
+                        bool gap = along < 2 || along >= width / 2 - 2;
+                        bool edge = along < 3 || along >= width / 2 - 3 || y < 16 || y >= height - 2;
+                        c = gap ? ink * 2 : edge ? ink : cream;
+                    }
+                    c.a = 1;
                     pixels[y * width + x] = c;
                 }
             return Made("Masking", width, height, pixels);

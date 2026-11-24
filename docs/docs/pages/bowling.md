@@ -270,7 +270,7 @@ What's built (`LaneProjection`, `LaneSurface`, `LaneView`, `LaneArt`):
 - **Light by vertex colour**: the approach under the house lights, the middle of the lane dimmer, the deck bright under its hood.
 - **Ink drawn by the code**, to match the bold outlines of the other art: every lane's edges and its gutters', the foul line, the dots and arrows outlined, the ball and pins outlined, and your lane's 38 board joints, fading out down the lane so they don't shimmer where they crowd together.
 - **Above the pit**, the top eighth of the view, the masking panel that hangs over the far end of the lanes.
-- **Until the pictures are in**, the lane makes plain textures of its own (wood grain, a grey channel, a navy and brick-red panel), so the textured path is what's tuned on.
+- **Until the pictures are in**, the lane makes plain textures of its own (wood grain, a grey channel, cream panels over green), so the textured path is what's tuned on.
 
 The textures repeat, and ChatGPT's never quite meet at their edges, so each is saved in `Images/Bowling/` under its tag and brought in with `python3 tools/import_lane_textures.py`: it blends each picture into itself across the edges it repeats over, scales it down and writes `game/Assets/Resources/Bowling/<tag>.png`, which the game imports as a repeating texture. They're textures, not scenes, so each prompt asks for something flat, seen straight on, edge to edge.
 
@@ -294,8 +294,10 @@ A seamless texture that repeats from top to bottom, seen flat from directly abov
 
 `lane_masking` (texture, landscape 3:2)
 
+The front of the masking unit as it is in `lanes_lanes_night` (Mike, 2026-11-24): plain cream panels over a strip of tired green, a thin navy line between. Asked for as a band across the middle of a black picture; the import tool cuts the band out by itself, keeping its shape, and the game repeats it across the top of the view.
+
 ```
-A seamless texture that repeats from left to right, seen flat and straight on, filling the frame: the long painted masking panel that hangs over the far end of the lanes in an old bowling alley, a simple repeating pattern of stylised bowling pins and starbursts on deep navy, a band of brick red across the middle and a thin gold pinstripe above it, lit warmly from below by the deck lights and darker toward the top. Flat, no perspective, no frame, nothing at the left or right edge that wouldn't continue. Gritty graphic-novel art to match the attached plate: bold black ink outlines, cel shading, muted desaturated colours. No text, no lettering, no numbers, no logos.
+A seamless texture that repeats from left to right, seen flat and straight on with no perspective: the masking front that hangs over the far end of the lanes in an old bowling alley, drawn as a band across the middle of the picture from the left edge to the right edge, about a third of the picture's height. In the band, from the top: two long plain cream panels side by side, yellowed and scuffed, each framed in a black ink outline, with a dark gap between them and half of the same gap at the left and right edges so the strip repeats; then a thin navy stripe the whole width; then a strip of tired green panelling about two thirds as tall as the cream panels, with faint vertical grain and grime, the warm light of the lanes below catching its bottom edge. Above and below the band, plain flat black. Gritty graphic-novel art to match the attached plate: bold black ink outlines, cel shading, muted desaturated colours, worn and grimy. The panels are blank: no text, no lettering, no numbers, no logos, no pictures.
 ```
 
 #### The deck, from above

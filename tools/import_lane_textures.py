@@ -13,6 +13,9 @@ texture (ArtImporter).
     python3 tools/import_lane_textures.py --style alt   # ImagesAlt/Bowling/ -> Resources/Styles/alt/Bowling
     python3 tools/import_lane_textures.py --dry-run     # say what would be written
 
+The masking panel is drawn as a band across a black picture; this cuts the band out and
+keeps its shape.
+
 Grain blended across itself can show a faint double line in the middle; if one does,
 regenerate the picture rather than live with it.
 
@@ -29,13 +32,19 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # Tag -> (repeats across, repeats down, size written: width, height).
 # The gutter only repeats down the lane: across, it runs from the lane's edge to the kickback.
-# The masking panel only repeats across, keeping its own shape.
+# The masking panel only repeats across. It's drawn as a band on black: the band is cut out
+# first (BANDS) and written this wide, as tall as its own shape makes it (height None).
 TEXTURES = {
     "lane_boards": (True, True, (512, 512)),
     "lane_approach": (True, True, (512, 512)),
     "lane_gutter": (False, True, (256, 256)),
-    "lane_masking": (True, False, (768, 512)),
+    "lane_masking": (True, False, (1024, None)),
 }
+
+BANDS = {"lane_masking"}
+
+# A row darker than this on average (0 to 255) is the black round a band.
+BLACK = 24
 
 
 def blend(pixels, axis):
@@ -50,8 +59,21 @@ def blend(pixels, axis):
     return pixels * weight + shifted * (1 - weight)
 
 
-def tile(source, across, down, size):
+def cut_band(image):
+    """The rows between the black above and below: the band a picture was drawn as."""
+    rows = np.asarray(image.convert("L"), dtype=np.float64).mean(axis=1)
+    lit = np.nonzero(rows > BLACK)[0]
+    if len(lit) == 0:
+        raise SystemExit("found no band: the picture is all black")
+    return image.crop((0, int(lit[0]), image.width, int(lit[-1]) + 1))
+
+
+def tile(source, across, down, size, band=False):
     image = Image.open(source).convert("RGB")
+    if band:
+        image = cut_band(image)
+    if size[1] is None:
+        size = (size[0], max(1, round(size[0] * image.height / image.width)))
     target_aspect = size[0] / size[1]
     w, h = image.size
     # Crop the middle to the shape it's written at, so nothing's stretched.
@@ -95,7 +117,7 @@ def main():
         print(f"{'would write' if args.dry_run else 'wrote'}  {path.relative_to(ROOT)}  ->  {dest.relative_to(ROOT)}")
         if not args.dry_run:
             dest.parent.mkdir(parents=True, exist_ok=True)
-            tile(path, across, down, size).save(dest)
+            tile(path, across, down, size, tag in BANDS).save(dest)
     print(f"{found} of {len(TEXTURES)} textures {'to write' if args.dry_run else 'written'}.")
 
 

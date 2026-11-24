@@ -1,5 +1,9 @@
 ## 24 Nov 2026
 
+### Bowling: the masking panel matches the Lanes
+
+The panel over the far end of the lanes now matches the inside of Millstone Lanes as drawn (Mike): plain cream panels over a strip of tired green, a thin navy line between, in place of a navy panel with pins and starbursts. Its prompt on [Bowling](#bowling) asks for it as a band across a black picture, which the import tool cuts out, and the lane's stand-in panel looks the same until it's drawn.
+
 ### Bowling: the lane is built, not painted
 
 The bowling lane is now geometry with textures on it, not one painted plate (Mike). Stand, aim and Juan's advice are all counted in boards, and a painted lane could never put the boards, arrows and dots exactly where the sim has them; built from the lane's own measurements, it can't be wrong, and it lays out for portrait and landscape alike. Your lane has three more either side, dimmer the further out with their racks standing; the light is brighter on the approach and the deck than down the middle; and the code draws the ink to match the other art: the lanes' edges, the board joints, the foul line, the outlined dots, arrows, ball and pins. A painted masking panel hangs above the pit. The art is now four repeating textures (`lane_boards`, `lane_approach`, `lane_gutter`, `lane_masking`), with prompts on [Bowling](#bowling), and a tool that makes ChatGPT's textures meet at their edges and brings them in; until they're drawn the lane makes plain ones. `lanes_lane_pov` is dropped. Details proposed (Claude).

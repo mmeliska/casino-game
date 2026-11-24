@@ -87,7 +87,7 @@ namespace Starflare.Bowling
             float aspect = _texture != null && _texture.height > 0 ? _texture.width / (float)_texture.height : 1.5f;
             float tile = height * aspect;
             float u0 = (r.xMin - r.center.x) / tile + 0.5f, u1 = (r.xMax - r.center.x) / tile + 0.5f;
-            Color low = color * 0.9f, high = color * 0.5f;
+            Color low = color, high = color * 0.8f;
             low.a = high.a = color.a;
             int i = vh.currentVertCount;
             vh.AddVert(new Vector2(r.xMin, bottom), low, new Vector2(u0, 0));
