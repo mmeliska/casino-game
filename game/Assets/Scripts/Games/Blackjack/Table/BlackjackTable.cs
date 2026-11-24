@@ -51,7 +51,8 @@ namespace Starflare.Blackjack
         string _message = "";
 
         GameObject _root;
-        TMP_Text _bankrollText, _clockText, _dealerLabel, _messageText, _betText;
+        GameHeader _gameHeader;
+        TMP_Text _dealerLabel, _messageText, _betText;
         RectTransform _dealerCards, _playerHands;
         RectTransform _portraitColumn, _landscapeRow, _tableSide, _controlSide, _controlSpacer;
         GameObject _bettingControls, _actionRow, _insuranceRow;
@@ -202,9 +203,8 @@ namespace Starflare.Blackjack
         void Refresh()
         {
             var clock = _state.Clock;
-            _bankrollText.text = $"Bankroll {Money(_state.BankrollNow)}     Best {Money(_state.BestBankroll)}";
-            _clockText.text = $"{clock.DateLabel} · {clock.Part} {clock.TimeLabel}"
-                + (_sitting.ClockStopped ? " (late)" : "");
+            _gameHeader.Show(Money(_state.BankrollNow), $"Best {Money(_state.BestBankroll)}",
+                GameHeader.ClockLine(clock, _sitting.ClockStopped ? " (late)" : ""));
 
             ClearChildren(_dealerCards);
             ClearChildren(_playerHands);
@@ -314,9 +314,9 @@ namespace Starflare.Blackjack
             spacer.GetComponent<LayoutElement>().flexibleHeight = 1;
             _controlSpacer = (RectTransform)spacer.transform;
 
-            _bankrollText = MakeText(column, "", 46, TextAnchor.MiddleLeft, 64);
-            _clockText = MakeText(column, "", 36, TextAnchor.MiddleLeft, 52);
-            _clockText.color = new Color(1f, 1f, 1f, 0.75f);
+            _gameHeader = GameHeader.Make(column, () => Press(BlackjackControls.GetUp, GetUp));
+            _getUpButton = _gameHeader.Leave;
+            _controls[BlackjackControls.GetUp] = _getUpButton;
 
             _dealerLabel = MakeText(column, "", 40, TextAnchor.MiddleCenter, 60);
             _dealerCards = MakeCardRow(column);
@@ -360,7 +360,6 @@ namespace Starflare.Blackjack
                 .GetComponentInChildren<TMP_Text>();
             Control(insurance, BlackjackControls.NoInsurance, "No insurance", () => Act(_round.DeclineInsurance));
 
-            _getUpButton = Control(column, BlackjackControls.GetUp, "Leave game", GetUp);
 
             OnTurn(canvasGo.GetComponent<Canvas>(), Rearrange);
         }
@@ -376,14 +375,14 @@ namespace Starflare.Blackjack
             if (landscape)
             {
                 Arrange(_tableSide, _dealerLabel, _dealerCards, _messageText, _playerHands);
-                Arrange(_controlSide, _bankrollText, _clockText, _controlSpacer, _betText,
-                    _bettingControls.transform, _actionRow.transform, _insuranceRow.transform, _getUpButton);
+                Arrange(_controlSide, _gameHeader, _controlSpacer, _betText,
+                    _bettingControls.transform, _actionRow.transform, _insuranceRow.transform);
             }
             else
             {
-                Arrange(_portraitColumn, _bankrollText, _clockText, _dealerLabel, _dealerCards, _messageText,
+                Arrange(_portraitColumn, _gameHeader, _dealerLabel, _dealerCards, _messageText,
                     _playerHands, _betText, _bettingControls.transform, _actionRow.transform,
-                    _insuranceRow.transform, _getUpButton);
+                    _insuranceRow.transform);
             }
         }
 

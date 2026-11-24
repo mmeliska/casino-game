@@ -44,7 +44,8 @@ namespace Starflare.VideoPoker
         string _message = "";
 
         GameObject _root;
-        TMP_Text _bankrollText, _clockText, _statusText, _betText;
+        GameHeader _gameHeader;
+        TMP_Text _statusText, _betText;
         TMP_Text[,] _paytableCells;
         Image[] _paytableRows, _paytableColumns;
         Image[] _cardFaces;
@@ -177,9 +178,7 @@ namespace Starflare.VideoPoker
         void Refresh()
         {
             var clock = _state.Clock;
-            _bankrollText.text = $"Cash {Money(_state.BankrollNow)}" + (_state.Debts > 0 ? $"    Owed {Money(_state.Debts)}" : "");
-            _clockText.text = $"{clock.DateLabel} · {clock.Part} {clock.TimeLabel}"
-                + (_sitting.ClockStopped ? " (late)" : "");
+            _gameHeader.Show(_state.BankrollNow, _state.Debts, clock, _sitting.ClockStopped ? " (late)" : "");
 
             bool betting = Betting;
             int column = (_round?.Credits ?? _credits) - 1;
@@ -257,23 +256,8 @@ namespace Starflare.VideoPoker
             Stretch((RectTransform)safe.transform);
             var column = AddVertical(safe, 16, new RectOffset(36, 36, 28, 28));
 
-            var header = MakeRow(column, "Header");
-            header.GetComponent<HorizontalLayoutGroup>().childForceExpandWidth = false;
-            header.GetComponent<LayoutElement>().preferredHeight = 120;
-            var info = new GameObject("Info", typeof(RectTransform), typeof(LayoutElement));
-            info.transform.SetParent(header, false);
-            info.GetComponent<LayoutElement>().flexibleWidth = 1;
-            AddVertical(info, 4, new RectOffset());
-            _bankrollText = MakeText(info.transform, "", 46, TextAnchor.MiddleLeft, 60);
-            _bankrollText.fontStyle = FontStyles.Bold;
-            _clockText = MakeText(info.transform, "", 32, TextAnchor.MiddleLeft, 44);
-            _clockText.color = new Color(1, 1, 1, 0.8f);
-            _getUpButton = MachineButton(header, "Leave game", GetUp);
-            var getUp = _getUpButton.GetComponent<LayoutElement>();
-            getUp.preferredHeight = 100;
-            getUp.minWidth = getUp.preferredWidth = 340;
-            getUp.flexibleWidth = 0;
-            NoWrap(_getUpButton.GetComponentInChildren<TMP_Text>());
+            _gameHeader = GameHeader.Make(column, GetUp);
+            _getUpButton = _gameHeader.Leave;
 
             BuildCabinet(column);
 

@@ -60,7 +60,8 @@ namespace Starflare.Scratchers
         GameObject _root;
         RectTransform _column, _body, _stage, _side, _rack, _holder, _buttonsRow, _buttonsColumn;
         GridLayoutGroup _rackGrid;
-        TMP_Text _title, _bankrollText, _clockText, _statusText;
+        GameHeader _gameHeader;
+        TMP_Text _title, _statusText;
         Button _getUpButton, _revealButton, _anotherButton, _rackButton;
         readonly List<Tile> _tiles = new List<Tile>();
         TicketView _ticket;
@@ -232,9 +233,7 @@ namespace Starflare.Scratchers
         void RefreshMeters()
         {
             int notYetShown = _ticket != null && !Finished ? Card.Prize : 0;
-            _bankrollText.text = $"Cash {Money(_state.BankrollNow - notYetShown)}" + (_state.Debts > 0 ? $"    Owed {Money(_state.Debts)}" : "");
-            var clock = _state.Clock;
-            _clockText.text = $"{clock.DateLabel} · {clock.Part} {clock.TimeLabel}" + (_sitting.ClockStopped ? " (late)" : "");
+            _gameHeader.Show(_state.BankrollNow - notYetShown, _state.Debts, _state.Clock, _sitting.ClockStopped ? " (late)" : "");
         }
 
         /// <summary>The card at the largest size that fits the stage, centred.</summary>
@@ -422,24 +421,8 @@ namespace Starflare.Scratchers
 
         void BuildHeader(Transform column)
         {
-            var header = MakeRow(column, "Header");
-            header.GetComponent<HorizontalLayoutGroup>().childForceExpandWidth = false;
-            header.GetComponent<LayoutElement>().preferredHeight = 120;
-            var info = new GameObject("Info", typeof(RectTransform), typeof(LayoutElement));
-            info.transform.SetParent(header, false);
-            info.GetComponent<LayoutElement>().flexibleWidth = 1;
-            AddVertical(info, 4, new RectOffset());
-            _bankrollText = MakeText(info.transform, "", 46, TextAnchor.MiddleLeft, 60);
-            _bankrollText.name = "Cash";
-            _bankrollText.fontStyle = FontStyles.Bold;
-            _clockText = MakeText(info.transform, "", 32, TextAnchor.MiddleLeft, 44);
-            _clockText.color = new Color(1, 1, 1, 0.8f);
-            _getUpButton = MakeButton(header, "Leave game", GetUp);
-            var getUp = _getUpButton.GetComponent<LayoutElement>();
-            getUp.preferredHeight = 100;
-            getUp.minWidth = getUp.preferredWidth = 340;
-            getUp.flexibleWidth = 0;
-            NoWrap(_getUpButton.GetComponentInChildren<TMP_Text>());
+            _gameHeader = GameHeader.Make(column, GetUp);
+            _getUpButton = _gameHeader.Leave;
         }
 
         /// <summary>The roll, one tile a ticket in its own colours: its name, its price and its top prize.</summary>

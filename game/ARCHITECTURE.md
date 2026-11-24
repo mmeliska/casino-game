@@ -21,7 +21,7 @@ handed to it through `Init` or a constructor.
 | Folder | Assembly | Engine? | What's in it |
 | --- | --- | --- | --- |
 | `Core/` | `Starflare.Core` | no | The game state every module shares: `PlayerState`, `GameClock`, `Sitting`, `ClockPace`, `BreakPoint`, the hidden scales |
-| `Ui/` | `Starflare.Ui` | yes | `UiKit` and the shared screen pieces (`Hud`, `ScreenFader`, `SafeAreaFitter`, `OrientationLayout`, `CoverFit`, `LookAround`, `Reveal`) and `ICoachable` |
+| `Ui/` | `Starflare.Ui` | yes | `UiKit` and the shared screen pieces (`Hud`, `GameHeader`, `ScreenFader`, `SafeAreaFitter`, `OrientationLayout`, `CoverFit`, `LookAround`, `Reveal`) and `ICoachable` |
 | `Games/Shared/<Kit>/` | `Starflare.<Kit>` | no | Kits used across many games, one assembly each. Today `Cards` (`Card`, `Shoe`); craps will add `Dice` |
 | `Games/<Game>/Rules/` | `Starflare.<Game>.Rules` | no | A game's rules: its round, its rule set, its hands |
 | `Games/<Game>/Table/` | `Starflare.<Game>` | yes | The MonoBehaviour you sit at (`BlackjackTable`, `VideoPokerMachine`) |
@@ -202,7 +202,9 @@ The rules:
    - reports each settled round with `PlayerState.ApplyRoundResult` (story minutes from its
      `Sitting`);
    - raises `BreakPointReached` when you get up, and hides itself;
-   - builds its own UI with `UiKit`, portrait and landscape;
+   - builds its own UI with `UiKit`, portrait and landscape, topped by the standard
+     `GameHeader` (cash and owed, the date and time, Leave game), which it fills in on each
+     refresh and whose Leave button it registers with its coach like its other controls;
    - implements `ICoachable` if a teacher will coach it.
 4. Add `Starflare.<Game>` and `Starflare.<Game>.Rules` to `Starflare.Game.asmdef` (and its
    test assemblies if they use them), and seat the player at it from a place.

@@ -45,7 +45,7 @@ namespace Starflare.Tests
             Assert.That(machine.Spinning, Is.True);
             Assert.That(state.RoundsPlayed, Is.EqualTo(1), "settled at the pull, so quitting mid-spin can't take it back");
             Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + machine.LastSpin.Net));
-            Assert.That(Text(machine, "Cash"), Is.EqualTo($"Cash ${PlayerState.StartingBankroll - 1}"), "the meter shows the bet gone, the win not yet in");
+            Assert.That(Text(machine, "Cash"), Is.EqualTo($"${PlayerState.StartingBankroll - 1}"), "the meter shows the bet gone, the win not yet in");
             Assert.That(machine.Lights, Is.EqualTo(LightPattern.Spinning));
             Assert.That(Find(machine, "Spin Button").GetComponentInChildren<TMP_Text>().text, Is.EqualTo("Stop"));
             Assert.That(Find(machine, "Bet one Button").IsInteractable(), Is.False);
@@ -72,7 +72,7 @@ namespace Starflare.Tests
 
             waited = 0;
             while (!Text(machine, "Cash").EndsWith($"${PlayerState.StartingBankroll + 3}") && waited < 3) { waited += Time.unscaledDeltaTime; yield return null; }
-            Assert.That(Text(machine, "Cash"), Is.EqualTo($"Cash ${PlayerState.StartingBankroll + 3}"), "the win counted in");
+            Assert.That(Text(machine, "Cash"), Is.EqualTo($"${PlayerState.StartingBankroll + 3}"), "the win counted in");
             Assert.That(Text(machine, "Status"), Does.Contain("A A A").And.Contain("Win $6"));
         }
 

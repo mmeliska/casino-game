@@ -102,7 +102,8 @@ namespace Starflare.Craps
         CoverFit _groundFit;
         Image _ring;
         RectTransform _diceRect;
-        TMP_Text _bankrollText, _clockText, _messageText, _pointText, _rollText, _totalText;
+        GameHeader _gameHeader;
+        TMP_Text _messageText, _pointText, _rollText, _totalText;
         Image _pointBadge, _pointEdge;
         RectTransform _portraitColumn, _landscapeRow, _circleSide, _controlSide, _header, _seats, _circle, _resultBar, _bets, _actions;
         Button _throwButton, _callButton, _passButton, _getUpButton;
@@ -498,10 +499,9 @@ namespace Starflare.Craps
         {
             var game = Current;
             var clock = _state.Clock;
-            _bankrollText.text = Practicing ? $"Practice · {Money(_practiceStake)} of Juan's, pretend"
-                : $"Cash {Money(_state.BankrollNow)}     Down {Money(game.Staked)}";
-            _bankrollText.color = Practicing ? Gold : Color.white;
-            _clockText.text = $"{clock.DateLabel} · {clock.Part} {clock.TimeLabel}" + (_sitting.ClockStopped ? " (late)" : "");
+            string clockLine = GameHeader.ClockLine(clock, _sitting.ClockStopped ? " (late)" : "");
+            if (Practicing) _gameHeader.Show("Practice", $"{Money(_practiceStake)} of Juan's, pretend", clockLine, Gold);
+            else _gameHeader.Show(Money(_state.BankrollNow), game.Staked > 0 ? $"Down {Money(game.Staked)}" : "", clockLine);
 
             // Between throws, the message says what the circle's waiting on; after one, what it did.
             bool broke = !Practicing && game.Staked == 0 && _state.BankrollNow < _rules.MinBet;
@@ -837,24 +837,14 @@ namespace Starflare.Craps
 
         void BuildHeader()
         {
-            _header = MakeRow(_portraitColumn, "Header");
-            _header.GetComponent<LayoutElement>().preferredHeight = 90;
-            var info = new GameObject("Info", typeof(RectTransform), typeof(LayoutElement));
-            info.transform.SetParent(_header, false);
-            info.GetComponent<LayoutElement>().flexibleWidth = 3;
-            AddVertical(info, 2, new RectOffset());
-            _bankrollText = MakeText(info.transform, "", 38, TextAnchor.MiddleLeft, 50);
-            _bankrollText.fontStyle = FontStyles.Bold;
-            Shadowed(_bankrollText);
-            _clockText = MakeText(info.transform, "", 30, TextAnchor.MiddleLeft, 38);
-            _clockText.color = new Color(1, 1, 1, 0.8f);
-            Shadowed(_clockText);
-            _getUpButton = Control(_header, CrapsControls.GetUp, "Leave game", GetUp);
-            Outline(_getUpButton);
-            var getUp = _getUpButton.GetComponent<LayoutElement>();
-            getUp.preferredHeight = 88;
-            getUp.flexibleWidth = 0;
-            getUp.preferredWidth = getUp.minWidth = 220;
+            _gameHeader = GameHeader.Make(_portraitColumn, () => Press(CrapsControls.GetUp, GetUp));
+            _getUpButton = _gameHeader.Leave;
+            _getUpButton.gameObject.AddComponent<CanvasGroup>();
+            var colors = _getUpButton.colors;
+            colors.disabledColor = Color.white;
+            _getUpButton.colors = colors;
+            _controls[CrapsControls.GetUp] = _getUpButton;
+            _header = _gameHeader.Rect;
         }
 
         /// <summary>

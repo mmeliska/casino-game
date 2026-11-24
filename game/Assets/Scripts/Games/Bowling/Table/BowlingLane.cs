@@ -132,7 +132,8 @@ namespace Starflare.Bowling
         ApproachBall _ball;
         Meter _aimMeter, _hookMeter, _speedMeter;
         ScoreSheetView _yourSheet, _theirSheet;
-        TMP_Text _bankrollText, _clockText, _messageText, _teamText, _offerText, _standText, _bowlText;
+        GameHeader _gameHeader;
+        TMP_Text _messageText, _teamText, _offerText, _standText, _bowlText;
 
         // ---- Setting up ----
 
@@ -606,8 +607,7 @@ namespace Starflare.Bowling
         void Refresh()
         {
             if (_state == null) return;
-            _bankrollText.text = Money(_state.BankrollNow);
-            _clockText.text = _state.Clock.TimeLabel;
+            _gameHeader.Show(_state.BankrollNow, _state.Debts, _state.Clock);
             _messageText.text = _message;
 
             bool throwing = _step == Step.Stand || _step == Step.Hook || _step == Step.Speed;
@@ -785,26 +785,9 @@ namespace Starflare.Bowling
 
         void BuildHeader()
         {
-            _header = MakeRow(_portraitColumn, "Header");
-            Panel(_header);
-            _header.GetComponent<LayoutElement>().preferredHeight = 88;
-            var info = new GameObject("Info", typeof(RectTransform), typeof(LayoutElement));
-            info.transform.SetParent(_header, false);
-            info.GetComponent<LayoutElement>().flexibleWidth = 3;
-            AddVertical(info, 2, new RectOffset());
-            _bankrollText = MakeText(info.transform, "", 38, TextAnchor.MiddleLeft, 48);
-            _bankrollText.name = "Bankroll";
-            _bankrollText.fontStyle = FontStyles.Bold;
-            Shadowed(_bankrollText);
-            _clockText = MakeText(info.transform, "", 30, TextAnchor.MiddleLeft, 36);
-            _clockText.color = new Color(1, 1, 1, 0.8f);
-            Shadowed(_clockText);
-            var getUp = Control(_header, BowlingControls.GetUp, "Leave game", GetUp);
-            Outline(getUp);
-            var layout = getUp.GetComponent<LayoutElement>();
-            layout.preferredHeight = 84;
-            layout.flexibleWidth = 0;
-            layout.preferredWidth = layout.minWidth = 220;
+            _gameHeader = GameHeader.Make(_portraitColumn, null);
+            Register(BowlingControls.GetUp, _gameHeader.Leave, GetUp);
+            _header = _gameHeader.Rect;
         }
 
         /// <summary>

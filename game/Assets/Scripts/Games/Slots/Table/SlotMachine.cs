@@ -68,7 +68,8 @@ namespace Starflare.Slots
         float _patternTime;
 
         GameObject _root;
-        TMP_Text _bankrollText, _clockText, _statusText, _betText;
+        GameHeader _gameHeader;
+        TMP_Text _statusText, _betText;
         TMP_Text[,] _paytableCells;
         Image[] _paytableRows, _paytableColumns;
         Button _betOneButton, _betMaxButton, _spinButton, _getUpButton;
@@ -330,9 +331,7 @@ namespace Starflare.Slots
         {
             int notYetShown = _spin == null ? 0 : _spin.Payout - (Spinning ? 0 : ShownWin);
             int cash = _state.BankrollNow - notYetShown;
-            _bankrollText.text = $"Cash {Money(cash)}" + (_state.Debts > 0 ? $"    Owed {Money(_state.Debts)}" : "");
-            var clock = _state.Clock;
-            _clockText.text = $"{clock.DateLabel} · {clock.Part} {clock.TimeLabel}" + (_sitting.ClockStopped ? " (late)" : "");
+            _gameHeader.Show(cash, _state.Debts, _state.Clock, _sitting.ClockStopped ? " (late)" : "");
             string lines = Rules.Lines.Count > 1 ? $" on {Rules.Lines.Count} lines" : "";
             _betText.text = $"Bet {Money(Rules.BetFor(_credits))}{lines}";
         }
@@ -409,24 +408,8 @@ namespace Starflare.Slots
 
         void BuildHeader(Transform column)
         {
-            var header = MakeRow(column, "Header");
-            header.GetComponent<HorizontalLayoutGroup>().childForceExpandWidth = false;
-            header.GetComponent<LayoutElement>().preferredHeight = 120;
-            var info = new GameObject("Info", typeof(RectTransform), typeof(LayoutElement));
-            info.transform.SetParent(header, false);
-            info.GetComponent<LayoutElement>().flexibleWidth = 1;
-            AddVertical(info, 4, new RectOffset());
-            _bankrollText = MakeText(info.transform, "", 46, TextAnchor.MiddleLeft, 60);
-            _bankrollText.name = "Cash";
-            _bankrollText.fontStyle = FontStyles.Bold;
-            _clockText = MakeText(info.transform, "", 32, TextAnchor.MiddleLeft, 44);
-            _clockText.color = new Color(1, 1, 1, 0.8f);
-            _getUpButton = MachineButton(header, "Leave game", GetUp, Look.Button, Look.ButtonText);
-            var getUp = _getUpButton.GetComponent<LayoutElement>();
-            getUp.preferredHeight = 100;
-            getUp.minWidth = getUp.preferredWidth = 340;
-            getUp.flexibleWidth = 0;
-            NoWrap(_getUpButton.GetComponentInChildren<TMP_Text>());
+            _gameHeader = GameHeader.Make(column, GetUp);
+            _getUpButton = _gameHeader.Leave;
         }
 
         /// <summary>

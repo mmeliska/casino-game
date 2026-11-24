@@ -50,7 +50,7 @@ namespace Starflare.Tests
             Assert.That(counter.Card, Is.Not.Null);
             Assert.That(state.RoundsPlayed, Is.EqualTo(1), "settled at the counter, so walking off can't take it back");
             Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + counter.Card.Net));
-            Assert.That(Text(counter, "Cash"), Is.EqualTo($"Cash ${PlayerState.StartingBankroll - 1}"), "the price gone, the prize not yet showing");
+            Assert.That(Text(counter, "Cash"), Is.EqualTo($"${PlayerState.StartingBankroll - 1}"), "the price gone, the prize not yet showing");
             Assert.That(counter.Ticket.Coats.Count, Is.EqualTo(6));
 
             Click(counter, "Leave game Button");
@@ -58,7 +58,7 @@ namespace Starflare.Tests
 
             Click(counter, "Scratch it all Button");
             Assert.That(counter.Finished, Is.True);
-            Assert.That(Text(counter, "Cash"), Is.EqualTo($"Cash ${state.BankrollNow}"));
+            Assert.That(Text(counter, "Cash"), Is.EqualTo($"${state.BankrollNow}"));
             Assert.That(Text(counter, "Status"), Does.Contain(counter.Card.IsWinner ? "Winner" : "Not a winner"));
             Assert.That(Find(counter, "Another Button").gameObject.activeInHierarchy, Is.True);
 
