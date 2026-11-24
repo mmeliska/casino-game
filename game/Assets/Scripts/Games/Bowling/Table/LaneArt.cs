@@ -35,6 +35,15 @@ namespace Starflare.Bowling
         /// <summary>A pin upright (the lane), on its side (knocked down, on the deck) and from above (standing, on the deck).</summary>
         public Sprite PinUp, PinDown, PinTop;
 
+        /// <summary>
+        /// Each ball's surface, unwrapped like a globe (twice as wide as tall), for the rolling ball
+        /// (<see cref="SpinningBall"/>); the holes are stamped on at <see cref="BallSpin.HolePlaces"/>.
+        /// </summary>
+        public Texture2D SurfaceHouse, SurfaceUrethane, SurfaceReactive;
+
+        public Texture2D SurfaceFor(BowlingBall ball) =>
+            ball == BowlingBall.Urethane ? SurfaceUrethane : ball == BowlingBall.Reactive ? SurfaceReactive : SurfaceHouse;
+
         /// <summary>The picture of a ball, or null while it isn't in.</summary>
         public Sprite BallSprite(BowlingBall ball) =>
             ball == BowlingBall.Urethane ? BallUrethane : ball == BowlingBall.Reactive ? BallReactive : BallHouse;
@@ -56,12 +65,19 @@ namespace Starflare.Bowling
                 Boards = art?.Boards, Approach = art?.Approach, Gutter = art?.Gutter, Masking = art?.Masking,
                 Deck = art?.Deck, BallHouse = art?.BallHouse, BallUrethane = art?.BallUrethane, BallReactive = art?.BallReactive,
                 PinUp = art?.PinUp, PinDown = art?.PinDown, PinTop = art?.PinTop,
+                SurfaceHouse = art?.SurfaceHouse, SurfaceUrethane = art?.SurfaceUrethane, SurfaceReactive = art?.SurfaceReactive,
             };
             var list = new System.Collections.Generic.List<Texture2D>();
             if (result.Boards == null) list.Add(result.Boards = Grain("Boards", 64, 256, new Color(0.83f, 0.66f, 0.43f), 11));
             if (result.Approach == null) list.Add(result.Approach = Grain("Approach", 128, 128, new Color(0.62f, 0.44f, 0.26f), 23));
             if (result.Gutter == null) list.Add(result.Gutter = Channel());
             if (result.Masking == null) list.Add(result.Masking = Panel());
+            if (result.SurfaceHouse == null)
+                list.Add(result.SurfaceHouse = Surface("House", new Color(0.72f, 0.12f, 0.12f), new Color(0.42f, 0.05f, 0.06f), 1f));
+            if (result.SurfaceUrethane == null)
+                list.Add(result.SurfaceUrethane = Surface("Urethane", new Color(0.13f, 0.13f, 0.15f), new Color(0.3f, 0.3f, 0.33f), 0.15f));
+            if (result.SurfaceReactive == null)
+                list.Add(result.SurfaceReactive = Surface("Reactive", new Color(0.72f, 0.62f, 0.86f), new Color(0.93f, 0.9f, 0.97f), 1f));
             made = list.ToArray();
             return result;
         }
@@ -129,6 +145,38 @@ namespace Starflare.Bowling
                 }
             return Made("Masking", width, height, pixels);
         }
+
+        /// <summary>
+        /// A ball's surface, unwrapped: a swirl of two colours (or, swirl near 0, a plain ball with
+        /// scuffs), and the finger holes where the ball's own x is.
+        /// </summary>
+        static Texture2D Surface(string name, Color body, Color swirl, float swirliness)
+        {
+            const int width = 256, height = 128;
+            var rng = new System.Random(name.Length * 7919);
+            var pixels = new Color[width * height];
+            for (int y = 0; y < height; y++)
+                for (int x = 0; x < width; x++)
+                {
+                    double lon = ((x + 0.5) / width - 0.5) * Math.PI * 2, lat = ((y + 0.5) / height - 0.5) * Math.PI;
+                    double wave = Math.Sin(3 * lon + 3.5 * Math.Sin(2 * lat + lon) + 2 * lat);
+                    float mix = Mathf.Clamp01((float)(wave * 0.5 + 0.5) * swirliness);
+                    var c = Color.Lerp(body, swirl, mix * mix);
+                    if (swirliness < 0.5f && rng.NextDouble() < 0.01) c = swirl;
+                    var at = Direction(lat, lon);
+                    foreach (var (hLat, hLon) in BallSpin.HolePlaces)
+                    {
+                        var hole = Direction(hLat, hLon);
+                        double apart = Math.Acos(Math.Max(-1, Math.Min(1, at.X * hole.X + at.Y * hole.Y + at.Z * hole.Z)));
+                        if (apart < BallSpin.HoleRadius) c = apart < BallSpin.HoleRadius * 0.75 ? new Color(0.03f, 0.02f, 0.02f) : Color.Lerp(c, Color.black, 0.6f);
+                    }
+                    c.a = 1;
+                    pixels[y * width + x] = c;
+                }
+            return Made($"{name} Surface", width, height, pixels);
+        }
+
+        static Vec3 Direction(double lat, double lon) => new Vec3(Math.Cos(lat) * Math.Cos(lon), Math.Cos(lat) * Math.Sin(lon), Math.Sin(lat));
 
         static Texture2D Made(string name, int width, int height, Color[] pixels)
         {

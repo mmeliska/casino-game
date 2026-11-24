@@ -42,10 +42,12 @@ namespace Starflare.EditorTools
 
         /// <summary>
         /// The bowling lane's textures (Resources/Bowling/lane_*.png, and each style's copy) tile
-        /// down the lane in perspective, so they repeat and keep their mipmaps instead of being sprites.
+        /// down the lane in perspective, and the balls' surfaces (*_surface.png) wrap round the
+        /// rolling ball, so they repeat and keep their mipmaps instead of being sprites.
         /// </summary>
         static bool IsLaneTexture(string path) =>
-            path.StartsWith("Assets/Resources/") && path.Contains("/Bowling/lane_");
+            path.StartsWith("Assets/Resources/") && path.Contains("/Bowling/")
+            && (path.Contains("/Bowling/lane_") || path.EndsWith("_surface.png"));
 
         static void LaneTexture(TextureImporter importer)
         {

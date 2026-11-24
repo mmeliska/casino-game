@@ -124,7 +124,7 @@ namespace Starflare.Game
         /// <summary>
         /// The art Juan's lanes are drawn with (Bowling, "Art"): the textures for the maple, the
         /// approach, the gutter and the masking panel, and the pictures of the deck, the balls
-        /// and the pins. Any not in yet, the lane stands in for itself.
+        /// and the pins, and each ball's surface for the rolling ball. Any not in yet, the lane stands in for itself.
         /// </summary>
         static LaneArt LaneTextures() => new LaneArt
         {
@@ -139,6 +139,9 @@ namespace Starflare.Game
             PinUp = Art.BowlingSprite("pin_up"),
             PinDown = Art.BowlingSprite("pin_down"),
             PinTop = Art.BowlingSprite("pin_top"),
+            SurfaceHouse = Art.Texture("ball_house_surface"),
+            SurfaceUrethane = Art.Texture("ball_urethane_surface"),
+            SurfaceReactive = Art.Texture("ball_reactive_surface"),
         };
 
         void ShowInside()

@@ -1,5 +1,9 @@
 ## 24 Nov 2026
 
+### Bowling: the ball spins
+
+The rolling ball now spins the way the sim says it does (Mike): it's drawn as a sphere with its surface wrapped round it like a globe, turned by the spin worked out for every moment of the roll. A skidding ball turns slower than it travels, a rolling one with its speed, a hook sweeps the finger holes round on a tilted axis, and it carries on spinning through the pins on the close-up. Lit in flat bands with an ink ring, to sit with the rest of the art. Each ball needs its surface drawn unrolled: three prompts on [Bowling](#bowling), and the import tool stamps the finger holes on; until then the game makes plain swirled stand-ins. The ball sitting on the approach stays the sprite.
+
 ### Bowling: a shorter aim arrow, quicker meters
 
 The aim's arrow is a third as long (Mike), with a gold dot still marking where it crosses the lane's arrows, and all three sweeps run quicker: the aim at 26 boards a second (was 16), the hook dial at 160 units a second across its -100 to 100 (was 70, when the dial ran only one way), the speed bar at 110 per cent a second (was 70).

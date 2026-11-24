@@ -69,15 +69,17 @@ namespace Starflare.Bowling
                 var slip = v + Vec3.Cross(w, lever).Flat;
                 double slipSize = slip.Length;
                 var lanePoint = new Vec2(p.X * mirror, p.Y);
+                // Spin is a turn, so mirroring the lane flips its y and z, not its x.
+                var laneSpin = new Vec3(w.X, w.Y * mirror, w.Z * mirror);
 
                 if (step % SampleEvery == 0)
-                    samples.Add(new BallSample(time, lanePoint, new Vec2(v.X * mirror, v.Y), rolling ? 0 : slipSize, curvature));
+                    samples.Add(new BallSample(time, lanePoint, new Vec2(v.X * mirror, v.Y), rolling ? 0 : slipSize, curvature, laneSpin));
 
                 if (p.Y >= handoff || !LaneGeometry.OnLane(p.X) || time >= MaxSeconds || v.Y <= 0)
                 {
                     gutter = !LaneGeometry.OnLane(p.X);
                     if (step % SampleEvery != 0)
-                        samples.Add(new BallSample(time, lanePoint, new Vec2(v.X * mirror, v.Y), rolling ? 0 : slipSize, curvature));
+                        samples.Add(new BallSample(time, lanePoint, new Vec2(v.X * mirror, v.Y), rolling ? 0 : slipSize, curvature, laneSpin));
                     break;
                 }
 

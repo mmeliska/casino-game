@@ -17,8 +17,15 @@ namespace Starflare.Bowling
         /// <summary>1/metres: how sharply the path bends here.</summary>
         public readonly double Curvature;
 
-        public BallSample(double time, Vec2 position, Vec2 velocity, double slip, double curvature)
+        /// <summary>
+        /// The ball's spin, radians a second about each axis of the lane's frame (x across toward
+        /// board 1, y down the lane, z up): what turns the ball on screen as it rolls.
+        /// </summary>
+        public readonly Vec3 Spin;
+
+        public BallSample(double time, Vec2 position, Vec2 velocity, double slip, double curvature, Vec3 spin = default)
         {
+            Spin = spin;
             Time = time;
             Position = position;
             Velocity = velocity;

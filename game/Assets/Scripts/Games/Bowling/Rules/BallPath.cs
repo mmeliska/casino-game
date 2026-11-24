@@ -130,7 +130,7 @@ namespace Starflare.Bowling
         {
             var samples = new List<BallSample>(Samples.Count);
             foreach (var s in Samples)
-                samples.Add(new BallSample(s.Time, new Vec2(-s.Position.X, s.Position.Y), new Vec2(-s.Velocity.X, s.Velocity.Y), s.Slip, s.Curvature));
+                samples.Add(new BallSample(s.Time, new Vec2(-s.Position.X, s.Position.Y), new Vec2(-s.Velocity.X, s.Velocity.Y), s.Slip, s.Curvature, new Vec3(s.Spin.X, -s.Spin.Y, -s.Spin.Z)));
             return new BallPath(Throw, Hand == Hand.Right ? Hand.Left : Hand.Right, Ball, samples, Gutter, RolledFt);
         }
     }

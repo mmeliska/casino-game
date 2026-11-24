@@ -30,6 +30,7 @@ namespace Starflare.Bowling
 
         Sprite _picture;
         SpriteQuads _down, _standing, _ball;
+        SpinningBall _spinning;
         RectMask2D _clip;
 
         public override Texture mainTexture => _picture != null ? _picture.texture : s_WhiteTexture;
@@ -43,6 +44,12 @@ namespace Starflare.Bowling
             _standing = SpriteQuads.Make(transform, "Standing Pins", DrawStanding);
             _standing.Sprite = pinTop;
             _ball = SpriteQuads.Make(transform, "Ball", DrawBall);
+            _spinning = SpinningBall.Make(transform, "Spinning Ball", 90, r =>
+            {
+                if (Frame == null || Before == null || Frame.Value.BallGone) return (false, default, 0, BallTurn);
+                var (across, _) = Size(r, 0.216);
+                return (true, Map(r, Frame.Value.Ball), across / 2, BallTurn);
+            });
             // Pins knocked into the gutters stay inside the picture, not over the lane round it.
             if (picture != null) _clip = gameObject.AddComponent<RectMask2D>();
             ClipToPicture();
@@ -50,10 +57,13 @@ namespace Starflare.Bowling
             SetVerticesDirty();
         }
 
-        /// <summary>The ball's picture for this delivery; null draws it in its colour.</summary>
-        public Sprite BallSprite
+        /// <summary>How the ball is turned at the frame shown (<see cref="BallSpin"/>).</summary>
+        public Turn BallTurn = Turn.None;
+
+        /// <summary>The ball's surface for this delivery (<see cref="LaneArt.SurfaceFor"/>).</summary>
+        public Texture BallSurface
         {
-            set { if (_ball != null) _ball.Sprite = value; }
+            set { if (_spinning != null) _spinning.Surface = value; }
         }
 
         protected override void OnPopulateMesh(VertexHelper vh)
@@ -126,17 +136,14 @@ namespace Starflare.Bowling
             }
         }
 
+        /// <summary>The ball's ink ring (and its colour, if there's no surface to spin); the sphere goes over it.</summary>
         void DrawBall(VertexHelper vh, Rect r, SpriteQuads layer)
         {
             if (Frame == null || Before == null || Frame.Value.BallGone) return;
             var at = Map(r, Frame.Value.Ball);
-            var (across, down) = Size(r, 0.216);
-            if (layer.Sprite != null)
-            {
-                layer.Turned(vh, at, across * 1.05f, across * 1.05f * layer.Aspect, 0, Color.white);
-                return;
-            }
-            Shapes.Circle(vh, at, across / 2, BallColour, down / across, 24);
+            var (across, _) = Size(r, 0.216);
+            Shapes.Circle(vh, at, across / 2 + Mathf.Max(1.5f, across * 0.06f), new Color(0.04f, 0.03f, 0.03f, 0.95f), 1, 28);
+            Shapes.Circle(vh, at, across / 2, BallColour, 1, 28);
         }
 
         /// <summary>The picture, as large as fits the rect without stretching, centred.</summary>
@@ -204,6 +211,7 @@ namespace Starflare.Bowling
             if (_down != null) _down.Redraw();
             if (_standing != null) _standing.Redraw();
             if (_ball != null) _ball.Redraw();
+            if (_spinning != null) _spinning.Redraw();
         }
     }
 }

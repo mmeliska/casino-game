@@ -217,6 +217,7 @@ Following `ARCHITECTURE.md`, "Adding a game": namespace `Starflare.Bowling`.
 | `Meter.cs` | A sweep you stop with a tap: shared by aim, hook and speed |
 | `PathTrace.cs` | The overhead strip after each throw, upright down the lane's right side |
 | `HookGauge.cs` | The hook's dial |
+| `SpinningBall.cs` | The rolling ball as a sphere with its surface wrapped round, turned by `BallSpin` (Rules: the turn along the roll from the sim's recorded spin, `Turn` its rotation) |
 | `DeckView.cs` | The close-up of the deck for the hit, from above (built: the sim is flat, so the close-up shows it as it is) |
 | `LaneSetup.cs` | What the venue hands over at each sit-down (built) |
 | `ScoreSheetView.cs` | The ten boxes, portrait strip and landscape column |
@@ -316,6 +317,28 @@ Drawn (Mike, 2026-11-24) as `Images/Bowling/lanes_pin_deck.png`; the import tool
 
 ```
 Close-up insert panel, looking straight down from above onto the empty pin deck at the end of a bowling lane: polished pale wood with the ten pin spots marked as small dark dots in a triangle, point toward the bottom of the frame, the gutters down both sides, the dark steel kickback walls beyond them, and the black pit across the top edge. Flat top-down view, no perspective, the deck filling the square. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, No people, no pins, no ball, no text, no lettering.
+```
+
+#### The balls' surfaces
+
+The rolling ball isn't a picture: it's a sphere with its surface wrapped round it, the way a globe's is, turned by the spin the sim works out (Mike, 2026-11-24). A skidding ball turns slower than it travels, a rolling one with its speed, and a hook sweeps the finger holes round. Each ball needs its surface unrolled flat, twice as wide as it is tall. Make each in ChatGPT at landscape 3:2 with the sprite sheet (`bowling_sprites`) attached so the colours match, and save it in `Images/Bowling/` under its tag; `tools/import_bowling.py` crops it to 2:1, blends its left and right edges so it wraps round, and stamps the three finger holes on where the game expects them (the middle of the picture, the thumb below and two fingers above), so the prompts leave the holes out. Until they're drawn the game makes plain swirled stand-ins. The ball sitting on the approach stays the sprite.
+
+`ball_house_surface` (texture, landscape 3:2)
+
+```
+A seamless texture that repeats from left to right, seen flat and straight on and filling the whole frame edge to edge: the unwrapped surface of an old house bowling ball: glossy red plastic with darker red marbled swirls running across it, a few faint scuffs. Even lighting, no highlights, no shadows, no perspective; not a sphere, a flat surface like an unrolled map. Nothing at the left or right edge that wouldn't carry on round. Gritty graphic-novel texture art to match the attached sheet: cel shading, muted desaturated colours, a few fine dark ink strokes. No finger holes, no logos, no text, no numbers.
+```
+
+`ball_urethane_surface` (texture, landscape 3:2)
+
+```
+A seamless texture that repeats from left to right, seen flat and straight on and filling the whole frame edge to edge: the unwrapped surface of a used urethane bowling ball: matte black with grey scuffs, fine scratches and a few chalky lane marks. Even lighting, no highlights, no shadows, no perspective; not a sphere, a flat surface like an unrolled map. Nothing at the left or right edge that wouldn't carry on round. Gritty graphic-novel texture art to match the attached sheet: cel shading, muted desaturated colours, a few fine dark ink strokes. No finger holes, no logos, no text, no numbers.
+```
+
+`ball_reactive_surface` (texture, landscape 3:2)
+
+```
+A seamless texture that repeats from left to right, seen flat and straight on and filling the whole frame edge to edge: the unwrapped surface of a reactive resin bowling ball: pearly pale lavender with soft white and pale gold swirls and a faint shimmer. Even lighting, no highlights, no shadows, no perspective; not a sphere, a flat surface like an unrolled map. Nothing at the left or right edge that wouldn't carry on round. Gritty graphic-novel texture art to match the attached sheet: cel shading, muted desaturated colours, a few fine dark ink strokes. No finger holes, no logos, no text, no numbers.
 ```
 
 #### The balls, the pins and the shoes

@@ -114,6 +114,9 @@ namespace Starflare.Bowling
         double _aim, _hook, _speed;
 
         Delivery _delivery;
+
+        /// <summary>How the ball in play is turned along its roll, for the drawn ball.</summary>
+        BallSpin _spin;
         float _animTime, _playSpeed = 1, _lastLaneTap = -10;
 
         readonly Dictionary<string, RectTransform> _controls = new Dictionary<string, RectTransform>();
@@ -401,9 +404,10 @@ namespace Starflare.Bowling
             _animTime = 0;
             _laneView.AimBoard = null;
             _laneView.BallColour = BallLook.ColourOf(delivery.Path.Ball);
-            _laneView.BallSprite = _art.BallSprite(delivery.Path.Ball);
+            _laneView.BallSurface = _art.SurfaceFor(delivery.Path.Ball);
+            _spin = new BallSpin(delivery.Path);
             _deckView.BallColour = _laneView.BallColour;
-            _deckView.BallSprite = _art.BallSprite(delivery.Path.Ball);
+            _deckView.BallSurface = _art.SurfaceFor(delivery.Path.Ball);
             _laneView.Deck = delivery.Before;
             _step = Step.Rolling;
             Refresh();
@@ -420,6 +424,7 @@ namespace Starflare.Bowling
                 return;
             }
             _laneView.Ball = PositionAt(path, _animTime);
+            _laneView.BallTurn = _spin.At(_animTime);
             _laneView.Redraw();
         }
 
@@ -458,6 +463,7 @@ namespace Starflare.Bowling
             int i = 0;
             while (i < frames.Count - 1 && frames[i + 1].Time <= _animTime) i++;
             _deckView.Frame = frames[i];
+            _deckView.BallTurn = _spin.At(_delivery.Path.End.Time + frames[i].Time);
             _deckView.Redraw();
             if (_animTime >= frames[frames.Count - 1].Time + PinsLinger) AfterBall();
         }

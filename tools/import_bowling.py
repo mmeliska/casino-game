@@ -4,6 +4,8 @@ Everything is drawn in ChatGPT and saved in Images/Bowling/ (docs: Bowling, "Art
 written to game/Assets/Resources/Bowling/:
 
 - The four lane textures (lane_boards and so on, TEXTURES), made to tile; see below.
+- Each ball's surface (ball_house_surface and so on), unwrapped like a globe, made to wrap
+  round and given its finger holes (HOLES), for the rolling ball.
 - The deck from above (DECK), copied in as deck_top. Its spots are measured and printed, as
   shares of the picture: those numbers go in DeckView (HeadX, HeadY, InchAcross, InchDown) so
   the pins stand on the painted spots.
@@ -49,7 +51,18 @@ TEXTURES = {
     "lane_approach": (True, True, (512, 512)),
     "lane_gutter": (False, True, (256, 256)),
     "lane_masking": (True, False, (1024, None)),
+    # Each ball's surface, unwrapped like a globe: it wraps round left to right, and the
+    # finger holes are stamped on (HOLES) after.
+    "ball_house_surface": (True, False, (1024, 512)),
+    "ball_urethane_surface": (True, False, (1024, 512)),
+    "ball_reactive_surface": (True, False, (1024, 512)),
 }
+
+# The finger holes on a ball's surface, as (latitude, longitude) in radians, the thumb below and
+# two fingers above, each this many radians across from its centre: the same as BallSpin.HolePlaces
+# and BallSpin.HoleRadius in the game. Keep the two in step.
+HOLES = [(-0.3, 0.0), (0.15, -0.16), (0.15, 0.16)]
+HOLE_RADIUS = 0.11
 
 BANDS = {"lane_masking"}
 
@@ -77,6 +90,26 @@ def blend(pixels, axis):
     shape[axis] = n
     weight = weight.reshape(shape)
     return pixels * weight + shifted * (1 - weight)
+
+
+def stamp_holes(image):
+    """The three finger holes on an unwrapped ball surface: dark, with a darker rim round each."""
+    pixels = np.asarray(image, dtype=np.float64).copy()
+    h, w, _ = pixels.shape
+    lon = ((np.arange(w) + 0.5) / w - 0.5) * 2 * np.pi
+    lat = ((np.arange(h) + 0.5) / h - 0.5) * np.pi
+    lon, lat = np.meshgrid(lon, lat)
+    # Image rows run top down; latitude runs bottom up, as the game reads the texture.
+    lat = lat[::-1]
+    at = np.stack([np.cos(lat) * np.cos(lon), np.cos(lat) * np.sin(lon), np.sin(lat)], -1)
+    for hole_lat, hole_lon in HOLES:
+        hole = np.array([np.cos(hole_lat) * np.cos(hole_lon), np.cos(hole_lat) * np.sin(hole_lon), np.sin(hole_lat)])
+        apart = np.arccos(np.clip(at @ hole, -1, 1))
+        rim = (apart < HOLE_RADIUS) & (apart >= HOLE_RADIUS * 0.75)
+        core = apart < HOLE_RADIUS * 0.75
+        pixels[rim] *= 0.4
+        pixels[core] = (8, 5, 5)
+    return Image.fromarray(np.clip(pixels, 0, 255).astype(np.uint8))
 
 
 def cut_band(image):
@@ -171,7 +204,10 @@ def main():
         print(f"{'would write' if args.dry_run else 'wrote'}  {path.relative_to(ROOT)}  ->  {dest.relative_to(ROOT)}")
         if not args.dry_run:
             dest.parent.mkdir(parents=True, exist_ok=True)
-            tile(path, across, down, size, tag in BANDS).save(dest)
+            out = tile(path, across, down, size, tag in BANDS)
+            if tag.endswith("_surface"):
+                out = stamp_holes(out)
+            out.save(dest)
     print(f"{found} of {len(TEXTURES)} textures {'to write' if args.dry_run else 'written'}.")
 
     deck_name, deck_tag = DECK

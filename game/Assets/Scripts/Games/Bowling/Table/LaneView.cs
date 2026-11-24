@@ -34,6 +34,7 @@ namespace Starflare.Bowling
         PinDeck _rack;
 
         SpriteQuads _pins, _ball, _aim;
+        SpinningBall _spinning;
 
         /// <summary>The board your ball's on, the bowler's count: where the aim arrow swings from.</summary>
         public int StandBoard = LaneGeometry.MiddleBoard;
@@ -146,6 +147,11 @@ namespace Starflare.Bowling
             _pins = SpriteQuads.Make(transform, "Pins", DrawPins);
             _pins.Sprite = pinUp;
             _ball = SpriteQuads.Make(transform, "Rolling Ball", DrawBall);
+            _spinning = SpinningBall.Make(transform, "Spinning Ball", 35, r =>
+            {
+                var (show, centre, radius) = BallPlace(ProjectionOver(r));
+                return (show, centre, radius, BallTurn);
+            });
             _aim = SpriteQuads.Make(transform, "Aim Arrow", (vh, r, layer) =>
             {
                 if (AimBoard.HasValue) AimArrow(vh, ProjectionOver(r), AimBoard.Value);
@@ -158,10 +164,13 @@ namespace Starflare.Bowling
             if (_aim != null) _aim.Redraw();
         }
 
-        /// <summary>The ball's picture for this delivery; null draws it in its colour.</summary>
-        public Sprite BallSprite
+        /// <summary>How the rolling ball is turned now (<see cref="BallSpin"/>).</summary>
+        public Turn BallTurn = Turn.None;
+
+        /// <summary>The rolling ball's surface for this delivery (<see cref="LaneArt.SurfaceFor"/>).</summary>
+        public Texture BallSurface
         {
-            set { if (_ball != null) _ball.Sprite = value; }
+            set { if (_spinning != null) _spinning.Surface = value; }
         }
 
         /// <summary>The racks on the lanes either side, farthest first, then yours.</summary>
@@ -182,23 +191,22 @@ namespace Starflare.Bowling
                     if (Deck.IsStanding(i)) Pin(vh, view, layer, Deck.PositionOf(i), 1);
         }
 
+        /// <summary>The rolling ball's ink ring (and its colour, if there's no surface to spin); the sphere goes over it.</summary>
         void DrawBall(VertexHelper vh, Rect r, SpriteQuads layer)
         {
-            if (!Ball.HasValue) return;
-            var view = ProjectionOver(r);
+            var (show, centre, radius) = BallPlace(ProjectionOver(r));
+            if (!show) return;
+            Shapes.Circle(vh, centre, radius + Mathf.Max(1.5f, radius * 0.12f), Ink, 1f, 28);
+            Shapes.Circle(vh, centre, radius, BallColour, 1f, 28);
+        }
+
+        /// <summary>Where the rolling ball is drawn: resting on the lane at its point, as big as it is there.</summary>
+        (bool show, Vector2 centre, float radius) BallPlace(LaneProjection view)
+        {
+            if (!Ball.HasValue) return (false, default, 0);
             var at = Ball.Value;
-            double ft = LaneGeometry.Feet(at.Y);
-            float radius = view.Px(0.108, ft);
-            var foot = view.Project(at);
-            if (layer.Sprite != null)
-            {
-                float width = radius * 2.1f, height = width * layer.Aspect * 0.95f;
-                layer.Box(vh, new Rect(foot.x - width / 2, foot.y - radius * 0.35f, width, height), Color.white);
-                return;
-            }
-            var centre = foot + new Vector2(0, radius * 0.6f);
-            Shapes.Circle(vh, centre, radius + Mathf.Max(1.5f, radius * 0.12f), Ink, 0.9f);
-            Shapes.Circle(vh, centre, radius, BallColour, 0.9f);
+            float radius = view.Px(0.108, LaneGeometry.Feet(at.Y));
+            return (true, view.Project(at) + new Vector2(0, radius * 0.6f), radius);
         }
 
         /// <summary>A pin standing on its spot at this brightness: its picture, or a shape outlined in ink.</summary>
@@ -322,6 +330,7 @@ namespace Starflare.Bowling
             foreach (var surface in _under) surface.SetVerticesDirty();
             if (_pins != null) _pins.Redraw();
             if (_ball != null) _ball.Redraw();
+            if (_spinning != null) _spinning.Redraw();
             if (_aim != null) _aim.Redraw();
         }
 
