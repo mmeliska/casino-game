@@ -50,7 +50,7 @@ Background plate, no people. Inside an old bowling alley: worn wooden lanes runn
 
 ### The shoe counter and the machines
 
-Playing the machines; talking with Juan at the counter; Ed talking straight.
+Playing the machines; talking with Juan at the counter; Ed talking straight. Drawn (Mike, 2026-11-24), landscape 16:9 rather than portrait: the counter with the shoe cubbies behind it, the machines at the left and the lanes off to the right; a portrait screen centres on the counter (focus 0.55). In the game as the counter screen ("Go to the counter").
 
 `lanes_counter_night` (plate, portrait 9:16)
 

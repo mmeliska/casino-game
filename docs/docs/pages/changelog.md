@@ -1,5 +1,9 @@
 ## 24 Nov 2026
 
+### The Lanes' counter is drawn
+
+Mike drew the shoe counter at [Millstone Lanes](#millstone-lanes), and it's in the game behind "Go to the counter", where Juan sells balls and shoes: the counter with the rental shoes in their cubbies behind it, the machines along the left wall, the lanes glowing off to the right. Drawn landscape; a portrait screen centres on the counter.
+
 ### A standard header for every game
 
 Every game now has the same header across the top (Mike asked for one), in the glass of the place screens' bar: a rounded dark panel with a teal edge and padding all round, the cash glyph and your cash in bold, anything you owe in gold beside it, the date and time under it, and an outlined Leave game button on the right. Bowling, the craps circle, blackjack, video poker, the slots and the scratcher counter all use it; before, each drew its own, some straight on the table with nothing behind them. A game can put its own note beside the cash: craps shows what you have down ("Down $10") and Juan's practice roll ("Practice", his $20, pretend), blackjack your best bankroll. The time of day by name ("Night") is gone from the game headers, as it is from the place bar; the clock shows it.

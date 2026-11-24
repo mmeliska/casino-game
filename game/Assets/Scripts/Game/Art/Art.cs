@@ -26,6 +26,7 @@ namespace Starflare.Game
             ["kasia_bar"] = 0.74f,
             ["kasia_front"] = 0.64f,
             ["lanes_backlot"] = 0.38f,
+            ["lanes_counter"] = 0.55f,
             ["lanes_front"] = 0.66f,
             ["motel_lot"] = 0.5f,
             ["motel_office"] = 0.4f,
