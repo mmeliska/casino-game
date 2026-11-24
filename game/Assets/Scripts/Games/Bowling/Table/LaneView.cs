@@ -15,6 +15,8 @@ namespace Starflare.Bowling
     {
         static readonly Color Ink = new Color(0.04f, 0.03f, 0.03f, 0.92f);
         static readonly Color UiGold = new Color(0.95f, 0.76f, 0.25f);
+        static readonly Color PitLit = new Color(0.16f, 0.12f, 0.08f);
+        static readonly Color Ceiling = new Color(0.09f, 0.07f, 0.06f);
 
         /// <summary>The ball while it rolls, in the lane's frame; null when it's on the approach or gone.</summary>
         public Vec2? Ball;
@@ -33,7 +35,45 @@ namespace Starflare.Bowling
 
         SpriteQuads _pins, _ball;
 
-        LaneProjection View => new LaneProjection(rectTransform.rect);
+        /// <summary>The board your ball's on, the bowler's count: where the aim arrow swings from.</summary>
+        public int StandBoard = LaneGeometry.MiddleBoard;
+
+        /// <summary>
+        /// The space the layout leaves the lane, between the scores and the meters: it places the
+        /// lane, which is drawn over the whole of this view (the screen).
+        /// </summary>
+        public RectTransform Frame;
+
+        readonly System.Collections.Generic.List<Graphic> _under = new System.Collections.Generic.List<Graphic>();
+        Rect _lastFrame;
+
+        LaneProjection View => ProjectionOver(rectTransform.rect);
+
+        /// <summary>The projection for a rect the size of this view (the surfaces under it share it).</summary>
+        internal LaneProjection ProjectionOver(Rect bounds) => new LaneProjection(bounds, FrameRect());
+
+        /// <summary>The frame in this view's space; the whole view if there's no frame.</summary>
+        Rect FrameRect()
+        {
+            if (Frame == null) return rectTransform.rect;
+            var r = Frame.rect;
+            Vector2 min = rectTransform.InverseTransformPoint(Frame.TransformPoint(r.min));
+            Vector2 max = rectTransform.InverseTransformPoint(Frame.TransformPoint(r.max));
+            var frame = Rect.MinMaxRect(min.x, min.y, max.x, max.y);
+            return frame.width > 1 && frame.height > 1 ? frame : rectTransform.rect;
+        }
+
+        /// <summary>A surface drawn under this view, through its projection: redrawn with it.</summary>
+        public void AddUnder(Graphic surface) => _under.Add(surface);
+
+        /// <summary>Redraws if the layout has moved the frame since the last look; call every frame.</summary>
+        public void FollowFrame()
+        {
+            var frame = FrameRect();
+            if (frame == _lastFrame) return;
+            _lastFrame = frame;
+            Redraw();
+        }
 
         protected override void OnPopulateMesh(VertexHelper vh)
         {
@@ -52,7 +92,23 @@ namespace Starflare.Bowling
                     new Color(0.2f, 0.13f, 0.08f), Math.Max(LaneProjection.Dim(lane), LaneProjection.Dim(lane + 1)));
             }
             Strip(vh, view, LaneGeometry.PitFt, LaneProjection.FarFt, -room, room, BallLook.Pit, 1, false);
-            Shapes.Line(vh, new Vector2(r.xMin, view.FarY), new Vector2(r.xMax, view.FarY), 3, Ink);
+            // The pit behind the pins, dark up to the masking panel's foot; the deck's lights catch
+            // its near edge.
+            int i0 = vh.currentVertCount;
+            vh.AddVert(new Vector2(r.xMin, view.FarY), PitLit, Vector2.zero);
+            vh.AddVert(new Vector2(r.xMin, view.MaskingY), BallLook.Pit, Vector2.zero);
+            vh.AddVert(new Vector2(r.xMax, view.MaskingY), BallLook.Pit, Vector2.zero);
+            vh.AddVert(new Vector2(r.xMax, view.FarY), PitLit, Vector2.zero);
+            vh.AddTriangle(i0, i0 + 1, i0 + 2);
+            vh.AddTriangle(i0, i0 + 2, i0 + 3);
+            Shapes.Line(vh, new Vector2(r.xMin, view.MaskingY), new Vector2(r.xMax, view.MaskingY), 4, Ink);
+            // The dark ceiling above the masking panel, behind the cash and the scores.
+            if (view.MaskingTopY < r.yMax)
+            {
+                Shapes.Quad(vh, new Vector2(r.xMin, view.MaskingTopY), new Vector2(r.xMin, r.yMax),
+                    new Vector2(r.xMax, r.yMax), new Vector2(r.xMax, view.MaskingTopY), Ceiling);
+                Shapes.Line(vh, new Vector2(r.xMin, view.MaskingTopY), new Vector2(r.xMax, view.MaskingTopY), 4, Ink);
+            }
 
             // Ink: every lane's edges and its gutters' outer edges; your lane's board joints.
             for (int lane = -n; lane <= n; lane++)
@@ -79,13 +135,7 @@ namespace Starflare.Bowling
                 Strip(vh, view, LaneGeometry.RangeFindersFromFt, LaneGeometry.RangeFindersToFt,
                     Lane(board + 0.3, 0).X, Lane(board - 0.3, 0).X, BallLook.Mark, 1, false);
 
-            if (AimBoard.HasValue)
-            {
-                // A gold arrow over the board you're aiming at, where its arrow row crosses it.
-                double aim = AimBoard.Value, ft = LaneGeometry.ArrowFt(aim);
-                var tip = view.Project(Lane(aim, ft + 1.2));
-                Shapes.Triangle(vh, view.Project(Lane(aim + 1.1, ft - 1.2)), tip, view.Project(Lane(aim - 1.1, ft - 1.2)), UiGold);
-            }
+            if (AimBoard.HasValue) AimArrow(vh, view, AimBoard.Value);
         }
 
         /// <summary>
@@ -108,7 +158,7 @@ namespace Starflare.Bowling
         /// <summary>The racks on the lanes either side, farthest first, then yours.</summary>
         void DrawPins(VertexHelper vh, Rect r, SpriteQuads layer)
         {
-            var view = new LaneProjection(r);
+            var view = ProjectionOver(r);
             var rack = _rack ??= PinDeck.Exact(0);
             double pitch = LaneProjection.Pitch;
             for (int lane = LaneProjection.Neighbours; lane >= 1; lane--)
@@ -126,7 +176,7 @@ namespace Starflare.Bowling
         void DrawBall(VertexHelper vh, Rect r, SpriteQuads layer)
         {
             if (!Ball.HasValue) return;
-            var view = new LaneProjection(r);
+            var view = ProjectionOver(r);
             var at = Ball.Value;
             double ft = LaneGeometry.Feet(at.Y);
             float radius = view.Px(0.108, ft);
@@ -163,6 +213,27 @@ namespace Starflare.Bowling
             Shapes.Circle(vh, foot + new Vector2(0, h * 0.35f), w, body, 1.4f, 14);
             Shapes.Box(vh, new Rect(foot.x - w * 0.45f, foot.y + h * 0.55f, w * 0.9f, h * 0.18f), neck);
             Shapes.Circle(vh, foot + new Vector2(0, h * 0.85f), w * 0.55f, body, 1.1f, 10);
+        }
+
+        /// <summary>
+        /// The aim: a gold arrow from your ball over the board you're aiming at, where its lane
+        /// arrow is, and on a little; it swings across the lane while the aim runs.
+        /// </summary>
+        void AimArrow(VertexHelper vh, LaneProjection view, double aim)
+        {
+            var from = Lane(StandBoard, 0);
+            var over = Lane(aim, LaneGeometry.ArrowFt(aim));
+            var tip = from + (over - from) * 1.35;
+            var back = from + (over - from) * 1.15;
+            var a = view.Project(from);
+            var b = view.Project(back);
+            float width = Mathf.Max(4f, view.Px(0.035, LaneGeometry.ArrowFt(aim)));
+            var side = (Vector2)(view.Project(back + new Vec2(LaneGeometry.BoardWidth * 2.2, 0)) - b);
+            Shapes.Line(vh, a, b, width + 4, Ink);
+            Shapes.Triangle(vh, b - side * 1.2f, view.Project(tip) + (view.Project(tip) - b).normalized * 3, b + side * 1.2f, Ink);
+            Shapes.Line(vh, a, b, width, UiGold);
+            Shapes.Triangle(vh, b - side, view.Project(tip), b + side, UiGold);
+            Shapes.Circle(vh, view.Project(over), width * 0.9f, UiGold, 0.5f, 12);
         }
 
         /// <summary>An arrow on its board in the V, pointing down the lane: this long, this many boards either side of its middle at the base.</summary>
@@ -237,6 +308,7 @@ namespace Starflare.Bowling
         public void Redraw()
         {
             SetVerticesDirty();
+            foreach (var surface in _under) surface.SetVerticesDirty();
             if (_pins != null) _pins.Redraw();
             if (_ball != null) _ball.Redraw();
         }

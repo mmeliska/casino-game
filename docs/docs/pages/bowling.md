@@ -29,13 +29,13 @@ Every throw is the same short series, one thumb in portrait. The first step is a
 | Step | What sweeps | What it sets | Range |
 | --- | --- | --- | --- |
 | 1. **Stand** | Nothing sweeps: drag the ball left or right along the foul line and let go; it snaps to a board and the board number shows while you hold it (Mike, 2026-11-23). Two small arrows beside it nudge a board a tap, for "move left two boards". No bowler is drawn: the ball itself sits on the approach and is what you line up (Mike, 2026-11-23) | The board the ball starts on | Boards 1 to 39 (the 20 board is the middle dot) |
-| 2. **Aim** | A marker sweeps across the seven lane arrows, out and back | The arrow (or the board between arrows) your ball rolls over, at that arrow's distance in the V | Boards 5 to 35 |
-| 3. **Hook** | A meter climbs from empty and falls back | How much the ball turns: revs and axis together, one dial | 0 to 10 (the ball rolls end over end and never turns) to 100 (its axis turned 45° toward the lane's length, a cranker's ball). The bottom tenth is "nothing on it" so a straight ball is easy to stop: a sliver of axis near nothing moves a ball boards by the pins (Claude, 2026-11-23) |
-| 4. **Speed** | A meter fills and drains | The ball's speed off your hand | 12 to 20 mph |
+| 2. **Aim** | A gold arrow on the lane, from your ball, swings across the seven lane arrows, out and back (Mike, 2026-11-24) | The arrow (or the board between arrows) your ball rolls over, at that arrow's distance in the V | Boards 5 to 35 |
+| 3. **Hook** | A dial's needle swings from straight to a big curve and back (Mike, 2026-11-24) | How much the ball turns: revs and axis together, one dial | 0 to 10 (the ball rolls end over end and never turns) to 100 (its axis turned 45° toward the lane's length, a cranker's ball). The bottom tenth is "nothing on it" so a straight ball is easy to stop: a sliver of axis near nothing moves a ball boards by the pins (Claude, 2026-11-23) |
+| 4. **Speed** | A power bar fills and drains, cool to hot (Mike, 2026-11-24) | The ball's speed off your hand | 12 to 20 mph |
 
 Then the ball rolls, and you watch. Two taps on the lane skip to the pins, and two more past them.
 
-Built (Claude, 2026-11-23): the aim meter takes two taps, one to start its sweep and one to stop it, so you can line the ball up first. The hook and speed sweeps start on their own as the one before stops. In a coached frame you drag and tap through as usual, and the ball and meters snap to the teacher's numbers.
+The meters take the idea of a 90s console bowling game's (Mike asked for Championship Bowling on the NES; ours are built on the same ideas in our own art, not copied): the aim is drawn on the lane itself, the hook is a dial, the speed a power bar. Built (Claude, 2026-11-23): the aim meter takes two taps, one to start its sweep and one to stop it, so you can line the ball up first. The hook and speed sweeps start on their own as the one before stops. In a coached frame you drag and tap through as usual, and the ball and meters snap to the teacher's numbers.
 
 - **The drag is placement, not a throw.** Dragging the ball to a board is the one touch gesture, and it's a still one: nothing about the throw comes from how you moved your finger, only from where you let go. The throw itself stays on the meters.
 - **Sweep speed is the difficulty.** The aim marker and the hook and speed meters sweep at a set rate; a sharp player can stop them within a board and a few per cent, and a tired thumb can't. There's no hidden random error on top: what you stop is what you throw. (If playtesting finds that too exact, a jitter of up to ±1 board and ±2 per cent goes in as a rules setting, off by default.)
@@ -47,9 +47,10 @@ Built (Claude, 2026-11-23): the aim meter takes two taps, one to start its sweep
 #### The view
 
 - **No avatar, for now.** Nobody is drawn on the approach; the ball sits on the foul line and you line it up (Mike, 2026-11-23). It keeps the first build to the lane, the ball and the pins, and a bowler can be added over it later without changing anything underneath.
-- **Portrait.** The lane fills the top two thirds, drawn in perspective from behind and above the foul line: the ball on the approach at the bottom, the dots beside it, the arrows a third of the way up, the pins small and lit at the top, like a 90s console game. The meters sit along the bottom third with the scoresheet strip above them. The ball rolls away up the lane; at the pins the view cuts to a close-up of the deck for the hit.
-- **Landscape.** The lane on the left, the scoresheet and meters stacked on the right.
-- **The trace.** After each throw a small overhead strip of the lane draws the path the ball took: where it skidded, where it broke, where it hit. This is how the player reads the oil. Nobody sees oil on a lane; they see what the ball did on it.
+- **The whole screen** (Mike, 2026-11-24), the way the craps circle fills the screen: the lanes run edge to edge under everything, yours in the middle and the others either side, the approach on down under the meters, the masking panel up behind the scores. The layout leaves the lane a frame, the space between the scores and the meters, and the frame places it: the foul line near the frame's foot, the pins near its top. Behind the pins the dark pit, and the masking panel hangs above it, so the pins stand against the dark (Mike, 2026-11-24).
+- **Portrait.** From the top: your cash and the way out, the scores, the message ("8 down, 4-7 left."), the lane, and at the foot the meters on a dark glass panel (or, between turns, the buttons). The ball rolls away up the lane; at the pins the view cuts to the deck from above.
+- **Landscape.** The lane's frame on the left, the cash, scores, message and meters stacked on the right, the lanes still across the whole screen.
+- **The trace.** After each throw a narrow upright strip down the right side of the lane, the foul line at its foot and the pins at its top (Mike, 2026-11-24), draws the path the ball took: where it skidded, where it broke, where it hit. This is how the player reads the oil. Nobody sees oil on a lane; they see what the ball did on it.
 - **The pattern sheet** is never shown. Juan tells you about a lane in words ("Lane six is running dry tonight. Move left two boards."), and the trace shows you he's right.
 
 ### The lane
@@ -214,7 +215,8 @@ Following `ARCHITECTURE.md`, "Adding a game": namespace `Starflare.Bowling`.
 | `SpriteQuads.cs` | A layer drawing one sprite many times (the pins, the ball), or shapes while it isn't in |
 | `LaneView.cs` | Over the surfaces: the ink (edges, board joints, foul line, dots, arrows), the capping and pit, the racks either side, the ball, the pins, the sweep |
 | `Meter.cs` | A sweep you stop with a tap: shared by aim, hook and speed |
-| `PathTrace.cs` | The overhead strip after each throw |
+| `PathTrace.cs` | The overhead strip after each throw, upright down the lane's right side |
+| `HookGauge.cs` | The hook's dial |
 | `DeckView.cs` | The close-up of the deck for the hit, from above (built: the sim is flat, so the close-up shows it as it is) |
 | `LaneSetup.cs` | What the venue hands over at each sit-down (built) |
 | `ScoreSheetView.cs` | The ten boxes, portrait strip and landscape column |
@@ -273,7 +275,7 @@ What's built (`LaneProjection`, `LaneSurface`, `LaneView`, `LaneArt`):
 - **Your lane and three either side**, a lane every 63 in (41.5 in of boards, two 9.25 in gutters and 4 in of capping), each dimmer the further out: nobody's bowling on them. Their racks stand full and dim.
 - **Light by vertex colour**: the approach under the house lights, the middle of the lane dimmer, the deck bright under its hood.
 - **Ink drawn by the code**, to match the bold outlines of the other art: every lane's edges and its gutters', the foul line, the dots and arrows outlined, the ball and pins outlined, and your lane's 38 board joints, fading out down the lane so they don't shimmer where they crowd together.
-- **Above the pit**, the top eighth of the view, the masking panel that hangs over the far end of the lanes.
+- **Past the pit**, the dark pit behind the pins, a pin and a half tall, and above it the masking panel that hangs over the far end of the lanes, up to the top of the screen.
 - **Until the pictures are in**, the lane makes plain textures of its own (wood grain, a grey channel, cream panels over green), so the textured path is what's tuned on.
 
 The textures repeat, and ChatGPT's never quite meet at their edges, so each is saved in `Images/Bowling/` under its tag and brought in with `python3 tools/import_bowling.py`: it blends each picture into itself across the edges it repeats over, scales it down and writes `game/Assets/Resources/Bowling/<tag>.png`, which the game imports as a repeating texture. They're textures, not scenes, so each prompt asks for something flat, seen straight on, edge to edge.

@@ -36,7 +36,7 @@ namespace Starflare.Bowling
         const float PinsLinger = 0.6f;
 
         /// <summary>The meters' block and the between-turns block are the same height, so the lane holds still.</summary>
-        const float ThrowAreaHeight = 400;
+        const float ThrowAreaHeight = 430;
 
         static readonly Color Outlined = new Color(0.06f, 0.08f, 0.1f, 0.55f);
 
@@ -118,7 +118,7 @@ namespace Starflare.Bowling
         GameObject _root;
         Image _plateImage;
         CoverFit _plateFit;
-        RectTransform _portraitColumn, _landscapeRow, _laneSide, _infoSide, _header, _laneArea, _sheets, _controlsArea, _actions, _offerRow, _standRow;
+        RectTransform _portraitColumn, _landscapeRow, _laneSide, _infoSide, _header, _laneArea, _laneFrame, _sheets, _controlsArea, _actions, _offerRow, _standRow;
         LaneView _laneView;
         DeckView _deckView;
         PathTrace _trace;
@@ -578,7 +578,8 @@ namespace Starflare.Bowling
             _ball.Showing = throwing;
             _ball.Layout();
             _standText.text = $"Board {_ball.Board}";
-            _laneView.AimBoard = _step == Step.Aim ? AimFrom(_aimMeter.Value) : (double?)null;
+            _laneView.StandBoard = _ball.Board;
+            _laneView.AimBoard = _step == Step.Aim ? AimFrom(_aimMeter.Value) : _step == Step.Hook || _step == Step.Speed ? _aim : (double?)null;
             if (_step != Step.Rolling && _step != Step.Pins) _laneView.Deck = _lane?.Deck;
             _laneView.Redraw();
 
@@ -647,19 +648,23 @@ namespace Starflare.Bowling
             if (id != BowlingControls.Aim) ActionTaken?.Invoke(id);
         }
 
-        /// <summary>Lays the lane out for a way up: the lane above the meters in portrait, beside them in landscape.</summary>
+        /// <summary>
+        /// Lays the screen out for a way up, over the lanes: in portrait the scores at the top,
+        /// the lane's frame, the meters at the foot; in landscape the frame at the left and the
+        /// rest at the right.
+        /// </summary>
         public void Layout(bool landscape)
         {
             _portraitColumn.gameObject.SetActive(!landscape);
             _landscapeRow.gameObject.SetActive(landscape);
             if (landscape)
             {
-                Arrange(_laneSide, _laneArea);
-                Arrange(_infoSide, _header, _messageText, _sheets, _trace, _controlsArea, _actions);
+                Arrange(_laneSide, _laneFrame);
+                Arrange(_infoSide, _header, _sheets, _messageText, _controlsArea, _actions);
             }
             else
             {
-                Arrange(_portraitColumn, _header, _laneArea, _messageText, _sheets, _trace, _controlsArea, _actions);
+                Arrange(_portraitColumn, _header, _sheets, _messageText, _laneFrame, _controlsArea, _actions);
             }
             Canvas.ForceUpdateCanvases();
             _ball.Layout();
@@ -668,7 +673,9 @@ namespace Starflare.Bowling
 
         void LateUpdate()
         {
-            if (_root != null && _root.activeSelf && _ball.Showing) _ball.Layout();
+            if (_root == null || !_root.activeSelf) return;
+            _laneView.FollowFrame();
+            if (_ball.Showing) _ball.Layout();
         }
 
         void BuildUi()
@@ -684,6 +691,13 @@ namespace Starflare.Bowling
             _plateFit.Show(_plateImage, _plate, 0.5f);
             var shade = MakeImage(backdrop.transform, "Shade", new Color(0, 0, 0, 0.55f));
             Stretch(shade.rectTransform);
+
+            // The lanes take the whole screen, under everything (Mike, 2026-11-24): the layout
+            // only leaves them a frame that places them.
+            var laneArea = new GameObject("Lane Area", typeof(RectTransform), typeof(RectMask2D));
+            laneArea.transform.SetParent(canvas.transform, false);
+            _laneArea = (RectTransform)laneArea.transform;
+            Stretch(_laneArea);
 
             var safe = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
             safe.transform.SetParent(canvas.transform, false);
@@ -702,7 +716,7 @@ namespace Starflare.Bowling
             _infoSide.gameObject.AddComponent<LayoutElement>().flexibleWidth = 1.25f;
 
             BuildHeader();
-            BuildLane();
+            BuildSheets();
             _messageText = MakeText(_portraitColumn, "", 34, TextAnchor.MiddleCenter, 60);
             _messageText.name = "Message";
             _messageText.color = Gold;
@@ -710,16 +724,11 @@ namespace Starflare.Bowling
             _messageText.fontSizeMin = 24;
             _messageText.fontSizeMax = 34;
             Shadowed(_messageText);
-            BuildSheets();
-            var traceGo = new GameObject("Trace", typeof(RectTransform), typeof(CanvasRenderer), typeof(PathTrace), typeof(LayoutElement));
-            traceGo.transform.SetParent(_portraitColumn, false);
-            _trace = traceGo.GetComponent<PathTrace>();
-            _trace.raycastTarget = false;
-            traceGo.GetComponent<LayoutElement>().preferredHeight = 64;
+            BuildLane();
             BuildMeters();
             BuildActions();
 
-            foreach (var section in new Component[] { _header, _messageText, _sheets, _trace, _controlsArea, _actions })
+            foreach (var section in new Component[] { _header, _messageText, _sheets, _controlsArea, _actions })
             {
                 var element = section.GetComponent<LayoutElement>() ?? section.gameObject.AddComponent<LayoutElement>();
                 element.flexibleHeight = 0;
@@ -735,6 +744,7 @@ namespace Starflare.Bowling
         void BuildHeader()
         {
             _header = MakeRow(_portraitColumn, "Header");
+            Panel(_header);
             _header.GetComponent<LayoutElement>().preferredHeight = 88;
             var info = new GameObject("Info", typeof(RectTransform), typeof(LayoutElement));
             info.transform.SetParent(_header, false);
@@ -755,45 +765,57 @@ namespace Starflare.Bowling
             layout.preferredWidth = layout.minWidth = 220;
         }
 
+        /// <summary>
+        /// The lanes over the whole screen, and the frame in the layout that places them: the
+        /// deck close-up and the ball's path sit in the frame.
+        /// </summary>
         void BuildLane()
         {
-            var area = new GameObject("Lane Area", typeof(RectTransform), typeof(LayoutElement));
-            area.transform.SetParent(_portraitColumn, false);
-            _laneArea = (RectTransform)area.transform;
-            var layout = area.GetComponent<LayoutElement>();
+            _laneFrame = (RectTransform)new GameObject("Lane Frame", typeof(RectTransform), typeof(LayoutElement)).transform;
+            _laneFrame.SetParent(_portraitColumn, false);
+            var layout = _laneFrame.GetComponent<LayoutElement>();
             layout.flexibleHeight = 1;
             layout.minHeight = 420;
-            // The lanes either side run past the area's sides; the ball on the approach may hang below it.
-            area.AddComponent<RectMask2D>().padding = new Vector4(0, -400, 0, 0);
 
-            foreach (var (kind, texture) in new (LaneSurfaceKind, Texture)[]
-            {
-                (LaneSurfaceKind.Masking, _art.Masking), (LaneSurfaceKind.Approach, _art.Approach),
-                (LaneSurfaceKind.Gutters, _art.Gutter), (LaneSurfaceKind.Boards, _art.Boards),
-            })
+            var surfaces = new List<LaneSurface>();
+            foreach (var kind in new[] { LaneSurfaceKind.Masking, LaneSurfaceKind.Approach, LaneSurfaceKind.Gutters, LaneSurfaceKind.Boards })
             {
                 var surfaceGo = new GameObject(kind.ToString(), typeof(RectTransform), typeof(CanvasRenderer), typeof(LaneSurface));
                 surfaceGo.transform.SetParent(_laneArea, false);
                 var surface = surfaceGo.GetComponent<LaneSurface>();
                 surface.raycastTarget = false;
                 Stretch(surface.rectTransform);
-                surface.Show(kind, texture);
+                surfaces.Add(surface);
             }
 
             var laneGo = new GameObject("Lane", typeof(RectTransform), typeof(CanvasRenderer), typeof(LaneView));
             laneGo.transform.SetParent(_laneArea, false);
             _laneView = laneGo.GetComponent<LaneView>();
             Stretch(_laneView.rectTransform);
+            _laneView.Frame = _laneFrame;
             var tap = laneGo.AddComponent<Button>();
             tap.transition = Selectable.Transition.None;
             tap.onClick.AddListener(LaneTap);
+            foreach (var surface in surfaces)
+            {
+                var kind = (LaneSurfaceKind)Enum.Parse(typeof(LaneSurfaceKind), surface.name);
+                surface.Show(kind, TextureFor(kind), _laneView);
+                _laneView.AddUnder(surface);
+            }
+
+            // The ball's path: an upright strip down the frame's right side.
+            var traceGo = new GameObject("Trace", typeof(RectTransform), typeof(CanvasRenderer), typeof(PathTrace));
+            traceGo.transform.SetParent(_laneFrame, false);
+            _trace = traceGo.GetComponent<PathTrace>();
+            _trace.raycastTarget = false;
+            Pin(_trace.rectTransform, new Vector2(1, 0.06f), new Vector2(1, 0.94f), new Vector2(-58, 0), new Vector2(-8, 0));
 
             var deckGo = new GameObject("Deck", typeof(RectTransform), typeof(CanvasRenderer), typeof(DeckView));
-            deckGo.transform.SetParent(_laneArea, false);
+            deckGo.transform.SetParent(_laneFrame, false);
             _deckView = deckGo.GetComponent<DeckView>();
             _deckView.raycastTarget = false;
             _deckView.Init(_art.Deck, _art.PinTop, _art.PinDown);
-            Pin(_deckView.rectTransform, new Vector2(0.08f, 0.45f), new Vector2(0.92f, 1), Vector2.zero, Vector2.zero);
+            Pin(_deckView.rectTransform, new Vector2(0.06f, 0.45f), new Vector2(0.86f, 1), Vector2.zero, Vector2.zero);
             deckGo.SetActive(false);
 
             _laneView.AddLayers(_art.PinUp);
@@ -801,11 +823,24 @@ namespace Starflare.Bowling
             _controls[BowlingControls.Stand] = (RectTransform)_ball.transform;
         }
 
+        /// <summary>A dark glass behind a block of controls, so it reads over the lane.</summary>
+        static void Panel(RectTransform block)
+        {
+            var glass = block.gameObject.AddComponent<Image>();
+            glass.color = new Color(0.03f, 0.03f, 0.05f, 0.72f);
+            glass.raycastTarget = false;
+        }
+
+        Texture TextureFor(LaneSurfaceKind kind) =>
+            kind == LaneSurfaceKind.Masking ? _art.Masking : kind == LaneSurfaceKind.Approach ? _art.Approach
+            : kind == LaneSurfaceKind.Gutters ? _art.Gutter : _art.Boards;
+
         void BuildSheets()
         {
             _sheets = (RectTransform)new GameObject("Sheets", typeof(RectTransform), typeof(LayoutElement)).transform;
             _sheets.SetParent(_portraitColumn, false);
-            AddVertical(_sheets.gameObject, 4, new RectOffset());
+            AddVertical(_sheets.gameObject, 4, new RectOffset(12, 12, 8, 8));
+            Panel(_sheets);
             _yourSheet = ScoreSheetView.Make(_sheets, "You Sheet");
             _theirSheet = ScoreSheetView.Make(_sheets, "Their Sheet");
             _teamText = MakeText(_sheets, "", 28, TextAnchor.MiddleCenter, 36);
@@ -819,7 +854,8 @@ namespace Starflare.Bowling
         {
             _controlsArea = (RectTransform)new GameObject("Throw", typeof(RectTransform), typeof(LayoutElement)).transform;
             _controlsArea.SetParent(_portraitColumn, false);
-            AddVertical(_controlsArea.gameObject, 10, new RectOffset());
+            AddVertical(_controlsArea.gameObject, 10, new RectOffset(16, 16, 12, 12));
+            Panel(_controlsArea);
 
             _standRow = MakeRow(_controlsArea, "Stand");
             _standRow.GetComponent<LayoutElement>().preferredHeight = 92;
@@ -833,12 +869,11 @@ namespace Starflare.Bowling
             right.name = "Stand Right Button";
             Outline(right);
 
-            var arrows = LaneGeometry.Arrows.Select(b => MeterFromAim(b)).ToArray();
-            _aimMeter = Meter.Make(_controlsArea, "Aim", false, v => $"Board {AimFrom(v):0.#}", arrows);
+            _aimMeter = Meter.Make(_controlsArea, "Aim", MeterStyle.OnTheLane, v => $"Board {AimFrom(v):0.#}", 72);
             Register(BowlingControls.Aim, _aimMeter.Button, AimTap);
-            _hookMeter = Meter.Make(_controlsArea, "Hook", true, v => v < BallSim.StraightBelow ? "Straight" : $"{v * 100:0}", BallSim.StraightBelow);
+            _hookMeter = Meter.Make(_controlsArea, "Hook", MeterStyle.Dial, v => v < BallSim.StraightBelow ? "Straight" : $"{v * 100:0}", 112);
             Register(BowlingControls.Hook, _hookMeter.Button, HookTap);
-            _speedMeter = Meter.Make(_controlsArea, "Speed", true, v => $"{Throw.MinSpeed + v * (Throw.MaxSpeed - Throw.MinSpeed):0.0} mph");
+            _speedMeter = Meter.Make(_controlsArea, "Speed", MeterStyle.Power, v => $"{Throw.MinSpeed + v * (Throw.MaxSpeed - Throw.MinSpeed):0.0} mph");
             Register(BowlingControls.Speed, _speedMeter.Button, SpeedTap);
         }
 
@@ -846,7 +881,8 @@ namespace Starflare.Bowling
         {
             _actions = (RectTransform)new GameObject("Actions", typeof(RectTransform), typeof(LayoutElement)).transform;
             _actions.SetParent(_portraitColumn, false);
-            AddVertical(_actions.gameObject, 12, new RectOffset());
+            AddVertical(_actions.gameObject, 12, new RectOffset(16, 16, 12, 12));
+            Panel(_actions);
 
             _offerRow = (RectTransform)new GameObject("Offer", typeof(RectTransform), typeof(LayoutElement)).transform;
             _offerRow.SetParent(_actions, false);

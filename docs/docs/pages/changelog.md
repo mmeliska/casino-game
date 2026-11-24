@@ -1,5 +1,9 @@
 ## 24 Nov 2026
 
+### Bowling: the whole screen, new meters
+
+The bowling game now takes the whole screen, the way the craps circle does (Mike): the lanes run edge to edge under everything, the scores and the message sit at the top, and the meters at the foot on a dark glass panel. Behind the pins is the dark pit, with the masking panel hanging above it, instead of the panel sitting right on the pins' heads. The ball's path is an upright strip down the lane's right side. The meters take the idea of a 90s console bowling game's (Mike asked for Championship Bowling on the NES; built on the same ideas in our own art): the aim is a gold arrow from your ball that swings across the lane, the hook a dial whose needle swings from straight to a big curve, the speed a power bar that fills cool to hot. The arrow stays on the lane while you set the hook and speed.
+
 ### Bowling: straight lanes, real markings
 
 The lane no longer curves (Mike asked why it did): the view spread the lane's length up the screen as if from 100 ft back but narrowed it as if from 15, and two distances bend every line. It's now one distance, 60 ft, a true perspective with a long lens, so the lines are straight and the far end keeps room for the hook. The markings follow USBC's lane specifications: the arrows sit in a V pointing at the pins (16 ft in the middle, 13 ft at the outside, each 6 in by 1¼ in), the guide dots are ten at 7 ft with none in the middle, seven approach dots sit just behind the foul line, and range finders run on boards 10 and 30 from 40 to 43 ft. Within USBC's limits the exact spots are proposed (Claude). An aim is now the board your ball rolls over at its own arrow, so the regulars' aims moved to keep their lines (12.5 to 12.8, 10 to 10.5).

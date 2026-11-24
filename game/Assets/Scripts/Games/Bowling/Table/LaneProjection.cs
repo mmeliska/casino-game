@@ -4,10 +4,13 @@ using UnityEngine;
 namespace Starflare.Bowling
 {
     /// <summary>
-    /// The view from behind and above the foul line, like a 90s console game, for a rect: the
-    /// approach at the bottom, the pins small near the top, and above the pit a band for the
-    /// masking panel. The lane, the room either side and everything on them are drawn through it,
-    /// so the boards, the arrows and the ball always agree with the sim.
+    /// The view from behind and above the foul line, like a 90s console game. The lanes fill the
+    /// whole screen (the bounds) and are placed by a frame inside it, the space the layout leaves
+    /// between the scores and the meters: the foul line near the frame's foot, the pins near its
+    /// top; the approach runs on down under the meters, the lanes out to the screen's sides, and
+    /// behind the pins the dark pit, and above it the masking panel, up behind the scores. The
+    /// lane, the room either side and everything on them are drawn through it, so the boards,
+    /// the arrows and the ball always agree with the sim.
     /// </summary>
     readonly struct LaneProjection
     {
@@ -25,8 +28,11 @@ namespace Starflare.Bowling
         /// <summary>Half the lane's width at the foul line, as a share of the view's width.</summary>
         const float FoulHalf = 0.3f;
 
-        /// <summary>The top share of the view, above the pit, where the masking panel hangs.</summary>
+        /// <summary>The top share of the frame, past the deck: the dark pit behind the pins, then the masking panel.</summary>
         public const float Headroom = 0.12f;
+
+        /// <summary>How much of the dark pit shows over the pins: a pin and a half, so they stand against the pit, not the panel.</summary>
+        const double PitMetres = 15 * LaneGeometry.MetresPerInch * 1.5;
 
         /// <summary>
         /// The capping between one lane's gutter and the next one's: 4 in, so lanes sit about
@@ -36,17 +42,40 @@ namespace Starflare.Bowling
 
         public const double Pitch = 2 * LaneGeometry.KickbackX + Capping;
 
-        /// <summary>The lanes drawn either side of yours, dimmer the further out.</summary>
-        public const int Neighbours = 3;
+        /// <summary>The lanes drawn either side of yours, dimmer the further out: enough to reach a landscape screen's sides.</summary>
+        public const int Neighbours = 4;
 
-        readonly Rect _r;
+        readonly Rect _bounds, _r;
 
-        public LaneProjection(Rect rect) => _r = rect;
+        /// <summary>The lanes over these bounds, placed by this frame (both in the same space).</summary>
+        public LaneProjection(Rect bounds, Rect frame)
+        {
+            _bounds = bounds;
+            _r = frame;
+        }
 
-        public Rect Rect => _r;
+        /// <summary>What's drawn: the whole screen.</summary>
+        public Rect Rect => _bounds;
 
-        /// <summary>The far end of the lanes, where the masking panel's band starts.</summary>
+        /// <summary>The far end of the lanes, the top of the pit.</summary>
         public float FarY => _r.yMin + (1 - Headroom) * _r.height;
+
+        /// <summary>The foot of the masking panel, above the dark pit behind the pins.</summary>
+        public float MaskingY => FarY + Px(PitMetres, LaneGeometry.PitFt);
+
+        /// <summary>The top of the masking panel: about three feet of it, as it hangs at the far end; the dark ceiling's above.</summary>
+        public float MaskingTopY => MaskingY + Px(3 * LaneGeometry.MetresPerFoot, LaneGeometry.PitFt);
+
+        /// <summary>The depth (feet; behind the foul line, so negative) at the foot of the screen, where the approach is cut off.</summary>
+        public double BottomFt
+        {
+            get
+            {
+                double v = (_bounds.yMin - _r.yMin) / ((1 - Headroom) * _r.height);
+                double scale = Scale(NearFt) - v * (Scale(NearFt) - Scale(FarFt));
+                return Math.Min(NearFt, Math.Max(-Eye * 0.8, Eye / scale - Eye));
+            }
+        }
 
         static double Scale(double ft) => Eye / (Eye + ft);
 
@@ -85,7 +114,7 @@ namespace Starflare.Bowling
         }
 
         /// <summary>The lanes either side are dimmer: nobody's bowling on them, their lights are low.</summary>
-        public static float Dim(int lane) => lane == 0 ? 1f : lane == 1 || lane == -1 ? 0.5f : lane == 2 || lane == -2 ? 0.34f : 0.24f;
+        public static float Dim(int lane) => lane == 0 ? 1f : Math.Abs(lane) == 1 ? 0.5f : Math.Abs(lane) == 2 ? 0.34f : Math.Abs(lane) == 3 ? 0.26f : 0.2f;
 
         /// <summary>Depths to cut a strip into, so a texture keeps its perspective down the lane.</summary>
         public static double[] Rows(double fromFt, double toFt, double stepFt = 1.5)

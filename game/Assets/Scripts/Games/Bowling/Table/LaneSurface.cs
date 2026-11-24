@@ -17,13 +17,16 @@ namespace Starflare.Bowling
     {
         LaneSurfaceKind _kind;
         Texture _texture;
+        LaneView _lane;
 
         public override Texture mainTexture => _texture != null ? _texture : s_WhiteTexture;
 
-        public void Show(LaneSurfaceKind kind, Texture texture)
+        /// <summary>Draws this surface with this texture, placed by the lane's frame.</summary>
+        public void Show(LaneSurfaceKind kind, Texture texture, LaneView lane)
         {
             _kind = kind;
             _texture = texture;
+            _lane = lane;
             SetMaterialDirty();
             SetVerticesDirty();
         }
@@ -33,7 +36,7 @@ namespace Starflare.Bowling
             vh.Clear();
             var r = rectTransform.rect;
             if (r.width <= 0 || r.height <= 0) return;
-            var view = new LaneProjection(r);
+            var view = _lane != null ? _lane.ProjectionOver(r) : new LaneProjection(r, r);
             switch (_kind)
             {
                 case LaneSurfaceKind.Masking: Masking(vh, view); break;
@@ -70,7 +73,7 @@ namespace Starflare.Bowling
 
         void Approach(VertexHelper vh, LaneProjection view)
         {
-            var rows = LaneProjection.Rows(LaneProjection.NearFt, 0, 0.5);
+            var rows = LaneProjection.Rows(view.BottomFt, 0, 0.5);
             for (int lane = -LaneProjection.Neighbours; lane <= LaneProjection.Neighbours; lane++)
             {
                 double centre = lane * LaneProjection.Pitch;
@@ -83,7 +86,7 @@ namespace Starflare.Bowling
         void Masking(VertexHelper vh, LaneProjection view)
         {
             var r = view.Rect;
-            float bottom = view.FarY, height = r.yMax - bottom;
+            float bottom = view.MaskingY, top = Mathf.Min(r.yMax, view.MaskingTopY), height = Mathf.Max(1, top - bottom);
             float aspect = _texture != null && _texture.height > 0 ? _texture.width / (float)_texture.height : 1.5f;
             float tile = height * aspect;
             float u0 = (r.xMin - r.center.x) / tile + 0.5f, u1 = (r.xMax - r.center.x) / tile + 0.5f;
@@ -91,8 +94,8 @@ namespace Starflare.Bowling
             low.a = high.a = color.a;
             int i = vh.currentVertCount;
             vh.AddVert(new Vector2(r.xMin, bottom), low, new Vector2(u0, 0));
-            vh.AddVert(new Vector2(r.xMin, r.yMax), high, new Vector2(u0, 1));
-            vh.AddVert(new Vector2(r.xMax, r.yMax), high, new Vector2(u1, 1));
+            vh.AddVert(new Vector2(r.xMin, top), high, new Vector2(u0, 1));
+            vh.AddVert(new Vector2(r.xMax, top), high, new Vector2(u1, 1));
             vh.AddVert(new Vector2(r.xMax, bottom), low, new Vector2(u1, 0));
             vh.AddTriangle(i, i + 1, i + 2);
             vh.AddTriangle(i, i + 2, i + 3);
