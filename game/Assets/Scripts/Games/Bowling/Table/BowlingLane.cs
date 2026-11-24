@@ -168,13 +168,16 @@ namespace Starflare.Bowling
             _trace.Path = null;
             _trace.Redraw();
             _laneView.Hand = _ball.Hand = _rules.Hand;
-            _ball.SetColour(BallLook.ColourOf(_practice != null ? BowlingBall.House : _setup.Ball));
+            ShowBall(_practice != null ? BowlingBall.House : _setup.Ball);
             _root.SetActive(true);
 
             if (_practice != null) BeginPracticeBall();
             else if (_match != null) NextLeagueGame();
             else StartOpenGame();
         }
+
+        /// <summary>The ball on the approach: the one you're bowling with.</summary>
+        void ShowBall(BowlingBall ball) => _ball.Show(ball, _art.BallSprite(ball));
 
         public RectTransform Control(string id) => _controls.TryGetValue(id, out var rect) ? rect : null;
 
@@ -372,7 +375,9 @@ namespace Starflare.Bowling
             _animTime = 0;
             _laneView.AimBoard = null;
             _laneView.BallColour = BallLook.ColourOf(delivery.Path.Ball);
+            _laneView.BallSprite = _art.BallSprite(delivery.Path.Ball);
             _deckView.BallColour = _laneView.BallColour;
+            _deckView.BallSprite = _art.BallSprite(delivery.Path.Ball);
             _laneView.Deck = delivery.Before;
             _step = Step.Rolling;
             Refresh();
@@ -538,7 +543,7 @@ namespace Starflare.Bowling
         void EndPractice()
         {
             _practice = null;
-            _ball.SetColour(BallLook.ColourOf(_setup.Ball));
+            ShowBall(_setup.Ball);
             string said = _message;
             if (_match != null) NextLeagueGame();
             else StartOpenGame();
@@ -787,9 +792,11 @@ namespace Starflare.Bowling
             deckGo.transform.SetParent(_laneArea, false);
             _deckView = deckGo.GetComponent<DeckView>();
             _deckView.raycastTarget = false;
+            _deckView.Init(_art.Deck, _art.PinTop, _art.PinDown);
             Pin(_deckView.rectTransform, new Vector2(0.08f, 0.45f), new Vector2(0.92f, 1), Vector2.zero, Vector2.zero);
             deckGo.SetActive(false);
 
+            _laneView.AddLayers(_art.PinUp);
             _ball = ApproachBall.Make(_laneView, CanDrag, _ => Refresh(), Placed);
             _controls[BowlingControls.Stand] = (RectTransform)_ball.transform;
         }

@@ -66,7 +66,7 @@ Not a plate: the lane is built as geometry and drawn with four repeating texture
 
 The close-up for the hit, looking straight down.
 
-`lanes_deck_top` (insert, square 1:1)
+`lanes_deck_top` (square 1:1; drawn as `Images/Bowling/lanes_pin_deck.png` and brought in as the bowling game's `deck_top`, Mike, 2026-11-24)
 
 ```
 Close-up insert panel, looking straight down from above onto the empty pin deck at the end of a bowling lane: polished pale wood with the ten pin spots marked as small dark dots in a triangle, point toward the bottom of the frame, the gutters down both sides, the dark steel kickback walls beyond them, and the black pit across the top edge. Flat top-down view, no perspective, the deck filling the square. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, No people, no pins, no ball, no text, no lettering.

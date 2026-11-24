@@ -11,6 +11,9 @@ namespace Starflare.Bowling
     /// </summary>
     public sealed class LaneArt
     {
+        // The textures tile; the sprites (the deck, the balls, the pins) are drawn as they are,
+        // and while one isn't in, the lane draws that thing in flat shapes.
+
         /// <summary>The lane's maple, grain only, seen from above: the code draws the board joints.</summary>
         public Texture2D Boards;
 
@@ -22,6 +25,19 @@ namespace Starflare.Bowling
 
         /// <summary>The painted panel that hangs over the far end of the lanes.</summary>
         public Texture2D Masking;
+
+        /// <summary>The deck from straight above, for the hit; its spots measured in <see cref="DeckView"/>.</summary>
+        public Sprite Deck;
+
+        /// <summary>The house ball and the two on Juan's counter, from a little above and behind.</summary>
+        public Sprite BallHouse, BallUrethane, BallReactive;
+
+        /// <summary>A pin upright (the lane), on its side (knocked down, on the deck) and from above (standing, on the deck).</summary>
+        public Sprite PinUp, PinDown, PinTop;
+
+        /// <summary>The picture of a ball, or null while it isn't in.</summary>
+        public Sprite BallSprite(BowlingBall ball) =>
+            ball == BowlingBall.Urethane ? BallUrethane : ball == BowlingBall.Reactive ? BallReactive : BallHouse;
 
         /// <summary>How long a stretch of lane one tile of each texture covers, in feet.</summary>
         public const double BoardsTileFt = 8, ApproachTileFt = 4, GutterTileFt = 3;
@@ -38,6 +54,8 @@ namespace Starflare.Bowling
             var result = new LaneArt
             {
                 Boards = art?.Boards, Approach = art?.Approach, Gutter = art?.Gutter, Masking = art?.Masking,
+                Deck = art?.Deck, BallHouse = art?.BallHouse, BallUrethane = art?.BallUrethane, BallReactive = art?.BallReactive,
+                PinUp = art?.PinUp, PinDown = art?.PinDown, PinTop = art?.PinTop,
             };
             var list = new System.Collections.Generic.List<Texture2D>();
             if (result.Boards == null) list.Add(result.Boards = Grain("Boards", 64, 256, new Color(0.83f, 0.66f, 0.43f), 11));

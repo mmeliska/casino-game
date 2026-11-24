@@ -51,7 +51,13 @@ namespace Starflare.Bowling
             return ball;
         }
 
-        public void SetColour(Color colour) => _ball.color = colour;
+        /// <summary>The ball's picture, or a circle in its colour while the picture isn't in.</summary>
+        public void Show(BowlingBall ball, Sprite picture)
+        {
+            _ball.sprite = picture != null ? picture : Circle;
+            _ball.color = picture != null ? Color.white : BallLook.ColourOf(ball);
+            _ball.preserveAspect = true;
+        }
 
         /// <summary>Puts the ball on a board (clamped to the lane) without anyone dragging it.</summary>
         public void Place(int board)

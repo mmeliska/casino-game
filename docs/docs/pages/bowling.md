@@ -208,7 +208,8 @@ Following `ARCHITECTURE.md`, "Adding a game": namespace `Starflare.Bowling`.
 | `BowlingControls.cs` | The control ids |
 | `LaneProjection.cs` | The perspective: sim coordinates to the screen, the lanes' spacing, the light down the lane |
 | `LaneSurface.cs` | One textured surface (boards, gutters, approach, masking panel) built as geometry through the projection |
-| `LaneArt.cs` | The textures the venue hands over, and plain stand-ins for any not drawn yet |
+| `LaneArt.cs` | The textures and pictures the venue hands over, and plain stand-ins for any texture not drawn yet |
+| `SpriteQuads.cs` | A layer drawing one sprite many times (the pins, the ball), or shapes while it isn't in |
 | `LaneView.cs` | Over the surfaces: the ink (edges, board joints, foul line, dots, arrows), the capping and pit, the racks either side, the ball, the pins, the sweep |
 | `Meter.cs` | A sweep you stop with a tap: shared by aim, hook and speed |
 | `PathTrace.cs` | The overhead strip after each throw |
@@ -272,7 +273,7 @@ What's built (`LaneProjection`, `LaneSurface`, `LaneView`, `LaneArt`):
 - **Above the pit**, the top eighth of the view, the masking panel that hangs over the far end of the lanes.
 - **Until the pictures are in**, the lane makes plain textures of its own (wood grain, a grey channel, cream panels over green), so the textured path is what's tuned on.
 
-The textures repeat, and ChatGPT's never quite meet at their edges, so each is saved in `Images/Bowling/` under its tag and brought in with `python3 tools/import_lane_textures.py`: it blends each picture into itself across the edges it repeats over, scales it down and writes `game/Assets/Resources/Bowling/<tag>.png`, which the game imports as a repeating texture. They're textures, not scenes, so each prompt asks for something flat, seen straight on, edge to edge.
+The textures repeat, and ChatGPT's never quite meet at their edges, so each is saved in `Images/Bowling/` under its tag and brought in with `python3 tools/import_bowling.py`: it blends each picture into itself across the edges it repeats over, scales it down and writes `game/Assets/Resources/Bowling/<tag>.png`, which the game imports as a repeating texture. They're textures, not scenes, so each prompt asks for something flat, seen straight on, edge to edge.
 
 `lane_boards` (texture, square 1:1)
 
@@ -304,7 +305,9 @@ A seamless texture that repeats from left to right, seen flat and straight on wi
 
 The close-up for the hit. The pin sim is flat, so the close-up looks straight down on the deck and shows it as it is. (This replaces `lanes_deck_close`, the deck from the front, in the first draft of this page.)
 
-`lanes_deck_top` (insert, square 1:1)
+Drawn (Mike, 2026-11-24) as `Images/Bowling/lanes_pin_deck.png`; the import tool copies it in as `deck_top`, a picture the bowling game draws rather than a story insert. It also measures the ten spots and prints where they are, and those numbers are in `DeckView`, so the drawn pins stand on the painted spots and a ball's hit plays out on the picture. The spots are painted 12 in apart across, as on a real deck, but the rows 9 in apart rather than 10.4, so the close-up maps the sim down the lane at its own scale. Standing pins are the sprite from above; knocked pins lie on their sides, pointing the way they were knocked; anything that flies into the gutters stays inside the picture. A redrawn deck needs the tool run again and its numbers put in `DeckView`.
+
+`lanes_deck_top` (square 1:1)
 
 ```
 Close-up insert panel, looking straight down from above onto the empty pin deck at the end of a bowling lane: polished pale wood with the ten pin spots marked as small dark dots in a triangle, point toward the bottom of the frame, the gutters down both sides, the dark steel kickback walls beyond them, and the black pit across the top edge. Flat top-down view, no perspective, the deck filling the square. Night: a deep navy sky and cool blue shadows, old yellow streetlamps and lit windows casting small warm pools, red and green bar neon. Palette: brick red, tired green, navy. Gritty graphic-novel: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, No people, no pins, no ball, no text, no lettering.
@@ -312,7 +315,7 @@ Close-up insert panel, looking straight down from above onto the empty pin deck 
 
 #### The balls, the pins and the shoes
 
-One sheet. The three balls are the house ball and the two on Juan's counter; the pin is drawn upright and on its side for the lane, and from above for the deck close-up; the balls and the shoes double as their Pockets icons. Make it in one ChatGPT chat with `lanes_lanes_night` attached, and save it as `Images/Bowling/bowling_sprites.png`. The magenta ground is there so the black urethane ball and the grey of a fallen pin come out clean. Nothing imports it yet: when it exists, `tools/import_tickets.py`'s magenta cutter gets a bowling entry that writes `game/Assets/Resources/Bowling/<name>.png` (in sheet order: `ball_house`, `ball_urethane`, `ball_reactive`, `pin_up`, `pin_down`, `pin_top`, `shoes`).
+One sheet. The three balls are the house ball and the two on Juan's counter; the pin is drawn upright and on its side for the lane, and from above for the deck close-up; the balls and the shoes double as their Pockets icons. Make it in one ChatGPT chat with `lanes_lanes_night` attached, and save it as `Images/Bowling/bowling_sprites.png`. The magenta ground is there so the black urethane ball and the grey of a fallen pin come out clean. Drawn (Mike, 2026-11-24). `tools/import_bowling.py` cuts it with the scratchers' magenta cutter and writes `game/Assets/Resources/Bowling/<name>.png`, in sheet order: `ball_house`, `ball_urethane`, `ball_reactive`, `pin_up`, `pin_down`, `pin_top`, `shoes`. The game draws the ball you're bowling with on the approach, rolling and on the deck, the pins upright on the lane (dimmer on the lanes either side) and from above or on their sides on the deck; while a sprite isn't in, that thing is drawn in shapes. The shoes wait for Pockets.
 
 `bowling_sprites` (sprite sheet, landscape 3:2)
 
@@ -329,7 +332,7 @@ Seven sprites, four on the top row and three on the bottom, in this order: an ol
 3. **Bowlers, challenges, rules and the game** (open and for money); settlement and odds tests.
 4. **The table** in placeholder shapes, portrait and landscape; the PlayMode smoke tests.
 5. **The place**: `MillstoneLanes` as a MonoBehaviour, the ink, the contract, the checkpoints, the docs' Lanes page and GDD rows.
-6. **Art** and the trace. The lane is built and textured (2026-11-24), with stand-in textures until the pictures are drawn; the deck close-up and the sprite sheet still to come.
+6. **Art** and the trace. All the art is in (2026-11-24): the lane built and textured, the deck close-up, the balls and the pins. The trace still draws in shapes.
 7. **Tune** on a phone: sweep rates, the regulars' spreads, the fee and stakes.
 
 Steps 1 to 3 are a day or two each of rules code and tests and can be checked headless. Step 4 is the biggest single piece, about the size of `SlotMachine`.

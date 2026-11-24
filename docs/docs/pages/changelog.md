@@ -1,5 +1,9 @@
 ## 24 Nov 2026
 
+### Bowling: the art is in
+
+All the bowling art Mike drew is in the game: the four lane textures, the deck from above and the sprite sheet. The ball you're bowling with is its picture on the approach, rolling and on the deck; the pins stand on the lane and on the deck close-up as their pictures, and knocked pins lie on their sides pointing the way they went. The deck's painted spots were measured so the pins stand on them: they're 12 in apart across, as on a real deck, but the rows are painted closer than real, so the close-up maps the sim down the lane at its own scale. One tool, `tools/import_bowling.py`, now brings all of it in (it was the lane textures' tool), cutting the sheet off its magenta and printing the deck's measurements. The shoes are cut and wait for Pockets.
+
 ### Bowling: the masking panel matches the Lanes
 
 The panel over the far end of the lanes now matches the inside of Millstone Lanes as drawn (Mike): plain cream panels over a strip of tired green, a thin navy line between, in place of a navy panel with pins and starbursts. Its prompt on [Bowling](#bowling) asks for it as a band across a black picture, which the import tool cuts out, and the lane's stand-in panel looks the same until it's drawn.

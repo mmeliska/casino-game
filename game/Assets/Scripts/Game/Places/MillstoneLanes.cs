@@ -122,8 +122,9 @@ namespace Starflare.Game
         /// once. Then bowling, unless the league has the lanes and you're not subbing.
         /// </summary>
         /// <summary>
-        /// The textures Juan's lanes are drawn with (Bowling, "Art"): the maple, the approach,
-        /// the gutter and the masking panel. Any not in yet, the lane stands in for itself.
+        /// The art Juan's lanes are drawn with (Bowling, "Art"): the textures for the maple, the
+        /// approach, the gutter and the masking panel, and the pictures of the deck, the balls
+        /// and the pins. Any not in yet, the lane stands in for itself.
         /// </summary>
         static LaneArt LaneTextures() => new LaneArt
         {
@@ -131,6 +132,13 @@ namespace Starflare.Game
             Approach = Art.Texture("lane_approach"),
             Gutter = Art.Texture("lane_gutter"),
             Masking = Art.Texture("lane_masking"),
+            Deck = Art.BowlingSprite("deck_top"),
+            BallHouse = Art.BowlingSprite("ball_house"),
+            BallUrethane = Art.BowlingSprite("ball_urethane"),
+            BallReactive = Art.BowlingSprite("ball_reactive"),
+            PinUp = Art.BowlingSprite("pin_up"),
+            PinDown = Art.BowlingSprite("pin_down"),
+            PinTop = Art.BowlingSprite("pin_top"),
         };
 
         void ShowInside()

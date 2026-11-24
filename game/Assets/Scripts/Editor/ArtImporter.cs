@@ -6,7 +6,7 @@ namespace Starflare.EditorTools
     /// <summary>
     /// Imports scene art (Resources/Plates, Poses and Inserts, and each art style's copy of them
     /// under Resources/Styles), the crowd faces (Resources/Faces), the scratcher tickets
-    /// (Resources/Scratchers) and the city map (Resources/Map)
+    /// (Resources/Scratchers), the bowling pictures (Resources/Bowling) and the city map (Resources/Map)
     /// as UI sprites, and the bowling lane's textures (Resources/Bowling/lane_*) as repeating
     /// textures, so new images dropped in under their tag names work without touching the
     /// import settings.
@@ -14,7 +14,7 @@ namespace Starflare.EditorTools
     public sealed class ArtImporter : AssetPostprocessor
     {
         // Styles/ holds each other art style's Plates, Poses and Inserts (ArtStyles).
-        static readonly string[] Folders = { "Assets/Resources/Plates/", "Assets/Resources/Poses/", "Assets/Resources/Inserts/", "Assets/Resources/Faces/", "Assets/Resources/Scratchers/", "Assets/Resources/Styles/", MapFolder };
+        static readonly string[] Folders = { "Assets/Resources/Plates/", "Assets/Resources/Poses/", "Assets/Resources/Inserts/", "Assets/Resources/Faces/", "Assets/Resources/Scratchers/", "Assets/Resources/Bowling/", "Assets/Resources/Styles/", MapFolder };
         const string MapFolder = "Assets/Resources/Map/";
 
         void OnPreprocessTexture()

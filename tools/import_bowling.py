@@ -1,17 +1,25 @@
-"""Make the bowling lane's textures tile and put them in the game.
+"""Bring the bowling art into the game: the lane's textures, the deck and the sprite sheet.
 
-The lane at Millstone Lanes is built as geometry and drawn with four textures that repeat
-down it (docs: Bowling, "Art"). They're drawn in ChatGPT and saved in Images/Bowling/ under
-their tags. ChatGPT's "seamless" textures rarely meet exactly at their edges, so this blends
+Everything is drawn in ChatGPT and saved in Images/Bowling/ (docs: Bowling, "Art"), and
+written to game/Assets/Resources/Bowling/:
+
+- The four lane textures (lane_boards and so on, TEXTURES), made to tile; see below.
+- The deck from above (DECK), copied in as deck_top. Its spots are measured and printed, as
+  shares of the picture: those numbers go in DeckView (HeadX, HeadY, InchAcross, InchDown) so
+  the pins stand on the painted spots.
+- The sprite sheet (SHEET): the pictures on flat magenta, cut out in reading order with the
+  magenta keyed clear (the scratchers' cutter, tools/import_tickets.py), as SPRITES.
+
+The lane is built as geometry and drawn with the four textures, which repeat down it. ChatGPT's "seamless" textures rarely meet exactly at their edges, so this blends
 each one into itself across the edges it repeats over: it shifts the picture half its width
 (or height), and fades from the shifted copy at the edges to the original in the middle, so
 the left edge runs on into the right and the top into the bottom. Then it scales it down and
 writes game/Assets/Resources/Bowling/<tag>.png, which the game imports as a repeating
 texture (ArtImporter).
 
-    python3 tools/import_lane_textures.py               # Images/Bowling/    -> Resources/Bowling
-    python3 tools/import_lane_textures.py --style alt   # ImagesAlt/Bowling/ -> Resources/Styles/alt/Bowling
-    python3 tools/import_lane_textures.py --dry-run     # say what would be written
+    python3 tools/import_bowling.py               # Images/Bowling/    -> Resources/Bowling
+    python3 tools/import_bowling.py --style alt   # ImagesAlt/Bowling/ -> Resources/Styles/alt/Bowling
+    python3 tools/import_bowling.py --dry-run     # say what would be written, and measure the deck
 
 The masking panel is drawn as a band across a black picture; this cuts the band out and
 keeps its shape.
@@ -19,7 +27,7 @@ keeps its shape.
 Grain blended across itself can show a faint double line in the middle; if one does,
 regenerate the picture rather than live with it.
 
-Needs Pillow and NumPy.
+Needs Pillow, NumPy and SciPy (for the deck's spots).
 """
 
 import argparse
@@ -27,6 +35,8 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image
+
+from import_tickets import cut_picture, pictures
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -45,6 +55,16 @@ BANDS = {"lane_masking"}
 
 # A row darker than this on average (0 to 255) is the black round a band.
 BLACK = 24
+
+# The deck from straight above, as drawn -> its tag.
+DECK = ("lanes_pin_deck.png", "deck_top")
+
+# The sprite sheet, and its pictures in reading order (left to right, top row first).
+SHEET = "bowling_sprites.png"
+SPRITES = ["ball_house", "ball_urethane", "ball_reactive", "pin_up", "pin_down", "pin_top", "shoes"]
+
+# Pin spots on a deck: 12 in apart across, rows 10.39 in apart down (PinDeck).
+SPOT_INCHES_ACROSS = 12.0
 
 
 def blend(pixels, axis):
@@ -92,6 +112,40 @@ def tile(source, across, down, size, band=False):
     return out.resize(size, Image.LANCZOS)
 
 
+def measure_deck(path):
+    """
+    The deck picture's head-pin spot, as shares of its width from the left and its height from
+    the top, and an inch across and an inch down the lane as shares of its width: the dark
+    round spots on the wood, the head pin the nearest, the back row four 12 in apart.
+    """
+    from scipy import ndimage
+
+    rgb = np.asarray(Image.open(path).convert("RGB")).astype(int)
+    h, w, _ = rgb.shape
+    lum = rgb.mean(2)
+    wood = (rgb[..., 0] > 150) & (rgb[..., 0] - rgb[..., 2] > 60)
+    labels, _ = ndimage.label((lum < 60) & ndimage.binary_closing(wood, iterations=25))
+    spots = []
+    for i, box in enumerate(ndimage.find_objects(labels), 1):
+        size = (labels[box] == i).sum()
+        y0, y1 = box[0].start, box[0].stop
+        x0, x1 = box[1].start, box[1].stop
+        round_ = 0.6 < (y1 - y0) / max(1, x1 - x0) < 1.6
+        if round_ and w * h * 0.0001 < size < w * h * 0.002:
+            cy, cx = ndimage.center_of_mass(labels == i)
+            spots.append((cx, cy))
+    if len(spots) != 10:
+        print(f"  {path.name}: found {len(spots)} spots, expected 10; measure it by hand")
+        return
+    spots.sort(key=lambda p: p[1])
+    back, head = spots[:4], spots[-1]
+    rows = sorted({round(y) for _, y in spots})
+    across = (max(x for x, _ in back) - min(x for x, _ in back)) / (3 * SPOT_INCHES_ACROSS)
+    down = (head[1] - np.mean([y for _, y in back])) / (3 * 10.39)
+    print(f"  {path.name}: HeadX = {head[0] / w:.4f}f, HeadY = {head[1] / h:.4f}f, "
+          f"InchAcross = {across / w:.6f}f, InchDown = {down / w:.6f}f  (DeckView)")
+
+
 def folders(style):
     resources = ROOT / "game/Assets/Resources"
     if style == "base":
@@ -119,6 +173,33 @@ def main():
             dest.parent.mkdir(parents=True, exist_ok=True)
             tile(path, across, down, size, tag in BANDS).save(dest)
     print(f"{found} of {len(TEXTURES)} textures {'to write' if args.dry_run else 'written'}.")
+
+    deck_name, deck_tag = DECK
+    deck = source / deck_name
+    if deck.exists():
+        dest = target / f"{deck_tag}.png"
+        print(f"{'would copy' if args.dry_run else 'copied'}  {deck.relative_to(ROOT)}  ->  {dest.relative_to(ROOT)}")
+        measure_deck(deck)
+        if not args.dry_run:
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            Image.open(deck).convert("RGB").save(dest)
+    else:
+        print(f"not drawn yet  {deck.relative_to(ROOT)}")
+
+    sheet = source / SHEET
+    if not sheet.exists():
+        print(f"not drawn yet  {sheet.relative_to(ROOT)}")
+        return
+    rgb = np.asarray(Image.open(sheet).convert("RGB")).astype(int)
+    boxes = pictures(rgb)
+    if len(boxes) != len(SPRITES):
+        raise SystemExit(f"{SHEET}: found {len(boxes)} pictures, expected {len(SPRITES)}. "
+                         "Check every picture stands clear of the others on plain magenta.")
+    print(f"{SHEET}: {', '.join(SPRITES)}")
+    if not args.dry_run:
+        target.mkdir(parents=True, exist_ok=True)
+        for box, tag in zip(boxes, SPRITES):
+            cut_picture(rgb, box).save(target / f"{tag}.png")
 
 
 if __name__ == "__main__":

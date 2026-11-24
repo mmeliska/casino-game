@@ -33,6 +33,8 @@ namespace Starflare.Bowling
         /// <summary>A full rack, for the lanes either side.</summary>
         PinDeck _rack;
 
+        SpriteQuads _pins, _ball;
+
         LaneProjection View => new LaneProjection(rectTransform.rect);
 
         protected override void OnPopulateMesh(VertexHelper vh)
@@ -87,37 +89,75 @@ namespace Starflare.Bowling
                 var tip = view.Project(Lane(aim, LaneGeometry.ArrowsFt) + new Vec2(0, LaneGeometry.Y(1.6)));
                 Shapes.Triangle(vh, view.Project(Lane(aim + 0.9, LaneGeometry.ArrowsFt - 1.4)), tip, view.Project(Lane(aim - 0.9, LaneGeometry.ArrowsFt - 1.4)), UiGold);
             }
+        }
 
-            // The racks on the lanes either side, farthest first, then yours.
+        /// <summary>
+        /// Adds the pins and the rolling ball as layers over the lane, drawn from their sprites
+        /// (or in shapes while they aren't in). Call once, before anything else goes on the lane.
+        /// </summary>
+        public void AddLayers(Sprite pinUp)
+        {
+            _pins = SpriteQuads.Make(transform, "Pins", DrawPins);
+            _pins.Sprite = pinUp;
+            _ball = SpriteQuads.Make(transform, "Rolling Ball", DrawBall);
+        }
+
+        /// <summary>The ball's picture for this delivery; null draws it in its colour.</summary>
+        public Sprite BallSprite
+        {
+            set { if (_ball != null) _ball.Sprite = value; }
+        }
+
+        /// <summary>The racks on the lanes either side, farthest first, then yours.</summary>
+        void DrawPins(VertexHelper vh, Rect r, SpriteQuads layer)
+        {
+            var view = new LaneProjection(r);
             var rack = _rack ??= PinDeck.Exact(0);
-            for (int lane = n; lane >= 1; lane--)
+            double pitch = LaneProjection.Pitch;
+            for (int lane = LaneProjection.Neighbours; lane >= 1; lane--)
                 foreach (int side in new[] { -1, 1 })
                 {
                     float dim = LaneProjection.Dim(lane) * 0.8f;
                     for (int i = PinDeck.Pins - 1; i >= 0; i--)
-                        Pin(vh, view, rack.PositionOf(i) + new Vec2(side * lane * pitch, 0), dim);
+                        Pin(vh, view, layer, rack.PositionOf(i) + new Vec2(side * lane * pitch, 0), dim);
                 }
             if (Deck != null)
                 for (int i = PinDeck.Pins - 1; i >= 0; i--)
-                    if (Deck.IsStanding(i)) Pin(vh, view, Deck.PositionOf(i), 1);
-
-            if (Ball.HasValue)
-            {
-                var at = Ball.Value;
-                double ft = LaneGeometry.Feet(at.Y);
-                float radius = view.Px(0.108, ft);
-                var centre = view.Project(at) + new Vector2(0, radius * 0.6f);
-                Shapes.Circle(vh, centre, radius + Mathf.Max(1.5f, radius * 0.12f), Ink, 0.9f);
-                Shapes.Circle(vh, centre, radius, BallColour, 0.9f);
-            }
+                    if (Deck.IsStanding(i)) Pin(vh, view, layer, Deck.PositionOf(i), 1);
         }
 
-        /// <summary>A pin, outlined in ink, at this brightness.</summary>
-        void Pin(VertexHelper vh, LaneProjection view, Vec2 at, float light)
+        void DrawBall(VertexHelper vh, Rect r, SpriteQuads layer)
+        {
+            if (!Ball.HasValue) return;
+            var view = new LaneProjection(r);
+            var at = Ball.Value;
+            double ft = LaneGeometry.Feet(at.Y);
+            float radius = view.Px(0.108, ft);
+            var foot = view.Project(at);
+            if (layer.Sprite != null)
+            {
+                float width = radius * 2.1f, height = width * layer.Aspect * 0.95f;
+                layer.Box(vh, new Rect(foot.x - width / 2, foot.y - radius * 0.35f, width, height), Color.white);
+                return;
+            }
+            var centre = foot + new Vector2(0, radius * 0.6f);
+            Shapes.Circle(vh, centre, radius + Mathf.Max(1.5f, radius * 0.12f), Ink, 0.9f);
+            Shapes.Circle(vh, centre, radius, BallColour, 0.9f);
+        }
+
+        /// <summary>A pin standing on its spot at this brightness: its picture, or a shape outlined in ink.</summary>
+        static void Pin(VertexHelper vh, LaneProjection view, SpriteQuads layer, Vec2 at, float light)
         {
             double ft = LaneGeometry.Feet(at.Y);
             var foot = view.Project(at);
             float w = view.Px(PinDeck.PinRadius, ft);
+            if (layer.Sprite != null)
+            {
+                // The picture's pin, outline and all, a little wider than the pin's belly.
+                float width = w * 2.3f, height = width * layer.Aspect;
+                layer.Box(vh, new Rect(foot.x - width / 2, foot.y - w * 0.3f, width, height), new Color(light, light, light, 1));
+                return;
+            }
             float h = w * 3.2f, edge = Mathf.Max(1f, w * 0.18f);
             Color body = BallLook.Pin * light, neck = BallLook.PinNeck * light, ink = Ink;
             body.a = neck.a = 1;
@@ -187,7 +227,12 @@ namespace Starflare.Bowling
         public float BallPx(double ft) => View.Px(0.108, ft);
 
         /// <summary>Redraws: call when anything it shows has moved.</summary>
-        public void Redraw() => SetVerticesDirty();
+        public void Redraw()
+        {
+            SetVerticesDirty();
+            if (_pins != null) _pins.Redraw();
+            if (_ball != null) _ball.Redraw();
+        }
 
         protected override void OnRectTransformDimensionsChange()
         {
