@@ -1,5 +1,9 @@
 ## 24 Nov 2026
 
+### Bowling: aim and hook quicker again
+
+The aim's arrow and the hook's needle sweep about 30% quicker (Mike): the aim at 34 boards a second (was 26), the hook at 208 units a second (was 160). The speed bar is unchanged at 110 per cent a second.
+
 ### Bowling: the ball spins
 
 The rolling ball now spins the way the sim says it does (Mike): it's drawn as a sphere with its surface wrapped round it like a globe, turned by the spin worked out for every moment of the roll. A skidding ball turns slower than it travels, a rolling one with its speed, a hook sweeps the finger holes round on a tilted axis, and it carries on spinning through the pins on the close-up. Lit in flat bands with an ink ring, to sit with the rest of the art. Each ball's surface is drawn unrolled (Mike; prompts on [Bowling](#bowling)), and the import tool stamps the finger holes on, with a light worn rim on the black urethane so they show. The ball sitting on the approach stays the sprite.

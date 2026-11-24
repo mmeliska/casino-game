@@ -38,10 +38,11 @@ namespace Starflare.Bowling
 
         /// <summary>
         /// How fast the sweeps run: boards a second for aim, hook units (-100 to 100) a second, speed
-        /// per cent a second. Quicker after a first look on the full screen (Mike, 2026-11-24): about
-        /// a second and a bit a pass for aim and hook, under a second for speed.
+        /// per cent a second. Quicker after a first look on the full screen, then aim and hook 30% quicker
+        /// again (Mike, 2026-11-24): about nine-tenths of a second a pass for aim and hook, under a
+        /// second for speed.
         /// </summary>
-        public double AimSweep = 26, HookSweep = 160, SpeedSweep = 110;
+        public double AimSweep = 34, HookSweep = 208, SpeedSweep = 110;
 
         /// <summary>
         /// Off by default: what you stop is what you throw. If playtesting finds that too exact,
