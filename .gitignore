@@ -30,5 +30,7 @@ tmp/
 # Generated concatenation of all docs pages
 docs/all-docs.txt
 
-
-ios/
+# iOS build output: the Xcode project, and the debug symbols Unity writes beside it
+# (anchored, so a plugin folder such as Assets/Plugins/iOS is still tracked)
+/game/ios/
+/game/*_BackUpThisFolder_ButDontShipItWithYourGame/
