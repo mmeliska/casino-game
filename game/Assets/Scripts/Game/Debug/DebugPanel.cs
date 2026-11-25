@@ -1,26 +1,34 @@
 using System;
+using System.Collections.Generic;
 using Starflare.State;
 using Starflare.Ui;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static Starflare.Ui.UiKit;
 
 namespace Starflare.Game
 {
     /// <summary>
-    /// The debug panel, for setting the game to the moment you want to test. A small DEV button
-    /// on the left edge opens it over any screen. It loads a checkpoint (a beat's recipe) or a
+    /// The debug panel, for setting the game to the moment you want to test. A swipe up from the
+    /// bottom edge of any screen pulls it up as a sheet; Done or a tap above it slides it away. It loads a checkpoint (a beat's recipe) or a
     /// snapshot (a copy of a real save), and edits the live state through the same methods play
     /// uses: cash, Kasia's book, the clock, the register box, the hidden scales, every story flag,
     /// and where you stand. It also sets the clock's pace (story minutes per real minute, hours a sitting) and the
     /// register box the checkpoints sign with, and the art style, which this device remembers, so a pace being tried survives reloads and relaunches. Flags and places change what a screen offers, so closing after either boots the
-    /// city again from the save. The city adds it in Editor and Development builds only.
+    /// city again from the save. Every build carries it for now, release builds included (Mike, 2026-11-25).
     /// </summary>
     public sealed class DebugPanel : MonoBehaviour
     {
         const float Row = 88;
+        const float SlideSeconds = 0.25f;
+        const float MaxStep = 1f / 30f;
+
+        /// <summary>How tall the band a swipe starts in is, above the home indicator, as a share of the screen.</summary>
+        const float EdgeShare = 0.08f;
 
         const string RateKey = "debug.pace.rate";
         const string CapKey = "debug.pace.cap";
@@ -30,8 +38,14 @@ namespace Starflare.Game
 
         IDebugHost _host;
         GameObject _root;
+        RectTransform _canvas;
         RectTransform _content;
         RectTransform _body;
+        RectTransform _viewport;
+        Image _backdrop;
+        EdgeSwipe _swipe;
+        bool _open;
+        float _shown;
         bool _reloadOnClose;
 
         public void Init(IDebugHost host)
@@ -48,19 +62,20 @@ namespace Starflare.Game
             if (_host != null) _host.State.Changed -= Redraw;
         }
 
-        public bool IsOpen => _root.activeSelf;
+        /// <summary>True from the tap that opens the sheet until the tap that closes it, slides included.</summary>
+        public bool IsOpen => _open;
 
         public void Open()
         {
+            if (_open) return;
+            _open = true;
             _root.SetActive(true);
             Redraw();
+            Slide();
         }
 
-        void Close()
-        {
-            _root.SetActive(false);
-            if (_reloadOnClose) _host.Reload();
-        }
+        /// <summary>Slides the sheet down; a reload the flags asked for waits until it's off the screen.</summary>
+        void Close() => _open = false;
 
         void Redraw()
         {
@@ -249,30 +264,26 @@ namespace Starflare.Game
         {
             // Over everything, the phone (13) included.
             var canvas = MakeCanvas(transform, "Debug Canvas", 50);
+            _canvas = (RectTransform)canvas.transform;
 
-            var safe = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
-            safe.transform.SetParent(canvas.transform, false);
-            Stretch((RectTransform)safe.transform);
+            // A swipe up from the bottom edge opens it (Mike, 2026-11-25; replaces the DEV
+            // button in the bottom-right corner, 2026-11-21).
+            _swipe = new EdgeSwipe(SomethingDragsAt);
 
-            // The DEV button, in the bottom-right corner (Mike, 2026-11-21); gold, so it shows on a night plate.
-            var open = MakePanel(safe.transform, "Dev Button", InkBlack);
-            open.gameObject.AddComponent<Button>().onClick.AddListener(Open);
-            var corner = new Vector2(1, 0);
-            Pin(open.rectTransform, corner, corner, new Vector2(-136, 16), new Vector2(-16, 128));
-            var devText = MakeText(open.transform, "DEV", 36, TextAnchor.MiddleCenter, 0);
-            devText.color = Gold;
-            devText.fontStyle = FontStyles.Bold;
-            Stretch(devText.rectTransform);
+            var root = new GameObject("Debug Panel", typeof(RectTransform));
+            root.transform.SetParent(canvas.transform, false);
+            Stretch((RectTransform)root.transform);
+            _root = root;
 
-            var root = MakeImage(canvas.transform, "Debug Panel", new Color(0, 0, 0, 0.6f));
-            Stretch(root.rectTransform);
-            _root = root.gameObject;
+            // The dim behind the sheet; a tap on it closes the sheet. A sibling of the sheet, not
+            // its parent, so a tap on the sheet's own text doesn't bubble up to it.
+            _backdrop = MakeImage(root.transform, "Backdrop", Color.clear);
+            Stretch(_backdrop.rectTransform);
+            _backdrop.gameObject.AddComponent<Button>().onClick.AddListener(Close);
 
-            var rootSafe = new GameObject("Safe Area", typeof(RectTransform), typeof(SafeAreaFitter));
-            rootSafe.transform.SetParent(root.transform, false);
-            Stretch((RectTransform)rootSafe.transform);
-
-            var body = MakePanel(rootSafe.transform, "Body", Panel);
+            // The sheet sits on the screen's bottom edge, under the home indicator; the list
+            // inside it stops above the indicator (FitBottomInset).
+            var body = MakePanel(root.transform, "Sheet", Panel);
             _body = body.rectTransform;
 
             var title = MakeText(body.transform, "Debug", 44, TextAnchor.MiddleLeft, 0);
@@ -286,8 +297,8 @@ namespace Starflare.Game
             viewport.transform.SetParent(body.transform, false);
             // A clear image, so a drag anywhere in the list scrolls it.
             viewport.GetComponent<Image>().color = Color.clear;
-            var viewportRect = (RectTransform)viewport.transform;
-            Pin(viewportRect, Vector2.zero, Vector2.one, new Vector2(16, 16), new Vector2(-16, -124));
+            _viewport = (RectTransform)viewport.transform;
+            Pin(_viewport, Vector2.zero, Vector2.one, new Vector2(16, 16), new Vector2(-16, -124));
 
             var content = new GameObject("Content", typeof(RectTransform));
             content.transform.SetParent(viewport.transform, false);
@@ -299,21 +310,103 @@ namespace Starflare.Game
             _content.offsetMin = _content.offsetMax = Vector2.zero;
 
             var scroll = body.gameObject.AddComponent<ScrollRect>();
-            scroll.viewport = viewportRect;
+            scroll.viewport = _viewport;
             scroll.content = _content;
             scroll.horizontal = false;
             scroll.movementType = ScrollRect.MovementType.Clamped;
             scroll.scrollSensitivity = 40;
 
-            // Portrait: nearly the whole screen. Landscape: a column down the middle.
+            // Portrait: the full width, up to a little below the top, so the screen shows behind
+            // it. Landscape: a column up the middle.
             OnTurn(canvas, landscape =>
             {
                 if (landscape)
-                    Pin(_body, new Vector2(0.5f, 0), new Vector2(0.5f, 1), new Vector2(-640, 32), new Vector2(640, -32));
+                    Pin(_body, new Vector2(0.5f, 0), new Vector2(0.5f, 1), new Vector2(-640, 0), new Vector2(640, -48));
                 else
-                    Pin(_body, Vector2.zero, Vector2.one, new Vector2(32, 48), new Vector2(-32, -48));
+                    Pin(_body, Vector2.zero, Vector2.one, Vector2.zero, new Vector2(0, -240));
+                Slide();
             });
             _root.SetActive(false);
+        }
+
+        void Update()
+        {
+            FollowSwipe();
+            if (!_root.activeSelf) return;
+            FitBottomInset();
+            if (_swipe.IsDragging) return;
+            float target = _open ? 1f : 0f;
+            if (_shown == target) return;
+            float step = Mathf.Min(Time.unscaledDeltaTime, MaxStep) / SlideSeconds;
+            _shown = Mathf.MoveTowards(_shown, target, step);
+            Slide();
+            if (_shown > 0f) return;
+            _root.SetActive(false);
+            if (!_reloadOnClose) return;
+            _reloadOnClose = false;
+            _host.Reload();
+        }
+
+        /// <summary>
+        /// While the sheet is closed, watches for the swipe up from the bottom edge and pulls the
+        /// sheet up under the finger. The edge is the band just above the home indicator.
+        /// </summary>
+        void FollowSwipe()
+        {
+            if (_open && !_swipe.IsDragging) return;
+            var pointer = Pointer.current;
+            if (pointer == null || Screen.height == 0) return;
+            float toPixels = Screen.height / _canvas.rect.height;
+            float edgeTop = Screen.safeArea.yMin + EdgeShare * Screen.height;
+            switch (_swipe.Step(pointer.press.isPressed, pointer.position.ReadValue(), edgeTop, Screen.height, _body.rect.height * toPixels))
+            {
+                case EdgeSwipe.Outcome.Dragging:
+                    Open();
+                    _shown = _swipe.Progress;
+                    Slide();
+                    break;
+                case EdgeSwipe.Outcome.Cancel:
+                    Close();
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// A press the screen below would drag (the bowling ball, a scratcher, a list) is left to
+        /// it. A place's backdrop is always there to drag, but it pans only while Look around is
+        /// on, so the rest of the time the swipe wins.
+        /// </summary>
+        static bool SomethingDragsAt(Vector2 position)
+        {
+            var events = EventSystem.current;
+            if (events == null) return false;
+            var hits = new List<RaycastResult>();
+            events.RaycastAll(new PointerEventData(events) { position = position }, hits);
+            return hits.Count > 0 && Drags(hits[0].gameObject);
+        }
+
+        /// <summary>Whether a press on <paramref name="hit"/> would drag it, so the swipe leaves it alone.</summary>
+        public static bool Drags(GameObject hit)
+        {
+            var handler = ExecuteEvents.GetEventHandler<IDragHandler>(hit);
+            if (handler == null) return false;
+            var look = handler.GetComponent<LookAround>();
+            return look == null || look.On;
+        }
+
+        /// <summary>Puts the sheet where the slide has it: below the screen's edge at 0, all the way up at 1.</summary>
+        void Slide()
+        {
+            float eased = 1f - (1f - _shown) * (1f - _shown);
+            _body.anchoredPosition = new Vector2(_body.anchoredPosition.x, -(1f - eased) * _body.rect.height);
+            _backdrop.color = new Color(0, 0, 0, 0.6f * eased);
+        }
+
+        /// <summary>Keeps the last rows of the list above the home indicator, in canvas units.</summary>
+        void FitBottomInset()
+        {
+            float inset = Screen.height > 0 ? Screen.safeArea.yMin * _canvas.rect.height / Screen.height : 0f;
+            _viewport.offsetMin = new Vector2(16, 16 + inset);
         }
     }
 }

@@ -6,6 +6,7 @@ using Starflare.Game;
 using Starflare.State;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.UI;
 
 namespace Starflare.Tests
 {
@@ -84,11 +85,45 @@ namespace Starflare.Tests
             yield return null;
 
             var panel = game.GetComponent<DebugPanel>();
-            Assert.That(panel, Is.Not.Null, "the editor build should carry the debug panel");
+            Assert.That(panel, Is.Not.Null, "every build should carry the debug panel");
             panel.Open();
             game.State.Earn(10);
             yield return null;
             Assert.That(panel.IsOpen, Is.True);
+        }
+
+        [UnityTest]
+        public IEnumerator APlacesBackdrop_LeavesTheSwipeAloneUnlessLookAroundIsOn()
+        {
+            SaveAt(Checkpoints.NightOneDone);
+            Boot();
+            yield return null;
+
+            var look = UnityEngine.Object.FindAnyObjectByType<Starflare.Ui.LookAround>();
+            Assert.That(look, Is.Not.Null, "the boot should land on a place screen");
+            look.On = false;
+            Assert.That(DebugPanel.Drags(look.gameObject), Is.False, "a backdrop that isn't panning shouldn't block the swipe");
+            look.On = true;
+            Assert.That(DebugPanel.Drags(look.gameObject), Is.True, "while you look around, the drag pans the plate");
+        }
+
+        [UnityTest]
+        public IEnumerator TheDebugPanel_SlidesUpFromTheBottomAndAwayAgain()
+        {
+            var game = Boot();
+            yield return null;
+
+            var panel = game.GetComponent<DebugPanel>();
+            var sheet = (RectTransform)panel.transform.Find("Debug Canvas/Debug Panel/Sheet");
+            panel.Open();
+            Assert.That(sheet.anchoredPosition.y, Is.LessThan(0), "the sheet should start below the screen");
+            yield return new WaitForSecondsRealtime(0.5f);
+            Assert.That(sheet.anchoredPosition.y, Is.EqualTo(0).Within(0.01f), "the sheet should have slid all the way up");
+
+            panel.transform.Find("Debug Canvas/Debug Panel/Backdrop").GetComponent<Button>().onClick.Invoke();
+            Assert.That(panel.IsOpen, Is.False);
+            yield return new WaitForSecondsRealtime(0.5f);
+            Assert.That(sheet.gameObject.activeInHierarchy, Is.False, "the sheet should be gone once it slides off");
         }
 
         [UnityTest]

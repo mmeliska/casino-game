@@ -7,8 +7,8 @@ namespace Starflare.Game
     /// and Inserts; another style is the same folders under Resources/Styles/&lt;style&gt;/, with
     /// files under the same tag names. A style needn't be complete: anything it hasn't drawn yet
     /// shows the base art, so a new look can be compared a plate at a time. The debug panel
-    /// picks the style and this device remembers it, like the clock pace; release builds always
-    /// show the base style.
+    /// picks the style and this device remembers it, like the clock pace. Every build honours the
+    /// pick while every build carries the panel (Mike, 2026-11-25).
     /// </summary>
     public static class ArtStyles
     {
@@ -19,7 +19,7 @@ namespace Starflare.Game
 
         const string Key = "debug.art.style";
 
-        public static string Current => Debug.isDebugBuild ? PlayerPrefs.GetString(Key, Base) : Base;
+        public static string Current => PlayerPrefs.GetString(Key, Base);
 
         /// <summary>Takes effect as each picture next loads; the panel reboots the city so every screen does at once.</summary>
         public static void Choose(string style)

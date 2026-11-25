@@ -8,9 +8,8 @@ using UnityEngine.SceneManagement;
 namespace Starflare.Game
 {
     /// <summary>
-    /// The playthrough's side of the debug panel, kept out of <c>Playthrough.cs</c>. Only the
-    /// Editor and Development builds open it (<c>Debug.isDebugBuild</c>); a release build carries
-    /// the code unused. The playthrough owns the save, so everything that writes it whole is here:
+    /// The playthrough's side of the debug panel, kept out of <c>Playthrough.cs</c>. Every build
+    /// opens it for now, release builds included (Mike, 2026-11-25). The playthrough owns the save, so everything that writes it whole is here:
     /// each writes the save files, then boots the scene again from them, the way a player's next
     /// launch would.
     /// </summary>
@@ -22,7 +21,7 @@ namespace Starflare.Game
 
         partial void AddDebugPanel()
         {
-            if (Debug.isDebugBuild) gameObject.AddComponent<DebugPanel>().Init(this);
+            gameObject.AddComponent<DebugPanel>().Init(this);
         }
 
         void IDebugHost.Reload()
