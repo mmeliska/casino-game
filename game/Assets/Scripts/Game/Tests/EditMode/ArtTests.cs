@@ -30,6 +30,15 @@ namespace Starflare.Tests
             Assert.That(Art.PlateAt("kasia_bar", At(PartOfDay.BeforeDawn), have), Is.EqualTo("kasia_bar_night"));
         }
 
+        /// <summary>A view that's a whole plate (the Flare's decline floor, drawn only at night) shows as it is, by day too.</summary>
+        [Test]
+        public void AViewThatIsAWholePlate_ShowsAsItIs()
+        {
+            var have = Have("flare_floor_night", "flare_floor_night_decline");
+            Assert.That(Art.PlateAt("flare_floor_night_decline", At(PartOfDay.Afternoon), have), Is.EqualTo("flare_floor_night_decline"));
+            Assert.That(Art.PlateAt("flare_floor", At(PartOfDay.Afternoon), have), Is.EqualTo("flare_floor_night"));
+        }
+
         [Test]
         public void ASceneNamingAView_GetsThePlateForTheTime()
         {

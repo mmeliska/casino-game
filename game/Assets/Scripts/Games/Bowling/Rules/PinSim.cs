@@ -7,8 +7,10 @@ namespace Starflare.Bowling
     /// The hit, seen from above: the ball and the pins as circles trading impulses, one
     /// millisecond at a time, the same arithmetic everywhere. A flat sim can't tip a pin, so a
     /// rule does: a standing pin that takes more than <see cref="FallImpulse"/> is down. Less, and
-    /// it wobbles and stands, which is the ringing 10 pin and the stone 8. Down pins slide on with
-    /// heavy drag and can fell others by the same rule.
+    /// it wobbles and stands, which is the ringing 10 pin and the stone 8. An upright pin can't
+    /// skate across the deck: one sent off faster than <see cref="TipSpeed"/> goes over, and one
+    /// that stands rocks where it is, walking under an inch. Down pins slide on with heavy drag
+    /// and can fell others by the same rule.
     /// </summary>
     public static class PinSim
     {
@@ -28,6 +30,22 @@ namespace Starflare.Bowling
 
         /// <summary>A pin on its side sweeps more than its belly: its circle grows by this much.</summary>
         public const double DownReach = 1.3;
+
+        /// <summary>
+        /// A pin that took less than its threshold but was sent off faster than this, m/s, goes
+        /// over: it can't slide upright. Tuned to keep a pocket hit striking about half the time.
+        /// </summary>
+        public const double TipSpeed = 1.0;
+
+        /// <summary>The most a pin that's still standing moves after a hit, m/s: under an inch.</summary>
+        public const double WalkSpeed = 0.4;
+
+        /// <summary>
+        /// Now and then a pin sent sliding stays up anyway and skids a few inches on its base
+        /// (Mike, 2026-11-24: it happens, but it's super rare): the chance a pin is one of those
+        /// on a rack, and how fast it skids, m/s (about four inches at most).
+        /// </summary>
+        public const double SkidChance = 0.0016, SkidSpeed = 0.9;
 
         /// <summary>A standing pin's base on the deck: how fast a nudge dies, m/s².</summary>
         public const double StandingFriction = 4;
@@ -68,6 +86,10 @@ namespace Starflare.Bowling
             var rng = new Random(deck.ActionSeed);
             var threshold = new double[n];
             for (int i = 0; i < n; i++) threshold[i] = FallImpulse * (1 + FallSpread * (2 * rng.NextDouble() - 1));
+            // Its own generator, so the rare skidder doesn't change the rest of the rack's luck.
+            var skidRng = new Random(unchecked(deck.ActionSeed * 31 + 17));
+            var skids = new bool[n];
+            for (int i = 0; i < n; i++) skids[i] = skidRng.NextDouble() < SkidChance;
 
             var bp = ballAt;
             var bv = ballVelocity;
@@ -118,12 +140,12 @@ namespace Starflare.Bowling
                 // Collide: ball with pins, then pins with pins.
                 if (ballLive)
                     for (int i = 0; i < n; i++)
-                        if (live[i]) Collide(ref bp, ref bv, ball.Radius, ball.Mass, ref pos[i], ref vel[i], Radius(down[i]), PinDeck.PinMass, BallPinRestitution, -1, i, down, threshold, rng);
+                        if (live[i]) Collide(ref bp, ref bv, ball.Radius, ball.Mass, ref pos[i], ref vel[i], Radius(down[i]), PinDeck.PinMass, BallPinRestitution, -1, i, down, threshold, skids, rng);
                 for (int i = 0; i < n; i++)
                 {
                     if (!live[i]) continue;
                     for (int j = i + 1; j < n; j++)
-                        if (live[j]) Collide(ref pos[i], ref vel[i], Radius(down[i]), PinDeck.PinMass, ref pos[j], ref vel[j], Radius(down[j]), PinDeck.PinMass, PinPinRestitution, i, j, down, threshold, rng);
+                        if (live[j]) Collide(ref pos[i], ref vel[i], Radius(down[i]), PinDeck.PinMass, ref pos[j], ref vel[j], Radius(down[j]), PinDeck.PinMass, PinPinRestitution, i, j, down, threshold, skids, rng);
                 }
 
                 if (!moving && !AnyMoving(vel, live)) break;
@@ -142,7 +164,7 @@ namespace Starflare.Bowling
         /// pushed apart. A standing pin on either side (index 0 to 9; -1 is the ball) falls if the
         /// impulse is over the threshold, whatever hit it.
         /// </summary>
-        static void Collide(ref Vec2 pa, ref Vec2 va, double ra, double ma, ref Vec2 pb, ref Vec2 vb, double rb, double mb, double e, int a, int b, bool[] down, double[] threshold, Random rng)
+        static void Collide(ref Vec2 pa, ref Vec2 va, double ra, double ma, ref Vec2 pb, ref Vec2 vb, double rb, double mb, double e, int a, int b, bool[] down, double[] threshold, bool[] skids, Random rng)
         {
             var d = pb - pa;
             double dist2 = d.LengthSquared, reach = ra + rb;
@@ -160,8 +182,8 @@ namespace Starflare.Bowling
                 var push = new Vec2(normal.X * c - normal.Y * sn, normal.X * sn + normal.Y * c);
                 va -= push * (impulse / ma);
                 vb += push * (impulse / mb);
-                if (a >= 0) Knock(a, impulse, down, threshold);
-                if (b >= 0) Knock(b, impulse, down, threshold);
+                if (a >= 0) { Knock(a, impulse, down, threshold); if (!down[a]) va = Stand(a, va, down, skids); }
+                if (b >= 0) { Knock(b, impulse, down, threshold); if (!down[b]) vb = Stand(b, vb, down, skids); }
             }
             double overlap = reach - dist;
             pa -= normal * (overlap * (1 / ma) / inv);
@@ -171,6 +193,22 @@ namespace Starflare.Bowling
         static void Knock(int pin, double impulse, bool[] down, double[] threshold)
         {
             if (impulse > threshold[pin]) down[pin] = true;
+        }
+
+        /// <summary>
+        /// A pin under the fall threshold that's been sent off faster than <see cref="TipSpeed"/>
+        /// goes over anyway, unless it's the rack's rare skidder; slower, it rocks and walks no
+        /// faster than <see cref="WalkSpeed"/>.
+        /// </summary>
+        static Vec2 Stand(int pin, Vec2 v, bool[] down, bool[] skids)
+        {
+            double speed = v.Length;
+            if (speed > TipSpeed)
+            {
+                if (!skids[pin]) { down[pin] = true; return v; }
+                return v * (SkidSpeed / speed);
+            }
+            return speed > WalkSpeed ? v * (WalkSpeed / speed) : v;
         }
 
         static bool AnyMoving(Vec2[] vel, bool[] live)

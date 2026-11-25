@@ -89,7 +89,7 @@ namespace Starflare.Tests
 
             while (bridge.Ink.canContinue) bridge.Ink.Continue();
             Assert.That(state.BankrollNow, Is.EqualTo(300));
-            Assert.That(state.Clock.TimeLabel, Is.EqualTo("22:00"));
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("10:00 PM"));
             Assert.That(state.Scales.Straight, Is.EqualTo(-1));
         }
 
@@ -283,7 +283,7 @@ namespace Starflare.Tests
             Assert.That(bridge.Flag(StoryContract.WeddingOver), Is.True);
             Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + 120));
             Assert.That(state.Clock.Day, Is.EqualTo(7));
-            Assert.That(state.Clock.TimeLabel, Is.EqualTo("1:00"));
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("1:00 AM"));
         }
 
         /// <summary>Ticked Mr.: on the clock to the maid of honor ends it; the bride's brother never asks.</summary>
@@ -304,7 +304,7 @@ namespace Starflare.Tests
             Assert.That(bridge.Ink.variablesState[StoryContract.DancedWith], Is.EqualTo(""));
             Assert.That(bridge.Ink.variablesState[StoryContract.WeddingRole], Is.EqualTo("busser"));
             Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll + 95));
-            Assert.That(state.Clock.TimeLabel, Is.EqualTo("1:00"));
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("1:00 AM"));
         }
 
         /// <summary>Ticked Mr.: the quiet offer can be turned down as "not that kind of guy", and the shift finishes.</summary>

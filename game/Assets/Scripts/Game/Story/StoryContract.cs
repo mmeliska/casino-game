@@ -59,6 +59,51 @@ namespace Starflare.Game
         public const string HelpedTrucker = "helped_trucker";
         public const string HelpedTruckerDay = "helped_trucker_day";
 
+        // The Flare (A1.6, A1.7, R1): met Gus and the day you did, the boot and the jar; visits on
+        // separate days and the last one, blackjack sittings; Pete and Jalen and the days you met
+        // them; Gus's secret (the notice, then kept or told to Pete); Pete saying your name; Gus
+        // and Dot asking after each other; Gus's trust.
+        public const string MetGus = "met_gus";
+        public const string MetGusDay = "met_gus_day";
+        public const string RubbedBoot = "rubbed_boot";
+        public const string TippedJar = "tipped_jar";
+        public const string FlareVisits = "flare_visits";
+        public const string FlareLastDay = "flare_last_day";
+        public const string FlareSittings = "flare_sittings";
+        public const string MetPete = "met_pete";
+        public const string MetPeteDay = "met_pete_day";
+        public const string MetJalen = "met_jalen";
+        public const string MetJalenDay = "met_jalen_day";
+        public const string SawNotice = "saw_notice";
+        public const string SawNoticeDay = "saw_notice_day";
+        public const string KeptGusSecret = "kept_gus_secret";
+        public const string ToldPete = "told_pete";
+        public const string PeteSaidName = "pete_said_name";
+        public const string GusAskedAfterDot = "gus_asked_after_dot";
+        public const string DotAskedAfterGus = "dot_asked_after_gus";
+        public const string GusTrust = "gus_trust";
+
+        // Raffy's envelope comes due (A1.5, envelope.ink): Ray asking and the day he started,
+        // Dot's warning, finding Raffy, how it was settled ("returned", "kept", "helped", "lied")
+        // and the day, giving Raffy up, his payments, the lie found out, Kasia's word about his
+        // mother, and the drive.
+        public const string RayAsking = "ray_asking";
+        public const string RayAskingDay = "ray_asking_day";
+        public const string DotWarnedEnvelope = "dot_warned_envelope";
+        public const string FoundRaffy = "found_raffy";
+        public const string EnvelopeSettled = "envelope_settled";
+        public const string EnvelopeSettledDay = "envelope_settled_day";
+        public const string GaveUpRaffy = "gave_up_raffy";
+        public const string RaffyOwes = "raffy_owes";
+        public const string RaffyPaidDay = "raffy_paid_day";
+        public const string RaffyStoppedPaying = "raffy_stopped_paying";
+        public const string RaffyPaidOff = "raffy_paid_off";
+        public const string RayNamedYou = "ray_named_you";
+        public const string KasiaMomCalled = "kasia_mom_called";
+        public const string HasDrive = "has_drive";
+        public const string DrivePluggedIn = "drive_plugged_in";
+        public const string DrivePhonedHome = "drive_phoned_home";
+
         // Millstone Lanes' bowling (bowling spec). Until Pockets is built, what you buy at Juan's
         // counter is here: owns_ball is the ball's id ("urethane", "reactive"), empty for none.
         public const string BowledAtLanes = "bowled_at_lanes";
@@ -92,6 +137,12 @@ namespace Starflare.Game
             OfferedCoupons, OfferedBarBack, MetRosa, RolledWithJuan, SawLateGame,
             BowledAtLanes, SubNights, ChallengesWon, OwnsBall, OwnsShoes, SubAskedDay, SubTonightDay, ShirtsAsked, ChippedInShirts,
             GamesBowled, BestGame, ChallengesWonTonight, SubGamesWon, SubFinished,
+            MetGus, MetGusDay, RubbedBoot, TippedJar, FlareVisits, FlareLastDay, FlareSittings, MetPete, MetPeteDay,
+            MetJalen, MetJalenDay, SawNotice, SawNoticeDay, KeptGusSecret, ToldPete, PeteSaidName,
+            GusAskedAfterDot, DotAskedAfterGus, GusTrust,
+            RayAsking, RayAskingDay, DotWarnedEnvelope, FoundRaffy, EnvelopeSettled, EnvelopeSettledDay, GaveUpRaffy,
+            RaffyOwes, RaffyPaidDay, RaffyStoppedPaying, RaffyPaidOff, RayNamedYou, KasiaMomCalled, HasDrive, DrivePluggedIn,
+            DrivePhonedHome,
         };
 
         /// <summary>EXTERNAL functions the story calls; the bridge binds each to the player state.</summary>
@@ -104,8 +155,9 @@ namespace Starflare.Game
             public const string Sleep = "sleep";
             public const string Work = "work";
             public const string Lean = "lean";
+            public const string OweRay = "owe_ray";
 
-            public static readonly string[] All = { Spend, Earn, Borrow, Repay, Sleep, Work, Lean };
+            public static readonly string[] All = { Spend, Earn, Borrow, Repay, Sleep, Work, Lean, OweRay };
         }
 
         /// <summary>Knots the code starts, by the event they play.</summary>
@@ -162,6 +214,27 @@ namespace Starflare.Game
             public const string BridgeheadSlotsGetUp = "bridgehead_slots_get_up";
             public const string BridgeheadScratchersGetUp = "bridgehead_scratchers_get_up";
 
+            // The Flare (A1.6, A1.7)
+            public const string FlareFirst = "flare_first";
+            public const string Spaceman = "spaceman";
+            public const string PeteFirst = "pete_first";
+            public const string JalenFirst = "jalen_first";
+            public const string FlareDecline = "flare_decline";
+            public const string PeteName = "pete_name";
+            public const string FlareGetUp = "flare_get_up";
+            public const string FlareMachineGetUp = "flare_machine_get_up";
+            public const string FlareLounge = "flare_lounge";
+
+            // Raffy's envelope comes due (A1.5)
+            public const string RayAsks = "ray_asks";
+            public const string RaffyHiding = "raffy_hiding";
+            public const string KeepEnvelope = "keep_envelope";
+            public const string RayReturn = "ray_return";
+            public const string RayNamesYou = "ray_names_you";
+            public const string RaffysMother = "raffys_mother";
+            public const string RaffyPays = "raffy_pays";
+            public const string PlugInDrive = "plug_in_drive";
+
             public static readonly string[] All =
             {
                 Arrival, CheckingIn, Office, TurnIn, OpenEnvelope, NightOne, WalkIn, GetUp, CouponJob, BarBackJob,
@@ -169,6 +242,8 @@ namespace Starflare.Game
                 BackLot, BackLotEmpty, BackLotPractice, BackLotGetUp,
                 BowlFirst, BowlGetUp, LeagueSubAsk, LeagueSubDone, BowlShirts,
                 BridgeheadFirst, Mitch, Trucker, BridgeheadGetUp, BridgeheadSlotsGetUp, BridgeheadScratchersGetUp,
+                FlareFirst, Spaceman, PeteFirst, JalenFirst, FlareDecline, PeteName, FlareGetUp, FlareMachineGetUp, FlareLounge,
+                RayAsks, RaffyHiding, KeepEnvelope, RayReturn, RayNamesYou, RaffysMother, RaffyPays, PlugInDrive,
             };
         }
     }

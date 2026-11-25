@@ -17,7 +17,7 @@ namespace Starflare.State
     public sealed class PlayerState
     {
         /// <summary>The save schema this code writes. Bump it with a migration step in the save store.</summary>
-        public const int CurrentVersion = 4;
+        public const int CurrentVersion = 5;
 
         /// <summary>You drive in with about $200 and a car (A1.1).</summary>
         public const int StartingBankroll = 200;
@@ -29,8 +29,14 @@ namespace Starflare.State
         /// <summary>Most of your own money ever held (cash minus debts). Only goes up; gates venues and acts.</summary>
         public int BestBankroll = StartingBankroll;
 
-        /// <summary>Total owed. For now the only creditor is Kasia's book; the Wallet splits it by creditor later.</summary>
+        /// <summary>Total owed, every creditor together: what the top bar shows as owed. The Wallet splits it by creditor later.</summary>
         public int Debts;
+
+        /// <summary>
+        /// Ray's part of <see cref="Debts"/>: "the envelope", the $2,000 plus interest he puts on
+        /// you when Raffy names you (A1.5). There's no paying it off until Ray's loans are built.
+        /// </summary>
+        public int RayOwed;
 
         public int RoundsPlayed;
 
@@ -55,6 +61,9 @@ namespace Starflare.State
         public event Action Changed;
 
         public int OwnMoney => BankrollNow - Debts;
+
+        /// <summary>What you owe on Kasia's book: everything owed but Ray's part.</summary>
+        public int KasiasBook => Debts - RayOwed;
 
         public bool HasSigned => !string.IsNullOrEmpty(Name);
 
@@ -138,12 +147,25 @@ namespace Starflare.State
             Changed?.Invoke();
         }
 
+        /// <summary>Paying down Kasia's book. Ray's part isn't hers to take.</summary>
         public void Repay(int amount)
         {
-            if (amount <= 0 || amount > Debts) throw new ArgumentOutOfRangeException(nameof(amount));
+            if (amount <= 0 || amount > KasiasBook) throw new ArgumentOutOfRangeException(nameof(amount));
             if (amount > BankrollNow) throw new InvalidOperationException("Not enough cash.");
             BankrollNow -= amount;
             Debts -= amount;
+            Changed?.Invoke();
+        }
+
+        /// <summary>
+        /// Ray puts money on you with no cash changing hands: the envelope (A1.5). Own money,
+        /// and so best bankroll's next rise, waits until it's paid.
+        /// </summary>
+        public void OweRay(int amount)
+        {
+            if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount));
+            RayOwed += amount;
+            Debts += amount;
             Changed?.Invoke();
         }
 

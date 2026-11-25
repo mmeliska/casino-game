@@ -181,7 +181,7 @@ namespace Starflare.Tests
             Assert.That(Message(lane), Does.Contain("Your game now"));
             Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll), "No money changes hands.");
             Assert.That(state.RoundsPlayed, Is.EqualTo(0));
-            Assert.That(state.Clock.TimeLabel, Is.EqualTo("18:00"), "The clock doesn't move through a coached frame.");
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("6:00 PM"), "The clock doesn't move through a coached frame.");
             Assert.That(lane.Now, Is.EqualTo(BowlingLane.Step.Stand), "Then it's your game.");
         }
 
@@ -227,6 +227,12 @@ namespace Starflare.Tests
             Assert.That(sawHisTurn, Is.True);
             Assert.That(Text(lane, "Talk Title"), Is.EqualTo("Chuy"), "His word on the game.");
             Assert.That(Text(lane, "Talk Line"), Is.Not.Empty);
+            Assert.That(Find(lane, "Bowl Button").gameObject.activeInHierarchy, Is.False, "Continue first, then your lane.");
+
+            Click(lane, "Continue Button");
+            Assert.That(Find(lane, "Continue Button").gameObject.activeInHierarchy, Is.False);
+            Assert.That(lane.GetComponentInChildren<TalkPanel>(true).gameObject.activeInHierarchy, Is.False, "He's gone back to his lane.");
+            Assert.That(Find(lane, "Bowl Button").IsInteractable() && Find(lane, "Bowl Button").gameObject.activeInHierarchy, Is.True);
         }
 
         /// <summary>One ball: start and stop the aim, stop the hook and speed, then skip to what's left.</summary>

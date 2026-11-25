@@ -113,6 +113,41 @@ namespace Starflare.Tests
             Assert.That(game.GetComponent<StoryPlayer>().IsPlaying, Is.True, "the trucker should be at the pumps");
         }
 
+        [UnityTest]
+        public IEnumerator ArrivingAtTheFlareTheFirstTime_PlaysCoffeeWithGus()
+        {
+            SaveAt(Checkpoints.AtTheFlare);
+            var game = Boot();
+            yield return null;
+
+            Assert.That(game.State.Place, Is.EqualTo(TheFlare.PlaceId));
+            Assert.That(game.GetComponent<TheFlare>().IsOpen, Is.True);
+            Assert.That(game.GetComponent<StoryPlayer>().IsPlaying, Is.True, "Gus's coffee should be playing");
+        }
+
+        [UnityTest]
+        public IEnumerator ARegularsVisit_OpensOnTheFlaresFront()
+        {
+            SaveAt(Checkpoints.ARegular);
+            var game = Boot();
+            yield return null;
+
+            Assert.That(game.State.Place, Is.EqualTo(TheFlare.PlaceId));
+            Assert.That(game.GetComponent<StoryPlayer>().IsPlaying, Is.False);
+            Assert.That(PlaceScreen(game).activeSelf, Is.True, "the Flare's front should be showing");
+        }
+
+        [UnityTest]
+        public IEnumerator DaysAfterTheLie_RayComesToYouAtTheFlare()
+        {
+            SaveAt(Checkpoints.ToldRaffySettled);
+            var game = Boot();
+            yield return null;
+
+            Assert.That(game.State.Place, Is.EqualTo(TheFlare.PlaceId));
+            Assert.That(game.GetComponent<StoryPlayer>().IsPlaying, Is.True, "Ray should be at your table");
+        }
+
         /// <summary>A save at this checkpoint, the way the debug panel leaves one.</summary>
         void SaveAt(Checkpoint checkpoint)
         {

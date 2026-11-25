@@ -48,7 +48,7 @@ namespace Starflare.Tests
             Assert.That(loaded.Debts, Is.EqualTo(50));
             Assert.That(loaded.RoundsPlayed, Is.EqualTo(1));
             Assert.That(loaded.Place, Is.EqualTo("kasias-tap"));
-            Assert.That(loaded.Clock.TimeLabel, Is.EqualTo("18:10"));
+            Assert.That(loaded.Clock.TimeLabel, Is.EqualTo("6:10 PM"));
             Assert.That(loaded.Scales.Straight, Is.EqualTo(-1));
             Assert.That(loaded.Version, Is.EqualTo(PlayerState.CurrentVersion));
         }
@@ -88,7 +88,7 @@ namespace Starflare.Tests
             Assert.That(state.Place, Is.EqualTo("millstone-lanes"));
             Assert.That(state.Clock.Day, Is.EqualTo(3));
             Assert.That(state.Clock.Part, Is.EqualTo(PartOfDay.Night));
-            Assert.That(state.Clock.TimeLabel, Is.EqualTo("18:40"));
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("6:40 PM"));
         }
 
         /// <summary>A version 1 save had no hidden scales; it reads them as level.</summary>
@@ -111,7 +111,7 @@ namespace Starflare.Tests
             Assert.That(state.BankrollNow, Is.EqualTo(240));
             Assert.That(state.Box, Is.EqualTo(RegisterBox.Ms));
             Assert.That(state.Clock.Day, Is.EqualTo(4));
-            Assert.That(state.Clock.TimeLabel, Is.EqualTo("7:30"));
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("7:30 AM"));
             Assert.That(state.Scales, Is.Not.Null);
             Assert.That(state.Scales.Straight, Is.EqualTo(0));
             Assert.That(state.Scales.Reliable, Is.EqualTo(0));
@@ -121,10 +121,10 @@ namespace Starflare.Tests
         /// A version 2 save kept a part of the day and minutes into it; version 3 keeps minutes
         /// since midnight. A night played to its end was "late": midnight, the next day.
         /// </summary>
-        [TestCase(0, 90, 5, "7:30", PartOfDay.Morning)]
-        [TestCase(1, 0, 5, "12:00", PartOfDay.Afternoon)]
-        [TestCase(2, 200, 5, "21:20", PartOfDay.Night)]
-        [TestCase(2, 360, 6, "0:00", PartOfDay.BeforeDawn)]
+        [TestCase(0, 90, 5, "7:30 AM", PartOfDay.Morning)]
+        [TestCase(1, 0, 5, "12:00 PM", PartOfDay.Afternoon)]
+        [TestCase(2, 200, 5, "9:20 PM", PartOfDay.Night)]
+        [TestCase(2, 360, 6, "12:00 AM", PartOfDay.BeforeDawn)]
         public void VersionTwo_MigratesTheClock(int part, int minutesIntoPart, int day, string time, PartOfDay newPart)
         {
             string versionTwo = @"{
@@ -170,7 +170,7 @@ namespace Starflare.Tests
             var state = SaveStore.Parse(versionThree);
             Assert.That(state.Version, Is.EqualTo(PlayerState.CurrentVersion));
             Assert.That(state.BankrollNow, Is.EqualTo(180));
-            Assert.That(state.Clock.TimeLabel, Is.EqualTo("0:30"));
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("12:30 AM"));
             Assert.That(state.Heat, Is.Not.Null);
             Assert.That(state.HeatStep, Is.EqualTo(HeatStep.None));
             Assert.That(state.Heat.PlayedTonight, Is.Not.Null);

@@ -18,12 +18,15 @@ namespace Starflare.Game
             lanes.Init(host, root.AddComponent<MillstoneBackLot>(), root.AddComponent<BowlingLane>());
             var bridgehead = root.AddComponent<Bridgehead>();
             bridgehead.Init(host);
+            var flare = root.AddComponent<TheFlare>();
+            flare.Init(host);
             return new IPlace[]
             {
                 new SlackWaterMotel(host, root.AddComponent<RegisterCard>()),
                 tap,
                 lanes,
                 bridgehead,
+                flare,
             };
         }
     }

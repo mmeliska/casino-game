@@ -109,8 +109,9 @@ namespace Starflare.Game
         /// comes in as you do, before Kasia's jobs. After that night, until you meet Juan,
         /// Kasia has his coupons for you; once he has them, the bar-back shift; once both jobs
         /// are done, she nods you toward the back door (A1.3) and asks you to work the wedding
-        /// (A1.4). If you missed the Saturday, or said no, she has a word about it once.
-        /// Otherwise she says hello. Then you're at the bar.
+        /// (A1.4). If you missed the Saturday, or said no, she has a word about it once. Weeks on,
+        /// if you still hold Raffy's envelope, Ray is at the bar asking about it (A1.5), and once
+        /// Raffy's gone she tells you his mother called. Otherwise she says hello. Then you're at the bar.
         /// </summary>
         void Enter()
         {
@@ -125,6 +126,8 @@ namespace Starflare.Game
                 PlayScene(StoryContract.Knots.BackRoomInvite, ShowBar);
             else if (WeddingMissed) PlayScene(StoryContract.Knots.WeddingMissed, ShowBar);
             else if (AsksAboutTheWeddingAgain) PlayScene(StoryContract.Knots.WeddingAsk, ShowBar);
+            else if (RaffysEnvelope.RayAsksToday(story, _host.State.Clock.Day)) PlayScene(StoryContract.Knots.RayAsks, ShowBar);
+            else if (RaffysEnvelope.KasiaHeardFromHisMother(story, _host.State.Clock.Day)) PlayScene(StoryContract.Knots.RaffysMother, ShowBar);
             else PlayScene(StoryContract.Knots.WalkIn, ShowBar);
         }
 

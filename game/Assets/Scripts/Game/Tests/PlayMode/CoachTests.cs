@@ -53,7 +53,7 @@ namespace Starflare.Tests
             Assert.That(taken, Is.EqualTo(new[] { BlackjackControls.Deal, BlackjackControls.NoInsurance, BlackjackControls.Stand }));
             Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll), "a practice hand pays nothing");
             Assert.That(state.RoundsPlayed, Is.EqualTo(0));
-            Assert.That(state.Clock.TimeLabel, Is.EqualTo("18:00"), "no time passes while she coaches");
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("6:00 PM"), "no time passes while she coaches");
         }
 
         [Test]

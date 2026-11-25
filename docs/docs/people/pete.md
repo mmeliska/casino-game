@@ -8,6 +8,8 @@ Stocky, a thin, neatly trimmed beard (not a mustache), short sandy-grey hair com
 
 For ChatGPT (Mike, 2026-11-23). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert (Mike, 2026-10-30). The how-to, the single-pose template and the avoid list are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
+**Drawn** (Mike; sliced 2026-11-25): `Images/Characters/pete.png`, sliced into `pete_neutral`, `pete_appraising` and `pete_eyes_down`. Its fourth panel isn't used: the sheet prompt gives every panel the suit with the pin, so it came out wearing the pin, and looking pleased rather than tired. `pete_pin` (A3.4) is the fourth panel of a second sheet in the no-pin outfit, `Images/Characters/pete_no_pin.png` (Mike; sliced 2026-11-25); that sheet's other three panels aren't used.
+
 **Proposed, not settled:** the suit's colour, the tie and the shoes.
 
 **Sheet prompt** (16:9, suit outfit):

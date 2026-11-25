@@ -62,8 +62,22 @@ DOT: So. What brings you to Northlight?
 === office ===
 # plate: motel_office
 {cant_sleep && not met_kasia: -> the_bar}
+{ray_asking && has_envelope && not dot_warned_envelope: -> dot_envelope_warning}
+{met_pete && not dot_asked_after_gus: -> asks_after_him}
 # pose: dot_neutral
 DOT: {~There you are.|Back again, hon.|Door sticks. Lift and push.}
+-> desk
+
+// Dot's side of R1 (A1.7): once you're becoming a regular over there (you've met Pete), she asks how he is, and changes the
+// subject before you can answer. She says "he", never his name.
+= asks_after_him
+~ dot_asked_after_gus = true
+# pose: dot_neutral
+DOT: You've been going over the river, hon. To the Starflare.
+# pose: dot_warning
+DOT: The big fella in the red jacket. How is he. Is he...
+# pose: dot_neutral
+DOT: Never mind me. Ice machine's working again. You kick it low.
 -> desk
 
 = desk
@@ -96,8 +110,13 @@ DOT: Kasia's Tap, hon. It's on your phone's map. Go on.
 {shuffle:
 - # pose: dot_story
   DOT: Somebody left one bowling shoe in room 3. Just the one. Three years now.
-- # pose: dot_warning
-  DOT: Don't carry your winnings over the Long Bridge before dawn, hon. No reason.
+- {dot_warns_bridge():
+    # pose: dot_warning
+    DOT: Don't carry your winnings over the Long Bridge before dawn, hon. No reason.
+  - else:
+    # pose: dot_neutral
+    DOT: Rain tonight, they say. Or tomorrow. They never know.
+  }
 - # pose: dot_neutral
   DOT: Coffee's on at six. It isn't good, but it's hot and it's free.
 - # pose: dot_story

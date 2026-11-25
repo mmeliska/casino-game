@@ -94,6 +94,8 @@ A1.5 settles the cash and Raffy. The drive stays in your pocket whatever you pic
 
 **The lie.** Raffy believes he's clear, so he stops hiding. Ray finds him within days, so you collect a payment or two at most. Raffy tells Ray, "They said they paid you." Ray comes to your table: "Buddy. We need to talk about an envelope." The $2,000 plus interest goes on your debt to Ray (the debt screen shows it as "the envelope"), and Ray never trusts you again. Raffy disappears. His mom calls Kasia's looking for him, Kasia tells you she said you were the last one he talked to, and Dot stops warning you about the bridge.
 
+**In the prototype** (Mike, 2026-11-25; numbers proposed): Ray starts asking on day 15; the lie's debt is $2,200 ($2,000 plus $200 interest), Ray's own debt beside Kasia's book; Ray finds Raffy three days after the lie; Raffy pays $100 at a time through Juan, then the last $100 and the fifty in person. The helmet in Pockets waits for Pockets.
+
 **Badly:** if you keep the $2,000 without lying, or tell Ray where he's hiding, Kasia tells you his mother called the bar looking for him, and that she told her you were the last one he talked to. Dot stops warning you about the bridge.
 
 ## The drive

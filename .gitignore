@@ -29,3 +29,6 @@ tmp/
 
 # Generated concatenation of all docs pages
 docs/all-docs.txt
+
+
+ios/

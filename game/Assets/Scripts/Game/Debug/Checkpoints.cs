@@ -164,6 +164,162 @@ namespace Starflare.Game
                 state.PassTime(GameClock.NightStart + 4 * 60 - clock.MinuteOfDay);
             });
 
+        /// <summary>A1.6: stopped at Bridgehead and met Mitch; at the Flare, where arriving plays coffee with Gus.</summary>
+        public static readonly Checkpoint AtTheFlare = new Checkpoint("A1.6 At the Flare", OverTheBridge, TheFlare.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.MetMitch, true);
+                story.Set(StoryContract.MetMitchDay, state.Clock.Day);
+            });
+
+        /// <summary>
+        /// A1.6: had coffee with Gus and rubbed the boot; 8:00 p.m. the next day at the Flare, where
+        /// arriving plays Pete at the door.
+        /// </summary>
+        public static readonly Checkpoint MetGus = new Checkpoint("A1.6 Met Gus", AtTheFlare, TheFlare.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.MetGus, true);
+                story.Set(StoryContract.MetGusDay, state.Clock.Day);
+                story.Set(StoryContract.RubbedBoot, true);
+                VisitTheFlare(state, story);
+                NextNight(state);
+            });
+
+        /// <summary>A1.7: met Pete; 8:00 p.m. the next day at the Flare, where arriving plays Jalen at the bar. Dot's desk now plays her asking after Gus (R1).</summary>
+        public static readonly Checkpoint MetPete = new Checkpoint("A1.7 Met Pete", MetGus, TheFlare.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.MetPete, true);
+                story.Set(StoryContract.MetPeteDay, state.Clock.Day);
+                VisitTheFlare(state, story);
+                NextNight(state);
+            });
+
+        /// <summary>A1.7: met Jalen; 8:00 p.m. the next day at the Flare, where arriving plays the decline and Gus's office.</summary>
+        public static readonly Checkpoint MetJalen = new Checkpoint("A1.7 Met Jalen", MetPete, TheFlare.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.MetJalen, true);
+                story.Set(StoryContract.MetJalenDay, state.Clock.Day);
+                VisitTheFlare(state, story);
+                NextNight(state);
+            });
+
+        /// <summary>
+        /// A1.7: saw the notice, told Gus about Dot, kept his secret from Pete, and sat at his
+        /// table twice; 8:00 p.m. the next day at the Flare. Getting up from one more sitting plays
+        /// Pete saying your name.
+        /// </summary>
+        public static readonly Checkpoint KeptGusSecret = new Checkpoint("A1.7 Kept Gus's secret", MetJalen, TheFlare.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.SawNotice, true);
+                story.Set(StoryContract.SawNoticeDay, state.Clock.Day);
+                story.Set(StoryContract.GusAskedAfterDot, true);
+                story.Set(StoryContract.KeptGusSecret, true);
+                story.Set(StoryContract.GusTrust, 1);
+                story.Set(StoryContract.FlareSittings, TheFlare.SittingsForYourName - 1);
+                state.Lean("reliable");
+                VisitTheFlare(state, story);
+                NextNight(state);
+            });
+
+        /// <summary>A1.7: Pete has said your name; you're a regular. The next night, at the Flare.</summary>
+        public static readonly Checkpoint ARegular = new Checkpoint("A1.7 A regular", KeptGusSecret, TheFlare.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.FlareSittings, TheFlare.SittingsForYourName);
+                story.Set(StoryContract.PeteSaidName, true);
+                VisitTheFlare(state, story);
+                NextNight(state);
+            });
+
+        /// <summary>
+        /// A1.5: still holding Raffy's envelope (unopened), the Flare on the map; 8:00 p.m. on the
+        /// due day at Kasia's Tap, where walking in plays Ray asking around.
+        /// </summary>
+        public static readonly Checkpoint EnvelopeDue = new Checkpoint("A1.5 Envelope due", AtTheFlare, KasiasTap.PlaceId,
+            (state, story) =>
+            {
+                while (state.Clock.Day < RaffysEnvelope.DueDay) state.Sleep();
+                NightOf(state);
+            });
+
+        /// <summary>A1.5: Ray's been asking since yesterday; 8:00 p.m. at Millstone Lanes, where going inside finds Raffy.</summary>
+        public static readonly Checkpoint RayAsking = new Checkpoint("A1.5 Ray asking", EnvelopeDue, MillstoneLanes.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.RayAsking, true);
+                story.Set(StoryContract.RayAskingDay, state.Clock.Day);
+                NextNight(state);
+            });
+
+        /// <summary>
+        /// A1.5: told Raffy it's settled and kept the $2,000; three days on, 8:00 p.m. at the Flare,
+        /// where arriving plays Ray coming to your table.
+        /// </summary>
+        public static readonly Checkpoint ToldRaffySettled = new Checkpoint("A1.5 Told Raffy it's settled", RayAsking, TheFlare.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.FoundRaffy, true);
+                Settle(state, story, "lied");
+                state.Earn(EnvelopeCash);
+                state.Lean("crooked");
+                story.Set(StoryContract.RaffyOwes, RaffysShort);
+                story.Set(StoryContract.RaffyPaidDay, state.Clock.Day);
+                for (int i = 0; i < RaffysEnvelope.DaysTillRayFindsRaffy; i++) state.Sleep();
+                NightOf(state);
+            });
+
+        /// <summary>A1.5: covered Raffy's $500; 8:00 p.m. the next day at Millstone Lanes, where going inside has his first payment.</summary>
+        public static readonly Checkpoint HelpedRaffy = new Checkpoint("A1.5 Helped Raffy", RayAsking, MillstoneLanes.PlaceId,
+            (state, story) =>
+            {
+                story.Set(StoryContract.FoundRaffy, true);
+                if (state.BankrollNow < RaffysShort + 100) state.Earn(RaffysShort + 100 - state.BankrollNow); // a good night at the Flare
+                Settle(state, story, "helped");
+                state.Spend(RaffysShort);
+                state.Lean("generous");
+                story.Set(StoryContract.RaffyOwes, RaffysShort);
+                story.Set(StoryContract.RaffyPaidDay, state.Clock.Day);
+                NextNight(state);
+            });
+
+        /// <summary>The envelope settled as Ink's settle() leaves it: the drive in your pocket.</summary>
+        static void Settle(PlayerState state, StoryBridge story, string how)
+        {
+            story.Set(StoryContract.EnvelopeSettled, how);
+            story.Set(StoryContract.EnvelopeSettledDay, state.Clock.Day);
+            story.Set(StoryContract.HasEnvelope, false);
+            story.Set(StoryContract.OpenedEnvelope, true);
+            story.Set(StoryContract.HasDrive, true);
+        }
+
+        /// <summary>The cash in Raffy's envelope, and what Ray's short of his $2,500 (raffy.md).</summary>
+        const int EnvelopeCash = 2000, RaffysShort = 500;
+
+        /// <summary>Today's visit to the Flare, counted the way arriving counts it.</summary>
+        static void VisitTheFlare(PlayerState state, StoryBridge story)
+        {
+            story.Set(StoryContract.FlareVisits, story.Int(StoryContract.FlareVisits) + 1);
+            story.Set(StoryContract.FlareLastDay, state.Clock.Day);
+        }
+
+        /// <summary>Sleeps, then on to 8:00 p.m. that day.</summary>
+        static void NextNight(PlayerState state)
+        {
+            state.Sleep();
+            NightOf(state);
+        }
+
+        /// <summary>On to 8:00 p.m. today, if it isn't later already.</summary>
+        static void NightOf(PlayerState state)
+        {
+            int minutes = 20 * 60 - state.Clock.MinuteOfDay;
+            if (minutes > 0) state.PassTime(minutes);
+        }
+
         /// <summary>Raffy's tip on night one, out of the envelope's cash (raffy.md).</summary>
         const int RaffysFifty = 50;
 
@@ -172,6 +328,8 @@ namespace Starflare.Game
             CheckedIn, NightOneDone, Broke, CarryingCoupons, JuanHasTheBox, LateGame, OnTheLanes, ShortABowler, LeagueToJuan,
             BarBackDone, BackRoomOpen, SatWithRosa,
             WeddingNight, WorkedTheWedding, OverTheBridge, TruckerAtThePumps,
+            AtTheFlare, MetGus, MetPete, MetJalen, KeptGusSecret, ARegular,
+            EnvelopeDue, RayAsking, ToldRaffySettled, HelpedRaffy,
         };
     }
 }

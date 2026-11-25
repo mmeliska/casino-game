@@ -13,7 +13,7 @@ namespace Starflare.Tests
     {
         static string _json;
 
-        static readonly string[] BuiltPlaces = { SlackWaterMotel.PlaceId, KasiasTap.PlaceId, MillstoneLanes.PlaceId, Bridgehead.PlaceId };
+        static readonly string[] BuiltPlaces = { SlackWaterMotel.PlaceId, KasiasTap.PlaceId, MillstoneLanes.PlaceId, Bridgehead.PlaceId, TheFlare.PlaceId };
 
         [OneTimeSetUp]
         public void CompileTheStory() => _json = StoryContractTests.CompileTheGamesStory();

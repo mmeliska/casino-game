@@ -13,7 +13,9 @@ namespace Starflare.Game
     /// (Mike, 2026-11-05). Night one you can't sleep, which is how you end up at Kasia's (A1.2).
     /// On night one, once you've lain awake, Dot tells you about Kasia's Tap and sends you to
     /// your phone, which glows on the lot and in your room until you open it or you've met Kasia.
-    /// While you hold Raffy's envelope and haven't looked, the room is where you can open it.
+    /// While you hold Raffy's envelope and haven't looked, the room is where you can open it; once
+    /// Ray's asking (A1.5), where you can keep the cash; and once it's settled, where you can plug
+    /// in the drive.
     /// </summary>
     public sealed class SlackWaterMotel : IPlace
     {
@@ -89,6 +91,10 @@ namespace Starflare.Game
             };
             if (_host.Story.Flag(StoryContract.HasEnvelope) && !_host.Story.Flag(StoryContract.OpenedEnvelope))
                 actions.Add(("Open Raffy's envelope", () => _host.PlayScene(StoryContract.Knots.OpenEnvelope, ShowRoom)));
+            if (RaffysEnvelope.CanKeepIt(_host.Story))
+                actions.Add(("Keep Raffy's cash", () => _host.PlayScene(StoryContract.Knots.KeepEnvelope, ShowRoom)));
+            if (RaffysEnvelope.CanPlugInTheDrive(_host.Story))
+                actions.Add(("Plug in the thumb drive", () => _host.PlayScene(StoryContract.Knots.PlugInDrive, ShowRoom)));
             actions.Add(("Step outside", ShowLot));
             _host.ShowPlace("motel_room", actions.ToArray());
         }

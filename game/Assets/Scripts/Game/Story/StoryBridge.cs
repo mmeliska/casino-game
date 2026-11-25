@@ -39,6 +39,7 @@ namespace Starflare.Game
             Ink.BindExternalFunction(StoryContract.Externals.Sleep, () => state.Sleep(), false);
             Ink.BindExternalFunction(StoryContract.Externals.Work, (int pay, int hours) => state.WorkShift(pay, hours), false);
             Ink.BindExternalFunction(StoryContract.Externals.Lean, (string pole) => state.Lean(pole), false);
+            Ink.BindExternalFunction(StoryContract.Externals.OweRay, (int amount) => state.OweRay(amount), false);
             // Fails now, not in the middle of a scene, if the story declares an EXTERNAL we don't bind.
             Ink.ValidateExternalBindings();
         }
@@ -75,7 +76,7 @@ namespace Starflare.Game
         {
             Set(StoryContract.PlayerName, state.Name);
             Set(StoryContract.Bankroll, state.BankrollNow);
-            Set(StoryContract.Book, state.Debts);
+            Set(StoryContract.Book, state.KasiasBook);
             Set(StoryContract.Day, state.Clock.Day);
             Set(StoryContract.NextSaturday, state.Clock.NextSaturday);
             Set(StoryContract.Hour, state.Clock.MinuteOfDay / 60);

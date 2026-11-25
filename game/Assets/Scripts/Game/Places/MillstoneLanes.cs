@@ -147,6 +147,16 @@ namespace Starflare.Game
         void ShowInside()
         {
             var clock = _host.State.Clock;
+            if (RaffysEnvelope.RaffyHidingToday(_host.Story))
+            {
+                _host.PlayScene(StoryContract.Knots.RaffyHiding, ShowInside);
+                return;
+            }
+            if (RaffysEnvelope.RaffyPaysToday(_host.Story, clock.Day))
+            {
+                _host.PlayScene(StoryContract.Knots.RaffyPays, ShowInside);
+                return;
+            }
             if (_host.Story.Flag(StoryContract.MetJuan) && ShortTonight(clock) && _host.Story.Int(StoryContract.SubAskedDay) != clock.Day)
             {
                 _host.PlayScene(StoryContract.Knots.LeagueSubAsk, ShowInside);

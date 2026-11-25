@@ -4,7 +4,7 @@ The futuristic rebuild on Vivian's land, owned and licensed by you, with Jalen a
 
 ## Look and mood
 
-Rocket-age heritage made new: the Flare's teal and coral against the Mile's lake blue and gold.
+Rocket-age heritage made new, in the Mile's magenta, gold and lake blue.
 
 ## Plate prompts
 
@@ -19,7 +19,7 @@ Opening night (A5.6): Gus cuts the ribbon with you (O1) or you do it alone (O2).
 `newstar_front_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A sleek futuristic casino on a lakeshore at night with rocket-age curves: a sweeping canopy, glass doors with a ribbon across them, a new coral-and-teal neon rocket sign on a tall pylon in the upper left, the dark lake. Night: crisp white LED light from hotel marquees and LED walls, cool blue shadows. Palette: magenta, gold, lake blue. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A sleek futuristic casino on a lakeshore at night with rocket-age curves: a sweeping canopy, glass doors with a ribbon across them, a new neon rocket sign on a tall pylon in the upper left, the dark lake. Night: crisp white LED light from hotel marquees and LED walls, cool blue shadows. Palette: magenta, gold, lake blue. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The lobby
@@ -39,7 +39,7 @@ The new floor in light owner mode.
 `newstar_floor_night` (plate, portrait 9:16)
 
 ```
-Background plate, no people. A new casino floor with rocket-age styling: teal carpet with coral starbursts, starburst lights, rocket-themed slots on the left, tables, a window wall onto the lake. Night: crisp white LED light from hotel marquees and LED walls, cool blue shadows. Palette: magenta, gold, lake blue. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
+Background plate, no people. A new casino floor with rocket-age styling: deep lake-blue carpet with gold starbursts, starburst lights, rocket-themed slots on the left, tables, a window wall onto the lake. Night: crisp white LED light from hotel marquees and LED walls, cool blue shadows. Palette: magenta, gold, lake blue. Gritty graphic-novel background art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours, realistic perspective. Eye-level view from standing height, open floor in the lower middle of the frame. No people, no text, no lettering; signs blank.
 ```
 
 ### The showroom

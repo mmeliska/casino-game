@@ -53,7 +53,7 @@ namespace Starflare.Tests
             Assert.That(Message(table), Does.Contain("Real money from here"));
             Assert.That(state.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll), "no money changes hands");
             Assert.That(state.RoundsPlayed, Is.EqualTo(0));
-            Assert.That(state.Clock.TimeLabel, Is.EqualTo("18:00"), "the clock doesn't move through a practice turn");
+            Assert.That(state.Clock.TimeLabel, Is.EqualTo("6:00 PM"), "the clock doesn't move through a practice turn");
 
             table.Lock(null);
             Assert.That(Find(table, "Call it Button").gameObject.activeInHierarchy, Is.True, "a regular's throw is yours to call");

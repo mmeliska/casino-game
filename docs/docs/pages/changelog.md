@@ -1,4 +1,36 @@
+## 25 Nov 2026
+
+### Teal and coral stay in the Levee
+
+Teal and coral neon are now the Levee's alone (Mike). The prompts outside it drop them: Tae's restaurant has lake-blue booths and gold accents under the old neon rocket sign, and the lakefront Starflare has a new neon rocket sign and a lake-blue carpet with gold starbursts, in the Mile's magenta, gold and lake blue; its map icon matches. The Levee's places, people and walk-ons keep their teal and coral. The rule is on [Northlight](#city) under "Old lights and new".
+
+### Ray asks around (A1.5)
+
+Raffy's envelope comes due in the game. Two weeks in, if you still hold it, Ray is at Kasia's bar asking about "the envelope", the first time he's on screen; Kasia points you at Juan's new sweeper, Dot warns you, and Raffy is hiding at Millstone Lanes. All four ends are in: give it back to Ray, keep it, cover Raffy's missing $500 (he pays you back through Juan, then the last of it and the fifty in person: "This one's mine."), or tell him it's settled and keep it. **Ray's debt is its own debt** (Mike, 2026-11-25): on the lie path Ray finds Raffy, comes to your table at the Flare ("Buddy. We need to talk about an envelope.") and puts $2,200 on you, which counts against your own money and shows in what you owe. The drive stays with you every way, and plugged in it's a locked Revaris volume. Proposed numbers, to tune: day 15, $200 of interest, three days for Ray to find Raffy, $100 a payment.
+
+### The Flare is open (A1.6, A1.7)
+
+The Starflare is in the game, across the Long Bridge once you've stopped at Bridgehead; after that first stop your phone glows until you open it. Your first arrival is the Flare half of A1.6: Gus pours you a coffee under the rocket sign, shows you the spaceman's boot, and walks you onto a half-empty floor. Its floor has blackjack at the Flare's limits ($5 to $100) and a full-pay poker machine by the bar.
+
+Becoming a regular (A1.7) plays a beat a visit, each on a later day: Pete at the pit, who calls you "kid"; Jalen at the bar, his notebook closed when you walk up; then the decline and Gus's secret. **Gus's secret is a past-due power notice on his office desk** (Mike, 2026-11-25): he puts his mug on it and asks you not to mention it to Pete, and back on the floor Pete asks whether he showed you the view. Keep it from Pete and Gus's trust goes up; tell him and it goes down. From then on the floor is its declining plate. A few sittings later Pete says your name.
+
+R1 starts: once you've met Pete, Dot asks after "the big fella in the red jacket" and changes the subject before you answer; from his office window Gus asks after Dot, and if she's asked, you can tell him so.
+
+New on [the Flare's page](#the-flare): the `flare_notice` insert prompt.
+
+### New art
+
+Mike drew the rest of what the Flare and A1.5 need, and it's in the game: Jalen's four busboy poses, Pete's (three from his sheet, and `pete_pin` from a second sheet in the no-pin outfit), Ray's `ray_flat`, and the boot, bucket, sign and power-notice inserts. Gus's office is redrawn in all six lights. Also drawn, not yet in the game: the Flare's other five inserts, Nora's sheet, Felix's, and Tae's (the one there before was Felix's by mistake). Felix's third panel doesn't match `felix_careful` and needs a redraw.
+
 ## 24 Nov 2026
+
+### Bowling: pins don't slide upright
+
+A pin that's hit but not knocked down used to keep its whole push and could skate across the deck still standing, up to two feet. Mike's point: a pin that slides falls 99% of the time or more. Now a hit that would send a pin sliding puts it down, and a lighter one only rocks it in place, so a pin left standing has barely moved. Once in a long while, about one ball in a thousand, a pin skids a few inches and stays up anyway. The strike rate in the pocket stays about where it was (55%, from 52%).
+
+### Bowling: Continue after a challenge
+
+When a challenge game's settled, his word on it stays up under the lane with a Continue button in place of "Bowl a game" (Mike asked for it). Tap it and he goes back to his lane: his face and line clear, and you're back to just the Bowl button. The result stays in the message bar.
 
 ### Bowling: the challenger's face, and whose turn it is
 

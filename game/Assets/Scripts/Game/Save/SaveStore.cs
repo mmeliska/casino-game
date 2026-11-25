@@ -144,6 +144,8 @@ namespace Starflare.Game
             ClockRunsThroughTheHours,
             // 3 -> 4: heat arrives (Mike, 2026-11-20). A save without it reads as no heat.
             json => json,
+            // 4 -> 5: Ray's part of what you owe (A1.5). A save without it owes Ray nothing.
+            json => json,
         };
 
         static readonly Regex ClockObject = new Regex("\"Clock\"\\s*:\\s*\\{[^}]*\\}");

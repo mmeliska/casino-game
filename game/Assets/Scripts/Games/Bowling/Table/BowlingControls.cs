@@ -19,11 +19,14 @@ namespace Starflare.Bowling
         public const string TakeGame = "take_game";
         public const string WaveOff = "wave_off";
 
+        /// <summary>After a challenge: his word read, back to your own lane.</summary>
+        public const string Continue = "continue";
+
         /// <summary>Between games: another game.</summary>
         public const string Bowl = "bowl";
 
         public const string GetUp = "get_up";
 
-        public static readonly string[] All = { Stand, StandLeft, StandRight, Aim, Hook, Speed, TakeGame, WaveOff, Bowl, GetUp };
+        public static readonly string[] All = { Stand, StandLeft, StandRight, Aim, Hook, Speed, TakeGame, WaveOff, Continue, Bowl, GetUp };
     }
 }

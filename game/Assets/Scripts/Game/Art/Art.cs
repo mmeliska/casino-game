@@ -22,6 +22,11 @@ namespace Starflare.Game
             ["bridgehead_backroom"] = 0.38f,
             ["bridgehead_forecourt"] = 0.3f,
             ["bridgehead_store"] = 0.48f,
+            ["flare_bar"] = 0.5f,
+            ["flare_floor"] = 0.6f,
+            ["flare_front"] = 0.33f,
+            ["flare_lounge"] = 0.5f,
+            ["flare_office"] = 0.72f,
             ["kasia_backroom"] = 0.58f,
             ["kasia_bar"] = 0.74f,
             ["kasia_front"] = 0.64f,
@@ -128,13 +133,15 @@ namespace Starflare.Game
         /// <c>view_day_winter</c> or <c>view_night_winter</c>, else <c>view_winter</c>, one snow
         /// plate for any time of day. A view drawn only at night shows its night plate all day.
         /// Rain plates follow the same rule (<c>view_night_rain</c>, else <c>view_rain</c>) once
-        /// there's weather to choose them.
+        /// there's weather to choose them. A view that is itself a whole plate, such as a decline
+        /// stage (<c>flare_floor_night_decline</c>), shows as it is.
         /// </summary>
         public static string PlateAt(string view, GameClock clock) => PlateAt(view, clock, HasPlate);
 
         /// <summary><see cref="PlateAt(string, GameClock)"/> with the plates that exist given, for tests.</summary>
         public static string PlateAt(string view, GameClock clock, System.Func<string, bool> hasPlate)
         {
+            if (hasPlate(view)) return view;
             bool dark = clock.Part == PartOfDay.Night || clock.Part == PartOfDay.BeforeDawn;
             string tag = dark ? $"{view}_night" : $"{view}_day";
             if (clock.Season == Season.Winter)

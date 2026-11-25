@@ -102,13 +102,15 @@ namespace Starflare.State
         public string TimeLabel => TimeLabelAt(MinuteOfDay);
 
         /// <summary>
-        /// Any time as h:mm, wrapping past midnight; the phone counts through a trip with it
-        /// before the trip is taken.
+        /// Any time as h:mm AM/PM, the way a phone shows it (Mike, 2026-11-24), wrapping past
+        /// midnight; the phone counts through a trip with it before the trip is taken.
         /// </summary>
         public static string TimeLabelAt(int minuteOfDay)
         {
             int minute = (minuteOfDay % MinutesPerDay + MinutesPerDay) % MinutesPerDay;
-            return $"{minute / 60}:{minute % 60:00}";
+            int hour = minute / 60;
+            int shown = hour % 12 == 0 ? 12 : hour % 12;
+            return $"{shown}:{minute % 60:00} {(hour < 12 ? "AM" : "PM")}";
         }
 
         /// <summary>

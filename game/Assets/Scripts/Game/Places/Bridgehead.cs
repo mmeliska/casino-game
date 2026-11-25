@@ -95,18 +95,26 @@ namespace Starflare.Game
         public bool IsOpen => _host.Story.Flag(StoryContract.MetJuan) && _host.Story.Flag(StoryContract.WeddingOver);
 
         /// <summary>
-        /// Pulling in: the first time, the stop on the way over (A1.6); on a later night, once,
+        /// Pulling in: the first time, the stop on the way over (A1.6), after which the phone points
+        /// you on to the Flare; on a later night, once,
         /// the trucker at the pumps (S3). Otherwise the forecourt.
         /// </summary>
         public void Arrive()
         {
             var story = _host.Story;
-            if (!story.Flag(StoryContract.MetMitch)) PlayScene(StoryContract.Knots.BridgeheadFirst, ShowStore);
+            if (!story.Flag(StoryContract.MetMitch)) PlayScene(StoryContract.Knots.BridgeheadFirst, PointOverTheBridge);
             else if (TruckerTonight) PlayScene(StoryContract.Knots.Trucker, ShowForecourt);
             else ShowForecourt();
         }
 
         public void Leave() { }
+
+        /// <summary>After the first stop the Flare is on the map, and the phone glows until you open it.</summary>
+        void PointOverTheBridge()
+        {
+            _host.PointAtPhone(true);
+            ShowStore();
+        }
 
         /// <summary>He's at the pumps at night, on a day after your first stop, until he's been.</summary>
         bool TruckerTonight

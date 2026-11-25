@@ -8,6 +8,8 @@ A Korean-American man in his early 40s; a sharp charcoal suit, no tie, sleeves n
 
 For ChatGPT (Mike, 2026-11-23). Every pose is full body and standing, facing the viewer or turned toward the viewer's left (the character's own right), with nothing in the hands; anything a character holds is an insert (Mike, 2026-10-30). The how-to, the single-pose template and the avoid list are on [Portrait prompts](#portraits). Each pose tag is also the image's file name and the scene's `# pose:` tag.
 
+**Drawn** (Mike, 2026-11-25): `Images/Characters/tae.png`, the four suit poses in table order (the sheet there before was Felix's, by mistake). Not sliced yet: the Aurelian isn't in the game.
+
 **Proposed, not settled:** build; hair; the shirt and shoes.
 
 **Sheet prompt** (16:9, suit outfit):

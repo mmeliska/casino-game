@@ -24,7 +24,7 @@ namespace Starflare.Ui
         Image _shade, _backing, _phoneGlow;
         TMP_Text _title, _date, _cash, _owed;
         RectTransform _pill;
-        bool _buttons, _looking, _fitDirty;
+        bool _buttons, _looking;
         (int cash, int owed, int day, int minutes) _shown;
 
         public void Init(PlayerState state, UnityAction openPhone, UnityAction look, UnityAction stopLooking)
@@ -71,14 +71,14 @@ namespace Starflare.Ui
 
         public bool PointingAtPhone => _phoneGlow.gameObject.activeSelf;
 
-        // The pill's width is only known after layout, so a refresh fits the backing a frame later.
+        // The pill only settles when the canvas lays out, after LateUpdate, so the backing is
+        // checked against it every frame: a change of cash catches up a frame later rather than
+        // leaving the backing where the pill used to be.
         void LateUpdate()
         {
             if (_phoneGlow.gameObject.activeInHierarchy)
                 _phoneGlow.color = new Color(Gold.r, Gold.g, Gold.b, 0.55f + 0.45f * Mathf.Sin(Time.time * 5f));
-            if (!_fitDirty || !_root.activeSelf) return;
-            _fitDirty = false;
-            FitBacking();
+            if (_root.activeSelf && _info.activeSelf) FitBacking();
         }
 
         /// <summary>
@@ -100,7 +100,6 @@ namespace Starflare.Ui
         /// <summary>Redraws from the state: on Show, and whenever the state says it changed (a scene can spend or borrow).</summary>
         void Refresh()
         {
-            _fitDirty = true;
             if (!_root.activeSelf) return;
             var clock = _state.Clock;
             var now = (_state.BankrollNow, _state.Debts, clock.Day, clock.MinuteOfDay);
@@ -159,6 +158,10 @@ namespace Starflare.Ui
             _date.fontStyle = FontStyles.Italic;
             _date.color = new Color(Paper.r, Paper.g, Paper.b, 0.85f);
             NoWrap(_date);
+            // Like the title, it shrinks rather than run past the backing when room is short.
+            _date.enableAutoSizing = true;
+            _date.fontSizeMin = 24;
+            _date.fontSizeMax = 34;
             Shadowed(_date);
             Pin(_date.rectTransform, Vector2.up, Vector2.one, new Vector2(Margin + 36, -140), new Vector2(-460, -96));
 
@@ -238,7 +241,6 @@ namespace Starflare.Ui
                 Pin(shade.rectTransform, Vector2.up, Vector2.one, new Vector2(0, landscape ? -240 : -320), Vector2.zero);
                 // A 16:9 plate fills a landscape screen whole, so there's nothing to look round.
                 _eye.SetActive(_buttons && !landscape && !_looking);
-                _fitDirty = true;
             });
         }
     }

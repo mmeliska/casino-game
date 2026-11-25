@@ -24,7 +24,7 @@ The Levee's key light is this sign, flickering. Teal, coral, chrome and rust; th
 
 For ChatGPT. A plate is a background with no people; an insert is a close-up of one of the place's props. The how-to, the avoid lists and the settings are on [Plate prompts](#plates). Each tag is also the image's file name and the scene's `# plate:` or `# insert:` tag.
 
-**Drawn** (Mike, 2026-11-09): the source images are in `Images/Locations/StarFlare1`; each is in the game under the tag below, as a wide 16:9 plate. The Flare is a long red-brick building with mill chimneys on its roof, a boomerang canopy in coral and teal on V-shaped chrome struts with rows of bulbs, a teal pylon with gold starbursts carrying the coral rocket sign on the left, the chrome spaceman waving to the left of the glass doors. Inside, a deep navy carpet with coral starbursts, starburst chandeliers, neon cove lighting and rocket-themed slots. Gus's office is wood-panelled, with a chrome-trimmed desk, and its window looks across the water to the Slack Water Motel's sign and the city.
+**Drawn** (Mike, 2026-11-09): the source images are in `Images/Locations/StarFlare1`; each is in the game under the tag below, as a wide 16:9 plate. The Flare is a long red-brick building with mill chimneys on its roof, a boomerang canopy in coral and teal on V-shaped chrome struts with rows of bulbs, a teal pylon with gold starbursts carrying the coral rocket sign on the left, the chrome spaceman waving to the left of the glass doors. Inside, a deep navy carpet with coral starbursts, starburst chandeliers, neon cove lighting and rocket-themed slots. Gus's office (redrawn, Mike, 2026-11-25) has dark panelled walls, shelves with a model rocket, an old radio and a photo of two girls, a red tufted leather chair behind a wooden desk trimmed in chrome, and a window across the water to the Slack Water Motel's sign and the city. The nine inserts below, from the spaceman's boot to the tape, are drawn too (Mike, 2026-11-25), in `Images/Objects/` under their tags; the four that A1.6 and A1.7 use are in the game.
 
 | Source | Tag |
 | --- | --- |
@@ -271,6 +271,16 @@ The rocket sign flickering: half its tubes dark.
 
 ```
 Close-up insert panel. Close on a coral-and-teal neon rocket sign against the night sky, half its tubes dark and flickering. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
+```
+
+### The power notice
+
+Gus's secret (A1.7, Mike 2026-11-25): a past-due notice from the power company on his office desk, a shutoff date on it; he sets his chipped mug down on top of it. What it says goes in the caption, not the art.
+
+`flare_notice` (insert, square 1:1)
+
+```
+Close-up insert panel. A utility bill lying on a heavy wooden office desk under lamplight, a large red rubber-stamp mark across the top and one date box circled, the edge of a white coffee mug with a small coral rocket logo at the side of the frame. Night: teal and coral neon, chrome highlights. Palette: teal, coral, chrome, rust. Gritty graphic-novel art: bold black ink outlines, heavy shadows, cel shading, muted desaturated colours. Close-up, no people, no text, no lettering; labels blank.
 ```
 
 ### The star ceiling

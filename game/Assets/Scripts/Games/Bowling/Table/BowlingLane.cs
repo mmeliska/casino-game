@@ -109,6 +109,8 @@ namespace Starflare.Bowling
         LeagueMatch _match;
         BowlingGame _game;
         Offer _offer;
+        // A challenge just settled: his word stays under the lane until you tap Continue.
+        bool _settled;
         PracticeFrame _practice;
         int _practiceBall;
         bool _shoesPaid;
@@ -181,6 +183,7 @@ namespace Starflare.Bowling
             _practiceBall = 0;
             _shoesPaid = false;
             _offer = null;
+            _settled = false;
             _speaker = null;
             _said = null;
             _game = null;
@@ -322,6 +325,7 @@ namespace Starflare.Bowling
                     Say(him.Bowler, ChallengeTalk.Settled(result, done, SendTo(him.Bowler), GamesBowled));
                     _offer = _challenges.AfterGame(_setup.Regulars, _state.BankrollNow);
                     if (_offer != null) Say(_offer.Bowler, ChallengeTalk.Ask(_offer.Stake, GamesBowled));
+                    _settled = _offer == null;
                     _step = Step.Between;
                     break;
                 default:
@@ -607,6 +611,15 @@ namespace Starflare.Bowling
             Refresh();
         }
 
+        /// <summary>His word read: he goes back to his lane, and it's your lane again.</summary>
+        void BackToYourLane()
+        {
+            if (_step != Step.Between || !_settled) return;
+            _settled = false;
+            Hush();
+            Refresh();
+        }
+
         void BowlAgain()
         {
             if (!CanBowlAgain) return;
@@ -614,7 +627,7 @@ namespace Starflare.Bowling
             else StartOpenGame();
         }
 
-        bool CanBowlAgain => _step == Step.Between && _offer == null && (_match != null || _rules.OpenGameCost(!_setup.OwnShoes, _shoesPaid) <= _state.BankrollNow);
+        bool CanBowlAgain => _step == Step.Between && _offer == null && !_settled && (_match != null || _rules.OpenGameCost(!_setup.OwnShoes, _shoesPaid) <= _state.BankrollNow);
 
         /// <summary>Between games; or before the first ball of one, when nothing's been bowled yet.</summary>
         bool CanGetUp => !Practicing && _state != null &&
@@ -689,7 +702,8 @@ namespace Starflare.Bowling
             _actions.gameObject.SetActive(!yours);
             _answers.gameObject.SetActive(_step == Step.Between && _offer != null);
             ShowTalk();
-            _buttons[BowlingControls.Bowl].gameObject.SetActive(_step == Step.Between && _offer == null && (_match != null || !Practicing));
+            _buttons[BowlingControls.Continue].gameObject.SetActive(_step == Step.Between && _settled);
+            _buttons[BowlingControls.Bowl].gameObject.SetActive(_step == Step.Between && _offer == null && !_settled && (_match != null || !Practicing));
             _bowlText.text = _match != null ? "Next game" : $"Bowl a game, {Money(_rules.OpenGameCost(!_setup.OwnShoes, _shoesPaid))}";
 
             Enable(BowlingControls.StandLeft, _step == Step.Stand);
@@ -699,6 +713,7 @@ namespace Starflare.Bowling
             Enable(BowlingControls.Speed, _step == Step.Speed);
             Enable(BowlingControls.TakeGame, _step == Step.Between && _offer != null);
             Enable(BowlingControls.WaveOff, _step == Step.Between && _offer != null);
+            Enable(BowlingControls.Continue, _step == Step.Between && _settled);
             Enable(BowlingControls.Bowl, CanBowlAgain);
             Enable(BowlingControls.GetUp, CanGetUp);
         }
@@ -996,6 +1011,9 @@ namespace Starflare.Bowling
             _answers.GetComponent<LayoutElement>().preferredHeight = 120;
             Control(_answers, BowlingControls.TakeGame, "Take the game", TakeGame);
             Outline(Control(_answers, BowlingControls.WaveOff, "Wave him off", WaveOff));
+
+            var next = Control(_actions, BowlingControls.Continue, "Continue", BackToYourLane);
+            next.GetComponent<LayoutElement>().preferredHeight = 120;
 
             var bowl = Control(_actions, BowlingControls.Bowl, "Bowl", BowlAgain);
             bowl.name = "Bowl Button";

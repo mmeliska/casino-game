@@ -90,6 +90,41 @@ namespace Starflare.Tests
         }
 
         [Test]
+        public void APinThatStands_RocksInPlace_AndOnlyRarelySkids()
+        {
+            // Pocket, light, high and Brooklyn hits: whatever's left standing has barely moved. A
+            // pin bumped more than once can walk an inch or two; one sent sliding went down, but
+            // for the rare one that skids a few inches and stays up.
+            double inch = LaneGeometry.MetresPerInch, worst = 0;
+            int standing = 0, walked = 0, skidded = 0, racks = 0;
+            foreach (double board in new[] { 3.0, 8, 14, 16, 17.5, 19, 20, 21 })
+                foreach (double angle in new[] { 2.0, 4, 6 })
+                {
+                    var (at, velocity) = Entry(board, angle, 17);
+                    for (int seed = 0; seed < 400; seed++)
+                    {
+                        var deck = PinDeck.Rack(new Random(seed));
+                        var result = PinSim.Hit(at, velocity, BowlingBall.Urethane, deck);
+                        racks++;
+                        for (int i = 0; i < PinDeck.Pins; i++)
+                        {
+                            if (result.Fell[i]) continue;
+                            standing++;
+                            double moved = (result.FinalPositions[i] - deck.PositionOf(i)).Length;
+                            worst = Math.Max(worst, moved);
+                            if (moved > inch) walked++;
+                            if (moved > 3 * inch) skidded++;
+                        }
+                    }
+                }
+            Assert.That(standing, Is.GreaterThan(5000), "Plenty of leaves to look at.");
+            Assert.That(worst, Is.LessThan(6 * inch), $"A standing pin went {worst / inch:F1} in.");
+            Assert.That(skidded, Is.GreaterThan(0), "It happens.");
+            Assert.That(skidded / (double)racks, Is.InRange(0.0005, 0.002), "But about one ball in a thousand.");
+            Assert.That(walked / (double)standing, Is.LessThan(0.02), "Almost every one stays within an inch.");
+        }
+
+        [Test]
         public void AGutterBall_TouchesNothing()
         {
             var path = BallSim.Roll(new Throw(9, 5, 0, 16), new LaneOil(LanePattern.House), BowlingBall.House);

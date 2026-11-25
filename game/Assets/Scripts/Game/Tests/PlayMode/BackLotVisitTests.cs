@@ -61,7 +61,7 @@ namespace Starflare.Tests
             Assert.That(table.Practicing, Is.False, "the set dice ran out");
             Assert.That(host.State.BankrollNow, Is.EqualTo(PlayerState.StartingBankroll), "Juan's money, pretend");
             Assert.That(host.State.RoundsPlayed, Is.EqualTo(0));
-            Assert.That(host.State.Clock.TimeLabel, Is.EqualTo("22:30"), "no time passes through the practice");
+            Assert.That(host.State.Clock.TimeLabel, Is.EqualTo("10:30 PM"), "no time passes through the practice");
 
             Click(table, "Leave game Button");
             Assert.That(host.Scenes.Last(), Is.EqualTo(StoryContract.Knots.BackLotGetUp));
@@ -93,17 +93,17 @@ namespace Starflare.Tests
             host.Press(HangOut);
             Assert.That(host.Labels, Is.EqualTo(new[] { "Hang out 5 minutes", "Hang out 15 minutes", "Hang out 30 minutes", "Never mind" }));
             host.Press("Hang out 5 minutes");
-            Assert.That(host.State.Clock.TimeLabel, Is.EqualTo("21:55"));
+            Assert.That(host.State.Clock.TimeLabel, Is.EqualTo("9:55 PM"));
             Assert.That(host.Scenes, Is.EqualTo(new[] { StoryContract.Knots.BackLotEmpty }), "still nobody out");
             Assert.That(host.Labels, Has.Member(HangOut));
 
             host.Press(HangOut);
             host.Press("Never mind");
-            Assert.That(host.State.Clock.TimeLabel, Is.EqualTo("21:55"));
+            Assert.That(host.State.Clock.TimeLabel, Is.EqualTo("9:55 PM"));
 
             host.Press(HangOut);
             host.Press("Hang out 15 minutes");
-            Assert.That(host.State.Clock.TimeLabel, Is.EqualTo("22:10"));
+            Assert.That(host.State.Clock.TimeLabel, Is.EqualTo("10:10 PM"));
             Assert.That(host.Scenes.Last(), Is.EqualTo(StoryContract.Knots.BackLot), "Juan's out with the chalk");
             Assert.That(host.Labels, Has.Member(Circle));
             Assert.That(host.State.Heat.Points, Is.EqualTo(0), "no heat for standing in the lot");

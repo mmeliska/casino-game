@@ -11,6 +11,8 @@ For ChatGPT (Mike, 2026-11-23). Every pose is full body and standing, facing the
 
 ### Felix
 
+**Drawn** (Mike, 2026-11-25): `Images/Characters/felix.png`, four uniform poses. Its third panel doesn't match `felix_careful`: he holds a hand out, palm up, rather than leaning in with a hand beside his mouth, so that one needs a single-pose redraw. Not sliced yet: the Aurelian isn't in the game.
+
 **Proposed, not settled:** clean-shaven; the tie, trousers and shoes; the off-shift clothes.
 
 **Sheet prompt** (16:9, uniform outfit):
@@ -43,6 +45,8 @@ Felix: a slim Cuban-American man in his early 30s, neat dark hair, clean-shaven,
 | `felix_off_shift` | Off shift | laughing, one hand on his chest | Dates |
 
 ### Nora
+
+**Drawn** (Mike, 2026-11-25): `Images/Characters/nora.png`, the four uniform poses in table order. Not sliced yet: the Aurelian isn't in the game.
 
 **Proposed, not settled:** white; the skirt and flats; the scarf's colour; the off-shift clothes.
 
