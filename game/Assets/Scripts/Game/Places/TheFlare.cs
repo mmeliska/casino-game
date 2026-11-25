@@ -62,7 +62,7 @@ namespace Starflare.Game
 
         public string Id => PlaceId;
         public string Name => "The Starflare";
-        public PhoneMap.Place Pin => new PhoneMap.Place(PlaceId, Name, 0.55f, 0.37f);
+        public PhoneMap.Place Pin => new PhoneMap.Place(PlaceId, Name, 0.475f, 0.41f);
 
         /// <summary>Over the bridge: once you've made the stop at Bridgehead (A1.6).</summary>
         public bool IsOpen => _host.Story.Flag(StoryContract.MetMitch);

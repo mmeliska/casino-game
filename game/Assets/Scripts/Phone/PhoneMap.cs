@@ -162,15 +162,12 @@ namespace Starflare.Phone
             var view = _viewport.rect.size;
             if (view.x <= 0 || view.y <= 0) return;
 
-            // Frame the open places once the phone has its size: fit them in the middle of the
-            // screen, zoomed in no further than MaxStartZoom.
             if (!_framed)
             {
                 _framed = true;
-                var span = Vector2.Max(_focusMax - _focusMin, new Vector2(0.01f, 0.01f));
+                var (centre, span) = Framing(_focusMin, _focusMax, _hereAt);
                 float size = Mathf.Min(0.6f * view.x / span.x, 0.6f * view.y / span.y, MinSize * MaxStartZoom);
                 SetSize(size);
-                var centre = (_focusMin + _focusMax) / 2;
                 SetPosition(new Vector2((0.5f - centre.x) * size, (centre.y - 0.5f) * size));
             }
 
@@ -193,6 +190,20 @@ namespace Starflare.Phone
             // The map always covers the screen, even after the phone turns.
             if (_content.sizeDelta.x < MinSize) SetSize(MinSize);
             SetPosition(_content.anchoredPosition);
+        }
+
+        /// <summary>
+        /// Where the map opens: on your own pin, zoomed out far enough that every open place is
+        /// still on screen around it (no further in than MaxStartZoom). With no pin of yours, the
+        /// middle of the open places. <c>centre</c> and <c>span</c> are fractions of the map; the
+        /// map's edges then stop it centring a pin near them, which is as close as it gets.
+        /// </summary>
+        public static (Vector2 centre, Vector2 span) Framing(Vector2 focusMin, Vector2 focusMax, Vector2? here)
+        {
+            var least = new Vector2(0.01f, 0.01f);
+            if (here is not Vector2 at) return ((focusMin + focusMax) / 2, Vector2.Max(focusMax - focusMin, least));
+            var reach = Vector2.Max(at - focusMin, focusMax - at);
+            return (at, Vector2.Max(2 * reach, least));
         }
 
         /// <summary>The smallest the map gets: just covering the phone's screen.</summary>

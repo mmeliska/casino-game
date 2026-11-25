@@ -294,7 +294,6 @@ Copy an existing test `.asmdef` rather than writing one from scratch.
   (`Art.Reported`, the once-only missing-art warnings, is harmless.)
 - **`JsonUtility` limits** will bite with pockets, story keys and relationships; see Saves.
 - **`Resources`** until Addressables (see Unity mechanics).
-- **`Phone` has no tests yet**; add `Phone/Tests/` with its first rule.
 
 ## Decision log
 
